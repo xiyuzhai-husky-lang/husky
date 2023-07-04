@@ -7,17 +7,34 @@ pub struct GnNodeDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    explicit_parameter_decl_list: DeclExprResult<ExplicitParameterDeclList>,
+    explicit_parameter_decl_list: NodeDeclResult<ExplicitParameterDeclList>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
-    pub return_ty: DeclExprResult<Option<ReturnTypeExpr>>,
+    pub return_ty: NodeDeclResult<Option<ReturnTypeExpr>>,
     #[return_ref]
-    pub eol_colon: DeclExprResult<EolToken>,
+    pub eol_colon: NodeDeclResult<EolToken>,
 }
 
-impl GnNodeDecl {}
+impl GnNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.implicit_parameter_decl_list(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(
+                    self.explicit_parameter_decl_list(db)
+                        .as_ref()
+                        .err()
+                        .into_iter(),
+                )
+                .chain(self.return_ty(db).as_ref().err().into_iter())
+                .chain(self.eol_colon(db).as_ref().err().into_iter()),
+        )
+    }
+}
 
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_gn_node_decl(
@@ -32,16 +49,16 @@ impl<'a> DeclParser<'a> {
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameter_decl_list = ctx.try_parse_optional();
         let parameter_decl_list =
-            ctx.try_parse_expected(OriginalDeclExprError::ExpectedParameterDeclList);
+            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedParameterDeclList);
 
         let curry_token = ctx.try_parse_optional();
         let return_ty = if let Ok(Some(_)) = curry_token {
-            ctx.try_parse_expected(OriginalDeclExprError::ExpectedOutputType)
+            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedOutputType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eol_colon = ctx.try_parse_expected(OriginalDeclExprError::ExpectedEolColon);
+        let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         GnNodeDecl::new(
             self.db(),
             node_path,

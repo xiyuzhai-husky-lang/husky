@@ -126,7 +126,7 @@ Ok(
                                             },
                                         ],
                                         separators: [],
-                                        phantom: PhantomData<husky_decl::error::DeclExprError>,
+                                        phantom: PhantomData<husky_decl::error::NodeDeclError>,
                                     },
                                 ),
                                 rpar: Ok(

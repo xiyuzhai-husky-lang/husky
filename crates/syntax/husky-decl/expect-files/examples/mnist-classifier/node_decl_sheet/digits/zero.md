@@ -33,7 +33,7 @@ Ok(
                                         ),
                                     ),
                                 ),
-                                var_ty: Ok(
+                                val_ty: Ok(
                                     Some(
                                         FormTypeExpr {
                                             expr: 0,
@@ -434,7 +434,7 @@ Ok(
                                         ),
                                     ),
                                 ),
-                                var_ty: Ok(
+                                val_ty: Ok(
                                     Some(
                                         FormTypeExpr {
                                             expr: 1,

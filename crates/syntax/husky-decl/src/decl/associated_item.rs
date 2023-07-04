@@ -24,33 +24,41 @@ pub enum AssociatedItemNodeDecl {
 impl AssociatedItemNodeDecl {
     pub fn node_path(self, db: &dyn DeclDb) -> AssociatedItemNodePath {
         match self {
-            AssociatedItemNodeDecl::TypeItem(decl) => decl.node_path(db).into(),
-            AssociatedItemNodeDecl::TraitItem(decl) => decl.node_path(db).into(),
-            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.node_path(db).into(),
+            AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.node_path(db).into(),
+            AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.node_path(db).into(),
+            AssociatedItemNodeDecl::TraitForTypeItem(node_decl) => node_decl.node_path(db).into(),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            AssociatedItemNodeDecl::TypeItem(decl) => decl.ast_idx(db),
-            AssociatedItemNodeDecl::TraitItem(decl) => decl.ast_idx(db),
-            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.ast_idx(db),
+            AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.ast_idx(db),
+            AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.ast_idx(db),
+            AssociatedItemNodeDecl::TraitForTypeItem(node_decl) => node_decl.ast_idx(db),
         }
     }
 
     pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
         match self {
-            AssociatedItemNodeDecl::TypeItem(decl) => decl.implicit_parameters(db),
-            AssociatedItemNodeDecl::TraitItem(decl) => decl.implicit_parameters(db),
+            AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.implicit_parameters(db),
+            AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.implicit_parameters(db),
             AssociatedItemNodeDecl::TraitForTypeItem(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            AssociatedItemNodeDecl::TypeItem(decl) => decl.expr_region(db),
-            AssociatedItemNodeDecl::TraitItem(decl) => decl.expr_region(db),
-            AssociatedItemNodeDecl::TraitForTypeItem(decl) => decl.expr_region(db),
+            AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.expr_region(db),
+            AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.expr_region(db),
+            AssociatedItemNodeDecl::TraitForTypeItem(node_decl) => node_decl.expr_region(db),
+        }
+    }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.errors(db),
+            AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.errors(db),
+            AssociatedItemNodeDecl::TraitForTypeItem(node_decl) => node_decl.errors(db),
         }
     }
 }

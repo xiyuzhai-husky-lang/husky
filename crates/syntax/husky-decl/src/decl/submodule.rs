@@ -7,6 +7,12 @@ pub struct SubmoduleNodeDecl {
     pub ast_idx: AstIdx,
 }
 
+impl SubmoduleNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        Default::default()
+    }
+}
+
 impl HasNodeDecl for SubmoduleNodePath {
     type NodeDecl = SubmoduleNodeDecl;
 

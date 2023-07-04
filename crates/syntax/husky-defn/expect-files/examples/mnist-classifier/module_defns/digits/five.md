@@ -7,7 +7,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 1,
                                 },

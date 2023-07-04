@@ -9,13 +9,25 @@ pub struct TraitForTypeImplBlockNodeDecl {
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     pub trai_expr: TraitExpr,
     pub for_token: ConnectionForToken,
     pub ty_expr: TypeExpr,
     #[return_ref]
-    pub eol_colon: DeclExprResult<EolToken>,
+    pub eol_colon: NodeDeclResult<EolToken>,
     pub expr_region: ExprRegion,
+}
+
+impl TraitForTypeImplBlockNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.implicit_parameter_decl_list(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(self.eol_colon(db).as_ref().err().into_iter()),
+        )
+    }
 }
 
 impl HasNodeDecl for TraitForTypeImplBlockNodePath {
@@ -83,7 +95,7 @@ impl<'a> DeclParser<'a> {
             .expect("guaranteed by parsing")
             .expect("guaranteed by parsing");
         let ty = ctx.try_parse_optional().unwrap().unwrap();
-        let eol_colon = ctx.try_parse_expected(OriginalDeclExprError::ExpectedEolColon);
+        let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TraitForTypeImplBlockNodeDecl::new(
             db,
             node_path,

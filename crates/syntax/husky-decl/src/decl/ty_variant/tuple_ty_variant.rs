@@ -11,9 +11,9 @@ pub struct TupleTypeVariantNodeDecl {
     lpar_token_idx: TokenIdx,
     #[return_ref]
     field_comma_list:
-        DeclExprResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, DeclExprError>>,
+        NodeDeclResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
-    rpar: DeclExprResult<TupleTypeVariantRightParenthesisToken>,
+    rpar: NodeDeclResult<TupleTypeVariantRightParenthesisToken>,
     pub expr_region: ExprRegion,
 }
 
@@ -23,14 +23,14 @@ pub struct TupleTypeVariantRightParenthesisToken(RightParenthesisToken);
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>>
     for TupleTypeVariantRightParenthesisToken
 {
-    type Error = DeclExprError;
+    type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_parenthesis
         let rpar = sp.try_parse_expected(
-            OriginalDeclExprError::ExpectedRightParenthesisInTupleStructFieldTypeList,
+            OriginalNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList,
         )?;
         Ok(Self(rpar))
     }

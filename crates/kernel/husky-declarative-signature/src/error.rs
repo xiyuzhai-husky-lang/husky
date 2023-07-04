@@ -18,7 +18,7 @@ pub enum DeclarativeSignatureError {
     #[error("todo")]
     DeclError,
     #[error("todo")]
-    DeclExprError,
+    NodeDeclError,
     #[error("todo")]
     ExprError,
 }
@@ -29,9 +29,9 @@ impl From<DeclError> for DeclarativeSignatureError {
     }
 }
 
-impl From<&DeclExprError> for DeclarativeSignatureError {
-    fn from(_: &DeclExprError) -> Self {
-        DeclarativeSignatureError::DeclExprError
+impl From<&NodeDeclError> for DeclarativeSignatureError {
+    fn from(_: &NodeDeclError) -> Self {
+        DeclarativeSignatureError::NodeDeclError
     }
 }
 impl From<&ExprError> for DeclarativeSignatureError {

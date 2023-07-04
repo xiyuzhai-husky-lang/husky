@@ -9,6 +9,12 @@ pub struct TypeAssociatedTypeNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl TypeAssociatedTypeNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        Default::default()
+    }
+}
+
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
 pub struct TypeAssociatedTypeDecl {
     #[id]

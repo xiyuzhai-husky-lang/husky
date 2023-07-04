@@ -44,6 +44,14 @@ impl FugitiveNodeDecl {
             FugitiveNodeDecl::Gn(decl) => decl.expr_region(db),
         }
     }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            FugitiveNodeDecl::Fn(node_decl) => node_decl.errors(db),
+            FugitiveNodeDecl::Val(node_decl) => node_decl.errors(db),
+            FugitiveNodeDecl::Gn(node_decl) => node_decl.errors(db),
+        }
+    }
 }
 
 impl HasNodeDecl for FugitiveNodePath {

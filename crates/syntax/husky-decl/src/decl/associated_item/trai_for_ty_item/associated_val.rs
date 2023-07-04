@@ -8,6 +8,13 @@ pub struct TraitForTypeAssociatedValNodeDecl {
     pub expr_region: ExprRegion,
 }
 
+impl TraitForTypeAssociatedValNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        // ad hoc
+        Default::default()
+    }
+}
+
 impl<'a> DeclParser<'a> {}
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]

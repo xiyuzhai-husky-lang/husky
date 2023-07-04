@@ -26,11 +26,19 @@ impl TypeVariantNodeDecl {
         }
     }
 
-    pub(crate) fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
             TypeVariantNodeDecl::Props(node_decl) => node_decl.ast_idx(db),
             TypeVariantNodeDecl::Unit(node_decl) => node_decl.ast_idx(db),
             TypeVariantNodeDecl::Tuple(node_decl) => node_decl.ast_idx(db),
+        }
+    }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            TypeVariantNodeDecl::Props(_) => todo!(),
+            TypeVariantNodeDecl::Unit(_) => todo!(),
+            TypeVariantNodeDecl::Tuple(_) => todo!(),
         }
     }
 }

@@ -79,6 +79,20 @@ impl TypeNodeDecl {
             TypeNodeDecl::Union(node_decl) => node_decl.expr_region(db),
         }
     }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            TypeNodeDecl::Enum(node_decl) => node_decl.errors(db),
+            TypeNodeDecl::PropsStruct(node_decl) => node_decl.errors(db),
+            TypeNodeDecl::UnitStruct(node_decl) => node_decl.errors(db),
+            TypeNodeDecl::TupleStruct(node_decl) => node_decl.errors(db),
+            TypeNodeDecl::Record(node_decl) => node_decl.errors(db),
+            TypeNodeDecl::Inductive(node_decl) => node_decl.errors(db),
+            TypeNodeDecl::Structure(node_decl) => node_decl.errors(db),
+            TypeNodeDecl::Extern(node_decl) => node_decl.errors(db),
+            TypeNodeDecl::Union(node_decl) => node_decl.errors(db),
+        }
+    }
 }
 
 impl HasNodeDecl for TypeNodePath {

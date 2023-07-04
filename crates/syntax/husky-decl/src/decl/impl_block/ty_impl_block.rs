@@ -9,11 +9,23 @@ pub struct TypeImplBlockNodeDecl {
     pub impl_block: TypeImplBlockNode,
     pub impl_token: ImplToken,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     pub ty_expr: TypeExpr,
     #[return_ref]
-    pub eol_colon: DeclExprResult<EolToken>,
+    pub eol_colon: NodeDeclResult<EolToken>,
     pub expr_region: ExprRegion,
+}
+
+impl TypeImplBlockNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.implicit_parameter_decl_list(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(self.eol_colon(db).as_ref().err().into_iter()),
+        )
+    }
 }
 
 impl HasNodeDecl for TypeImplBlockNode {
@@ -64,7 +76,7 @@ impl<'a> DeclParser<'a> {
         let impl_token = ctx.try_parse_optional().unwrap().unwrap();
         let implicit_parameter_decl_list = ctx.try_parse_optional();
         let ty = ctx.try_parse_optional().unwrap().unwrap();
-        let eol_colon = ctx.try_parse_expected(OriginalDeclExprError::ExpectedEolColon);
+        let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TypeImplBlockNodeDecl::new(
             db,
             node_path,

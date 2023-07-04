@@ -7,7 +7,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 0,
                                 },
@@ -367,7 +367,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 1,
                                 },

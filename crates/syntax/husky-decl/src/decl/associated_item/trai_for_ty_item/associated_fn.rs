@@ -5,10 +5,35 @@ pub struct TraitForTypeAssociatedFnNodeDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     pub ast_idx: AstIdx,
+    #[return_ref]
+    pub implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    #[return_ref]
+    pub explicit_parameter_decl_list: NodeDeclResult<ExplicitParameterDeclList>,
+    pub curry_token: TokenResult<Option<CurryToken>>,
+    #[return_ref]
+    pub return_ty: NodeDeclResult<Option<ReturnTypeExpr>>,
+    #[return_ref]
+    pub eol_colon: NodeDeclResult<EolToken>,
     pub expr_region: ExprRegion,
-    pub curry_token: Option<CurryToken>,
-    pub return_ty: Option<ReturnTypeExpr>,
-    pub eol_colon: EolToken,
+}
+
+impl TraitForTypeAssociatedFnNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.implicit_parameter_decl_list(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(
+                    self.explicit_parameter_decl_list(db)
+                        .as_ref()
+                        .err()
+                        .into_iter(),
+                )
+                .chain(self.return_ty(db).as_ref().err().into_iter())
+                .chain(self.eol_colon(db).as_ref().err().into_iter()),
+        )
+    }
 }
 
 impl<'a> DeclParser<'a> {}

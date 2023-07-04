@@ -8,28 +8,39 @@ pub struct TupleStructTypeNodeDecl {
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     lpar: LeftParenthesisToken,
     #[return_ref]
     field_comma_list:
-        DeclExprResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, DeclExprError>>,
+        NodeDeclResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
-    rpar: DeclExprResult<TupleStructRightParenthesisToken>,
+    rpar: NodeDeclResult<TupleStructRightParenthesisToken>,
     pub expr_region: ExprRegion,
+}
+
+impl TupleStructTypeNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.implicit_parameter_decl_list(db)
+                .as_ref()
+                .err()
+                .into_iter(),
+        )
+    }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct TupleStructRightParenthesisToken(RightParenthesisToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleStructRightParenthesisToken {
-    type Error = DeclExprError;
+    type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_parenthesis
         let rpar = sp.try_parse_expected(
-            OriginalDeclExprError::ExpectedRightParenthesisInTupleStructFieldTypeList,
+            OriginalNodeDeclError::ExpectedRightParenthesisInTupleStructFieldTypeList,
         )?;
         Ok(Self(rpar))
     }

@@ -82,8 +82,8 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Err(
-                                    DeclExprError::Original(
-                                        OriginalDeclExprError::ExpectedRightParenthesisInParameterList(
+                                    NodeDeclError::Original(
+                                        OriginalNodeDeclError::ExpectedRightParenthesisInParameterList(
                                             TokenStreamState {
                                                 next_token_idx: TokenIdx(
                                                     4,
@@ -100,8 +100,8 @@ Ok(
                                     None,
                                 ),
                                 eol_colon: Err(
-                                    DeclExprError::Original(
-                                        OriginalDeclExprError::ExpectedEolColon(
+                                    NodeDeclError::Original(
+                                        OriginalNodeDeclError::ExpectedEolColon(
                                             TokenStreamState {
                                                 next_token_idx: TokenIdx(
                                                     4,

@@ -5,14 +5,25 @@ pub struct TypeMemoizedFieldNodeDecl {
     #[id]
     pub node_path: TypeItemNodePath,
     pub ast_idx: AstIdx,
-    #[return_ref]
     pub colon_token: TokenResult<Option<ColonToken>>,
     #[return_ref]
-    pub memo_ty: DeclExprResult<Option<FormTypeExpr>>,
+    pub memo_ty: NodeDeclResult<Option<FormTypeExpr>>,
     #[return_ref]
-    pub eq_token: DeclExprResult<EqToken>,
+    pub eq_token: NodeDeclResult<EqToken>,
     pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
+}
+
+impl TypeMemoizedFieldNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.memo_ty(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(self.eq_token(db).as_ref().err().into_iter()),
+        )
+    }
 }
 
 impl<'a> DeclParser<'a> {
@@ -35,12 +46,12 @@ impl<'a> DeclParser<'a> {
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
         let colon_token = ctx.try_parse_optional();
         let form_ty = if let Ok(Some(_)) = colon_token {
-            ctx.try_parse_expected(OriginalDeclExprError::ExpectedOutputType)
+            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedOutputType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eq_token = ctx.try_parse_expected(OriginalDeclExprError::ExpectEqTokenForVariable);
+        let eq_token = ctx.try_parse_expected(OriginalNodeDeclError::ExpectEqTokenForVariable);
         let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
         TypeMemoizedFieldNodeDecl::new(
             db,

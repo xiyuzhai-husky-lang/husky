@@ -1377,8 +1377,8 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Err(
-                                    DeclExprError::Original(
-                                        OriginalDeclExprError::ExpectedParameterDeclList(
+                                    NodeDeclError::Original(
+                                        OriginalNodeDeclError::ExpectedParameterDeclList(
                                             TokenStreamState {
                                                 next_token_idx: TokenIdx(
                                                     228,
@@ -1488,8 +1488,8 @@ Ok(
                                     None,
                                 ),
                                 explicit_parameter_decl_list: Err(
-                                    DeclExprError::Original(
-                                        OriginalDeclExprError::ExpectedParameterDeclList(
+                                    NodeDeclError::Original(
+                                        OriginalNodeDeclError::ExpectedParameterDeclList(
                                             TokenStreamState {
                                                 next_token_idx: TokenIdx(
                                                     288,

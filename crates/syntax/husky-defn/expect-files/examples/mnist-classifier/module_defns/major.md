@@ -7,7 +7,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 3,
                                 },
@@ -265,7 +265,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 1,
                                 },
@@ -1077,7 +1077,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 0,
                                 },
@@ -1634,7 +1634,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 3,
                                 },
@@ -1872,7 +1872,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 1,
                                 },
@@ -2120,7 +2120,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 1,
                                 },
@@ -2345,7 +2345,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 3,
                                 },
