@@ -6,7 +6,7 @@ pub struct InductiveTypeNodeDecl {
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     pub expr_region: ExprRegion,
 }
 
@@ -17,6 +17,15 @@ impl InductiveTypeNodeDecl {
         //     .as_ref()
         //     .map(ImplicitParameterDeclList::implicit_parameters)
         //     .unwrap_or(&[])
+    }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.implicit_parameter_decl_list(db)
+                .as_ref()
+                .err()
+                .into_iter(),
+        )
     }
 }
 

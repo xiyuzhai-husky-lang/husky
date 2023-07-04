@@ -30,31 +30,41 @@ pub enum NodeDecl {
 impl NodeDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            NodeDecl::Submodule(decl) => decl.ast_idx(db),
-            NodeDecl::ModuleItem(decl) => decl.ast_idx(db),
-            NodeDecl::ImplBlock(decl) => decl.ast_idx(db),
-            NodeDecl::AssociatedItem(decl) => decl.ast_idx(db),
-            NodeDecl::TypeVariant(decl) => decl.ast_idx(db),
+            NodeDecl::Submodule(node_decl) => node_decl.ast_idx(db),
+            NodeDecl::ModuleItem(node_decl) => node_decl.ast_idx(db),
+            NodeDecl::ImplBlock(node_decl) => node_decl.ast_idx(db),
+            NodeDecl::AssociatedItem(node_decl) => node_decl.ast_idx(db),
+            NodeDecl::TypeVariant(node_decl) => node_decl.ast_idx(db),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> Option<ExprRegion> {
         match self {
             NodeDecl::Submodule(_) => None,
-            NodeDecl::ModuleItem(decl) => decl.expr_region(db).into(),
-            NodeDecl::ImplBlock(decl) => decl.expr_region(db).into(),
-            NodeDecl::AssociatedItem(decl) => decl.expr_region(db).into(),
-            NodeDecl::TypeVariant(_decl) => todo!(),
+            NodeDecl::ModuleItem(node_decl) => node_decl.expr_region(db).into(),
+            NodeDecl::ImplBlock(node_decl) => node_decl.expr_region(db).into(),
+            NodeDecl::AssociatedItem(node_decl) => node_decl.expr_region(db).into(),
+            NodeDecl::TypeVariant(_node_decl) => todo!(),
         }
     }
 
     pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
         match self {
-            NodeDecl::Submodule(decl) => decl.node_path(db).into(),
-            NodeDecl::ModuleItem(decl) => decl.node_path(db).into(),
-            NodeDecl::ImplBlock(decl) => decl.node_path(db).into(),
-            NodeDecl::AssociatedItem(decl) => decl.node_path(db).into(),
-            NodeDecl::TypeVariant(decl) => decl.node_path(db).into(),
+            NodeDecl::Submodule(node_decl) => node_decl.node_path(db).into(),
+            NodeDecl::ModuleItem(node_decl) => node_decl.node_path(db).into(),
+            NodeDecl::ImplBlock(node_decl) => node_decl.node_path(db).into(),
+            NodeDecl::AssociatedItem(node_decl) => node_decl.node_path(db).into(),
+            NodeDecl::TypeVariant(node_decl) => node_decl.node_path(db).into(),
+        }
+    }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            NodeDecl::Submodule(node_decl) => node_decl.errors(db),
+            NodeDecl::ModuleItem(node_decl) => node_decl.errors(db),
+            NodeDecl::ImplBlock(node_decl) => node_decl.errors(db),
+            NodeDecl::AssociatedItem(node_decl) => node_decl.errors(db),
+            NodeDecl::TypeVariant(node_decl) => node_decl.errors(db),
         }
     }
 }

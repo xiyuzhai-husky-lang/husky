@@ -148,7 +148,7 @@ Ok(
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_decl::error::DeclExprError>,
+                                    phantom: PhantomData<husky_decl::error::NodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -454,7 +454,7 @@ Ok(
                                             ),
                                         ),
                                     ],
-                                    phantom: PhantomData<husky_decl::error::DeclExprError>,
+                                    phantom: PhantomData<husky_decl::error::NodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(
@@ -1346,7 +1346,7 @@ Ok(
                                         },
                                     ],
                                     separators: [],
-                                    phantom: PhantomData<husky_decl::error::DeclExprError>,
+                                    phantom: PhantomData<husky_decl::error::NodeDeclError>,
                                 },
                             ),
                             rcurl: Ok(

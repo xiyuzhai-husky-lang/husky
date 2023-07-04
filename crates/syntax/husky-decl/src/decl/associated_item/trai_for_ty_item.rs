@@ -68,6 +68,15 @@ impl TraitForTypeItemNodeDecl {
             TraitForTypeItemNodeDecl::AssociatedVal(decl) => decl.expr_region(db),
         }
     }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            TraitForTypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.errors(db),
+            TraitForTypeItemNodeDecl::MethodFn(node_decl) => node_decl.errors(db),
+            TraitForTypeItemNodeDecl::AssociatedType(node_decl) => node_decl.errors(db),
+            TraitForTypeItemNodeDecl::AssociatedVal(node_decl) => node_decl.errors(db),
+        }
+    }
 }
 
 impl HasNodeDecl for TraitForTypeItemNodePath {

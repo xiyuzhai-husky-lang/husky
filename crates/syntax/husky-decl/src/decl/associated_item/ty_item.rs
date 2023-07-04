@@ -36,21 +36,21 @@ impl From<TypeItemNodeDecl> for NodeDecl {
 impl TypeItemNodeDecl {
     pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
         match self {
-            TypeItemNodeDecl::AssociatedFn(decl) => decl.node_path(db),
-            TypeItemNodeDecl::MethodFn(decl) => decl.node_path(db),
+            TypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.node_path(db),
+            TypeItemNodeDecl::MethodFn(node_decl) => node_decl.node_path(db),
             TypeItemNodeDecl::AssociatedType(_) => todo!(),
             TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-            TypeItemNodeDecl::MemoizedField(decl) => decl.node_path(db),
+            TypeItemNodeDecl::MemoizedField(node_decl) => node_decl.node_path(db),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TypeItemNodeDecl::AssociatedFn(decl) => decl.ast_idx(db),
-            TypeItemNodeDecl::MethodFn(decl) => decl.ast_idx(db),
-            TypeItemNodeDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TypeItemNodeDecl::AssociatedVal(decl) => decl.ast_idx(db),
-            TypeItemNodeDecl::MemoizedField(decl) => decl.ast_idx(db),
+            TypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.ast_idx(db),
+            TypeItemNodeDecl::MethodFn(node_decl) => node_decl.ast_idx(db),
+            TypeItemNodeDecl::AssociatedType(node_decl) => node_decl.ast_idx(db),
+            TypeItemNodeDecl::AssociatedVal(node_decl) => node_decl.ast_idx(db),
+            TypeItemNodeDecl::MemoizedField(node_decl) => node_decl.ast_idx(db),
         }
     }
 
@@ -69,11 +69,21 @@ impl TypeItemNodeDecl {
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            TypeItemNodeDecl::AssociatedFn(decl) => decl.expr_region(db),
-            TypeItemNodeDecl::MethodFn(decl) => decl.expr_region(db),
-            TypeItemNodeDecl::AssociatedType(decl) => decl.expr_region(db),
-            TypeItemNodeDecl::AssociatedVal(decl) => decl.expr_region(db),
-            TypeItemNodeDecl::MemoizedField(decl) => decl.expr_region(db),
+            TypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.expr_region(db),
+            TypeItemNodeDecl::MethodFn(node_decl) => node_decl.expr_region(db),
+            TypeItemNodeDecl::AssociatedType(node_decl) => node_decl.expr_region(db),
+            TypeItemNodeDecl::AssociatedVal(node_decl) => node_decl.expr_region(db),
+            TypeItemNodeDecl::MemoizedField(node_decl) => node_decl.expr_region(db),
+        }
+    }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            TypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.errors(db),
+            TypeItemNodeDecl::MethodFn(node_decl) => node_decl.errors(db),
+            TypeItemNodeDecl::AssociatedType(node_decl) => node_decl.errors(db),
+            TypeItemNodeDecl::AssociatedVal(node_decl) => node_decl.errors(db),
+            TypeItemNodeDecl::MemoizedField(node_decl) => node_decl.errors(db),
         }
     }
 }

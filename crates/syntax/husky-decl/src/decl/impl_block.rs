@@ -43,6 +43,13 @@ impl ImplBlockNodeDecl {
             ImplBlockNodeDecl::TraitForType(decl) => decl.expr_region(db),
         }
     }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            ImplBlockNodeDecl::Type(node_decl) => node_decl.errors(db),
+            ImplBlockNodeDecl::TraitForType(node_decl) => node_decl.errors(db),
+        }
+    }
 }
 
 impl HasNodeDecl for ImplBlockNodePath {

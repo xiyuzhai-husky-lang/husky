@@ -8,17 +8,29 @@ pub struct PropsStructTypeNodeDecl {
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    lcurl: DeclExprResult<PropsStructLeftCurlyBrace>,
+    lcurl: NodeDeclResult<PropsStructLeftCurlyBrace>,
     #[return_ref]
-    fields: DeclExprResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, DeclExprError>>,
+    fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
-    rcurl: DeclExprResult<PropsStructRightCurlyBraceToken>,
+    rcurl: NodeDeclResult<PropsStructRightCurlyBraceToken>,
     pub expr_region: ExprRegion,
 }
 
-impl PropsStructTypeNodeDecl {}
+impl PropsStructTypeNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.implicit_parameter_decl_list(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(self.lcurl(db).as_ref().err())
+                .chain(self.fields(db).as_ref().err().into_iter())
+                .chain(self.rcurl(db).as_ref().err().into_iter()),
+        )
+    }
+}
 
 /// we delegate a struct for this for better error message
 /// regular struct is the fallback case, but the lang user might want to mean other things
@@ -26,11 +38,11 @@ impl PropsStructTypeNodeDecl {}
 pub struct PropsStructLeftCurlyBrace(LeftCurlyBraceToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructLeftCurlyBrace {
-    type Error = DeclExprError;
+    type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         let lcurl = sp.try_parse_expected(
-            OriginalDeclExprError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
+            OriginalNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
         )?;
         Ok(Self(lcurl))
     }
@@ -40,13 +52,13 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructLeftCur
 pub struct PropsStructRightCurlyBraceToken(RightCurlyBraceToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructRightCurlyBraceToken {
-    type Error = DeclExprError;
+    type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_curly_brace
-        let rcurl = sp.try_parse_expected(OriginalDeclExprError::ExpectedRightCurlyBrace)?;
+        let rcurl = sp.try_parse_expected(OriginalNodeDeclError::ExpectedRightCurlyBrace)?;
         Ok(Self(rcurl))
     }
 }

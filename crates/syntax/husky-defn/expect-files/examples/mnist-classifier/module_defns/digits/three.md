@@ -7,7 +7,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 0,
                                 },
@@ -367,7 +367,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 1,
                                 },

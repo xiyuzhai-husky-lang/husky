@@ -61,6 +61,15 @@ impl TraitItemNodeDecl {
             TraitItemNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            TraitItemNodeDecl::AssociatedFn(_) => todo!(),
+            TraitItemNodeDecl::MethodFn(_) => todo!(),
+            TraitItemNodeDecl::AssociatedType(_) => todo!(),
+            TraitItemNodeDecl::AssociatedVal(_) => todo!(),
+        }
+    }
 }
 
 impl HasNodeDecl for TraitItemNodePath {

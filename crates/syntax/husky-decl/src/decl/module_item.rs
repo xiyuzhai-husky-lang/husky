@@ -20,25 +20,33 @@ pub enum ModuleItemNodeDecl {
 impl ModuleItemNodeDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            ModuleItemNodeDecl::Type(decl) => decl.ast_idx(db),
-            ModuleItemNodeDecl::Fugitive(decl) => decl.ast_idx(db),
-            ModuleItemNodeDecl::Trait(decl) => decl.ast_idx(db),
+            ModuleItemNodeDecl::Type(node_decl) => node_decl.ast_idx(db),
+            ModuleItemNodeDecl::Fugitive(node_decl) => node_decl.ast_idx(db),
+            ModuleItemNodeDecl::Trait(node_decl) => node_decl.ast_idx(db),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            ModuleItemNodeDecl::Type(decl) => decl.expr_region(db).into(),
-            ModuleItemNodeDecl::Fugitive(decl) => decl.expr_region(db).into(),
-            ModuleItemNodeDecl::Trait(decl) => decl.expr_region(db).into(),
+            ModuleItemNodeDecl::Type(node_decl) => node_decl.expr_region(db).into(),
+            ModuleItemNodeDecl::Fugitive(node_decl) => node_decl.expr_region(db).into(),
+            ModuleItemNodeDecl::Trait(node_decl) => node_decl.expr_region(db).into(),
         }
     }
 
     pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
         match self {
-            ModuleItemNodeDecl::Type(decl) => decl.node_path(db).into(),
-            ModuleItemNodeDecl::Fugitive(decl) => decl.node_path(db).into(),
-            ModuleItemNodeDecl::Trait(decl) => decl.node_path(db).into(),
+            ModuleItemNodeDecl::Type(node_decl) => node_decl.node_path(db).into(),
+            ModuleItemNodeDecl::Fugitive(node_decl) => node_decl.node_path(db).into(),
+            ModuleItemNodeDecl::Trait(node_decl) => node_decl.node_path(db).into(),
+        }
+    }
+
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        match self {
+            ModuleItemNodeDecl::Type(node_decl) => node_decl.errors(db),
+            ModuleItemNodeDecl::Fugitive(node_decl) => node_decl.errors(db),
+            ModuleItemNodeDecl::Trait(node_decl) => node_decl.errors(db),
         }
     }
 }

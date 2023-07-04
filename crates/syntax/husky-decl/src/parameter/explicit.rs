@@ -16,11 +16,11 @@ pub struct ExplicitParameterDeclList {
 }
 
 impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDeclList {
-    type Error = DeclExprError;
+    type Error = NodeDeclError;
 
     fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> Result<Option<Self>, DeclExprError> {
+    ) -> Result<Option<Self>, NodeDeclError> {
         let Some(lpar) = ctx.try_parse_optional::<LeftParenthesisToken>()? else {
             return Ok(None)
         };
@@ -37,7 +37,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                 Default::default()
             };
         let rpar =
-            ctx.try_parse_expected(OriginalDeclExprError::ExpectedRightParenthesisInParameterList)?;
+            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedRightParenthesisInParameterList)?;
         Ok(Some(Self {
             lpar,
             self_parameter,

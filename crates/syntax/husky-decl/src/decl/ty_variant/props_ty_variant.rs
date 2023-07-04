@@ -9,11 +9,11 @@ pub struct PropsTypeVariantNodeDecl {
     pub node_path: TypeVariantNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    lcurl: DeclExprResult<PropsTypeVariantLeftCurlyBrace>,
+    lcurl: NodeDeclResult<PropsTypeVariantLeftCurlyBrace>,
     #[return_ref]
-    fields: DeclExprResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, DeclExprError>>,
+    fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
-    rcurl: DeclExprResult<PropsTypeVariantRightCurlyBraceToken>,
+    rcurl: NodeDeclResult<PropsTypeVariantRightCurlyBraceToken>,
     pub expr_region: ExprRegion,
 }
 
@@ -23,11 +23,11 @@ pub struct PropsTypeVariantNodeDecl {
 pub struct PropsTypeVariantLeftCurlyBrace(LeftCurlyBraceToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantLeftCurlyBrace {
-    type Error = DeclExprError;
+    type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         let lcurl = sp.try_parse_expected(
-            OriginalDeclExprError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
+            OriginalNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct,
         )?;
         Ok(Self(lcurl))
     }
@@ -37,13 +37,13 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantLe
 pub struct PropsTypeVariantRightCurlyBraceToken(RightCurlyBraceToken);
 
 impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantRightCurlyBraceToken {
-    type Error = DeclExprError;
+    type Error = NodeDeclError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext) -> Result<Self, Self::Error> {
         // todo: enrich this
         // consider unexpected
         // maybe sp.skip_exprs_until_next_right_curly_brace
-        let rcurl = sp.try_parse_expected(OriginalDeclExprError::ExpectedRightCurlyBrace)?;
+        let rcurl = sp.try_parse_expected(OriginalNodeDeclError::ExpectedRightCurlyBrace)?;
         Ok(Self(rcurl))
     }
 }

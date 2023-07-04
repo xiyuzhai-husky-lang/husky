@@ -7,7 +7,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 0,
                                 },
@@ -851,7 +851,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 0,
                                 },
@@ -1145,7 +1145,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 0,
                                 },
@@ -1439,7 +1439,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 1,
                                 },

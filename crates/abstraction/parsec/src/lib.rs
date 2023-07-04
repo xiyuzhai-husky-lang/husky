@@ -45,6 +45,11 @@ pub trait StreamParser: HasStreamState {
         &mut self,
     ) -> Result<Option<P>, <P as TryParseOptionalFromStream<Self>>::Error>;
 
+    fn try_parse_optional2<P: TryParseOptionalFromStream<Self>, Error>(
+        &mut self,
+        f: impl FnOnce(<P as TryParseOptionalFromStream<Self>>::Error) -> Error,
+    ) -> Result<Option<P>, Error>;
+
     #[inline(always)]
     fn try_parse<P: TryParseFromStream<Self>>(
         &mut self,
@@ -89,6 +94,13 @@ where
         &mut self,
     ) -> Result<Option<P>, <P as TryParseOptionalFromStream<Self>>::Error> {
         P::try_parse_from_stream_with_rollback_when_no_error(self)
+    }
+    #[inline(always)]
+    fn try_parse_optional2<P: TryParseOptionalFromStream<Self>, Error>(
+        &mut self,
+        f: impl FnOnce(<P as TryParseOptionalFromStream<Self>>::Error) -> Error,
+    ) -> Result<Option<P>, Error> {
+        P::try_parse_from_stream_with_rollback_when_no_error(self).map_err(f)
     }
 
     #[inline(always)]

@@ -13,7 +13,7 @@ Ok(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                                var_ty: Some(
+                                val_ty: Some(
                                     FormTypeExpr {
                                         expr: 0,
                                     },
@@ -763,7 +763,7 @@ Ok(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                                var_ty: Some(
+                                val_ty: Some(
                                     FormTypeExpr {
                                         expr: 1,
                                     },

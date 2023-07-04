@@ -1,5 +1,5 @@
 use crate::*;
-use husky_decl::DeclExprError;
+use husky_decl::NodeDeclError;
 use husky_declarative_signature::DeclarativeSignatureError;
 use husky_declarative_ty::DeclarativeTypeError;
 use husky_decr::DecrError;
@@ -77,8 +77,8 @@ impl From<&EntityTreeBundleError> for EtherealTermError {
     }
 }
 
-impl From<&DeclExprError> for EtherealTermError {
-    fn from(value: &DeclExprError) -> Self {
+impl From<&NodeDeclError> for EtherealTermError {
+    fn from(value: &NodeDeclError) -> Self {
         todo!()
     }
 }

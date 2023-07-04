@@ -6,8 +6,19 @@ pub struct TraitNodeDecl {
     pub node_path: TraitNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     pub expr_region: ExprRegion,
+}
+
+impl TraitNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.implicit_parameter_decl_list(db)
+                .as_ref()
+                .err()
+                .into_iter(),
+        )
+    }
 }
 
 impl HasNodeDecl for TraitNodePath {

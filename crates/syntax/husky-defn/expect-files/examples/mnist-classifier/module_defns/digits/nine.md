@@ -7,7 +7,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 0,
                                 },
@@ -301,7 +301,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 0,
                                 },
@@ -595,7 +595,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
-                            var_ty: Some(
+                            val_ty: Some(
                                 FormTypeExpr {
                                     expr: 1,
                                 },

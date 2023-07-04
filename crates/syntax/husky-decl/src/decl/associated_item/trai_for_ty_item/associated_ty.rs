@@ -7,8 +7,15 @@ pub struct TraitForTypeAssociatedTypeNodeDecl {
     pub node: TraitForTypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub implicit_parameter_decl_list: DeclExprResult<Option<ImplicitParameterDeclList>>,
+    pub implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     pub expr_region: ExprRegion,
+}
+
+impl TraitForTypeAssociatedTypeNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        // ad hoc
+        Default::default()
+    }
 }
 
 impl<'a> DeclParser<'a> {

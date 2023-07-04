@@ -13,7 +13,18 @@ DiagnosticSheet {
         diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [31:33, 31:34),
+            },
+            Diagnostic {
+                message: "Syntax Error: ExpectParameterDeclList",
+                severity: Error,
+                range: [37:29, 37:30),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

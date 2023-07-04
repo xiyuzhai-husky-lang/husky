@@ -8,11 +8,23 @@ pub struct ValNodeDecl {
     pub ast_idx: AstIdx,
     pub colon_token: TokenResult<Option<ColonToken>>,
     #[return_ref]
-    pub var_ty: DeclExprResult<Option<FormTypeExpr>>,
+    pub val_ty: NodeDeclResult<Option<FormTypeExpr>>,
     #[return_ref]
-    pub eq_token: DeclExprResult<EqToken>,
+    pub eq_token: NodeDeclResult<EqToken>,
     pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
+}
+
+impl ValNodeDecl {
+    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+        SmallVec::from_iter(
+            self.val_ty(db)
+                .as_ref()
+                .err()
+                .into_iter()
+                .chain(self.eq_token(db).as_ref().err().into_iter()),
+        )
+    }
 }
 
 impl<'a> DeclParser<'a> {
@@ -28,12 +40,12 @@ impl<'a> DeclParser<'a> {
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let colon_token = ctx.try_parse_optional();
         let var_ty = if let Ok(Some(_)) = colon_token {
-            ctx.try_parse_expected(OriginalDeclExprError::ExpectedVariableType)
+            ctx.try_parse_expected(OriginalNodeDeclError::ExpectedVariableType)
                 .map(Some)
         } else {
             Ok(None)
         };
-        let eq_token = ctx.try_parse_expected(OriginalDeclExprError::ExpectEqTokenForVariable);
+        let eq_token = ctx.try_parse_expected(OriginalNodeDeclError::ExpectEqTokenForVariable);
         let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
         ValNodeDecl::new(
             self.db(),
@@ -52,7 +64,7 @@ impl<'a> DeclParser<'a> {
 pub struct ValDecl {
     #[id]
     pub path: FugitivePath,
-    pub var_ty: Option<FormTypeExpr>,
+    pub val_ty: Option<FormTypeExpr>,
     pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
 }
@@ -63,9 +75,9 @@ impl ValDecl {
         path: FugitivePath,
         node_decl: ValNodeDecl,
     ) -> DeclResult<Self> {
-        let var_ty = *node_decl.var_ty(db).as_ref()?;
+        let val_ty = *node_decl.val_ty(db).as_ref()?;
         let expr = node_decl.expr(db);
         let expr_region = node_decl.expr_region(db);
-        Ok(ValDecl::new(db, path, var_ty, expr, expr_region))
+        Ok(ValDecl::new(db, path, val_ty, expr, expr_region))
     }
 }

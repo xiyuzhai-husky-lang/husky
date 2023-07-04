@@ -9,7 +9,7 @@ pub struct ImplicitParameterDeclList {
     langle: LeftAngleBracketOrLessThanToken,
     implicit_parameters: ImplicitParameterDeclPatterns,
     commas: CommaTokens,
-    decl_list_result: Result<(), DeclExprError>,
+    decl_list_result: Result<(), NodeDeclError>,
     rangle: RightAngleBracketToken,
 }
 
@@ -28,18 +28,18 @@ impl ImplicitParameterDeclList {
 }
 
 impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
-    type Error = DeclExprError;
+    type Error = NodeDeclError;
 
     fn try_parse_stream_optional_from_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> DeclExprResult<Option<Self>> {
+    ) -> NodeDeclResult<Option<Self>> {
         let Some(langle) = ctx.try_parse_optional::< LeftAngleBracketOrLessThanToken>()? else {
             return Ok(None)
         };
         let (implicit_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(
             ctx,
             1,
-            OriginalDeclExprError::ExpectedImplicitParameterDecl,
+            OriginalNodeDeclError::ExpectedImplicitParameterDecl,
         );
         Ok(Some(Self {
             langle,
@@ -47,7 +47,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitPa
             commas,
             decl_list_result,
             rangle: ctx.try_parse_expected(|token_stream_state| {
-                OriginalDeclExprError::ExpectedRightAngleBracketForImplicitParameterDeclList {
+                OriginalNodeDeclError::ExpectedRightAngleBracketForImplicitParameterDeclList {
                     langle_token_idx: langle.token_idx(),
                     token_stream_state,
                 }

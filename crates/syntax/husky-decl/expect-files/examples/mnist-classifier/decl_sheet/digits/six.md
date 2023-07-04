@@ -13,7 +13,7 @@ Ok(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                                var_ty: Some(
+                                val_ty: Some(
                                     FormTypeExpr {
                                         expr: 0,
                                     },
@@ -121,7 +121,7 @@ Ok(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
-                                var_ty: Some(
+                                val_ty: Some(
                                     FormTypeExpr {
                                         expr: 0,
                                     },
@@ -229,7 +229,7 @@ Ok(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                                var_ty: Some(
+                                val_ty: Some(
                                     FormTypeExpr {
                                         expr: 1,
                                     },
