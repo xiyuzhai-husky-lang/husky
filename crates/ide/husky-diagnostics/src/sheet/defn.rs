@@ -12,7 +12,7 @@ pub(crate) fn defn_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> DefnDiagnosticSheet {
-    let mut sheet_collector = SheetDiagnosticsCollector::new(db, module_path);
+    let mut sheet_collector = ModuleDiagnosticsCollector::new(db, module_path);
     if let (Ok(ranged_token_sheet), Ok(defns)) =
         (db.ranged_token_sheet(module_path), module_path.defns(db))
     {

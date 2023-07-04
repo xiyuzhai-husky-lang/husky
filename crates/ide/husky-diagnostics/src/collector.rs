@@ -1,12 +1,12 @@
 use crate::*;
 use husky_expr::ExprRegion;
 
-pub(crate) struct SheetDiagnosticsCollector<'a> {
+pub(crate) struct ModuleDiagnosticsCollector<'a> {
     context: SheetDiagnosticsContext<'a>,
     diagnostics: Vec<Diagnostic>,
 }
 
-impl<'a> SheetDiagnosticsCollector<'a> {
+impl<'a> ModuleDiagnosticsCollector<'a> {
     pub(crate) fn new(db: &'a dyn DiagnosticsDb, module_path: ModulePath) -> Self {
         Self {
             diagnostics: vec![],
@@ -37,14 +37,14 @@ pub(crate) struct RegionDiagnosticsCollector<'a, 'b> {
     // todo: a little redundant
     // sheet_collector contains same fields as in context
     context: RegionDiagnosticsContext<'a>,
-    sheet_collector: &'b mut SheetDiagnosticsCollector<'a>,
+    sheet_collector: &'b mut ModuleDiagnosticsCollector<'a>,
 }
 
 impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     pub(crate) fn new(
         db: &'a dyn DiagnosticsDb,
         expr_region: ExprRegion,
-        sheet_collector: &'b mut SheetDiagnosticsCollector<'a>,
+        sheet_collector: &'b mut ModuleDiagnosticsCollector<'a>,
     ) -> Self {
         Self {
             context: RegionDiagnosticsContext::new(db, expr_region),
