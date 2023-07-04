@@ -13,9 +13,47 @@ pub(super) fn struct_debug_with_db_impl(
         syn::Fields::Unnamed(_) => struct_tuple_fields_debug_with_db(&item.ident, &item.fields),
         syn::Fields::Unit => todo!("unit struct debug with db"),
     };
-
+    let generic_decls = if item.generics.params.is_empty() {
+        quote! { _Db:  #db_path + ?Sized }
+    } else {
+        let item_generics_punctuated = syn::punctuated::Punctuated::<_, syn::Token![,]>::from_iter(
+            item.generics.params.iter().map(|param| match param {
+                syn::GenericParam::Type(param) => {
+                    if param.bounds.is_empty() {
+                        quote! { #param: ::salsa::DebugWithDb<_Db> }
+                    } else {
+                        quote! { #param + ::salsa::DebugWithDb<_Db> }
+                    }
+                }
+                syn::GenericParam::Lifetime(_) | syn::GenericParam::Const(_) => quote! { #param },
+            }),
+        );
+        quote! { _Db:  #db_path + ?Sized, #item_generics_punctuated }
+    };
+    let self_ty = if item.generics.params.is_empty() {
+        quote! { #ident }
+    } else {
+        let arguments = syn::punctuated::Punctuated::<_, syn::Token![,]>::from_iter(
+            item.generics.params.iter().map(|param| match param {
+                syn::GenericParam::Type(param) => {
+                    let ident = &param.ident;
+                    quote! { #ident }
+                }
+                syn::GenericParam::Lifetime(param) => {
+                    let lifetime = &param.lifetime;
+                    quote! { #lifetime }
+                }
+                syn::GenericParam::Const(param) => {
+                    let ident = &param.ident;
+                    quote! { #ident }
+                }
+            }),
+        );
+        quote! { #ident<#arguments> }
+    };
+    let where_clause = &item.generics.where_clause;
     quote! {
-        impl<_Db:  #db_path + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
+        impl<#generic_decls> ::salsa::DebugWithDb<_Db> for #self_ty #where_clause {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: salsa::DebugFormatLevel) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;

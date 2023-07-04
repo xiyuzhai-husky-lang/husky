@@ -9,7 +9,7 @@ pub struct TraitMethodFnNodeDecl {
     #[return_ref]
     implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
     #[return_ref]
-    parameter_decl_list: ExplicitParameterDeclList,
+    parameter_decl_list: SelfParameterAndExplicitParameters<true>,
     pub curry_token: Option<CurryToken>,
     pub return_ty: Option<ReturnTypeExpr>,
     pub eol_colon: EolToken,
@@ -25,7 +25,7 @@ pub struct TraitMethodFnDecl {
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
-    pub regular_parameters: RegularParameterDeclPatterns,
+    pub regular_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExpr>,
     pub expr_region: ExprRegion,
 }

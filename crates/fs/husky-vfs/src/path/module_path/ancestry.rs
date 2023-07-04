@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = VfsDb, jar = VfsJar)]
 pub struct ModuleAncestry {
     crate_path: CratePath,
     module_paths: Vec<ModulePath>,
@@ -13,20 +14,6 @@ impl ModuleAncestry {
 
     pub(crate) fn contains(&self, module_path: ModulePath) -> bool {
         self.module_paths.contains(&module_path)
-    }
-}
-
-impl<Db: VfsDb> salsa::DebugWithDb<Db> for ModuleAncestry {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        f.debug_struct("ModuleAncestry")
-            .field("crate_path", &self.crate_path.debug_with(db, level.next()))
-            .field("modules", &self.module_paths.debug_with(db, level.next()))
-            .finish()
     }
 }
 

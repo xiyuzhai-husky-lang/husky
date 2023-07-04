@@ -8,7 +8,7 @@ pub struct TraitForTypeAssociatedFnNodeDecl {
     #[return_ref]
     pub implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    pub explicit_parameter_decl_list: NodeDeclResult<ExplicitParameterDeclList>,
+    pub explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
     pub return_ty: NodeDeclResult<Option<ReturnTypeExpr>>,

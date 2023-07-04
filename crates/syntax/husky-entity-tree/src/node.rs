@@ -99,6 +99,7 @@ impl EntityNodeRegistry {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct MaybeAmbiguousPath<P> {
     path: P,
     disambiguator: u8,
@@ -114,41 +115,6 @@ impl<P> MaybeAmbiguousPath<P> {
 
     fn unambiguous_path(self) -> Option<P> {
         (self.disambiguator == 0).then_some(self.path)
-    }
-}
-
-impl<P, _Db: EntityTreeDb + ?Sized> ::salsa::DebugWithDb<_Db> for MaybeAmbiguousPath<P>
-where
-    P: ::salsa::DebugWithDb<_Db>,
-{
-    fn fmt(
-        &self,
-        f: &mut ::std::fmt::Formatter<'_>,
-        _db: &_Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> ::std::fmt::Result {
-        #[allow(unused_imports)]
-        use ::salsa::debug::helper::Fallback;
-        let mut debug_struct = &mut f.debug_struct("MaybeAmbiguousPath");
-        debug_struct = debug_struct.field(
-            "path",
-            &::salsa::debug::helper::SalsaDebug::<P, _Db>::salsa_debug(
-                #[allow(clippy::needless_borrow)]
-                &self.path,
-                _db,
-                _level.next(),
-            ),
-        );
-        debug_struct = debug_struct.field(
-            "disambiguator",
-            &::salsa::debug::helper::SalsaDebug::<u8, _Db>::salsa_debug(
-                #[allow(clippy::needless_borrow)]
-                &self.disambiguator,
-                _db,
-                _level.next(),
-            ),
-        );
-        debug_struct.finish()
     }
 }
 
