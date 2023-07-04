@@ -58,15 +58,4 @@ impl From<&EntityTreeBundleError> for DeclarativeSignatureError {
     }
 }
 
-impl<DB: ?Sized + DeclarativeSignatureDb> salsa::DebugWithDb<DB> for DeclarativeSignatureError {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        _db: &DB,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        <Self as std::fmt::Debug>::fmt(&self, f)
-    }
-}
-
 pub type DeclarativeSignatureResult<T> = Result<T, DeclarativeSignatureError>;

@@ -9,7 +9,7 @@ pub struct TraitForTypeMethodFnNodeDecl {
     #[return_ref]
     pub implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
     #[return_ref]
-    pub explicit_parameter_decl_list: NodeDeclResult<ExplicitParameterDeclList>,
+    pub explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<true>>,
     #[return_ref]
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
@@ -90,7 +90,7 @@ pub struct TraitForTypeMethodFnDecl {
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
-    pub regular_parameters: RegularParameterDeclPatterns,
+    pub regular_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExpr>,
     pub expr_region: ExprRegion,
 }
@@ -109,7 +109,7 @@ impl TraitForTypeMethodFnDecl {
             .unwrap_or_default();
         let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
         let self_parameter = *explicit_parameter_decl_list.self_parameter();
-        let regular_parameters: RegularParameterDeclPatterns = explicit_parameter_decl_list
+        let regular_parameters: ExplicitParameterDeclPatterns = explicit_parameter_decl_list
             .regular_parameters()
             .to_smallvec();
         let return_ty = *node_decl.return_ty(db).as_ref()?;

@@ -18,8 +18,36 @@ pub(super) fn enum_debug_with_db_impl(db_path: &Path, item: &ItemEnum) -> proc_m
         })
         .collect::<proc_macro2::TokenStream>();
 
+    let item_generics_punctuated = &item.generics.params;
+    let generic_decls = if item_generics_punctuated.is_empty() {
+        quote! { _Db:  #db_path + ?Sized }
+    } else {
+        quote! { #item_generics_punctuated, _Db:  #db_path + ?Sized }
+    };
+    let self_ty = if item.generics.params.is_empty() {
+        quote! { #ident }
+    } else {
+        let arguments = syn::punctuated::Punctuated::<_, syn::Token![,]>::from_iter(
+            item.generics.params.iter().map(|param| match param {
+                syn::GenericParam::Type(param) => {
+                    let ident = &param.ident;
+                    quote! { #ident }
+                }
+                syn::GenericParam::Lifetime(param) => {
+                    let lifetime = &param.lifetime;
+                    quote! { #lifetime }
+                }
+                syn::GenericParam::Const(param) => {
+                    let ident = &param.ident;
+                    quote! { #ident }
+                }
+            }),
+        );
+        quote! { #ident<#arguments> }
+    };
+    let where_clause = &item.generics.where_clause;
     quote! {
-        impl<_Db: #db_path + ?Sized> ::salsa::DebugWithDb<_Db> for #ident {
+        impl<#generic_decls> ::salsa::DebugWithDb<_Db> for #self_ty #where_clause {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: ::salsa::DebugFormatLevel) -> ::std::fmt::Result {
                 #[allow(unused_imports)]
                 use ::salsa::debug::helper::Fallback;

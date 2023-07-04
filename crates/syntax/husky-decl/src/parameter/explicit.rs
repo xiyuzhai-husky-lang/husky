@@ -1,21 +1,23 @@
 use super::*;
 use parsec::{parse_separated_list2, parse_separated_small_list2};
 
-pub(crate) type RegularParameterDeclPatterns = SmallVec<[RegularParameterDeclPattern; 2]>;
+pub(crate) type ExplicitParameterDeclPatterns = SmallVec<[RegularParameterDeclPattern; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[derive(Getters)]
-pub struct ExplicitParameterDeclList {
+pub struct SelfParameterAndExplicitParameters<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LeftParenthesisToken,
     self_parameter: Option<SelfParameterDeclPattern>,
     comma_after_self_parameter: Option<CommaToken>,
-    regular_parameters: RegularParameterDeclPatterns,
+    regular_parameters: ExplicitParameterDeclPatterns,
     commas: CommaTokens,
     rpar: RightParenthesisToken,
 }
 
-impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDeclList {
+impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
+    for SelfParameterAndExplicitParameters<ALLOW_SELF_PARAMETER>
+{
     type Error = NodeDeclError;
 
     fn try_parse_stream_optional_from_without_guaranteed_rollback(
