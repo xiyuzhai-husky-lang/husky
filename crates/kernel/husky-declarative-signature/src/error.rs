@@ -5,6 +5,7 @@ use thiserror::Error;
 use crate::*;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub enum DeclarativeSignatureError {
     #[error("todo")]
     DeclarativeTermError,
