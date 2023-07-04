@@ -17,6 +17,8 @@ jobs:
     steps:
     - uses: rui314/setup-mold@v1
     - uses: actions/checkout@v3
+    - name: Setup
+      run: ./scripts/ci_setup.sh
     - name: Build
       run: cargo build --verbose
     - name: Run tests
