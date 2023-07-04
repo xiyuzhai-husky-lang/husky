@@ -81,23 +81,17 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                explicit_parameter_decl_list: Ok(
-                                    ExplicitParameterDeclList {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                3,
-                                            ),
+                                explicit_parameter_decl_list: Err(
+                                    DeclExprError::Original(
+                                        OriginalDeclExprError::ExpectedRightParenthesisInParameterList(
+                                            TokenStreamState {
+                                                next_token_idx: TokenIdx(
+                                                    4,
+                                                ),
+                                                drained: false,
+                                            },
                                         ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        regular_parameters: [],
-                                        commas: [],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                4,
-                                            ),
-                                        ),
-                                    },
+                                    ),
                                 ),
                                 curry_token: Ok(
                                     None,
@@ -105,13 +99,16 @@ Ok(
                                 return_ty: Ok(
                                     None,
                                 ),
-                                eol_colon: Ok(
-                                    EolToken::Semicolon(
-                                        EolSemicolonToken {
-                                            token_idx: TokenIdx(
-                                                5,
-                                            ),
-                                        },
+                                eol_colon: Err(
+                                    DeclExprError::Original(
+                                        OriginalDeclExprError::ExpectedEolColon(
+                                            TokenStreamState {
+                                                next_token_idx: TokenIdx(
+                                                    4,
+                                                ),
+                                                drained: false,
+                                            },
+                                        ),
                                     ),
                                 ),
                             },

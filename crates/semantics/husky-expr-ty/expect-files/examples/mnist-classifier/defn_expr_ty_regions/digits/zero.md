@@ -1237,25 +1237,18 @@
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            InstanceConstructor,
-                        ),
-                        Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 11,
-                                    },
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        TypeError(
+                            DeclarativeTypeError(
+                                Derived(
+                                    SignatureError,
                                 ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    23,
-                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -1334,41 +1327,21 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    24,
+                    23,
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    25,
-                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        UnveilOrComposeWithOption(
-                            Unveil,
-                        ),
-                        Err(
-                            Original(
-                                CannotUnveil,
-                            ),
-                        ),
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        UnableToInferSuffixOperandType,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -1408,7 +1381,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    26,
+                    24,
                 ),
             },
             ExprTypeInfo {
@@ -1429,7 +1402,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    27,
+                    25,
                 ),
             },
             ExprTypeInfo {
@@ -1450,7 +1423,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    28,
+                    26,
                 ),
             },
             ExprTypeInfo {
@@ -1493,7 +1466,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    29,
+                    27,
                 ),
             },
             ExprTypeInfo {
@@ -1530,7 +1503,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    30,
+                    28,
                 ),
             },
             ExprTypeInfo {
@@ -1547,7 +1520,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    31,
+                    29,
                 ),
             },
             ExprTypeInfo {
@@ -1581,7 +1554,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    33,
+                    31,
                 ),
             },
             ExprTypeInfo {
@@ -1602,7 +1575,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    34,
+                    32,
                 ),
             },
             ExprTypeInfo {
@@ -1623,7 +1596,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    35,
+                    33,
                 ),
             },
             ExprTypeInfo {
@@ -1666,7 +1639,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    36,
+                    34,
                 ),
             },
             ExprTypeInfo {
@@ -1703,7 +1676,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    37,
+                    35,
                 ),
             },
             ExprTypeInfo {
@@ -1720,7 +1693,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    38,
+                    36,
                 ),
             },
             ExprTypeInfo {
@@ -1754,7 +1727,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    40,
+                    38,
                 ),
             },
             ExprTypeInfo {
@@ -1775,7 +1748,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    41,
+                    39,
                 ),
             },
             ExprTypeInfo {
@@ -1796,7 +1769,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    42,
+                    40,
                 ),
             },
             ExprTypeInfo {
@@ -1839,7 +1812,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    43,
+                    41,
                 ),
             },
             ExprTypeInfo {
@@ -1876,7 +1849,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    44,
+                    42,
                 ),
             },
             ExprTypeInfo {
@@ -1893,7 +1866,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    45,
+                    43,
                 ),
             },
             ExprTypeInfo {
@@ -1927,7 +1900,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    47,
+                    45,
                 ),
             },
             ExprTypeInfo {
@@ -2019,7 +1992,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    48,
+                    46,
                 ),
             },
             ExprTypeInfo {
@@ -2050,7 +2023,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    49,
+                    47,
                 ),
             },
             ExprTypeInfo {
@@ -2158,7 +2131,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    50,
+                    48,
                 ),
             },
             ExprTypeInfo {
@@ -2179,7 +2152,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    51,
+                    49,
                 ),
             },
             ExprTypeInfo {
@@ -2223,7 +2196,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    52,
+                    50,
                 ),
             },
             ExprTypeInfo {
@@ -2244,7 +2217,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    53,
+                    51,
                 ),
             },
         ],
@@ -3250,52 +3223,11 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsRitchieType(
-                                ExpectEqsRitchieType {
-                                    final_destination: TypeOntology,
-                                },
-                            ),
-                            meta: ExpectationMeta {
-                                idx: 23,
-                                src: ExpectationSource {
-                                    expr_idx: 35,
-                                    kind: Expr,
-                                },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
-                                        Id {
-                                            value: 11,
-                                        },
-                                    ),
-                                ),
-                                resolve_progress: Resolved(
-                                    Ok(
-                                        EqsRitchieCallType(
-                                            ExpectEqsRitchieTypeOutcome {
-                                                ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
-                                                parameter_contracted_tys: [],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                        ExpectationEntry {
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationMeta {
-                                idx: 24,
+                                idx: 23,
                                 src: ExpectationSource {
                                     expr_idx: 42,
                                     kind: Expr,
@@ -3309,35 +3241,11 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: FinalDestination(
-                                ExpectFinalDestination {
-                                    final_destination: TypeOntology,
-                                },
-                            ),
-                            meta: ExpectationMeta {
-                                idx: 25,
-                                src: ExpectationSource {
-                                    expr_idx: 43,
-                                    kind: Expr,
-                                },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                resolve_progress: Intact,
-                            },
-                        },
-                        ExpectationEntry {
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationMeta {
-                                idx: 26,
+                                idx: 24,
                                 src: ExpectationSource {
                                     expr_idx: 47,
                                     kind: Expr,
@@ -3369,7 +3277,7 @@
                                 },
                             ),
                             meta: ExpectationMeta {
-                                idx: 27,
+                                idx: 25,
                                 src: ExpectationSource {
                                     expr_idx: 48,
                                     kind: Expr,
@@ -3397,7 +3305,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 28,
+                                idx: 26,
                                 src: ExpectationSource {
                                     expr_idx: 49,
                                     kind: Expr,
@@ -3417,7 +3325,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 29,
+                                idx: 27,
                                 src: ExpectationSource {
                                     expr_idx: 50,
                                     kind: Expr,
@@ -3439,7 +3347,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 30,
+                                idx: 28,
                                 src: ExpectationSource {
                                     expr_idx: 51,
                                     kind: Expr,
@@ -3459,7 +3367,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 31,
+                                idx: 29,
                                 src: ExpectationSource {
                                     expr_idx: 52,
                                     kind: Expr,
@@ -3491,7 +3399,7 @@
                                 },
                             ),
                             meta: ExpectationMeta {
-                                idx: 32,
+                                idx: 30,
                                 src: ExpectationSource {
                                     expr_idx: 53,
                                     kind: Expr,
@@ -3509,7 +3417,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 33,
+                                idx: 31,
                                 src: ExpectationSource {
                                     expr_idx: 53,
                                     kind: Expr,
@@ -3543,7 +3451,7 @@
                                 },
                             ),
                             meta: ExpectationMeta {
-                                idx: 34,
+                                idx: 32,
                                 src: ExpectationSource {
                                     expr_idx: 54,
                                     kind: Expr,
@@ -3571,7 +3479,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 35,
+                                idx: 33,
                                 src: ExpectationSource {
                                     expr_idx: 55,
                                     kind: Expr,
@@ -3591,7 +3499,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 36,
+                                idx: 34,
                                 src: ExpectationSource {
                                     expr_idx: 56,
                                     kind: Expr,
@@ -3613,7 +3521,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 37,
+                                idx: 35,
                                 src: ExpectationSource {
                                     expr_idx: 57,
                                     kind: Expr,
@@ -3633,7 +3541,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 38,
+                                idx: 36,
                                 src: ExpectationSource {
                                     expr_idx: 58,
                                     kind: Expr,
@@ -3665,7 +3573,7 @@
                                 },
                             ),
                             meta: ExpectationMeta {
-                                idx: 39,
+                                idx: 37,
                                 src: ExpectationSource {
                                     expr_idx: 59,
                                     kind: Expr,
@@ -3683,7 +3591,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 40,
+                                idx: 38,
                                 src: ExpectationSource {
                                     expr_idx: 59,
                                     kind: Expr,
@@ -3717,7 +3625,7 @@
                                 },
                             ),
                             meta: ExpectationMeta {
-                                idx: 41,
+                                idx: 39,
                                 src: ExpectationSource {
                                     expr_idx: 60,
                                     kind: Expr,
@@ -3745,7 +3653,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 42,
+                                idx: 40,
                                 src: ExpectationSource {
                                     expr_idx: 61,
                                     kind: Expr,
@@ -3765,7 +3673,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 43,
+                                idx: 41,
                                 src: ExpectationSource {
                                     expr_idx: 62,
                                     kind: Expr,
@@ -3787,7 +3695,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 44,
+                                idx: 42,
                                 src: ExpectationSource {
                                     expr_idx: 63,
                                     kind: Expr,
@@ -3807,7 +3715,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 45,
+                                idx: 43,
                                 src: ExpectationSource {
                                     expr_idx: 64,
                                     kind: Expr,
@@ -3839,7 +3747,7 @@
                                 },
                             ),
                             meta: ExpectationMeta {
-                                idx: 46,
+                                idx: 44,
                                 src: ExpectationSource {
                                     expr_idx: 65,
                                     kind: Expr,
@@ -3857,7 +3765,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 47,
+                                idx: 45,
                                 src: ExpectationSource {
                                     expr_idx: 65,
                                     kind: Expr,
@@ -3877,7 +3785,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 48,
+                                idx: 46,
                                 src: ExpectationSource {
                                     expr_idx: 73,
                                     kind: Expr,
@@ -3897,7 +3805,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationMeta {
-                                idx: 49,
+                                idx: 47,
                                 src: ExpectationSource {
                                     expr_idx: 75,
                                     kind: Expr,
@@ -3917,7 +3825,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationMeta {
-                                idx: 50,
+                                idx: 48,
                                 src: ExpectationSource {
                                     expr_idx: 84,
                                     kind: Expr,
@@ -3949,7 +3857,7 @@
                                 },
                             ),
                             meta: ExpectationMeta {
-                                idx: 51,
+                                idx: 49,
                                 src: ExpectationSource {
                                     expr_idx: 85,
                                     kind: Expr,
@@ -3977,7 +3885,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationMeta {
-                                idx: 52,
+                                idx: 50,
                                 src: ExpectationSource {
                                     expr_idx: 88,
                                     kind: Expr,
@@ -3999,7 +3907,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationMeta {
-                                idx: 53,
+                                idx: 51,
                                 src: ExpectationSource {
                                     expr_idx: 89,
                                     kind: Expr,
