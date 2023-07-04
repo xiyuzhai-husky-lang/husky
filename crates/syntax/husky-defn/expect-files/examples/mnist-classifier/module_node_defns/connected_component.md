@@ -627,8 +627,8 @@ Ok(
                                     ),
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
-                                    regular_parameters: [
-                                        RegularParameterDeclPattern {
+                                    explicit_parameters: [
+                                        ExplicitParameterDecl {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -1492,8 +1492,8 @@ Ok(
                                     ),
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
-                                    regular_parameters: [
-                                        RegularParameterDeclPattern {
+                                    explicit_parameters: [
+                                        ExplicitParameterDecl {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -1505,7 +1505,7 @@ Ok(
                                             ),
                                             ty: 0,
                                         },
-                                        RegularParameterDeclPattern {
+                                        ExplicitParameterDecl {
                                             pattern: 1,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -2845,8 +2845,8 @@ Ok(
                                     ),
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
-                                    regular_parameters: [
-                                        RegularParameterDeclPattern {
+                                    explicit_parameters: [
+                                        ExplicitParameterDecl {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -6024,7 +6024,7 @@ Ok(
                                     ),
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
-                                    regular_parameters: [],
+                                    explicit_parameters: [],
                                     commas: [],
                                     rpar: RightParenthesisToken(
                                         TokenIdx(
@@ -14343,8 +14343,8 @@ Ok(
                                     ),
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
-                                    regular_parameters: [
-                                        RegularParameterDeclPattern {
+                                    explicit_parameters: [
+                                        ExplicitParameterDecl {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -15701,8 +15701,8 @@ Ok(
                                     ),
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
-                                    regular_parameters: [
-                                        RegularParameterDeclPattern {
+                                    explicit_parameters: [
+                                        ExplicitParameterDecl {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,

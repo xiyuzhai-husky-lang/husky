@@ -25,7 +25,7 @@ impl TypeAssociatedFnEtherealSignatureTemplate {
         )?;
         let explicit_parameters = ExplicitParameterEtherealSignatures::from_declarative(
             db,
-            declarative_signature.regular_parameters(db),
+            declarative_signature.explicit_parameters(db),
         )?;
         let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
         let ty = EtherealTermRitchie::new(

@@ -51,6 +51,32 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `skip`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `i32`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Literal(
+                Literal::Integer(
+                    Unspecified,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),

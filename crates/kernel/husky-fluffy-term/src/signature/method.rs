@@ -91,7 +91,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     }
     JustOk(MethodFnFluffySignature {
         parameter_contracted_tys: template
-            .nonself_regular_parameters(db)
+            .explicit_parameters(db)
             .iter()
             .map(|v| instantiator.instantiate_ritchie_parameter(engine, v))
             .collect(),

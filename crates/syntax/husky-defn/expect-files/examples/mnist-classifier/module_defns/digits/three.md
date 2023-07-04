@@ -2045,8 +2045,8 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                             implicit_parameters: [],
-                            regular_parameters: [
-                                RegularParameterDeclPattern {
+                            explicit_parameters: [
+                                ExplicitParameterDecl {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -2727,8 +2727,8 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                             implicit_parameters: [],
-                            regular_parameters: [
-                                RegularParameterDeclPattern {
+                            explicit_parameters: [
+                                ExplicitParameterDecl {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -3409,8 +3409,8 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                             implicit_parameters: [],
-                            regular_parameters: [
-                                RegularParameterDeclPattern {
+                            explicit_parameters: [
+                                ExplicitParameterDecl {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,

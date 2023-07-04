@@ -25,7 +25,7 @@ pub struct TraitMethodFnDecl {
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
-    pub regular_parameters: ExplicitParameterDeclPatterns,
+    pub explicit_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExpr>,
     pub expr_region: ExprRegion,
 }

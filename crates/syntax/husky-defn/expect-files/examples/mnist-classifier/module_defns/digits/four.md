@@ -335,8 +335,8 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                             implicit_parameters: [],
-                            regular_parameters: [
-                                RegularParameterDeclPattern {
+                            explicit_parameters: [
+                                ExplicitParameterDecl {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -3948,8 +3948,8 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                             implicit_parameters: [],
-                            regular_parameters: [
-                                RegularParameterDeclPattern {
+                            explicit_parameters: [
+                                ExplicitParameterDecl {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -4603,8 +4603,8 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                             implicit_parameters: [],
-                            regular_parameters: [
-                                RegularParameterDeclPattern {
+                            explicit_parameters: [
+                                ExplicitParameterDecl {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,

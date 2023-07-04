@@ -84,7 +84,7 @@ pub struct TypeAssociatedFnDecl {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
-    pub regular_parameters: ExplicitParameterDeclPatterns,
+    pub explicit_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExpr>,
     pub expr_region: ExprRegion,
 }
@@ -102,8 +102,8 @@ impl TypeAssociatedFnDecl {
             .map(|list| list.implicit_parameters().to_smallvec())
             .unwrap_or_default();
         let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
-        let regular_parameters: ExplicitParameterDeclPatterns = explicit_parameter_decl_list
-            .regular_parameters()
+        let explicit_parameters: ExplicitParameterDeclPatterns = explicit_parameter_decl_list
+            .explicit_parameters()
             .to_smallvec();
         let return_ty = *node_decl.return_ty(db).as_ref()?;
         let expr_region = node_decl.expr_region(db);
@@ -111,7 +111,7 @@ impl TypeAssociatedFnDecl {
             db,
             path,
             implicit_parameters,
-            regular_parameters,
+            explicit_parameters,
             return_ty,
             expr_region,
         ))

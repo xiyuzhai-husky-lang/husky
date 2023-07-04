@@ -322,7 +322,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 self_parameter: None,
-                                regular_parameters: [],
+                                explicit_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExpr {
                                         expr: 0,
@@ -615,8 +615,8 @@ Ok(
                                         },
                                     },
                                 ),
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
+                                explicit_parameters: [
+                                    ExplicitParameterDecl {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -939,7 +939,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 self_parameter: None,
-                                regular_parameters: [],
+                                explicit_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExpr {
                                         expr: 0,

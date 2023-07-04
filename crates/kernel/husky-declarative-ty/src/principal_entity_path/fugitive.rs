@@ -33,7 +33,7 @@ pub(crate) fn fn_path_declarative_ty(
     signature: FnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let param_declarative_tys = signature
-        .regular_parameters(db)
+        .explicit_parameters(db)
         .iter()
         .copied()
         .map(ExplicitParameterDeclarativeSignature::into_ritchie_parameter_contracted_ty)
@@ -59,7 +59,7 @@ pub(crate) fn gn_path_declarative_ty(
     signature: GnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let param_declarative_tys = signature
-        .regular_parameters(db)
+        .explicit_parameters(db)
         .iter()
         .copied()
         .map(ExplicitParameterDeclarativeSignature::into_ritchie_parameter_contracted_ty)
