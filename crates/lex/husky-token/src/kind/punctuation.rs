@@ -89,6 +89,8 @@ impl Punctuation {
     pub const DOUBLE_VERTICAL: Self = Self(PunctuationMapped::DoubleVertical);
     /// `..`
     pub const DOT_DOT: Self = Self(PunctuationMapped::DotDot);
+    /// `...`
+    pub const DOT_DOT_DOT: Self = Self(PunctuationMapped::DotDotDot);
     /// `~`
     pub const TILDE: Self = Self(PunctuationMapped::Tilde);
     /// `%`
@@ -222,8 +224,9 @@ pub enum PunctuationMapped {
     DeriveAssign,      // :=
     Minus,             // -
     DoubleVertical,    // ||
-    Dot,               // .
-    DotDot,            // `.`
+    Dot,               // `.`
+    DotDot,            // `..`
+    DotDotDot,         // `...`
     Colon,             // `:`
     Star,              // `*`
     Comma,             // `,`
@@ -269,6 +272,7 @@ impl PunctuationMapped {
             PunctuationMapped::Tilde => "~",
             PunctuationMapped::Dot => ".",
             PunctuationMapped::DotDot => "..",
+            PunctuationMapped::DotDotDot => "...",
             PunctuationMapped::Colon => ":",
             PunctuationMapped::Comma => ",",
             PunctuationMapped::Ambersand => todo!(),
@@ -296,44 +300,6 @@ impl PunctuationMapped {
             PunctuationMapped::LaOrLt => Some(Bracket::TemplateAngle),
             PunctuationMapped::Bra(bracket) => Some(bracket),
             _ => None,
-        }
-    }
-
-    pub fn left_convexity(self) -> Option<Convexity> {
-        match self {
-            PunctuationMapped::Binary(_) => todo!(),
-            PunctuationMapped::Bra(_) => todo!(),
-            PunctuationMapped::Ket(_) => todo!(),
-            PunctuationMapped::Suffix(_) => todo!(),
-            PunctuationMapped::LaOrLt => todo!(),
-            PunctuationMapped::ColonColonLa => todo!(),
-            PunctuationMapped::RaOrGt => todo!(),
-            PunctuationMapped::Shr => todo!(),
-            PunctuationMapped::DeriveAssign => todo!(),
-            PunctuationMapped::Minus => todo!(),
-            PunctuationMapped::DoubleVertical => todo!(),
-            PunctuationMapped::Tilde => todo!(),
-            PunctuationMapped::Dot => todo!(),
-            PunctuationMapped::DotDot => todo!(),
-            PunctuationMapped::Colon => todo!(),
-            PunctuationMapped::Comma => todo!(),
-            PunctuationMapped::Ambersand => todo!(),
-            PunctuationMapped::Vertical => todo!(),
-            PunctuationMapped::Exclamation => todo!(),
-            PunctuationMapped::DoubleExclamation => todo!(),
-            PunctuationMapped::Semicolon => todo!(),
-            PunctuationMapped::EmptyHtmlKet => todo!(),
-            PunctuationMapped::At => todo!(),
-            PunctuationMapped::AtEq => todo!(),
-            PunctuationMapped::Question => todo!(),
-            PunctuationMapped::Pound => todo!(),
-            PunctuationMapped::Star => todo!(),
-            PunctuationMapped::Sheba => todo!(),
-            PunctuationMapped::Eq => todo!(),
-            PunctuationMapped::Tilde => todo!(),
-            PunctuationMapped::ForAll => todo!(),
-            PunctuationMapped::Exists => todo!(),
-            PunctuationMapped::HeavyArrow => todo!(),
         }
     }
 }

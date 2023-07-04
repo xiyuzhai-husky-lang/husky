@@ -17,12 +17,12 @@ DiagnosticSheet {
             Diagnostic {
                 message: "Syntax Error: expected `)` in parameter list",
                 severity: Error,
-                range: [1:20, 1:22),
+                range: [1:20, 1:23),
             },
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [1:20, 1:22),
+                range: [1:20, 1:23),
             },
         ],
     },
