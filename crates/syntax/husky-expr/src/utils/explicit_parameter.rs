@@ -3,11 +3,33 @@ use parsec::{HasStreamState, TryParseOptionalFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct ExplicitParameterDecl {
-    pattern: PatternExprIdx,
-    variables: CurrentSymbolIdxRange,
-    colon: ColonToken,
-    ty: ExprIdx,
+pub enum ExplicitParameterDecl {
+    Regular {
+        pattern: PatternExprIdx,
+        variables: CurrentSymbolIdxRange,
+        colon: ColonToken,
+        ty: ExprIdx,
+    },
+    KeyedWithoutDefault {
+        ident: IdentToken,
+        variable: CurrentSymbolIdx,
+        colon: ColonToken,
+        ty: ExprIdx,
+        eq: EqToken,
+    },
+    KeyedWithDefault {
+        ident: IdentToken,
+        variable: CurrentSymbolIdx,
+        colon: ColonToken,
+        ty: ExprIdx,
+    },
+    Variadic {
+        dot_dot_dot_token_idx: TokenIdx,
+        ident: IdentToken,
+        variable: CurrentSymbolIdx,
+        colon: ColonToken,
+        ty: ExprIdx,
+    },
 }
 
 impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDecl {
@@ -46,7 +68,8 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                     ty,
                 }),
             );
-            Ok(Some(ExplicitParameterDecl {
+            todo!("keyed variadics");
+            Ok(Some(ExplicitParameterDecl::Regular {
                 pattern,
                 variables,
                 colon,
@@ -55,27 +78,5 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
         } else {
             Ok(None)
         }
-    }
-}
-
-impl ExplicitParameterDecl {
-    pub fn pattern_expr_idx(&self) -> PatternExprIdx {
-        self.pattern
-    }
-
-    pub fn pattern(&self) -> PatternExprIdx {
-        self.pattern
-    }
-
-    pub fn variables(&self) -> ArenaIdxRange<CurrentSymbol> {
-        self.variables
-    }
-
-    pub fn colon(&self) -> ColonToken {
-        self.colon
-    }
-
-    pub fn ty(&self) -> ExprIdx {
-        self.ty
     }
 }

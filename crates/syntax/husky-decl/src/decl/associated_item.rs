@@ -38,7 +38,7 @@ impl AssociatedItemNodeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
             AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.implicit_parameters(db),
             AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.implicit_parameters(db),
@@ -81,7 +81,7 @@ impl AssociatedItemDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
             AssociatedItemDecl::TypeItem(decl) => decl.implicit_parameters(db),
             AssociatedItemDecl::TraitItem(decl) => decl.implicit_parameters(db),

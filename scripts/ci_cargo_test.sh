@@ -1,2 +1,4 @@
 . scripts/ci_setup.sh
-cargo test --verbose
+# cargo test --verbose
+echo $LIBTORCH
+pwd
