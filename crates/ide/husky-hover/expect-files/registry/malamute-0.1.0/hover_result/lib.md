@@ -167,11 +167,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 23,
+                                    character: 22,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 24,
+                                    character: 23,
                                 },
                             },
                         ),
@@ -197,11 +197,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 24,
+                                    character: 23,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 25,
+                                    character: 24,
                                 },
                             },
                         ),
@@ -227,11 +227,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 26,
+                                    character: 25,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 27,
+                                    character: 26,
                                 },
                             },
                         ),
@@ -257,11 +257,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 27,
+                                    character: 26,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 28,
+                                    character: 27,
                                 },
                             },
                         ),
@@ -287,11 +287,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 29,
+                                    character: 28,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 32,
+                                    character: 31,
                                 },
                             },
                         ),
@@ -317,11 +317,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 32,
+                                    character: 31,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 33,
+                                    character: 32,
                                 },
                             },
                         ),
@@ -347,11 +347,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 0,
-                                    character: 33,
+                                    character: 32,
                                 },
                                 end: Position {
                                     line: 0,
-                                    character: 34,
+                                    character: 33,
                                 },
                             },
                         ),

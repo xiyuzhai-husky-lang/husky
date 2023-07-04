@@ -15,6 +15,7 @@ mod stmt;
 mod symbol;
 #[cfg(test)]
 mod tests;
+mod utils;
 
 pub use self::db::*;
 pub use self::error::*;
@@ -26,6 +27,7 @@ pub use self::range::*;
 pub use self::region::*;
 pub use self::stmt::*;
 pub use self::symbol::*;
+pub use self::utils::*;
 
 use husky_entity_path::{EntityPath, PrincipalEntityPath};
 use husky_entity_tree::*;

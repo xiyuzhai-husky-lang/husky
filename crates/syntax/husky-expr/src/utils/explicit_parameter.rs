@@ -1,6 +1,5 @@
-use parsec::HasStreamState;
-
 use super::*;
+use parsec::{HasStreamState, TryParseOptionalFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
