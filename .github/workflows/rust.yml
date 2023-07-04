@@ -29,9 +29,5 @@ jobs:
       name: download cpp dependencies
       continue-on-error: false
       run: ./scripts/download_cpp_dependencies.sh
-    - name: Setup
-      run: . ./scripts/ci_setup.sh
-    - name: Build
-      run: cargo build --verbose
     - name: Run tests
-      run: cargo test --verbose
+      run: ./scripts/ci_cargo_test.sh
