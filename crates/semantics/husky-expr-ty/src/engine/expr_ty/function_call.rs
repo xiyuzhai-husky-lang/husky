@@ -77,8 +77,7 @@ impl<'a> ExprTypeEngine<'a> {
             ExpectEqsRitchieType::new(final_destination),
         ) else {
             for item in items {
-                todo!()
-                // self.infer_new_expr_ty(item, ExpectAnyDerived);
+                self.infer_new_expr_ty(item.argument_expr_idx(), ExpectAnyDerived);
             }
             Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };

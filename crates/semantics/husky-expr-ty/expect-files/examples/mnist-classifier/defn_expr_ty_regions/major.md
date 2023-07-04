@@ -23,7 +23,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 23,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -131,7 +131,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 23,
+                                            value: 22,
                                         },
                                     ),
                                 ),
