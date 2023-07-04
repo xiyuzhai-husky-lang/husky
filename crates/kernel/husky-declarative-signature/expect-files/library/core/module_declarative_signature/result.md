@@ -158,7 +158,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,

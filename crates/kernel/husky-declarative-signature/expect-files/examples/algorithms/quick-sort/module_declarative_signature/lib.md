@@ -23,7 +23,7 @@
                                     },
                                 ],
                             },
-                            regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Move,
@@ -68,7 +68,7 @@
                                     },
                                 ],
                             },
-                            regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Move,
@@ -137,7 +137,7 @@
                                     },
                                 ],
                             },
-                            regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Move,

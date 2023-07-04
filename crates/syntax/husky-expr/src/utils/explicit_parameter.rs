@@ -3,14 +3,14 @@ use parsec::{HasStreamState, TryParseOptionalFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct RegularParameterDeclPattern {
+pub struct ExplicitParameterDecl {
     pattern: PatternExprIdx,
     variables: CurrentSymbolIdxRange,
     colon: ColonToken,
     ty: ExprIdx,
 }
 
-impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for RegularParameterDeclPattern {
+impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDecl {
     type Error = ExprError;
 
     fn try_parse_stream_optional_from_without_guaranteed_rollback(
@@ -46,7 +46,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for RegularPar
                     ty,
                 }),
             );
-            Ok(Some(RegularParameterDeclPattern {
+            Ok(Some(ExplicitParameterDecl {
                 pattern,
                 variables,
                 colon,
@@ -58,7 +58,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for RegularPar
     }
 }
 
-impl RegularParameterDeclPattern {
+impl ExplicitParameterDecl {
     pub fn pattern_expr_idx(&self) -> PatternExprIdx {
         self.pattern
     }

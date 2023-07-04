@@ -25,7 +25,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -105,7 +105,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::visual::Html`),
@@ -371,7 +371,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
@@ -422,7 +422,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -473,7 +473,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -524,7 +524,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -575,7 +575,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -626,7 +626,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),

@@ -31,8 +31,8 @@ Ok(
                                     },
                                 },
                             ],
-                            regular_parameters: [
-                                RegularParameterDeclPattern {
+                            explicit_parameters: [
+                                ExplicitParameterDecl {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         1..2,
@@ -838,8 +838,8 @@ Ok(
                                     },
                                 },
                             ],
-                            regular_parameters: [
-                                RegularParameterDeclPattern {
+                            explicit_parameters: [
+                                ExplicitParameterDecl {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         1..2,
@@ -851,7 +851,7 @@ Ok(
                                     ),
                                     ty: 3,
                                 },
-                                RegularParameterDeclPattern {
+                                ExplicitParameterDecl {
                                     pattern: 1,
                                     variables: ArenaIdxRange(
                                         2..3,
@@ -863,7 +863,7 @@ Ok(
                                     ),
                                     ty: 4,
                                 },
-                                RegularParameterDeclPattern {
+                                ExplicitParameterDecl {
                                     pattern: 2,
                                     variables: ArenaIdxRange(
                                         3..4,
@@ -2154,8 +2154,8 @@ Ok(
                                     },
                                 },
                             ],
-                            regular_parameters: [
-                                RegularParameterDeclPattern {
+                            explicit_parameters: [
+                                ExplicitParameterDecl {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         1..2,
@@ -2167,7 +2167,7 @@ Ok(
                                     ),
                                     ty: 3,
                                 },
-                                RegularParameterDeclPattern {
+                                ExplicitParameterDecl {
                                     pattern: 1,
                                     variables: ArenaIdxRange(
                                         2..3,
@@ -2179,7 +2179,7 @@ Ok(
                                     ),
                                     ty: 4,
                                 },
-                                RegularParameterDeclPattern {
+                                ExplicitParameterDecl {
                                     pattern: 2,
                                     variables: ArenaIdxRange(
                                         3..4,

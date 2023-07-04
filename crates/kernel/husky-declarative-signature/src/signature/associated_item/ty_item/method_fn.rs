@@ -17,7 +17,7 @@ pub struct TypeMethodFnDeclarativeSignatureTemplate {
     #[return_ref]
     pub self_parameter: ExplicitParameterDeclarativeSignature,
     #[return_ref]
-    pub nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates,
+    pub explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -60,8 +60,8 @@ pub fn ty_method_fn_declarative_signature_template(
         declarative_term_region,
         declarative_term_menu,
     );
-    let nonself_regular_parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
-        decl.regular_parameters(db),
+    let explicit_parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
+        decl.explicit_parameters(db),
         expr_region_data,
         declarative_term_region,
     )?;
@@ -75,7 +75,7 @@ pub fn ty_method_fn_declarative_signature_template(
         self_ty,
         implicit_parameters,
         self_parameter,
-        nonself_regular_parameters,
+        explicit_parameters,
         return_ty,
     ))
 }

@@ -1,1 +1,1 @@
-pub gn narrow_down(...[] f: f32);
+pub gn narrow_down(...[] f: f32, skip: i32 = 5);

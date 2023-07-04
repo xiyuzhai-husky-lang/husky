@@ -70,7 +70,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::visual::Html`),

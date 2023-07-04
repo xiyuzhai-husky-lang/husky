@@ -343,7 +343,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i8`),
@@ -412,7 +412,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -499,7 +499,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i16`),
@@ -568,7 +568,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -655,7 +655,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i32`),
@@ -724,7 +724,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -811,7 +811,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i64`),
@@ -880,7 +880,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -967,7 +967,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i128`),
@@ -1036,7 +1036,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -1123,7 +1123,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::isize`),
@@ -1192,7 +1192,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -1279,7 +1279,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u8`),
@@ -1348,7 +1348,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -1435,7 +1435,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u16`),
@@ -1504,7 +1504,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -1591,7 +1591,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u32`),
@@ -1660,7 +1660,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -1747,7 +1747,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u64`),
@@ -1816,7 +1816,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -1903,7 +1903,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::u128`),
@@ -1972,7 +1972,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -2059,7 +2059,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::usize`),
@@ -2128,7 +2128,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -2215,7 +2215,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -2266,7 +2266,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -2335,7 +2335,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,
@@ -2422,7 +2422,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f64`),
@@ -2491,7 +2491,7 @@
                                     ),
                                 ),
                             },
-                            nonself_regular_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
                                     ExplicitParameterDeclarativeSignature {
                                         contract: Pure,

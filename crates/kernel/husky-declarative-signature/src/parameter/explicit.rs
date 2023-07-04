@@ -43,7 +43,7 @@ impl std::ops::Deref for ExplicitParameterDeclarativeSignatureTemplates {
 
 impl ExplicitParameterDeclarativeSignatureTemplates {
     pub(crate) fn from_decl(
-        parameters: &[RegularParameterDeclPattern],
+        parameters: &[ExplicitParameterDecl],
         expr_region_data: &ExprRegionData,
         signature_region: &DeclarativeTermRegion,
     ) -> DeclarativeSignatureResult<Self> {

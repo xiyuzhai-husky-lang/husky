@@ -261,8 +261,8 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 implicit_parameters: [],
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
+                                explicit_parameters: [
+                                    ExplicitParameterDecl {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -647,7 +647,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 self_parameter: None,
-                                regular_parameters: [],
+                                explicit_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExpr {
                                         expr: 0,
@@ -2333,7 +2333,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 self_parameter: None,
-                                regular_parameters: [],
+                                explicit_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExpr {
                                         expr: 0,
@@ -2555,7 +2555,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 self_parameter: None,
-                                regular_parameters: [],
+                                explicit_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExpr {
                                         expr: 0,
@@ -2777,7 +2777,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 self_parameter: None,
-                                regular_parameters: [],
+                                explicit_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExpr {
                                         expr: 0,
@@ -2999,7 +2999,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 self_parameter: None,
-                                regular_parameters: [],
+                                explicit_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExpr {
                                         expr: 0,
@@ -3221,7 +3221,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 self_parameter: None,
-                                regular_parameters: [],
+                                explicit_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExpr {
                                         expr: 0,
@@ -3443,7 +3443,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 self_parameter: None,
-                                regular_parameters: [],
+                                explicit_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExpr {
                                         expr: 0,

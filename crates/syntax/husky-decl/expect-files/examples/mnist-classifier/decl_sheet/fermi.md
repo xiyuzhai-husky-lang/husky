@@ -255,8 +255,8 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 implicit_parameters: [],
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
+                                explicit_parameters: [
+                                    ExplicitParameterDecl {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -268,7 +268,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    RegularParameterDeclPattern {
+                                    ExplicitParameterDecl {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,

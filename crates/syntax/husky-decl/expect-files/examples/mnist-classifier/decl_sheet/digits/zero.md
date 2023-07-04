@@ -122,8 +122,8 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                                 implicit_parameters: [],
-                                regular_parameters: [
-                                    RegularParameterDeclPattern {
+                                explicit_parameters: [
+                                    ExplicitParameterDecl {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,

@@ -10,7 +10,7 @@ pub struct TypeAssociatedFnDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub regular_parameters: ExplicitParameterDeclarativeSignatureTemplates,
+    pub explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -44,8 +44,8 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
         declarative_term_region,
         declarative_term_menu,
     );
-    let regular_parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
-        decl.regular_parameters(db),
+    let explicit_parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
+        decl.explicit_parameters(db),
         expr_region_data,
         declarative_term_region,
     )?;
@@ -57,7 +57,7 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
         db,
         self_ty,
         implicit_parameters,
-        regular_parameters,
+        explicit_parameters,
         return_ty,
     ))
 }
