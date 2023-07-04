@@ -21,12 +21,7 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
-                    PunctuationMapped::DotDot,
-                ),
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Dot,
+                    PunctuationMapped::DotDotDot,
                 ),
             ),
             Token::Punctuation(

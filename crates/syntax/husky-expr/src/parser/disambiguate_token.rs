@@ -236,6 +236,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     ),
                 ),
                 PunctuationMapped::DotDot => todo!(),
+                PunctuationMapped::DotDotDot => todo!(),
                 PunctuationMapped::Star => DisambiguatedToken::BinaryOpr(
                     token_idx,
                     BinaryOpr::Closed(BinaryClosedOpr::Mul),

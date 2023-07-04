@@ -350,7 +350,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         self.char_iter.peek()
     }
 
-    fn pass_two(&mut self, special: Punctuation) -> Punctuation {
+    fn turn_peek_into_next(&mut self, special: Punctuation) -> Punctuation {
         self.char_iter.next();
         special
     }
@@ -395,12 +395,12 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         Some(
             match c_start {
                 '=' => match self.peek_char() {
-                    Some('=') => self.pass_two(Punctuation::EQ_EQ),
-                    Some('>') => self.pass_two(Punctuation::HEAVY_ARROW),
+                    Some('=') => self.turn_peek_into_next(Punctuation::EQ_EQ),
+                    Some('>') => self.turn_peek_into_next(Punctuation::HEAVY_ARROW),
                     _ => Punctuation::EQ,
                 },
                 ':' => match self.peek_char() {
-                    Some('=') => self.pass_two(Punctuation::COLON_EQ),
+                    Some('=') => self.turn_peek_into_next(Punctuation::COLON_EQ),
                     Some(':') => {
                         self.char_iter.next();
                         match self.peek_char() {
@@ -421,63 +421,69 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 '}' => Punctuation::RCURL,
                 ',' => Punctuation::COMMA,
                 '@' => match self.peek_char() {
-                    Some('=') => self.pass_two(Punctuation::AT_EQ),
+                    Some('=') => self.turn_peek_into_next(Punctuation::AT_EQ),
                     _ => Punctuation::AT,
                 },
                 '&' => match self.peek_char() {
-                    Some('&') => self.pass_two(Punctuation::LOGIC_AND),
-                    Some('=') => self.pass_two(Punctuation::BIT_AND_ASSIGN),
+                    Some('&') => self.turn_peek_into_next(Punctuation::LOGIC_AND),
+                    Some('=') => self.turn_peek_into_next(Punctuation::BIT_AND_ASSIGN),
                     _ => Punctuation::AMBERSAND,
                 },
                 '|' => match self.peek_char() {
-                    Some('|') => self.pass_two(Punctuation::DOUBLE_VERTICAL),
-                    Some('=') => self.pass_two(Punctuation::BITOR),
+                    Some('|') => self.turn_peek_into_next(Punctuation::DOUBLE_VERTICAL),
+                    Some('=') => self.turn_peek_into_next(Punctuation::BITOR),
                     _ => Punctuation::VERTICAL,
                 },
                 '~' => Punctuation::TILDE,
                 '.' => match self.peek_char() {
-                    Some('.') => self.pass_two(Punctuation::DOT_DOT),
+                    Some('.') => {
+                        self.char_iter.next();
+                        match self.peek_char() {
+                            Some('.') => self.turn_peek_into_next(Punctuation::DOT_DOT_DOT),
+                            _ => Punctuation::DOT_DOT,
+                        }
+                    }
                     _ => Punctuation::DOT,
                 },
                 ';' => Punctuation::SEMICOLON,
                 '%' => Punctuation::REM_EUCLID,
 
                 '-' => match self.peek_char() {
-                    Some('=') => self.pass_two(Punctuation::SUB_ASSIGN),
-                    Some('-') => self.pass_two(Punctuation::DECR),
-                    Some('>') => self.pass_two(Punctuation::LIGHT_ARROW),
+                    Some('=') => self.turn_peek_into_next(Punctuation::SUB_ASSIGN),
+                    Some('-') => self.turn_peek_into_next(Punctuation::DECR),
+                    Some('>') => self.turn_peek_into_next(Punctuation::LIGHT_ARROW),
                     _ => return Some(Pretoken::Ambiguous(AmbiguousPretoken::SubOrMinus)),
                 },
                 '<' => match self.peek_char() {
-                    Some('<') => self.pass_two(Punctuation::SHL),
-                    Some('=') => self.pass_two(Punctuation::LEQ),
+                    Some('<') => self.turn_peek_into_next(Punctuation::SHL),
+                    Some('=') => self.turn_peek_into_next(Punctuation::LEQ),
                     _ => Punctuation::LA_OR_LT,
                 },
                 '>' => match self.peek_char() {
-                    Some('>') => self.pass_two(Punctuation::SHR), // >>
-                    Some('=') => self.pass_two(Punctuation::GEQ),
+                    Some('>') => self.turn_peek_into_next(Punctuation::SHR), // >>
+                    Some('=') => self.turn_peek_into_next(Punctuation::GEQ),
                     _ => Punctuation::RA_OR_GT,
                 },
                 '$' => Punctuation::SHEBA,
                 '*' => match self.peek_char() {
-                    Some('*') => self.pass_two(Punctuation::STAR_STAR),
-                    Some('=') => self.pass_two(Punctuation::MUL_ASSIGN),
+                    Some('*') => self.turn_peek_into_next(Punctuation::STAR_STAR),
+                    Some('=') => self.turn_peek_into_next(Punctuation::MUL_ASSIGN),
                     _ => Punctuation::STAR,
                 },
                 '/' => match self.peek_char() {
                     Some('/') => unreachable!(),
-                    Some('>') => self.pass_two(Punctuation::EMPTY_HTML_KET),
-                    Some('=') => self.pass_two(Punctuation::DIV_ASSIGN),
+                    Some('>') => self.turn_peek_into_next(Punctuation::EMPTY_HTML_KET),
+                    Some('=') => self.turn_peek_into_next(Punctuation::DIV_ASSIGN),
                     _ => Punctuation::DIV,
                 },
                 '+' => match self.peek_char() {
-                    Some('+') => self.pass_two(Punctuation::INCR),
-                    Some('=') => self.pass_two(Punctuation::ADD_ASSIGN),
+                    Some('+') => self.turn_peek_into_next(Punctuation::INCR),
+                    Some('=') => self.turn_peek_into_next(Punctuation::ADD_ASSIGN),
                     _ => Punctuation::ADD,
                 },
                 '!' => match self.peek_char() {
-                    Some('=') => self.pass_two(Punctuation::NEQ),
-                    Some('!') => self.pass_two(Punctuation::DOUBLE_EXCLAMATION),
+                    Some('=') => self.turn_peek_into_next(Punctuation::NEQ),
+                    Some('!') => self.turn_peek_into_next(Punctuation::DOUBLE_EXCLAMATION),
                     _ => Punctuation::EXCLAMATION,
                 },
                 '?' => Punctuation::QUESTION,
