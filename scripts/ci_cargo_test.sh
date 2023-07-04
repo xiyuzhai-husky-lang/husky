@@ -1,4 +1,6 @@
-. scripts/ci_setup.sh
+set -e
+pwd
+. .scripts/ci_setup.sh
 # cargo test --verbose
 echo $LIBTORCH
 pwd
