@@ -6,7 +6,7 @@ pub use self::implicit::*;
 
 use crate::*;
 use husky_expr::{
-    ExplicitParameterDecl, ExprRegionData, ImplicitParameterDeclPattern,
+    ExplicitParameterDecl, ExprRegionData, ImplicitParameterDecl,
     ImplicitParameterDeclPatternVariant,
 };
 use husky_token::VarianceToken;

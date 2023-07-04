@@ -9,7 +9,7 @@ pub struct ImplicitParameterDeclarativeSignature {
 
 impl ImplicitParameterDeclarativeSignature {
     fn from_decl(
-        parameter_decl_pattern: &ImplicitParameterDeclPattern,
+        parameter_decl_pattern: &ImplicitParameterDecl,
         region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> ImplicitParameterDeclarativeSignature {
@@ -86,7 +86,7 @@ pub struct ImplicitParameterDeclarativeSignatures {
 
 impl ImplicitParameterDeclarativeSignatures {
     pub(crate) fn from_decl(
-        implicit_parameters: &[ImplicitParameterDeclPattern],
+        implicit_parameters: &[ImplicitParameterDecl],
         declarative_term_region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> Self {

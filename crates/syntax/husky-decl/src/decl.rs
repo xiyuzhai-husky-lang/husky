@@ -82,7 +82,7 @@ pub enum Decl {
 }
 
 impl Decl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDeclPattern] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
             Decl::Submodule(_) => todo!(),
             Decl::ModuleItem(decl) => decl.implicit_parameters(db),

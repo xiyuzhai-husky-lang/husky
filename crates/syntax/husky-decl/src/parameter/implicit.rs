@@ -1,7 +1,7 @@
 use super::*;
 use parsec::parse_separated_small2_list_expected;
 
-pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[ImplicitParameterDeclPattern; 2]>;
+pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[ImplicitParameterDecl; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
@@ -18,7 +18,7 @@ impl ImplicitParameterDeclList {
         self.langle
     }
 
-    pub fn implicit_parameters(&self) -> &[ImplicitParameterDeclPattern] {
+    pub fn implicit_parameters(&self) -> &[ImplicitParameterDecl] {
         &self.implicit_parameters
     }
 

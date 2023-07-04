@@ -54,10 +54,7 @@ impl TypeItemNodeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(
-        self,
-        _db: &'a dyn DeclDb,
-    ) -> &'a [ImplicitParameterDeclPattern] {
+    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
             TypeItemNodeDecl::AssociatedFn(_) => todo!(),
             TypeItemNodeDecl::MethodFn(_) => todo!(),
@@ -201,10 +198,7 @@ impl TypeItemDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(
-        self,
-        _db: &'a dyn DeclDb,
-    ) -> &'a [ImplicitParameterDeclPattern] {
+    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
         match self {
             TypeItemDecl::AssociatedFn(_) => todo!(),
             TypeItemDecl::MethodFn(_) => todo!(),

@@ -51,23 +51,45 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
             data: parameters
                 .iter()
                 .enumerate()
-                .map(|(i, parameter)| {
-                    let ty = parameter.ty();
-                    parameter.pattern();
-                    let ty = match signature_region.expr_term(ty) {
-                        Ok(ty) => ty,
-                        Err(_) => {
-                            return Err(
-                                DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
-                                    i.try_into().unwrap(),
-                                ),
-                            )
-                        }
-                    };
-                    Ok(ExplicitParameterDeclarativeSignature::new(
-                        expr_region_data.pattern_contract(parameter.pattern()),
+                .map(|(i, parameter)| match parameter {
+                    ExplicitParameterDecl::Regular {
+                        pattern,
+                        variables,
+                        colon,
                         ty,
-                    ))
+                    } => {
+                        Ok(ExplicitParameterDeclarativeSignature::new(
+                            expr_region_data.pattern_contract(*pattern),
+                            match signature_region.expr_term(*ty) {
+                                Ok(ty) => ty,
+                                Err(_) => return Err(
+                                    DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                        i.try_into().unwrap(),
+                                    ),
+                                ),
+                            },
+                        ))
+                    }
+                    ExplicitParameterDecl::KeyedWithoutDefault {
+                        ident,
+                        variable,
+                        colon,
+                        ty,
+                        eq,
+                    } => todo!(),
+                    ExplicitParameterDecl::KeyedWithDefault {
+                        ident,
+                        variable,
+                        colon,
+                        ty,
+                    } => todo!(),
+                    ExplicitParameterDecl::Variadic {
+                        dot_dot_dot_token_idx,
+                        ident,
+                        variable,
+                        colon,
+                        ty,
+                    } => todo!(),
                 })
                 .collect::<DeclarativeSignatureResult<_>>()?,
         })
