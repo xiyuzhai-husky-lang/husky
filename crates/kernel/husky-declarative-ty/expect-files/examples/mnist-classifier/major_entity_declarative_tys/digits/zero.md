@@ -15,8 +15,10 @@
                 FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (

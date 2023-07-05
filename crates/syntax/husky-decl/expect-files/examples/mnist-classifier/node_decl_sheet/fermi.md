@@ -328,78 +328,34 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                explicit_parameter_decl_list: Ok(
-                                    SelfParameterAndExplicitParameters {
-                                        lpar: LeftParenthesisToken(
-                                            TokenIdx(
-                                                148,
-                                            ),
-                                        ),
-                                        self_parameter: None,
-                                        comma_after_self_parameter: None,
-                                        explicit_parameters: [
-                                            ExplicitParameterDecl::Regular {
-                                                pattern: 0,
-                                                variables: ArenaIdxRange(
-                                                    0..1,
+                                explicit_parameter_decl_list: Err(
+                                    NodeDeclError::Original(
+                                        OriginalNodeDeclError::ExpectedRightParenthesisInParameterList(
+                                            TokenStreamState {
+                                                next_token_idx: TokenIdx(
+                                                    149,
                                                 ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        150,
-                                                    ),
-                                                ),
-                                                ty: 3,
+                                                drained: false,
                                             },
-                                            ExplicitParameterDecl::Regular {
-                                                pattern: 1,
-                                                variables: ArenaIdxRange(
-                                                    1..2,
-                                                ),
-                                                colon: ColonToken(
-                                                    TokenIdx(
-                                                        157,
-                                                    ),
-                                                ),
-                                                ty: 10,
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaToken(
-                                                TokenIdx(
-                                                    155,
-                                                ),
-                                            ),
-                                        ],
-                                        rpar: RightParenthesisToken(
-                                            TokenIdx(
-                                                170,
-                                            ),
                                         ),
-                                    },
+                                    ),
                                 ),
                                 curry_token: Ok(
-                                    Some(
-                                        CurryToken(
-                                            TokenIdx(
-                                                171,
-                                            ),
-                                        ),
-                                    ),
+                                    None,
                                 ),
                                 return_ty: Ok(
-                                    Some(
-                                        ReturnTypeExpr {
-                                            expr: 11,
-                                        },
-                                    ),
+                                    None,
                                 ),
-                                eol_colon: Ok(
-                                    EolToken::Colon(
-                                        EolColonToken {
-                                            token_idx: TokenIdx(
-                                                173,
-                                            ),
-                                        },
+                                eol_colon: Err(
+                                    NodeDeclError::Original(
+                                        OriginalNodeDeclError::ExpectedEolColon(
+                                            TokenStreamState {
+                                                next_token_idx: TokenIdx(
+                                                    149,
+                                                ),
+                                                drained: false,
+                                            },
+                                        ),
                                     ),
                                 ),
                                 expr_region: ExprRegion {
@@ -418,267 +374,28 @@ Ok(
                                             ),
                                         ),
                                         expr_arena: Arena {
-                                            data: [
-                                                Expr::List {
-                                                    lbox_token_idx: TokenIdx(
-                                                        152,
-                                                    ),
-                                                    items: [],
-                                                    rbox_token_idx: TokenIdx(
-                                                        153,
-                                                    ),
-                                                },
-                                                Expr::Prefix {
-                                                    opr: Tilde,
-                                                    opr_token_idx: TokenIdx(
-                                                        151,
-                                                    ),
-                                                    opd: 0,
-                                                },
-                                                Expr::PrincipalEntityPath {
-                                                    entity_path_expr: 0,
-                                                    opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::ExplicitApplication {
-                                                    function: 1,
-                                                    argument: 2,
-                                                },
-                                                Expr::List {
-                                                    lbox_token_idx: TokenIdx(
-                                                        158,
-                                                    ),
-                                                    items: [],
-                                                    rbox_token_idx: TokenIdx(
-                                                        159,
-                                                    ),
-                                                },
-                                                Expr::PrincipalEntityPath {
-                                                    entity_path_expr: 1,
-                                                    opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Prefix {
-                                                    opr: Tilde,
-                                                    opr_token_idx: TokenIdx(
-                                                        163,
-                                                    ),
-                                                    opd: 5,
-                                                },
-                                                Expr::PrincipalEntityPath {
-                                                    entity_path_expr: 2,
-                                                    opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`core::num::f32`, `Extern`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                                Expr::Prefix {
-                                                    opr: Option,
-                                                    opr_token_idx: TokenIdx(
-                                                        167,
-                                                    ),
-                                                    opd: 7,
-                                                },
-                                                Expr::Ritchie {
-                                                    ritchie_kind_token_idx: TokenIdx(
-                                                        161,
-                                                    ),
-                                                    ritchie_kind: FnType,
-                                                    lpar_token: LeftParenthesisToken(
-                                                        TokenIdx(
-                                                            162,
-                                                        ),
-                                                    ),
-                                                    parameter_ty_items: [
-                                                        CommaListItem {
-                                                            expr_idx: 6,
-                                                            comma_token_idx: None,
-                                                        },
-                                                    ],
-                                                    rpar_token_idx: TokenIdx(
-                                                        165,
-                                                    ),
-                                                    light_arrow_token: Some(
-                                                        LightArrowToken(
-                                                            TokenIdx(
-                                                                166,
-                                                            ),
-                                                        ),
-                                                    ),
-                                                    return_ty_expr: Some(
-                                                        8,
-                                                    ),
-                                                },
-                                                Expr::FunctionApplicationOrCall {
-                                                    function: 4,
-                                                    implicit_arguments: None,
-                                                    lpar_token_idx: TokenIdx(
-                                                        160,
-                                                    ),
-                                                    items: [
-                                                        CommaListItem {
-                                                            expr_idx: 9,
-                                                            comma_token_idx: None,
-                                                        },
-                                                    ],
-                                                    rpar_token_idx: TokenIdx(
-                                                        169,
-                                                    ),
-                                                },
-                                                Expr::PrincipalEntityPath {
-                                                    entity_path_expr: 3,
-                                                    opt_path: Some(
-                                                        PrincipalEntityPath::ModuleItem(
-                                                            ModuleItemPath::Type(
-                                                                TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                            ),
-                                                        ),
-                                                    ),
-                                                },
-                                            ],
+                                            data: [],
                                         },
                                         principal_entity_path_expr_arena: Arena {
-                                            data: [
-                                                PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
-                                                            ident: `ConcaveComponent`,
-                                                            token_idx: TokenIdx(
-                                                                154,
-                                                            ),
-                                                        },
-                                                    ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                                PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
-                                                            ident: `ConcaveComponent`,
-                                                            token_idx: TokenIdx(
-                                                                164,
-                                                            ),
-                                                        },
-                                                    ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                                PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
-                                                            ident: `f32`,
-                                                            token_idx: TokenIdx(
-                                                                168,
-                                                            ),
-                                                        },
-                                                    ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`core::num::f32`, `Extern`),
-                                                        ),
-                                                    ),
-                                                },
-                                                PrincipalEntityPathExpr::Root {
-                                                    path_name_token: PathNameToken::Ident(
-                                                        IdentToken {
-                                                            ident: `FermiMatchResult`,
-                                                            token_idx: TokenIdx(
-                                                                172,
-                                                            ),
-                                                        },
-                                                    ),
-                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
-                                                        ModuleItemPath::Type(
-                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                        ),
-                                                    ),
-                                                },
-                                            ],
+                                            data: [],
                                         },
                                         stmt_arena: Arena {
                                             data: [],
                                         },
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
-                                                data: [
-                                                    PatternExpr::Ident {
-                                                        modifier_keyword_group: None,
-                                                        ident_token: IdentToken {
-                                                            ident: `concave_components`,
-                                                            token_idx: TokenIdx(
-                                                                149,
-                                                            ),
-                                                        },
-                                                    },
-                                                    PatternExpr::Ident {
-                                                        modifier_keyword_group: None,
-                                                        ident_token: IdentToken {
-                                                            ident: `templates`,
-                                                            token_idx: TokenIdx(
-                                                                156,
-                                                            ),
-                                                        },
-                                                    },
-                                                ],
+                                                data: [],
                                             },
                                             pattern_expr_contracts: ArenaMap {
-                                                data: [
-                                                    Pure,
-                                                    Pure,
-                                                ],
+                                                data: [],
                                             },
-                                            pattern_infos: [
-                                                Parameter,
-                                                Parameter,
-                                            ],
+                                            pattern_infos: [],
                                             pattern_symbol_arena: Arena {
-                                                data: [
-                                                    PatternSymbol::Atom(
-                                                        0,
-                                                    ),
-                                                    PatternSymbol::Atom(
-                                                        1,
-                                                    ),
-                                                ],
+                                                data: [],
                                             },
-                                            pattern_symbol_maps: [
-                                                [
-                                                    (
-                                                        `concave_components`,
-                                                        0,
-                                                    ),
-                                                ],
-                                                [
-                                                    (
-                                                        `templates`,
-                                                        1,
-                                                    ),
-                                                ],
-                                            ],
+                                            pattern_symbol_maps: [],
                                             pattern_symbol_modifiers: ArenaMap {
-                                                data: [
-                                                    Pure,
-                                                    Pure,
-                                                ],
+                                                data: [],
                                             },
                                         },
                                         symbol_region: SymbolRegion {
@@ -686,68 +403,13 @@ Ok(
                                                 data: [],
                                             },
                                             current_symbol_arena: Arena {
-                                                data: [
-                                                    CurrentSymbol {
-                                                        modifier: Pure,
-                                                        access_start: TokenIdx(
-                                                            150,
-                                                        ),
-                                                        access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
-                                                            ident: `concave_components`,
-                                                            pattern_symbol_idx: 0,
-                                                        },
-                                                    },
-                                                    CurrentSymbol {
-                                                        modifier: Pure,
-                                                        access_start: TokenIdx(
-                                                            157,
-                                                        ),
-                                                        access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
-                                                            ident: `templates`,
-                                                            pattern_symbol_idx: 1,
-                                                        },
-                                                    },
-                                                ],
+                                                data: [],
                                             },
                                             allow_self_type: False,
                                             allow_self_value: False,
-                                            pattern_ty_constraints: [
-                                                (
-                                                    ExplicitRegularParameter {
-                                                        pattern_expr_idx: 0,
-                                                        ty_expr_idx: 3,
-                                                    },
-                                                    ArenaIdxRange(
-                                                        0..1,
-                                                    ),
-                                                ),
-                                                (
-                                                    ExplicitRegularParameter {
-                                                        pattern_expr_idx: 1,
-                                                        ty_expr_idx: 10,
-                                                    },
-                                                    ArenaIdxRange(
-                                                        1..2,
-                                                    ),
-                                                ),
-                                            ],
+                                            pattern_ty_constraints: [],
                                         },
-                                        roots: [
-                                            ExprRoot {
-                                                kind: ExplicitParameterType,
-                                                expr_idx: 3,
-                                            },
-                                            ExprRoot {
-                                                kind: ExplicitParameterType,
-                                                expr_idx: 10,
-                                            },
-                                            ExprRoot {
-                                                kind: ReturnType,
-                                                expr_idx: 11,
-                                            },
-                                        ],
+                                        roots: [],
                                     },
                                 },
                             },

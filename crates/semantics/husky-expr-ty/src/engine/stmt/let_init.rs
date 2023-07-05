@@ -17,7 +17,10 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 None => None,
             },
-            Err(_) => todo!(),
+            Err(e) => {
+                p!(e.debug(self.db()));
+                todo!()
+            }
         };
         match pattern_ty {
             Some(pattern_ty) => {

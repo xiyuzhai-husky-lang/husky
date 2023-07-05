@@ -35,8 +35,10 @@
                 FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -45,8 +47,10 @@
                 FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
 ]

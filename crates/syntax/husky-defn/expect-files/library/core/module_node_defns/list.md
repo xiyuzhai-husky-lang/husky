@@ -865,55 +865,17 @@ Ok(
                             implicit_parameter_decl_list: Ok(
                                 None,
                             ),
-                            explicit_parameter_decl_list: Ok(
-                                SelfParameterAndExplicitParameters {
-                                    lpar: LeftParenthesisToken(
-                                        TokenIdx(
-                                            26,
-                                        ),
-                                    ),
-                                    self_parameter: Some(
-                                        SelfParameterDeclPattern::Mut {
-                                            mut_token: MutToken {
-                                                token_idx: TokenIdx(
-                                                    27,
-                                                ),
-                                            },
-                                            self_value_token: SelfValueToken {
-                                                token_idx: TokenIdx(
-                                                    28,
-                                                ),
-                                            },
+                            explicit_parameter_decl_list: Err(
+                                NodeDeclError::Original(
+                                    OriginalNodeDeclError::ExpectedRightParenthesisInParameterList(
+                                        TokenStreamState {
+                                            next_token_idx: TokenIdx(
+                                                30,
+                                            ),
+                                            drained: false,
                                         },
                                     ),
-                                    comma_after_self_parameter: Some(
-                                        CommaToken(
-                                            TokenIdx(
-                                                29,
-                                            ),
-                                        ),
-                                    ),
-                                    explicit_parameters: [
-                                        ExplicitParameterDecl::Regular {
-                                            pattern: 0,
-                                            variables: ArenaIdxRange(
-                                                0..1,
-                                            ),
-                                            colon: ColonToken(
-                                                TokenIdx(
-                                                    31,
-                                                ),
-                                            ),
-                                            ty: 0,
-                                        },
-                                    ],
-                                    commas: [],
-                                    rpar: RightParenthesisToken(
-                                        TokenIdx(
-                                            33,
-                                        ),
-                                    ),
-                                },
+                                ),
                             ),
                             curry_token: Ok(
                                 None,
@@ -921,13 +883,16 @@ Ok(
                             return_ty: Ok(
                                 None,
                             ),
-                            eol_colon: Ok(
-                                EolToken::Semicolon(
-                                    EolSemicolonToken {
-                                        token_idx: TokenIdx(
-                                            34,
-                                        ),
-                                    },
+                            eol_colon: Err(
+                                NodeDeclError::Original(
+                                    OriginalNodeDeclError::ExpectedEolColon(
+                                        TokenStreamState {
+                                            next_token_idx: TokenIdx(
+                                                30,
+                                            ),
+                                            drained: false,
+                                        },
+                                    ),
                                 ),
                             ),
                             expr_region: ExprRegion {
@@ -1088,20 +1053,7 @@ Ok(
                                         ),
                                     ),
                                     expr_arena: Arena {
-                                        data: [
-                                            Expr::InheritedSymbol {
-                                                ident: `E`,
-                                                token_idx: TokenIdx(
-                                                    32,
-                                                ),
-                                                inherited_symbol_idx: 0,
-                                                inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSymbol::Type {
-                                                        ident: `E`,
-                                                    },
-                                                ),
-                                            },
-                                        ],
+                                        data: [],
                                     },
                                     principal_entity_path_expr_arena: Arena {
                                         data: [],
@@ -1111,45 +1063,18 @@ Ok(
                                     },
                                     pattern_expr_region: PatternExprRegion {
                                         pattern_expr_arena: Arena {
-                                            data: [
-                                                PatternExpr::Ident {
-                                                    modifier_keyword_group: None,
-                                                    ident_token: IdentToken {
-                                                        ident: `e`,
-                                                        token_idx: TokenIdx(
-                                                            30,
-                                                        ),
-                                                    },
-                                                },
-                                            ],
+                                            data: [],
                                         },
                                         pattern_expr_contracts: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
+                                            data: [],
                                         },
-                                        pattern_infos: [
-                                            Parameter,
-                                        ],
+                                        pattern_infos: [],
                                         pattern_symbol_arena: Arena {
-                                            data: [
-                                                PatternSymbol::Atom(
-                                                    0,
-                                                ),
-                                            ],
+                                            data: [],
                                         },
-                                        pattern_symbol_maps: [
-                                            [
-                                                (
-                                                    `e`,
-                                                    0,
-                                                ),
-                                            ],
-                                        ],
+                                        pattern_symbol_maps: [],
                                         pattern_symbol_modifiers: ArenaMap {
-                                            data: [
-                                                Pure,
-                                            ],
+                                            data: [],
                                         },
                                     },
                                     symbol_region: SymbolRegion {
@@ -1169,40 +1094,13 @@ Ok(
                                             ],
                                         },
                                         current_symbol_arena: Arena {
-                                            data: [
-                                                CurrentSymbol {
-                                                    modifier: Pure,
-                                                    access_start: TokenIdx(
-                                                        31,
-                                                    ),
-                                                    access_end: None,
-                                                    variant: CurrentSymbolVariant::ExplicitRegularParameter {
-                                                        ident: `e`,
-                                                        pattern_symbol_idx: 0,
-                                                    },
-                                                },
-                                            ],
+                                            data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
-                                        pattern_ty_constraints: [
-                                            (
-                                                ExplicitRegularParameter {
-                                                    pattern_expr: 0,
-                                                    ty: 0,
-                                                },
-                                                ArenaIdxRange(
-                                                    0..1,
-                                                ),
-                                            ),
-                                        ],
+                                        pattern_ty_constraints: [],
                                     },
-                                    roots: [
-                                        ExprRoot {
-                                            kind: ExplicitParameterType,
-                                            expr_idx: 0,
-                                        },
-                                    ],
+                                    roots: [],
                                 },
                             },
                         },
@@ -1368,20 +1266,7 @@ Ok(
                                                 ),
                                             ),
                                             expr_arena: Arena {
-                                                data: [
-                                                    Expr::InheritedSymbol {
-                                                        ident: `E`,
-                                                        token_idx: TokenIdx(
-                                                            32,
-                                                        ),
-                                                        inherited_symbol_idx: 0,
-                                                        inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSymbol::Type {
-                                                                ident: `E`,
-                                                            },
-                                                        ),
-                                                    },
-                                                ],
+                                                data: [],
                                             },
                                             principal_entity_path_expr_arena: Arena {
                                                 data: [],
@@ -1391,45 +1276,18 @@ Ok(
                                             },
                                             pattern_expr_region: PatternExprRegion {
                                                 pattern_expr_arena: Arena {
-                                                    data: [
-                                                        PatternExpr::Ident {
-                                                            modifier_keyword_group: None,
-                                                            ident_token: IdentToken {
-                                                                ident: `e`,
-                                                                token_idx: TokenIdx(
-                                                                    30,
-                                                                ),
-                                                            },
-                                                        },
-                                                    ],
+                                                    data: [],
                                                 },
                                                 pattern_expr_contracts: ArenaMap {
-                                                    data: [
-                                                        Pure,
-                                                    ],
+                                                    data: [],
                                                 },
-                                                pattern_infos: [
-                                                    Parameter,
-                                                ],
+                                                pattern_infos: [],
                                                 pattern_symbol_arena: Arena {
-                                                    data: [
-                                                        PatternSymbol::Atom(
-                                                            0,
-                                                        ),
-                                                    ],
+                                                    data: [],
                                                 },
-                                                pattern_symbol_maps: [
-                                                    [
-                                                        (
-                                                            `e`,
-                                                            0,
-                                                        ),
-                                                    ],
-                                                ],
+                                                pattern_symbol_maps: [],
                                                 pattern_symbol_modifiers: ArenaMap {
-                                                    data: [
-                                                        Pure,
-                                                    ],
+                                                    data: [],
                                                 },
                                             },
                                             symbol_region: SymbolRegion {
@@ -1449,40 +1307,13 @@ Ok(
                                                     ],
                                                 },
                                                 current_symbol_arena: Arena {
-                                                    data: [
-                                                        CurrentSymbol {
-                                                            modifier: Pure,
-                                                            access_start: TokenIdx(
-                                                                31,
-                                                            ),
-                                                            access_end: None,
-                                                            variant: CurrentSymbolVariant::ExplicitRegularParameter {
-                                                                ident: `e`,
-                                                                pattern_symbol_idx: 0,
-                                                            },
-                                                        },
-                                                    ],
+                                                    data: [],
                                                 },
                                                 allow_self_type: True,
                                                 allow_self_value: True,
-                                                pattern_ty_constraints: [
-                                                    (
-                                                        ExplicitRegularParameter {
-                                                            pattern_expr: 0,
-                                                            ty: 0,
-                                                        },
-                                                        ArenaIdxRange(
-                                                            0..1,
-                                                        ),
-                                                    ),
-                                                ],
+                                                pattern_ty_constraints: [],
                                             },
-                                            roots: [
-                                                ExprRoot {
-                                                    kind: ExplicitParameterType,
-                                                    expr_idx: 0,
-                                                },
-                                            ],
+                                            roots: [],
                                         },
                                     },
                                 ),
@@ -1544,15 +1375,6 @@ Ok(
                                                         ident: `E`,
                                                     },
                                                 ),
-                                            },
-                                            InheritedSymbol {
-                                                parent_symbol_idx: Current(
-                                                    0,
-                                                ),
-                                                modifier: Pure,
-                                                kind: InheritedSymbolKind::ExplicitParameter {
-                                                    ident: `e`,
-                                                },
                                             },
                                         ],
                                     },

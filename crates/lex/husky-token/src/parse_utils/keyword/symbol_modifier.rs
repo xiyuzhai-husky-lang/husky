@@ -8,11 +8,11 @@ pub enum SymbolModifierKeywordGroup {
 }
 
 impl SymbolModifierKeywordGroup {
-    pub fn symbol_modifier(self) -> SymbolModifier {
+    pub fn runtime_symbol_modifier(self) -> SymbolModifier {
         match self {
             SymbolModifierKeywordGroup::Default => SymbolModifier::Const,
-            SymbolModifierKeywordGroup::Mut(_) => todo!(),
-            SymbolModifierKeywordGroup::RefMut(_, _) => todo!(),
+            SymbolModifierKeywordGroup::Mut(_) => SymbolModifier::Mut,
+            SymbolModifierKeywordGroup::RefMut(_, _) => SymbolModifier::RefMut,
         }
     }
 

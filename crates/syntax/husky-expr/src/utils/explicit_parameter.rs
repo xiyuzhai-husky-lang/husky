@@ -146,7 +146,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                 None,
                 CurrentSymbolVariant::ExplicitVariadicParameter {
                     ident_token,
-                    symbol_modifier: symbol_modifier_keyword_group.symbol_modifier(),
+                    symbol_modifier: symbol_modifier_keyword_group.runtime_symbol_modifier(),
                 },
             );
             let colon = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;

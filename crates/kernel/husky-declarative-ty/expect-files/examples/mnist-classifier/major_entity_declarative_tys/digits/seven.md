@@ -15,8 +15,10 @@
                 FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -35,8 +37,10 @@
                 FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -45,8 +49,10 @@
                 FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
