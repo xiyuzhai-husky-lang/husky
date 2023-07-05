@@ -3346,7 +3346,7 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 0,
                                                     ty: 1,
                                                 },
@@ -3531,7 +3531,7 @@ Ok(
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 0,
                                                             ty: 1,
                                                         },
@@ -4051,7 +4051,7 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 0,
                                                     ty: 1,
                                                 },
@@ -4236,7 +4236,7 @@ Ok(
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 0,
                                                             ty: 1,
                                                         },

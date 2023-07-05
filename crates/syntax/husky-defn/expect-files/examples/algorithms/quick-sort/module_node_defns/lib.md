@@ -289,7 +289,7 @@ Ok(
                                                 ),
                                             ),
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 0,
                                                     ty: 3,
                                                 },
@@ -499,7 +499,7 @@ Ok(
                                                         ),
                                                     ),
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 0,
                                                             ty: 3,
                                                         },
@@ -1307,7 +1307,7 @@ Ok(
                                                 ),
                                             ),
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 0,
                                                     ty: 3,
                                                 },
@@ -1316,7 +1316,7 @@ Ok(
                                                 ),
                                             ),
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 1,
                                                     ty: 4,
                                                 },
@@ -1325,7 +1325,7 @@ Ok(
                                                 ),
                                             ),
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 2,
                                                     ty: 5,
                                                 },
@@ -1657,7 +1657,7 @@ Ok(
                                                         ),
                                                     ),
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 0,
                                                             ty: 3,
                                                         },
@@ -1666,7 +1666,7 @@ Ok(
                                                         ),
                                                     ),
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 1,
                                                             ty: 4,
                                                         },
@@ -1675,7 +1675,7 @@ Ok(
                                                         ),
                                                     ),
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 2,
                                                             ty: 5,
                                                         },
@@ -2731,7 +2731,7 @@ Ok(
                                                 ),
                                             ),
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 0,
                                                     ty: 3,
                                                 },
@@ -2740,7 +2740,7 @@ Ok(
                                                 ),
                                             ),
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 1,
                                                     ty: 4,
                                                 },
@@ -2749,7 +2749,7 @@ Ok(
                                                 ),
                                             ),
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 2,
                                                     ty: 5,
                                                 },
@@ -3110,7 +3110,7 @@ Ok(
                                                         ),
                                                     ),
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 0,
                                                             ty: 3,
                                                         },
@@ -3119,7 +3119,7 @@ Ok(
                                                         ),
                                                     ),
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 1,
                                                             ty: 4,
                                                         },
@@ -3128,7 +3128,7 @@ Ok(
                                                         ),
                                                     ),
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 2,
                                                             ty: 5,
                                                         },

@@ -64,7 +64,7 @@ impl<'a> ExprTypeEngine<'a> {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
             CurrentSymbolVariant::FrameVariable { .. } => todo!(),
-            CurrentSymbolVariant::ExplicitVariadicParameter { ident_token } => todo!(),
+            CurrentSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => todo!(),
         }
     }
 

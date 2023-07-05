@@ -45,8 +45,11 @@ pub struct SymbolRegion {
 #[derive(Debug, PartialEq, Eq)]
 pub enum PatternTypeConstraint {
     ImplicitTypeParameter,
-    ExplicitParameter {
+    ExplicitRegularParameter {
         pattern_expr: PatternExprIdx,
+        ty: ExprIdx,
+    },
+    ExplicitVariadicParameter {
         ty: ExprIdx,
     },
     LetVariables {
@@ -91,11 +94,26 @@ impl SymbolRegion {
     }
 
     #[inline(always)]
+    pub(crate) fn define_symbol(
+        &mut self,
+        variable: CurrentSymbol,
+        ty_constraint: Option<PatternTypeConstraint>,
+    ) -> CurrentSymbolIdx {
+        let symbol = self.current_symbol_arena.alloc_one(variable);
+        self.pattern_ty_constraints.extend(
+            ty_constraint
+                .into_iter()
+                .map(|ty_constraint| (ty_constraint, CurrentSymbolIdxRange::new_single(symbol))),
+        );
+        symbol
+    }
+
+    #[inline(always)]
     pub(crate) fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
         ty_constraint: Option<PatternTypeConstraint>,
-    ) -> ArenaIdxRange<CurrentSymbol> {
+    ) -> CurrentSymbolIdxRange {
         let symbols = self.current_symbol_arena.alloc_batch(variables);
         self.pattern_ty_constraints.extend(
             ty_constraint
@@ -161,7 +179,11 @@ impl SymbolRegion {
                 CurrentSymbolVariant::ImplicitParameter {
                     ref implicit_parameter_variant,
                 } => InheritedSymbolKind::ImplicitParameter(implicit_parameter_variant.bequeath()),
-                CurrentSymbolVariant::ExplicitVariadicParameter { ident_token } => todo!(),
+                CurrentSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
+                    InheritedSymbolKind::ExplicitParameter {
+                        ident: ident_token.ident(),
+                    }
+                }
             };
             inherited_symbol_arena.alloc_one(InheritedSymbol {
                 kind,
@@ -195,7 +217,7 @@ impl SymbolRegion {
         self.pattern_ty_constraints
             .iter()
             .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
-                PatternTypeConstraint::ExplicitParameter {
+                PatternTypeConstraint::ExplicitRegularParameter {
                     pattern_expr: pattern,
                     ty,
                 } if *pattern == target => Some(*ty),

@@ -15,14 +15,14 @@ DiagnosticSheet {
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: expect identifier",
+                message: "Syntax Error: expected `)` in parameter list",
                 severity: Error,
-                range: [1:23, 1:24),
+                range: [1:46, 1:47),
             },
             Diagnostic {
                 message: "Syntax Error: expect end-of-line colon",
                 severity: Error,
-                range: [1:23, 1:24),
+                range: [1:46, 1:47),
             },
         ],
     },

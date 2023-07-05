@@ -1637,7 +1637,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -1646,7 +1646,7 @@ Ok(
                                                     ),
                                                 ),
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 1,
                                                         ty: 1,
                                                     },
@@ -2185,7 +2185,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -2720,7 +2720,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -3368,7 +3368,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -3903,7 +3903,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -4216,7 +4216,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -4529,7 +4529,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -4842,7 +4842,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -5224,7 +5224,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -5233,7 +5233,7 @@ Ok(
                                                     ),
                                                 ),
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 1,
                                                         ty: 1,
                                                     },
@@ -5663,7 +5663,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -5976,7 +5976,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -6402,7 +6402,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },
@@ -6715,7 +6715,7 @@ Ok(
                                             allow_self_value: True,
                                             pattern_ty_constraints: [
                                                 (
-                                                    ExplicitParameter {
+                                                    ExplicitRegularParameter {
                                                         pattern_expr: 0,
                                                         ty: 0,
                                                     },

@@ -77,7 +77,9 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitPa
                         Some((
                             colon,
                             ctx.parse_expr_expected2(
-                                Some(ExprEnvironment::WithinBracket(Bracket::TemplateAngle)),
+                                Some(ExprEnvironment::WithinBracketedParameterList(
+                                    Bracket::TemplateAngle,
+                                )),
                                 ExprRootKind::Traits,
                                 OriginalExprError::ExpectedTraits,
                             ),
@@ -118,7 +120,9 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitPa
             let ident_token = ctx.try_parse_expected(OriginalExprError::ExpectedIdent)?;
             let colon_token = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(
-                Some(ExprEnvironment::WithinBracket(Bracket::TemplateAngle)),
+                Some(ExprEnvironment::WithinBracketedParameterList(
+                    Bracket::TemplateAngle,
+                )),
                 ExprRootKind::ConstantImplicitParameterType,
                 OriginalExprError::ExpectedConstantImplicitParameterType,
             );

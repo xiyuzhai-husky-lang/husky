@@ -243,11 +243,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 ),
                 PunctuationMapped::Eq => match self.env() {
                     Some(env) => match env {
-                        ExprEnvironment::TypeBeforeEq => match self.last_bra() {
+                        ExprEnvironment::TypeBeforeEq
+                        | ExprEnvironment::WithinBracketedParameterList(_) => match self.last_bra()
+                        {
                             Some(_) => todo!(),
                             None => return TokenDisambiguationResult::Break(()),
                         },
-                        ExprEnvironment::WithinBracket(_) => todo!(),
                         ExprEnvironment::Condition(_) => todo!(),
                     },
                     None => DisambiguatedToken::BinaryOpr(token_idx, BinaryOpr::Assign),
