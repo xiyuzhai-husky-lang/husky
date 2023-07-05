@@ -26,3 +26,7 @@ where
         tokenize_snippet(self, snippet).token_sheet().data(self)
     }
 }
+
+pub trait HasTokenDb {
+    fn token_db(&self) -> &dyn TokenDb;
+}

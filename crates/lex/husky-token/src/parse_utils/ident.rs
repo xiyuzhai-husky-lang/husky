@@ -65,3 +65,41 @@ pub enum DecrIdentToken {
 pub struct DeriveToken {
     token_idx: TokenIdx,
 }
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct UnderscoreToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for UnderscoreToken
+where
+    Context: TokenParseContext<'a> + HasTokenDb,
+{
+    type Error = TokenError;
+
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
+        if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
+            match token {
+                Token::Ident(ident) => match ident.data(ctx.token_db()) {
+                    "_" => Ok(Some(Self { token_idx })),
+                    _ => Ok(None),
+                },
+                Token::Error(error) => Err(error),
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn underscore_token_works() {
+    // todo
+}

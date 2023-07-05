@@ -88,6 +88,8 @@ pub enum OriginalExprError {
     ExpectedParameterType(TokenStreamState),
     #[error("ExpectedTraits")]
     ExpectedTraits(TokenStreamState),
+    #[error("ExpectedKeyedWithDefaultParameterInitialValue")]
+    ExpectedExplicitParameterDefaultValue(TokenStreamState),
     #[error("expected identifier after `.`")]
     ExpectedIdentAfterDot { dot_token_idx: TokenIdx },
     #[error("expected exprBeforeDot")]
@@ -152,7 +154,8 @@ impl OriginalExprError {
             | OriginalExprError::ExpectedValueForFieldBindInitialization(token_stream_state)
             | OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra(token_stream_state)
             | OriginalExprError::ExpectedConstantImplicitParameterType(token_stream_state)
-            | OriginalExprError::ExpectedTraits(token_stream_state) => {
+            | OriginalExprError::ExpectedTraits(token_stream_state)
+            | OriginalExprError::ExpectedExplicitParameterDefaultValue(token_stream_state) => {
                 let token_idx = token_stream_state.next_token_idx();
                 match token_stream_state.drained() {
                     true => TokenIdxRange::new_drained(token_idx),

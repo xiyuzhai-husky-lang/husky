@@ -600,8 +600,8 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 0,
-                                                        ty: 3,
+                                                        pattern_expr_idx: 0,
+                                                        ty_expr_idx: 3,
                                                     },
                                                     ArenaIdxRange(
                                                         0..1,
@@ -609,8 +609,8 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 1,
-                                                        ty: 10,
+                                                        pattern_expr_idx: 1,
+                                                        ty_expr_idx: 10,
                                                     },
                                                     ArenaIdxRange(
                                                         1..2,
