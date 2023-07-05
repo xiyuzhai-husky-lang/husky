@@ -32,6 +32,8 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # infer
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
+# kernel
+husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax

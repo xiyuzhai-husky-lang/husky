@@ -4,7 +4,7 @@ use husky_vfs::*;
 
 use salsa::DbWithJar;
 
-pub trait TokenDb: DbWithJar<TokenJar> + VfsDb {
+pub trait TokenDb: DbWithJar<TokenJar> + VfsDb + TermPreludeDb {
     fn ranged_token_sheet(&self, module_path: ModulePath) -> VfsResult<&RangedTokenSheet>;
     fn token_sheet_data(&self, module_path: ModulePath) -> VfsResult<&TokenSheetData>;
     fn snippet_token_sheet_data(&self, snippet: Snippet) -> &TokenSheetData;
@@ -12,7 +12,7 @@ pub trait TokenDb: DbWithJar<TokenJar> + VfsDb {
 
 impl<T> TokenDb for T
 where
-    T: DbWithJar<TokenJar> + VfsDb,
+    T: DbWithJar<TokenJar> + VfsDb + TermPreludeDb,
 {
     fn token_sheet_data(&self, module_path: ModulePath) -> VfsResult<&TokenSheetData> {
         Ok(token_sheet(self, module_path)?.data(self))

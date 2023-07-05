@@ -21,7 +21,7 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
 {
     type Error = ExprError;
 
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
@@ -46,7 +46,7 @@ pub struct FieldDecorator {}
 impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for FieldDecorator {
     type Error = ExprError;
 
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(at_token) = ctx.try_parse_optional::<AtToken>()? else {
@@ -67,7 +67,7 @@ pub enum FieldVisibilityExpr {
 impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for FieldVisibilityExpr {
     type Error = ExprError;
 
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
         let Some(pub_token) = ctx.try_parse_optional::<PubToken>()? else {

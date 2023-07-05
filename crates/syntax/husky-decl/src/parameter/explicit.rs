@@ -20,7 +20,7 @@ impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionalFromStream<ExprPa
 {
     type Error = NodeDeclError;
 
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, NodeDeclError> {
         let Some(lpar) = ctx.try_parse_optional::<LeftParenthesisToken>()? else {

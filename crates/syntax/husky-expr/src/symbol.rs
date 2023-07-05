@@ -169,7 +169,7 @@ pub enum CurrentSymbolVariant {
         pattern_symbol_idx: PatternSymbolIdx,
     },
     ExplicitVariadicParameter {
-        modifier: SymbolModifier,
+        symbol_modifier: SymbolModifier,
         ident_token: IdentToken,
     },
     LetVariable {
@@ -194,7 +194,10 @@ impl CurrentSymbolVariant {
             | CurrentSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             } => pattern_expr_region.pattern_symbol_modifier(*pattern_symbol_idx),
-            CurrentSymbolVariant::ExplicitVariadicParameter { modifier, .. } => *modifier,
+            CurrentSymbolVariant::ExplicitVariadicParameter {
+                symbol_modifier: modifier,
+                ..
+            } => *modifier,
             CurrentSymbolVariant::FrameVariable { ident, expr_idx } => SymbolModifier::Pure,
         }
     }

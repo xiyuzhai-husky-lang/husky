@@ -27,6 +27,7 @@ pub use self::snippet::*;
 pub use self::stream::*;
 pub use self::token_visibility::*;
 
+use husky_term_prelude::*;
 use husky_text::{HasTextRange, TextRange};
 use husky_vfs::{ModulePath, VfsResult};
 use husky_word::Ident;
@@ -37,7 +38,6 @@ use tokenize::*;
 #[salsa::jar(db = TokenDb)]
 pub struct TokenJar(
     TokenSheet,
-    StringLiteral,
     Snippet,
     ranged_token_sheet,
     token_sheet,

@@ -5,15 +5,9 @@ impl PatternExpr {
         match self {
             PatternExpr::Literal(_) => todo!(),
             PatternExpr::Ident {
-                modifier_keyword_group,
+                symbol_modifier_keyword_group,
                 ..
-            } => match modifier_keyword_group {
-                Some(modifier_keyword_group) => match modifier_keyword_group {
-                    PatternSymbolModifierKeywordGroup::Mut(_) => Contract::Move,
-                    PatternSymbolModifierKeywordGroup::RefMut(_, _) => Contract::BorrowMut,
-                },
-                None => Contract::Pure,
-            },
+            } => symbol_modifier_keyword_group.contract(),
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),
             PatternExpr::Struct { name, fields } => todo!(),

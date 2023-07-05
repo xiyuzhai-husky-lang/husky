@@ -1,37 +1,58 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum PatternSymbolModifierKeywordGroup {
+pub enum SymbolModifierKeywordGroup {
+    Default,
     Mut(MutToken),
     RefMut(RefToken, MutToken),
 }
 
+impl SymbolModifierKeywordGroup {
+    pub fn symbol_modifier(self) -> SymbolModifier {
+        match self {
+            SymbolModifierKeywordGroup::Default => SymbolModifier::Const,
+            SymbolModifierKeywordGroup::Mut(_) => todo!(),
+            SymbolModifierKeywordGroup::RefMut(_, _) => todo!(),
+        }
+    }
+
+    pub fn contract(self) -> Contract {
+        match self {
+            SymbolModifierKeywordGroup::Mut(_) => Contract::Move,
+            SymbolModifierKeywordGroup::RefMut(_, _) => Contract::BorrowMut,
+            SymbolModifierKeywordGroup::Default => Contract::Pure,
+        }
+    }
+}
+
+impl Default for SymbolModifierKeywordGroup {
+    fn default() -> Self {
+        SymbolModifierKeywordGroup::Default
+    }
+}
+
 // todo: change this to TryParse
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for PatternSymbolModifierKeywordGroup
+impl<'a, Context> parsec::TryParseFromStream<Context> for SymbolModifierKeywordGroup
 where
     Context: TokenParseContext<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
-        ctx: &mut Context,
-    ) -> TokenResult<Option<Self>> {
+    fn try_parse_from_stream(ctx: &mut Context) -> TokenResult<Self> {
         let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
         let Some((token_idx, token)) = token_stream.next_indexed() else {
-            return Ok(None)
+            return Ok(Default::default())
         };
         let kw = match token {
             Token::Keyword(Keyword::Modifier(kw)) => kw,
             Token::Error(error) => Err(error)?,
-            _ => return Ok(None),
+            _ => return Ok(Default::default()),
         };
         match kw {
-            ModifierKeyword::Mut => Ok(Some(PatternSymbolModifierKeywordGroup::Mut(MutToken {
-                token_idx,
-            }))),
+            ModifierKeyword::Mut => Ok(SymbolModifierKeywordGroup::Mut(MutToken { token_idx })),
             ModifierKeyword::Covariant
             | ModifierKeyword::Contravariant
-            | ModifierKeyword::Invariant => Ok(None),
+            | ModifierKeyword::Invariant => Ok(Default::default()),
         }
     }
 }
@@ -54,7 +75,7 @@ where
 {
     type Error = TokenError;
 
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {

@@ -9,6 +9,7 @@ use husky_entity_path::EntityPathJar;
 use husky_entity_tree::EntityTreeJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
+use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
@@ -18,6 +19,7 @@ use husky_word::WordJar;
     WordJar,
     VfsJar,
     EntityPathJar,
+    TermPreludeJar,
     TokenJar,
     AstJar,
     EntityTreeJar,

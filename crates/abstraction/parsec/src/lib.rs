@@ -167,7 +167,7 @@ where
     type Error;
 
     /// no guarantee on stream state other than Ok(Some(_))
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback(
         sp: &mut SP,
     ) -> Result<Option<Self>, Self::Error>;
 }
@@ -198,7 +198,7 @@ where
     type Context;
 
     /// no guarantee on stream state other than Ok(Some(_))
-    fn try_parse_option_from_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         sp: &mut SP,
         ctx: Self::Context,
     ) -> Result<Option<Self>, Self::Error>;

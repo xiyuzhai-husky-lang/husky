@@ -28,11 +28,6 @@ pub enum Literal {
     Bool(BoolLiteral),
 }
 
-#[salsa::tracked(db = TokenDb, jar = TokenJar)]
-pub struct StringLiteral {
-    data: String,
-}
-
 impl Literal {
     pub fn negative(self) -> Option<Literal> {
         match self {

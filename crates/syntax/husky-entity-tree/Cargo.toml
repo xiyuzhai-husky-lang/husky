@@ -46,6 +46,8 @@ husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 expect-test = "1.4.0"
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
+# kernel
+husky-term-prelude = { path ="../../kernel/husky-term-prelude" }
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax

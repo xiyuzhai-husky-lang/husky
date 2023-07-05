@@ -25,6 +25,7 @@ husky-text = { path = "../../lex/husky-text" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-term-prelude = {path = "../../kernel/husky-term-prelude" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 # utils
@@ -41,6 +42,8 @@ husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 indicatif = "0.17.2"
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # utils
 husky-adversarial-utils = { path = "../../utils/husky-adversarial-utils" }
 

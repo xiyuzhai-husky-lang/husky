@@ -30,7 +30,7 @@ impl ImplicitParameterDeclList {
 impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
     type Error = NodeDeclError;
 
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> NodeDeclResult<Option<Self>> {
         let Some(langle) = ctx.try_parse_optional::< LeftAngleBracketOrLessThanToken>()? else {

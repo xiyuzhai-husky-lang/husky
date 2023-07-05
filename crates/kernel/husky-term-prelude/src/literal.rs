@@ -1,5 +1,4 @@
 use crate::*;
-use husky_token::StringLiteral;
 use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -57,6 +56,11 @@ pub enum TermLiteral {
     EvalLifetime,
     /// static lifetime
     StaticLifetime,
+}
+
+#[salsa::tracked(db = TermPreludeDb, jar = TermPreludeJar)]
+pub struct StringLiteral {
+    data: String,
 }
 
 #[test]
