@@ -158,7 +158,8 @@ impl<'a> ExprTypeEngine<'a> {
                     ),
                     None => self.infer_new_expr_ty_discarded(root.expr_idx(), ExpectAnyDerived),
                 },
-                ExprRootKind::FieldBindInitialValue { ty_expr_idx } => {
+                ExprRootKind::FieldBindInitialValue { ty_expr_idx }
+                | ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx } => {
                     match self.infer_new_expr_term(ty_expr_idx) {
                         Some(ty) => self.infer_new_expr_ty_discarded(
                             root.expr_idx(),

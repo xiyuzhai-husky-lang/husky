@@ -31,6 +31,7 @@ pub enum ExprRootKind {
     BlockExpr,
     ReturnExpr,
     Condition,
+    ExplicitParameterDefaultValue { ty_expr_idx: ExprIdx },
     FieldBindInitialValue { ty_expr_idx: ExprIdx },
     ConstantImplicitParameterType,
     ExplicitParameterType,

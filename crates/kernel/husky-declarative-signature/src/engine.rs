@@ -109,12 +109,14 @@ impl<'a> DeclarativeTermEngine<'a> {
                     self.symbol_declarative_term_region
                         .add_new_implicit_parameter_symbol_signature(self.db, symbols.start(), ty)
                 }
-                PatternTypeConstraint::ExplicitRegularParameter { pattern_expr, ty } => self
-                    .init_current_symbol_signatures_in_explicit_parameter(
-                        *pattern_expr,
-                        *ty,
-                        *symbols,
-                    ),
+                PatternTypeConstraint::ExplicitRegularParameter {
+                    pattern_expr_idx: pattern_expr,
+                    ty_expr_idx: ty,
+                } => self.init_current_symbol_signatures_in_explicit_parameter(
+                    *pattern_expr,
+                    *ty,
+                    *symbols,
+                ),
                 PatternTypeConstraint::LetVariables { .. }
                 | PatternTypeConstraint::FrameVariable => {
                     // need only to compute for decl region
@@ -187,7 +189,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                 | ExprRootKind::Trait
                 | ExprRootKind::ReturnType
                 | ExprRootKind::TupleStructFieldType
-                | ExprRootKind::VarType => (),
+                | ExprRootKind::VarType
+                | ExprRootKind::ExplicitParameterDefaultValue { .. } => (),
                 ExprRootKind::BlockExpr
                 | ExprRootKind::LetStmtType
                 | ExprRootKind::LetStmtInitialValue

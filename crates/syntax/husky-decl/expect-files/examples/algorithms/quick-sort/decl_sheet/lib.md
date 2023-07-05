@@ -234,8 +234,8 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 0,
-                                                        ty: 3,
+                                                        pattern_expr_idx: 0,
+                                                        ty_expr_idx: 3,
                                                     },
                                                     ArenaIdxRange(
                                                         1..2,
@@ -630,8 +630,8 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 0,
-                                                        ty: 3,
+                                                        pattern_expr_idx: 0,
+                                                        ty_expr_idx: 3,
                                                     },
                                                     ArenaIdxRange(
                                                         1..2,
@@ -639,8 +639,8 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 1,
-                                                        ty: 4,
+                                                        pattern_expr_idx: 1,
+                                                        ty_expr_idx: 4,
                                                     },
                                                     ArenaIdxRange(
                                                         2..3,
@@ -648,8 +648,8 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 2,
-                                                        ty: 5,
+                                                        pattern_expr_idx: 2,
+                                                        ty_expr_idx: 5,
                                                     },
                                                     ArenaIdxRange(
                                                         3..4,
@@ -1081,8 +1081,8 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 0,
-                                                        ty: 3,
+                                                        pattern_expr_idx: 0,
+                                                        ty_expr_idx: 3,
                                                     },
                                                     ArenaIdxRange(
                                                         1..2,
@@ -1090,8 +1090,8 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 1,
-                                                        ty: 4,
+                                                        pattern_expr_idx: 1,
+                                                        ty_expr_idx: 4,
                                                     },
                                                     ArenaIdxRange(
                                                         2..3,
@@ -1099,8 +1099,8 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 2,
-                                                        ty: 5,
+                                                        pattern_expr_idx: 2,
+                                                        ty_expr_idx: 5,
                                                     },
                                                     ArenaIdxRange(
                                                         3..4,

@@ -46,8 +46,8 @@ pub struct SymbolRegion {
 pub enum PatternTypeConstraint {
     ImplicitTypeParameter,
     ExplicitRegularParameter {
-        pattern_expr: PatternExprIdx,
-        ty: ExprIdx,
+        pattern_expr_idx: PatternExprIdx,
+        ty_expr_idx: ExprIdx,
     },
     ExplicitVariadicParameter {
         ty: ExprIdx,
@@ -218,8 +218,8 @@ impl SymbolRegion {
             .iter()
             .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
                 PatternTypeConstraint::ExplicitRegularParameter {
-                    pattern_expr: pattern,
-                    ty,
+                    pattern_expr_idx: pattern,
+                    ty_expr_idx: ty,
                 } if *pattern == target => Some(*ty),
                 _ => None,
             })

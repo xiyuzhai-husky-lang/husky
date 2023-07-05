@@ -298,8 +298,8 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 0,
-                                                        ty: 1,
+                                                        pattern_expr_idx: 0,
+                                                        ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
                                                         0..1,
@@ -512,8 +512,8 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 0,
-                                                        ty: 1,
+                                                        pattern_expr_idx: 0,
+                                                        ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
                                                         0..1,
@@ -726,8 +726,8 @@ Ok(
                                             pattern_ty_constraints: [
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 0,
-                                                        ty: 1,
+                                                        pattern_expr_idx: 0,
+                                                        ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
                                                         0..1,

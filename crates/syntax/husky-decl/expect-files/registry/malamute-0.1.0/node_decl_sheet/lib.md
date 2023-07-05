@@ -61,6 +61,14 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                Expr::Literal(
+                                                    TokenIdx(
+                                                        15,
+                                                    ),
+                                                    Literal::Integer(
+                                                        Unspecified,
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -191,8 +199,8 @@ Ok(
                                                 ),
                                                 (
                                                     ExplicitRegularParameter {
-                                                        pattern_expr: 0,
-                                                        ty: 1,
+                                                        pattern_expr_idx: 0,
+                                                        ty_expr_idx: 1,
                                                     },
                                                     ArenaIdxRange(
                                                         1..2,
@@ -209,23 +217,98 @@ Ok(
                                                 kind: ExplicitParameterType,
                                                 expr_idx: 1,
                                             },
+                                            ExprRoot {
+                                                kind: ExplicitParameterDefaultValue {
+                                                    ty_expr_idx: 1,
+                                                },
+                                                expr_idx: 2,
+                                            },
                                         ],
                                     },
                                 },
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                explicit_parameter_decl_list: Err(
-                                    NodeDeclError::Original(
-                                        OriginalNodeDeclError::ExpectedRightParenthesisInParameterList(
-                                            TokenStreamState {
-                                                next_token_idx: TokenIdx(
-                                                    15,
-                                                ),
-                                                drained: false,
-                                            },
+                                explicit_parameter_decl_list: Ok(
+                                    SelfParameterAndExplicitParameters {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                3,
+                                            ),
                                         ),
-                                    ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        explicit_parameters: [
+                                            ExplicitParameterDecl::Variadic {
+                                                dot_dot_dot_token: DotDotDotToken(
+                                                    TokenIdx(
+                                                        4,
+                                                    ),
+                                                ),
+                                                variadic_variant: VariadicVariant::Vec {
+                                                    lbox_token: LeftBoxBracketToken(
+                                                        TokenIdx(
+                                                            5,
+                                                        ),
+                                                    ),
+                                                    rbox_token: RightBoxBracketToken(
+                                                        TokenIdx(
+                                                            6,
+                                                        ),
+                                                    ),
+                                                },
+                                                modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `f`,
+                                                    token_idx: TokenIdx(
+                                                        7,
+                                                    ),
+                                                },
+                                                variable: 0,
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        8,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
+                                            ExplicitParameterDecl::KeyedWithDefault {
+                                                pattern: 0,
+                                                modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `skip`,
+                                                    token_idx: TokenIdx(
+                                                        11,
+                                                    ),
+                                                },
+                                                variable: 1,
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        12,
+                                                    ),
+                                                ),
+                                                ty: 1,
+                                                eq_token: EqToken(
+                                                    TokenIdx(
+                                                        14,
+                                                    ),
+                                                ),
+                                                default_value: 2,
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaToken(
+                                                TokenIdx(
+                                                    10,
+                                                ),
+                                            ),
+                                        ],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                16,
+                                            ),
+                                        ),
+                                    },
                                 ),
                                 curry_token: Ok(
                                     None,
@@ -233,16 +316,13 @@ Ok(
                                 return_ty: Ok(
                                     None,
                                 ),
-                                eol_colon: Err(
-                                    NodeDeclError::Original(
-                                        OriginalNodeDeclError::ExpectedEolColon(
-                                            TokenStreamState {
-                                                next_token_idx: TokenIdx(
-                                                    15,
-                                                ),
-                                                drained: false,
-                                            },
-                                        ),
+                                eol_colon: Ok(
+                                    EolToken::Semicolon(
+                                        EolSemicolonToken {
+                                            token_idx: TokenIdx(
+                                                17,
+                                            ),
+                                        },
                                     ),
                                 ),
                             },
