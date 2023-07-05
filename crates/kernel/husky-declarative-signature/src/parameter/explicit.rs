@@ -1,20 +1,12 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitParameterDeclarativeSignature {
+pub struct ExplicitRegularParameterDeclarativeSignature {
     contract: Contract,
     ty: DeclarativeTerm,
 }
 
-impl ExplicitParameterDeclarativeSignature {
-    pub fn into_ritchie_parameter_contracted_ty(
-        self,
-    ) -> DeclarativeTermRitchieParameterContractedType {
-        DeclarativeTermRitchieParameterContractedType::new(self.contract, self.ty)
-    }
-}
-
-impl ExplicitParameterDeclarativeSignature {
+impl ExplicitRegularParameterDeclarativeSignature {
     pub(crate) fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
         Self { contract, ty }
     }
@@ -25,6 +17,24 @@ impl ExplicitParameterDeclarativeSignature {
 
     pub fn ty(&self) -> DeclarativeTerm {
         self.ty
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
+pub enum ExplicitParameterDeclarativeSignature {
+    Regular(ExplicitRegularParameterDeclarativeSignature),
+}
+
+impl ExplicitParameterDeclarativeSignature {
+    pub fn into_ritchie_parameter_contracted_ty(
+        self,
+    ) -> DeclarativeTermRitchieParameterContractedType {
+        match self {
+            ExplicitParameterDeclarativeSignature::Regular(signature) => {
+                DeclarativeTermRitchieParameterContractedType::new(signature.contract, signature.ty)
+            }
+        }
     }
 }
 
@@ -58,7 +68,7 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                         colon,
                         ty,
                     } => {
-                        Ok(ExplicitParameterDeclarativeSignature::new(
+                        Ok(ExplicitRegularParameterDeclarativeSignature::new(
                             expr_region_data.pattern_contract(*pattern),
                             match signature_region.expr_term(*ty) {
                                 Ok(ty) => ty,
@@ -68,7 +78,8 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                                     ),
                                 ),
                             },
-                        ))
+                        )
+                        .into())
                     }
                     ExplicitParameterDecl::KeyedWithoutDefault { .. } => todo!(),
                     ExplicitParameterDecl::KeyedWithDefault { .. } => todo!(),

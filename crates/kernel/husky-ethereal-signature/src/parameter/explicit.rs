@@ -20,12 +20,14 @@ pub enum ExplicitParameterKind {
 impl ExplicitParameterEtherealSignature {
     pub(crate) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signature: &ExplicitParameterDeclarativeSignature,
+        signature: &ExplicitParameterDeclarativeSignature,
     ) -> EtherealSignatureResult<Self> {
-        Ok(Self {
-            kind: ExplicitParameterKind::Regular,
-            contract: declarative_signature.contract(),
-            ty: EtherealTerm::ty_from_declarative(db, declarative_signature.ty())?,
+        Ok(match signature {
+            ExplicitParameterDeclarativeSignature::Regular(signature) => Self {
+                kind: ExplicitParameterKind::Regular,
+                contract: signature.contract(),
+                ty: EtherealTerm::ty_from_declarative(db, signature.ty())?,
+            },
         })
     }
 

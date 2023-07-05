@@ -6,8 +6,8 @@ use crate::*;
 pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TraitForTypeMethodFnDecl,
-) -> DeclarativeSignatureResult<TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate> {
-    let self_parameter = ExplicitParameterDeclarativeSignature::new(
+) -> DeclarativeSignatureResult<TraitForTypeMethodFnDeclarativeSignatureTemplate> {
+    let self_parameter = ExplicitRegularParameterDeclarativeSignature::new(
         match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
             None => Contract::Pure,
@@ -35,23 +35,21 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
         Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
         None => declarative_term_menu.unit(),
     };
-    Ok(
-        TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate::new(
-            db,
-            implicit_parameters,
-            self_parameter,
-            explicit_parameters,
-            return_ty,
-        ),
-    )
+    Ok(TraitForTypeMethodFnDeclarativeSignatureTemplate::new(
+        db,
+        implicit_parameters,
+        self_parameter,
+        explicit_parameters,
+        return_ty,
+    ))
 }
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
+pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub self_parameter: ExplicitParameterDeclarativeSignature,
+    pub self_parameter: ExplicitRegularParameterDeclarativeSignature,
     #[return_ref]
     pub explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,

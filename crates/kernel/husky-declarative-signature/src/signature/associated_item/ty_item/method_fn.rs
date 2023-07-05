@@ -15,7 +15,7 @@ pub struct TypeMethodFnDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub self_parameter: ExplicitParameterDeclarativeSignature,
+    pub self_parameter: ExplicitRegularParameterDeclarativeSignature,
     #[return_ref]
     pub explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,
@@ -53,7 +53,7 @@ pub fn ty_method_fn_declarative_signature_template(
         },
         None => Contract::Pure,
     };
-    let self_parameter = ExplicitParameterDeclarativeSignature::new(contract, self_ty);
+    let self_parameter = ExplicitRegularParameterDeclarativeSignature::new(contract, self_ty);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
     let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
         decl.implicit_parameters(db),
