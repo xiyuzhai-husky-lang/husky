@@ -12,7 +12,50 @@
                 ),
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            OntologyConstructor,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            OntologyConstructor,
+                        ),
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    1,
+                ),
+            },
+        ],
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
@@ -20,7 +63,26 @@
                 data: [],
             },
             current_symbol_map: ArenaMap {
-                data: [],
+                data: [
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    1,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
             },
         },
         symbol_terms: SymbolMap {
@@ -28,14 +90,92 @@
                 data: [],
             },
             current_symbol_map: ArenaMap {
-                data: [],
+                data: [
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                        ),
+                    ),
+                    None,
+                ],
             },
         },
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
                     entries: VecSet {
-                        data: [],
+                        data: [
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 61,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Float(
+                                            F32,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 61,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            PlaceTypeOntology {
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
+                                path: TypePath(
+                                    Id {
+                                        value: 51,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Int(
+                                            I32,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 51,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        ],
                     },
                 },
                 hollow_terms: HollowTerms {
@@ -45,7 +185,72 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationMeta {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        EqsSort(
+                                            TermUniverse(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationMeta {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        EqsSort(
+                                            TermUniverse(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },

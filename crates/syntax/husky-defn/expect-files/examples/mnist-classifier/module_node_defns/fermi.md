@@ -705,7 +705,7 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 0,
                                                     ty: 3,
                                                 },
@@ -714,7 +714,7 @@ Ok(
                                                 ),
                                             ),
                                             (
-                                                ExplicitParameter {
+                                                ExplicitRegularParameter {
                                                     pattern_expr: 1,
                                                     ty: 10,
                                                 },
@@ -1060,7 +1060,7 @@ Ok(
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 0,
                                                             ty: 3,
                                                         },
@@ -1069,7 +1069,7 @@ Ok(
                                                         ),
                                                     ),
                                                     (
-                                                        ExplicitParameter {
+                                                        ExplicitRegularParameter {
                                                             pattern_expr: 1,
                                                             ty: 10,
                                                         },

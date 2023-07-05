@@ -360,7 +360,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let end = match self.env() {
             Some(env) => match env {
                 ExprEnvironment::TypeBeforeEq => todo!(),
-                ExprEnvironment::WithinBracket(_) => todo!(),
+                ExprEnvironment::WithinBracketedParameterList(_) => todo!(),
                 ExprEnvironment::Condition(end) => end,
             },
             None => todo!(),

@@ -40,14 +40,18 @@ pub enum ExplicitParameterDecl {
         ty: ExprIdx,
     },
     KeyedWithoutDefault {
-        ident: IdentToken,
+        pattern: PatternExprIdx,
+        modifier_keyword_group: Option<PatternSymbolModifierKeywordGroup>,
+        ident_token: IdentToken,
         variable: CurrentSymbolIdx,
         colon: ColonToken,
         ty: ExprIdx,
         eq: EqToken,
     },
     KeyedWithDefault {
-        ident: IdentToken,
+        pattern: PatternExprIdx,
+        modifier_keyword_group: Option<PatternSymbolModifierKeywordGroup>,
+        ident_token: IdentToken,
         variable: CurrentSymbolIdx,
         colon: ColonToken,
         ty: ExprIdx,
@@ -88,20 +92,34 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                 .collect::<Vec<_>>();
             let colon = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
             let ty = ctx.parse_expr_expected2(
-                Some(ExprEnvironment::WithinBracket(Bracket::Par)),
+                Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
                 ExprRootKind::ExplicitParameterType,
                 OriginalExprError::ExpectedParameterType,
             );
+            let variables = ctx.define_symbols(
+                variables,
+                Some(PatternTypeConstraint::ExplicitRegularParameter {
+                    pattern_expr: pattern,
+                    ty,
+                }),
+            );
             if let Some(eq_token) = ctx.try_parse_optional::<EqToken>()? {
-                todo!()
+                let PatternExpr::Ident {
+                    modifier_keyword_group,
+                    ident_token,
+                } = ctx.pattern_expr_region()[pattern] else {
+                    todo!()
+                };
+                // todo: KeyedWithoutDefault
+                Ok(Some(ExplicitParameterDecl::KeyedWithDefault {
+                    pattern,
+                    modifier_keyword_group,
+                    ident_token,
+                    variable: variables.start(),
+                    colon,
+                    ty,
+                }))
             } else {
-                let variables = ctx.define_symbols(
-                    variables,
-                    Some(PatternTypeConstraint::ExplicitParameter {
-                        pattern_expr: pattern,
-                        ty,
-                    }),
-                );
                 Ok(Some(ExplicitParameterDecl::Regular {
                     pattern,
                     variables,
@@ -111,22 +129,45 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
             }
         } else if let Some(dot_dot_dot_token) = ctx.try_parse_optional::<DotDotDotToken>()? {
             let access_start = ctx.save_state().next_token_idx();
+            let variadic_variant = ctx.try_parse()?;
+            let modifier_keyword_group = ctx.try_parse_optional()?;
             let ident_token =
                 ctx.try_parse_expected::<IdentToken, _>(OriginalExprError::ExpectedIdent)?;
             let variable = CurrentSymbol::new(
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSymbolVariant::ExplicitVariadicParameter { ident_token },
+                CurrentSymbolVariant::ExplicitVariadicParameter {
+                    ident_token,
+                    modifier: match modifier_keyword_group {
+                        Some(modifier_keyword_group) => match modifier_keyword_group {
+                            PatternSymbolModifierKeywordGroup::Mut(_) => SymbolModifier::Mut,
+                            PatternSymbolModifierKeywordGroup::RefMut(_, _) => {
+                                SymbolModifier::RefMut
+                            }
+                        },
+                        None => SymbolModifier::Pure,
+                    },
+                },
+            );
+            let colon = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
+            let ty = ctx.parse_expr_expected2(
+                Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
+                ExprRootKind::ExplicitParameterType,
+                OriginalExprError::ExpectedParameterType,
+            );
+            let variable = ctx.define_symbol(
+                variable,
+                Some(PatternTypeConstraint::ExplicitVariadicParameter { ty }),
             );
             Ok(Some(ExplicitParameterDecl::Variadic {
                 dot_dot_dot_token,
-                variadic_variant: ctx.try_parse()?,
-                modifier_keyword_group: ctx.try_parse_optional()?,
+                variadic_variant,
+                modifier_keyword_group,
                 ident_token,
-                variable: todo!(),
-                colon: todo!(),
-                ty: todo!(),
+                variable,
+                colon,
+                ty,
             }))
         } else {
             Ok(None)

@@ -70,19 +70,8 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                             },
                         ))
                     }
-                    ExplicitParameterDecl::KeyedWithoutDefault {
-                        ident,
-                        variable,
-                        colon,
-                        ty,
-                        eq,
-                    } => todo!(),
-                    ExplicitParameterDecl::KeyedWithDefault {
-                        ident,
-                        variable,
-                        colon,
-                        ty,
-                    } => todo!(),
+                    ExplicitParameterDecl::KeyedWithoutDefault { .. } => todo!(),
+                    ExplicitParameterDecl::KeyedWithDefault { .. } => todo!(),
                     ExplicitParameterDecl::Variadic { .. } => todo!(),
                 })
                 .collect::<DeclarativeSignatureResult<_>>()?,

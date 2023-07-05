@@ -115,7 +115,7 @@ impl CurrentSymbol {
                     CurrentImplicitParameterSymbol::Type { ident_token }
                     | CurrentImplicitParameterSymbol::Constant { ident_token, .. },
             }
-            | CurrentSymbolVariant::ExplicitVariadicParameter { ident_token } => {
+            | CurrentSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
                 Some(ident_token.ident())
             }
             CurrentSymbolVariant::ExplicitRegularParameter { ident, .. }
@@ -169,6 +169,7 @@ pub enum CurrentSymbolVariant {
         pattern_symbol_idx: PatternSymbolIdx,
     },
     ExplicitVariadicParameter {
+        modifier: SymbolModifier,
         ident_token: IdentToken,
     },
     LetVariable {
@@ -193,7 +194,7 @@ impl CurrentSymbolVariant {
             | CurrentSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             } => pattern_expr_region.pattern_symbol_modifier(*pattern_symbol_idx),
-            CurrentSymbolVariant::ExplicitVariadicParameter { .. } => todo!(),
+            CurrentSymbolVariant::ExplicitVariadicParameter { modifier, .. } => *modifier,
             CurrentSymbolVariant::FrameVariable { ident, expr_idx } => SymbolModifier::Pure,
         }
     }
@@ -257,7 +258,7 @@ impl CurrentSymbolVariant {
             CurrentSymbolVariant::FrameVariable { expr_idx, .. } => {
                 CurrentSymbolKind::FrameVariable(*expr_idx)
             }
-            CurrentSymbolVariant::ExplicitVariadicParameter { ident_token } => {
+            CurrentSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
                 CurrentSymbolKind::ExplicitVariadicParameter {
                     ident_token: *ident_token,
                 }

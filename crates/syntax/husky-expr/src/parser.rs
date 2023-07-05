@@ -121,6 +121,15 @@ impl<'a> ExprParser<'a> {
     }
 
     #[inline(always)]
+    fn define_symbol(
+        &mut self,
+        variable: CurrentSymbol,
+        ty_constraint: Option<PatternTypeConstraint>,
+    ) -> CurrentSymbolIdx {
+        self.symbol_context.define_symbol(variable, ty_constraint)
+    }
+
+    #[inline(always)]
     fn define_symbols(
         &mut self,
         variables: impl IntoIterator<Item = CurrentSymbol>,
@@ -265,6 +274,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub(crate) fn pattern_expr_region(&self) -> &PatternExprRegion {
         self.parser.pattern_expr_region()
+    }
+
+    pub(crate) fn define_symbol(
+        &mut self,
+        variable: CurrentSymbol,
+        ty_constraint: Option<PatternTypeConstraint>,
+    ) -> CurrentSymbolIdx {
+        self.parser.define_symbol(variable, ty_constraint)
     }
 
     pub(crate) fn define_symbols(
