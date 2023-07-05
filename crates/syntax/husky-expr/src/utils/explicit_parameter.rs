@@ -1,4 +1,5 @@
 use super::*;
+use either::*;
 use parsec::{HasStreamState, TryParseOptionalFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -39,26 +40,6 @@ pub enum ExplicitParameterDecl {
         colon: ColonToken,
         ty: ExprIdx,
     },
-    KeyedWithoutDefault {
-        pattern: PatternExprIdx,
-        modifier_keyword_group: Option<PatternSymbolModifierKeywordGroup>,
-        ident_token: IdentToken,
-        variable: CurrentSymbolIdx,
-        colon: ColonToken,
-        ty: ExprIdx,
-        eq_token: EqToken,
-        underscore_token: UnderscoreToken,
-    },
-    KeyedWithDefault {
-        pattern: PatternExprIdx,
-        modifier_keyword_group: Option<PatternSymbolModifierKeywordGroup>,
-        ident_token: IdentToken,
-        variable: CurrentSymbolIdx,
-        colon: ColonToken,
-        ty: ExprIdx,
-        eq_token: EqToken,
-        default_value: ExprIdx,
-    },
     Variadic {
         dot_dot_dot_token: DotDotDotToken,
         variadic_variant: VariadicVariant,
@@ -67,6 +48,16 @@ pub enum ExplicitParameterDecl {
         variable: CurrentSymbolIdx,
         colon: ColonToken,
         ty: ExprIdx,
+    },
+    Keyed {
+        pattern: PatternExprIdx,
+        modifier_keyword_group: Option<PatternSymbolModifierKeywordGroup>,
+        ident_token: IdentToken,
+        variable: CurrentSymbolIdx,
+        colon: ColonToken,
+        ty: ExprIdx,
+        eq_token: EqToken,
+        default_value: Either<UnderscoreToken, ExprIdx>,
     },
 }
 
@@ -116,7 +107,16 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                     todo!()
                 };
                 // todo: KeyedWithoutDefault
-                Ok(Some(ExplicitParameterDecl::KeyedWithDefault {
+                let default_value = if let Some(_) = ctx.try_parse_optional::<UnderscoreToken>()? {
+                    todo!()
+                } else {
+                    Right(ctx.parse_expr_expected2(
+                        Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
+                        ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx },
+                        OriginalExprError::ExpectedExplicitParameterDefaultValue,
+                    ))
+                };
+                Ok(Some(ExplicitParameterDecl::Keyed {
                     pattern: pattern_expr_idx,
                     modifier_keyword_group,
                     ident_token,
@@ -124,11 +124,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                     colon,
                     ty: ty_expr_idx,
                     eq_token,
-                    default_value: ctx.parse_expr_expected2(
-                        Some(ExprEnvironment::WithinBracketedParameterList(Bracket::Par)),
-                        ExprRootKind::ExplicitParameterDefaultValue { ty_expr_idx },
-                        OriginalExprError::ExpectedExplicitParameterDefaultValue,
-                    ),
+                    default_value,
                 }))
             } else {
                 Ok(Some(ExplicitParameterDecl::Regular {

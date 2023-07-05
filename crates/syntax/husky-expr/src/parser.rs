@@ -146,6 +146,12 @@ pub struct ExprParseContext<'a, 'b> {
     stack: ExprStack,
 }
 
+impl<'a, 'b> HasTokenDb for ExprParseContext<'a, 'b> {
+    fn token_db(&self) -> &dyn TokenDb {
+        self.parser.db
+    }
+}
+
 impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(super) fn new(
         parser: &'b mut ExprParser<'a>,
