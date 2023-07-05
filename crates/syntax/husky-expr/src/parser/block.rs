@@ -116,7 +116,7 @@ impl<'a> BlockExprParser<'a> {
                     .token_sheet_data
                     .token_group_token_stream(*token_group_idx, None);
                 Some(Stmt::Match {
-                    match_token: token_stream.try_parse_optional().unwrap().unwrap(),
+                    match_token: token_stream.try_parse_option().unwrap().unwrap(),
                 })
             }
             Ast::Err { .. }
@@ -141,7 +141,7 @@ impl<'a> BlockExprParser<'a> {
             .token_sheet_data
             .token_group_token_stream(token_group_idx, None);
         let mut ctx = self.ctx(token_stream);
-        match ctx.try_parse_optional::<BasicStmtKeywordToken>() {
+        match ctx.try_parse_option::<BasicStmtKeywordToken>() {
             Ok(Some(basic_stmt_keyword_token)) => Some(match basic_stmt_keyword_token {
                 BasicStmtKeywordToken::Let(let_token) => Stmt::Let {
                     let_token,
@@ -222,8 +222,7 @@ impl<'a> BlockExprParser<'a> {
                         token_group_idx,
                     ),
                 },
-                BasicStmtKeywordToken::Do(do_token) => match ctx.try_parse_optional::<WhileToken>()
-                {
+                BasicStmtKeywordToken::Do(do_token) => match ctx.try_parse_option::<WhileToken>() {
                     Ok(Some(while_token)) => Stmt::DoWhile {
                         do_token,
                         while_token,
@@ -404,7 +403,7 @@ impl<'a> BlockExprParser<'a> {
                     .token_group_token_stream(token_group_idx, None);
                 let mut ctx = self.ctx(token_stream);
                 IfBranch {
-                    if_token: ctx.try_parse_optional().unwrap().unwrap(),
+                    if_token: ctx.try_parse_option().unwrap().unwrap(),
                     condition: ctx.parse_expr_expected(
                         Some(ExprEnvironment::Condition(body_end)),
                         OriginalExprError::ExpectedCondition,
@@ -443,7 +442,7 @@ impl<'a> BlockExprParser<'a> {
                     .token_group_token_stream(token_group_idx, None);
                 let mut ctx = self.ctx(token_stream);
                 ElifBranch {
-                    elif_token: ctx.try_parse_optional().unwrap().unwrap(),
+                    elif_token: ctx.try_parse_option().unwrap().unwrap(),
                     condition: ctx.parse_expr_expected(
                         Some(ExprEnvironment::Condition(body_end)),
                         OriginalExprError::ExpectedCondition,
@@ -467,7 +466,7 @@ impl<'a> BlockExprParser<'a> {
                     .token_group_token_stream(token_group_idx, None);
                 let mut ctx = self.ctx(token_stream);
                 Some(ElseBranch {
-                    else_token: ctx.try_parse_optional().unwrap().unwrap(),
+                    else_token: ctx.try_parse_option().unwrap().unwrap(),
                     eol_colon: ctx.try_parse_expected(OriginalExprError::ExpectedEolColon),
                     block: self.parse_block_stmts_expected(
                         body.expect("should be checked in `husky_ast`"),

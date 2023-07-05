@@ -55,13 +55,13 @@ impl SelfModToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for PathNameToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PathNameToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> Result<Option<Self>, Self::Error> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {

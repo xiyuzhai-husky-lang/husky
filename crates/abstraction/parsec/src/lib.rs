@@ -41,13 +41,13 @@ where
 }
 
 pub trait StreamParser: HasStreamState {
-    fn try_parse_optional<P: TryParseOptionalFromStream<Self>>(
+    fn try_parse_option<P: TryParseOptionFromStream<Self>>(
         &mut self,
-    ) -> Result<Option<P>, <P as TryParseOptionalFromStream<Self>>::Error>;
+    ) -> Result<Option<P>, <P as TryParseOptionFromStream<Self>>::Error>;
 
-    fn try_parse_optional2<P: TryParseOptionalFromStream<Self>, Error>(
+    fn try_parse_optional2<P: TryParseOptionFromStream<Self>, Error>(
         &mut self,
-        f: impl FnOnce(<P as TryParseOptionalFromStream<Self>>::Error) -> Error,
+        f: impl FnOnce(<P as TryParseOptionFromStream<Self>>::Error) -> Error,
     ) -> Result<Option<P>, Error>;
 
     #[inline(always)]
@@ -58,14 +58,14 @@ pub trait StreamParser: HasStreamState {
     #[inline(always)]
     fn parse<P: ParseFromStream<Self>>(&mut self) -> P;
 
-    fn try_parse_err_as_none<P: TryParseOptionalFromStream<Self>>(&mut self) -> Option<P>;
+    fn try_parse_err_as_none<P: TryParseOptionFromStream<Self>>(&mut self) -> Option<P>;
 
-    fn try_parse_expected<T: TryParseOptionalFromStream<Self>, E: IntoError>(
+    fn try_parse_expected<T: TryParseOptionFromStream<Self>, E: IntoError>(
         &mut self,
         f: impl FnOnce(Self::State) -> E,
     ) -> Result<T, E::Error>
     where
-        E::Error: From<<T as TryParseOptionalFromStream<Self>>::Error>;
+        E::Error: From<<T as TryParseOptionFromStream<Self>>::Error>;
 
     fn parse_expected_with_context<T: TryParseOptionFromStreamWithContext<Self>, E: IntoError>(
         &mut self,
@@ -78,9 +78,9 @@ pub trait StreamParser: HasStreamState {
     /// returns an optional and the rest of the stream,
     ///
     /// guarantees that stream state is not changed if result is Ok(None)
-    fn parse_into<P: TryParseOptionalFromStream<Self>>(
+    fn parse_into<P: TryParseOptionFromStream<Self>>(
         self,
-    ) -> Result<(Option<P>, Self), <P as TryParseOptionalFromStream<Self>>::Error>
+    ) -> Result<(Option<P>, Self), <P as TryParseOptionFromStream<Self>>::Error>
     where
         Self: Sized;
 }
@@ -90,15 +90,15 @@ where
     SP: HasStreamState,
 {
     #[inline(always)]
-    fn try_parse_optional<P: TryParseOptionalFromStream<Self>>(
+    fn try_parse_option<P: TryParseOptionFromStream<Self>>(
         &mut self,
-    ) -> Result<Option<P>, <P as TryParseOptionalFromStream<Self>>::Error> {
+    ) -> Result<Option<P>, <P as TryParseOptionFromStream<Self>>::Error> {
         P::try_parse_from_stream_with_rollback_when_no_error(self)
     }
     #[inline(always)]
-    fn try_parse_optional2<P: TryParseOptionalFromStream<Self>, Error>(
+    fn try_parse_optional2<P: TryParseOptionFromStream<Self>, Error>(
         &mut self,
-        f: impl FnOnce(<P as TryParseOptionalFromStream<Self>>::Error) -> Error,
+        f: impl FnOnce(<P as TryParseOptionFromStream<Self>>::Error) -> Error,
     ) -> Result<Option<P>, Error> {
         P::try_parse_from_stream_with_rollback_when_no_error(self).map_err(f)
     }
@@ -116,17 +116,17 @@ where
     }
 
     #[inline(always)]
-    fn try_parse_err_as_none<T: TryParseOptionalFromStream<Self>>(&mut self) -> Option<T> {
+    fn try_parse_err_as_none<T: TryParseOptionFromStream<Self>>(&mut self) -> Option<T> {
         T::try_parse_option_from_with_rollback_ignoring_error(self)
     }
 
     #[inline(always)]
-    fn try_parse_expected<T: TryParseOptionalFromStream<Self>, E: IntoError>(
+    fn try_parse_expected<T: TryParseOptionFromStream<Self>, E: IntoError>(
         &mut self,
         f: impl FnOnce(Self::State) -> E,
     ) -> Result<T, E::Error>
     where
-        E::Error: From<<T as TryParseOptionalFromStream<Self>>::Error>,
+        E::Error: From<<T as TryParseOptionFromStream<Self>>::Error>,
     {
         let saved_state = self.save_state();
         match T::try_parse_from_stream_with_rollback_when_no_error(self)? {
@@ -152,22 +152,22 @@ where
     }
 
     #[inline(always)]
-    fn parse_into<T: TryParseOptionalFromStream<Self>>(
+    fn parse_into<T: TryParseOptionFromStream<Self>>(
         mut self,
-    ) -> Result<(Option<T>, Self), <T as TryParseOptionalFromStream<Self>>::Error> {
+    ) -> Result<(Option<T>, Self), <T as TryParseOptionFromStream<Self>>::Error> {
         let optional = T::try_parse_from_stream_with_rollback_when_no_error(&mut self)?;
         Ok((optional, self))
     }
 }
 
-pub trait TryParseOptionalFromStream<SP>: Sized
+pub trait TryParseOptionFromStream<SP>: Sized
 where
     SP: StreamParser + ?Sized,
 {
     type Error;
 
     /// no guarantee on stream state other than Ok(Some(_))
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         sp: &mut SP,
     ) -> Result<Option<Self>, Self::Error>;
 }

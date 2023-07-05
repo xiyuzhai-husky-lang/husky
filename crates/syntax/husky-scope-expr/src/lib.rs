@@ -33,8 +33,8 @@ impl VisibilityExpr {
         token_stream: &mut TokenStream<'_>,
     ) -> VisibilityExprResult<Self> {
         Ok(
-            if let Some(pub_token) = token_stream.try_parse_optional::<PubToken>()? {
-                if let Some(lpar) = token_stream.try_parse_optional::<LeftParenthesisToken>()? {
+            if let Some(pub_token) = token_stream.try_parse_option::<PubToken>()? {
+                if let Some(lpar) = token_stream.try_parse_option::<LeftParenthesisToken>()? {
                     let path_name_token: PathNameToken = token_stream
                         .try_parse_expected(OriginalVisibilityExprError::ExpectedCrateOrSuper)?;
                     match path_name_token {

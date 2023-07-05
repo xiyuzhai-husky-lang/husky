@@ -133,13 +133,13 @@ pub enum BasicStmtKeywordToken {
     Do(DoToken),
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for WhileToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for WhileToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -161,13 +161,13 @@ where
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for BasicStmtKeywordToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BasicStmtKeywordToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -213,13 +213,13 @@ impl MatchToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for MatchToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for MatchToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -247,13 +247,13 @@ impl IfToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for IfToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for IfToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -285,13 +285,13 @@ impl ElifToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for ElifToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ElifToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -325,13 +325,13 @@ impl ElseToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for ElseToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ElseToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -367,13 +367,13 @@ impl ImplToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for ImplToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ImplToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -407,13 +407,13 @@ impl PubToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for PubToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PubToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -447,13 +447,13 @@ impl UseToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for UseToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for UseToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -502,13 +502,13 @@ impl SelfValueToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for SelfValueToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for SelfValueToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -558,13 +558,13 @@ impl SelfTypeToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for SelfTypeToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for SelfTypeToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -610,13 +610,13 @@ pub enum VarianceToken {
     Invariant(InvariantToken),
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for VarianceToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for VarianceToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {
@@ -704,13 +704,13 @@ pub struct ConnectionForToken {
     token_idx: TokenIdx,
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for ConnectionForToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ConnectionForToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {

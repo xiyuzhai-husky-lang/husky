@@ -46,12 +46,12 @@ pub fn ty_method_fn_declarative_signature_template(
     let self_ty = impl_block.ty(db);
     let contract = match decl.self_parameter(db) {
         Some(self_parameter) => match self_parameter {
-            SelfParameterDeclPattern::Pure { .. } => Contract::Pure,
+            SelfParameterDeclPattern::Pure { .. } => Contract::None,
             SelfParameterDeclPattern::Owned { .. } => todo!(),
             SelfParameterDeclPattern::Mut { .. } => Contract::BorrowMut,
             SelfParameterDeclPattern::MutOwned { .. } => todo!(),
         },
-        None => Contract::Pure,
+        None => Contract::None,
     };
     let self_parameter =
         ExplicitRegularParameterDeclarativeSignatureTemplate::new(contract, self_ty);

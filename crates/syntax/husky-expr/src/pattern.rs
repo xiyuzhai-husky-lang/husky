@@ -11,7 +11,7 @@ use husky_token::{AtToken, DotDotToken, IdentToken, TokenStream};
 use husky_word::Ident;
 use idx_arena::{ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
-use parsec::{StreamParser, TryParseOptionalFromStream};
+use parsec::{StreamParser, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum LiteralData {
@@ -34,7 +34,7 @@ pub enum PatternExpr {
     Literal(LiteralData),
     /// example: `a`
     Ident {
-        symbol_modifier_keyword_group: SymbolModifierKeywordGroup,
+        symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
         ident_token: IdentToken,
     },
     /// example: `A::B`

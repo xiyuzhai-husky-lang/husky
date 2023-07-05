@@ -7,7 +7,7 @@ impl PatternExpr {
             PatternExpr::Ident {
                 symbol_modifier_keyword_group,
                 ..
-            } => symbol_modifier_keyword_group.contract(),
+            } => Contract::new(*symbol_modifier_keyword_group),
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),
             PatternExpr::Struct { name, fields } => todo!(),

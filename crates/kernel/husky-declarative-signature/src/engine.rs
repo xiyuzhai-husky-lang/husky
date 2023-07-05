@@ -495,7 +495,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     .map(|argument_ty_item| {
                         Ok(DeclarativeTermRitchieParameterContractedType::new(
                             // todo: handle &mut !!
-                            Contract::Pure,
+                            Contract::None,
                             self.infer_new_expr_term(argument_ty_item.expr_idx())?,
                         ))
                     })

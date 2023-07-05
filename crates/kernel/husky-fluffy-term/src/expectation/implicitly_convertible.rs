@@ -48,7 +48,7 @@ impl ExpectImplicitlyConvertible {
         };
         Self {
             parameter_contracted_ty: FluffyTermRitchieParameterContractedType::new(
-                Contract::Pure,
+                Contract::None,
                 ty,
             ),
         }
@@ -58,7 +58,7 @@ impl ExpectImplicitlyConvertible {
     pub fn new_pure_unit(engine: &impl FluffyTermEngine) -> Self {
         Self {
             parameter_contracted_ty: FluffyTermRitchieParameterContractedType::new(
-                Contract::Pure,
+                Contract::None,
                 engine.term_menu().unit_ty_ontology().into(),
             ),
         }
@@ -68,7 +68,7 @@ impl ExpectImplicitlyConvertible {
     pub fn new_pure_bool(engine: &impl FluffyTermEngine) -> Self {
         Self {
             parameter_contracted_ty: FluffyTermRitchieParameterContractedType::new(
-                Contract::Pure,
+                Contract::None,
                 engine.term_menu().bool_ty_ontology().into(),
             ),
         }
@@ -166,7 +166,7 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
                 })
             }
             FluffyTermData::Category(_) => match self.contract() {
-                Contract::Pure => todo!(),
+                Contract::None => todo!(),
                 Contract::Move => todo!(),
                 Contract::BorrowMut => todo!(),
                 Contract::Const => {
@@ -242,7 +242,7 @@ impl ExpectImplicitlyConvertible {
                     }
                 }
                 match self.parameter_contracted_ty.contract() {
-                    Contract::Pure => meta.set_ok(ImplicitConversion::Trivial, actions),
+                    Contract::None => meta.set_ok(ImplicitConversion::Trivial, actions),
                     Contract::Move => meta.set_ok(ImplicitConversion::Trivial, actions),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),
@@ -284,7 +284,7 @@ impl ExpectImplicitlyConvertible {
                     }
                 }
                 match self.parameter_contracted_ty.contract() {
-                    Contract::Pure => meta.set_ok(ImplicitConversion::Trivial, actions),
+                    Contract::None => meta.set_ok(ImplicitConversion::Trivial, actions),
                     Contract::Move => meta.set_ok(ImplicitConversion::Trivial, actions),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),

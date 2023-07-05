@@ -1,6 +1,6 @@
 use super::*;
 use either::*;
-use parsec::{HasStreamState, TryParseOptionalFromStream};
+use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
@@ -16,8 +16,8 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
     type Error = ExprError;
 
     fn try_parse_from_stream(sp: &mut ExprParseContext<'a, 'b>) -> Result<Self, Self::Error> {
-        if let Some(lbox_token) = sp.try_parse_optional::<LeftBoxBracketToken>()? {
-            if let Some(rbox_token) = sp.try_parse_optional::<RightBoxBracketToken>()? {
+        if let Some(lbox_token) = sp.try_parse_option::<LeftBoxBracketToken>()? {
+            if let Some(rbox_token) = sp.try_parse_option::<RightBoxBracketToken>()? {
                 Ok(VariadicVariant::Vec {
                     lbox_token,
                     rbox_token,
@@ -43,7 +43,7 @@ pub enum ExplicitParameterDecl {
     Variadic {
         dot_dot_dot_token: DotDotDotToken,
         variadic_variant: VariadicVariant,
-        symbol_modifier_keyword_group: SymbolModifierKeywordGroup,
+        symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
         ident_token: IdentToken,
         variable: CurrentSymbolIdx,
         colon: ColonToken,
@@ -51,7 +51,7 @@ pub enum ExplicitParameterDecl {
     },
     Keyed {
         pattern: PatternExprIdx,
-        symbol_modifier_keyword_group: SymbolModifierKeywordGroup,
+        symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
         ident_token: IdentToken,
         variable: CurrentSymbolIdx,
         colon: ColonToken,
@@ -61,10 +61,10 @@ pub enum ExplicitParameterDecl {
     },
 }
 
-impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDecl {
+impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDecl {
     type Error = ExprError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
@@ -99,7 +99,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                     ty_expr_idx,
                 }),
             );
-            if let Some(eq_token) = ctx.try_parse_optional::<EqToken>()? {
+            if let Some(eq_token) = ctx.try_parse_option::<EqToken>()? {
                 let PatternExpr::Ident {
                     symbol_modifier_keyword_group ,
                     ident_token,
@@ -107,7 +107,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                     todo!()
                 };
                 // todo: KeyedWithoutDefault
-                let default_value = if let Some(_) = ctx.try_parse_optional::<UnderscoreToken>()? {
+                let default_value = if let Some(_) = ctx.try_parse_option::<UnderscoreToken>()? {
                     todo!()
                 } else {
                     Right(ctx.parse_expr_expected2(
@@ -134,10 +134,11 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                     ty: ty_expr_idx,
                 }))
             }
-        } else if let Some(dot_dot_dot_token) = ctx.try_parse_optional::<DotDotDotToken>()? {
+        } else if let Some(dot_dot_dot_token) = ctx.try_parse_option::<DotDotDotToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let variadic_variant = ctx.try_parse()?;
-            let symbol_modifier_keyword_group: SymbolModifierKeywordGroup = ctx.try_parse()?;
+            let symbol_modifier_keyword_group =
+                ctx.try_parse_option::<SymbolModifierKeywordGroup>()?;
             let ident_token =
                 ctx.try_parse_expected::<IdentToken, _>(OriginalExprError::ExpectedIdent)?;
             let variable = CurrentSymbol::new(
@@ -146,7 +147,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                 None,
                 CurrentSymbolVariant::ExplicitVariadicParameter {
                     ident_token,
-                    symbol_modifier: symbol_modifier_keyword_group.runtime_symbol_modifier(),
+                    symbol_modifier_keyword_group,
                 },
             );
             let colon = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;

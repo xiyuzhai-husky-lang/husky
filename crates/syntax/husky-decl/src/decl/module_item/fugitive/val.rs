@@ -38,7 +38,7 @@ impl<'a> DeclParser<'a> {
         let mut parser =
             self.expr_parser(node_path, None, AllowSelfType::False, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let colon_token = ctx.try_parse_optional();
+        let colon_token = ctx.try_parse_option();
         let var_ty = if let Ok(Some(_)) = colon_token {
             ctx.try_parse_expected(OriginalNodeDeclError::ExpectedVariableType)
                 .map(Some)

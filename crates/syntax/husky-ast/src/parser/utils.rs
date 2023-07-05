@@ -6,7 +6,7 @@ use husky_token::*;
 use parsec::StreamWrapper;
 use std::iter::Peekable;
 
-pub(super) trait AstTokenParseContext<'a>: TokenParseContext<'a> {
+pub(super) trait AstTokenParseContext<'a>: TokenStreamParser<'a> {
     fn module_path(&self) -> ModulePath;
 
     fn take_entity_kind_keyword(&mut self) -> AstResult<EntityKindKeywordGroup> {

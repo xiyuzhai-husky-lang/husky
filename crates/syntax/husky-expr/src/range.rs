@@ -192,18 +192,16 @@ impl<'a> ExprRangeCalculator<'a> {
         match expr {
             PatternExpr::Literal(_) => todo!(),
             PatternExpr::Ident {
-                symbol_modifier_keyword_group: modifier_keyword_group,
+                symbol_modifier_keyword_group,
                 ident_token,
-            } => match modifier_keyword_group {
-                SymbolModifierKeywordGroup::Mut(mut_token) => {
+            } => match symbol_modifier_keyword_group {
+                Some(SymbolModifierKeywordGroup::Mut(mut_token)) => {
                     TokenIdxRange::new_closed(mut_token.token_idx(), ident_token.token_idx())
                 }
-                SymbolModifierKeywordGroup::RefMut(ref_token, _) => {
+                Some(SymbolModifierKeywordGroup::RefMut(ref_token, _)) => {
                     TokenIdxRange::new_closed(ref_token.token_idx(), ident_token.token_idx())
                 }
-                SymbolModifierKeywordGroup::Default => {
-                    TokenIdxRange::new_single(ident_token.token_idx())
-                }
+                None => TokenIdxRange::new_single(ident_token.token_idx()),
             },
             PatternExpr::Entity(_) => todo!(),
             PatternExpr::Tuple { name, fields } => todo!(),

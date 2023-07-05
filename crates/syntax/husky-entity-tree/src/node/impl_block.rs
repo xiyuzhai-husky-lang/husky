@@ -100,7 +100,7 @@ impl ImplBlockNode {
             princiapl_entity_path_expr_arena,
             entity_tree_context,
         );
-        let impl_token = parser.try_parse_optional::<ImplToken>().unwrap().unwrap();
+        let impl_token = parser.try_parse_option::<ImplToken>().unwrap().unwrap();
         if let Some(_) = parser.try_parse_err_as_none::<LeftAngleBracketOrLessThanToken>() {
             match ignore_implicit_parameters(&mut parser) {
                 Ok(_) => (),

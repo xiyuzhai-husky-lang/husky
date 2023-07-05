@@ -38,10 +38,10 @@ impl NormalAstChildren for TraitForTypeItems {
     }
 }
 
-impl<'a> TryParseOptionalFromStream<AstParser<'a>> for TraitForTypeItems {
+impl<'a> TryParseOptionFromStream<AstParser<'a>> for TraitForTypeItems {
     type Error = AstError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         parser: &mut AstParser<'a>,
     ) -> Result<Option<Self>, Self::Error> {
         Ok(parser

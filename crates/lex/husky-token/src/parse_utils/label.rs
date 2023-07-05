@@ -19,13 +19,13 @@ impl LifetimeLabelToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for LifetimeLabelToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for LifetimeLabelToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
@@ -69,13 +69,13 @@ impl BindingLabelToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for BindingLabelToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BindingLabelToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
@@ -119,13 +119,13 @@ impl BlockLabelToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for BlockLabelToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for BlockLabelToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
