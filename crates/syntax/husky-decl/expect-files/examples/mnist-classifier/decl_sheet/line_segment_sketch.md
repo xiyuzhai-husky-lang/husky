@@ -723,7 +723,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -735,7 +735,7 @@ Ok(
                                         ),
                                         ty: 0,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -930,7 +930,7 @@ Ok(
                                                             375,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `u`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -941,7 +941,7 @@ Ok(
                                                             379,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1005,7 +1005,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -1017,7 +1017,7 @@ Ok(
                                         ),
                                         ty: 0,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -1212,7 +1212,7 @@ Ok(
                                                             472,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `u`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1223,7 +1223,7 @@ Ok(
                                                             476,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1287,7 +1287,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -1299,7 +1299,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -1311,7 +1311,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -1559,7 +1559,7 @@ Ok(
                                                             569,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1570,7 +1570,7 @@ Ok(
                                                             574,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `start`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1581,7 +1581,7 @@ Ok(
                                                             578,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -1658,7 +1658,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -1670,7 +1670,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -1682,7 +1682,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -1694,7 +1694,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 3,
                                         variables: ArenaIdxRange(
                                             3..4,
@@ -1988,7 +1988,7 @@ Ok(
                                                             802,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1999,7 +1999,7 @@ Ok(
                                                             807,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `start0`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -2010,7 +2010,7 @@ Ok(
                                                             811,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `end`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -2021,7 +2021,7 @@ Ok(
                                                             815,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 3,
                                                         },
@@ -2111,7 +2111,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -2123,7 +2123,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -2338,7 +2338,7 @@ Ok(
                                                             1068,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -2349,7 +2349,7 @@ Ok(
                                                             1073,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -2908,7 +2908,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -2920,7 +2920,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -2932,7 +2932,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -3276,7 +3276,7 @@ Ok(
                                                             120,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -3287,7 +3287,7 @@ Ok(
                                                             125,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `from`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -3298,7 +3298,7 @@ Ok(
                                                             129,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `to`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -4581,7 +4581,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -4593,7 +4593,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -4891,7 +4891,7 @@ Ok(
                                                             349,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `ct`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -4902,7 +4902,7 @@ Ok(
                                                             354,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `r`,
                                                             pattern_symbol_idx: 1,
                                                         },

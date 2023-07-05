@@ -646,6 +646,42 @@ fn dotdot_token_works() {
 
     let db = DB::default();
     assert!(t(&db, "..").unwrap().is_some());
+    assert!(t(&db, "...").unwrap().is_none());
+    assert!(t(&db, "@").unwrap().is_none());
+    assert!(t(&db, ".").unwrap().is_none());
+    assert!(t(&db, "||").unwrap().is_none());
+    assert!(t(&db, "a").unwrap().is_none());
+    assert!(t(&db, "'").is_err());
+}
+
+// dotdotdot `...`
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
+pub struct DotDotDotToken(TokenIdx);
+
+impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for DotDotDotToken
+where
+    Context: TokenParseContext<'a>,
+{
+    type Error = TokenError;
+
+    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
+        parse_specific_punctuation_from(ctx, Punctuation::DOT_DOT_DOT, DotDotDotToken)
+    }
+}
+
+#[test]
+fn dot_dot_dot_token_works() {
+    fn t(db: &DB, input: &str) -> TokenResult<Option<DotDotDotToken>> {
+        quick_parse(db, input)
+    }
+
+    let db = DB::default();
+    assert!(t(&db, "...").unwrap().is_some());
+    assert!(t(&db, "..").unwrap().is_none());
     assert!(t(&db, "@").unwrap().is_none());
     assert!(t(&db, ".").unwrap().is_none());
     assert!(t(&db, "||").unwrap().is_none());

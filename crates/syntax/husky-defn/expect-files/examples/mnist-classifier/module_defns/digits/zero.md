@@ -303,7 +303,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                             implicit_parameters: [],
                             explicit_parameters: [
-                                ExplicitParameterDecl {
+                                ExplicitParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -466,7 +466,7 @@ Ok(
                                                         21,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ExplicitParameter {
+                                                    variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -651,7 +651,7 @@ Ok(
                                                                 21,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ExplicitParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                                 ident: `cc`,
                                                                 pattern_symbol_idx: 0,
                                                             },

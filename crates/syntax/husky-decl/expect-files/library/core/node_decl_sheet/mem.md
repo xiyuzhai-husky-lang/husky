@@ -33,7 +33,7 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDeclPattern {
+                                                ImplicitParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
                                                             CovariantToken {
@@ -53,7 +53,7 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                ImplicitParameterDeclPattern {
+                                                ImplicitParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
                                                             CovariantToken {
@@ -231,7 +231,7 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDeclPattern {
+                                                ImplicitParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
                                                             CovariantToken {
@@ -251,7 +251,7 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                ImplicitParameterDeclPattern {
+                                                ImplicitParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Invariant(
                                                             InvariantToken {
@@ -429,7 +429,7 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDeclPattern {
+                                                ImplicitParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
                                                             CovariantToken {
@@ -586,7 +586,7 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDeclPattern {
+                                            ImplicitParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {

@@ -77,13 +77,15 @@ Ok(
                             ),
                             explicit_parameter_decl_list: Err(
                                 NodeDeclError::Original(
-                                    OriginalNodeDeclError::ExpectedRightParenthesisInParameterList(
-                                        TokenStreamState {
-                                            next_token_idx: TokenIdx(
-                                                4,
-                                            ),
-                                            drained: false,
-                                        },
+                                    OriginalNodeDeclError::Expr(
+                                        ExpectedIdent(
+                                            TokenStreamState {
+                                                next_token_idx: TokenIdx(
+                                                    5,
+                                                ),
+                                                drained: false,
+                                            },
+                                        ),
                                     ),
                                 ),
                             ),
@@ -98,7 +100,7 @@ Ok(
                                     OriginalNodeDeclError::ExpectedEolColon(
                                         TokenStreamState {
                                             next_token_idx: TokenIdx(
-                                                4,
+                                                5,
                                             ),
                                             drained: false,
                                         },

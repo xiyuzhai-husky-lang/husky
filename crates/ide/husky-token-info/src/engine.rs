@@ -419,7 +419,7 @@ impl<'a> InferContext<'a> {
             CurrentSymbolKind::LetVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | CurrentSymbolKind::Parameter {
+            | CurrentSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: pattern_symbol,
             } => match self.expr_region_data[pattern_symbol] {
                 PatternSymbol::Atom(pattern_expr_idx) => {
@@ -468,6 +468,7 @@ impl<'a> InferContext<'a> {
                     },
                 ),
             },
+            CurrentSymbolKind::ExplicitVariadicParameter { .. } => todo!(),
         }
     }
 }

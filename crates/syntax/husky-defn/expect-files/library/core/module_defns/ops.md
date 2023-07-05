@@ -8,7 +8,7 @@ Ok(
                         path: TraitPath(`core::ops::Add`),
                         ast_idx: 30,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -113,7 +113,7 @@ Ok(
                         path: TraitPath(`core::ops::AddAssign`),
                         ast_idx: 32,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -218,7 +218,7 @@ Ok(
                         path: TraitPath(`core::ops::BitAnd`),
                         ast_idx: 34,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -323,7 +323,7 @@ Ok(
                         path: TraitPath(`core::ops::BitAndAssign`),
                         ast_idx: 36,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -428,7 +428,7 @@ Ok(
                         path: TraitPath(`core::ops::BitOr`),
                         ast_idx: 38,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -533,7 +533,7 @@ Ok(
                         path: TraitPath(`core::ops::BitOrAssign`),
                         ast_idx: 40,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -638,7 +638,7 @@ Ok(
                         path: TraitPath(`core::ops::BitXor`),
                         ast_idx: 42,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -743,7 +743,7 @@ Ok(
                         path: TraitPath(`core::ops::BitXorAssign`),
                         ast_idx: 44,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -848,7 +848,7 @@ Ok(
                         path: TraitPath(`core::ops::Div`),
                         ast_idx: 46,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -953,7 +953,7 @@ Ok(
                         path: TraitPath(`core::ops::DivAssign`),
                         ast_idx: 48,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -1058,7 +1058,7 @@ Ok(
                         path: TraitPath(`core::ops::Mul`),
                         ast_idx: 50,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -1163,7 +1163,7 @@ Ok(
                         path: TraitPath(`core::ops::MulAssign`),
                         ast_idx: 52,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -1400,7 +1400,7 @@ Ok(
                         path: TraitPath(`core::ops::Sub`),
                         ast_idx: 58,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -1505,7 +1505,7 @@ Ok(
                         path: TraitPath(`core::ops::Unveil`),
                         ast_idx: 59,
                         implicit_parameters: [
-                            ImplicitParameterDeclPattern {
+                            ImplicitParameterDecl {
                                 annotated_variance_token: None,
                                 symbol: 0,
                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -1610,7 +1610,7 @@ Ok(
                         decl: EnumTypeDecl {
                             path: TypePath(`core::ops::ControlFlow`, `Enum`),
                             implicit_parameters: [
-                                ImplicitParameterDeclPattern {
+                                ImplicitParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
                                     variant: ImplicitParameterDeclPatternVariant::Type {
@@ -1623,7 +1623,7 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                ImplicitParameterDeclPattern {
+                                ImplicitParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 1,
                                     variant: ImplicitParameterDeclPatternVariant::Type {

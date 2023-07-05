@@ -157,7 +157,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     ) {
         let current_symbol = &self.expr_region_data.symbol_region()[current_symbol_idx];
         match current_symbol.variant() {
-            CurrentSymbolVariant::ExplicitParameter {
+            CurrentSymbolVariant::ExplicitRegularParameter {
                 ident,
                 pattern_symbol_idx,
             } => {

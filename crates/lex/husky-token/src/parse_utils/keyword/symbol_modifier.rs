@@ -6,6 +6,7 @@ pub enum PatternSymbolModifierKeywordGroup {
     RefMut(RefToken, MutToken),
 }
 
+// todo: change this to TryParse
 impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for PatternSymbolModifierKeywordGroup
 where
     Context: TokenParseContext<'a>,

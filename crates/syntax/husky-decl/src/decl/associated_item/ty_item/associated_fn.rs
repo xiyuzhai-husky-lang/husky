@@ -104,7 +104,9 @@ impl TypeAssociatedFnDecl {
         let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
         let explicit_parameters: ExplicitParameterDeclPatterns = explicit_parameter_decl_list
             .explicit_parameters()
-            .to_smallvec();
+            .iter()
+            .map(Clone::clone)
+            .collect();
         let return_ty = *node_decl.return_ty(db).as_ref()?;
         let expr_region = node_decl.expr_region(db);
         Ok(TypeAssociatedFnDecl::new(

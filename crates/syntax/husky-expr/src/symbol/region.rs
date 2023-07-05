@@ -153,7 +153,7 @@ impl SymbolRegion {
         }
         for (current_symbol_idx, current_symbol) in self.current_symbol_indexed_iter() {
             let kind = match current_symbol.variant {
-                CurrentSymbolVariant::ExplicitParameter { ident, .. } => {
+                CurrentSymbolVariant::ExplicitRegularParameter { ident, .. } => {
                     InheritedSymbolKind::ExplicitParameter { ident }
                 }
                 CurrentSymbolVariant::LetVariable { .. } => todo!(),
@@ -161,6 +161,7 @@ impl SymbolRegion {
                 CurrentSymbolVariant::ImplicitParameter {
                     ref implicit_parameter_variant,
                 } => InheritedSymbolKind::ImplicitParameter(implicit_parameter_variant.bequeath()),
+                CurrentSymbolVariant::ExplicitVariadicParameter { ident_token } => todo!(),
             };
             inherited_symbol_arena.alloc_one(InheritedSymbol {
                 kind,
