@@ -44,7 +44,7 @@ pub enum OriginalExprError {
     #[error("expected item before `be`")]
     ExpectedItemBeforeBe { be_token_idx: TokenIdx },
     #[error("expected variable pattern")]
-    ExpectedLetVariablesPattern(TokenStreamState),
+    ExpectedLetVariableDecls(TokenStreamState),
     #[error("expected pattern expression after `be`")]
     ExpectedBeVariablesPattern(TokenStreamState),
     #[error("expected `=`")]
@@ -135,7 +135,7 @@ pub enum OriginalExprError {
 impl OriginalExprError {
     pub fn token_idx_range(&self) -> TokenIdxRange {
         match self {
-            OriginalExprError::ExpectedLetVariablesPattern(token_idx)
+            OriginalExprError::ExpectedLetVariableDecls(token_idx)
             | OriginalExprError::ExpectedBeVariablesPattern(token_idx) => todo!(),
             OriginalExprError::ExpectedLetVariablesType(token_stream_state)
             | OriginalExprError::ExpectedAssign(token_stream_state)
@@ -272,7 +272,7 @@ pub type ExprResultRef<'a, T> = Result<T, &'a ExprError>;
 //     }
 // }
 
-// impl<'a, Context> FromAbsent<LetVariablesPattern, Context> for OriginalExprError
+// impl<'a, Context> FromAbsent<LetVariableDecls, Context> for OriginalExprError
 // where
 //     Context: TokenParseContext<'a>,
 // {

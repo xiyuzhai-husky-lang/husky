@@ -2,18 +2,30 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum Contract {
-    Pure,
+    None,
     Move,
     BorrowMut,
     Const,
 }
 
+impl Contract {
+    pub fn new<T>(t: Option<T>) -> Self
+    where
+        T: Into<Contract>,
+    {
+        match t {
+            Some(t) => t.into(),
+            None => Contract::None,
+        }
+    }
+}
+
 impl From<SymbolModifier> for Contract {
     fn from(modifier: SymbolModifier) -> Self {
         match modifier {
-            SymbolModifier::Pure => Contract::Pure,
-            SymbolModifier::Mut => todo!(),
-            SymbolModifier::RefMut => todo!(),
+            SymbolModifier::None => Contract::None,
+            SymbolModifier::Mut => Contract::Move,
+            SymbolModifier::RefMut => Contract::BorrowMut,
             SymbolModifier::Const => Contract::Const,
         }
     }

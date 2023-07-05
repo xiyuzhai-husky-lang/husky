@@ -9,7 +9,7 @@ use crate::*;
 use husky_entity_path::DisambiguatorRegistry;
 use husky_print_utils::p;
 use husky_token::*;
-use parsec::{HasStreamState, StreamParser, TryParseOptionalFromStream};
+use parsec::{HasStreamState, StreamParser, TryParseOptionFromStream};
 use salsa::DebugWithDb;
 use utils::*;
 
@@ -143,7 +143,7 @@ impl<'a> AstParser<'a> {
                     token_group_idx,
                     items: if self.is_trai_impl(token_group_idx) {
                         // there are no items for marker traits
-                        self.try_parse_optional::<TraitForTypeItems>()?
+                        self.try_parse_option::<TraitForTypeItems>()?
                             .map(Into::into)
                     } else {
                         // however, type impl block should always have items

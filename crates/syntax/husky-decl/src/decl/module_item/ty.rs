@@ -208,7 +208,7 @@ impl<'a> DeclParser<'a> {
         let mut parser =
             self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.try_parse_optional();
+        let implicit_parameters = ctx.try_parse_option();
         if let Some(lpar) = ctx.try_parse_err_as_none::<LeftParenthesisToken>() {
             let field_comma_list = ctx.try_parse();
             let rpar = ctx.try_parse();

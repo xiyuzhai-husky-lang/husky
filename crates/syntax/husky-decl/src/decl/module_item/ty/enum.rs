@@ -42,7 +42,7 @@ impl<'a> DeclParser<'a> {
         let mut parser =
             self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.try_parse_optional();
+        let implicit_parameters = ctx.try_parse_option();
         EnumTypeNodeDecl::new(db, node_path, ast_idx, implicit_parameters, parser.finish())
     }
 }

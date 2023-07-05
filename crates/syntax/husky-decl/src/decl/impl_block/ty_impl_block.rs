@@ -73,9 +73,9 @@ impl<'a> DeclParser<'a> {
         let mut parser =
             self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, None);
-        let impl_token = ctx.try_parse_optional().unwrap().unwrap();
-        let implicit_parameter_decl_list = ctx.try_parse_optional();
-        let ty = ctx.try_parse_optional().unwrap().unwrap();
+        let impl_token = ctx.try_parse_option().unwrap().unwrap();
+        let implicit_parameter_decl_list = ctx.try_parse_option();
+        let ty = ctx.try_parse_option().unwrap().unwrap();
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TypeImplBlockNodeDecl::new(
             db,

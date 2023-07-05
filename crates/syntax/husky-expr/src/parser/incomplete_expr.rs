@@ -4,7 +4,7 @@ mod comma_list;
 pub(crate) use self::call_list::*;
 pub(crate) use self::comma_list::*;
 
-use parsec::TryParseOptionalFromStream;
+use parsec::TryParseOptionFromStream;
 use smallvec::SmallVec;
 
 use super::*;
@@ -62,19 +62,19 @@ pub(super) enum IncompleteExpr {
     },
 }
 
-impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for HtmlArgumentExpr {
+impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for HtmlArgumentExpr {
     type Error = ExprError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         sp: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
-        if let Some(lcurl) = sp.try_parse_optional::<LeftCurlyBraceToken>()? {
+        if let Some(lcurl) = sp.try_parse_option::<LeftCurlyBraceToken>()? {
             Ok(Some(HtmlArgumentExpr::Shortened {
                 lcurl,
                 property_ident: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
                 rcurl: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,
             }))
-        } else if let Some(argument_ident) = sp.try_parse_optional::<IdentToken>()? {
+        } else if let Some(argument_ident) = sp.try_parse_option::<IdentToken>()? {
             Ok(Some(HtmlArgumentExpr::Expanded {
                 property_ident: argument_ident,
                 eq: sp.try_parse_expected(OriginalExprError::HtmlTodo)?,

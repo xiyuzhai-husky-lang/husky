@@ -35,7 +35,7 @@ impl SymbolType {
         let expr_region_data = engine.expr_region_data();
         let local_symbol_idx = current_symbol_idx.into_local_symbol_idx(expr_region_data);
         let place = match expr_region_data[current_symbol_idx].modifier() {
-            SymbolModifier::Pure => Place::StackPure {
+            SymbolModifier::None => Place::StackPure {
                 location: local_symbol_idx.into(),
             },
             SymbolModifier::Mut => Place::MutableStackOwned {

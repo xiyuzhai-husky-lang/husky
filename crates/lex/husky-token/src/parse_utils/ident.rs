@@ -25,13 +25,13 @@ impl IdentToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for IdentToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for IdentToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
@@ -71,13 +71,13 @@ pub struct UnderscoreToken {
     token_idx: TokenIdx,
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for UnderscoreToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for UnderscoreToken
 where
-    Context: TokenParseContext<'a> + HasTokenDb,
+    Context: TokenStreamParser<'a> + HasTokenDb,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {

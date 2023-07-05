@@ -45,14 +45,14 @@ pub enum ImplicitParameterDeclPatternVariant {
     },
 }
 
-impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
+impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDecl {
     type Error = ExprError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         let annotated_variance_token = ctx.try_parse_err_as_none();
-        if let Some(ident_token) = ctx.try_parse_optional::<IdentToken>()? {
+        if let Some(ident_token) = ctx.try_parse_option::<IdentToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let parameter_symbol = CurrentSymbol::new(
                 ctx.pattern_expr_region(),
@@ -73,7 +73,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitPa
                 symbol: symbols.start(),
                 variant: ImplicitParameterDeclPatternVariant::Type {
                     ident_token,
-                    traits: if let Some(colon) = ctx.try_parse_optional::<ColonToken>()? {
+                    traits: if let Some(colon) = ctx.try_parse_option::<ColonToken>()? {
                         Some((
                             colon,
                             ctx.parse_expr_expected2(
@@ -89,7 +89,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitPa
                     },
                 },
             }))
-        } else if let Some(label_token) = ctx.try_parse_optional::<LifetimeLabelToken>()? {
+        } else if let Some(label_token) = ctx.try_parse_option::<LifetimeLabelToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let symbols = ctx.define_symbols(
                 [CurrentSymbol::new(
@@ -109,14 +109,14 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ImplicitPa
                 symbol: symbols.start(),
                 variant: ImplicitParameterDeclPatternVariant::Lifetime { label_token },
             }))
-        } else if let Some(label_token) = ctx.try_parse_optional::<BindingLabelToken>()? {
+        } else if let Some(label_token) = ctx.try_parse_option::<BindingLabelToken>()? {
             let symbol = todo!();
             Ok(Some(ImplicitParameterDecl {
                 annotated_variance_token,
                 symbol,
                 variant: ImplicitParameterDeclPatternVariant::Binding { label_token },
             }))
-        } else if let Some(const_token) = ctx.try_parse_optional::<ConstToken>()? {
+        } else if let Some(const_token) = ctx.try_parse_option::<ConstToken>()? {
             let ident_token = ctx.try_parse_expected(OriginalExprError::ExpectedIdent)?;
             let colon_token = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
             let ty_expr = ctx.parse_expr_expected2(

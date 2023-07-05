@@ -2,7 +2,7 @@ use parsec::StreamParser;
 
 use super::*;
 
-pub trait TokenParseContext<'a>:
+pub trait TokenStreamParser<'a>:
     HasStreamState<State = TokenStreamState> + StreamParser + core::borrow::BorrowMut<TokenStream<'a>>
 {
     fn token_stream(&self) -> &TokenStream<'a> {
@@ -16,7 +16,7 @@ pub trait TokenParseContext<'a>:
 
 // impl<'a> TokenParseContext<'a> for TokenIter<'a> {}
 
-impl<'a, T> TokenParseContext<'a> for T where
+impl<'a, T> TokenStreamParser<'a> for T where
     T: HasStreamState<State = TokenStreamState>
         + StreamParser
         + core::borrow::BorrowMut<TokenStream<'a>>

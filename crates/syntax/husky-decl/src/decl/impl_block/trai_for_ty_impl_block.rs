@@ -86,15 +86,15 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, None);
-        let impl_token = ctx.try_parse_optional().unwrap().unwrap();
-        let implicit_parameter_decl_list = ctx.try_parse_optional();
+        let impl_token = ctx.try_parse_option().unwrap().unwrap();
+        let implicit_parameter_decl_list = ctx.try_parse_option();
         // ad hoc
-        let trai: TraitExpr = ctx.try_parse_optional().unwrap().unwrap();
+        let trai: TraitExpr = ctx.try_parse_option().unwrap().unwrap();
         let for_token = ctx
-            .try_parse_optional()
+            .try_parse_option()
             .expect("guaranteed by parsing")
             .expect("guaranteed by parsing");
-        let ty = ctx.try_parse_optional().unwrap().unwrap();
+        let ty = ctx.try_parse_option().unwrap().unwrap();
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TraitForTypeImplBlockNodeDecl::new(
             db,

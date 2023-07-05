@@ -55,10 +55,10 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = ctx.try_parse_optional();
+        let implicit_parameter_decl_list = ctx.try_parse_option();
         let parameter_decl_list =
             ctx.try_parse_expected(OriginalNodeDeclError::ExpectedParameterDeclList);
-        let curry_token = ctx.try_parse_optional();
+        let curry_token = ctx.try_parse_option();
         let return_ty = if let Ok(Some(_)) = curry_token {
             ctx.try_parse_expected(OriginalNodeDeclError::ExpectedOutputType)
                 .map(Some)

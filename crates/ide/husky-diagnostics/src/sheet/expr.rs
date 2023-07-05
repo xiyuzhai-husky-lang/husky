@@ -104,7 +104,7 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectedItemBeforeBe { .. } => {
                 format!("Syntax Error: expect item before `be`")
             }
-            OriginalExprError::ExpectedLetVariablesPattern(_) => {
+            OriginalExprError::ExpectedLetVariableDecls(_) => {
                 format!("Syntax Error: expect variable pattern")
             }
             OriginalExprError::ExpectedBeVariablesPattern(_) => {

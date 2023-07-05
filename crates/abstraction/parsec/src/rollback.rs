@@ -1,6 +1,6 @@
 use crate::*;
 
-pub trait ParseFromWithRollback<SP>: TryParseOptionalFromStream<SP>
+pub trait ParseFromWithRollback<SP>: TryParseOptionFromStream<SP>
 where
     SP: StreamParser + ?Sized,
 {
@@ -16,14 +16,14 @@ where
 impl<Context, P> ParseFromWithRollback<Context> for P
 where
     Context: StreamParser + ?Sized,
-    P: TryParseOptionalFromStream<Context>,
+    P: TryParseOptionFromStream<Context>,
 {
-    type Error = <P as TryParseOptionalFromStream<Context>>::Error;
+    type Error = <P as TryParseOptionFromStream<Context>>::Error;
     fn try_parse_from_stream_with_rollback_when_no_error<'a>(
         stream: &mut Context,
-    ) -> Result<Option<Self>, <P as TryParseOptionalFromStream<Context>>::Error> {
+    ) -> Result<Option<Self>, <P as TryParseOptionFromStream<Context>>::Error> {
         let state = stream.save_state();
-        let result = Self::try_parse_optional_from_stream_without_guaranteed_rollback(stream);
+        let result = Self::try_parse_option_from_stream_without_guaranteed_rollback(stream);
         match result {
             // rollback for no pattern
             Ok(None) => stream.rollback(state),
@@ -36,7 +36,7 @@ where
         stream: &mut Context,
     ) -> Option<Self> {
         let state = stream.save_state();
-        let result = Self::try_parse_optional_from_stream_without_guaranteed_rollback(stream);
+        let result = Self::try_parse_option_from_stream_without_guaranteed_rollback(stream);
         match result {
             Ok(Some(patt)) => Some(patt),
             Ok(None) | Err(_) => {

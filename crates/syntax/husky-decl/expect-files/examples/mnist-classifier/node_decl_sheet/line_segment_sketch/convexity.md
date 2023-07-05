@@ -27,34 +27,78 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                explicit_parameter_decl_list: Err(
-                                    NodeDeclError::Original(
-                                        OriginalNodeDeclError::ExpectedRightParenthesisInParameterList(
-                                            TokenStreamState {
-                                                next_token_idx: TokenIdx(
-                                                    22,
+                                explicit_parameter_decl_list: Ok(
+                                    SelfParameterAndExplicitParameters {
+                                        lpar: LeftParenthesisToken(
+                                            TokenIdx(
+                                                21,
+                                            ),
+                                        ),
+                                        self_parameter: None,
+                                        comma_after_self_parameter: None,
+                                        explicit_parameters: [
+                                            ExplicitParameterDecl::Regular {
+                                                pattern: 0,
+                                                variables: ArenaIdxRange(
+                                                    0..1,
                                                 ),
-                                                drained: false,
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        23,
+                                                    ),
+                                                ),
+                                                ty: 0,
                                             },
+                                            ExplicitParameterDecl::Regular {
+                                                pattern: 1,
+                                                variables: ArenaIdxRange(
+                                                    1..2,
+                                                ),
+                                                colon: ColonToken(
+                                                    TokenIdx(
+                                                        27,
+                                                    ),
+                                                ),
+                                                ty: 1,
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaToken(
+                                                TokenIdx(
+                                                    25,
+                                                ),
+                                            ),
+                                        ],
+                                        rpar: RightParenthesisToken(
+                                            TokenIdx(
+                                                29,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                                curry_token: Ok(
+                                    Some(
+                                        CurryToken(
+                                            TokenIdx(
+                                                30,
+                                            ),
                                         ),
                                     ),
                                 ),
-                                curry_token: Ok(
-                                    None,
-                                ),
                                 return_ty: Ok(
-                                    None,
+                                    Some(
+                                        ReturnTypeExpr {
+                                            expr: 2,
+                                        },
+                                    ),
                                 ),
-                                eol_colon: Err(
-                                    NodeDeclError::Original(
-                                        OriginalNodeDeclError::ExpectedEolColon(
-                                            TokenStreamState {
-                                                next_token_idx: TokenIdx(
-                                                    22,
-                                                ),
-                                                drained: false,
-                                            },
-                                        ),
+                                eol_colon: Ok(
+                                    EolToken::Colon(
+                                        EolColonToken {
+                                            token_idx: TokenIdx(
+                                                32,
+                                            ),
+                                        },
                                     ),
                                 ),
                                 expr_region: ExprRegion {
@@ -73,28 +117,153 @@ Ok(
                                             ),
                                         ),
                                         expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 0,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 1,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::i32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 2,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::basic::bool`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `LineSegmentSketch`,
+                                                            token_idx: TokenIdx(
+                                                                24,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `i32`,
+                                                            token_idx: TokenIdx(
+                                                                28,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `bool`,
+                                                            token_idx: TokenIdx(
+                                                                31,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::basic::bool`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         stmt_arena: Arena {
                                             data: [],
                                         },
                                         pattern_expr_region: PatternExprRegion {
                                             pattern_expr_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    PatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentToken {
+                                                            ident: `line_segment_sketch`,
+                                                            token_idx: TokenIdx(
+                                                                22,
+                                                            ),
+                                                        },
+                                                    },
+                                                    PatternExpr::Ident {
+                                                        symbol_modifier_keyword_group: None,
+                                                        ident_token: IdentToken {
+                                                            ident: `index`,
+                                                            token_idx: TokenIdx(
+                                                                26,
+                                                            ),
+                                                        },
+                                                    },
+                                                ],
                                             },
                                             pattern_expr_contracts: ArenaMap {
-                                                data: [],
+                                                data: [
+                                                    None,
+                                                    None,
+                                                ],
                                             },
-                                            pattern_infos: [],
+                                            pattern_infos: [
+                                                Parameter,
+                                                Parameter,
+                                            ],
                                             pattern_symbol_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    PatternSymbol::Atom(
+                                                        0,
+                                                    ),
+                                                    PatternSymbol::Atom(
+                                                        1,
+                                                    ),
+                                                ],
                                             },
-                                            pattern_symbol_maps: [],
+                                            pattern_symbol_maps: [
+                                                [
+                                                    (
+                                                        `line_segment_sketch`,
+                                                        0,
+                                                    ),
+                                                ],
+                                                [
+                                                    (
+                                                        `index`,
+                                                        1,
+                                                    ),
+                                                ],
+                                            ],
                                             pattern_symbol_modifiers: ArenaMap {
-                                                data: [],
+                                                data: [
+                                                    None,
+                                                    None,
+                                                ],
                                             },
                                         },
                                         symbol_region: SymbolRegion {
@@ -102,13 +271,68 @@ Ok(
                                                 data: [],
                                             },
                                             current_symbol_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    CurrentSymbol {
+                                                        modifier: None,
+                                                        access_start: TokenIdx(
+                                                            23,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                            ident: `line_segment_sketch`,
+                                                            pattern_symbol_idx: 0,
+                                                        },
+                                                    },
+                                                    CurrentSymbol {
+                                                        modifier: None,
+                                                        access_start: TokenIdx(
+                                                            27,
+                                                        ),
+                                                        access_end: None,
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                            ident: `index`,
+                                                            pattern_symbol_idx: 1,
+                                                        },
+                                                    },
+                                                ],
                                             },
                                             allow_self_type: False,
                                             allow_self_value: False,
-                                            pattern_ty_constraints: [],
+                                            pattern_ty_constraints: [
+                                                (
+                                                    ExplicitRegularParameter {
+                                                        pattern_expr_idx: 0,
+                                                        ty_expr_idx: 0,
+                                                    },
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
+                                                (
+                                                    ExplicitRegularParameter {
+                                                        pattern_expr_idx: 1,
+                                                        ty_expr_idx: 1,
+                                                    },
+                                                    ArenaIdxRange(
+                                                        1..2,
+                                                    ),
+                                                ),
+                                            ],
                                         },
-                                        roots: [],
+                                        roots: [
+                                            ExprRoot {
+                                                kind: ExplicitParameterType,
+                                                expr_idx: 0,
+                                            },
+                                            ExprRoot {
+                                                kind: ExplicitParameterType,
+                                                expr_idx: 1,
+                                            },
+                                            ExprRoot {
+                                                kind: ReturnType,
+                                                expr_idx: 2,
+                                            },
+                                        ],
                                     },
                                 },
                             },

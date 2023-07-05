@@ -8,10 +8,10 @@ pub fn parse_consecutive_list<Parser, Element, Error>(
 ) -> Result<Vec<Element>, Error>
 where
     Parser: StreamParser,
-    Element: TryParseOptionalFromStream<Parser, Error = Error>,
+    Element: TryParseOptionFromStream<Parser, Error = Error>,
 {
     let mut elements = vec![];
-    while let Some(element) = parser.try_parse_optional::<Element>()? {
+    while let Some(element) = parser.try_parse_option::<Element>()? {
         elements.push(element)
     }
     Ok(elements)
@@ -23,10 +23,10 @@ pub fn parse_consecutive_vec_map<Parser, K, Element, Error>(
 where
     Parser: StreamParser,
     K: Eq + Copy,
-    Element: AsVecMapEntry<K = K> + TryParseOptionalFromStream<Parser, Error = Error>,
+    Element: AsVecMapEntry<K = K> + TryParseOptionFromStream<Parser, Error = Error>,
 {
     let mut elements = VecMap::default();
-    while let Some(element) = parser.try_parse_optional::<Element>()? {
+    while let Some(element) = parser.try_parse_option::<Element>()? {
         match elements.insert_new(element) {
             Ok(_) => (),
             Err(_) => todo!(),
@@ -66,8 +66,8 @@ where
     [Element; N]: smallvec::Array<Item = Element>,
     [Separator; N]: smallvec::Array<Item = Separator>,
     SP: StreamParser + ?Sized,
-    Element: TryParseOptionalFromStream<SP>,
-    Separator: TryParseOptionalFromStream<SP>,
+    Element: TryParseOptionFromStream<SP>,
+    Separator: TryParseOptionFromStream<SP>,
     Error: From<Element::Error> + From<Separator::Error>,
 {
     type Error = Error;
@@ -76,10 +76,10 @@ where
         let mut elements = smallvec![];
         let mut separators = smallvec![];
         loop {
-            match sp.try_parse_optional::<Element>() {
+            match sp.try_parse_option::<Element>() {
                 Ok(Some(element)) => {
                     elements.push(element);
-                    match sp.try_parse_optional::<Separator>() {
+                    match sp.try_parse_option::<Separator>() {
                         Ok(Some(separator)) => separators.push(separator),
                         Ok(None) => break,
                         Err(error) => return Err(error.into()),
@@ -102,17 +102,17 @@ pub fn parse_separated_list<SP, Element, Separator, Error>(
 ) -> (Vec<Element>, Vec<Separator>, Result<(), Error>)
 where
     SP: StreamParser,
-    Element: TryParseOptionalFromStream<SP, Error = Error>,
-    Separator: TryParseOptionalFromStream<SP>,
-    Error: From<<Separator as TryParseOptionalFromStream<SP>>::Error>,
+    Element: TryParseOptionFromStream<SP, Error = Error>,
+    Separator: TryParseOptionFromStream<SP>,
+    Error: From<<Separator as TryParseOptionFromStream<SP>>::Error>,
 {
     let mut elements = vec![];
     let mut separators = vec![];
     let result = loop {
-        match ctx.try_parse_optional::<Element>() {
+        match ctx.try_parse_option::<Element>() {
             Ok(Some(element)) => {
                 elements.push(element);
-                match ctx.try_parse_optional::<Separator>() {
+                match ctx.try_parse_option::<Separator>() {
                     Ok(Some(separator)) => separators.push(separator),
                     Ok(None) => break Ok(()),
                     Err(error) => break Err(error.into()),
@@ -131,17 +131,17 @@ pub fn parse_separated_list2<Context, Element, Separator, E1, E2>(
 ) -> Result<(Vec<Element>, Vec<Separator>), E2>
 where
     Context: StreamParser,
-    Element: TryParseOptionalFromStream<Context, Error = E1>,
-    Separator: TryParseOptionalFromStream<Context>,
-    E1: From<<Separator as TryParseOptionalFromStream<Context>>::Error>,
+    Element: TryParseOptionFromStream<Context, Error = E1>,
+    Separator: TryParseOptionFromStream<Context>,
+    E1: From<<Separator as TryParseOptionFromStream<Context>>::Error>,
 {
     let mut elements = vec![];
     let mut separators = vec![];
     loop {
-        match ctx.try_parse_optional::<Element>() {
+        match ctx.try_parse_option::<Element>() {
             Ok(Some(element)) => {
                 elements.push(element);
-                match ctx.try_parse_optional::<Separator>() {
+                match ctx.try_parse_option::<Separator>() {
                     Ok(Some(separator)) => separators.push(separator),
                     Ok(None) => break,
                     Err(error) => return Err(f(error.into())),
@@ -160,17 +160,17 @@ pub fn parse_separated_small_list2<Context, Element, Separator, E1, E2>(
 ) -> Result<(SmallVec<[Element; 2]>, SmallVec<[Separator; 2]>), E2>
 where
     Context: StreamParser,
-    Element: TryParseOptionalFromStream<Context, Error = E1>,
-    Separator: TryParseOptionalFromStream<Context>,
-    E1: From<<Separator as TryParseOptionalFromStream<Context>>::Error>,
+    Element: TryParseOptionFromStream<Context, Error = E1>,
+    Separator: TryParseOptionFromStream<Context>,
+    E1: From<<Separator as TryParseOptionFromStream<Context>>::Error>,
 {
     let mut elements = smallvec![];
     let mut separators = smallvec![];
     loop {
-        match ctx.try_parse_optional::<Element>() {
+        match ctx.try_parse_option::<Element>() {
             Ok(Some(element)) => {
                 elements.push(element);
-                match ctx.try_parse_optional::<Separator>() {
+                match ctx.try_parse_option::<Separator>() {
                     Ok(Some(separator)) => separators.push(separator),
                     Ok(None) => break,
                     Err(error) => return Err(f(error.into())),
@@ -204,19 +204,19 @@ pub fn parse_separated_list_expected<Context, Element, Separator, E: IntoError>(
 ) -> (Vec<Element>, Vec<Separator>, Result<(), E::Error>)
 where
     Context: StreamParser,
-    Element: TryParseOptionalFromStream<Context>,
-    Separator: TryParseOptionalFromStream<Context>,
-    E::Error: From<<Element as TryParseOptionalFromStream<Context>>::Error>,
-    E::Error: From<<Separator as TryParseOptionalFromStream<Context>>::Error>,
+    Element: TryParseOptionFromStream<Context>,
+    Separator: TryParseOptionFromStream<Context>,
+    E::Error: From<<Element as TryParseOptionFromStream<Context>>::Error>,
+    E::Error: From<<Separator as TryParseOptionFromStream<Context>>::Error>,
 {
     let mut elements = vec![];
     let mut separators = vec![];
     let result = loop {
         let state = ctx.save_state();
-        match ctx.try_parse_optional::<Element>() {
+        match ctx.try_parse_option::<Element>() {
             Ok(Some(element)) => {
                 elements.push(element);
-                match ctx.try_parse_optional::<Separator>() {
+                match ctx.try_parse_option::<Separator>() {
                     Ok(Some(separator)) => separators.push(separator),
                     Ok(None) => {
                         if elements.len() < nelem_min {
@@ -253,19 +253,19 @@ pub fn parse_separated_small2_list_expected<Context, Element, Separator, E: Into
 )
 where
     Context: StreamParser,
-    Element: TryParseOptionalFromStream<Context>,
-    Separator: TryParseOptionalFromStream<Context>,
-    E::Error: From<<Element as TryParseOptionalFromStream<Context>>::Error>,
-    E::Error: From<<Separator as TryParseOptionalFromStream<Context>>::Error>,
+    Element: TryParseOptionFromStream<Context>,
+    Separator: TryParseOptionFromStream<Context>,
+    E::Error: From<<Element as TryParseOptionFromStream<Context>>::Error>,
+    E::Error: From<<Separator as TryParseOptionFromStream<Context>>::Error>,
 {
     let mut elements = smallvec![];
     let mut separators = smallvec![];
     let result = loop {
         let state = ctx.save_state();
-        match ctx.try_parse_optional::<Element>() {
+        match ctx.try_parse_option::<Element>() {
             Ok(Some(element)) => {
                 elements.push(element);
-                match ctx.try_parse_optional::<Separator>() {
+                match ctx.try_parse_option::<Separator>() {
                     Ok(Some(separator)) => separators.push(separator),
                     Ok(None) => {
                         if elements.len() < nelem_min {

@@ -26,7 +26,7 @@ pub fn ty_method_function_declarative_signature_template(
     let self_parameter = ExplicitRegularParameterDeclarativeSignatureTemplate::new(
         match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
-            None => Contract::Pure,
+            None => Contract::None,
         },
         decl.impl_block_path(db)
             .declarative_signature_template(db)?

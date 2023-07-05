@@ -1409,7 +1409,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -1445,7 +1445,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 564,
@@ -1471,7 +1471,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,
@@ -1498,7 +1498,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 2,
                                                     variables: ArenaIdxRange(
                                                         2..3,
@@ -1550,7 +1550,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 600,
@@ -4511,7 +4511,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 157,
@@ -4538,7 +4538,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 168,
@@ -4592,7 +4592,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -4620,7 +4620,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 109,
@@ -4647,7 +4647,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 122,
@@ -4674,7 +4674,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 130,
@@ -5737,7 +5737,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 230,
@@ -5769,7 +5769,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -5796,7 +5796,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,
@@ -7352,7 +7352,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 319,
@@ -7391,7 +7391,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 263,
@@ -7417,7 +7417,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 0,
                                                     variables: ArenaIdxRange(
                                                         0..1,
@@ -7444,7 +7444,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 1,
                                                     variables: ArenaIdxRange(
                                                         1..2,
@@ -7471,7 +7471,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 2,
                                                     variables: ArenaIdxRange(
                                                         2..3,
@@ -7498,7 +7498,7 @@ Ok(
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
-                                                LetVariablesPattern {
+                                                LetVariableDecls {
                                                     pattern_expr_idx: 3,
                                                     variables: ArenaIdxRange(
                                                         3..4,

@@ -36,7 +36,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = ctx.try_parse_optional();
+        let implicit_parameter_decl_list = ctx.try_parse_option();
         TraitForTypeAssociatedTypeNodeDecl::new(
             db,
             node.node_path(db),

@@ -67,6 +67,43 @@
     ),
     (
         EntityPath::ModuleItem(
+            ModuleItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Fn(
+                        FnDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: ExplicitApplication(
+                                                DeclarativeTermExplicitApplication(
+                                                    Id {
+                                                        value: 44,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::option::Option core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
             ),
@@ -86,6 +123,98 @@
                                     ty: DeclarativeTerm(`mnist::BinaryImage28`),
                                 },
                             ],
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Fn(
+                        FnDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 65,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 65,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::raw_bits::r32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Fn(
+                        FnDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 96,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
                         },
                     ),
                 ),
@@ -140,7 +269,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -432,6 +561,138 @@
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::connected_component`,
+                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `top_k_row_span_sum`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 79,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::connected_component`,
+                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `top_k_row_right_mass_sum`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 79,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
                         },

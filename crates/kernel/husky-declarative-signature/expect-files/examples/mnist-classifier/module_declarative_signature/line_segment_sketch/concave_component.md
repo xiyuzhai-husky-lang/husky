@@ -12,6 +12,43 @@
         ),
     ),
     (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Fn(
+                        FnDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: ExplicitApplication(
+                                                DeclarativeTermExplicitApplication(
+                                                    Id {
+                                                        value: 58,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`[] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
         EntityPath::ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
@@ -59,7 +96,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -325,7 +362,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -376,7 +413,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -427,7 +464,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -478,7 +515,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -529,7 +566,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -580,7 +617,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(

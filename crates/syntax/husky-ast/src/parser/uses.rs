@@ -1,5 +1,5 @@
 use husky_opn_syntax::{BinaryClosedOpr, BinaryOpr, Bracket};
-use husky_token::{TokenParseContext, TokenStream};
+use husky_token::{TokenStream, TokenStreamParser};
 use parsec::StreamWrapper;
 
 use super::*;

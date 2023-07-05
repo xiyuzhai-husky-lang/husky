@@ -3,14 +3,14 @@ use crate::*;
 pub fn parse_seq2<'a, Context, A, B, Error>(stream: &mut Context) -> Result<Option<(A, B)>, Error>
 where
     Context: StreamParser,
-    A: TryParseOptionalFromStream<Context, Error = Error>,
-    B: TryParseOptionalFromStream<Context, Error = Error>,
+    A: TryParseOptionFromStream<Context, Error = Error>,
+    B: TryParseOptionFromStream<Context, Error = Error>,
 {
-    let a = match A::try_parse_optional_from_stream_without_guaranteed_rollback(stream)? {
+    let a = match A::try_parse_option_from_stream_without_guaranteed_rollback(stream)? {
         Some(a) => a,
         None => return Ok(None),
     };
-    let b = match B::try_parse_optional_from_stream_without_guaranteed_rollback(stream)? {
+    let b = match B::try_parse_option_from_stream_without_guaranteed_rollback(stream)? {
         Some(b) => b,
         None => return Ok(None),
     };
@@ -31,19 +31,19 @@ pub fn parse_seq3<'a, Context, A, B, C, Error>(
 ) -> Result<Option<(A, B, C)>, Error>
 where
     Context: StreamParser,
-    A: TryParseOptionalFromStream<Context, Error = Error>,
-    B: TryParseOptionalFromStream<Context, Error = Error>,
-    C: TryParseOptionalFromStream<Context, Error = Error>,
+    A: TryParseOptionFromStream<Context, Error = Error>,
+    B: TryParseOptionFromStream<Context, Error = Error>,
+    C: TryParseOptionFromStream<Context, Error = Error>,
 {
-    let a = match A::try_parse_optional_from_stream_without_guaranteed_rollback(stream)? {
+    let a = match A::try_parse_option_from_stream_without_guaranteed_rollback(stream)? {
         Some(a) => a,
         None => return Ok(None),
     };
-    let b = match B::try_parse_optional_from_stream_without_guaranteed_rollback(stream)? {
+    let b = match B::try_parse_option_from_stream_without_guaranteed_rollback(stream)? {
         Some(b) => b,
         None => return Ok(None),
     };
-    let c = match C::try_parse_optional_from_stream_without_guaranteed_rollback(stream)? {
+    let c = match C::try_parse_option_from_stream_without_guaranteed_rollback(stream)? {
         Some(c) => c,
         None => return Ok(None),
     };

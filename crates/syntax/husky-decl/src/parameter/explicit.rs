@@ -15,18 +15,18 @@ pub struct SelfParameterAndExplicitParameters<const ALLOW_SELF_PARAMETER: bool> 
     rpar: RightParenthesisToken,
 }
 
-impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
+impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprParseContext<'a, 'b>>
     for SelfParameterAndExplicitParameters<ALLOW_SELF_PARAMETER>
 {
     type Error = NodeDeclError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, NodeDeclError> {
-        let Some(lpar) = ctx.try_parse_optional::<LeftParenthesisToken>()? else {
+        let Some(lpar) = ctx.try_parse_option::<LeftParenthesisToken>()? else {
             return Ok(None)
         };
-        let self_parameter: Option<SelfParameterDeclPattern> = ctx.try_parse_optional()?;
+        let self_parameter: Option<SelfParameterDeclPattern> = ctx.try_parse_option()?;
         let comma_after_self_parameter = if self_parameter.is_some() {
             ctx.try_parse_err_as_none::<CommaToken>()
         } else {

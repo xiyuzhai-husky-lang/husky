@@ -2,7 +2,7 @@ use husky_scope_expr::{
     DerivedVisibilityExprError, OriginalVisibilityExprError, VisibilityExprError,
 };
 use husky_token::{
-    IdentToken, Punctuation, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenParseContext,
+    IdentToken, Punctuation, TokenError, TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamParser,
     TokenStreamState,
 };
 use original_error::IntoError;

@@ -302,13 +302,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         env: PatternExprInfo,
     ) -> ExprResult<Option<PatternExprIdx>> {
-        let symbol_modifier_keyword_group = self.try_parse()?;
+        let symbol_modifier_keyword_group = self.try_parse_option()?;
         let ident_token = match symbol_modifier_keyword_group {
-            SymbolModifierKeywordGroup::Default => match self.try_parse_optional::<IdentToken>()? {
+            None => match self.try_parse_option::<IdentToken>()? {
                 Some(ident_token) => ident_token,
                 None => return Ok(None),
             },
-            _ => self.try_parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
+            Some(_) => self.try_parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
         };
         Ok(Some(self.alloc_pattern_expr(
             PatternExpr::Ident {

@@ -36,17 +36,15 @@ impl PropsFieldDeclPattern {
     }
 }
 
-impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
-    for PropsFieldDeclPattern
-{
+impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for PropsFieldDeclPattern {
     type Error = ExprError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
-        let visibility = ctx.try_parse_optional()?;
-        let Some(ident_token) = ctx.try_parse_optional::<IdentToken>()? else {
+        let visibility = ctx.try_parse_option()?;
+        let Some(ident_token) = ctx.try_parse_option::<IdentToken>()? else {
                 return Ok(None)
             };
         let colon: ColonToken = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
@@ -55,21 +53,20 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
             ExprRootKind::PropsStructFieldType { ident_token },
             OriginalExprError::ExpectedFieldType,
         );
-        let initialization =
-            if let Some(colon_eq_token) = ctx.try_parse_optional::<ColonEqToken>()? {
-                Some(PropsFieldInitialization::Bind {
-                    colon_eq_token,
-                    value: ctx.parse_expr_expected2(
-                        None,
-                        ExprRootKind::FieldBindInitialValue { ty_expr_idx },
-                        OriginalExprError::ExpectedValueForFieldBindInitialization,
-                    ),
-                })
-            } else if let Some(_) = ctx.try_parse_optional::<EqToken>()? {
-                todo!()
-            } else {
-                None
-            };
+        let initialization = if let Some(colon_eq_token) = ctx.try_parse_option::<ColonEqToken>()? {
+            Some(PropsFieldInitialization::Bind {
+                colon_eq_token,
+                value: ctx.parse_expr_expected2(
+                    None,
+                    ExprRootKind::FieldBindInitialValue { ty_expr_idx },
+                    OriginalExprError::ExpectedValueForFieldBindInitialization,
+                ),
+            })
+        } else if let Some(_) = ctx.try_parse_option::<EqToken>()? {
+            todo!()
+        } else {
+            None
+        };
         let access_start = ctx.save_state().next_token_idx();
         Ok(Some(PropsFieldDeclPattern {
             decorators,
@@ -86,13 +83,13 @@ impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>>
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct FieldDecorator {}
 
-impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for FieldDecorator {
+impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for FieldDecorator {
     type Error = ExprError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
-        let Some(at_token) = ctx.try_parse_optional::<AtToken>()? else {
+        let Some(at_token) = ctx.try_parse_option::<AtToken>()? else {
             return Ok(None)
         };
         todo!()
@@ -105,16 +102,16 @@ pub enum FieldVisibilityExpr {
     Pub,
 }
 
-impl<'a, 'b> parsec::TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for FieldVisibilityExpr {
+impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for FieldVisibilityExpr {
     type Error = ExprError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
-        let Some(pub_token) = ctx.try_parse_optional::<PubToken>()? else {
+        let Some(pub_token) = ctx.try_parse_option::<PubToken>()? else {
             return Ok(None)
         };
-        let Some(lpar_token) = ctx.try_parse_optional::<LeftParenthesisToken>()? else {
+        let Some(lpar_token) = ctx.try_parse_option::<LeftParenthesisToken>()? else {
             return Ok(Some(FieldVisibilityExpr::Pub))
         };
         todo!()

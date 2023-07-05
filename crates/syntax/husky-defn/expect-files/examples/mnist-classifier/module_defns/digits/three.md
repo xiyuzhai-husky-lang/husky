@@ -1482,7 +1482,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 48,
@@ -1509,7 +1509,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 57,
@@ -1536,7 +1536,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 66,
@@ -1587,7 +1587,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 89,
@@ -1622,7 +1622,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 111,
@@ -1649,7 +1649,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 119,
@@ -1676,7 +1676,7 @@ Ok(
                                             },
                                             let_variable_pattern: Err(
                                                 ExprError::Original(
-                                                    ExpectedLetVariablesPattern(
+                                                    ExpectedLetVariableDecls(
                                                         TokenStreamState {
                                                             next_token_idx: TokenIdx(
                                                                 127,

@@ -59,7 +59,7 @@ impl<'a> DeclParser<'a> {
     ) -> TraitNodeDecl {
         let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.try_parse_optional();
+        let implicit_parameters = ctx.try_parse_option();
         TraitNodeDecl::new(self.db(), id, ast_idx, implicit_parameters, parser.finish())
     }
 }

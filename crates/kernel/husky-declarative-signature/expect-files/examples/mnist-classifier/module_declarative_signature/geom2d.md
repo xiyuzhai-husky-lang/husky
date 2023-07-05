@@ -217,6 +217,68 @@
                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                         disambiguator: 0,
                     },
+                    ident: `from_i_shift28`,
+                    item_kind: AssociatedFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::AssociatedFn(
+                        TypeAssociatedFnDeclarativeSignatureTemplate {
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                        disambiguator: 0,
+                    },
                     ident: `vector`,
                     item_kind: MethodFn,
                 },
@@ -238,7 +300,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -251,6 +313,72 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `to`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 83,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 83,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         },
@@ -289,7 +417,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -302,6 +430,72 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `dist`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 83,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 83,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
                         },
@@ -363,7 +557,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -378,6 +572,72 @@
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `to`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 85,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                         },
                     ),
                 ),
@@ -414,7 +674,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -427,6 +687,350 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `dot`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 85,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `cross`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 85,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `angle`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 37,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `rotation_direction_to`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 85,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::i32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `angle_to`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 85,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 37,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
                         },
@@ -454,6 +1058,138 @@
                         },
                         ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                     },
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `relative_range`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 86,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 86,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `relative_point`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 86,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
                 ),
             ),
         ),
@@ -490,6 +1226,138 @@
                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                         disambiguator: 0,
                     },
+                    ident: `relative_bounding_box`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 87,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 87,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                        disambiguator: 0,
+                    },
+                    ident: `relative_point`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: None,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            Id {
+                                                value: 87,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 83,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativePoint2d`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `mnist_classifier::geom2d`,
+                        ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                        disambiguator: 0,
+                    },
                     ident: `xmin`,
                     item_kind: MethodFn,
                 },
@@ -511,7 +1379,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -562,7 +1430,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -613,7 +1481,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -664,7 +1532,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -738,7 +1606,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -789,7 +1657,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -840,7 +1708,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(
@@ -891,7 +1759,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: EntityPath(
                                     Type(
                                         TypePath(

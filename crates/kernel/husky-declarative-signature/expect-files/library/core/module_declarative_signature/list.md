@@ -104,7 +104,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
@@ -117,6 +117,78 @@
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i32`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TypeItem(
+                TypeItemPath {
+                    impl_block: TypeImplBlockPath {
+                        module_path: `core::list`,
+                        ty_path: TypePath(`core::list::List`, `Extern`),
+                        disambiguator: 0,
+                    },
+                    ident: `push`,
+                    item_kind: MethodFn,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MethodFn(
+                        TypeMethodFnDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [
+                                        ImplicitParameterDeclarativeSignature {
+                                            annotated_variance: None,
+                                            symbol: DeclarativeTermSymbol(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
+                                            traits: [],
+                                        },
+                                    ],
+                                },
+                                ty: DeclarativeTerm(`core::list::List t`),
+                            },
+                            self_ty: DeclarativeTerm(`core::list::List t`),
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                contract: BorrowMut,
+                                ty: ExplicitApplication(
+                                    DeclarativeTermExplicitApplication(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: Symbol(
+                                                DeclarativeTermSymbol(
+                                                    Id {
+                                                        value: 2,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`core::basic::unit`),
                         },
                     ),
                 ),
@@ -163,7 +235,7 @@
                                 data: [],
                             },
                             self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
-                                contract: Pure,
+                                contract: None,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {

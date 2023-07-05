@@ -2,7 +2,7 @@ use super::*;
 use husky_opn_syntax::BinaryOpr;
 use husky_token::*;
 use original_error::IntoError;
-use parsec::{StreamParser, StreamWrapper, TryParseOptionalFromStream};
+use parsec::{StreamParser, StreamWrapper, TryParseOptionFromStream};
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -252,7 +252,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
     }
 
     fn parse_use_expr_after_ident(&mut self, ident_token: IdentToken) -> UseExprResult<UseExpr> {
-        let Some(scope_resolution_token) = self.try_parse_optional::<ScopeResolutionToken>()? else {
+        let Some(scope_resolution_token) = self.try_parse_option::<ScopeResolutionToken>()? else {
             return Ok( UseExpr::Leaf { ident_token })
         };
         Ok(UseExpr::Parent(ParentUseExpr {
@@ -263,7 +263,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
     }
 
     fn parse_children(&mut self) -> UseExprResult<UseExprChildren> {
-        let Some(lcurl_token) = self.try_parse_optional::<LeftCurlyBraceToken>()? else {
+        let Some(lcurl_token) = self.try_parse_option::<LeftCurlyBraceToken>()? else {
             let child = self.try_parse_expected(OriginalUseExprError::ExpectUseExpr).into();
             let child = self.use_expr_arena.alloc_one(child);
             return Ok(UseExprChildren::Single { child })
@@ -282,15 +282,15 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
     }
 }
 
-impl<'a, 'b> TryParseOptionalFromStream<UseExprParser<'a, 'b>> for UseExpr {
+impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
     type Error = UseExprError;
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut UseExprParser<'a, 'b>,
     ) -> UseExprResult<Option<Self>> {
-        if let Some(star_token) = ctx.try_parse_optional::<StarToken>()? {
+        if let Some(star_token) = ctx.try_parse_option::<StarToken>()? {
             return Ok(Some(UseExpr::All { star_token }));
         }
-        let Some(path_name_token) = ctx.try_parse_optional::<PathNameToken>()? else {
+        let Some(path_name_token) = ctx.try_parse_option::<PathNameToken>()? else {
             return Ok(None)
         };
         match path_name_token {
@@ -309,7 +309,7 @@ impl<'a, 'b> TryParseOptionalFromStream<UseExprParser<'a, 'b>> for UseExpr {
                     Ok(Some(UseExpr::Parent(ParentUseExpr {
                         parent_name_token: self_mod_token.into(),
                         scope_resolution_token: Ok(ctx
-                            .try_parse_optional()
+                            .try_parse_option()
                             .expect("guaranteed by peek")
                             .expect("guaranteed by peek")),
                         children: ctx.parse_children(),

@@ -31,6 +31,55 @@
         ),
     ),
     (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Fugitive(
+                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Fn(
+                        FnDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                                data: [
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: ExplicitApplication(
+                                                DeclarativeTermExplicitApplication(
+                                                    Id {
+                                                        value: 56,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: None,
+                                            ty: ExplicitApplicationOrRitchieCall(
+                                                DeclarativeTermExplicitApplicationOrRitchieCall(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
         EntityPath::ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(

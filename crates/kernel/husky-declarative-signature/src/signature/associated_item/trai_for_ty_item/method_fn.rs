@@ -10,7 +10,7 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     let self_parameter = ExplicitRegularParameterDeclarativeSignatureTemplate::new(
         match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
-            None => Contract::Pure,
+            None => Contract::None,
         },
         decl.path(db)
             .impl_block(db)

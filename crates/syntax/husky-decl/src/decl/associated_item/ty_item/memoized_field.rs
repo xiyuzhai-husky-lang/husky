@@ -44,7 +44,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let colon_token = ctx.try_parse_optional();
+        let colon_token = ctx.try_parse_option();
         let form_ty = if let Ok(Some(_)) = colon_token {
             ctx.try_parse_expected(OriginalNodeDeclError::ExpectedOutputType)
                 .map(Some)

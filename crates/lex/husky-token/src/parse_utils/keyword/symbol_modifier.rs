@@ -2,46 +2,43 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SymbolModifierKeywordGroup {
-    Default,
     Mut(MutToken),
     RefMut(RefToken, MutToken),
 }
 
-impl SymbolModifierKeywordGroup {
-    pub fn runtime_symbol_modifier(self) -> SymbolModifier {
+impl Into<SymbolModifier> for SymbolModifierKeywordGroup {
+    #[inline(always)]
+    fn into(self) -> SymbolModifier {
         match self {
-            SymbolModifierKeywordGroup::Default => SymbolModifier::Const,
             SymbolModifierKeywordGroup::Mut(_) => SymbolModifier::Mut,
             SymbolModifierKeywordGroup::RefMut(_, _) => SymbolModifier::RefMut,
         }
     }
+}
 
-    pub fn contract(self) -> Contract {
+impl Into<Contract> for SymbolModifierKeywordGroup {
+    #[inline(always)]
+    fn into(self) -> Contract {
         match self {
             SymbolModifierKeywordGroup::Mut(_) => Contract::Move,
             SymbolModifierKeywordGroup::RefMut(_, _) => Contract::BorrowMut,
-            SymbolModifierKeywordGroup::Default => Contract::Pure,
         }
     }
 }
 
-impl Default for SymbolModifierKeywordGroup {
-    fn default() -> Self {
-        SymbolModifierKeywordGroup::Default
-    }
-}
-
 // todo: change this to TryParse
-impl<'a, Context> parsec::TryParseFromStream<Context> for SymbolModifierKeywordGroup
+impl<'a, SP> parsec::TryParseOptionFromStream<SP> for SymbolModifierKeywordGroup
 where
-    Context: TokenParseContext<'a>,
+    SP: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_from_stream(ctx: &mut Context) -> TokenResult<Self> {
-        let token_stream: &mut TokenStream<'a> = &mut ctx.borrow_mut();
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        sp: &mut SP,
+    ) -> TokenResult<Option<Self>> {
+        let token_stream: &mut TokenStream<'a> = &mut sp.borrow_mut();
         let Some((token_idx, token)) = token_stream.next_indexed() else {
-            return Ok(Default::default())
+            return Ok(None)
         };
         let kw = match token {
             Token::Keyword(Keyword::Modifier(kw)) => kw,
@@ -49,10 +46,12 @@ where
             _ => return Ok(Default::default()),
         };
         match kw {
-            ModifierKeyword::Mut => Ok(SymbolModifierKeywordGroup::Mut(MutToken { token_idx })),
+            ModifierKeyword::Mut => Ok(Some(SymbolModifierKeywordGroup::Mut(MutToken {
+                token_idx,
+            }))),
             ModifierKeyword::Covariant
             | ModifierKeyword::Contravariant
-            | ModifierKeyword::Invariant => Ok(Default::default()),
+            | ModifierKeyword::Invariant => Ok(None),
         }
     }
 }
@@ -69,13 +68,13 @@ impl MutToken {
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionalFromStream<Context> for MutToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for MutToken
 where
-    Context: TokenParseContext<'a>,
+    Context: TokenStreamParser<'a>,
 {
     type Error = TokenError;
 
-    fn try_parse_optional_from_stream_without_guaranteed_rollback(
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut Context,
     ) -> TokenResult<Option<Self>> {
         if let Some((token_idx, token)) = ctx.borrow_mut().next_indexed() {

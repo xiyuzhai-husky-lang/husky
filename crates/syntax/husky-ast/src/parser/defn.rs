@@ -5,8 +5,8 @@ use husky_entity_taxonomy::{
 };
 use husky_opn_syntax::{BinaryOpr, Bracket};
 use husky_print_utils::p;
-use husky_token::{EntityKindKeywordGroup, FugitiveKeyword, TokenParseContext, TypeEntityKeyword};
-use parsec::{StreamParser, TryParseOptionalFromStream};
+use husky_token::{EntityKindKeywordGroup, FugitiveKeyword, TokenStreamParser, TypeEntityKeyword};
+use parsec::{StreamParser, TryParseOptionFromStream};
 use salsa::DebugWithDb;
 
 use super::*;
@@ -76,16 +76,16 @@ impl<'a> AstParser<'a> {
                             form_kind,
                         )
                         .into(),
-                        body: self.try_parse_optional()?, // todo: check that this is coherent with decl
+                        body: self.try_parse_option()?, // todo: check that this is coherent with decl
                     },
                     ModuleItemKind::Trait => DefnBlock::Trait {
                         path: TraitPath::new(self.db, self.module_path, ident, connection).into(),
-                        items: self.try_parse_optional()?,
+                        items: self.try_parse_option()?,
                     },
                 }
             }
             EntityKind::AssociatedItem { .. } => DefnBlock::AssociatedItem {
-                body: self.try_parse_optional()?,
+                body: self.try_parse_option()?,
             },
             EntityKind::TypeVariant => todo!(),
         };
@@ -130,7 +130,7 @@ impl<'a> AstParser<'a> {
                 self.token_sheet
                     .token_group_token_stream(token_group_idx, None),
             );
-            let Ok(Some(vertical_token)) = aux_parser.try_parse_optional::<VerticalToken>() else {
+            let Ok(Some(vertical_token)) = aux_parser.try_parse_option::<VerticalToken>() else {
                 self.token_groups.rollback(state);
                 break
             };
