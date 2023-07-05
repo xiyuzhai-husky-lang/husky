@@ -1,74 +1,82 @@
+mod keyed;
+mod regular;
+mod variadic;
+
+pub use self::keyed::*;
+pub use self::regular::*;
+pub use self::variadic::*;
+
 use super::*;
 use husky_declarative_signature::{
-    ExplicitParameterDeclarativeSignature, ExplicitParameterDeclarativeSignatureTemplates,
+    ExplicitParameterDeclarativeSignatureTemplate, ExplicitParameterDeclarativeSignatureTemplates,
+    ExplicitRegularParameterDeclarativeSignatureTemplate,
 };
 use husky_term_prelude::Contract;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitParameterEtherealSignature {
-    kind: ExplicitParameterKind,
-    contract: Contract,
-    ty: EtherealTerm,
+#[enum_class::from_variants]
+pub enum ExplicitParameterEtherealSignatureTemplate {
+    Regular(ExplicitRegularParameterEtherealSignatureTemplate),
+    Variadic(ExplicitVariadicParameterEtherealSignatureTemplate),
+    Keyed(ExplicitKeyedParameterEtherealSignatureTemplate),
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum ExplicitParameterKind {
-    Regular,
-    Keyed { ident: Ident },
-}
-
-impl ExplicitParameterEtherealSignature {
-    pub(crate) fn from_declarative(
+impl ExplicitParameterEtherealSignatureTemplate {
+    pub fn from_declarative_signature(
         db: &dyn EtherealSignatureDb,
-        signature: &ExplicitParameterDeclarativeSignature,
+        declarative_signature: &ExplicitParameterDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        Ok(match signature {
-            ExplicitParameterDeclarativeSignature::Regular(signature) => Self {
-                kind: ExplicitParameterKind::Regular,
-                contract: signature.contract(),
-                ty: EtherealTerm::ty_from_declarative(db, signature.ty())?,
-            },
+        Ok(match declarative_signature {
+            ExplicitParameterDeclarativeSignatureTemplate::Regular(declarative_signature_template) => {
+                ExplicitRegularParameterEtherealSignatureTemplate::from_declarative_signature_template(
+                    db,
+                    declarative_signature_template,
+                )?
+                .into()
+            }
+            ExplicitParameterDeclarativeSignatureTemplate::Variadic(_) => todo!(),
+            ExplicitParameterDeclarativeSignatureTemplate::KeyedWithoutDefault(_) => todo!(),
+            ExplicitParameterDeclarativeSignatureTemplate::KeyedWithDefault(_) => todo!(),
         })
-    }
-
-    pub fn contract(&self) -> Contract {
-        self.contract
-    }
-
-    pub fn ty(&self) -> EtherealTerm {
-        self.ty
-    }
-
-    pub fn kind(&self) -> ExplicitParameterKind {
-        self.kind
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ExplicitParameterEtherealSignatures {
-    data: SmallVec<[ExplicitParameterEtherealSignature; 4]>,
+pub struct ExplicitParameterEtherealSignatureTemplates {
+    data: SmallVec<[ExplicitParameterEtherealSignatureTemplate; 4]>,
 }
 
-impl ExplicitParameterEtherealSignatures {
+impl ExplicitParameterEtherealSignatureTemplates {
     pub(crate) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signatures: &ExplicitParameterDeclarativeSignatureTemplates,
+        declarative_signature_templates: &ExplicitParameterDeclarativeSignatureTemplates,
     ) -> EtherealSignatureResult<Self> {
-        Ok(ExplicitParameterEtherealSignatures {
-            data: declarative_signatures
+        Ok(ExplicitParameterEtherealSignatureTemplates {
+            data: declarative_signature_templates
                 .iter()
-                .map(|declarative_signature| {
-                    ExplicitParameterEtherealSignature::from_declarative(db, declarative_signature)
+                .map(|declarative_signature_template| {
+                    ExplicitParameterEtherealSignatureTemplate::from_declarative_signature(
+                        db,
+                        declarative_signature_template,
+                    )
                 })
                 .collect::<EtherealSignatureResult<_>>()?,
         })
     }
 }
 
-impl std::ops::Deref for ExplicitParameterEtherealSignatures {
-    type Target = [ExplicitParameterEtherealSignature];
+impl std::ops::Deref for ExplicitParameterEtherealSignatureTemplates {
+    type Target = [ExplicitParameterEtherealSignatureTemplate];
 
     fn deref(&self) -> &Self::Target {
         &self.data
     }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[enum_class::from_variants]
+pub enum ExplicitParameterEtherealSignature {
+    Regular(ExplicitRegularParameterEtherealSignature),
+    Keyed(ExplicitKeyedParameterEtherealSignature),
+    Variadic(ExplicitVariadicParameterEtherealSignature),
 }

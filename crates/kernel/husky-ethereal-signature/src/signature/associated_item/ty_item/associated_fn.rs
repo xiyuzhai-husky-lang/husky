@@ -7,7 +7,7 @@ pub struct TypeAssociatedFnEtherealSignatureTemplate {
     pub path: TypeItemPath,
     pub self_ty: EtherealTerm,
     pub implicit_parameters: ImplicitParameterEtherealSignatures,
-    pub explicit_parameters: ExplicitParameterEtherealSignatures,
+    pub explicit_parameters: ExplicitParameterEtherealSignatureTemplates,
     pub return_ty: EtherealTerm,
     pub ty: EtherealTerm,
 }
@@ -23,7 +23,7 @@ impl TypeAssociatedFnEtherealSignatureTemplate {
             db,
             declarative_signature.implicit_parameters(db),
         )?;
-        let explicit_parameters = ExplicitParameterEtherealSignatures::from_declarative(
+        let explicit_parameters = ExplicitParameterEtherealSignatureTemplates::from_declarative(
             db,
             declarative_signature.explicit_parameters(db),
         )?;
@@ -31,9 +31,19 @@ impl TypeAssociatedFnEtherealSignatureTemplate {
         let ty = EtherealTermRitchie::new(
             db,
             RitchieKind::FnType,
-            explicit_parameters.iter().copied().map(|parameter| {
-                TermRitchieParameterContractedType::new(parameter.contract(), parameter.ty())
-            }),
+            explicit_parameters
+                .iter()
+                .copied()
+                .map(|parameter| match parameter {
+                    ExplicitParameterEtherealSignatureTemplate::Regular(parameter) => {
+                        TermRitchieParameterContractedType::new(
+                            parameter.contract(),
+                            parameter.ty(),
+                        )
+                    }
+                    ExplicitParameterEtherealSignatureTemplate::Variadic(_) => todo!(),
+                    ExplicitParameterEtherealSignatureTemplate::Keyed(_) => todo!(),
+                }),
             return_ty,
         )?
         .into();
