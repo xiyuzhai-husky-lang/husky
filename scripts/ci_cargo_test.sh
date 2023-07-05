@@ -8,4 +8,6 @@ echo "print current path"
 pwd
 # check file sizes on current path
 echo "check file sizes on current path"
-tree --du -h ./
+tree --du -h ~/ -L 3
+tree --du -h ~/ -L 2
+tree --du -h ~/ -L 1
