@@ -9,13 +9,16 @@ pub enum PatternSymbol {
 }
 
 impl PatternSymbol {
-    pub(super) fn symbol_modifier(&self, pattern_expr_arena: &PatternExprArena) -> SymbolModifier {
+    pub(super) fn runtime_symbol_modifier(
+        &self,
+        pattern_expr_arena: &PatternExprArena,
+    ) -> SymbolModifier {
         match self {
             PatternSymbol::Atom(expr_idx) => match pattern_expr_arena[*expr_idx] {
                 PatternExpr::Ident {
                     symbol_modifier_keyword_group: modifier_keyword_group,
                     ident_token,
-                } => modifier_keyword_group.symbol_modifier(),
+                } => modifier_keyword_group.runtime_symbol_modifier(),
                 _ => unreachable!(),
             },
         }

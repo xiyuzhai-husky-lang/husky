@@ -25,8 +25,10 @@
                 FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -35,8 +37,10 @@
                 FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -45,8 +49,10 @@
                 FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(core::raw_bits::r32, core::num::i32) -> core::raw_bits::r32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -55,8 +61,10 @@
                 FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(core::raw_bits::r32, core::raw_bits::r32, core::num::i32) -> mnist_classifier::raw_contour::Direction`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -65,8 +73,10 @@
                 FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(mnist_classifier::raw_contour::Direction, mnist_classifier::raw_contour::Direction) -> core::num::i32`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -75,8 +85,10 @@
                 FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(core::raw_bits::r32, core::raw_bits::r32, core::num::i32, mnist_classifier::raw_contour::Direction) -> mnist_classifier::raw_contour::Direction`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -95,8 +107,10 @@
                 FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn([] mnist_classifier::geom2d::Point2d) -> mnist_classifier::geom2d::Point2d`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -105,8 +119,10 @@
                 FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`fn(core::mem::Ref mnist_classifier::connected_component::ConnectedComponent) -> [] mnist_classifier::raw_contour::RawContour`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
 ]
