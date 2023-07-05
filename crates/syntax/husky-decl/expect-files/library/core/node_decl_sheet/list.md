@@ -33,7 +33,7 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDeclPattern {
+                                                ImplicitParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
                                                             CovariantToken {
@@ -209,7 +209,7 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDeclPattern {
+                                            ImplicitParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -825,7 +825,7 @@ Ok(
                                             ),
                                         ),
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1107,7 +1107,7 @@ Ok(
                                                             31,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `e`,
                                                             pattern_symbol_idx: 0,
                                                         },

@@ -57,13 +57,14 @@ impl<'a> ExprTypeEngine<'a> {
             CurrentSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant,
             } => todo!(),
-            CurrentSymbolVariant::ExplicitParameter {
+            CurrentSymbolVariant::ExplicitRegularParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
             CurrentSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
             CurrentSymbolVariant::FrameVariable { .. } => todo!(),
+            CurrentSymbolVariant::ExplicitVariadicParameter { ident_token } => todo!(),
         }
     }
 

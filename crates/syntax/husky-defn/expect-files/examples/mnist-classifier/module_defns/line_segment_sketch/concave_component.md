@@ -252,7 +252,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                             implicit_parameters: [],
                             explicit_parameters: [
-                                ExplicitParameterDecl {
+                                ExplicitParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -421,7 +421,7 @@ Ok(
                                                         544,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ExplicitParameter {
+                                                    variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                         ident: `line_segment_sketch`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -612,7 +612,7 @@ Ok(
                                                                 544,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ExplicitParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                                 ident: `line_segment_sketch`,
                                                                 pattern_symbol_idx: 0,
                                                             },

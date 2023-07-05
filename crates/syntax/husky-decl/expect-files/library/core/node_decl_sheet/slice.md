@@ -33,7 +33,7 @@ Ok(
                                                 ),
                                             ),
                                             implicit_parameters: [
-                                                ImplicitParameterDeclPattern {
+                                                ImplicitParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
                                                             CovariantToken {

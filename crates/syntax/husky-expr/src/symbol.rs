@@ -114,8 +114,11 @@ impl CurrentSymbol {
                 implicit_parameter_variant:
                     CurrentImplicitParameterSymbol::Type { ident_token }
                     | CurrentImplicitParameterSymbol::Constant { ident_token, .. },
-            } => Some(ident_token.ident()),
-            CurrentSymbolVariant::ExplicitParameter { ident, .. }
+            }
+            | CurrentSymbolVariant::ExplicitVariadicParameter { ident_token } => {
+                Some(ident_token.ident())
+            }
+            CurrentSymbolVariant::ExplicitRegularParameter { ident, .. }
             | CurrentSymbolVariant::LetVariable { ident, .. }
             | CurrentSymbolVariant::FrameVariable { ident, .. } => Some(ident),
             CurrentSymbolVariant::ImplicitParameter {
@@ -135,8 +138,11 @@ pub enum CurrentSymbolKind {
     ImplicitParameter {
         implicit_parameter_kind: CurrentImplicitParameterSymbolKind,
     },
-    Parameter {
+    ExplicitRegularParameter {
         pattern_symbol_idx: PatternSymbolIdx,
+    },
+    ExplicitVariadicParameter {
+        ident_token: IdentToken,
     },
     LetVariable {
         pattern_symbol_idx: PatternSymbolIdx,
@@ -158,9 +164,12 @@ pub enum CurrentSymbolVariant {
     ImplicitParameter {
         implicit_parameter_variant: CurrentImplicitParameterSymbol,
     },
-    ExplicitParameter {
+    ExplicitRegularParameter {
         ident: Ident,
         pattern_symbol_idx: PatternSymbolIdx,
+    },
+    ExplicitVariadicParameter {
+        ident_token: IdentToken,
     },
     LetVariable {
         ident: Ident,
@@ -178,12 +187,13 @@ impl CurrentSymbolVariant {
             CurrentSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant,
             } => SymbolModifier::Const,
-            CurrentSymbolVariant::ExplicitParameter {
+            CurrentSymbolVariant::ExplicitRegularParameter {
                 pattern_symbol_idx, ..
             }
             | CurrentSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             } => pattern_expr_region.pattern_symbol_modifier(*pattern_symbol_idx),
+            CurrentSymbolVariant::ExplicitVariadicParameter { .. } => todo!(),
             CurrentSymbolVariant::FrameVariable { ident, expr_idx } => SymbolModifier::Pure,
         }
     }
@@ -234,9 +244,9 @@ impl CurrentSymbolVariant {
             } => CurrentSymbolKind::ImplicitParameter {
                 implicit_parameter_kind: implicit_parameter_variant.kind(),
             },
-            CurrentSymbolVariant::ExplicitParameter {
+            CurrentSymbolVariant::ExplicitRegularParameter {
                 pattern_symbol_idx, ..
-            } => CurrentSymbolKind::Parameter {
+            } => CurrentSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
             CurrentSymbolVariant::LetVariable {
@@ -246,6 +256,11 @@ impl CurrentSymbolVariant {
             },
             CurrentSymbolVariant::FrameVariable { expr_idx, .. } => {
                 CurrentSymbolKind::FrameVariable(*expr_idx)
+            }
+            CurrentSymbolVariant::ExplicitVariadicParameter { ident_token } => {
+                CurrentSymbolKind::ExplicitVariadicParameter {
+                    ident_token: *ident_token,
+                }
             }
         }
     }

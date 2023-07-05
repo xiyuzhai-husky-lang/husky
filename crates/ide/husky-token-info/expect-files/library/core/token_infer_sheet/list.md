@@ -117,7 +117,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::Parameter {
+                current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
                 expr_region: ExprRegionLeash(_),

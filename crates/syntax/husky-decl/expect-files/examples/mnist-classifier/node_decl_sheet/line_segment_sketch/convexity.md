@@ -37,7 +37,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -49,7 +49,7 @@ Ok(
                                                 ),
                                                 ty: 0,
                                             },
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 1,
                                                 variables: ArenaIdxRange(
                                                     1..2,
@@ -278,7 +278,7 @@ Ok(
                                                             23,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `line_segment_sketch`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -289,7 +289,7 @@ Ok(
                                                             27,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `index`,
                                                             pattern_symbol_idx: 1,
                                                         },

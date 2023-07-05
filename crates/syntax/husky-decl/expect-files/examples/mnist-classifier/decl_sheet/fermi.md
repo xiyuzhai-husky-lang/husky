@@ -256,7 +256,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -268,7 +268,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    ExplicitParameterDecl {
+                                    ExplicitParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -577,7 +577,7 @@ Ok(
                                                             150,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `concave_components`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -588,7 +588,7 @@ Ok(
                                                             157,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `templates`,
                                                             pattern_symbol_idx: 1,
                                                         },

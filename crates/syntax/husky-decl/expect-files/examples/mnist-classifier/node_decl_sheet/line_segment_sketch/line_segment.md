@@ -779,7 +779,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1052,7 +1052,7 @@ Ok(
                                                             43,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `pt`,
                                                             pattern_symbol_idx: 0,
                                                         },

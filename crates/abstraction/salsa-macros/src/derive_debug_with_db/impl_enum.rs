@@ -5,19 +5,6 @@ use super::*;
 pub(super) fn enum_debug_with_db_impl(db_path: &Path, item: &ItemEnum) -> proc_macro2::TokenStream {
     let ident = &item.ident;
     let _ident_string = ident.to_string();
-
-    let variants = item
-        .variants
-        .iter()
-        .map(|variant| -> proc_macro2::TokenStream {
-            match variant.fields {
-                syn::Fields::Named(_) => enum_struct_variant_debug_with_db(ident, variant),
-                syn::Fields::Unnamed(_) => enum_tuple_variant_debug_with_db(ident, variant),
-                syn::Fields::Unit => enum_unit_variant_debug_with_db(ident, variant),
-            }
-        })
-        .collect::<proc_macro2::TokenStream>();
-
     let item_generics_punctuated = &item.generics.params;
     let generic_decls = if item_generics_punctuated.is_empty() {
         quote! { _Db:  #db_path + ?Sized }
@@ -46,14 +33,34 @@ pub(super) fn enum_debug_with_db_impl(db_path: &Path, item: &ItemEnum) -> proc_m
         quote! { #ident<#arguments> }
     };
     let where_clause = &item.generics.where_clause;
-    quote! {
+    if item.variants.is_empty() {
+        quote! {
         impl<#generic_decls> ::salsa::DebugWithDb<_Db> for #self_ty #where_clause {
             fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: ::salsa::DebugFormatLevel) -> ::std::fmt::Result {
-                #[allow(unused_imports)]
-                use ::salsa::debug::helper::Fallback;
-                // let _db = <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db);
-                match self {
-                    #variants
+                unreachable!()
+            }
+        }}
+    } else {
+        let variants = item
+            .variants
+            .iter()
+            .map(|variant| -> proc_macro2::TokenStream {
+                match variant.fields {
+                    syn::Fields::Named(_) => enum_struct_variant_debug_with_db(ident, variant),
+                    syn::Fields::Unnamed(_) => enum_tuple_variant_debug_with_db(ident, variant),
+                    syn::Fields::Unit => enum_unit_variant_debug_with_db(ident, variant),
+                }
+            })
+            .collect::<proc_macro2::TokenStream>();
+        quote! {
+            impl<#generic_decls> ::salsa::DebugWithDb<_Db> for #self_ty #where_clause {
+                fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>, _db: &_Db, _level: ::salsa::DebugFormatLevel) -> ::std::fmt::Result {
+                    #[allow(unused_imports)]
+                    use ::salsa::debug::helper::Fallback;
+                    // let _db = <_Db as ::salsa::DbWithJar<#jar_ty>>::as_jar_db(_db);
+                    match self {
+                        #variants
+                    }
                 }
             }
         }

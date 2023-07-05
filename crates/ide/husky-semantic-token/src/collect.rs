@@ -43,9 +43,10 @@ fn token_to_semantic_token(
             ..
         } => match current_symbol_kind {
             CurrentSymbolKind::LetVariable { .. } => SemanticToken::Variable,
-            CurrentSymbolKind::Parameter { .. } => SemanticToken::Parameter,
+            CurrentSymbolKind::ExplicitRegularParameter { .. } => SemanticToken::Parameter,
             CurrentSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
             CurrentSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
+            CurrentSymbolKind::ExplicitVariadicParameter { .. } => SemanticToken::Parameter,
         },
         // SemanticToken::Variable,
         TokenInfo::InheritedSymbol {

@@ -107,7 +107,7 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDeclPattern {
+                                            ImplicitParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -129,7 +129,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            ImplicitParameterDeclPattern {
+                                            ImplicitParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -365,7 +365,7 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDeclPattern {
+                                            ImplicitParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -387,7 +387,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            ImplicitParameterDeclPattern {
+                                            ImplicitParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {

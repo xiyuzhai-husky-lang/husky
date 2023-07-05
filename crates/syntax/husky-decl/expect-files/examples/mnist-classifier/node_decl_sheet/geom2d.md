@@ -1736,7 +1736,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -1748,7 +1748,7 @@ Ok(
                                                 ),
                                                 ty: 0,
                                             },
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 1,
                                                 variables: ArenaIdxRange(
                                                     1..2,
@@ -2073,7 +2073,7 @@ Ok(
                                                             21,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `i`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -2084,7 +2084,7 @@ Ok(
                                                             25,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `shift`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -2503,7 +2503,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -2776,7 +2776,7 @@ Ok(
                                                             70,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -3182,7 +3182,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -3455,7 +3455,7 @@ Ok(
                                                             126,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -4012,7 +4012,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -4285,7 +4285,7 @@ Ok(
                                                             194,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -4691,7 +4691,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -4964,7 +4964,7 @@ Ok(
                                                             250,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -5076,7 +5076,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -5349,7 +5349,7 @@ Ok(
                                                             275,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -5461,7 +5461,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -5734,7 +5734,7 @@ Ok(
                                                             300,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `is_branch_cut_positive`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -5846,7 +5846,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -6119,7 +6119,7 @@ Ok(
                                                             369,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -6231,7 +6231,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -6243,7 +6243,7 @@ Ok(
                                                 ),
                                                 ty: 0,
                                             },
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 1,
                                                 variables: ArenaIdxRange(
                                                     1..2,
@@ -6568,7 +6568,7 @@ Ok(
                                                             389,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -6579,7 +6579,7 @@ Ok(
                                                             393,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `is_branch_cut_positive`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -6859,7 +6859,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -7132,7 +7132,7 @@ Ok(
                                                             506,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -7244,7 +7244,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -7517,7 +7517,7 @@ Ok(
                                                             569,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `v`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -7784,7 +7784,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -8057,7 +8057,7 @@ Ok(
                                                             616,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `other`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -8169,7 +8169,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl {
+                                            ExplicitParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -8442,7 +8442,7 @@ Ok(
                                                             651,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitParameter {
+                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                             ident: `point`,
                                                             pattern_symbol_idx: 0,
                                                         },

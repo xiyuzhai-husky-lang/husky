@@ -1,7 +1,36 @@
 use super::*;
 use parsec::{HasStreamState, TryParseOptionalFromStream};
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+pub enum VariadicVariant {
+    Default,
+    Vec {
+        lbox_token: LeftBoxBracketToken,
+        rbox_token: RightBoxBracketToken,
+    },
+}
+
+impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
+    type Error = ExprError;
+
+    fn try_parse_from_stream(sp: &mut ExprParseContext<'a, 'b>) -> Result<Self, Self::Error> {
+        if let Some(lbox_token) = sp.try_parse_optional::<LeftBoxBracketToken>()? {
+            if let Some(rbox_token) = sp.try_parse_optional::<RightBoxBracketToken>()? {
+                Ok(VariadicVariant::Vec {
+                    lbox_token,
+                    rbox_token,
+                })
+            } else {
+                todo!()
+            }
+        } else {
+            Ok(VariadicVariant::Default)
+        }
+    }
+}
+
+#[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub enum ExplicitParameterDecl {
     Regular {
@@ -24,8 +53,10 @@ pub enum ExplicitParameterDecl {
         ty: ExprIdx,
     },
     Variadic {
-        dot_dot_dot_token_idx: TokenIdx,
-        ident: IdentToken,
+        dot_dot_dot_token: DotDotDotToken,
+        variadic_variant: VariadicVariant,
+        modifier_keyword_group: Option<PatternSymbolModifierKeywordGroup>,
+        ident_token: IdentToken,
         variable: CurrentSymbolIdx,
         colon: ColonToken,
         ty: ExprIdx,
@@ -48,7 +79,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSymbolVariant::ExplicitParameter {
+                        CurrentSymbolVariant::ExplicitRegularParameter {
                             ident: *ident,
                             pattern_symbol_idx: *pattern_symbol_idx,
                         },
@@ -61,19 +92,41 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                 ExprRootKind::ExplicitParameterType,
                 OriginalExprError::ExpectedParameterType,
             );
-            let variables = ctx.define_symbols(
-                variables,
-                Some(PatternTypeConstraint::ExplicitParameter {
-                    pattern_expr: pattern,
+            if let Some(eq_token) = ctx.try_parse_optional::<EqToken>()? {
+                todo!()
+            } else {
+                let variables = ctx.define_symbols(
+                    variables,
+                    Some(PatternTypeConstraint::ExplicitParameter {
+                        pattern_expr: pattern,
+                        ty,
+                    }),
+                );
+                Ok(Some(ExplicitParameterDecl::Regular {
+                    pattern,
+                    variables,
+                    colon,
                     ty,
-                }),
+                }))
+            }
+        } else if let Some(dot_dot_dot_token) = ctx.try_parse_optional::<DotDotDotToken>()? {
+            let access_start = ctx.save_state().next_token_idx();
+            let ident_token =
+                ctx.try_parse_expected::<IdentToken, _>(OriginalExprError::ExpectedIdent)?;
+            let variable = CurrentSymbol::new(
+                ctx.pattern_expr_region(),
+                access_start,
+                None,
+                CurrentSymbolVariant::ExplicitVariadicParameter { ident_token },
             );
-            todo!("keyed variadics");
-            Ok(Some(ExplicitParameterDecl::Regular {
-                pattern,
-                variables,
-                colon,
-                ty,
+            Ok(Some(ExplicitParameterDecl::Variadic {
+                dot_dot_dot_token,
+                variadic_variant: ctx.try_parse()?,
+                modifier_keyword_group: ctx.try_parse_optional()?,
+                ident_token,
+                variable: todo!(),
+                colon: todo!(),
+                ty: todo!(),
             }))
         } else {
             Ok(None)

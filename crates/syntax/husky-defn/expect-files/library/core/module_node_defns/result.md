@@ -27,7 +27,7 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDeclPattern {
+                                            ImplicitParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -40,7 +40,7 @@ Ok(
                                                     traits: None,
                                                 },
                                             },
-                                            ImplicitParameterDeclPattern {
+                                            ImplicitParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
                                                 variant: ImplicitParameterDeclPatternVariant::Type {
@@ -1378,7 +1378,7 @@ Ok(
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
                                     explicit_parameters: [
-                                        ExplicitParameterDecl {
+                                        ExplicitParameterDecl::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -2039,7 +2039,7 @@ Ok(
                                                         49,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ExplicitParameter {
+                                                    variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                         ident: `result`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -2694,7 +2694,7 @@ Ok(
                                                                 49,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ExplicitParameter {
+                                                            variant: CurrentSymbolVariant::ExplicitRegularParameter {
                                                                 ident: `result`,
                                                                 pattern_symbol_idx: 0,
                                                             },

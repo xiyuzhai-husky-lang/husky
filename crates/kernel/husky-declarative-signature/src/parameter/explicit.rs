@@ -83,13 +83,7 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                         colon,
                         ty,
                     } => todo!(),
-                    ExplicitParameterDecl::Variadic {
-                        dot_dot_dot_token_idx,
-                        ident,
-                        variable,
-                        colon,
-                        ty,
-                    } => todo!(),
+                    ExplicitParameterDecl::Variadic { .. } => todo!(),
                 })
                 .collect::<DeclarativeSignatureResult<_>>()?,
         })
