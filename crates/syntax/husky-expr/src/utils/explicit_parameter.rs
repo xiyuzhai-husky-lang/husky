@@ -43,7 +43,7 @@ pub enum ExplicitParameterDecl {
     Variadic {
         dot_dot_dot_token: DotDotDotToken,
         variadic_variant: VariadicVariant,
-        modifier_keyword_group: Option<PatternSymbolModifierKeywordGroup>,
+        symbol_modifier_keyword_group: SymbolModifierKeywordGroup,
         ident_token: IdentToken,
         variable: CurrentSymbolIdx,
         colon: ColonToken,
@@ -51,7 +51,7 @@ pub enum ExplicitParameterDecl {
     },
     Keyed {
         pattern: PatternExprIdx,
-        modifier_keyword_group: Option<PatternSymbolModifierKeywordGroup>,
+        symbol_modifier_keyword_group: SymbolModifierKeywordGroup,
         ident_token: IdentToken,
         variable: CurrentSymbolIdx,
         colon: ColonToken,
@@ -64,7 +64,7 @@ pub enum ExplicitParameterDecl {
 impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDecl {
     type Error = ExprError;
 
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> ExprResult<Option<Self>> {
         if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
@@ -101,7 +101,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
             );
             if let Some(eq_token) = ctx.try_parse_optional::<EqToken>()? {
                 let PatternExpr::Ident {
-                    modifier_keyword_group,
+                    symbol_modifier_keyword_group ,
                     ident_token,
                 } = ctx.pattern_expr_region()[pattern_expr_idx] else {
                     todo!()
@@ -118,7 +118,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                 };
                 Ok(Some(ExplicitParameterDecl::Keyed {
                     pattern: pattern_expr_idx,
-                    modifier_keyword_group,
+                    symbol_modifier_keyword_group,
                     ident_token,
                     variable: variables.start(),
                     colon,
@@ -137,7 +137,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
         } else if let Some(dot_dot_dot_token) = ctx.try_parse_optional::<DotDotDotToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let variadic_variant = ctx.try_parse()?;
-            let modifier_keyword_group = ctx.try_parse_optional()?;
+            let symbol_modifier_keyword_group: SymbolModifierKeywordGroup = ctx.try_parse()?;
             let ident_token =
                 ctx.try_parse_expected::<IdentToken, _>(OriginalExprError::ExpectedIdent)?;
             let variable = CurrentSymbol::new(
@@ -146,15 +146,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
                 None,
                 CurrentSymbolVariant::ExplicitVariadicParameter {
                     ident_token,
-                    modifier: match modifier_keyword_group {
-                        Some(modifier_keyword_group) => match modifier_keyword_group {
-                            PatternSymbolModifierKeywordGroup::Mut(_) => SymbolModifier::Mut,
-                            PatternSymbolModifierKeywordGroup::RefMut(_, _) => {
-                                SymbolModifier::RefMut
-                            }
-                        },
-                        None => SymbolModifier::Pure,
-                    },
+                    symbol_modifier: symbol_modifier_keyword_group.symbol_modifier(),
                 },
             );
             let colon = ctx.try_parse_expected(OriginalExprError::ExpectedColon)?;
@@ -170,7 +162,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for ExplicitPa
             Ok(Some(ExplicitParameterDecl::Variadic {
                 dot_dot_dot_token,
                 variadic_variant,
-                modifier_keyword_group,
+                symbol_modifier_keyword_group,
                 ident_token,
                 variable,
                 colon,

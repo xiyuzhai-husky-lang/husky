@@ -44,7 +44,7 @@ pub(crate) struct A {}
 
 impl<'a> TryParseOptionalFromStream<CharStream<'a>> for A {
     type Error = ();
-    fn try_parse_stream_optional_from_without_guaranteed_rollback<'b>(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback<'b>(
         ctx: &mut CharStream<'b>,
     ) -> Result<Option<Self>, ()> {
         if let Some(c) = ctx.next() {
@@ -60,7 +60,7 @@ pub(crate) struct B {}
 
 impl<'a> TryParseOptionalFromStream<CharStream<'a>> for B {
     type Error = ();
-    fn try_parse_stream_optional_from_without_guaranteed_rollback<'b>(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback<'b>(
         ctx: &mut CharStream<'b>,
     ) -> Result<Option<Self>, ()> {
         if let Some(c) = ctx.next() {
@@ -76,7 +76,7 @@ pub(crate) struct Comma {}
 
 impl<'a> TryParseOptionalFromStream<CharStream<'a>> for Comma {
     type Error = ();
-    fn try_parse_stream_optional_from_without_guaranteed_rollback<'b>(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback<'b>(
         ctx: &mut CharStream<'b>,
     ) -> Result<Option<Self>, ()> {
         if let Some(c) = ctx.next() {

@@ -302,17 +302,17 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         env: PatternExprInfo,
     ) -> ExprResult<Option<PatternExprIdx>> {
-        let modifier_keyword_group = self.try_parse_optional()?;
-        let ident_token = match modifier_keyword_group {
-            Some(_) => self.try_parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
-            None => match self.try_parse_optional::<IdentToken>()? {
+        let symbol_modifier_keyword_group = self.try_parse()?;
+        let ident_token = match symbol_modifier_keyword_group {
+            SymbolModifierKeywordGroup::Default => match self.try_parse_optional::<IdentToken>()? {
                 Some(ident_token) => ident_token,
                 None => return Ok(None),
             },
+            _ => self.try_parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
         };
         Ok(Some(self.alloc_pattern_expr(
             PatternExpr::Ident {
-                modifier_keyword_group,
+                symbol_modifier_keyword_group,
                 ident_token,
             },
             env,

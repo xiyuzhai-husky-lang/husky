@@ -39,7 +39,7 @@ impl PatternExprRegion {
                 PatternExpr::Literal(_) => Default::default(),
                 PatternExpr::Ident {
                     ident_token,
-                    modifier_keyword_group: contract,
+                    symbol_modifier_keyword_group: contract,
                 } => IdentPairMap::new_one_element_map((
                     ident_token.ident(),
                     self.alloc_new_symbol(PatternSymbol::Atom(pattern_expr_idx)),
@@ -63,7 +63,7 @@ impl PatternExprRegion {
     }
 
     fn alloc_new_symbol(&mut self, symbol: PatternSymbol) -> PatternSymbolIdx {
-        let modifier = symbol.modifier(&self.pattern_expr_arena);
+        let modifier = symbol.symbol_modifier(&self.pattern_expr_arena);
         let idx = self.pattern_symbol_arena.alloc_one(symbol);
         self.pattern_symbol_modifiers.insert_next(idx, modifier);
         idx

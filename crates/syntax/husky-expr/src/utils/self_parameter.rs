@@ -25,7 +25,7 @@ impl<'a, 'b> TryParseOptionalFromStream<ExprParseContext<'a, 'b>> for SelfParame
     type Error = ExprError;
 
     // needs more testing
-    fn try_parse_stream_optional_from_without_guaranteed_rollback(
+    fn try_parse_optional_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, Self::Error> {
         if let Some(mut_token) = ctx.try_parse_optional::<MutToken>()? {
