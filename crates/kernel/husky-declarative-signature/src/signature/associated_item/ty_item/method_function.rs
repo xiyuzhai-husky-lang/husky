@@ -7,7 +7,7 @@ pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     #[return_ref]
-    pub self_parameter: ExplicitParameterDeclarativeSignature,
+    pub self_parameter: ExplicitRegularParameterDeclarativeSignature,
     #[return_ref]
     pub explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates,
     pub return_ty: DeclarativeTerm,
@@ -23,7 +23,7 @@ pub fn ty_method_function_declarative_signature_template(
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
-    let self_parameter = ExplicitParameterDeclarativeSignature::new(
+    let self_parameter = ExplicitRegularParameterDeclarativeSignature::new(
         match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
             None => Contract::Pure,

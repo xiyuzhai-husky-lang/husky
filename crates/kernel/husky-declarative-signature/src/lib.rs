@@ -95,7 +95,7 @@ pub struct DeclarativeSignatureJar(
     trai_for_ty_item_declarative_signature_from_decl,
     TraitForTypeAssociatedFnDeclarativeSignatureTemplate,
     trai_for_ty_associated_fn_declarative_signature_template,
-    TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate,
+    TraitForTypeMethodFnDeclarativeSignatureTemplate,
     trai_for_ty_method_fn_declarative_signature_template,
     TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
     trai_for_ty_associated_ty_declarative_signature_template,
