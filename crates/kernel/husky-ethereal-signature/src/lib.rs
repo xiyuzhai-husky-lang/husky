@@ -10,6 +10,7 @@ pub use self::error::*;
 pub use self::parameter::*;
 pub use self::signature::*;
 
+use self::instantiator::*;
 use self::parameter::*;
 use husky_entity_path::*;
 use husky_ethereal_term::*;

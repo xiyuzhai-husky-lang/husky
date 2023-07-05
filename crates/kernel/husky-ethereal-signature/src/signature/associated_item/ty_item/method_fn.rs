@@ -6,9 +6,9 @@ pub struct TypeMethodFnEtherealSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterEtherealSignatures,
     #[return_ref]
-    pub self_parameter: ExplicitParameterEtherealSignature,
+    pub self_parameter: ExplicitRegularParameterEtherealSignatureTemplate,
     #[return_ref]
-    pub explicit_parameters: ExplicitParameterEtherealSignatures,
+    pub explicit_parameters: ExplicitParameterEtherealSignatureTemplates,
     pub return_ty: EtherealTerm,
 }
 
@@ -22,11 +22,12 @@ impl TypeMethodFnEtherealSignatureTemplate {
             db,
             declarative_signature.implicit_parameters(db),
         )?;
-        let self_parameter = ExplicitParameterEtherealSignature::from_declarative(
-            db,
-            declarative_signature.self_parameter(db),
-        )?;
-        let explicit_parameters = ExplicitParameterEtherealSignatures::from_declarative(
+        let self_parameter =
+            ExplicitRegularParameterEtherealSignatureTemplate::from_declarative_signature_template(
+                db,
+                declarative_signature.self_parameter(db),
+            )?;
+        let explicit_parameters = ExplicitParameterEtherealSignatureTemplates::from_declarative(
             db,
             declarative_signature.explicit_parameters(db),
         )?;

@@ -22,3 +22,9 @@ impl Default for EtherealTermSymbolInstantiationProgress {
         EtherealTermSymbolInstantiationProgress::Unresolved
     }
 }
+
+pub(crate) trait Instantiate {
+    type Target;
+
+    fn instantiate(&self, instantiator: Instantiator) -> Self::Target;
+}

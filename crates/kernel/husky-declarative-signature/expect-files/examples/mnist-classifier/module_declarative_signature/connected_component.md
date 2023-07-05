@@ -81,16 +81,18 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: ExplicitApplication(
-                                            DeclarativeTermExplicitApplication(
-                                                Id {
-                                                    value: 44,
-                                                },
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: ExplicitApplication(
+                                                DeclarativeTermExplicitApplication(
+                                                    Id {
+                                                        value: 44,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`core::option::Option core::num::f32`),
@@ -143,30 +145,34 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 65,
-                                                    },
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 65,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
-                                        ),
-                                    },
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 65,
-                                                    },
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 65,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`core::raw_bits::r32`),
@@ -192,18 +198,20 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 96,
-                                                    },
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 96,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
@@ -256,11 +264,11 @@
             SignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
+                        TraitForTypeMethodFnDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            self_parameter: ExplicitParameterDeclarativeSignature {
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -590,7 +598,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            self_parameter: ExplicitParameterDeclarativeSignature {
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -604,18 +612,20 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -654,7 +664,7 @@
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            self_parameter: ExplicitParameterDeclarativeSignature {
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: EntityPath(
                                     Type(
@@ -668,18 +678,20 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 51,
-                                                    },
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),

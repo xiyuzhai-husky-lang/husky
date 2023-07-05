@@ -144,11 +144,11 @@
             SignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
-                        TraitForTypeMethodFnDeclarativeSignatureTemplateTemplate {
+                        TraitForTypeMethodFnDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
                                 data: [],
                             },
-                            self_parameter: ExplicitParameterDeclarativeSignature {
+                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
                                 contract: Pure,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -160,16 +160,18 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: ExplicitApplication(
-                                            DeclarativeTermExplicitApplication(
-                                                Id {
-                                                    value: 41,
-                                                },
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: ExplicitApplication(
+                                                DeclarativeTermExplicitApplication(
+                                                    Id {
+                                                        value: 41,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`core::result::Result t s`),

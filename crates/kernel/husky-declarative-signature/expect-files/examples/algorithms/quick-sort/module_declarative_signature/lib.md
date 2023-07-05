@@ -25,16 +25,18 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Move,
-                                        ty: ExplicitApplication(
-                                            DeclarativeTermExplicitApplication(
-                                                Id {
-                                                    value: 43,
-                                                },
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Move,
+                                            ty: ExplicitApplication(
+                                                DeclarativeTermExplicitApplication(
+                                                    Id {
+                                                        value: 43,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`core::basic::unit`),
@@ -70,40 +72,46 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Move,
-                                        ty: ExplicitApplication(
-                                            DeclarativeTermExplicitApplication(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            Type(
-                                                TypePath(
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Move,
+                                            ty: ExplicitApplication(
+                                                DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 54,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
-                                        ),
-                                    },
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 54,
-                                                    },
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 54,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 54,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`core::basic::unit`),
@@ -139,40 +147,46 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Move,
-                                        ty: ExplicitApplication(
-                                            DeclarativeTermExplicitApplication(
-                                                Id {
-                                                    value: 43,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            Type(
-                                                TypePath(
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Move,
+                                            ty: ExplicitApplication(
+                                                DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 54,
+                                                        value: 43,
                                                     },
                                                 ),
                                             ),
-                                        ),
-                                    },
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            Type(
-                                                TypePath(
-                                                    Id {
-                                                        value: 54,
-                                                    },
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 54,
+                                                        },
+                                                    ),
                                                 ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 54,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`core::num::isize`),

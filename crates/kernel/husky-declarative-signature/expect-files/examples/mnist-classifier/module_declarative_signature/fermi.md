@@ -46,26 +46,30 @@
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: ExplicitApplication(
-                                            DeclarativeTermExplicitApplication(
-                                                Id {
-                                                    value: 56,
-                                                },
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: ExplicitApplication(
+                                                DeclarativeTermExplicitApplication(
+                                                    Id {
+                                                        value: 56,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                    },
-                                    ExplicitParameterDeclarativeSignature {
-                                        contract: Pure,
-                                        ty: ExplicitApplicationOrRitchieCall(
-                                            DeclarativeTermExplicitApplicationOrRitchieCall(
-                                                Id {
-                                                    value: 1,
-                                                },
+                                        },
+                                    ),
+                                    Regular(
+                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                            contract: Pure,
+                                            ty: ExplicitApplicationOrRitchieCall(
+                                                DeclarativeTermExplicitApplicationOrRitchieCall(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
                                             ),
-                                        ),
-                                    },
+                                        },
+                                    ),
                                 ],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
