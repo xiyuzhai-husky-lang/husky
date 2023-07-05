@@ -63,12 +63,11 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                             })?,
                         )
                         .into(),
-                        ExplicitParameterDecl::KeyedWithoutDefault { .. } => todo!(),
-                        ExplicitParameterDecl::KeyedWithDefault { .. } => todo!(),
                         ExplicitParameterDecl::Variadic { .. } => {
                             todo!()
                             // ExplicitVariadicParameterDeclarativeSignature::new().into()
                         }
+                        ExplicitParameterDecl::Keyed { .. } => todo!(),
                     })
                 })
                 .collect::<DeclarativeSignatureResult<_>>()?,

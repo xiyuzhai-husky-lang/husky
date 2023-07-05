@@ -272,7 +272,7 @@ Ok(
                                                 ),
                                                 ty: 0,
                                             },
-                                            ExplicitParameterDecl::KeyedWithDefault {
+                                            ExplicitParameterDecl::Keyed {
                                                 pattern: 0,
                                                 modifier_keyword_group: None,
                                                 ident_token: IdentToken {
@@ -293,7 +293,9 @@ Ok(
                                                         14,
                                                     ),
                                                 ),
-                                                default_value: 2,
+                                                default_value: Right(
+                                                    2,
+                                                ),
                                             },
                                         ],
                                         commas: [
