@@ -1,5 +1,6 @@
 mod keyed;
 mod regular;
+mod variadic;
 
 pub use self::keyed::*;
 pub use self::regular::*;
@@ -29,24 +30,43 @@ impl From<EtherealTermRitchieParameter> for FluffyTermRitchieParameter {
                 ty: param.ty().into(),
                 kind: FluffyExplicitParameterKind::Regular,
             },
+            EtherealTermRitchieParameter::Variadic(_) => todo!(),
+            EtherealTermRitchieParameter::Keyed(_) => todo!(),
         }
     }
 }
 
-impl Instantiator {
-    pub(crate) fn instantiate_ritchie_parameter(
+impl InstantiateRef for ExplicitParameterEtherealSignatureTemplate {
+    type Target = FluffyTermRitchieParameter;
+
+    fn instantiate(
         &self,
         engine: &mut impl FluffyTermEngine,
-        explicit_parameter: &ExplicitParameterEtherealSignatureTemplate,
-    ) -> FluffyTermRitchieParameter {
-        todo!()
-        // FluffyTermRitchieParameterContractedType {
-        //     contract: explicit_parameter.contract(),
-        //     ty: self.instantiate_term(engine, explicit_parameter.ty()),
-        //     kind: self.instantiate_explicit_parameter_kind(explicit_parameter.kind()),
-        // }
+        instantiator: &mut Instantiator,
+    ) -> Self::Target {
+        match self {
+            ExplicitParameterEtherealSignatureTemplate::Regular(signature_template) => {
+                FluffyTermRitchieParameter {
+                    contract: signature_template.contract(),
+                    ty: signature_template.ty().instantiate(engine, instantiator),
+                    kind: FluffyExplicitParameterKind::Regular,
+                }
+            }
+            ExplicitParameterEtherealSignatureTemplate::Variadic(_) => todo!(),
+            ExplicitParameterEtherealSignatureTemplate::Keyed(_) => todo!(),
+        }
     }
 }
+
+// impl Instantiator {
+//     pub(crate) fn instantiate_ritchie_parameter(
+//         &self,
+//         engine: &mut impl FluffyTermEngine,
+//         explicit_parameter: &ExplicitParameterEtherealSignatureTemplate,
+//     ) -> FluffyTermRitchieParameter {
+//         todo!()
+//     }
+// }
 
 impl FluffyTermRitchieParameter {
     #[inline(always)]
@@ -74,8 +94,6 @@ impl FluffyTermRitchieParameter {
         &mut self.ty
     }
 }
-
-pub struct FluffyTermRitchieVariadics {}
 
 impl FluffyTerm {
     pub(crate) fn new_richie(

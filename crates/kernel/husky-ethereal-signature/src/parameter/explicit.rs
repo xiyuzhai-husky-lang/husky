@@ -40,6 +40,14 @@ impl ExplicitParameterEtherealSignatureTemplate {
     }
 }
 
+impl Instantiate for ExplicitParameterEtherealSignatureTemplate {
+    type Target = ExplicitParameterEtherealSignature;
+
+    fn instantiate(&self, instantiator: Instantiator) -> Self::Target {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ExplicitParameterEtherealSignatureTemplates {
     data: SmallVec<[ExplicitParameterEtherealSignatureTemplate; 4]>,

@@ -85,13 +85,27 @@ impl EtherealTerm {
     pub fn from_declarative(
         db: &dyn EtherealTermDb,
         declarative_term: DeclarativeTerm,
-        term_ty_expectation: TermTypeExpectation,
+        ty_expectation: TermTypeExpectation,
     ) -> EtherealTermResult<Self> {
         Ok(match declarative_term {
             DeclarativeTerm::Literal(literal) => {
                 match literal {
                     DeclarativeTermLiteral::Resolved(literal) => literal.into(),
-                    DeclarativeTermLiteral::Unresolved(_) => todo!(),
+                    DeclarativeTermLiteral::Unresolved(literal) => match literal {
+                        UnresolvedTermLiteral::Integer => match ty_expectation {
+                            TermTypeExpectation::FinalDestinationEqsSort => todo!(),
+                            TermTypeExpectation::FinalDestinationEqsNonSortTypePath(ty_path) => {
+                                match ty_path.prelude_ty_path(db) {
+                                    Some(prelude_ty_path) => match prelude_ty_path {
+                                        PreludeTypePath::Num(num_ty_path) => todo!(),
+                                        _ => todo!(),
+                                    },
+                                    None => todo!(),
+                                }
+                            }
+                            TermTypeExpectation::Any => todo!(),
+                        },
+                    },
                 }
                 //  TermLiteral::from_declarative(db, declarative_term, ty_expectation)?.into()
             }
@@ -104,7 +118,7 @@ impl EtherealTerm {
             DeclarativeTerm::EntityPath(declarative_term) => match declarative_term {
                 DeclarativeTermEntityPath::Form(path) => TermEntityPath::Fugitive(path).into(),
                 DeclarativeTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
-                DeclarativeTermEntityPath::Type(path) => match term_ty_expectation {
+                DeclarativeTermEntityPath::Type(path) => match ty_expectation {
                     TermTypeExpectation::FinalDestinationEqsSort => {
                         TermEntityPath::TypeOntology(path).into()
                     }
@@ -132,48 +146,36 @@ impl EtherealTerm {
                 EtherealTermRitchie::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::Abstraction(declarative_term) => {
-                EtherealTermAbstraction::from_declarative(
-                    db,
-                    declarative_term,
-                    term_ty_expectation,
-                )?
-                .into()
+                EtherealTermAbstraction::from_declarative(db, declarative_term, ty_expectation)?
+                    .into()
             }
             DeclarativeTerm::ExplicitApplication(declarative_term) => {
                 // todo: implicit arguments
-                EtherealTermApplication::from_declarative(
-                    db,
-                    declarative_term,
-                    term_ty_expectation,
-                )?
+                EtherealTermApplication::from_declarative(db, declarative_term, ty_expectation)?
             }
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(declarative_term) => {
                 ethereal_term_from_declarative_term_explicit_application_or_ritchie_call(
                     db,
                     declarative_term,
-                    term_ty_expectation,
+                    ty_expectation,
                 )?
             }
             DeclarativeTerm::Subentity(declarative_term) => {
-                EtherealTermSubentity::from_declarative(db, declarative_term, term_ty_expectation)?
+                EtherealTermSubentity::from_declarative(db, declarative_term, ty_expectation)?
             }
             DeclarativeTerm::AsTraitSubentity(declarative_term) => {
                 EtherealTermAsTraitSubentity::from_declarative(
                     db,
                     declarative_term,
-                    term_ty_expectation,
+                    ty_expectation,
                 )?
                 .into()
             }
             DeclarativeTerm::TraitConstraint(declarative_term) => {
-                EtherealTermTraitConstraint::from_declarative(
-                    db,
-                    declarative_term,
-                    term_ty_expectation,
-                )?
-                .into()
+                EtherealTermTraitConstraint::from_declarative(db, declarative_term, ty_expectation)?
+                    .into()
             }
-            DeclarativeTerm::LeashOrBitNot(toolchain) => match term_ty_expectation {
+            DeclarativeTerm::LeashOrBitNot(toolchain) => match ty_expectation {
                 TermTypeExpectation::FinalDestinationEqsSort => {
                     db.ethereal_term_menu(toolchain).leash_ty_ontology()
                 }
@@ -188,11 +190,7 @@ impl EtherealTerm {
                 TermTypeExpectation::Any => todo!(),
             },
             DeclarativeTerm::List(declarative_term_list) => {
-                ethereal_term_from_declarative_term_list(
-                    db,
-                    declarative_term_list,
-                    term_ty_expectation,
-                )?
+                ethereal_term_from_declarative_term_list(db, declarative_term_list, ty_expectation)?
             }
             DeclarativeTerm::Wrapper(declarative_term_wrapper) => {
                 ethereal_term_from_declarative_term_wrapper(db, declarative_term_wrapper)?

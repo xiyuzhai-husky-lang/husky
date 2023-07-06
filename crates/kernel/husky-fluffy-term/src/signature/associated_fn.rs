@@ -3,14 +3,14 @@ use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct AssociatedFnFluffySignature {
-    explicit_parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 4]>,
+    explicit_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
     ty: FluffyTerm,
 }
 
 impl AssociatedFnFluffySignature {
     pub fn explicit_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
-        &self.explicit_parameter_contracted_tys
+        &self.explicit_parameters
     }
 
     pub fn ty(&self) -> FluffyTerm {
@@ -41,12 +41,14 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         todo!()
     }
     JustOk(AssociatedFnFluffySignature {
-        explicit_parameter_contracted_tys: template
+        explicit_parameters: template
             .explicit_parameters(db)
             .iter()
-            .map(|v| instantiator.instantiate_ritchie_parameter(engine, v))
+            .map(|param| param.instantiate(engine, &mut instantiator))
             .collect(),
-        return_ty: instantiator.instantiate_term(engine, template.return_ty(db)),
-        ty: instantiator.instantiate_term(engine, template.ty(db)),
+        return_ty: template
+            .return_ty(db)
+            .instantiate(engine, &mut instantiator),
+        ty: template.ty(db).instantiate(engine, &mut instantiator),
     })
 }
