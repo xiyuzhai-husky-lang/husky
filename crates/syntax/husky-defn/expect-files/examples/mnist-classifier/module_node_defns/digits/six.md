@@ -1138,26 +1138,28 @@ Ok(
                                                 86,
                                             ),
                                             items: [
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 22,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            90,
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 22,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                90,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 24,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            94,
+                                                    },
+                                                ),
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 24,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                94,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: KeyedArgument {
+                                                    },
+                                                ),
+                                                Keyed(
+                                                    KeyedCallListItem {
                                                         key_token_idx: TokenIdx(
                                                             95,
                                                         ),
@@ -1168,10 +1170,10 @@ Ok(
                                                                 },
                                                             ),
                                                         ),
+                                                        argument_expr_idx: 25,
+                                                        separator: None,
                                                     },
-                                                    argument_expr_idx: 25,
-                                                    separator: None,
-                                                },
+                                                ),
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 98,
@@ -1511,17 +1513,18 @@ Ok(
                                                 160,
                                             ),
                                             items: [
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 55,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            162,
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 55,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                162,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: KeyedArgument {
+                                                    },
+                                                ),
+                                                Keyed(
+                                                    KeyedCallListItem {
                                                         key_token_idx: TokenIdx(
                                                             163,
                                                         ),
@@ -1532,10 +1535,10 @@ Ok(
                                                                 },
                                                             ),
                                                         ),
+                                                        argument_expr_idx: 56,
+                                                        separator: None,
                                                     },
-                                                    argument_expr_idx: 56,
-                                                    separator: None,
-                                                },
+                                                ),
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 166,
@@ -1738,44 +1741,48 @@ Ok(
                                                 188,
                                             ),
                                             items: [
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 66,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            190,
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 66,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                190,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 67,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            192,
+                                                    },
+                                                ),
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 67,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                192,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 68,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            194,
+                                                    },
+                                                ),
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 68,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                194,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 71,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            201,
+                                                    },
+                                                ),
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 71,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                201,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: KeyedArgument {
+                                                    },
+                                                ),
+                                                Keyed(
+                                                    KeyedCallListItem {
                                                         key_token_idx: TokenIdx(
                                                             202,
                                                         ),
@@ -1786,10 +1793,10 @@ Ok(
                                                                 },
                                                             ),
                                                         ),
+                                                        argument_expr_idx: 72,
+                                                        separator: None,
                                                     },
-                                                    argument_expr_idx: 72,
-                                                    separator: None,
-                                                },
+                                                ),
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 205,
@@ -1913,17 +1920,18 @@ Ok(
                                                 223,
                                             ),
                                             items: [
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 83,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            227,
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 83,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                227,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: KeyedArgument {
+                                                    },
+                                                ),
+                                                Keyed(
+                                                    KeyedCallListItem {
                                                         key_token_idx: TokenIdx(
                                                             228,
                                                         ),
@@ -1934,10 +1942,10 @@ Ok(
                                                                 },
                                                             ),
                                                         ),
+                                                        argument_expr_idx: 84,
+                                                        separator: None,
                                                     },
-                                                    argument_expr_idx: 84,
-                                                    separator: None,
-                                                },
+                                                ),
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 231,

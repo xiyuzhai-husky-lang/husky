@@ -18,6 +18,7 @@ salsa = { path = "../../abstraction/salsa" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
 original-error = { path = "../../abstraction/original-error" }
+enum-class = { path = "../../abstraction/enum-class" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
@@ -46,7 +47,6 @@ husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-package-path = { path = "../../kernel/husky-package-path" }
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax

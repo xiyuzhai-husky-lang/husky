@@ -26,7 +26,6 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # kernel
-husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-word = { path = "../../kernel/husky-word" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }

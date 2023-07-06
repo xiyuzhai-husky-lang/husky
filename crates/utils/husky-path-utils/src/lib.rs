@@ -279,42 +279,53 @@ pub fn cargo_manifest_dir() -> Result<PathBuf, std::env::VarError> {
     std::env::var("CARGO_MANIFEST_DIR").map(|s| s.into())
 }
 
-pub fn derive_library_path_from_cargo_manifest_dir() -> PathUtilsResult<PathBuf> {
-    let Ok(cargo_manifest_dir) = std::env::var("CARGO_MANIFEST_DIR") else {
-        // ad hoc
-        return Ok("/home/xiyuzhai/repos/husky/library".into())
+#[inline(always)]
+pub fn find_lang_dev_root() -> PathUtilsResult<PathBuf> {
+    let cargo_manifest_dir: Option<PathBuf> = std::env::var("CARGO_MANIFEST_DIR")
+        .ok()
+        .map(|path| path.into());
+    let current_dir = std::env::current_dir().expect("`current_dir` should be okay");
+    let mut dir: &Path = if let Some(ref cargo_manifest_dir) = cargo_manifest_dir {
+        cargo_manifest_dir
+    } else {
+        // this is handy for debugging in lldb
+        println!("Warning: environment variable CARGO_MANIFEST_DIR not set!");
+        println!("Use current dir {current_dir:?} as starting point for finding `lang_dev_root`");
+        &current_dir
     };
-    let mut library_parent_dir: &Path = cargo_manifest_dir.as_ref();
-    Ok(loop {
-        let library_dir = library_parent_dir.join("library");
-        if library_dir.exists() {
-            break library_dir;
-        }
-        if let Some(new_library_parent_dir) = library_parent_dir.parent() {
-            library_parent_dir = new_library_parent_dir
-        } else {
-            todo!()
-        }
-    })
-}
-
-pub fn derive_examples_dir_from_cargo_manifest_dir() -> PathBuf {
-    let Ok(cargo_manifest_dir) = std::env::var("CARGO_MANIFEST_DIR") else {
-        // ad hoc
-        return  "/home/xiyuzhai/repos/husky/examples".into() 
-    };
-    let mut parent_dir: &Path = cargo_manifest_dir.as_ref();
+    // search over ancestries
     loop {
-        let library_dir = parent_dir.join("library");
-        if library_dir.exists() {
-            break parent_dir.join("examples");
+        if dir.join("husky-toolchain.toml").exists() {
+            assert!(dir.join("husky-toolchain.toml").is_file());
+            assert!(dir.join(".corgi/config.toml").exists());
+            assert!(dir.join(".corgi/config.toml").is_file());
+            assert!(dir.join("library").exists());
+            assert!(dir.join("library").is_dir());
+            assert!(dir.join("examples").exists());
+            assert!(dir.join("examples").is_dir());
+            assert!(dir.join("registry").exists());
+            assert!(dir.join("registry").is_dir());
+            if cargo_manifest_dir.is_none() {
+                println!("`lang_dev_root` is decided to be {dir:?}");
+            }
+            return Ok(dir.to_owned());
         }
-        if let Some(new_parent_dir) = parent_dir.parent() {
-            parent_dir = new_parent_dir
+        if let Some(new_library_parent_dir) = dir.parent() {
+            dir = new_library_parent_dir
         } else {
             todo!()
         }
     }
+}
+
+#[inline(always)]
+pub fn find_lang_dev_library_path() -> PathUtilsResult<PathBuf> {
+    Ok(find_lang_dev_root()?.join("library"))
+}
+
+#[inline(always)]
+pub fn derive_examples_dir_from_cargo_manifest_dir() -> PathUtilsResult<PathBuf> {
+    Ok(find_lang_dev_root()?.join("examples"))
 }
 
 pub fn clear_directory(path: &Path) -> Result<(), std::io::Error> {

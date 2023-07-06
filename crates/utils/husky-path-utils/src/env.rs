@@ -1,3 +1,4 @@
+use crate::*;
 use std::path::{Path, PathBuf};
 
 /// paths useful for the development of the Husky programming language
@@ -17,31 +18,7 @@ impl HuskyLangDevPaths {
         let cargo_manifest_dir: Option<PathBuf> = std::env::var("CARGO_MANIFEST_DIR")
             .ok()
             .map(|path| path.into());
-        let lang_dev_root: PathBuf = if let Some(ref cargo_manifest_dir) = cargo_manifest_dir {
-            let mut dir: &Path = cargo_manifest_dir;
-            loop {
-                if dir.join("husky-toolchain.toml").exists() {
-                    assert!(dir.join("husky-toolchain.toml").is_file());
-                    assert!(dir.join(".corgi/config.toml").exists());
-                    assert!(dir.join(".corgi/config.toml").is_file());
-                    assert!(dir.join("library").exists());
-                    assert!(dir.join("library").is_dir());
-                    assert!(dir.join("examples").exists());
-                    assert!(dir.join("examples").is_dir());
-                    assert!(dir.join("registry").exists());
-                    assert!(dir.join("registry").is_dir());
-                    break dir.to_owned();
-                }
-                if let Some(new_library_parent_dir) = dir.parent() {
-                    dir = new_library_parent_dir
-                } else {
-                    todo!()
-                }
-            }
-        } else {
-            // ad hoc
-            "/home/xiyuzhai/repos/husky".into()
-        };
+        let lang_dev_root = find_lang_dev_root().expect("todo");
         let lang_dev_library_dir = lang_dev_root.join("library");
         let lang_dev_examples_dir = lang_dev_root.join("examples");
         let lang_dev_registry_dir = lang_dev_root.join("registry");

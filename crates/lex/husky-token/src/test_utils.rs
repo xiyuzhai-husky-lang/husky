@@ -17,7 +17,7 @@ pub trait TokenTestUtils {
         task_name: &str,
         f: impl Fn(&'a Self, U) -> R,
     ) where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: salsa::DebugWithDb<Self>;
 
     /// run to see whether the output agrees with previous
@@ -27,7 +27,7 @@ pub trait TokenTestUtils {
         task_name: &str,
         f: impl Fn(&'a Self, U) -> R,
     ) where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: std::fmt::Debug;
 }
 
@@ -48,7 +48,7 @@ where
         task_name: &str,
         f: impl Fn(&'a Self, U) -> R,
     ) where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: salsa::DebugWithDb<Self>,
     {
         // todo: robustness
@@ -60,7 +60,7 @@ where
         task_name: &str,
         f: impl Fn(&'a Self, U) -> R,
     ) where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: std::fmt::Debug,
     {
         // todo: robustness

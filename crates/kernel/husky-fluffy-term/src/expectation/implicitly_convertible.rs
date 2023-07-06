@@ -90,11 +90,11 @@ impl ExpectImplicitlyConvertible {
     }
 
     fn contract(self) -> Contract {
-        self.contract()
+        self.contract
     }
 
     fn ty(self) -> FluffyTerm {
-        self.ty()
+        self.ty
     }
 }
 

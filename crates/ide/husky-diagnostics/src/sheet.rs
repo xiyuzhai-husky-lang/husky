@@ -12,6 +12,7 @@ pub(crate) use defn::*;
 pub(crate) use entity_tree::*;
 pub(crate) use expr::*;
 pub(crate) use expr_ty::*;
+use husky_print_utils::p;
 pub(crate) use token::*;
 
 use crate::*;
@@ -60,5 +61,6 @@ impl DiagnosticSheet {
 
 #[test]
 fn diagnostic_sheet_works() {
-    DB::default().ast_expect_test_debug_with_db("diagnostic_sheet", DiagnosticsDb::diagnostic_sheet)
+    DB::default()
+        .ast_expect_test_debug_with_db("diagnostic_sheet", DiagnosticsDb::diagnostic_sheet);
 }

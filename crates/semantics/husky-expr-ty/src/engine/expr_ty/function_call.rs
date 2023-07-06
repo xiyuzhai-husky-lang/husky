@@ -26,7 +26,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ritchie_kind,
                 parameter_contracted_tys,
             } => {
-                self.calc_ritchie_call_nonself_arguments_expr_ty(
+                self.calc_ritchie_arguments_expr_ty(
                     expr_idx,
                     parameter_contracted_tys,
                     items.iter().copied().map(Into::into),
@@ -81,7 +81,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
-        self.calc_ritchie_call_nonself_arguments_expr_ty(
+        self.calc_ritchie_arguments_expr_ty(
             expr_idx,
             outcome.parameter_contracted_tys(),
             items.iter().copied(),

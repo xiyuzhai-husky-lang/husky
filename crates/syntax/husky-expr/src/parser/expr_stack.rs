@@ -1,3 +1,5 @@
+use crate::KeyedCallListItem;
+
 use super::*;
 use husky_print_utils::p;
 use salsa::DebugWithDb;
@@ -328,11 +330,15 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             } => {
                                 let mut items: SmallVec<[CallListItem; 4]> =
                                     items.into_iter().map(Into::into).collect();
-                                items.push(CallListItem {
-                                    kind: CallListItemKind::KeyedArgument { key_token_idx, key },
-                                    argument_expr_idx,
-                                    separator: CallListSeparator::None,
-                                });
+                                items.push(
+                                    KeyedCallListItem::new(
+                                        key_token_idx,
+                                        key,
+                                        argument_expr_idx,
+                                        CallListSeparator::None,
+                                    )
+                                    .into(),
+                                );
                                 IncompleteExpr::CallList {
                                     opr: IncompleteCallListOpr::FunctionCall {
                                         function,

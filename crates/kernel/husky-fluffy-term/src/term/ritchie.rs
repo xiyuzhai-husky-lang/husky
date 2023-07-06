@@ -15,6 +15,8 @@ use husky_word::Ident;
 #[enum_class::from_variants]
 pub enum FluffyTermRitchieParameter {
     Regular(FluffyTermRitchieRegularParameter),
+    Variadic(FluffyTermRitchieVariadicParameter),
+    Keyed(FluffyTermRitchieKeyedParameter),
 }
 
 impl From<EtherealTermRitchieParameter> for FluffyTermRitchieParameter {
@@ -23,8 +25,12 @@ impl From<EtherealTermRitchieParameter> for FluffyTermRitchieParameter {
             EtherealTermRitchieParameter::Regular(param) => {
                 FluffyTermRitchieParameter::Regular(param.into())
             }
-            EtherealTermRitchieParameter::Variadic(param) => todo!(),
-            EtherealTermRitchieParameter::Keyed(_) => todo!(),
+            EtherealTermRitchieParameter::Variadic(param) => {
+                FluffyTermRitchieParameter::Variadic(param.into())
+            }
+            EtherealTermRitchieParameter::Keyed(param) => {
+                FluffyTermRitchieParameter::Keyed(param.into())
+            }
         }
     }
 }
@@ -55,12 +61,16 @@ impl FluffyTermRitchieParameter {
     pub fn ty(&self) -> FluffyTerm {
         match self {
             FluffyTermRitchieParameter::Regular(param) => param.ty(),
+            FluffyTermRitchieParameter::Variadic(_) => todo!(),
+            FluffyTermRitchieParameter::Keyed(_) => todo!(),
         }
     }
 
     pub(crate) fn ty_mut(&mut self) -> &mut FluffyTerm {
         match self {
             FluffyTermRitchieParameter::Regular(param) => param.ty_mut(),
+            FluffyTermRitchieParameter::Variadic(_) => todo!(),
+            FluffyTermRitchieParameter::Keyed(_) => todo!(),
         }
     }
 }

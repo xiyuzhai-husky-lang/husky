@@ -44,7 +44,6 @@ husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }

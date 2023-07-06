@@ -1647,35 +1647,38 @@ Ok(
                                                 132,
                                             ),
                                             items: [
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 37,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            136,
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 37,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                136,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 39,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            140,
+                                                    },
+                                                ),
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 39,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                140,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: Argument,
-                                                    argument_expr_idx: 41,
-                                                    separator: Comma(
-                                                        TokenIdx(
-                                                            144,
+                                                    },
+                                                ),
+                                                RegularOrVariadic(
+                                                    RegularOrVariadicCallListItem {
+                                                        argument_expr_idx: 41,
+                                                        separator: Comma(
+                                                            TokenIdx(
+                                                                144,
+                                                            ),
                                                         ),
-                                                    ),
-                                                },
-                                                CallListItem {
-                                                    kind: KeyedArgument {
+                                                    },
+                                                ),
+                                                Keyed(
+                                                    KeyedCallListItem {
                                                         key_token_idx: TokenIdx(
                                                             145,
                                                         ),
@@ -1686,10 +1689,10 @@ Ok(
                                                                 },
                                                             ),
                                                         ),
+                                                        argument_expr_idx: 42,
+                                                        separator: None,
                                                     },
-                                                    argument_expr_idx: 42,
-                                                    separator: None,
-                                                },
+                                                ),
                                             ],
                                             rpar_token_idx: TokenIdx(
                                                 148,

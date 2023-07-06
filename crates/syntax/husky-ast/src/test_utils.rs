@@ -8,7 +8,7 @@ pub trait AstTestUtils {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn ast_plain_test<U>(&mut self, task_name: &str, f: impl Fn(&Self, U))
     where
-        U: VfsTestUnit;
+        U: VfsTestUnit + salsa::DebugWithDb<Self>;
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
@@ -17,14 +17,14 @@ pub trait AstTestUtils {
         task_name: &str,
         f: impl Fn(&'a Self, U) -> R,
     ) where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: salsa::DebugWithDb<Self>;
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn ast_expect_test_debug<'a, U, R>(&'a mut self, task_name: &str, f: impl Fn(&'a Self, U) -> R)
     where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: std::fmt::Debug;
 }
 
@@ -34,7 +34,7 @@ where
 {
     fn ast_plain_test<U>(&mut self, task_name: &str, f: impl Fn(&Self, U))
     where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
     {
         // todo: robustness
         self.token_plain_test(task_name, f);
@@ -45,7 +45,7 @@ where
         task_name: &str,
         f: impl Fn(&'a Self, U) -> R,
     ) where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: salsa::DebugWithDb<Self>,
     {
         // todo: robustness
@@ -54,7 +54,7 @@ where
 
     fn ast_expect_test_debug<'a, U, R>(&'a mut self, name: &str, f: impl Fn(&'a Self, U) -> R)
     where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: std::fmt::Debug,
     {
         // todo: robustness

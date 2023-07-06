@@ -4,6 +4,7 @@
 mod db;
 mod error;
 mod html;
+mod list_item;
 mod parser;
 mod pattern;
 mod precedence;
@@ -20,6 +21,7 @@ mod utils;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::html::*;
+pub use self::list_item::*;
 pub use self::parser::*;
 pub use self::pattern::*;
 pub use self::principal_entity_path::*;
@@ -249,87 +251,6 @@ pub enum Expr {
         empty_html_ket: EmptyHtmlKetToken,
     },
     Err(ExprError),
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct KeyedArgumentExpr {
-    key_token_idx: TokenIdx,
-    key: Ident,
-    argument_expr_idx: ExprIdx,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct CommaListItem {
-    expr_idx: ExprIdx,
-    comma_token_idx: Option<TokenIdx>,
-}
-
-impl CommaListItem {
-    pub fn expr_idx(self) -> ExprIdx {
-        self.expr_idx
-    }
-
-    pub fn comma_token_idx(self) -> Option<TokenIdx> {
-        self.comma_token_idx
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct CallListItem {
-    kind: CallListItemKind,
-    argument_expr_idx: ExprIdx,
-    separator: CallListSeparator,
-}
-
-impl From<CommaListItem> for CallListItem {
-    fn from(item: CommaListItem) -> Self {
-        CallListItem {
-            kind: CallListItemKind::Argument,
-            argument_expr_idx: item.expr_idx,
-            separator: match item.comma_token_idx {
-                Some(comma_token_idx) => CallListSeparator::Comma(comma_token_idx),
-                None => CallListSeparator::None,
-            },
-        }
-    }
-}
-
-impl CallListItem {
-    pub fn new_regular(argument_expr_idx: ExprIdx, comma: Option<TokenIdx>) -> Self {
-        Self {
-            kind: CallListItemKind::Argument,
-            separator: match comma {
-                Some(comma_token_idx) => CallListSeparator::Comma(comma_token_idx),
-                None => CallListSeparator::None,
-            },
-            argument_expr_idx,
-        }
-    }
-
-    pub fn kind(&self) -> CallListItemKind {
-        self.kind
-    }
-
-    pub fn separator(&self) -> CallListSeparator {
-        self.separator
-    }
-
-    pub fn argument_expr_idx(&self) -> ExprIdx {
-        self.argument_expr_idx
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum CallListItemKind {
-    Argument,
-    KeyedArgument { key_token_idx: TokenIdx, key: Ident },
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum CallListSeparator {
-    None,
-    Comma(TokenIdx),
-    Semicolon(TokenIdx),
 }
 
 #[derive(Debug, PartialEq, Eq)]
