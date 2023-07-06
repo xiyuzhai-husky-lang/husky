@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EtherealTermDb)]
+// #[salsa::derive_debug_with_db(db = EtherealTermDb)]
 pub struct EtherealTermRitchieKeyedParameter {
     key: Ident,
     contract: Contract,
@@ -10,6 +10,20 @@ pub struct EtherealTermRitchieKeyedParameter {
 }
 
 impl EtherealTermRitchieKeyedParameter {
+    pub fn new(
+        key: Ident,
+        contract: Contract,
+        ty: EtherealTerm,
+        default: Option<EtherealTerm>,
+    ) -> Self {
+        Self {
+            key,
+            contract,
+            ty,
+            default,
+        }
+    }
+
     pub(super) fn from_declarative(
         db: &dyn EtherealTermDb,
         param: &DeclarativeTermRitchieKeyedParameter,
@@ -29,6 +43,22 @@ impl EtherealTermRitchieKeyedParameter {
             ty,
             default,
         })
+    }
+
+    pub fn key(&self) -> Ident {
+        self.key
+    }
+
+    pub fn contract(&self) -> Contract {
+        self.contract
+    }
+
+    pub fn ty(&self) -> EtherealTerm {
+        self.ty
+    }
+
+    pub fn default(&self) -> Option<EtherealTerm> {
+        self.default
     }
 
     pub(super) fn reduce(self, db: &dyn EtherealTermDb) -> Self {
@@ -64,29 +94,5 @@ where
         todo!();
         let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
         self.ty.show_with_db_fmt(f, db, &mut Default::default())
-    }
-}
-
-impl EtherealTermRitchieKeyedParameter {
-    pub fn new(
-        key: Ident,
-        contract: Contract,
-        ty: EtherealTerm,
-        default: Option<EtherealTerm>,
-    ) -> Self {
-        Self {
-            key,
-            contract,
-            ty,
-            default,
-        }
-    }
-
-    pub fn contract(&self) -> Contract {
-        self.contract
-    }
-
-    pub fn ty(&self) -> EtherealTerm {
-        self.ty
     }
 }

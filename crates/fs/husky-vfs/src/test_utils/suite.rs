@@ -1,5 +1,7 @@
 use super::*;
 
+#[derive(Debug)]
+#[salsa::derive_debug_with_db(db = VfsDb, jar = VfsJar)]
 pub(super) struct VfsTestSuite {
     src_base: PathBuf,
     expect_files_base: PathBuf,

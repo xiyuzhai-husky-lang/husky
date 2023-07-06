@@ -33,7 +33,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
-husky-package-path = { path = "../../kernel/husky-package-path" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 # infer

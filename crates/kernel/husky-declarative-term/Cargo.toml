@@ -29,4 +29,3 @@ husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }
 [dev-dependencies]
 # kernel
 husky-word = { path = "../../kernel/husky-word" }
-husky-package-path = { path = "../../kernel/husky-package-path" }

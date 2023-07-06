@@ -18,7 +18,7 @@ use std::path::PathBuf;
 pub trait VfsTestUtils: VfsDb {
     // toolchain
     fn dev_toolchain(&self) -> ToolchainResult<Toolchain> {
-        let library_path = derive_library_path_from_cargo_manifest_dir()?;
+        let library_path = find_lang_dev_library_path()?;
         let db = <Self as salsa::DbWithJar<VfsJar>>::as_jar_db(&self);
         Ok(Toolchain::new(
             db,
@@ -78,7 +78,7 @@ pub trait VfsTestUtils: VfsDb {
         name: &str,
         f: impl Fn(&'a Self, U) -> R,
     ) where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: salsa::DebugWithDb<Self>,
     {
         vfs_expect_test(self, name, |db, u| {
@@ -90,7 +90,7 @@ pub trait VfsTestUtils: VfsDb {
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug<'a, U, R>(&'a mut self, name: &str, f: impl Fn(&'a Self, U) -> R)
     where
-        U: VfsTestUnit,
+        U: VfsTestUnit + salsa::DebugWithDb<Self>,
         R: std::fmt::Debug,
     {
         vfs_expect_test(self, name, |db, u| {

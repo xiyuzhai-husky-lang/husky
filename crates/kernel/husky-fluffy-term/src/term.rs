@@ -37,6 +37,7 @@ pub enum FluffyTerm {
 }
 
 impl FluffyTerm {
+    #[inline(always)]
     pub fn ethereal(self) -> Option<EtherealTerm> {
         match self {
             FluffyTerm::Solid(_) | FluffyTerm::Hollow(_) => None,
@@ -46,6 +47,7 @@ impl FluffyTerm {
 }
 
 impl From<EtherealTerm> for FluffyTerm {
+    #[inline(always)]
     fn from(term: EtherealTerm) -> Self {
         unsafe { std::mem::transmute(term) }
     }

@@ -1,3 +1,5 @@
+use crate::RegularOrVariadicCallListItem;
+
 use super::*;
 use husky_print_utils::p;
 use parsec::{parse_consecutive_list, parse_consecutive_vec_map, StreamParser};
@@ -44,10 +46,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 self.take_complete_and_push_to_top(|this, finished_expr| {
                     if let Some(expr) = finished_expr {
-                        items.push(CommaListItem {
-                            expr_idx: this.alloc_expr(expr),
-                            comma_token_idx: None,
-                        })
+                        items.push(CommaListItem::new(this.alloc_expr(expr), None))
                     }
                     match opr {
                         IncompleteCommaListOpr::UnitOrBracketedOrNewTuple => match items.last() {
@@ -56,10 +55,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 rpar_token_idx: ket_token_idx,
                             },
                             Some(last_item) => {
-                                if items.len() == 1 && last_item.comma_token_idx.is_none() {
+                                if items.len() == 1 && last_item.comma_token_idx().is_none() {
                                     Expr::Bracketed {
                                         lpar_token_idx: bra_token_idx,
-                                        item: last_item.expr_idx,
+                                        item: last_item.expr_idx(),
                                         rpar_token_idx: ket_token_idx,
                                     }
                                 } else {
@@ -312,15 +311,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             bra,
                             bra_token_idx,
                             items,
-                        } => items.push(CommaListItem {
-                            expr_idx: item,
-                            comma_token_idx: Some(comma_token_idx),
-                        }),
-                        IncompleteExpr::CallList { items, .. } => items.push(CallListItem {
-                            kind: CallListItemKind::Argument,
-                            separator: CallListSeparator::Comma(comma_token_idx),
-                            argument_expr_idx: item,
-                        }),
+                        } => items.push(CommaListItem::new(item, Some(comma_token_idx))),
+                        IncompleteExpr::CallList { items, .. } => items.push(
+                            RegularOrVariadicCallListItem::new(
+                                item,
+                                CallListSeparator::Comma(comma_token_idx),
+                            )
+                            .into(),
+                        ),
                         _ => unreachable!(),
                     },
                     None => unreachable!(),
@@ -335,9 +333,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         items,
                     } => todo!(),
                     IncompleteExpr::CallList { items, .. } => match items.last_mut() {
-                        Some(last_item) => match last_item.separator {
+                        Some(last_item) => match last_item.separator() {
                             CallListSeparator::None => {
-                                last_item.separator = CallListSeparator::Comma(comma_token_idx)
+                                last_item.set_separator(CallListSeparator::Comma(comma_token_idx))
                             }
                             CallListSeparator::Comma(_) => todo!(),
                             CallListSeparator::Semicolon(_) => todo!(),

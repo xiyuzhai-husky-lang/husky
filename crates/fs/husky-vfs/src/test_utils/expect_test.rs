@@ -3,7 +3,7 @@ use super::*;
 pub(super) fn vfs_expect_test<Db, U>(db: &mut Db, task_name: &str, f: impl Fn(&Db, U) -> String)
 where
     Db: VfsTestUtils + ?Sized,
-    U: VfsTestUnit,
+    U: VfsTestUnit + salsa::DebugWithDb<Db>,
 {
     let toolchain = db.dev_toolchain().unwrap();
     for domain in vfs_test_suites() {
@@ -29,10 +29,18 @@ where
                     &path.to_logical_path(&domain.expect_files_base()),
                 );
                 std::fs::create_dir_all(expect_file_path.parent().unwrap()).unwrap();
-                // only test when CARGO_MANIFEST_DIR is set
+                let output = f(db, unit);
                 match std::env::var("CARGO_MANIFEST_DIR") {
-                    Ok(_) => ::expect_test::expect_file![expect_file_path].assert_eq(&f(db, unit)),
-                    Err(_) => (),
+                    Ok(_) => ::expect_test::expect_file![expect_file_path].assert_eq(&output),
+                    Err(_) => unsafe {
+                        static mut once_flag: bool = false;
+                        if !once_flag {
+                            println!(
+                                "CARGO_MANIFEST_DIR not set, skip comparing with expect files"
+                            );
+                            once_flag = true
+                        }
+                    },
                 }
                 if let Some(adversarials_base) = domain.adversarials_base() {
                     vfs_adversarial_test(
