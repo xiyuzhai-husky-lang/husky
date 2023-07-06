@@ -26,7 +26,6 @@ pub use self::subtype::*;
 
 use super::*;
 use husky_print_utils::p;
-use husky_ty_expectation::TypePathDisambiguation;
 use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
 use thiserror::Error;
 

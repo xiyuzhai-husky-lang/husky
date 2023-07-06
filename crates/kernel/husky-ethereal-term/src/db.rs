@@ -4,7 +4,6 @@ use crate::*;
 use husky_declarative_ty::DeclarativeTypeDb;
 use husky_decr::DecrDb;
 use husky_entity_path::EntityPathDb;
-use husky_ty_expectation::TypePathDisambiguation;
 use salsa::DbWithJar;
 
 pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb + DecrDb {

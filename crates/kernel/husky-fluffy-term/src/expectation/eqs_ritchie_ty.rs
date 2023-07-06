@@ -104,12 +104,12 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
 pub struct ExpectEqsRitchieTypeOutcome {
     pub(crate) ritchie_kind: RitchieKind,
     pub(crate) implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
-    pub(crate) parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 2]>,
+    pub(crate) parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 2]>,
     pub(crate) return_ty: FluffyTerm,
 }
 
 impl ExpectEqsRitchieTypeOutcome {
-    pub fn parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameterContractedType] {
+    pub fn parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
         &self.parameter_contracted_tys
     }
 

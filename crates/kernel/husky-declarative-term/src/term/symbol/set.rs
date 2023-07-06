@@ -99,11 +99,11 @@ pub(crate) fn declarative_term_ritchie_symbols(
     declarative_term: DeclarativeTermRitchie,
 ) -> Option<DeclarativeTermSymbols> {
     let mut symbols: Option<DeclarativeTermSymbols> = None;
-    for parameter_declarative_ty in declarative_term.parameter_tys(db) {
+    for param in declarative_term.params(db) {
         symbols = DeclarativeTermSymbols::merge(
             db,
             symbols,
-            calc_declarative_term_symbols(db, parameter_declarative_ty.ty()),
+            calc_declarative_term_symbols(db, param.ty()),
         )
     }
     DeclarativeTermSymbols::merge(

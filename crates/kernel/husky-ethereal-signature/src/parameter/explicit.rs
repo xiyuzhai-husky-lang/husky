@@ -35,8 +35,7 @@ impl ExplicitParameterEtherealSignatureTemplate {
                 .into()
             }
             ExplicitParameterDeclarativeSignatureTemplate::Variadic(_) => todo!(),
-            ExplicitParameterDeclarativeSignatureTemplate::KeyedWithoutDefault(_) => todo!(),
-            ExplicitParameterDeclarativeSignatureTemplate::KeyedWithDefault(_) => todo!(),
+            ExplicitParameterDeclarativeSignatureTemplate::Keyed(_) => todo!(),
         })
     }
 }

@@ -26,7 +26,6 @@ use husky_declarative_ty::{
     ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
 };
 use husky_entity_path::EntityPath;
-use husky_ty_expectation::TermTypeExpectation;
 use husky_word::Ident;
 use salsa::{DebugWithDb, DisplayWithDb};
 
@@ -83,7 +82,7 @@ impl EtherealTerm {
         )
     }
 
-    pub(crate) fn from_declarative(
+    pub fn from_declarative(
         db: &dyn EtherealTermDb,
         declarative_term: DeclarativeTerm,
         term_ty_expectation: TermTypeExpectation,

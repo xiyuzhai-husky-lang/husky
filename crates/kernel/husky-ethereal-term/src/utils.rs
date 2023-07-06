@@ -38,6 +38,19 @@ impl EtherealTerm {
         }
     }
 
+    /// see `self` as the type of another term, return the type expectation for that term
+    pub fn ty_expectation(
+        self,
+        db: &dyn EtherealTermDb,
+    ) -> EtherealTermResult<TermTypeExpectation> {
+        Ok(match self.application_expansion(db).function() {
+            TermFunctionReduced::TypeOntology(path) => {
+                TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
+            }
+            _ => TermTypeExpectation::Any,
+        })
+    }
+
     pub fn synthesize_function_application_expr_ty(
         db: &dyn EtherealTermDb,
         variance: Variance,

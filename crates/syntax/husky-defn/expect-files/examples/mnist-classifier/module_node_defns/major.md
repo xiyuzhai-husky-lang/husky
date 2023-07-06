@@ -556,22 +556,16 @@ Ok(
                                                 ),
                                             },
                                         },
-                                        Expr::Err(
-                                            ExprError::Original(
-                                                UnrecognizedIdent {
-                                                    token_idx: TokenIdx(
-                                                        53,
-                                                    ),
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 241,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                        Expr::CurrentSymbol {
+                                            ident: `row_span_sum`,
+                                            token_idx: TokenIdx(
+                                                53,
                                             ),
-                                        ),
+                                            current_symbol_idx: 3,
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                pattern_symbol_idx: 2,
+                                            },
+                                        },
                                         Expr::CurrentSymbol {
                                             ident: `max_row_span_sum`,
                                             token_idx: TokenIdx(
@@ -602,22 +596,16 @@ Ok(
                                                 pattern_symbol_idx: 1,
                                             },
                                         },
-                                        Expr::Err(
-                                            ExprError::Original(
-                                                UnrecognizedIdent {
-                                                    token_idx: TokenIdx(
-                                                        59,
-                                                    ),
-                                                    ident: Ident(
-                                                        Word(
-                                                            Id {
-                                                                value: 241,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
+                                        Expr::CurrentSymbol {
+                                            ident: `row_span_sum`,
+                                            token_idx: TokenIdx(
+                                                59,
                                             ),
-                                        ),
+                                            current_symbol_idx: 3,
+                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                                pattern_symbol_idx: 2,
+                                            },
+                                        },
                                         Expr::Binary {
                                             lopd: 13,
                                             opr: Assign,
@@ -759,17 +747,17 @@ Ok(
                                                     43,
                                                 ),
                                             },
-                                            let_variable_pattern: Err(
-                                                ExprError::Original(
-                                                    ExpectedLetVariableDecls(
-                                                        TokenStreamState {
-                                                            next_token_idx: TokenIdx(
-                                                                44,
-                                                            ),
-                                                            drained: false,
-                                                        },
+                                            let_variable_pattern: Ok(
+                                                LetVariableDecls {
+                                                    pattern_expr_idx: 2,
+                                                    variables: ArenaIdxRange(
+                                                        3..4,
                                                     ),
-                                                ),
+                                                    colon_token: Ok(
+                                                        None,
+                                                    ),
+                                                    ty: None,
+                                                },
                                             ),
                                             assign_token: Ok(
                                                 EqToken(
@@ -920,12 +908,14 @@ Ok(
                                     pattern_expr_arena: Arena {
                                         data: [
                                             PatternExpr::Ident {
-                                                symbol_modifier_keyword_group: Mut(
-                                                    MutToken {
-                                                        token_idx: TokenIdx(
-                                                            25,
-                                                        ),
-                                                    },
+                                                symbol_modifier_keyword_group: Some(
+                                                    Mut(
+                                                        MutToken {
+                                                            token_idx: TokenIdx(
+                                                                25,
+                                                            ),
+                                                        },
+                                                    ),
                                                 ),
                                                 ident_token: IdentToken {
                                                     ident: `i0`,
@@ -935,17 +925,28 @@ Ok(
                                                 },
                                             },
                                             PatternExpr::Ident {
-                                                symbol_modifier_keyword_group: Mut(
-                                                    MutToken {
-                                                        token_idx: TokenIdx(
-                                                            30,
-                                                        ),
-                                                    },
+                                                symbol_modifier_keyword_group: Some(
+                                                    Mut(
+                                                        MutToken {
+                                                            token_idx: TokenIdx(
+                                                                30,
+                                                            ),
+                                                        },
+                                                    ),
                                                 ),
                                                 ident_token: IdentToken {
                                                     ident: `max_row_span_sum`,
                                                     token_idx: TokenIdx(
                                                         31,
+                                                    ),
+                                                },
+                                            },
+                                            PatternExpr::Ident {
+                                                symbol_modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `row_span_sum`,
+                                                    token_idx: TokenIdx(
+                                                        44,
                                                     ),
                                                 },
                                             },
@@ -955,9 +956,11 @@ Ok(
                                         data: [
                                             Move,
                                             Move,
+                                            None,
                                         ],
                                     },
                                     pattern_infos: [
+                                        Let,
                                         Let,
                                         Let,
                                     ],
@@ -968,6 +971,9 @@ Ok(
                                             ),
                                             PatternSymbol::Atom(
                                                 1,
+                                            ),
+                                            PatternSymbol::Atom(
+                                                2,
                                             ),
                                         ],
                                     },
@@ -984,11 +990,18 @@ Ok(
                                                 1,
                                             ),
                                         ],
+                                        [
+                                            (
+                                                `row_span_sum`,
+                                                2,
+                                            ),
+                                        ],
                                     ],
                                     pattern_symbol_modifiers: ArenaMap {
                                         data: [
                                             Mut,
                                             Mut,
+                                            None,
                                         ],
                                     },
                                 },
@@ -1033,7 +1046,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                modifier: Pure,
+                                                modifier: None,
                                                 access_start: TokenIdx(
                                                     43,
                                                 ),
@@ -1047,6 +1060,23 @@ Ok(
                                                 variant: CurrentSymbolVariant::FrameVariable {
                                                     ident: `i`,
                                                     expr_idx: 3,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                modifier: None,
+                                                access_start: TokenIdx(
+                                                    45,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            63,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: CurrentSymbolVariant::LetVariable {
+                                                    ident: `row_span_sum`,
+                                                    pattern_symbol_idx: 2,
                                                 },
                                             },
                                         ],
@@ -1560,12 +1590,14 @@ Ok(
                                     pattern_expr_arena: Arena {
                                         data: [
                                             PatternExpr::Ident {
-                                                symbol_modifier_keyword_group: Mut(
-                                                    MutToken {
-                                                        token_idx: TokenIdx(
-                                                            75,
-                                                        ),
-                                                    },
+                                                symbol_modifier_keyword_group: Some(
+                                                    Mut(
+                                                        MutToken {
+                                                            token_idx: TokenIdx(
+                                                                75,
+                                                            ),
+                                                        },
+                                                    ),
                                                 ),
                                                 ident_token: IdentToken {
                                                     ident: `sum`,
@@ -1629,7 +1661,7 @@ Ok(
                                                 },
                                             },
                                             CurrentSymbol {
-                                                modifier: Pure,
+                                                modifier: None,
                                                 access_start: TokenIdx(
                                                     88,
                                                 ),

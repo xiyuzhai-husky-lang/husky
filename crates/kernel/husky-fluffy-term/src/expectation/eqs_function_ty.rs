@@ -128,7 +128,7 @@ impl ExpectEqsFunctionTypeOutcome {
 pub enum ExpectEqsFunctionTypeOutcomeVariant {
     Ritchie {
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
+        parameter_contracted_tys: Vec<FluffyTermRitchieParameter>,
     },
     Curry {
         variance: Variance,

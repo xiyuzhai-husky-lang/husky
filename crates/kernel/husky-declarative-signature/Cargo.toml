@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 thiserror = "1.0.37"
 smallvec = "1.10.0"
+either = "1.8.1"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }

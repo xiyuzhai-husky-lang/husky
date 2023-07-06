@@ -1,9 +1,15 @@
+mod keyed;
+mod regular;
+
+pub use self::keyed::*;
+pub use self::regular::*;
+
 use super::*;
 use husky_ethereal_signature::ExplicitParameterEtherealSignatureTemplate;
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyTermRitchieParameterContractedType {
+pub struct FluffyTermRitchieParameter {
     kind: FluffyExplicitParameterKind,
     contract: Contract,
     ty: FluffyTerm,
@@ -15,12 +21,14 @@ pub enum FluffyExplicitParameterKind {
     Keyed { ident: Ident },
 }
 
-impl From<TermRitchieParameterContractedType> for FluffyTermRitchieParameterContractedType {
-    fn from(contracted_ty: TermRitchieParameterContractedType) -> Self {
-        Self {
-            contract: contracted_ty.contract(),
-            ty: contracted_ty.ty().into(),
-            kind: FluffyExplicitParameterKind::Regular,
+impl From<EtherealTermRitchieParameter> for FluffyTermRitchieParameter {
+    fn from(param: EtherealTermRitchieParameter) -> Self {
+        match param {
+            EtherealTermRitchieParameter::Regular(param) => Self {
+                contract: param.contract(),
+                ty: param.ty().into(),
+                kind: FluffyExplicitParameterKind::Regular,
+            },
         }
     }
 }
@@ -30,7 +38,7 @@ impl Instantiator {
         &self,
         engine: &mut impl FluffyTermEngine,
         explicit_parameter: &ExplicitParameterEtherealSignatureTemplate,
-    ) -> FluffyTermRitchieParameterContractedType {
+    ) -> FluffyTermRitchieParameter {
         todo!()
         // FluffyTermRitchieParameterContractedType {
         //     contract: explicit_parameter.contract(),
@@ -40,7 +48,7 @@ impl Instantiator {
     }
 }
 
-impl FluffyTermRitchieParameterContractedType {
+impl FluffyTermRitchieParameter {
     #[inline(always)]
     pub fn new(contract: Contract, ty: FluffyTerm) -> Self {
         Self {
@@ -74,7 +82,7 @@ impl FluffyTerm {
         db: &dyn FluffyTermDb,
         fluffy_terms: &mut FluffyTerms,
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
+        parameter_contracted_tys: Vec<FluffyTermRitchieParameter>,
         return_ty: FluffyTerm,
     ) -> Self {
         let mut solid_flag = false;
@@ -96,7 +104,7 @@ impl FluffyTerm {
                 .hollow_terms_mut()
                 .alloc_new(HollowTermData::Ritchie {
                     ritchie_kind,
-                    parameter_contracted_tys,
+                    params: parameter_contracted_tys,
                     return_ty,
                 })
                 .into()

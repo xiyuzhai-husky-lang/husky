@@ -25,10 +25,8 @@
                 FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`fn(~ mnist_classifier::raw_contour::RawContour) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -47,10 +45,8 @@
                 FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`fn(core::raw_bits::r32, core::raw_bits::r32) -> core::raw_bits::r32`),
         ),
     ),
     (
@@ -59,10 +55,8 @@
                 FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`fn(mnist::BinaryImage28) -> [] mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
 ]

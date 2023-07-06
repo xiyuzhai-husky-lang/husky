@@ -15,10 +15,8 @@
                 FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -57,10 +55,8 @@
                 FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
     (
@@ -69,10 +65,8 @@
                 FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`fn(~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent) -> core::option::Option core::num::f32`),
         ),
     ),
 ]

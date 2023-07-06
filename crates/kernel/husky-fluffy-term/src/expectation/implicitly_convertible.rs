@@ -11,12 +11,12 @@ pub enum ImplicitConversion {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct ExpectImplicitlyConvertible {
-    parameter_contracted_ty: FluffyTermRitchieParameterContractedType,
+    parameter_contracted_ty: FluffyTermRitchieParameter,
 }
 
 impl ExpectImplicitlyConvertible {
     #[inline(always)]
-    pub fn new(parameter_contracted_ty: FluffyTermRitchieParameterContractedType) -> Self {
+    pub fn new(parameter_contracted_ty: FluffyTermRitchieParameter) -> Self {
         Self {
             parameter_contracted_ty,
         }
@@ -25,10 +25,7 @@ impl ExpectImplicitlyConvertible {
     #[inline(always)]
     pub fn new_const(ty: FluffyTerm) -> Self {
         Self {
-            parameter_contracted_ty: FluffyTermRitchieParameterContractedType::new(
-                Contract::Const,
-                ty,
-            ),
+            parameter_contracted_ty: FluffyTermRitchieParameter::new(Contract::Const, ty),
         }
     }
 
@@ -47,17 +44,14 @@ impl ExpectImplicitlyConvertible {
             _ => ty,
         };
         Self {
-            parameter_contracted_ty: FluffyTermRitchieParameterContractedType::new(
-                Contract::None,
-                ty,
-            ),
+            parameter_contracted_ty: FluffyTermRitchieParameter::new(Contract::None, ty),
         }
     }
 
     #[inline(always)]
     pub fn new_pure_unit(engine: &impl FluffyTermEngine) -> Self {
         Self {
-            parameter_contracted_ty: FluffyTermRitchieParameterContractedType::new(
+            parameter_contracted_ty: FluffyTermRitchieParameter::new(
                 Contract::None,
                 engine.term_menu().unit_ty_ontology().into(),
             ),
@@ -67,7 +61,7 @@ impl ExpectImplicitlyConvertible {
     #[inline(always)]
     pub fn new_pure_bool(engine: &impl FluffyTermEngine) -> Self {
         Self {
-            parameter_contracted_ty: FluffyTermRitchieParameterContractedType::new(
+            parameter_contracted_ty: FluffyTermRitchieParameter::new(
                 Contract::None,
                 engine.term_menu().bool_ty_ontology().into(),
             ),
@@ -77,10 +71,7 @@ impl ExpectImplicitlyConvertible {
     #[inline(always)]
     pub fn new_move(ty: FluffyTerm) -> Self {
         Self {
-            parameter_contracted_ty: FluffyTermRitchieParameterContractedType::new(
-                Contract::Move,
-                ty,
-            ),
+            parameter_contracted_ty: FluffyTermRitchieParameter::new(Contract::Move, ty),
         }
     }
 
@@ -108,7 +99,7 @@ impl ExpectImplicitlyConvertible {
         self.parameter_contracted_ty.ty()
     }
 
-    pub fn parameter_contracted_ty(&self) -> FluffyTermRitchieParameterContractedType {
+    pub fn parameter_contracted_ty(&self) -> FluffyTermRitchieParameter {
         self.parameter_contracted_ty
     }
 }

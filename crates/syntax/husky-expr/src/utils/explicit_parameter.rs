@@ -57,7 +57,8 @@ pub enum ExplicitParameterDecl {
         colon: ColonToken,
         ty: ExprIdx,
         eq_token: EqToken,
-        default_value: Either<UnderscoreToken, ExprIdx>,
+        // todo: change this to custom enum
+        default: Either<UnderscoreToken, ExprIdx>,
     },
 }
 
@@ -107,7 +108,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ExplicitPara
                     todo!()
                 };
                 // todo: KeyedWithoutDefault
-                let default_value = if let Some(_) = ctx.try_parse_option::<UnderscoreToken>()? {
+                let default = if let Some(_) = ctx.try_parse_option::<UnderscoreToken>()? {
                     todo!()
                 } else {
                     Right(ctx.parse_expr_expected2(
@@ -124,7 +125,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ExplicitPara
                     colon,
                     ty: ty_expr_idx,
                     eq_token,
-                    default_value,
+                    default,
                 }))
             } else {
                 Ok(Some(ExplicitParameterDecl::Regular {
