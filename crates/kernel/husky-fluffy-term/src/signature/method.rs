@@ -11,12 +11,12 @@ pub enum MethodFluffySignature {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MethodFnFluffySignature {
     // todo: self_parameter_contracted_ty
-    parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 4]>,
+    parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
 }
 
 impl MethodFnFluffySignature {
-    pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameterContractedType] {
+    pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
         &self.parameter_contracted_tys
     }
 

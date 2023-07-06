@@ -95,4 +95,10 @@ impl From<&DecrError> for EtherealTermError {
     }
 }
 
+impl From<DeclarativeTermError> for EtherealTermError {
+    fn from(value: DeclarativeTermError) -> Self {
+        todo!()
+    }
+}
+
 pub type EtherealTermResult<T> = Result<T, EtherealTermError>;

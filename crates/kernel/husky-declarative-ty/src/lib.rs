@@ -25,7 +25,6 @@ use husky_declarative_signature::*;
 use husky_declarative_term::*;
 use husky_entity_path::*;
 use husky_term_prelude::*;
-use husky_ty_expectation::TypePathDisambiguation;
 use husky_word::*;
 use map_collect::*;
 

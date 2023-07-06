@@ -3,13 +3,13 @@ use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct AssociatedFnFluffySignature {
-    explicit_parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 4]>,
+    explicit_parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
     ty: FluffyTerm,
 }
 
 impl AssociatedFnFluffySignature {
-    pub fn explicit_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameterContractedType] {
+    pub fn explicit_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
         &self.explicit_parameter_contracted_tys
     }
 

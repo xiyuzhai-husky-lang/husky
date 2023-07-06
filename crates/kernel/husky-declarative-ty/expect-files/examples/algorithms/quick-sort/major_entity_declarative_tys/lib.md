@@ -15,10 +15,8 @@
                 FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`(independent v0: Type) -> fn(core::slice::Slice v0, core::num::isize, core::num::isize) -> core::basic::unit`),
         ),
     ),
     (
@@ -27,10 +25,8 @@
                 FugitivePath(`quick_sort::partition`, `Fn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`(independent v0: Type) -> fn(core::slice::Slice v0, core::num::isize, core::num::isize) -> core::num::isize`),
         ),
     ),
     (

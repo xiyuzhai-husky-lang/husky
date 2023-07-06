@@ -71,7 +71,7 @@ impl DeclarativeTerm {
         match self {
             DeclarativeTerm::Curry(_) => todo!(),
             DeclarativeTerm::Ritchie(term) => {
-                for parameter_ty in term.parameter_tys(db) {
+                for parameter_ty in term.params(db) {
                     t(parameter_ty.ty())
                 }
                 t(term.return_ty(db));
@@ -122,7 +122,7 @@ impl DeclarativeTerm {
             DeclarativeTerm::Ritchie(term) => DeclarativeTermRitchie::new(
                 db,
                 term.ritchie_kind(db),
-                term.parameter_tys(db)
+                term.params(db)
                     .iter()
                     .map(|parameter_ty| {
                         parameter_ty.substitute_ty(|ty| {

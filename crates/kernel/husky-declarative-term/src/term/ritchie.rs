@@ -1,4 +1,10 @@
-pub use context::*;
+mod keyed;
+mod regular;
+mod variadic;
+
+pub use self::keyed::*;
+pub use self::regular::*;
+pub use self::variadic::*;
 
 use crate::*;
 use smallvec::SmallVec;
@@ -8,7 +14,7 @@ use smallvec::SmallVec;
 pub struct DeclarativeTermRitchie {
     pub ritchie_kind: RitchieKind,
     #[return_ref]
-    pub parameter_tys: SmallVec<[DeclarativeTermRitchieParameterContractedType; 2]>,
+    pub params: SmallVec<[DeclarativeTermRitchieParameter; 2]>,
     pub return_ty: DeclarativeTerm,
     // ty: DeclarativeTerm,
 }
@@ -26,7 +32,7 @@ impl DeclarativeTermRitchie {
             RitchieKind::FnMutTrait => f.write_str("FnMut(")?,
             RitchieKind::GnType => f.write_str("gn(")?,
         }
-        for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
+        for (i, parameter_ty) in self.params(db).iter().enumerate() {
             if i > 0 {
                 f.write_str(", ")?
             }
@@ -54,7 +60,7 @@ where
             RitchieKind::FnMutTrait => f.write_str("FnMut(")?,
             RitchieKind::GnType => f.write_str("gn(")?,
         }
-        for (i, parameter_ty) in self.parameter_tys(db).iter().enumerate() {
+        for (i, parameter_ty) in self.params(db).iter().enumerate() {
             if i > 0 {
                 f.write_str(", ")?
             }
@@ -67,44 +73,45 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeTermDb)]
-pub struct DeclarativeTermRitchieParameterContractedType {
-    contract: Contract,
-    ty: DeclarativeTerm,
+#[enum_class::from_variants]
+pub enum DeclarativeTermRitchieParameter {
+    Regular(DeclarativeTermRitchieRegularParameter),
+    Variadic(DeclarativeTermRitchieVariadicParameter),
+    Keyed(DeclarativeTermRitchieKeyedParameter),
 }
 
-impl DeclarativeTermRitchieParameterContractedType {
-    pub fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
-        Self { contract, ty }
-    }
-
-    pub(crate) fn substitute_ty(self, f: impl FnOnce(DeclarativeTerm) -> DeclarativeTerm) -> Self {
-        Self {
-            contract: self.contract,
-            ty: f(self.ty),
+impl DeclarativeTermRitchieParameter {
+    pub fn ty(&self) -> DeclarativeTerm {
+        match self {
+            DeclarativeTermRitchieParameter::Regular(param) => param.ty(),
+            DeclarativeTermRitchieParameter::Variadic(_) => todo!(),
+            DeclarativeTermRitchieParameter::Keyed(_) => todo!(),
         }
     }
 
-    pub fn contract(&self) -> Contract {
-        self.contract
+    pub(crate) fn substitute_ty(self, f: impl FnOnce(DeclarativeTerm) -> DeclarativeTerm) -> Self {
+        match self {
+            DeclarativeTermRitchieParameter::Regular(param) => param.substitute_ty(f).into(),
+            DeclarativeTermRitchieParameter::Variadic(_) => todo!(),
+            DeclarativeTermRitchieParameter::Keyed(_) => todo!(),
+        }
     }
 
-    pub fn ty(&self) -> DeclarativeTerm {
-        self.ty
-    }
-}
-
-impl DeclarativeTermRitchieParameterContractedType {
     fn show_with_db_fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn DeclarativeTermDb,
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
-        self.ty.show_with_db_fmt(f, db, ctx)
+        match self {
+            DeclarativeTermRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
+            DeclarativeTermRitchieParameter::Variadic(param) => param.show_with_db_fmt(f, db, ctx),
+            DeclarativeTermRitchieParameter::Keyed(param) => param.show_with_db_fmt(f, db, ctx),
+        }
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for DeclarativeTermRitchieParameterContractedType
+impl<Db> salsa::DisplayWithDb<Db> for DeclarativeTermRitchieParameter
 where
     Db: DeclarativeTermDb + ?Sized,
 {
@@ -112,10 +119,15 @@ where
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
-        _level: salsa::DisplayFormatLevel,
+        level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<DeclarativeTermJar>>::as_jar_db(db);
-        self.ty.show_with_db_fmt(f, db, &mut Default::default())
+        match self {
+            DeclarativeTermRitchieParameter::Regular(parameter) => {
+                parameter.display_with_db_fmt(f, db, level)
+            }
+            DeclarativeTermRitchieParameter::Variadic(_) => todo!(),
+            DeclarativeTermRitchieParameter::Keyed(_) => todo!(),
+        }
     }
 }
 

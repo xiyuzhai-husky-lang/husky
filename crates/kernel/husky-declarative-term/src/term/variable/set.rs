@@ -109,8 +109,8 @@ pub(crate) fn declarative_term_ritchie_variables(
     term: DeclarativeTermRitchie,
 ) -> Option<DeclarativeTermVariables> {
     let mut variables: Option<DeclarativeTermVariables> = None;
-    for parameter_ty in term.parameter_tys(db) {
-        variables = DeclarativeTermVariables::merge(variables, parameter_ty.ty().variables(db))
+    for param in term.params(db) {
+        variables = DeclarativeTermVariables::merge(variables, param.ty().variables(db))
     }
     DeclarativeTermVariables::merge(variables, term.return_ty(db).variables(db))
 }

@@ -48,13 +48,9 @@ impl EtherealTermApplication {
             match function.raw_ty(db)? {
                 RawType::Declarative(DeclarativeTerm::Curry(function_declarative_ty)) => {
                     let parameter_ty = function_declarative_ty.parameter_ty(db);
-                    let function_parameter_ty_curry_parameter_count =
-                        parameter_ty.curry_parameter_count(db);
-                    let argument_expectation =
-                        parameter_ty_declarative_term_to_argument_ty_expectation(db, parameter_ty);
                     (
-                        function_parameter_ty_curry_parameter_count,
-                        argument_expectation,
+                        parameter_ty.curry_parameter_count(db),
+                        parameter_ty.ty_expectation(db)?,
                     )
                 }
                 _ => return Err(todo!()),
@@ -69,7 +65,7 @@ impl EtherealTermApplication {
         Ok(term)
     }
 
-    //// this constructor guarantees that the result is reduced, not necessarily valid
+    /// this constructor guarantees that the result is reduced, not necessarily valid
     /// returns EtherealTerm instead of EtherealTermApplication because it might reduce to a non application term
     pub(super) fn new_reduced(
         db: &dyn EtherealTermDb,
@@ -145,13 +141,9 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
         match function.raw_ty(db)? {
             RawType::Declarative(DeclarativeTerm::Curry(function_ty)) => {
                 let parameter_ty = function_ty.parameter_ty(db);
-                let function_parameter_ty_curry_parameter_count =
-                    parameter_ty.curry_parameter_count(db);
-                let argument_expectation =
-                    parameter_ty_declarative_term_to_argument_ty_expectation(db, parameter_ty);
                 (
-                    function_parameter_ty_curry_parameter_count,
-                    argument_expectation,
+                    parameter_ty.curry_parameter_count(db),
+                    parameter_ty.ty_expectation(db)?,
                 )
             }
             _ => {
@@ -172,33 +164,6 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
     Ok(EtherealTermApplication::new_reduced(
         db, function, argument, shift,
     ))
-}
-
-fn parameter_ty_declarative_term_to_argument_ty_expectation(
-    db: &dyn EtherealTermDb,
-    declarative_term: DeclarativeTerm,
-) -> TermTypeExpectation {
-    match declarative_term {
-        DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(path)) => {
-            TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
-        }
-        DeclarativeTerm::Category(_) => TermTypeExpectation::FinalDestinationEqsSort,
-        DeclarativeTerm::Curry(_) => todo!(),
-        DeclarativeTerm::ExplicitApplication(_) => todo!(),
-        _ => TermTypeExpectation::Any,
-    }
-}
-
-fn parameter_ty_ethereal_term_to_argument_ty_expectation(
-    db: &dyn EtherealTermDb,
-    ethereal_term: EtherealTerm,
-) -> TermTypeExpectation {
-    match ethereal_term.application_expansion(db).function() {
-        TermFunctionReduced::TypeOntology(path) => {
-            TermTypeExpectation::FinalDestinationEqsNonSortTypePath(path)
-        }
-        _ => TermTypeExpectation::Any,
-    }
 }
 
 #[salsa::tracked(jar = EtherealTermJar)]

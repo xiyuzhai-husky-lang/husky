@@ -5,10 +5,8 @@
                 FugitivePath(`malamute::narrow_down`, `Gn`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`fn(core::num::f32, core::num::i32) -> core::basic::unit`),
         ),
     ),
 ]

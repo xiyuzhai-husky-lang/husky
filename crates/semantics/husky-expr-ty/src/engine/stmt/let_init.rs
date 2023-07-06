@@ -33,9 +33,9 @@ impl<'a> ExprTypeEngine<'a> {
                 self.infer_new_expr_ty_discarded(
                     initial_value,
                     // ad hoc
-                    ExpectImplicitlyConvertible::new(
-                        FluffyTermRitchieParameterContractedType::new(contract, pattern_ty),
-                    ),
+                    ExpectImplicitlyConvertible::new(FluffyTermRitchieParameter::new(
+                        contract, pattern_ty,
+                    )),
                 );
             }
             None => {

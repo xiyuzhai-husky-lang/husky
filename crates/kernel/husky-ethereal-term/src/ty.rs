@@ -1,6 +1,5 @@
 use crate::*;
 use husky_declarative_ty::*;
-use husky_ty_expectation::TypePathDisambiguation;
 use husky_vfs::Toolchain;
 
 pub trait HasType: Copy {

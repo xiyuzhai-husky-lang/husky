@@ -492,12 +492,14 @@ impl<'a> DeclarativeTermEngine<'a> {
             } => {
                 let parameter_tys: SmallVec<[_; 2]> = parameter_ty_items
                     .into_iter()
-                    .map(|argument_ty_item| {
-                        Ok(DeclarativeTermRitchieParameterContractedType::new(
+                    .map(|parameter_ty_item| {
+                        // todo: support variadic, and keyed??
+                        Ok(DeclarativeTermRitchieRegularParameter::new(
                             // todo: handle &mut !!
                             Contract::None,
-                            self.infer_new_expr_term(argument_ty_item.expr_idx())?,
-                        ))
+                            self.infer_new_expr_term(parameter_ty_item.expr_idx())?,
+                        )
+                        .into())
                     })
                     .collect::<DeclarativeTermResult2<SmallVec<_>>>()?;
                 let return_ty = match return_ty_expr {

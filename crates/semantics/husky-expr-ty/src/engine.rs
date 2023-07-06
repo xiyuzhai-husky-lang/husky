@@ -14,7 +14,6 @@ use crate::*;
 use husky_opn_syntax::PrefixOpr;
 use husky_print_utils::p;
 use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};
-use husky_ty_expectation::TermTypeExpectation;
 use husky_vfs::Toolchain;
 
 pub(crate) struct ExprTypeEngine<'a> {

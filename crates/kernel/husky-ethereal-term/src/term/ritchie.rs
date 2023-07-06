@@ -1,4 +1,10 @@
-pub use context::*;
+mod keyed;
+mod regular;
+mod variadic;
+
+pub use self::keyed::*;
+pub use self::regular::*;
+pub use self::variadic::*;
 
 use super::*;
 
@@ -7,7 +13,7 @@ use super::*;
 pub struct EtherealTermRitchie {
     pub ritchie_kind: RitchieKind,
     #[return_ref]
-    pub parameter_contracted_tys: Vec<TermRitchieParameterContractedType>,
+    pub parameter_contracted_tys: Vec<EtherealTermRitchieParameter>,
     pub return_ty: EtherealTerm,
 }
 
@@ -25,7 +31,7 @@ impl EtherealTermRitchie {
     pub fn new(
         db: &dyn EtherealTermDb,
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: impl IntoIterator<Item = TermRitchieParameterContractedType>,
+        parameter_contracted_tys: impl IntoIterator<Item = EtherealTermRitchieParameter>,
         return_ty: EtherealTerm,
     ) -> EtherealTermResult<EtherealTermRitchie> {
         // todo!("check_application_validity(db, function, argument, shift)?");
@@ -43,7 +49,7 @@ impl EtherealTermRitchie {
     pub(crate) fn new_unchecked(
         db: &dyn EtherealTermDb,
         ritchie_kind: RitchieKind,
-        parameter_tys: impl IntoIterator<Item = TermRitchieParameterContractedType>,
+        parameter_tys: impl IntoIterator<Item = EtherealTermRitchieParameter>,
         return_ty: EtherealTerm,
     ) -> EtherealTermRitchie {
         Self::new_inner(
@@ -62,7 +68,7 @@ impl EtherealTermRitchie {
     fn new_unchecked2<E>(
         db: &dyn EtherealTermDb,
         ritchie_kind: RitchieKind,
-        parameter_tys: impl IntoIterator<Item = Result<TermRitchieParameterContractedType, E>>,
+        parameter_tys: impl IntoIterator<Item = Result<EtherealTermRitchieParameter, E>>,
         return_ty: EtherealTerm,
     ) -> EtherealTermResult<EtherealTermRitchie>
     where
@@ -119,25 +125,22 @@ pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
     db: &dyn EtherealTermDb,
     declarative_term_ritchie: DeclarativeTermRitchie,
 ) -> EtherealTermResult<EtherealTermRitchie> {
-    let t = |declarative_term| {
-        EtherealTerm::from_declarative(
-            db,
-            declarative_term,
-            TermTypeExpectation::FinalDestinationEqsSort,
-        )
-    };
     EtherealTermRitchie::new_unchecked2(
         db,
         declarative_term_ritchie.ritchie_kind(db),
-        declarative_term_ritchie.parameter_tys(db).iter().map(
-            |parameter_contracted_ty| -> EtherealTermResult<_> {
-                Ok(TermRitchieParameterContractedType {
-                    contract: parameter_contracted_ty.contract(),
-                    ty: t(parameter_contracted_ty.ty())?,
+        declarative_term_ritchie
+            .params(db)
+            .iter()
+            .map(|param| -> EtherealTermResult<_> {
+                Ok(match param {
+                    DeclarativeTermRitchieParameter::Regular(param) => {
+                        EtherealTermRitchieRegularParameter::from_declarative(db, param)?.into()
+                    }
+                    DeclarativeTermRitchieParameter::Variadic(_) => todo!(),
+                    DeclarativeTermRitchieParameter::Keyed(_) => todo!(),
                 })
-            },
-        ),
-        t(declarative_term_ritchie.return_ty(db))?,
+            }),
+        EtherealTerm::ty_from_declarative(db, declarative_term_ritchie.return_ty(db))?,
     )
 }
 
@@ -171,16 +174,15 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = EtherealTermDb)]
-pub struct TermRitchieParameterContractedType {
-    contract: Contract,
-    ty: EtherealTerm,
+#[enum_class::from_variants]
+pub enum EtherealTermRitchieParameter {
+    Regular(EtherealTermRitchieRegularParameter),
 }
 
-impl TermRitchieParameterContractedType {
+impl EtherealTermRitchieParameter {
     fn reduce(self, db: &dyn EtherealTermDb) -> Self {
-        Self {
-            contract: self.contract,
-            ty: self.ty.reduce(db),
+        match self {
+            EtherealTermRitchieParameter::Regular(param) => param.reduce(db).into(),
         }
     }
 
@@ -190,11 +192,13 @@ impl TermRitchieParameterContractedType {
         db: &dyn EtherealTermDb,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
-        self.ty.show_with_db_fmt(f, db, ctx)
+        match self {
+            EtherealTermRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
+        }
     }
 }
 
-impl<Db> salsa::DisplayWithDb<Db> for TermRitchieParameterContractedType
+impl<Db> salsa::DisplayWithDb<Db> for EtherealTermRitchieParameter
 where
     Db: EtherealTermDb + ?Sized,
 {
@@ -204,22 +208,25 @@ where
         db: &Db,
         level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EtherealTermJar>>::as_jar_db(db);
-        self.ty.show_with_db_fmt(f, db, &mut Default::default())
+        match self {
+            EtherealTermRitchieParameter::Regular(param) => param.display_with_db_fmt(f, db, level),
+        }
     }
 }
 
-impl TermRitchieParameterContractedType {
-    pub fn new(contract: Contract, ty: EtherealTerm) -> Self {
-        Self { contract, ty }
-    }
+impl EtherealTermRitchieParameter {
+    // pub fn new(contract: Contract, ty: EtherealTerm) -> Self {
+    //     Self { contract, ty }
+    // }
 
-    pub fn contract(&self) -> Contract {
-        self.contract
-    }
+    // pub fn contract(&self) -> Contract {
+    //     self.contract
+    // }
 
     pub fn ty(&self) -> EtherealTerm {
-        self.ty
+        match self {
+            EtherealTermRitchieParameter::Regular(param) => param.ty(),
+        }
     }
 }
 

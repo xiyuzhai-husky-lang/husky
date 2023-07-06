@@ -1,25 +1,48 @@
+mod keyed;
+mod regular;
+mod variadic;
+
+pub use self::keyed::*;
+pub use self::regular::*;
+pub use self::variadic::*;
+
 use super::*;
+use either::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum ExplicitParameterDeclarativeSignatureTemplate {
     Regular(ExplicitRegularParameterDeclarativeSignatureTemplate),
     Variadic(ExplicitVariadicParameterDeclarativeSignatureTemplate),
-    KeyedWithoutDefault(ExplicitKeyedWithoutDefaultParameterDeclarativeSignatureTemplate),
-    KeyedWithDefault(ExplicitKeyedWithDefaultParameterDeclarativeSignatureTemplate),
+    Keyed(ExplicitKeyedParameterDeclarativeSignatureTemplate),
 }
 
 impl ExplicitParameterDeclarativeSignatureTemplate {
-    pub fn into_ritchie_parameter_contracted_ty(
-        self,
-    ) -> DeclarativeTermRitchieParameterContractedType {
+    pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeTermRitchieParameter {
         match self {
-            ExplicitParameterDeclarativeSignatureTemplate::Regular(signature) => {
-                DeclarativeTermRitchieParameterContractedType::new(signature.contract, signature.ty)
+            ExplicitParameterDeclarativeSignatureTemplate::Regular(signature_template) => {
+                DeclarativeTermRitchieRegularParameter::new(
+                    signature_template.contract(),
+                    signature_template.ty(),
+                )
+                .into()
             }
-            ExplicitParameterDeclarativeSignatureTemplate::Variadic(_) => todo!(),
-            ExplicitParameterDeclarativeSignatureTemplate::KeyedWithoutDefault(_) => todo!(),
-            ExplicitParameterDeclarativeSignatureTemplate::KeyedWithDefault(_) => todo!(),
+            ExplicitParameterDeclarativeSignatureTemplate::Variadic(signature_template) => {
+                DeclarativeTermRitchieVariadicParameter::new(
+                    signature_template.contract(),
+                    signature_template.ty(),
+                )
+                .into()
+            }
+            ExplicitParameterDeclarativeSignatureTemplate::Keyed(signature_template) => {
+                DeclarativeTermRitchieKeyedParameter::new(
+                    signature_template.key(),
+                    signature_template.contract(),
+                    signature_template.ty(),
+                    signature_template.default(),
+                )
+                .into()
+            }
         }
     }
 }
@@ -63,106 +86,46 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                             })?,
                         )
                         .into(),
-                        ExplicitParameterDecl::Variadic { .. } => {
-                            todo!()
-                            // ExplicitVariadicParameterDeclarativeSignature::new().into()
-                        }
-                        ExplicitParameterDecl::Keyed { .. } => todo!(),
+                        ExplicitParameterDecl::Variadic {
+                            symbol_modifier_keyword_group,
+                            ty,
+                            ..
+                        } => ExplicitVariadicParameterDeclarativeSignatureTemplate::new(
+                            Contract::new(*symbol_modifier_keyword_group),
+                            signature_region.expr_term(*ty).map_err(|_| {
+                                DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                    i.try_into().unwrap(),
+                                )
+                            })?,
+                        )
+                        .into(),
+                        ExplicitParameterDecl::Keyed {
+                            symbol_modifier_keyword_group,
+                            ident_token,
+                            ty,
+                            default,
+                            ..
+                        } => ExplicitKeyedParameterDeclarativeSignatureTemplate::new(
+                            ident_token.ident(),
+                            Contract::new(*symbol_modifier_keyword_group),
+                            signature_region.expr_term(*ty).map_err(|_| {
+                                DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                    i.try_into().unwrap(),
+                                )
+                            })?,
+                            match *default {
+                                Left(_) => todo!(),
+                                Right(default_expr_idx) => Some(signature_region.expr_term(default_expr_idx).map_err(|_| {
+                                    DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                        i.try_into().unwrap(),
+                                    )
+                                })?),
+                            },
+                        )
+                        .into(),
                     })
                 })
                 .collect::<DeclarativeSignatureResult<_>>()?,
         })
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitRegularParameterDeclarativeSignatureTemplate {
-    contract: Contract,
-    ty: DeclarativeTerm,
-}
-
-impl ExplicitRegularParameterDeclarativeSignatureTemplate {
-    pub(crate) fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
-        Self { contract, ty }
-    }
-
-    pub fn contract(&self) -> Contract {
-        self.contract
-    }
-
-    pub fn ty(&self) -> DeclarativeTerm {
-        self.ty
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitVariadicParameterDeclarativeSignatureTemplate {
-    contract: Contract,
-    ty: DeclarativeTerm,
-}
-
-impl ExplicitVariadicParameterDeclarativeSignatureTemplate {
-    pub(crate) fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
-        Self { contract, ty }
-    }
-
-    pub fn contract(&self) -> Contract {
-        self.contract
-    }
-
-    pub fn ty(&self) -> DeclarativeTerm {
-        self.ty
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitKeyedWithoutDefaultParameterDeclarativeSignatureTemplate {
-    contract: Contract,
-    ty: DeclarativeTerm,
-}
-
-impl ExplicitKeyedWithoutDefaultParameterDeclarativeSignatureTemplate {
-    pub(crate) fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
-        Self { contract, ty }
-    }
-
-    pub fn contract(&self) -> Contract {
-        self.contract
-    }
-
-    pub fn ty(&self) -> DeclarativeTerm {
-        self.ty
-    }
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitKeyedWithDefaultParameterDeclarativeSignatureTemplate {
-    key: Ident,
-    contract: Contract,
-    ty: DeclarativeTerm,
-    default: DeclarativeTerm,
-}
-
-impl ExplicitKeyedWithDefaultParameterDeclarativeSignatureTemplate {
-    pub(crate) fn new(
-        key: Ident,
-        contract: Contract,
-        ty: DeclarativeTerm,
-        default: DeclarativeTerm,
-    ) -> Self {
-        Self {
-            key,
-            contract,
-            ty,
-            default: todo!(),
-        }
-    }
-
-    pub fn contract(&self) -> Contract {
-        self.contract
-    }
-
-    pub fn ty(&self) -> DeclarativeTerm {
-        self.ty
     }
 }

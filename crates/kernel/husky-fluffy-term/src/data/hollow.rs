@@ -22,7 +22,7 @@ pub enum HollowTermData {
     },
     Ritchie {
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: Vec<FluffyTermRitchieParameterContractedType>,
+        params: Vec<FluffyTermRitchieParameter>,
         return_ty: FluffyTerm,
     },
     PlaceTypeOntology {
@@ -121,7 +121,7 @@ impl HollowTerm {
             } => FluffyTermData::Hole(*hole_kind, Hole(self)),
             HollowTermData::Ritchie {
                 ritchie_kind,
-                parameter_contracted_tys,
+                params: parameter_contracted_tys,
                 return_ty,
             } => FluffyTermData::Ritchie {
                 ritchie_kind: *ritchie_kind,

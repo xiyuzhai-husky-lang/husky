@@ -36,7 +36,7 @@ pub enum FluffyTermData<'a> {
     Category(TermCategory),
     Ritchie {
         ritchie_kind: RitchieKind,
-        parameter_contracted_tys: &'a [FluffyTermRitchieParameterContractedType],
+        parameter_contracted_tys: &'a [FluffyTermRitchieParameter],
         return_ty: FluffyTerm,
     },
     PlaceHole {
@@ -293,7 +293,7 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
                 debug_struct = debug_struct.field(
                     "parameter_contracted_tys",
                     &::salsa::debug::helper::SalsaDebug::<
-                        &'a [FluffyTermRitchieParameterContractedType],
+                        &'a [FluffyTermRitchieParameter],
                         _Db,
                     >::salsa_debug(
                         #[allow(clippy::needless_borrow)]
@@ -339,7 +339,7 @@ impl<'a, _Db: EtherealTermDb + ?Sized> ::salsa::DebugWithDb<_Db> for FluffyTermD
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermRitchieFluffyData {
     ritchie_kind: RitchieKind,
-    parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameterContractedType; 2]>,
+    parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 2]>,
     variadics: (),
     keyed_parameter_contracted_tys: (),
     return_ty: EtherealTerm,

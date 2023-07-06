@@ -1,5 +1,4 @@
 use crate::*;
-use husky_ty_expectation::TypePathDisambiguation;
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]

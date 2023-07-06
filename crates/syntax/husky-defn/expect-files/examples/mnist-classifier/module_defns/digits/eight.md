@@ -436,17 +436,13 @@ Ok(
                                             be_token_idx: TokenIdx(
                                                 29,
                                             ),
-                                            target: Err(
-                                                ExprError::Original(
-                                                    ExpectedBeVariablesPattern(
-                                                        TokenStreamState {
-                                                            next_token_idx: TokenIdx(
-                                                                30,
-                                                            ),
-                                                            drained: false,
-                                                        },
+                                            target: Ok(
+                                                BeVariablesPattern {
+                                                    pattern_expr: 0,
+                                                    variables: ArenaIdxRange(
+                                                        0..1,
                                                     ),
-                                                ),
+                                                },
                                             ),
                                         },
                                         Expr::PrincipalEntityPath {
@@ -464,17 +460,13 @@ Ok(
                                             be_token_idx: TokenIdx(
                                                 33,
                                             ),
-                                            target: Err(
-                                                ExprError::Original(
-                                                    ExpectedBeVariablesPattern(
-                                                        TokenStreamState {
-                                                            next_token_idx: TokenIdx(
-                                                                34,
-                                                            ),
-                                                            drained: false,
-                                                        },
+                                            target: Ok(
+                                                BeVariablesPattern {
+                                                    pattern_expr: 1,
+                                                    variables: ArenaIdxRange(
+                                                        1..2,
                                                     ),
-                                                ),
+                                                },
                                             ),
                                         },
                                         Expr::PrincipalEntityPath {
@@ -492,17 +484,13 @@ Ok(
                                             be_token_idx: TokenIdx(
                                                 37,
                                             ),
-                                            target: Err(
-                                                ExprError::Original(
-                                                    ExpectedBeVariablesPattern(
-                                                        TokenStreamState {
-                                                            next_token_idx: TokenIdx(
-                                                                38,
-                                                            ),
-                                                            drained: false,
-                                                        },
+                                            target: Ok(
+                                                BeVariablesPattern {
+                                                    pattern_expr: 2,
+                                                    variables: ArenaIdxRange(
+                                                        2..3,
                                                     ),
-                                                ),
+                                                },
                                             ),
                                         },
                                         Expr::PrincipalEntityPath {
@@ -520,17 +508,13 @@ Ok(
                                             be_token_idx: TokenIdx(
                                                 41,
                                             ),
-                                            target: Err(
-                                                ExprError::Original(
-                                                    ExpectedBeVariablesPattern(
-                                                        TokenStreamState {
-                                                            next_token_idx: TokenIdx(
-                                                                42,
-                                                            ),
-                                                            drained: false,
-                                                        },
+                                            target: Ok(
+                                                BeVariablesPattern {
+                                                    pattern_expr: 3,
+                                                    variables: ArenaIdxRange(
+                                                        3..4,
                                                     ),
-                                                ),
+                                                },
                                             ),
                                         },
                                         Expr::PrincipalEntityPath {
@@ -649,17 +633,13 @@ Ok(
                                             be_token_idx: TokenIdx(
                                                 62,
                                             ),
-                                            target: Err(
-                                                ExprError::Original(
-                                                    ExpectedBeVariablesPattern(
-                                                        TokenStreamState {
-                                                            next_token_idx: TokenIdx(
-                                                                63,
-                                                            ),
-                                                            drained: false,
-                                                        },
+                                            target: Ok(
+                                                BeVariablesPattern {
+                                                    pattern_expr: 5,
+                                                    variables: ArenaIdxRange(
+                                                        5..6,
                                                     ),
-                                                ),
+                                                },
                                             ),
                                         },
                                         Expr::PrincipalEntityPath {
@@ -724,17 +704,13 @@ Ok(
                                             be_token_idx: TokenIdx(
                                                 74,
                                             ),
-                                            target: Err(
-                                                ExprError::Original(
-                                                    ExpectedBeVariablesPattern(
-                                                        TokenStreamState {
-                                                            next_token_idx: TokenIdx(
-                                                                75,
-                                                            ),
-                                                            drained: false,
-                                                        },
+                                            target: Ok(
+                                                BeVariablesPattern {
+                                                    pattern_expr: 6,
+                                                    variables: ArenaIdxRange(
+                                                        6..7,
                                                     ),
-                                                ),
+                                                },
                                             ),
                                         },
                                         Expr::Literal(
@@ -1018,17 +994,17 @@ Ok(
                                                     43,
                                                 ),
                                             },
-                                            let_variable_pattern: Err(
-                                                ExprError::Original(
-                                                    ExpectedLetVariableDecls(
-                                                        TokenStreamState {
-                                                            next_token_idx: TokenIdx(
-                                                                44,
-                                                            ),
-                                                            drained: false,
-                                                        },
+                                            let_variable_pattern: Ok(
+                                                LetVariableDecls {
+                                                    pattern_expr_idx: 4,
+                                                    variables: ArenaIdxRange(
+                                                        4..5,
                                                     ),
-                                                ),
+                                                    colon_token: Ok(
+                                                        None,
+                                                    ),
+                                                    ty: None,
+                                                },
                                             ),
                                             assign_token: Ok(
                                                 EqToken(
@@ -1074,18 +1050,171 @@ Ok(
                                 },
                                 pattern_expr_region: PatternExprRegion {
                                     pattern_expr_arena: Arena {
-                                        data: [],
+                                        data: [
+                                            PatternExpr::Ident {
+                                                symbol_modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `none`,
+                                                    token_idx: TokenIdx(
+                                                        30,
+                                                    ),
+                                                },
+                                            },
+                                            PatternExpr::Ident {
+                                                symbol_modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `none`,
+                                                    token_idx: TokenIdx(
+                                                        34,
+                                                    ),
+                                                },
+                                            },
+                                            PatternExpr::Ident {
+                                                symbol_modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `none`,
+                                                    token_idx: TokenIdx(
+                                                        38,
+                                                    ),
+                                                },
+                                            },
+                                            PatternExpr::Ident {
+                                                symbol_modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `none`,
+                                                    token_idx: TokenIdx(
+                                                        42,
+                                                    ),
+                                                },
+                                            },
+                                            PatternExpr::Ident {
+                                                symbol_modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `upper_excess`,
+                                                    token_idx: TokenIdx(
+                                                        44,
+                                                    ),
+                                                },
+                                            },
+                                            PatternExpr::Ident {
+                                                symbol_modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `none`,
+                                                    token_idx: TokenIdx(
+                                                        63,
+                                                    ),
+                                                },
+                                            },
+                                            PatternExpr::Ident {
+                                                symbol_modifier_keyword_group: None,
+                                                ident_token: IdentToken {
+                                                    ident: `none`,
+                                                    token_idx: TokenIdx(
+                                                        75,
+                                                    ),
+                                                },
+                                            },
+                                        ],
                                     },
                                     pattern_expr_contracts: ArenaMap {
-                                        data: [],
+                                        data: [
+                                            None,
+                                            None,
+                                            None,
+                                            None,
+                                            None,
+                                            None,
+                                            None,
+                                        ],
                                     },
-                                    pattern_infos: [],
+                                    pattern_infos: [
+                                        Let,
+                                        Let,
+                                        Let,
+                                        Let,
+                                        Let,
+                                        Let,
+                                        Let,
+                                    ],
                                     pattern_symbol_arena: Arena {
-                                        data: [],
+                                        data: [
+                                            PatternSymbol::Atom(
+                                                0,
+                                            ),
+                                            PatternSymbol::Atom(
+                                                1,
+                                            ),
+                                            PatternSymbol::Atom(
+                                                2,
+                                            ),
+                                            PatternSymbol::Atom(
+                                                3,
+                                            ),
+                                            PatternSymbol::Atom(
+                                                4,
+                                            ),
+                                            PatternSymbol::Atom(
+                                                5,
+                                            ),
+                                            PatternSymbol::Atom(
+                                                6,
+                                            ),
+                                        ],
                                     },
-                                    pattern_symbol_maps: [],
+                                    pattern_symbol_maps: [
+                                        [
+                                            (
+                                                `none`,
+                                                0,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                `none`,
+                                                1,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                `none`,
+                                                2,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                `none`,
+                                                3,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                `upper_excess`,
+                                                4,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                `none`,
+                                                5,
+                                            ),
+                                        ],
+                                        [
+                                            (
+                                                `none`,
+                                                6,
+                                            ),
+                                        ],
+                                    ],
                                     pattern_symbol_modifiers: ArenaMap {
-                                        data: [],
+                                        data: [
+                                            None,
+                                            None,
+                                            None,
+                                            None,
+                                            None,
+                                            None,
+                                            None,
+                                        ],
                                     },
                                 },
                                 symbol_region: SymbolRegion {
@@ -1093,7 +1222,127 @@ Ok(
                                         data: [],
                                     },
                                     current_symbol_arena: Arena {
-                                        data: [],
+                                        data: [
+                                            CurrentSymbol {
+                                                modifier: None,
+                                                access_start: TokenIdx(
+                                                    31,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            84,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: CurrentSymbolVariant::LetVariable {
+                                                    ident: `none`,
+                                                    pattern_symbol_idx: 0,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                modifier: None,
+                                                access_start: TokenIdx(
+                                                    35,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            84,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: CurrentSymbolVariant::LetVariable {
+                                                    ident: `none`,
+                                                    pattern_symbol_idx: 1,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                modifier: None,
+                                                access_start: TokenIdx(
+                                                    39,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            84,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: CurrentSymbolVariant::LetVariable {
+                                                    ident: `none`,
+                                                    pattern_symbol_idx: 2,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                modifier: None,
+                                                access_start: TokenIdx(
+                                                    43,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            84,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: CurrentSymbolVariant::LetVariable {
+                                                    ident: `none`,
+                                                    pattern_symbol_idx: 3,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                modifier: None,
+                                                access_start: TokenIdx(
+                                                    45,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            84,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: CurrentSymbolVariant::LetVariable {
+                                                    ident: `upper_excess`,
+                                                    pattern_symbol_idx: 4,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                modifier: None,
+                                                access_start: TokenIdx(
+                                                    64,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            81,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: CurrentSymbolVariant::LetVariable {
+                                                    ident: `none`,
+                                                    pattern_symbol_idx: 5,
+                                                },
+                                            },
+                                            CurrentSymbol {
+                                                modifier: None,
+                                                access_start: TokenIdx(
+                                                    76,
+                                                ),
+                                                access_end: Some(
+                                                    TokenIdxRangeEnd(
+                                                        TokenIdx(
+                                                            79,
+                                                        ),
+                                                    ),
+                                                ),
+                                                variant: CurrentSymbolVariant::LetVariable {
+                                                    ident: `none`,
+                                                    pattern_symbol_idx: 6,
+                                                },
+                                            },
+                                        ],
                                     },
                                     allow_self_type: False,
                                     allow_self_value: False,
@@ -1135,6 +1384,779 @@ Ok(
                                     ExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 28,
+                                    },
+                                ],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        Defn::ModuleItem(
+            ModuleItemDefn::Fugitive(
+                FugitiveDefn::Fn(
+                    FnDefn {
+                        path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                        decl: FnDecl {
+                            path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                            implicit_parameters: [],
+                            explicit_parameters: [
+                                ExplicitParameterDecl::Regular {
+                                    pattern: 0,
+                                    variables: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                    colon: ColonToken(
+                                        TokenIdx(
+                                            88,
+                                        ),
+                                    ),
+                                    ty: 1,
+                                },
+                            ],
+                            return_ty: Some(
+                                ReturnTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
+                            expr_region: ExprRegion {
+                                data: ExprRegionData {
+                                    parent: None,
+                                    path: RegionPath::Decl(
+                                        EntityNodePath::ModuleItem(
+                                            ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            Expr::PrincipalEntityPath {
+                                                entity_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Expr::Prefix {
+                                                opr: Tilde,
+                                                opr_token_idx: TokenIdx(
+                                                    89,
+                                                ),
+                                                opd: 0,
+                                            },
+                                            Expr::PrincipalEntityPath {
+                                                entity_path_expr: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::num::f32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Expr::Prefix {
+                                                opr: Option,
+                                                opr_token_idx: TokenIdx(
+                                                    93,
+                                                ),
+                                                opd: 2,
+                                            },
+                                        ],
+                                    },
+                                    principal_entity_path_expr_arena: Arena {
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `ConcaveComponent`,
+                                                        token_idx: TokenIdx(
+                                                            90,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `f32`,
+                                                        token_idx: TokenIdx(
+                                                            94,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::num::f32`, `Extern`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: PatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [
+                                                PatternExpr::Ident {
+                                                    symbol_modifier_keyword_group: None,
+                                                    ident_token: IdentToken {
+                                                        ident: `cc`,
+                                                        token_idx: TokenIdx(
+                                                            87,
+                                                        ),
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                        pattern_infos: [
+                                            Parameter,
+                                        ],
+                                        pattern_symbol_arena: Arena {
+                                            data: [
+                                                PatternSymbol::Atom(
+                                                    0,
+                                                ),
+                                            ],
+                                        },
+                                        pattern_symbol_maps: [
+                                            [
+                                                (
+                                                    `cc`,
+                                                    0,
+                                                ),
+                                            ],
+                                        ],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [
+                                                None,
+                                            ],
+                                        },
+                                    },
+                                    symbol_region: SymbolRegion {
+                                        inherited_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_symbol_arena: Arena {
+                                            data: [
+                                                CurrentSymbol {
+                                                    modifier: None,
+                                                    access_start: TokenIdx(
+                                                        88,
+                                                    ),
+                                                    access_end: None,
+                                                    variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        ident: `cc`,
+                                                        pattern_symbol_idx: 0,
+                                                    },
+                                                },
+                                            ],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [
+                                            (
+                                                ExplicitRegularParameter {
+                                                    pattern_expr_idx: 0,
+                                                    ty_expr_idx: 1,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                        ],
+                                    },
+                                    roots: [
+                                        ExprRoot {
+                                            kind: ExplicitParameterType,
+                                            expr_idx: 1,
+                                        },
+                                        ExprRoot {
+                                            kind: ReturnType,
+                                            expr_idx: 3,
+                                        },
+                                    ],
+                                },
+                            },
+                        },
+                        body: Some(
+                            21,
+                        ),
+                        expr_region: ExprRegion {
+                            data: ExprRegionData {
+                                parent: Some(
+                                    ExprRegion {
+                                        data: ExprRegionData {
+                                            parent: None,
+                                            path: RegionPath::Decl(
+                                                EntityNodePath::ModuleItem(
+                                                    ModuleItemNodePath::Fugitive(
+                                                        FugitiveNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            expr_arena: Arena {
+                                                data: [
+                                                    Expr::PrincipalEntityPath {
+                                                        entity_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::Prefix {
+                                                        opr: Tilde,
+                                                        opr_token_idx: TokenIdx(
+                                                            89,
+                                                        ),
+                                                        opd: 0,
+                                                    },
+                                                    Expr::PrincipalEntityPath {
+                                                        entity_path_expr: 1,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::num::f32`, `Extern`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::Prefix {
+                                                        opr: Option,
+                                                        opr_token_idx: TokenIdx(
+                                                            93,
+                                                        ),
+                                                        opd: 2,
+                                                    },
+                                                ],
+                                            },
+                                            principal_entity_path_expr_arena: Arena {
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `ConcaveComponent`,
+                                                                token_idx: TokenIdx(
+                                                                    90,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `f32`,
+                                                                token_idx: TokenIdx(
+                                                                    94,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::num::f32`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
+                                            },
+                                            stmt_arena: Arena {
+                                                data: [],
+                                            },
+                                            pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_arena: Arena {
+                                                    data: [
+                                                        PatternExpr::Ident {
+                                                            symbol_modifier_keyword_group: None,
+                                                            ident_token: IdentToken {
+                                                                ident: `cc`,
+                                                                token_idx: TokenIdx(
+                                                                    87,
+                                                                ),
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                pattern_expr_contracts: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                                pattern_infos: [
+                                                    Parameter,
+                                                ],
+                                                pattern_symbol_arena: Arena {
+                                                    data: [
+                                                        PatternSymbol::Atom(
+                                                            0,
+                                                        ),
+                                                    ],
+                                                },
+                                                pattern_symbol_maps: [
+                                                    [
+                                                        (
+                                                            `cc`,
+                                                            0,
+                                                        ),
+                                                    ],
+                                                ],
+                                                pattern_symbol_modifiers: ArenaMap {
+                                                    data: [
+                                                        None,
+                                                    ],
+                                                },
+                                            },
+                                            symbol_region: SymbolRegion {
+                                                inherited_symbol_arena: Arena {
+                                                    data: [],
+                                                },
+                                                current_symbol_arena: Arena {
+                                                    data: [
+                                                        CurrentSymbol {
+                                                            modifier: None,
+                                                            access_start: TokenIdx(
+                                                                88,
+                                                            ),
+                                                            access_end: None,
+                                                            variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                                ident: `cc`,
+                                                                pattern_symbol_idx: 0,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                allow_self_type: False,
+                                                allow_self_value: False,
+                                                pattern_ty_constraints: [
+                                                    (
+                                                        ExplicitRegularParameter {
+                                                            pattern_expr_idx: 0,
+                                                            ty_expr_idx: 1,
+                                                        },
+                                                        ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    ),
+                                                ],
+                                            },
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: ExplicitParameterType,
+                                                    expr_idx: 1,
+                                                },
+                                                ExprRoot {
+                                                    kind: ReturnType,
+                                                    expr_idx: 3,
+                                                },
+                                            ],
+                                        },
+                                    },
+                                ),
+                                path: RegionPath::Defn(
+                                    EntityNodePath::ModuleItem(
+                                        ModuleItemNodePath::Fugitive(
+                                            FugitiveNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [
+                                        Expr::InheritedSymbol {
+                                            ident: `cc`,
+                                            token_idx: TokenIdx(
+                                                97,
+                                            ),
+                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
+                                                ident: `cc`,
+                                            },
+                                        },
+                                        Expr::Field {
+                                            owner: 0,
+                                            dot_token_idx: TokenIdx(
+                                                98,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `relative_bounding_box`,
+                                                token_idx: TokenIdx(
+                                                    99,
+                                                ),
+                                            },
+                                        },
+                                        Expr::MethodApplicationOrCall {
+                                            self_argument: 1,
+                                            dot_token_idx: TokenIdx(
+                                                100,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `ymax`,
+                                                token_idx: TokenIdx(
+                                                    101,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                102,
+                                            ),
+                                            items: [],
+                                            rpar_token_idx: TokenIdx(
+                                                103,
+                                            ),
+                                        },
+                                        Expr::Literal(
+                                            TokenIdx(
+                                                105,
+                                            ),
+                                            Literal::Float(
+                                                Unspecified,
+                                            ),
+                                        ),
+                                        Expr::Binary {
+                                            lopd: 2,
+                                            opr: Comparison(
+                                                Greater,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                104,
+                                            ),
+                                            ropd: 3,
+                                        },
+                                        Expr::InheritedSymbol {
+                                            ident: `cc`,
+                                            token_idx: TokenIdx(
+                                                108,
+                                            ),
+                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
+                                                ident: `cc`,
+                                            },
+                                        },
+                                        Expr::Field {
+                                            owner: 5,
+                                            dot_token_idx: TokenIdx(
+                                                109,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `strokes`,
+                                                token_idx: TokenIdx(
+                                                    110,
+                                                ),
+                                            },
+                                        },
+                                        Expr::MethodApplicationOrCall {
+                                            self_argument: 6,
+                                            dot_token_idx: TokenIdx(
+                                                111,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `first`,
+                                                token_idx: TokenIdx(
+                                                    112,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                113,
+                                            ),
+                                            items: [],
+                                            rpar_token_idx: TokenIdx(
+                                                114,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 7,
+                                            opr: UnwrapOrComposeWithNot,
+                                            opr_token_idx: TokenIdx(
+                                                115,
+                                            ),
+                                        },
+                                        Expr::Field {
+                                            owner: 8,
+                                            dot_token_idx: TokenIdx(
+                                                116,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `start`,
+                                                token_idx: TokenIdx(
+                                                    117,
+                                                ),
+                                            },
+                                        },
+                                        Expr::InheritedSymbol {
+                                            ident: `cc`,
+                                            token_idx: TokenIdx(
+                                                121,
+                                            ),
+                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
+                                                ident: `cc`,
+                                            },
+                                        },
+                                        Expr::Field {
+                                            owner: 10,
+                                            dot_token_idx: TokenIdx(
+                                                122,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `strokes`,
+                                                token_idx: TokenIdx(
+                                                    123,
+                                                ),
+                                            },
+                                        },
+                                        Expr::MethodApplicationOrCall {
+                                            self_argument: 11,
+                                            dot_token_idx: TokenIdx(
+                                                124,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `first`,
+                                                token_idx: TokenIdx(
+                                                    125,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                126,
+                                            ),
+                                            items: [],
+                                            rpar_token_idx: TokenIdx(
+                                                127,
+                                            ),
+                                        },
+                                        Expr::Suffix {
+                                            opd: 12,
+                                            opr: UnwrapOrComposeWithNot,
+                                            opr_token_idx: TokenIdx(
+                                                128,
+                                            ),
+                                        },
+                                        Expr::Field {
+                                            owner: 13,
+                                            dot_token_idx: TokenIdx(
+                                                129,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `end`,
+                                                token_idx: TokenIdx(
+                                                    130,
+                                                ),
+                                            },
+                                        },
+                                        Expr::Field {
+                                            owner: 9,
+                                            dot_token_idx: TokenIdx(
+                                                118,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `x`,
+                                                token_idx: TokenIdx(
+                                                    119,
+                                                ),
+                                            },
+                                        },
+                                        Expr::Field {
+                                            owner: 14,
+                                            dot_token_idx: TokenIdx(
+                                                131,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `x`,
+                                                token_idx: TokenIdx(
+                                                    132,
+                                                ),
+                                            },
+                                        },
+                                        Expr::Binary {
+                                            lopd: 15,
+                                            opr: Comparison(
+                                                Greater,
+                                            ),
+                                            opr_token_idx: TokenIdx(
+                                                120,
+                                            ),
+                                            ropd: 16,
+                                        },
+                                        Expr::InheritedSymbol {
+                                            ident: `cc`,
+                                            token_idx: TokenIdx(
+                                                133,
+                                            ),
+                                            inherited_symbol_idx: 0,
+                                            inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
+                                                ident: `cc`,
+                                            },
+                                        },
+                                        Expr::Field {
+                                            owner: 18,
+                                            dot_token_idx: TokenIdx(
+                                                134,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `relative_bounding_box`,
+                                                token_idx: TokenIdx(
+                                                    135,
+                                                ),
+                                            },
+                                        },
+                                        Expr::MethodApplicationOrCall {
+                                            self_argument: 19,
+                                            dot_token_idx: TokenIdx(
+                                                136,
+                                            ),
+                                            ident_token: IdentToken {
+                                                ident: `ymax`,
+                                                token_idx: TokenIdx(
+                                                    137,
+                                                ),
+                                            },
+                                            implicit_arguments: None,
+                                            lpar_token_idx: TokenIdx(
+                                                138,
+                                            ),
+                                            items: [],
+                                            rpar_token_idx: TokenIdx(
+                                                139,
+                                            ),
+                                        },
+                                        Expr::Block {
+                                            stmts: ArenaIdxRange(
+                                                1..3,
+                                            ),
+                                        },
+                                    ],
+                                },
+                                principal_entity_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [
+                                        Stmt::Require {
+                                            require_token: RequireToken {
+                                                token_idx: TokenIdx(
+                                                    107,
+                                                ),
+                                            },
+                                            condition: 17,
+                                        },
+                                        Stmt::IfElse {
+                                            if_branch: IfBranch {
+                                                if_token: IfToken {
+                                                    token_idx: TokenIdx(
+                                                        96,
+                                                    ),
+                                                },
+                                                condition: Ok(
+                                                    4,
+                                                ),
+                                                eol_colon: Ok(
+                                                    Colon(
+                                                        EolColonToken {
+                                                            token_idx: TokenIdx(
+                                                                106,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
+                                                block: Ok(
+                                                    ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                ),
+                                            },
+                                            elif_branches: [],
+                                            else_branch: None,
+                                        },
+                                        Stmt::Eval {
+                                            expr_idx: 20,
+                                        },
+                                    ],
+                                },
+                                pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_infos: [],
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                symbol_region: SymbolRegion {
+                                    inherited_symbol_arena: Arena {
+                                        data: [
+                                            InheritedSymbol {
+                                                parent_symbol_idx: Current(
+                                                    0,
+                                                ),
+                                                modifier: None,
+                                                kind: InheritedSymbolKind::ExplicitParameter {
+                                                    ident: `cc`,
+                                                },
+                                            },
+                                        ],
+                                    },
+                                    current_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: False,
+                                    allow_self_value: False,
+                                    pattern_ty_constraints: [],
+                                },
+                                roots: [
+                                    ExprRoot {
+                                        kind: Condition,
+                                        expr_idx: 17,
+                                    },
+                                    ExprRoot {
+                                        kind: EvalExpr,
+                                        expr_idx: 20,
+                                    },
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr_idx: 21,
                                     },
                                 ],
                             },

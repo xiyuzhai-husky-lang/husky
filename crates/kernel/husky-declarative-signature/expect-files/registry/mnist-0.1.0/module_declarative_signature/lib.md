@@ -40,7 +40,7 @@
                                     ty: ExplicitApplication(
                                         DeclarativeTermExplicitApplication(
                                             Id {
-                                                value: 64,
+                                                value: 74,
                                             },
                                         ),
                                     ),
