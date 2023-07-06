@@ -187,7 +187,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 16,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -484,7 +484,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 16,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -1235,19 +1235,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1289,7 +1286,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 16,
+                                            value: 17,
                                         },
                                     ),
                                 ),
@@ -1310,32 +1307,34 @@
                                                 variant: Ritchie {
                                                     ritchie_kind: FnType,
                                                     parameter_contracted_tys: [
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Pure,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 90,
-                                                                        },
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: None,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 90,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Pure,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 51,
-                                                                        },
+                                                            },
+                                                        ),
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: None,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 51,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
+                                                            },
+                                                        ),
                                                     ],
                                                 },
                                             },
@@ -1347,19 +1346,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1389,19 +1385,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1431,19 +1424,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1473,19 +1463,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1515,19 +1502,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1569,7 +1553,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 16,
+                                            value: 17,
                                         },
                                     ),
                                 ),
@@ -1590,32 +1574,34 @@
                                                 variant: Ritchie {
                                                     ritchie_kind: FnType,
                                                     parameter_contracted_tys: [
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Pure,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 90,
-                                                                        },
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: None,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 90,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Pure,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 51,
-                                                                        },
+                                                            },
+                                                        ),
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: None,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 51,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
+                                                            },
+                                                        ),
                                                     ],
                                                 },
                                             },
@@ -1627,19 +1613,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1669,19 +1652,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1711,19 +1691,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1771,19 +1748,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1813,19 +1787,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 39,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -1873,19 +1844,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 39,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -2773,19 +2741,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -2815,19 +2780,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 39,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -3366,19 +3328,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 39,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -3408,19 +3367,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 39,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -4050,7 +4006,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 17,
+                                        value: 18,
                                     },
                                 ),
                             ),
@@ -4071,7 +4027,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 13,
+                                        value: 14,
                                     },
                                 ),
                             ),
@@ -4141,7 +4097,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 13,
+                                        value: 14,
                                     },
                                 ),
                             ),
@@ -4298,19 +4254,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 39,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -4340,19 +4293,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 39,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -4382,19 +4332,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 39,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -4424,19 +4371,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Pure,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 39,
-                                                    },
-                                                ),
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 39,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -4478,7 +4422,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 17,
+                                            value: 18,
                                         },
                                     ),
                                 ),
@@ -4499,32 +4443,34 @@
                                                 variant: Ritchie {
                                                     ritchie_kind: FnType,
                                                     parameter_contracted_tys: [
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Move,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 86,
-                                                                        },
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: Move,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 86,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Move,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 86,
-                                                                        },
+                                                            },
+                                                        ),
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: Move,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 86,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
+                                                            },
+                                                        ),
                                                     ],
                                                 },
                                             },
@@ -4548,7 +4494,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -4569,32 +4515,34 @@
                                                 variant: Ritchie {
                                                     ritchie_kind: FnType,
                                                     parameter_contracted_tys: [
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Move,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 61,
-                                                                        },
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: Move,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 61,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Move,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 61,
-                                                                        },
+                                                            },
+                                                        ),
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: Move,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 61,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
+                                                            },
+                                                        ),
                                                     ],
                                                 },
                                             },
@@ -4606,19 +4554,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Move,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 86,
-                                                    },
-                                                ),
+                                    contract: Move,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 86,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -4660,7 +4605,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 13,
+                                            value: 14,
                                         },
                                     ),
                                 ),
@@ -4681,32 +4626,34 @@
                                                 variant: Ritchie {
                                                     ritchie_kind: FnType,
                                                     parameter_contracted_tys: [
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Move,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 61,
-                                                                        },
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: Move,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 61,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Move,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 61,
-                                                                        },
+                                                            },
+                                                        ),
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: Move,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 61,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
+                                                            },
+                                                        ),
                                                     ],
                                                 },
                                             },
@@ -4718,19 +4665,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Move,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 86,
-                                                    },
-                                                ),
+                                    contract: Move,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 86,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -4975,7 +4919,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 18,
+                                        value: 19,
                                     },
                                 ),
                             ),
@@ -5185,7 +5129,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 18,
+                                            value: 19,
                                         },
                                     ),
                                 ),
@@ -5206,32 +5150,34 @@
                                                 variant: Ritchie {
                                                     ritchie_kind: FnType,
                                                     parameter_contracted_tys: [
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Move,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 83,
-                                                                        },
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: Move,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 83,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
-                                                        FluffyTermRitchieParameterContractedType {
-                                                            kind: Regular,
-                                                            contract: Move,
-                                                            ty: EntityPath(
-                                                                TypeOntology(
-                                                                    TypePath(
-                                                                        Id {
-                                                                            value: 83,
-                                                                        },
+                                                            },
+                                                        ),
+                                                        Regular(
+                                                            FluffyTermRitchieRegularParameter {
+                                                                contract: Move,
+                                                                ty: EntityPath(
+                                                                    TypeOntology(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 83,
+                                                                            },
+                                                                        ),
                                                                     ),
                                                                 ),
-                                                            ),
-                                                        },
+                                                            },
+                                                        ),
                                                     ],
                                                 },
                                             },
@@ -5243,19 +5189,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Move,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 93,
-                                                    },
-                                                ),
+                                    contract: Move,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 93,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {
@@ -5285,19 +5228,16 @@
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectImplicitlyConvertible {
-                                    parameter_contracted_ty: FluffyTermRitchieParameterContractedType {
-                                        kind: Regular,
-                                        contract: Move,
-                                        ty: EntityPath(
-                                            TypeOntology(
-                                                TypePath(
-                                                    Id {
-                                                        value: 93,
-                                                    },
-                                                ),
+                                    contract: Move,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 93,
+                                                },
                                             ),
                                         ),
-                                    },
+                                    ),
                                 },
                             ),
                             meta: ExpectationMeta {

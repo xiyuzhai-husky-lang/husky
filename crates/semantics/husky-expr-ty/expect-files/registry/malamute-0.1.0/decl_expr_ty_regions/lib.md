@@ -55,9 +55,38 @@
                     1,
                 ),
             },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 51,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+            },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Ok(
+                FluffyTerm::EntityPath(
+                    TermEntityPath::TypeOntology(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [],
@@ -245,6 +274,45 @@
                                             TermUniverse(
                                                 1,
                                             ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    contract: Move,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 51,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationMeta {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 51,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
                                         ),
                                     ),
                                 ),

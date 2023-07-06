@@ -421,7 +421,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -958,7 +960,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1062,7 +1066,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1165,7 +1171,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1452,7 +1460,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1497,7 +1507,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2063,7 +2075,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2293,7 +2307,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2509,7 +2525,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2542,7 +2560,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2552,7 +2572,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        3,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2580,7 +2602,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2624,7 +2648,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2652,7 +2678,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2685,7 +2713,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2713,7 +2743,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2723,7 +2755,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        3,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2751,7 +2785,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2795,7 +2831,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        3,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2828,7 +2866,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2838,7 +2878,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -2866,7 +2908,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3102,7 +3146,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3132,7 +3178,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3142,7 +3190,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3152,7 +3202,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3176,7 +3228,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        3,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3191,7 +3245,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3413,7 +3469,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3446,7 +3504,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3474,7 +3534,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3484,7 +3546,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        3,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3528,7 +3592,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3561,7 +3627,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3589,7 +3657,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3617,7 +3687,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3738,7 +3810,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        3,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3782,7 +3856,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3815,7 +3891,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3825,7 +3903,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3835,7 +3915,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        3,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3863,7 +3945,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4000,7 +4084,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        3,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4033,7 +4119,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4043,7 +4131,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4071,7 +4161,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4315,7 +4407,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        2,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4362,7 +4456,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4683,7 +4779,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4709,7 +4807,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        29,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4762,7 +4862,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -4840,7 +4942,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -4870,7 +4974,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Ident(
@@ -5011,7 +5117,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -5037,7 +5145,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        29,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -5260,7 +5370,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -5438,7 +5550,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -5461,7 +5575,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -5484,7 +5600,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -5512,7 +5630,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -5540,7 +5660,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -5568,7 +5690,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -5893,7 +6017,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -5918,7 +6044,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -5938,7 +6066,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -5963,7 +6093,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -5983,7 +6115,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -6124,7 +6258,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Ident(
@@ -6142,7 +6278,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -6169,7 +6307,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -6185,7 +6325,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -6205,7 +6347,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -6332,7 +6476,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -6348,7 +6494,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -6368,7 +6516,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -6384,7 +6534,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -6480,7 +6632,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Ident(
@@ -6498,7 +6652,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -6606,7 +6762,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Ident(
@@ -6699,7 +6857,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Ident(
@@ -6753,7 +6913,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -6813,7 +6975,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Ident(
@@ -6908,7 +7072,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -6956,7 +7122,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Ident(
@@ -6994,7 +7162,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -7036,7 +7206,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -7056,7 +7228,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::WordOpr(
@@ -7072,7 +7246,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(

@@ -72,7 +72,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        5,
+                    ),
                 ),
             ),
             Token::Punctuation(

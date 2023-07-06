@@ -14,13 +14,24 @@ impl<'a> ExprTypeEngine<'a> {
             Ok(ritchie_matches) => {
                 for ritchie_match in ritchie_matches {
                     match ritchie_match {
-                        RitchieParameterArgumentMatch::Regular(param, arg) => self
+                        RitchieParameterArgumentMatch::Regular(param, item) => self
                             .infer_new_expr_ty_discarded(
-                                arg.argument_expr_idx(),
+                                item.argument_expr_idx(),
                                 ExpectImplicitlyConvertible::new(param.contract(), param.ty()),
                             ),
-                        RitchieParameterArgumentMatch::Variadic(_, _) => todo!(),
-                        RitchieParameterArgumentMatch::Keyed(_, _) => todo!(),
+                        RitchieParameterArgumentMatch::Variadic(param, items) => {
+                            for item in items {
+                                self.infer_new_expr_ty_discarded(
+                                    item.argument_expr_idx(),
+                                    ExpectImplicitlyConvertible::new(param.contract(), param.ty()),
+                                )
+                            }
+                        }
+                        RitchieParameterArgumentMatch::Keyed(param, item) => self
+                            .infer_new_expr_ty_discarded(
+                                item.argument_expr_idx(),
+                                ExpectImplicitlyConvertible::new(param.contract(), param.ty()),
+                            ),
                     }
                 }
             }
@@ -47,7 +58,8 @@ mod matcher {
         ),
         Variadic(
             FluffyTermRitchieVariadicParameter,
-            RegularOrVariadicCallListItem,
+            // use vec to save enum size
+            Vec<RegularOrVariadicCallListItem>,
         ),
         Keyed(FluffyTermRitchieKeyedParameter, KeyedCallListItem),
     }
@@ -56,7 +68,7 @@ mod matcher {
 
     pub(super) struct RitchieParameterArgumentMatcher<'a, Arguments: Iterator<Item = CallListItem>> {
         ritchie_parameters: &'a [FluffyTermRitchieParameter],
-        ritchie_arguments: Arguments,
+        ritchie_call_items: std::iter::Peekable<Arguments>,
         ritchie_matches: RitchieParameterArgumentMatchs,
     }
 
@@ -67,7 +79,7 @@ mod matcher {
         ) -> RitchieParameterArgumentMatcher<'_, impl Iterator<Item = CallListItem>> {
             RitchieParameterArgumentMatcher {
                 ritchie_parameters,
-                ritchie_arguments,
+                ritchie_call_items: ritchie_arguments.peekable(),
                 ritchie_matches: Default::default(),
             }
         }
@@ -76,33 +88,54 @@ mod matcher {
             for ritchie_parameter in self.ritchie_parameters {
                 self.match_step(*ritchie_parameter)?
             }
-            match self.ritchie_arguments.next() {
+            match self.ritchie_call_items.next() {
                 Some(_) => todo!("unexpected"),
                 None => Ok(self.ritchie_matches),
             }
         }
 
-        fn match_step(
-            &mut self,
-            ritchie_parameter: FluffyTermRitchieParameter,
-        ) -> ExprTypeResult<()> {
-            match ritchie_parameter {
-                FluffyTermRitchieParameter::Regular(ritchie_parameter) => {
-                    match self.ritchie_arguments.next() {
-                        Some(ritchie_argument) => match ritchie_argument {
-                            CallListItem::RegularOrVariadic(ritchie_argument) => Ok(self
-                                .ritchie_matches
-                                .push(RitchieParameterArgumentMatch::Regular(
-                                    ritchie_parameter,
-                                    ritchie_argument,
-                                ))),
-                            CallListItem::Keyed(_) => todo!(),
-                        },
-                        None => todo!(),
+        fn match_step(&mut self, param: FluffyTermRitchieParameter) -> ExprTypeResult<()> {
+            match param {
+                FluffyTermRitchieParameter::Regular(param) => match self.ritchie_call_items.next() {
+                    Some(item) => match item {
+                        CallListItem::RegularOrVariadic(item) => Ok(self
+                            .ritchie_matches
+                            .push(RitchieParameterArgumentMatch::Regular(param, item))),
+                        CallListItem::Keyed(_) => todo!(),
+                    },
+                    None => todo!(),
+                },
+                FluffyTermRitchieParameter::Variadic(param) => {
+                    let mut items = vec![];
+                    while let Some(CallListItem::RegularOrVariadic(item)) = self
+                        .ritchie_call_items
+                        .next_if(|item| matches!(item, CallListItem::RegularOrVariadic(_)))
+                    {
+                        items.push(item);
+                        match item.separator() {
+                            CallListSeparator::None | CallListSeparator::Comma(_) => (),
+                            CallListSeparator::Semicolon(_) => break,
+                        }
                     }
+                    Ok(self
+                        .ritchie_matches
+                        .push(RitchieParameterArgumentMatch::Variadic(param, items)))
                 }
-                FluffyTermRitchieParameter::Variadic(_) => todo!(),
-                FluffyTermRitchieParameter::Keyed(_) => todo!(),
+                FluffyTermRitchieParameter::Keyed(param) => match param.default() {
+                    Some(default) => {
+                        if let Some(CallListItem::Keyed(item)) = self.ritchie_call_items
+                            .next_if(|arg|
+                                matches!(arg, CallListItem::Keyed(item) if item.key() == param.key())
+                            ) {
+                            Ok(self
+                                .ritchie_matches
+                                .push(RitchieParameterArgumentMatch::Keyed(param, item)))
+                        } else {
+                            Ok(())
+                        }
+                    }
+                    None => todo!(),
+                },
             }
         }
     }

@@ -119,7 +119,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        30,
+                    ),
                 ),
             ),
             Token::Punctuation(
