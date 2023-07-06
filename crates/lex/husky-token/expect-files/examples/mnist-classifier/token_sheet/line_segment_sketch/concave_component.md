@@ -2762,7 +2762,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -2785,7 +2787,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Keyword(
@@ -3019,7 +3023,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -3154,7 +3160,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        1,
+                    ),
                 ),
             ),
             Token::Keyword(

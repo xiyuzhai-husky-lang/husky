@@ -155,7 +155,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        29,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -197,7 +199,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        29,
+                    ),
                 ),
             ),
             Token::Punctuation(

@@ -944,7 +944,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1060,7 +1062,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(
@@ -1285,7 +1289,9 @@ Ok(
             ),
             Token::Literal(
                 Literal::Integer(
-                    Unspecified,
+                    UnspecifiedRegular(
+                        0,
+                    ),
                 ),
             ),
             Token::Punctuation(

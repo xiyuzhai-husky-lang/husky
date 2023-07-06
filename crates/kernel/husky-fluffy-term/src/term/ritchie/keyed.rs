@@ -1,6 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct FluffyTermRitchieKeyedParameter {
     key: Ident,
     contract: Contract,
@@ -22,6 +23,11 @@ impl From<EtherealTermRitchieKeyedParameter> for FluffyTermRitchieKeyedParameter
 
 impl FluffyTermRitchieKeyedParameter {
     #[inline(always)]
+    pub fn key(&self) -> Ident {
+        self.key
+    }
+
+    #[inline(always)]
     pub fn contract(&self) -> Contract {
         self.contract
     }
@@ -34,5 +40,10 @@ impl FluffyTermRitchieKeyedParameter {
     #[inline(always)]
     pub fn ty_mut(&mut self) -> &mut FluffyTerm {
         &mut self.ty
+    }
+
+    #[inline(always)]
+    pub fn default(&self) -> Option<FluffyTerm> {
+        self.default
     }
 }

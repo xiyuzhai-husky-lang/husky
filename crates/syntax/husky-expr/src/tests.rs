@@ -69,7 +69,9 @@ fn parse_expr_works() {
                                 0,
                             ),
                             Integer(
-                                Unspecified,
+                                UnspecifiedRegular(
+                                    1,
+                                ),
                             ),
                         ),
                     ],
@@ -141,7 +143,9 @@ fn parse_expr_works() {
                                 1,
                             ),
                             Integer(
-                                Unspecified,
+                                UnspecifiedRegular(
+                                    1,
+                                ),
                             ),
                         ),
                         Prefix {
@@ -439,7 +443,9 @@ fn parse_expr_works() {
                                 0,
                             ),
                             Integer(
-                                Unspecified,
+                                UnspecifiedRegular(
+                                    1,
+                                ),
                             ),
                         ),
                         Literal(
@@ -447,7 +453,9 @@ fn parse_expr_works() {
                                 2,
                             ),
                             Integer(
-                                Unspecified,
+                                UnspecifiedRegular(
+                                    1,
+                                ),
                             ),
                         ),
                         Binary {
@@ -646,7 +654,9 @@ fn parse_expr_works() {
                                 1,
                             ),
                             Integer(
-                                Unspecified,
+                                UnspecifiedRegular(
+                                    3,
+                                ),
                             ),
                         ),
                         List {
@@ -1208,7 +1218,9 @@ fn parse_application_expr_works() {
                                 0,
                             ),
                             Integer(
-                                Unspecified,
+                                UnspecifiedRegular(
+                                    0,
+                                ),
                             ),
                         ),
                         Literal(
@@ -1216,7 +1228,9 @@ fn parse_application_expr_works() {
                                 1,
                             ),
                             Integer(
-                                Unspecified,
+                                UnspecifiedRegular(
+                                    1,
+                                ),
                             ),
                         ),
                         ExplicitApplication {
@@ -1228,7 +1242,9 @@ fn parse_application_expr_works() {
                                 2,
                             ),
                             Integer(
-                                Unspecified,
+                                UnspecifiedRegular(
+                                    2,
+                                ),
                             ),
                         ),
                         ExplicitApplication {

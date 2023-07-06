@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 9\n\ntoken = Token::Ident(\n    `eff_holes`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 3,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 3,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        61,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                293,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `eff_holes`,\n        pattern_symbol_idx: 3,\n    },\n}\n",
+                                value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 9\n\ntoken = Token::Ident(\n    `eff_holes`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 3,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 3,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        61,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                293,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `eff_holes`,\n        pattern_symbol_idx: 3,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -130,7 +130,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 80;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Literal(\n    Literal::Integer(\n        Unspecified,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 80;\n\ntoken_line_group_idx = 11\n\ntoken = Token::Literal(\n    Literal::Integer(\n        UnspecifiedRegular(\n            0,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -190,7 +190,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Ident(\n    `bottom1_match_dp`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 7,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 7,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        111,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                222,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `bottom1_match_dp`,\n        pattern_symbol_idx: 7,\n    },\n}\n",
+                                value: "\ntoken_idx = 120;\n\ntoken_line_group_idx = 15\n\ntoken = Token::Ident(\n    `bottom1_match_dp`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 7,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 7,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        111,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                222,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `bottom1_match_dp`,\n        pattern_symbol_idx: 7,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -610,7 +610,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 400;\n\ntoken_line_group_idx = 48\n\ntoken = Token::Ident(\n    `cc`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `cc`,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        0,\n    ),\n    modifier: Pure,\n    kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `cc`,\n    },\n}\n",
+                                value: "\ntoken_idx = 400;\n\ntoken_line_group_idx = 48\n\ntoken = Token::Ident(\n    `cc`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `cc`,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        0,\n    ),\n    modifier: None,\n    kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `cc`,\n    },\n}\n",
                             },
                         ),
                         range: Some(

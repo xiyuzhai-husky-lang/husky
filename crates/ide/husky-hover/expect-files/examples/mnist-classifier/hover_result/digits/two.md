@@ -70,7 +70,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `cc`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `cc`,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        0,\n    ),\n    modifier: Pure,\n    kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `cc`,\n    },\n}\n",
+                                value: "\ntoken_idx = 36;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `cc`,\n);\n\ntoken_info = TokenInfo::InheritedSymbol {\n    inherited_symbol_idx: 0,\n    inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `cc`,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nInheritedSymbol {\n    parent_symbol_idx: Current(\n        0,\n    ),\n    modifier: None,\n    kind: InheritedSymbolKind::ExplicitParameter {\n        ident: `cc`,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 216;\n\ntoken_line_group_idx = 32\n\ntoken = Token::Ident(\n    `left_cc`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 9,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 9,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        167,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                367,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `left_cc`,\n        pattern_symbol_idx: 9,\n    },\n}\n",
+                                value: "\ntoken_idx = 216;\n\ntoken_line_group_idx = 32\n\ntoken = Token::Ident(\n    `left_cc`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 9,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 9,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        167,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                367,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `left_cc`,\n        pattern_symbol_idx: 9,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -460,7 +460,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 270;\n\ntoken_line_group_idx = 39\n\ntoken = Token::Ident(\n    `left_cc`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 9,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 9,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        167,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                367,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `left_cc`,\n        pattern_symbol_idx: 9,\n    },\n}\n",
+                                value: "\ntoken_idx = 270;\n\ntoken_line_group_idx = 39\n\ntoken = Token::Ident(\n    `left_cc`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 9,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 9,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        167,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                367,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `left_cc`,\n        pattern_symbol_idx: 9,\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -490,7 +490,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 288;\n\ntoken_line_group_idx = 41\n\ntoken = Token::Ident(\n    `left_mid_y`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 21,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 21,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        289,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                331,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `left_mid_y`,\n        pattern_symbol_idx: 21,\n    },\n}\n",
+                                value: "\ntoken_idx = 288;\n\ntoken_line_group_idx = 41\n\ntoken = Token::Ident(\n    `left_mid_y`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 21,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 21,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        289,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                331,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `left_mid_y`,\n        pattern_symbol_idx: 21,\n    },\n}\n",
                             },
                         ),
                         range: Some(

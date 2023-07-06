@@ -280,7 +280,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 117;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Literal(\n    Literal::Integer(\n        Unspecified,\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 117;\n\ntoken_line_group_idx = 16\n\ntoken = Token::Literal(\n    Literal::Integer(\n        UnspecifiedRegular(\n            2,\n        ),\n    ),\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
                             },
                         ),
                         range: Some(
@@ -310,7 +310,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 130;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `some`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 10,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 10,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Pure,\n    access_start: TokenIdx(\n        131,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                204,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `some`,\n        pattern_symbol_idx: 10,\n    },\n}\n",
+                                value: "\ntoken_idx = 130;\n\ntoken_line_group_idx = 18\n\ntoken = Token::Ident(\n    `some`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 10,\n    current_symbol_kind: CurrentSymbolKind::LetVariable {\n        pattern_symbol_idx: 10,\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: None,\n    access_start: TokenIdx(\n        131,\n    ),\n    access_end: Some(\n        TokenIdxRangeEnd(\n            TokenIdx(\n                204,\n            ),\n        ),\n    ),\n    variant: CurrentSymbolVariant::LetVariable {\n        ident: `some`,\n        pattern_symbol_idx: 10,\n    },\n}\n",
                             },
                         ),
                         range: Some(
