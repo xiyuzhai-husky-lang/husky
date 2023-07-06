@@ -4,6 +4,7 @@ mod variadic;
 
 pub use self::keyed::*;
 pub use self::regular::*;
+pub use self::variadic::*;
 
 use super::*;
 use husky_ethereal_signature::ExplicitParameterEtherealSignatureTemplate;
