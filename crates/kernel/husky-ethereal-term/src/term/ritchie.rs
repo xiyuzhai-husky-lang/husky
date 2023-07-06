@@ -136,8 +136,12 @@ pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
                     DeclarativeTermRitchieParameter::Regular(param) => {
                         EtherealTermRitchieRegularParameter::from_declarative(db, param)?.into()
                     }
-                    DeclarativeTermRitchieParameter::Variadic(_) => todo!(),
-                    DeclarativeTermRitchieParameter::Keyed(_) => todo!(),
+                    DeclarativeTermRitchieParameter::Variadic(param) => {
+                        EtherealTermRitchieVariadicParameter::from_declarative(db, param)?.into()
+                    }
+                    DeclarativeTermRitchieParameter::Keyed(param) => {
+                        EtherealTermRitchieKeyedParameter::from_declarative(db, param)?.into()
+                    }
                 })
             }),
         EtherealTerm::ty_from_declarative(db, declarative_term_ritchie.return_ty(db))?,
@@ -177,12 +181,16 @@ where
 #[enum_class::from_variants]
 pub enum EtherealTermRitchieParameter {
     Regular(EtherealTermRitchieRegularParameter),
+    Variadic(EtherealTermRitchieVariadicParameter),
+    Keyed(EtherealTermRitchieKeyedParameter),
 }
 
 impl EtherealTermRitchieParameter {
     fn reduce(self, db: &dyn EtherealTermDb) -> Self {
         match self {
             EtherealTermRitchieParameter::Regular(param) => param.reduce(db).into(),
+            EtherealTermRitchieParameter::Variadic(param) => param.reduce(db).into(),
+            EtherealTermRitchieParameter::Keyed(param) => param.reduce(db).into(),
         }
     }
 
@@ -194,6 +202,8 @@ impl EtherealTermRitchieParameter {
     ) -> std::fmt::Result {
         match self {
             EtherealTermRitchieParameter::Regular(param) => param.show_with_db_fmt(f, db, ctx),
+            EtherealTermRitchieParameter::Variadic(param) => param.show_with_db_fmt(f, db, ctx),
+            EtherealTermRitchieParameter::Keyed(param) => param.show_with_db_fmt(f, db, ctx),
         }
     }
 }
@@ -210,6 +220,10 @@ where
     ) -> std::fmt::Result {
         match self {
             EtherealTermRitchieParameter::Regular(param) => param.display_with_db_fmt(f, db, level),
+            EtherealTermRitchieParameter::Variadic(param) => {
+                param.display_with_db_fmt(f, db, level)
+            }
+            EtherealTermRitchieParameter::Keyed(param) => param.display_with_db_fmt(f, db, level),
         }
     }
 }
@@ -226,6 +240,8 @@ impl EtherealTermRitchieParameter {
     pub fn ty(&self) -> EtherealTerm {
         match self {
             EtherealTermRitchieParameter::Regular(param) => param.ty(),
+            EtherealTermRitchieParameter::Variadic(param) => param.ty(),
+            EtherealTermRitchieParameter::Keyed(param) => param.ty(),
         }
     }
 }

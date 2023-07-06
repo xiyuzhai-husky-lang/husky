@@ -33,12 +33,20 @@ impl DeclarativeTermRitchieKeyedParameter {
         }
     }
 
+    pub fn key(&self) -> Ident {
+        self.key
+    }
+
     pub fn contract(&self) -> Contract {
         self.contract
     }
 
     pub fn ty(&self) -> DeclarativeTerm {
         self.ty
+    }
+
+    pub fn default(&self) -> Option<DeclarativeTerm> {
+        self.default
     }
 
     pub(super) fn show_with_db_fmt(

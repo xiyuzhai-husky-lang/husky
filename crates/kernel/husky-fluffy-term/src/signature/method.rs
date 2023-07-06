@@ -11,13 +11,13 @@ pub enum MethodFluffySignature {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MethodFnFluffySignature {
     // todo: self_parameter_contracted_ty
-    parameter_contracted_tys: SmallVec<[FluffyTermRitchieParameter; 4]>,
+    params: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
 }
 
 impl MethodFnFluffySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
-        &self.parameter_contracted_tys
+        &self.params
     }
 
     pub fn return_ty(&self) -> FluffyTerm {
@@ -90,12 +90,14 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         todo!()
     }
     JustOk(MethodFnFluffySignature {
-        parameter_contracted_tys: template
+        params: template
             .explicit_parameters(db)
             .iter()
-            .map(|v| instantiator.instantiate_ritchie_parameter(engine, v))
+            .map(|param| param.instantiate(engine, &mut instantiator))
             .collect(),
-        return_ty: instantiator.instantiate_term(engine, template.return_ty(db)),
+        return_ty: template
+            .return_ty(db)
+            .instantiate(engine, &mut instantiator),
     })
 }
 

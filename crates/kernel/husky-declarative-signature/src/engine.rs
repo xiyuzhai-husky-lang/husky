@@ -6,7 +6,7 @@ use crate::*;
 use husky_expr::*;
 use husky_opn_syntax::{BinaryOpr, PrefixOpr};
 use husky_print_utils::p;
-use husky_token::{IntegerLikeLiteral, Literal};
+use husky_token::{IntegerLikeLiteral, Literal, RangedTokenSheet, TokenSheetData};
 use salsa::DebugWithDb;
 
 pub(super) struct DeclarativeTermEngine<'a> {
@@ -250,13 +250,13 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
         match self.expr_region_data.expr_arena()[expr_idx] {
-            Expr::Literal(_, literal) => match literal {
+            Expr::Literal(token_idx, literal) => match literal {
                 Literal::Unit => todo!(),
                 Literal::Char(_) => todo!(),
                 Literal::String(_) => todo!(),
                 Literal::Integer(literal) => match literal {
                     IntegerLikeLiteral::Unspecified => Ok(DeclarativeTerm::Literal(
-                        UnresolvedTermLiteral::Integer.into(),
+                        UnresolvedTermLiteral::new_unresolved_integer(todo!()).into(),
                     )),
                     IntegerLikeLiteral::I8(_) => todo!(),
                     IntegerLikeLiteral::I16(_) => todo!(),

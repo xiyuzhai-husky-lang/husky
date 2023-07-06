@@ -1,3 +1,4 @@
+use husky_ethereal_signature::ExplicitParameterEtherealSignatureTemplate;
 use vec_like::VecPairMap;
 
 use super::*;
@@ -42,23 +43,47 @@ impl Instantiator {
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }
+}
 
-    pub(crate) fn instantiate_term(
+pub(crate) trait Instantiate: Copy {
+    type Target;
+
+    fn instantiate(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        instantiator: &mut Instantiator,
+    ) -> Self::Target;
+}
+
+pub(crate) trait InstantiateRef {
+    type Target;
+
+    fn instantiate(
         &self,
         engine: &mut impl FluffyTermEngine,
-        term: EtherealTerm,
-    ) -> FluffyTerm {
-        if self.symbol_map.len() == 0 {
-            return term.into();
+        instantiator: &mut Instantiator,
+    ) -> Self::Target;
+}
+
+impl Instantiate for EtherealTerm {
+    type Target = FluffyTerm;
+
+    fn instantiate(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        instantiator: &mut Instantiator,
+    ) -> Self::Target {
+        if instantiator.symbol_map.len() == 0 {
+            return self.into();
         }
-        match term {
+        match self {
             EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(symbol) => match self.symbol_map.get_entry(symbol) {
+            EtherealTerm::Symbol(symbol) => match instantiator.symbol_map.get_entry(symbol) {
                 Some((_, instantiated_term)) => *instantiated_term,
                 None => todo!(),
             },
             EtherealTerm::Variable(_) => todo!(),
-            EtherealTerm::EntityPath(_) => term.into(),
+            EtherealTerm::EntityPath(_) => self.into(),
             EtherealTerm::Category(_) => todo!(),
             EtherealTerm::Universe(_) => todo!(),
             EtherealTerm::Curry(_) => todo!(),

@@ -11,7 +11,13 @@ pub enum DeclarativeTermLiteral {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub enum UnresolvedTermLiteral {
-    Integer,
+    Integer64(i64),
+}
+
+impl UnresolvedTermLiteral {
+    pub fn new_unresolved_integer(s: &str) -> Self {
+        todo!()
+    }
 }
 
 impl DeclarativeTermLiteral {
