@@ -66,7 +66,9 @@ Ok(
                                                         15,
                                                     ),
                                                     Literal::Integer(
-                                                        Unspecified,
+                                                        UnspecifiedRegular(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             ],

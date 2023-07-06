@@ -2883,7 +2883,9 @@ Ok(
                                                 161,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -2942,7 +2944,9 @@ Ok(
                                                 172,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -2987,7 +2991,9 @@ Ok(
                                                 181,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -3032,7 +3038,9 @@ Ok(
                                                 190,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -3065,7 +3073,9 @@ Ok(
                                                 195,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    3,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -3175,7 +3185,9 @@ Ok(
                                                 213,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -3767,7 +3779,9 @@ Ok(
                                                 334,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    3,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {

@@ -92,12 +92,41 @@ impl EtherealTerm {
                 match literal {
                     DeclarativeTermLiteral::Resolved(literal) => literal.into(),
                     DeclarativeTermLiteral::Unresolved(literal) => match literal {
-                        UnresolvedTermLiteral::Integer => match ty_expectation {
+                        UnresolvedTermLiteral::RegularInteger(i) => match ty_expectation {
                             TermTypeExpectation::FinalDestinationEqsSort => todo!(),
                             TermTypeExpectation::FinalDestinationEqsNonSortTypePath(ty_path) => {
                                 match ty_path.prelude_ty_path(db) {
                                     Some(prelude_ty_path) => match prelude_ty_path {
-                                        PreludeTypePath::Num(num_ty_path) => todo!(),
+                                        PreludeTypePath::Num(num_ty_path) => match num_ty_path {
+                                            PreludeNumTypePath::Int(int_ty_path) => {
+                                                match int_ty_path {
+                                                    PreludeIntTypePath::I8 => todo!(),
+                                                    PreludeIntTypePath::I16 => todo!(),
+                                                    PreludeIntTypePath::I32 => match i.try_into() {
+                                                        Ok::<i32, _>(i) => {
+                                                            TermLiteral::I32(i).into()
+                                                        }
+                                                        Err(_) => todo!(),
+                                                    },
+                                                    PreludeIntTypePath::I64 => todo!(),
+                                                    PreludeIntTypePath::I128 => todo!(),
+                                                    PreludeIntTypePath::ISize => todo!(),
+                                                    PreludeIntTypePath::U8 => todo!(),
+                                                    PreludeIntTypePath::U16 => todo!(),
+                                                    PreludeIntTypePath::U32 => todo!(),
+                                                    PreludeIntTypePath::U64 => todo!(),
+                                                    PreludeIntTypePath::U128 => todo!(),
+                                                    PreludeIntTypePath::USize => todo!(),
+                                                    PreludeIntTypePath::R8 => todo!(),
+                                                    PreludeIntTypePath::R16 => todo!(),
+                                                    PreludeIntTypePath::R32 => todo!(),
+                                                    PreludeIntTypePath::R64 => todo!(),
+                                                    PreludeIntTypePath::R128 => todo!(),
+                                                    PreludeIntTypePath::RSize => todo!(),
+                                                }
+                                            }
+                                            PreludeNumTypePath::Float(_) => todo!(),
+                                        },
                                         _ => todo!(),
                                     },
                                     None => todo!(),

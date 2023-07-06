@@ -4,7 +4,9 @@ use std::ops::Neg;
 /// integer-like means it looks like an integer
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum IntegerLikeLiteral {
-    Unspecified,
+    /// unspecified but within i128
+    UnspecifiedRegular(i128),
+    UnspecifiedLarge(),
     I8(i8),
     I16(i16),
     I32(i32),

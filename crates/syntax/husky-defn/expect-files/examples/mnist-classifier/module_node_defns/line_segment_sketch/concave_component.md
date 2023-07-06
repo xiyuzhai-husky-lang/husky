@@ -849,7 +849,9 @@ Ok(
                                                 577,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -857,7 +859,9 @@ Ok(
                                                 582,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -1198,7 +1202,9 @@ Ok(
                                                 632,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -1428,7 +1434,9 @@ Ok(
                                                 661,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {

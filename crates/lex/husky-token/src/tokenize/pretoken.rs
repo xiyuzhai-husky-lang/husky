@@ -292,7 +292,10 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         } else {
             let integer_suffix = self.get_str_slice_with(|c| c.is_alphanumeric());
             let token: Pretoken = match integer_suffix {
-                "" => IntegerLikeLiteral::Unspecified.into(),
+                "" => match self.buffer.parse::<i128>() {
+                    Ok(i) => IntegerLikeLiteral::UnspecifiedRegular(i).into(),
+                    Err(_) => todo!(),
+                },
                 "i8" => todo!(),
                 "i16" => todo!(),
                 "i32" => {

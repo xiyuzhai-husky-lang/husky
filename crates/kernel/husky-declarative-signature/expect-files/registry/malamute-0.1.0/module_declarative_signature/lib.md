@@ -51,7 +51,9 @@
                                             default: Some(
                                                 Literal(
                                                     Unresolved(
-                                                        Integer,
+                                                        RegularInteger(
+                                                            5,
+                                                        ),
                                                     ),
                                                 ),
                                             ),

@@ -2006,7 +2006,9 @@ Ok(
                                                 34,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    29,
+                                                ),
                                             ),
                                         ),
                                         Expr::InheritedSymbol {
@@ -2061,7 +2063,9 @@ Ok(
                                                 42,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    29,
+                                                ),
                                             ),
                                         ),
                                         Expr::InheritedSymbol {

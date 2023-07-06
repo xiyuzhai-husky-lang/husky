@@ -30,7 +30,7 @@ impl From<EtherealTermRitchieParameter> for FluffyTermRitchieParameter {
                 ty: param.ty().into(),
                 kind: FluffyExplicitParameterKind::Regular,
             },
-            EtherealTermRitchieParameter::Variadic(_) => todo!(),
+            EtherealTermRitchieParameter::Variadic(param) => todo!(),
             EtherealTermRitchieParameter::Keyed(_) => todo!(),
         }
     }

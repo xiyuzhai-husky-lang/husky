@@ -255,9 +255,10 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Literal::Char(_) => todo!(),
                 Literal::String(_) => todo!(),
                 Literal::Integer(literal) => match literal {
-                    IntegerLikeLiteral::Unspecified => Ok(DeclarativeTerm::Literal(
-                        UnresolvedTermLiteral::new_unresolved_integer(todo!()).into(),
+                    IntegerLikeLiteral::UnspecifiedRegular(i) => Ok(DeclarativeTerm::Literal(
+                        UnresolvedTermLiteral::RegularInteger(i).into(),
                     )),
+                    IntegerLikeLiteral::UnspecifiedLarge() => todo!(),
                     IntegerLikeLiteral::I8(_) => todo!(),
                     IntegerLikeLiteral::I16(_) => todo!(),
                     IntegerLikeLiteral::I32(_) => todo!(),

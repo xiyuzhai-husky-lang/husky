@@ -591,7 +591,9 @@ Ok(
                                                 30,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -609,7 +611,9 @@ Ok(
                                                 35,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -1867,7 +1871,9 @@ Ok(
                                                 89,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -1947,7 +1953,9 @@ Ok(
                                                 97,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -3220,7 +3228,9 @@ Ok(
                                                 140,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -3266,7 +3276,9 @@ Ok(
                                                 151,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -3392,7 +3404,9 @@ Ok(
                                                 167,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -3420,7 +3434,9 @@ Ok(
                                                 170,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -3448,7 +3464,9 @@ Ok(
                                                 174,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::InheritedSymbol {
@@ -3584,7 +3602,9 @@ Ok(
                                                 190,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -4624,7 +4644,9 @@ Ok(
                                                 234,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    4,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4632,7 +4654,9 @@ Ok(
                                                 236,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    65,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4640,7 +4664,9 @@ Ok(
                                                 238,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4648,7 +4674,9 @@ Ok(
                                                 241,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    31,
+                                                ),
                                             ),
                                         ),
                                         Expr::Prefix {
@@ -4663,7 +4691,9 @@ Ok(
                                                 243,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4671,7 +4701,9 @@ Ok(
                                                 245,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    99,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4679,7 +4711,9 @@ Ok(
                                                 247,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4687,7 +4721,9 @@ Ok(
                                                 249,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    83,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4695,7 +4731,9 @@ Ok(
                                                 251,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    782,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4703,7 +4741,9 @@ Ok(
                                                 253,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::List {
@@ -4833,7 +4873,9 @@ Ok(
                                                 264,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    31,
+                                                ),
                                             ),
                                         ),
                                         Expr::Prefix {
@@ -4848,7 +4890,9 @@ Ok(
                                                 266,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4856,7 +4900,9 @@ Ok(
                                                 268,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4864,7 +4910,9 @@ Ok(
                                                 270,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4872,7 +4920,9 @@ Ok(
                                                 272,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4880,7 +4930,9 @@ Ok(
                                                 274,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    4,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4888,7 +4940,9 @@ Ok(
                                                 276,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    65,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4896,7 +4950,9 @@ Ok(
                                                 278,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    83,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4904,7 +4960,9 @@ Ok(
                                                 280,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    99,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -4912,7 +4970,9 @@ Ok(
                                                 282,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    782,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
