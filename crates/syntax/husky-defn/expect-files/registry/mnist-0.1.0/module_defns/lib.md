@@ -104,7 +104,9 @@ Ok(
                                                     28,
                                                 ),
                                                 Literal::Integer(
-                                                    Unspecified,
+                                                    UnspecifiedRegular(
+                                                        30,
+                                                    ),
                                                 ),
                                             ),
                                             Expr::List {

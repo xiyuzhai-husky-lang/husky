@@ -950,7 +950,9 @@ Ok(
                                                 430,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -2423,7 +2425,9 @@ Ok(
                                                 476,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -4402,7 +4406,9 @@ Ok(
                                                 649,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::MethodApplicationOrCall {
@@ -6674,7 +6680,9 @@ Ok(
                                                 914,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -6727,7 +6735,9 @@ Ok(
                                                 923,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -7786,7 +7796,9 @@ Ok(
                                                 984,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::FrameVarDecl {
@@ -7814,7 +7826,9 @@ Ok(
                                                 988,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    29,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -7864,7 +7878,9 @@ Ok(
                                                 999,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -7954,7 +7970,9 @@ Ok(
                                                 1015,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -7982,7 +8000,9 @@ Ok(
                                                 1021,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -8227,7 +8247,9 @@ Ok(
                                                 1050,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::FrameVarDecl {
@@ -8255,7 +8277,9 @@ Ok(
                                                 1054,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    29,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -8437,7 +8461,9 @@ Ok(
                                                 1099,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -8619,7 +8645,9 @@ Ok(
                                                 1139,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -8627,7 +8655,9 @@ Ok(
                                                 1144,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -8635,7 +8665,9 @@ Ok(
                                                 1149,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Literal(
@@ -8643,7 +8675,9 @@ Ok(
                                                 1155,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Prefix {
@@ -8658,7 +8692,9 @@ Ok(
                                                 1161,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Prefix {
@@ -8673,7 +8709,9 @@ Ok(
                                                 1167,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Prefix {
@@ -9111,7 +9149,9 @@ Ok(
                                                 1232,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -9136,7 +9176,9 @@ Ok(
                                                 1237,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -9191,7 +9233,9 @@ Ok(
                                                 1241,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -9219,7 +9263,9 @@ Ok(
                                                 1246,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -9274,7 +9320,9 @@ Ok(
                                                 1250,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -9496,7 +9544,9 @@ Ok(
                                                 1279,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -9529,7 +9579,9 @@ Ok(
                                                 1283,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -9562,7 +9614,9 @@ Ok(
                                                 1288,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -9597,7 +9651,9 @@ Ok(
                                                 1292,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -9635,7 +9691,9 @@ Ok(
                                                 1296,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -9842,7 +9900,9 @@ Ok(
                                                 1323,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -9877,7 +9937,9 @@ Ok(
                                                 1327,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -9915,7 +9977,9 @@ Ok(
                                                 1331,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -9953,7 +10017,9 @@ Ok(
                                                 1335,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -10104,7 +10170,9 @@ Ok(
                                                 1355,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -10137,7 +10205,9 @@ Ok(
                                                 1359,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -10339,7 +10409,9 @@ Ok(
                                                 1383,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -10439,7 +10511,9 @@ Ok(
                                                 1467,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -10491,7 +10565,9 @@ Ok(
                                                 1475,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::CurrentSymbol {
@@ -10526,7 +10602,9 @@ Ok(
                                                 1479,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -10564,7 +10642,9 @@ Ok(
                                                 1483,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -15006,7 +15086,9 @@ Ok(
                                                 88,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -16803,7 +16885,9 @@ Ok(
                                                 207,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -17400,7 +17484,9 @@ Ok(
                                                 229,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::FrameVarDecl {
@@ -17502,7 +17588,9 @@ Ok(
                                                 250,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -17827,7 +17915,9 @@ Ok(
                                                 305,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -17877,7 +17967,9 @@ Ok(
                                                 314,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {

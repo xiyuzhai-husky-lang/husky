@@ -13,7 +13,7 @@ pub enum TermLiteral {
     /// 16-bit integer literal
     I16(i16),
     /// 32-bit integer literal
-    I32(TermI32Literal),
+    I32(i32),
     /// 64-bit integer literal
     I64(TermI64Literal),
     /// 128-bit integer literal
@@ -25,7 +25,7 @@ pub enum TermLiteral {
     /// 16-bit unsigned integer liteUal
     U16(u16),
     /// 32-bit unsigned integer liteUal
-    U32(TermU32Literal),
+    U32(u32),
     /// 64-bit unsigned integer liteUal
     U64(TermU64Literal),
     /// 128-bit unsigned integer liteUal
@@ -37,7 +37,7 @@ pub enum TermLiteral {
     /// 16-bit raw bit literal
     R16(u16),
     /// 32-bit raw bit literal
-    R32(TermR32Literal),
+    R32(u32),
     /// 64-bit raw bit literal
     R64(TermI64Literal),
     /// 128-bit raw bit literal
@@ -47,7 +47,7 @@ pub enum TermLiteral {
     /// natural number literal
     Nat(TermNatLiteral),
     /// 32-bit float literal
-    F32(TermF32Literal),
+    F32(OrderedFloat<f32>),
     /// 64-bit float literal
     F64(TermF64Literal),
     /// string literal
@@ -148,12 +148,6 @@ impl TermLiteral {
 
 /// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermI32Literal {
-    pub value: i32,
-}
-
-/// allowing representing very large number
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermI64Literal {
     pub value: i64,
 }
@@ -174,12 +168,6 @@ pub struct TermI256Literal {
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermISizeLiteral {
     pub value: i64,
-}
-
-/// allowing representing very large number
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermU32Literal {
-    pub value: u32,
 }
 
 /// allowing representing very large number
@@ -208,12 +196,6 @@ pub struct TermUSizeLiteral {
 
 /// allowing representing very large number
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermR32Literal {
-    pub value: u32,
-}
-
-/// allowing representing very large number
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermR64Literal {
     pub value: u64,
 }
@@ -234,12 +216,6 @@ pub struct TermR256Literal {
 #[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
 pub struct TermRSizeLiteral {
     pub value: u64,
-}
-
-/// allowing representing very large number
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
-pub struct TermF32Literal {
-    pub value: OrderedFloat<f32>,
 }
 
 /// allowing representing very large number

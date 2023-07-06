@@ -534,7 +534,9 @@ Ok(
                                                 38,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    5,
+                                                ),
                                             ),
                                         ),
                                         Expr::FunctionCall {
@@ -724,7 +726,9 @@ Ok(
                                                 67,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    5,
+                                                ),
                                             ),
                                         ),
                                         Expr::FunctionCall {
@@ -961,7 +965,9 @@ Ok(
                                                 106,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -1006,7 +1012,9 @@ Ok(
                                                 115,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -1051,7 +1059,9 @@ Ok(
                                                 124,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -1190,7 +1200,9 @@ Ok(
                                                 149,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    5,
+                                                ),
                                             ),
                                         ),
                                         Expr::FunctionCall {
@@ -1485,7 +1497,9 @@ Ok(
                                                 195,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    3,
+                                                ),
                                             ),
                                         ),
                                         Expr::MethodApplicationOrCall {
@@ -1584,7 +1598,9 @@ Ok(
                                                 212,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    12,
+                                                ),
                                             ),
                                         ),
                                         Expr::FunctionCall {
@@ -1699,7 +1715,9 @@ Ok(
                                                 222,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -1756,7 +1774,9 @@ Ok(
                                                 231,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    0,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -1811,7 +1831,9 @@ Ok(
                                                 242,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::FunctionCall {
@@ -1978,7 +2000,9 @@ Ok(
                                                 264,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -2052,7 +2076,9 @@ Ok(
                                                 278,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    1,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -2251,7 +2277,9 @@ Ok(
                                                 314,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::FunctionCall {
@@ -2419,7 +2447,9 @@ Ok(
                                                 336,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::FunctionCall {
@@ -2540,7 +2570,9 @@ Ok(
                                                 351,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -2597,7 +2629,9 @@ Ok(
                                                 360,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -2654,7 +2688,9 @@ Ok(
                                                 369,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
@@ -2709,7 +2745,9 @@ Ok(
                                                 380,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::FunctionCall {
@@ -2793,7 +2831,9 @@ Ok(
                                                 387,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    3,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -2968,7 +3008,9 @@ Ok(
                                                 422,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    2,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {
@@ -3085,7 +3127,9 @@ Ok(
                                                 444,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    5,
+                                                ),
                                             ),
                                         ),
                                         Expr::FunctionCall {
@@ -3156,7 +3200,9 @@ Ok(
                                                 450,
                                             ),
                                             Literal::Integer(
-                                                Unspecified,
+                                                UnspecifiedRegular(
+                                                    3,
+                                                ),
                                             ),
                                         ),
                                         Expr::Binary {

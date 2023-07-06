@@ -60,7 +60,9 @@ Ok(
                                                     15,
                                                 ),
                                                 Literal::Integer(
-                                                    Unspecified,
+                                                    UnspecifiedRegular(
+                                                        5,
+                                                    ),
                                                 ),
                                             ),
                                         ],
@@ -368,7 +370,9 @@ Ok(
                                                             15,
                                                         ),
                                                         Literal::Integer(
-                                                            Unspecified,
+                                                            UnspecifiedRegular(
+                                                                5,
+                                                            ),
                                                         ),
                                                     ),
                                                 ],

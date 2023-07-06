@@ -15,7 +15,8 @@ impl<'a> ExprTypeEngine<'a> {
                 Literal::Char(_) => todo!(),
                 Literal::String(_) => Ok(self.term_menu.static_str_ref().into()),
                 Literal::Integer(integer_literal) => match integer_literal {
-                    IntegerLikeLiteral::Unspecified => {
+                    IntegerLikeLiteral::UnspecifiedRegular(_)
+                    | IntegerLikeLiteral::UnspecifiedLarge() => {
                         // match in the order of most frequent to least frequent
                         Ok(match expectation
                             .destination()
