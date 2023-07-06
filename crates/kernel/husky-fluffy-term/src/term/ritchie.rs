@@ -10,26 +10,18 @@ use husky_ethereal_signature::ExplicitParameterEtherealSignatureTemplate;
 use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct FluffyTermRitchieParameter {
-    kind: FluffyExplicitParameterKind,
-    contract: Contract,
-    ty: FluffyTerm,
-}
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyExplicitParameterKind {
-    Regular,
-    Keyed { ident: Ident },
+#[salsa::derive_debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[enum_class::from_variants]
+pub enum FluffyTermRitchieParameter {
+    Regular(FluffyTermRitchieRegularParameter),
 }
 
 impl From<EtherealTermRitchieParameter> for FluffyTermRitchieParameter {
     fn from(param: EtherealTermRitchieParameter) -> Self {
         match param {
-            EtherealTermRitchieParameter::Regular(param) => Self {
-                contract: param.contract(),
-                ty: param.ty().into(),
-                kind: FluffyExplicitParameterKind::Regular,
-            },
+            EtherealTermRitchieParameter::Regular(param) => {
+                FluffyTermRitchieParameter::Regular(param.into())
+            }
             EtherealTermRitchieParameter::Variadic(param) => todo!(),
             EtherealTermRitchieParameter::Keyed(_) => todo!(),
         }
@@ -46,11 +38,11 @@ impl InstantiateRef for ExplicitParameterEtherealSignatureTemplate {
     ) -> Self::Target {
         match self {
             ExplicitParameterEtherealSignatureTemplate::Regular(signature_template) => {
-                FluffyTermRitchieParameter {
-                    contract: signature_template.contract(),
-                    ty: signature_template.ty().instantiate(engine, instantiator),
-                    kind: FluffyExplicitParameterKind::Regular,
-                }
+                FluffyTermRitchieRegularParameter::new(
+                    signature_template.contract(),
+                    signature_template.ty().instantiate(engine, instantiator),
+                )
+                .into()
             }
             ExplicitParameterEtherealSignatureTemplate::Variadic(_) => todo!(),
             ExplicitParameterEtherealSignatureTemplate::Keyed(_) => todo!(),
@@ -58,40 +50,17 @@ impl InstantiateRef for ExplicitParameterEtherealSignatureTemplate {
     }
 }
 
-// impl Instantiator {
-//     pub(crate) fn instantiate_ritchie_parameter(
-//         &self,
-//         engine: &mut impl FluffyTermEngine,
-//         explicit_parameter: &ExplicitParameterEtherealSignatureTemplate,
-//     ) -> FluffyTermRitchieParameter {
-//         todo!()
-//     }
-// }
-
 impl FluffyTermRitchieParameter {
-    #[inline(always)]
-    pub fn new(contract: Contract, ty: FluffyTerm) -> Self {
-        Self {
-            kind: FluffyExplicitParameterKind::Regular,
-            contract,
-            ty,
+    pub fn ty(&self) -> FluffyTerm {
+        match self {
+            FluffyTermRitchieParameter::Regular(param) => param.ty(),
         }
     }
 
-    pub fn kind(&self) -> FluffyExplicitParameterKind {
-        self.kind
-    }
-
-    pub fn contract(self) -> Contract {
-        self.contract
-    }
-
-    pub fn ty(self) -> FluffyTerm {
-        self.ty
-    }
-
     pub(crate) fn ty_mut(&mut self) -> &mut FluffyTerm {
-        &mut self.ty
+        match self {
+            FluffyTermRitchieParameter::Regular(param) => param.ty_mut(),
+        }
     }
 }
 

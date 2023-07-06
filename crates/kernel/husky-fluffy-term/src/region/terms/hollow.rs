@@ -188,25 +188,26 @@ impl HollowTerms {
                 if solid_flag {
                     todo!()
                 } else {
-                    let params =
-                        params
-                            .iter()
-                            .map(|param| match param.ty().resolve_progress(self) {
-                                HollowTermResolveProgress::ResolvedEthereal(ty) => {
-                                    EtherealTermRitchieRegularParameter::new(param.contract(), ty)
-                                        .into()
-                                }
-                                _ => unreachable!(),
-                            });
-                    let return_ty = match return_ty.resolve_progress(self) {
-                        HollowTermResolveProgress::ResolvedEthereal(return_ty) => return_ty,
-                        _ => unreachable!(),
-                    };
-                    self.entries[idx].resolve_progress =
-                        match EtherealTermRitchie::new(db, ritchie_kind, params, return_ty) {
-                            Ok(term) => HollowTermResolveProgressBuf::ResolvedEthereal(term.into()),
-                            Err(_) => todo!(),
-                        }
+                    todo!()
+                    // let params =
+                    //     params
+                    //         .iter()
+                    //         .map(|param| match param.ty().resolve_progress(self) {
+                    //             HollowTermResolveProgress::ResolvedEthereal(ty) => {
+                    //                 EtherealTermRitchieRegularParameter::new(param.contract(), ty)
+                    //                     .into()
+                    //             }
+                    //             _ => unreachable!(),
+                    //         });
+                    // let return_ty = match return_ty.resolve_progress(self) {
+                    //     HollowTermResolveProgress::ResolvedEthereal(return_ty) => return_ty,
+                    //     _ => unreachable!(),
+                    // };
+                    // self.entries[idx].resolve_progress =
+                    //     match EtherealTermRitchie::new(db, ritchie_kind, params, return_ty) {
+                    //         Ok(term) => HollowTermResolveProgressBuf::ResolvedEthereal(term.into()),
+                    //         Err(_) => todo!(),
+                    //     }
                 }
             }
             HollowTermData::PlaceTypeOntology {
