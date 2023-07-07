@@ -14,7 +14,9 @@ pub fn ty_instance_constructor_path_declarative_ty(
         todo!()
     };
     match signature {
-        TypeDeclarativeSignatureTemplate::Enum(_) => Err(todo!()),
+        TypeDeclarativeSignatureTemplate::Enum(_) => {
+            Err(OriginalDeclarativeTypeError::EnumTypeHasNoConstructor)?
+        }
         TypeDeclarativeSignatureTemplate::PropsStruct(signature) => {
             Ok(props_struct_ty_instance_constructor_path_declarative_ty(
                 db, path, variances, signature,
@@ -26,7 +28,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
         ),
         TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Inductive(_) => {
-            Err(OriginalDeclarativeTypeError::InductiveTypeHasNoConstructor.into())
+            Err(OriginalDeclarativeTypeError::InductiveTypeHasNoConstructor)?
         }
         TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Extern(_) => todo!(),

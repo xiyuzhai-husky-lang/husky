@@ -24,6 +24,8 @@ impl From<&DeclError> for DeclarativeTypeError {
 pub enum OriginalDeclarativeTypeError {
     #[error("declarative_term error")]
     DeclarativeTerm(#[from] DeclarativeTermError),
+    #[error("EnumTypeHasNoConstructor")]
+    EnumTypeHasNoConstructor,
     #[error("InductiveTypeHasNoConstructor")]
     InductiveTypeHasNoConstructor,
     #[error("todo")]

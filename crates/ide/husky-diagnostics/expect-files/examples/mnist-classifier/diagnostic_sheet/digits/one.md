@@ -10,7 +10,13 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: unrecognized identifier",
+                severity: Error,
+                range: [6:17, 6:25),
+            },
+        ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],
@@ -20,11 +26,6 @@ DiagnosticSheet {
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
-            Diagnostic {
-                message: "Term Error: expected function type",
-                severity: Error,
-                range: [6:17, 6:28),
-            },
             Diagnostic {
                 message: "Type Error: cannot unveil",
                 severity: Error,

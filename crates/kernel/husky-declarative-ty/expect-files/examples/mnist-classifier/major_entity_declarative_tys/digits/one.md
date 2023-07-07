@@ -15,8 +15,10 @@
                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`{val_type} core::option::Option mnist::MnistLabel mnist::MnistLabel::One`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
