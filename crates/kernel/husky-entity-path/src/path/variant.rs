@@ -14,6 +14,16 @@ impl TypeVariantPath {
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
         self.parent_ty_path(db).module_path(db)
     }
+
+    pub fn show_aux(
+        self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &dyn EntityPathDb,
+    ) -> std::fmt::Result {
+        self.parent_ty_path(db).show_aux(f, db)?;
+        f.write_str("::")?;
+        f.write_str(self.ident(db).data(db))
+    }
 }
 
 impl<Db> salsa::DisplayWithDb<Db> for TypeVariantPath
@@ -22,10 +32,11 @@ where
 {
     fn display_with_db_fmt(
         &self,
-        _f: &mut std::fmt::Formatter<'_>,
-        _db: &Db,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &Db,
         _level: salsa::DisplayFormatLevel,
     ) -> std::fmt::Result {
-        todo!()
+        let db = <Db as salsa::DbWithJar<EntityPathJar>>::as_jar_db(db);
+        self.show_aux(f, db)
     }
 }

@@ -7,16 +7,19 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 #[enum_class::from_variants]
 pub enum DeclarativeTermEntityPath {
-    Form(FugitivePath),
+    Fugitive(FugitivePath),
     Trait(TraitPath),
     Type(TypePath),
+    TypeVariant(TypeVariantPath),
 }
 
 impl DeclarativeTermEntityPath {
     pub fn ty_path(self) -> Option<TypePath> {
         match self {
             DeclarativeTermEntityPath::Type(path) => Some(path),
-            DeclarativeTermEntityPath::Form(_) | DeclarativeTermEntityPath::Trait(_) => None,
+            DeclarativeTermEntityPath::Fugitive(_)
+            | DeclarativeTermEntityPath::Trait(_)
+            | DeclarativeTermEntityPath::TypeVariant(_) => None,
         }
     }
 }
@@ -46,13 +49,16 @@ impl DeclarativeTermEntityPath {
         _ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         match self {
-            DeclarativeTermEntityPath::Form(path) => {
+            DeclarativeTermEntityPath::Fugitive(path) => {
                 path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
             }
             DeclarativeTermEntityPath::Trait(path) => {
                 path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
             }
             DeclarativeTermEntityPath::Type(path) => {
+                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+            }
+            DeclarativeTermEntityPath::TypeVariant(path) => {
                 path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
             }
         }

@@ -117,6 +117,22 @@ Ok(
                     ),
                 ),
             ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        ident: `One`,
+                    },
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::ModuleItem(

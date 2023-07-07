@@ -21,6 +21,11 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
+                message: "Term Error: expected function type",
+                severity: Error,
+                range: [6:17, 6:28),
+            },
+            Diagnostic {
                 message: "Type Error: cannot unveil",
                 severity: Error,
                 range: [7:5, 11:7),

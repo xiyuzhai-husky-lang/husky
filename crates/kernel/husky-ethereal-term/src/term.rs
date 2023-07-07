@@ -145,7 +145,7 @@ impl EtherealTerm {
                 EtherealTermVariable::from_declarative(db, declarative_term)?.into()
             }
             DeclarativeTerm::EntityPath(declarative_term) => match declarative_term {
-                DeclarativeTermEntityPath::Form(path) => TermEntityPath::Fugitive(path).into(),
+                DeclarativeTermEntityPath::Fugitive(path) => TermEntityPath::Fugitive(path).into(),
                 DeclarativeTermEntityPath::Trait(path) => TermEntityPath::Trait(path).into(),
                 DeclarativeTermEntityPath::Type(path) => match ty_expectation {
                     TermTypeExpectation::FinalDestinationEqsSort => {
@@ -165,6 +165,7 @@ impl EtherealTerm {
                     }
                     TermTypeExpectation::Any => TermEntityPath::TypeInstance(path).into(),
                 },
+                DeclarativeTermEntityPath::TypeVariant(_) => todo!(),
             },
             DeclarativeTerm::Category(declarative_term) => declarative_term.into(),
             DeclarativeTerm::Universe(declarative_term) => declarative_term.into(),

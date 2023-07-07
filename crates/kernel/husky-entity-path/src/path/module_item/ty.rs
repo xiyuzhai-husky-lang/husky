@@ -20,6 +20,14 @@ impl TypePath {
         self.prelude_ty_path(db) == Some(PreludeTypePath::Lifetime)
     }
 
+    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
+        self.module_path(db).crate_path(db)
+    }
+
+    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
+        self.crate_path(db).toolchain(db)
+    }
+
     pub fn show_aux(
         self,
         f: &mut std::fmt::Formatter<'_>,
@@ -28,14 +36,6 @@ impl TypePath {
         self.module_path(db).show_aux(f, db)?;
         f.write_str(show_connection(self.connection(db)))?;
         f.write_str(self.ident(db).data(db))
-    }
-
-    pub fn crate_path(self, db: &dyn EntityPathDb) -> CratePath {
-        self.module_path(db).crate_path(db)
-    }
-
-    pub fn toolchain(self, db: &dyn EntityPathDb) -> Toolchain {
-        self.crate_path(db).toolchain(db)
     }
 }
 

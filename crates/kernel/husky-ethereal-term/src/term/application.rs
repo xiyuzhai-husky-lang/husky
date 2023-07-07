@@ -146,13 +146,7 @@ pub(crate) fn term_uncheck_from_declarative_term_application_aux(
                     parameter_ty.ty_expectation(db)?,
                 )
             }
-            _ => {
-                use salsa::DebugWithDb;
-                p!(function.debug(db));
-                p!(argument.debug(db));
-                p!(function.raw_ty(db)?.debug(db));
-                todo!()
-            }
+            _ => Err(EtherealTermError::ExpectedCurryForApplicationFunctionType)?,
         }
     };
     let argument = EtherealTerm::from_declarative(db, argument, argument_expectation)?;

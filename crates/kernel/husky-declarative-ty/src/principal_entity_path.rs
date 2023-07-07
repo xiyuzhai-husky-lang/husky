@@ -21,9 +21,10 @@ pub fn declarative_term_entity_path_declarative_ty(
     path: DeclarativeTermEntityPath,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     match path {
-        DeclarativeTermEntityPath::Form(_) => todo!(),
+        DeclarativeTermEntityPath::Fugitive(_) => todo!(),
         DeclarativeTermEntityPath::Trait(_) => todo!(),
         DeclarativeTermEntityPath::Type(_) => todo!(),
+        DeclarativeTermEntityPath::TypeVariant(_) => todo!(),
     }
 }
 

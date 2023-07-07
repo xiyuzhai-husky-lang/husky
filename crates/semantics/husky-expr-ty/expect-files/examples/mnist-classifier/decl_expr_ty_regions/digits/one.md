@@ -162,6 +162,42 @@
                     1,
                 ),
             },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            InstanceConstructor,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 96,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                ExplicitApplicationFunctionTypeNotInferred,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
         ],
         extra_expr_errors: [],
         expr_fluffy_terms: [],
@@ -231,11 +267,9 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
+                            expectation: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: Sort,
                                 },
                             ),
                             meta: ExpectationState {
@@ -252,14 +286,34 @@
                                     },
                                 ),
                                 resolve_progress: Resolved(
-                                    Ok(
-                                        EqsSort(
-                                            TermUniverse(
-                                                1,
-                                            ),
+                                    Err(
+                                        Original(
+                                            ExpectedFunctionType,
                                         ),
                                     ),
                                 ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: AnyDerived(
+                                ExpectAnyDerived,
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 96,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Intact,
                             },
                         },
                     ],

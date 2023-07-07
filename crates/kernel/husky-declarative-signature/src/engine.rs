@@ -289,14 +289,13 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
                     PrincipalEntityPath::Module(_) => todo!(),
                     PrincipalEntityPath::ModuleItem(path) => match path {
-                        ModuleItemPath::Type(path) => {
-                            /* ad hoc */
-                            DeclarativeTermEntityPath::Type(path)
-                        }
+                        ModuleItemPath::Type(path) => DeclarativeTermEntityPath::Type(path),
                         ModuleItemPath::Trait(path) => path.into(),
                         ModuleItemPath::Fugitive(path) => path.into(),
                     },
-                    PrincipalEntityPath::TypeVariant(_) => todo!(),
+                    PrincipalEntityPath::TypeVariant(path) => {
+                        DeclarativeTermEntityPath::TypeVariant(path)
+                    }
                 })),
                 None => Err(DerivedDeclarativeTermError2::InvalidEntityPath.into()),
             },
