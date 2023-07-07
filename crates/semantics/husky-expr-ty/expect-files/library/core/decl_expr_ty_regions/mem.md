@@ -76,8 +76,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: Const,
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 76,
@@ -98,6 +97,7 @@
                                         ),
                                     ),
                                 ),
+                                place: Const,
                             },
                         ],
                     },
@@ -194,8 +194,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: Const,
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 76,
@@ -216,6 +215,7 @@
                                         ),
                                     ),
                                 ),
+                                place: Const,
                             },
                         ],
                     },
@@ -469,7 +469,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -493,7 +493,7 @@
                                     final_destination: Sort,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -554,7 +554,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -578,7 +578,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 3,

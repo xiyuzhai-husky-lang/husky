@@ -33,7 +33,7 @@ impl ExpectImplicitlyConvertible {
     #[inline(always)]
     pub fn new_pure(engine: &impl FluffyTermEngine, ty: FluffyTerm) -> Self {
         let ty = match ty.data(engine) {
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 ty_path: path,
                 arguments,
                 ..
@@ -160,7 +160,7 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
                 }
             },
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path: path,
                 refined_ty_path: refined_path,
@@ -175,13 +175,14 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
                 refined_path,
                 arguments,
             ),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => None, // adhoc
             // todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -243,7 +244,7 @@ impl ExpectImplicitlyConvertible {
                 },
                 smallvec![],
             ),
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 place,
                 refined_ty_path: src_path,
                 arguments: src_argument_tys,
@@ -273,7 +274,7 @@ impl ExpectImplicitlyConvertible {
                     Contract::Const => todo!(),
                 }
             }
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 ty_path: src_path,
                 refined_ty_path: src_refined_path,
                 arguments: src_arguments,

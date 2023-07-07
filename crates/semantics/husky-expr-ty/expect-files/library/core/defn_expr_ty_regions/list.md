@@ -162,7 +162,20 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceSymbol,
+                            SymbolAtPlace {
+                                term: EtherealTermSymbol(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
+                            },
                         ],
                     },
                 },

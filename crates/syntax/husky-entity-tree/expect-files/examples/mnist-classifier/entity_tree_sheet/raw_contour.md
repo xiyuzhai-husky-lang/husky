@@ -1024,6 +1024,63 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `OneVsAllResult`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::raw_contour`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 3,
+                                            ident_token: IdentToken {
+                                                ident: `OneVsAllResult`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 24,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                            path: PrincipalEntityPath::ModuleItem(
+                                ModuleItemPath::Type(
+                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            ast_idx: 202,
+                            use_expr_idx: 9,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `narrow_down`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::raw_contour`,
@@ -1046,11 +1103,11 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 0,
+                                            ast_idx: 4,
                                             ident_token: IdentToken {
                                                 ident: `narrow_down`,
                                                 token_idx: TokenIdx(
-                                                    2,
+                                                    19,
                                                 ),
                                             },
                                         },
@@ -2812,7 +2869,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     progress: Ok(
-                        31,
+                        32,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2836,7 +2893,7 @@ Ok(
                         `mnist_classifier::raw_contour`,
                     ),
                     progress: Ok(
-                        33,
+                        34,
                     ),
                 },
                 UseAllModuleSymbolsRule {

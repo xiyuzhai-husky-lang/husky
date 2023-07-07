@@ -14,7 +14,7 @@ impl SolidTerm {
                 refined_path,
                 arguments,
             } => todo!(),
-            SolidTermData::PlaceTypeOntology {
+            SolidTermData::TypeOntologyAtPlace {
                 place,
                 path,
                 refined_path,
@@ -31,7 +31,7 @@ impl SolidTerm {
                 None => todo!(),
             },
             SolidTermData::Curry { .. } | SolidTermData::Ritchie { .. } => Nothing,
-            SolidTermData::PlaceSymbol {} => todo!(),
+            SolidTermData::SymbolAtPlace { .. } => todo!(),
         }
     }
 }

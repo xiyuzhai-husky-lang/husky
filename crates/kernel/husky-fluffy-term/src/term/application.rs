@@ -38,7 +38,7 @@ impl FluffyTerm {
                             arguments,
                         }
                     }
-                    FluffyTermData::PlaceTypeOntology { .. } => todo!(),
+                    FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
                     FluffyTermData::Curry {
                         curry_kind,
                         variance,
@@ -55,13 +55,14 @@ impl FluffyTerm {
                         return_ty,
                         ..
                     } => todo!(),
-                    FluffyTermData::PlaceHole {
+                    FluffyTermData::HoleAtPlace {
                         place,
                         hole_kind,
                         hole,
                     } => todo!(),
-                    FluffyTermData::Symbol { ty } => todo!(),
-FluffyTermData::Variable { ty } => todo!(),
+                    FluffyTermData::Symbol { .. } => todo!(),
+                    FluffyTermData::SymbolAtPlace { .. } => todo!(),
+                    FluffyTermData::Variable { ty } => todo!(),
                 };
                 Ok(HollowTerm::new(engine, data).into())
             }

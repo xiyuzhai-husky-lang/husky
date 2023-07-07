@@ -13,13 +13,14 @@ impl FluffyTerm {
             | FluffyTermData::Category(_) => self,
             FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -47,13 +48,14 @@ impl FluffyTerm {
             },
             FluffyTermData::Category(_) => FinalDestination::Sort,
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -69,7 +71,7 @@ impl FluffyTerm {
                 arguments,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path,
                 refined_ty_path,
@@ -94,12 +96,13 @@ impl FluffyTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => 0,
+            FluffyTermData::SymbolAtPlace { .. } => 0,
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

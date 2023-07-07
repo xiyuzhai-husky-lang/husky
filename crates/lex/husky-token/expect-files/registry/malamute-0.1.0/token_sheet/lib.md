@@ -5,12 +5,111 @@ Ok(
                 Keyword::Pub,
             ),
             Token::Keyword(
+                Keyword::TypeEntity(
+                    Enum,
+                ),
+            ),
+            Token::Ident(
+                `OneVsAllResult`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Const,
+            ),
+            Token::Ident(
+                `label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
+            ),
+            Token::Ident(
+                `ConfidentYes`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
+            ),
+            Token::Ident(
+                `ConfidentNo`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
+            ),
+            Token::Ident(
+                `Unconfident`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
                 Keyword::Fugitive(
                     Gn,
                 ),
             ),
             Token::Ident(
                 `narrow_down`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Const,
+            ),
+            Token::Ident(
+                `label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
             ),
             Token::Punctuation(
                 Punctuation(
@@ -79,10 +178,31 @@ Ok(
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Ket(
                         Par,
                     ),
                 ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        Curry,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `OneVsAllResult`,
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Ident(
+                `label`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -92,8 +212,16 @@ Ok(
         ],
         group_starts: [
             0,
+            11,
+            13,
+            15,
+            17,
         ],
         indents: [
+            0,
+            0,
+            0,
+            0,
             0,
         ],
     },

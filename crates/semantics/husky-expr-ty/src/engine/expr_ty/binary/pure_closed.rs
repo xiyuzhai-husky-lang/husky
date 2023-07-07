@@ -26,7 +26,7 @@ impl<'a> ExprTypeEngine<'a> {
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
             }
-            | FluffyTermData::PlaceTypeOntology {
+            | FluffyTermData::TypeOntologyAtPlace {
                 ty_path: path,
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
                 ..
@@ -37,7 +37,7 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 ..
             } => todo!(),
-            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
+            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -46,7 +46,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::Hole(hole_kind, _) | FluffyTermData::PlaceHole { hole_kind, .. } => {
+            FluffyTermData::Hole(hole_kind, _) | FluffyTermData::HoleAtPlace { hole_kind, .. } => {
                 match hole_kind {
                     HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
                         Ok(lopd_ty)
@@ -62,7 +62,8 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

@@ -43,7 +43,7 @@ impl ExpectFluffyTerm for ExpectNumType {
                 arguments,
                 ..
             } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path: path,
                 refined_ty_path: refined_path,
@@ -70,7 +70,7 @@ impl ExpectFluffyTerm for ExpectNumType {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
@@ -84,7 +84,8 @@ impl ExpectFluffyTerm for ExpectNumType {
                 HoleKind::ImplicitType => todo!(),
                 HoleKind::Any => todo!(),
             },
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

@@ -8,6 +8,40 @@ Ok(
                         EntityNodeEntry {
                             node: EntityNode::ModuleItem(
                                 ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `OneVsAllResult`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `OneVsAllResult`,
+                            visibility: Scope::Pub,
+                        },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
                                     node_path: ModuleItemNodePath::Fugitive(
                                         FugitiveNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -17,11 +51,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 0,
+                                    ast_idx: 4,
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            19,
                                         ),
                                     },
                                 },
@@ -44,6 +78,33 @@ Ok(
                 entity_symbol_table: EntitySymbolTable(
                     [
                         EntitySymbolEntry {
+                            ident: `OneVsAllResult`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 3,
+                                    ident_token: IdentToken {
+                                        ident: `OneVsAllResult`,
+                                        token_idx: TokenIdx(
+                                            2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
                             ident: `narrow_down`,
                             visibility: Scope::Pub,
                             symbol: EntitySymbol::ModuleItem {
@@ -60,11 +121,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 0,
+                                    ast_idx: 4,
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            2,
+                                            19,
                                         ),
                                     },
                                 },

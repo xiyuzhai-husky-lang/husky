@@ -193,7 +193,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -236,10 +236,10 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
+                            Curry(
+                                EtherealTermCurry(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -363,13 +363,9 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    5,
                                 ),
                             ),
                         ),
@@ -431,7 +427,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    1,
+                                    8,
                                 ),
                             ),
                         ),
@@ -477,7 +473,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    2,
+                                    9,
                                 ),
                             ),
                         ),
@@ -515,10 +511,10 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
+                            Curry(
+                                EtherealTermCurry(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -619,13 +615,9 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    15,
                                 ),
                             ),
                         ),
@@ -873,7 +865,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 95,
+                                            value: 96,
                                         },
                                     ),
                                 ),
@@ -1094,7 +1086,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    3,
+                                    17,
                                 ),
                             ),
                         ),
@@ -1150,7 +1142,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    4,
+                                    18,
                                 ),
                             ),
                         ),
@@ -1206,7 +1198,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    5,
+                                    19,
                                 ),
                             ),
                         ),
@@ -1286,7 +1278,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    6,
+                                    20,
                                 ),
                             ),
                         ),
@@ -1324,10 +1316,10 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
+                            Curry(
+                                EtherealTermCurry(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -1393,13 +1385,9 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    26,
                                 ),
                             ),
                         ),
@@ -1452,7 +1440,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    7,
+                                    28,
                                 ),
                             ),
                         ),
@@ -1533,7 +1521,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    7,
+                                    28,
                                 ),
                             ),
                         ),
@@ -1593,7 +1581,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    7,
+                                    28,
                                 ),
                             ),
                         ),
@@ -1610,7 +1598,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    7,
+                                    28,
                                 ),
                             ),
                         ),
@@ -1652,7 +1640,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 95,
+                                            value: 96,
                                         },
                                     ),
                                 ),
@@ -1773,7 +1761,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    8,
+                                    29,
                                 ),
                             ),
                         ),
@@ -1811,10 +1799,10 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
+                            Curry(
+                                EtherealTermCurry(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -2042,13 +2030,9 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    35,
                                 ),
                             ),
                         ),
@@ -2080,10 +2064,10 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
+                            Curry(
+                                EtherealTermCurry(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -2132,7 +2116,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    9,
+                                    44,
                                 ),
                             ),
                         ),
@@ -2196,7 +2180,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    10,
+                                    45,
                                 ),
                             ),
                         ),
@@ -2256,13 +2240,9 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    42,
                                 ),
                             ),
                         ),
@@ -2399,7 +2379,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    11,
+                                    46,
                                 ),
                             ),
                         ),
@@ -2487,7 +2467,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    12,
+                                    47,
                                 ),
                             ),
                         ),
@@ -2567,7 +2547,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    13,
+                                    48,
                                 ),
                             ),
                         ),
@@ -2605,10 +2585,10 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
+                            Curry(
+                                EtherealTermCurry(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -2716,13 +2696,9 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    54,
                                 ),
                             ),
                         ),
@@ -2754,10 +2730,10 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
+                            Curry(
+                                EtherealTermCurry(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -2870,13 +2846,9 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    61,
                                 ),
                             ),
                         ),
@@ -2942,10 +2914,10 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
+                            Curry(
+                                EtherealTermCurry(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -2994,7 +2966,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    14,
+                                    70,
                                 ),
                             ),
                         ),
@@ -3058,7 +3030,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    15,
+                                    71,
                                 ),
                             ),
                         ),
@@ -3122,7 +3094,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    16,
+                                    72,
                                 ),
                             ),
                         ),
@@ -3182,13 +3154,9 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    68,
                                 ),
                             ),
                         ),
@@ -3233,7 +3201,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    17,
+                                    73,
                                 ),
                             ),
                         ),
@@ -3400,7 +3368,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    18,
+                                    74,
                                 ),
                             ),
                         ),
@@ -3459,10 +3427,10 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
+                            Curry(
+                                EtherealTermCurry(
                                     Id {
-                                        value: 11,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -3541,13 +3509,9 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    80,
                                 ),
                             ),
                         ),
@@ -3592,7 +3556,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    19,
+                                    82,
                                 ),
                             ),
                         ),
@@ -3836,7 +3800,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    20,
+                                    83,
                                 ),
                             ),
                         ),
@@ -3866,7 +3830,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    20,
+                                    83,
                                 ),
                             ),
                         ),
@@ -3917,7 +3881,7 @@
                         Ok(
                             Hollow(
                                 HollowTerm(
-                                    21,
+                                    84,
                                 ),
                             ),
                         ),
@@ -3959,7 +3923,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 95,
+                                            value: 96,
                                         },
                                     ),
                                 ),
@@ -3980,7 +3944,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 95,
+                                            value: 96,
                                         },
                                     ),
                                 ),
@@ -4060,6 +4024,228 @@
                     entries: [
                         HollowTermEntry {
                             data: Hole {
+                                hole_source: Expectation(
+                                    0,
+                                ),
+                                hole_kind: ImplicitType,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        1,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Curry {
+                                curry_kind: Implicit,
+                                variance: Independent,
+                                parameter_variable: Some(
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                parameter_ty: Hollow(
+                                    HollowTerm(
+                                        0,
+                                    ),
+                                ),
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        2,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    0,
+                                ),
+                                hole_kind: Any,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            0,
+                                        ),
+                                    ),
+                                    Hollow(
+                                        HollowTerm(
+                                            4,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        5,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
                                 hole_source: Expr(
                                     9,
                                 ),
@@ -4082,7 +4268,7 @@
                                 arguments: [
                                     Hollow(
                                         HollowTerm(
-                                            0,
+                                            7,
                                         ),
                                     ),
                                 ],
@@ -4097,6 +4283,228 @@
                                 hole_kind: UnspecifiedFloatType,
                                 fill: None,
                                 constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    9,
+                                ),
+                                hole_kind: ImplicitType,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            10,
+                                        ),
+                                    ),
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        11,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Curry {
+                                curry_kind: Implicit,
+                                variance: Independent,
+                                parameter_variable: Some(
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                parameter_ty: Hollow(
+                                    HollowTerm(
+                                        10,
+                                    ),
+                                ),
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        12,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    9,
+                                ),
+                                hole_kind: Any,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            10,
+                                        ),
+                                    ),
+                                    Hollow(
+                                        HollowTerm(
+                                            14,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        15,
+                                    ),
+                                ),
                             },
                             resolve_progress: Unresolved,
                         },
@@ -4146,6 +4554,228 @@
                         },
                         HollowTermEntry {
                             data: Hole {
+                                hole_source: Expectation(
+                                    39,
+                                ),
+                                hole_kind: ImplicitType,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            21,
+                                        ),
+                                    ),
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        22,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Curry {
+                                curry_kind: Implicit,
+                                variance: Independent,
+                                parameter_variable: Some(
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                parameter_ty: Hollow(
+                                    HollowTerm(
+                                        21,
+                                    ),
+                                ),
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        23,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    39,
+                                ),
+                                hole_kind: Any,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            21,
+                                        ),
+                                    ),
+                                    Hollow(
+                                        HollowTerm(
+                                            25,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        26,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
                                 hole_source: Expr(
                                     63,
                                 ),
@@ -4177,7 +4807,7 @@
                                     ImplicitlyConvertibleFrom {
                                         target: Hollow(
                                             HollowTerm(
-                                                7,
+                                                28,
                                             ),
                                         ),
                                     },
@@ -4193,6 +4823,450 @@
                                 hole_kind: UnspecifiedFloatType,
                                 fill: None,
                                 constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    55,
+                                ),
+                                hole_kind: ImplicitType,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            30,
+                                        ),
+                                    ),
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        31,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Curry {
+                                curry_kind: Implicit,
+                                variance: Independent,
+                                parameter_variable: Some(
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                parameter_ty: Hollow(
+                                    HollowTerm(
+                                        30,
+                                    ),
+                                ),
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        32,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    55,
+                                ),
+                                hole_kind: Any,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            30,
+                                        ),
+                                    ),
+                                    Hollow(
+                                        HollowTerm(
+                                            34,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        35,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    64,
+                                ),
+                                hole_kind: ImplicitType,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            37,
+                                        ),
+                                    ),
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        38,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Curry {
+                                curry_kind: Implicit,
+                                variance: Independent,
+                                parameter_variable: Some(
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                parameter_ty: Hollow(
+                                    HollowTerm(
+                                        37,
+                                    ),
+                                ),
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        39,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    64,
+                                ),
+                                hole_kind: Any,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            37,
+                                        ),
+                                    ),
+                                    Hollow(
+                                        HollowTerm(
+                                            41,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        42,
+                                    ),
+                                ),
                             },
                             resolve_progress: Unresolved,
                         },
@@ -4253,6 +5327,672 @@
                         },
                         HollowTermEntry {
                             data: Hole {
+                                hole_source: Expectation(
+                                    77,
+                                ),
+                                hole_kind: ImplicitType,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            49,
+                                        ),
+                                    ),
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        50,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Curry {
+                                curry_kind: Implicit,
+                                variance: Independent,
+                                parameter_variable: Some(
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                parameter_ty: Hollow(
+                                    HollowTerm(
+                                        49,
+                                    ),
+                                ),
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        51,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    77,
+                                ),
+                                hole_kind: Any,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            49,
+                                        ),
+                                    ),
+                                    Hollow(
+                                        HollowTerm(
+                                            53,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        54,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    80,
+                                ),
+                                hole_kind: ImplicitType,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            56,
+                                        ),
+                                    ),
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        57,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Curry {
+                                curry_kind: Implicit,
+                                variance: Independent,
+                                parameter_variable: Some(
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                parameter_ty: Hollow(
+                                    HollowTerm(
+                                        56,
+                                    ),
+                                ),
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        58,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    80,
+                                ),
+                                hole_kind: Any,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            56,
+                                        ),
+                                    ),
+                                    Hollow(
+                                        HollowTerm(
+                                            60,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        61,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    84,
+                                ),
+                                hole_kind: ImplicitType,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            63,
+                                        ),
+                                    ),
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        64,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Curry {
+                                curry_kind: Implicit,
+                                variance: Independent,
+                                parameter_variable: Some(
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                parameter_ty: Hollow(
+                                    HollowTerm(
+                                        63,
+                                    ),
+                                ),
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        65,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    84,
+                                ),
+                                hole_kind: Any,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            63,
+                                        ),
+                                    ),
+                                    Hollow(
+                                        HollowTerm(
+                                            67,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        68,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
                                 hole_source: Expr(
                                     163,
                                 ),
@@ -4308,6 +6048,228 @@
                         },
                         HollowTermEntry {
                             data: Hole {
+                                hole_source: Expectation(
+                                    96,
+                                ),
+                                hole_kind: ImplicitType,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            75,
+                                        ),
+                                    ),
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        76,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Curry {
+                                curry_kind: Implicit,
+                                variance: Independent,
+                                parameter_variable: Some(
+                                    Variable(
+                                        EtherealTermVariable(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                parameter_ty: Hollow(
+                                    HollowTerm(
+                                        75,
+                                    ),
+                                ),
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        77,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
+                                hole_source: Expectation(
+                                    96,
+                                ),
+                                hole_kind: Any,
+                                fill: None,
+                                constraints: [],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: TypeOntology {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [
+                                    Hollow(
+                                        HollowTerm(
+                                            75,
+                                        ),
+                                    ),
+                                    Hollow(
+                                        HollowTerm(
+                                            79,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Ritchie {
+                                ritchie_kind: FnType,
+                                params: [
+                                    Variadic(
+                                        FluffyTermRitchieVariadicParameter {
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 61,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                    Keyed(
+                                        FluffyTermRitchieKeyedParameter {
+                                            key: Ident(
+                                                Word(
+                                                    Id {
+                                                        value: 444,
+                                                    },
+                                                ),
+                                            ),
+                                            contract: None,
+                                            ty: EntityPath(
+                                                TypeOntology(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 51,
+                                                        },
+                                                    ),
+                                                ),
+                                            ),
+                                            default: Some(
+                                                Literal(
+                                                    I32(
+                                                        5,
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                                return_ty: Hollow(
+                                    HollowTerm(
+                                        80,
+                                    ),
+                                ),
+                            },
+                            resolve_progress: Unresolved,
+                        },
+                        HollowTermEntry {
+                            data: Hole {
                                 hole_source: Expr(
                                     210,
                                 ),
@@ -4352,16 +6314,16 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
                                     kind: Expr,
                                 },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
+                                expectee: Curry(
+                                    EtherealTermCurry(
                                         Id {
-                                            value: 11,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -4370,7 +6332,36 @@
                                         EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
+                                                implicit_parameter_substitutions: [
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                0,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                4,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                                 parameter_contracted_tys: [
                                                     Variadic(
                                                         FluffyTermRitchieVariadicParameter {
@@ -4415,13 +6406,9 @@
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
+                                                return_ty: Hollow(
+                                                    HollowTerm(
+                                                        5,
                                                     ),
                                                 ),
                                             },
@@ -4434,7 +6421,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -4465,7 +6452,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -4504,7 +6491,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -4543,7 +6530,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -4573,19 +6560,15 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 5,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        5,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -4595,7 +6578,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 9,
@@ -4603,7 +6586,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        1,
+                                        8,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -4613,7 +6596,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 13,
@@ -4621,7 +6604,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        2,
+                                        9,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -4642,7 +6625,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 8,
                                 src: ExpectationSource {
                                     expr_idx: 14,
@@ -4672,16 +6655,16 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 9,
                                 src: ExpectationSource {
                                     expr_idx: 15,
                                     kind: Expr,
                                 },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
+                                expectee: Curry(
+                                    EtherealTermCurry(
                                         Id {
-                                            value: 11,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -4690,7 +6673,36 @@
                                         EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
+                                                implicit_parameter_substitutions: [
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                10,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                14,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                                 parameter_contracted_tys: [
                                                     Variadic(
                                                         FluffyTermRitchieVariadicParameter {
@@ -4735,13 +6747,9 @@
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
+                                                return_ty: Hollow(
+                                                    HollowTerm(
+                                                        15,
                                                     ),
                                                 ),
                                             },
@@ -4754,7 +6762,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 10,
                                 src: ExpectationSource {
                                     expr_idx: 16,
@@ -4785,7 +6793,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 11,
                                 src: ExpectationSource {
                                     expr_idx: 17,
@@ -4824,7 +6832,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 12,
                                 src: ExpectationSource {
                                     expr_idx: 18,
@@ -4854,19 +6862,15 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 13,
                                 src: ExpectationSource {
                                     expr_idx: 19,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        15,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -4876,7 +6880,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 14,
                                 src: ExpectationSource {
                                     expr_idx: 21,
@@ -4896,7 +6900,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 15,
                                 src: ExpectationSource {
                                     expr_idx: 22,
@@ -4929,7 +6933,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 16,
                                 src: ExpectationSource {
                                     expr_idx: 23,
@@ -4968,7 +6972,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 17,
                                 src: ExpectationSource {
                                     expr_idx: 24,
@@ -4996,7 +7000,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 18,
                                 src: ExpectationSource {
                                     expr_idx: 25,
@@ -5016,7 +7020,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 19,
                                 src: ExpectationSource {
                                     expr_idx: 26,
@@ -5049,7 +7053,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 20,
                                 src: ExpectationSource {
                                     expr_idx: 27,
@@ -5088,7 +7092,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 21,
                                 src: ExpectationSource {
                                     expr_idx: 28,
@@ -5116,7 +7120,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 22,
                                 src: ExpectationSource {
                                     expr_idx: 29,
@@ -5126,7 +7130,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 95,
+                                                value: 96,
                                             },
                                         ),
                                     ),
@@ -5138,7 +7142,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 23,
                                 src: ExpectationSource {
                                     expr_idx: 30,
@@ -5158,7 +7162,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 24,
                                 src: ExpectationSource {
                                     expr_idx: 31,
@@ -5191,7 +7195,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 25,
                                 src: ExpectationSource {
                                     expr_idx: 32,
@@ -5230,7 +7234,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 26,
                                 src: ExpectationSource {
                                     expr_idx: 33,
@@ -5258,7 +7262,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 27,
                                 src: ExpectationSource {
                                     expr_idx: 34,
@@ -5291,7 +7295,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 28,
                                 src: ExpectationSource {
                                     expr_idx: 35,
@@ -5330,7 +7334,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 29,
                                 src: ExpectationSource {
                                     expr_idx: 36,
@@ -5358,7 +7362,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 30,
                                 src: ExpectationSource {
                                     expr_idx: 37,
@@ -5378,7 +7382,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 31,
                                 src: ExpectationSource {
                                     expr_idx: 39,
@@ -5386,7 +7390,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        3,
+                                        17,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -5396,7 +7400,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 32,
                                 src: ExpectationSource {
                                     expr_idx: 41,
@@ -5416,7 +7420,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 33,
                                 src: ExpectationSource {
                                     expr_idx: 43,
@@ -5424,7 +7428,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        4,
+                                        18,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -5434,7 +7438,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 34,
                                 src: ExpectationSource {
                                     expr_idx: 45,
@@ -5454,7 +7458,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 35,
                                 src: ExpectationSource {
                                     expr_idx: 47,
@@ -5462,7 +7466,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        5,
+                                        19,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -5483,7 +7487,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 36,
                                 src: ExpectationSource {
                                     expr_idx: 50,
@@ -5511,7 +7515,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 37,
                                 src: ExpectationSource {
                                     expr_idx: 53,
@@ -5519,7 +7523,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        6,
+                                        20,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -5540,7 +7544,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 38,
                                 src: ExpectationSource {
                                     expr_idx: 54,
@@ -5570,16 +7574,16 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 39,
                                 src: ExpectationSource {
                                     expr_idx: 55,
                                     kind: Expr,
                                 },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
+                                expectee: Curry(
+                                    EtherealTermCurry(
                                         Id {
-                                            value: 11,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -5588,7 +7592,36 @@
                                         EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
+                                                implicit_parameter_substitutions: [
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                21,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                25,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                                 parameter_contracted_tys: [
                                                     Variadic(
                                                         FluffyTermRitchieVariadicParameter {
@@ -5633,13 +7666,9 @@
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
+                                                return_ty: Hollow(
+                                                    HollowTerm(
+                                                        26,
                                                     ),
                                                 ),
                                             },
@@ -5663,7 +7692,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 40,
                                 src: ExpectationSource {
                                     expr_idx: 59,
@@ -5693,19 +7722,15 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 41,
                                 src: ExpectationSource {
                                     expr_idx: 60,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        26,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -5715,7 +7740,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 42,
                                 src: ExpectationSource {
                                     expr_idx: 63,
@@ -5723,7 +7748,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        7,
+                                        28,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -5733,7 +7758,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 43,
                                 src: ExpectationSource {
                                     expr_idx: 62,
@@ -5755,12 +7780,12 @@
                                     contract: None,
                                     ty: Hollow(
                                         HollowTerm(
-                                            7,
+                                            28,
                                         ),
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 44,
                                 src: ExpectationSource {
                                     expr_idx: 64,
@@ -5782,7 +7807,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 45,
                                 src: ExpectationSource {
                                     expr_idx: 66,
@@ -5790,7 +7815,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        7,
+                                        28,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -5800,7 +7825,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 46,
                                 src: ExpectationSource {
                                     expr_idx: 65,
@@ -5822,12 +7847,12 @@
                                     contract: None,
                                     ty: Hollow(
                                         HollowTerm(
-                                            7,
+                                            28,
                                         ),
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 47,
                                 src: ExpectationSource {
                                     expr_idx: 67,
@@ -5849,7 +7874,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 48,
                                 src: ExpectationSource {
                                     expr_idx: 68,
@@ -5857,7 +7882,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        7,
+                                        28,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -5869,12 +7894,12 @@
                                     contract: None,
                                     ty: Hollow(
                                         HollowTerm(
-                                            7,
+                                            28,
                                         ),
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 49,
                                 src: ExpectationSource {
                                     expr_idx: 69,
@@ -5882,7 +7907,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        7,
+                                        28,
                                     ),
                                 ),
                                 resolve_progress: Holed,
@@ -5903,7 +7928,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 50,
                                 src: ExpectationSource {
                                     expr_idx: 70,
@@ -5931,7 +7956,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 51,
                                 src: ExpectationSource {
                                     expr_idx: 71,
@@ -5941,7 +7966,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 95,
+                                                value: 96,
                                             },
                                         ),
                                     ),
@@ -5953,7 +7978,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 52,
                                 src: ExpectationSource {
                                     expr_idx: 79,
@@ -5973,7 +7998,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 53,
                                 src: ExpectationSource {
                                     expr_idx: 81,
@@ -5981,7 +8006,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        8,
+                                        29,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -6002,7 +8027,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 54,
                                 src: ExpectationSource {
                                     expr_idx: 82,
@@ -6032,16 +8057,16 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 55,
                                 src: ExpectationSource {
                                     expr_idx: 83,
                                     kind: Expr,
                                 },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
+                                expectee: Curry(
+                                    EtherealTermCurry(
                                         Id {
-                                            value: 11,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -6050,7 +8075,36 @@
                                         EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
+                                                implicit_parameter_substitutions: [
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                30,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                34,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                                 parameter_contracted_tys: [
                                                     Variadic(
                                                         FluffyTermRitchieVariadicParameter {
@@ -6095,13 +8149,9 @@
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
+                                                return_ty: Hollow(
+                                                    HollowTerm(
+                                                        35,
                                                     ),
                                                 ),
                                             },
@@ -6114,7 +8164,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 56,
                                 src: ExpectationSource {
                                     expr_idx: 84,
@@ -6145,7 +8195,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 57,
                                 src: ExpectationSource {
                                     expr_idx: 85,
@@ -6184,7 +8234,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 58,
                                 src: ExpectationSource {
                                     expr_idx: 86,
@@ -6212,7 +8262,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 59,
                                 src: ExpectationSource {
                                     expr_idx: 87,
@@ -6232,7 +8282,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 60,
                                 src: ExpectationSource {
                                     expr_idx: 89,
@@ -6252,7 +8302,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 61,
                                 src: ExpectationSource {
                                     expr_idx: 91,
@@ -6283,7 +8333,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 62,
                                 src: ExpectationSource {
                                     expr_idx: 93,
@@ -6313,19 +8363,15 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 63,
                                 src: ExpectationSource {
                                     expr_idx: 94,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        35,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -6337,16 +8383,16 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 64,
                                 src: ExpectationSource {
                                     expr_idx: 96,
                                     kind: Expr,
                                 },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
+                                expectee: Curry(
+                                    EtherealTermCurry(
                                         Id {
-                                            value: 11,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -6355,7 +8401,36 @@
                                         EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
+                                                implicit_parameter_substitutions: [
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                37,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                41,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                                 parameter_contracted_tys: [
                                                     Variadic(
                                                         FluffyTermRitchieVariadicParameter {
@@ -6400,13 +8475,9 @@
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
+                                                return_ty: Hollow(
+                                                    HollowTerm(
+                                                        42,
                                                     ),
                                                 ),
                                             },
@@ -6419,7 +8490,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 65,
                                 src: ExpectationSource {
                                     expr_idx: 97,
@@ -6439,7 +8510,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 66,
                                 src: ExpectationSource {
                                     expr_idx: 99,
@@ -6447,7 +8518,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        9,
+                                        44,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -6457,7 +8528,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 67,
                                 src: ExpectationSource {
                                     expr_idx: 102,
@@ -6477,7 +8548,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 68,
                                 src: ExpectationSource {
                                     expr_idx: 104,
@@ -6485,7 +8556,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        10,
+                                        45,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -6506,7 +8577,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 69,
                                 src: ExpectationSource {
                                     expr_idx: 108,
@@ -6536,19 +8607,15 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 70,
                                 src: ExpectationSource {
                                     expr_idx: 109,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        42,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -6569,7 +8636,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 71,
                                 src: ExpectationSource {
                                     expr_idx: 112,
@@ -6597,7 +8664,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 72,
                                 src: ExpectationSource {
                                     expr_idx: 120,
@@ -6605,7 +8672,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        11,
+                                        46,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -6626,7 +8693,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 73,
                                 src: ExpectationSource {
                                     expr_idx: 121,
@@ -6654,7 +8721,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 74,
                                 src: ExpectationSource {
                                     expr_idx: 127,
@@ -6662,7 +8729,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        12,
+                                        47,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -6672,7 +8739,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 75,
                                 src: ExpectationSource {
                                     expr_idx: 134,
@@ -6680,7 +8747,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        13,
+                                        48,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -6701,7 +8768,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 76,
                                 src: ExpectationSource {
                                     expr_idx: 135,
@@ -6731,16 +8798,16 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 77,
                                 src: ExpectationSource {
                                     expr_idx: 136,
                                     kind: Expr,
                                 },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
+                                expectee: Curry(
+                                    EtherealTermCurry(
                                         Id {
-                                            value: 11,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -6749,7 +8816,36 @@
                                         EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
+                                                implicit_parameter_substitutions: [
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                49,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                53,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                                 parameter_contracted_tys: [
                                                     Variadic(
                                                         FluffyTermRitchieVariadicParameter {
@@ -6794,13 +8890,9 @@
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
+                                                return_ty: Hollow(
+                                                    HollowTerm(
+                                                        54,
                                                     ),
                                                 ),
                                             },
@@ -6824,7 +8916,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 78,
                                 src: ExpectationSource {
                                     expr_idx: 144,
@@ -6854,19 +8946,15 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 79,
                                 src: ExpectationSource {
                                     expr_idx: 145,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        54,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -6878,16 +8966,16 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 80,
                                 src: ExpectationSource {
                                     expr_idx: 147,
                                     kind: Expr,
                                 },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
+                                expectee: Curry(
+                                    EtherealTermCurry(
                                         Id {
-                                            value: 11,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -6896,7 +8984,36 @@
                                         EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
+                                                implicit_parameter_substitutions: [
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                56,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                60,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                                 parameter_contracted_tys: [
                                                     Variadic(
                                                         FluffyTermRitchieVariadicParameter {
@@ -6941,13 +9058,9 @@
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
+                                                return_ty: Hollow(
+                                                    HollowTerm(
+                                                        61,
                                                     ),
                                                 ),
                                             },
@@ -6971,7 +9084,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 81,
                                 src: ExpectationSource {
                                     expr_idx: 155,
@@ -7001,19 +9114,15 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 82,
                                 src: ExpectationSource {
                                     expr_idx: 156,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        61,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7034,7 +9143,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 83,
                                 src: ExpectationSource {
                                     expr_idx: 159,
@@ -7064,16 +9173,16 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 84,
                                 src: ExpectationSource {
                                     expr_idx: 160,
                                     kind: Expr,
                                 },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
+                                expectee: Curry(
+                                    EtherealTermCurry(
                                         Id {
-                                            value: 11,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -7082,7 +9191,36 @@
                                         EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
+                                                implicit_parameter_substitutions: [
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                63,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                67,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                                 parameter_contracted_tys: [
                                                     Variadic(
                                                         FluffyTermRitchieVariadicParameter {
@@ -7127,13 +9265,9 @@
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
+                                                return_ty: Hollow(
+                                                    HollowTerm(
+                                                        68,
                                                     ),
                                                 ),
                                             },
@@ -7146,7 +9280,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 85,
                                 src: ExpectationSource {
                                     expr_idx: 161,
@@ -7166,7 +9300,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 86,
                                 src: ExpectationSource {
                                     expr_idx: 163,
@@ -7174,7 +9308,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        14,
+                                        70,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7184,7 +9318,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 87,
                                 src: ExpectationSource {
                                     expr_idx: 166,
@@ -7204,7 +9338,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 88,
                                 src: ExpectationSource {
                                     expr_idx: 168,
@@ -7212,7 +9346,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        15,
+                                        71,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7222,7 +9356,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 89,
                                 src: ExpectationSource {
                                     expr_idx: 171,
@@ -7242,7 +9376,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 90,
                                 src: ExpectationSource {
                                     expr_idx: 173,
@@ -7250,7 +9384,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        16,
+                                        72,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7271,7 +9405,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 91,
                                 src: ExpectationSource {
                                     expr_idx: 177,
@@ -7301,19 +9435,15 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 92,
                                 src: ExpectationSource {
                                     expr_idx: 178,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        68,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7323,7 +9453,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 93,
                                 src: ExpectationSource {
                                     expr_idx: 181,
@@ -7331,7 +9461,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        17,
+                                        73,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7352,7 +9482,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 94,
                                 src: ExpectationSource {
                                     expr_idx: 182,
@@ -7380,7 +9510,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 95,
                                 src: ExpectationSource {
                                     expr_idx: 196,
@@ -7388,7 +9518,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        18,
+                                        74,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7400,16 +9530,16 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 96,
                                 src: ExpectationSource {
                                     expr_idx: 201,
                                     kind: Expr,
                                 },
-                                expectee: Ritchie(
-                                    EtherealTermRitchie(
+                                expectee: Curry(
+                                    EtherealTermCurry(
                                         Id {
-                                            value: 11,
+                                            value: 16,
                                         },
                                     ),
                                 ),
@@ -7418,7 +9548,36 @@
                                         EqsRitchieCallType(
                                             ExpectEqsRitchieTypeOutcome {
                                                 ritchie_kind: FnType,
-                                                implicit_parameter_substitutions: [],
+                                                implicit_parameter_substitutions: [
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                75,
+                                                            ),
+                                                        ),
+                                                    },
+                                                    ImplicitParameterSubstitution {
+                                                        variable: Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 2,
+                                                                },
+                                                            ),
+                                                        ),
+                                                        substitute: Hollow(
+                                                            HollowTerm(
+                                                                79,
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                                 parameter_contracted_tys: [
                                                     Variadic(
                                                         FluffyTermRitchieVariadicParameter {
@@ -7463,13 +9622,9 @@
                                                         },
                                                     ),
                                                 ],
-                                                return_ty: EntityPath(
-                                                    TypeOntology(
-                                                        TypePath(
-                                                            Id {
-                                                                value: 39,
-                                                            },
-                                                        ),
+                                                return_ty: Hollow(
+                                                    HollowTerm(
+                                                        80,
                                                     ),
                                                 ),
                                             },
@@ -7493,7 +9648,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 97,
                                 src: ExpectationSource {
                                     expr_idx: 206,
@@ -7523,19 +9678,15 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 98,
                                 src: ExpectationSource {
                                     expr_idx: 207,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 39,
-                                            },
-                                        ),
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        80,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7545,7 +9696,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 99,
                                 src: ExpectationSource {
                                     expr_idx: 210,
@@ -7553,7 +9704,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        19,
+                                        82,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7574,7 +9725,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 100,
                                 src: ExpectationSource {
                                     expr_idx: 211,
@@ -7602,7 +9753,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 101,
                                 src: ExpectationSource {
                                     expr_idx: 212,
@@ -7622,7 +9773,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 102,
                                 src: ExpectationSource {
                                     expr_idx: 213,
@@ -7644,7 +9795,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 103,
                                 src: ExpectationSource {
                                     expr_idx: 214,
@@ -7664,7 +9815,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 104,
                                 src: ExpectationSource {
                                     expr_idx: 215,
@@ -7686,7 +9837,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 105,
                                 src: ExpectationSource {
                                     expr_idx: 222,
@@ -7694,7 +9845,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        20,
+                                        83,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7704,7 +9855,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 106,
                                 src: ExpectationSource {
                                     expr_idx: 224,
@@ -7712,7 +9863,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        20,
+                                        83,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7733,7 +9884,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 107,
                                 src: ExpectationSource {
                                     expr_idx: 225,
@@ -7761,7 +9912,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 108,
                                 src: ExpectationSource {
                                     expr_idx: 227,
@@ -7769,7 +9920,7 @@
                                 },
                                 expectee: Hollow(
                                     HollowTerm(
-                                        21,
+                                        84,
                                     ),
                                 ),
                                 resolve_progress: Intact,
@@ -7790,7 +9941,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 109,
                                 src: ExpectationSource {
                                     expr_idx: 228,
@@ -7818,7 +9969,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 110,
                                 src: ExpectationSource {
                                     expr_idx: 229,
@@ -7828,7 +9979,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 95,
+                                                value: 96,
                                             },
                                         ),
                                     ),
@@ -7840,7 +9991,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 111,
                                 src: ExpectationSource {
                                     expr_idx: 230,
@@ -7850,7 +10001,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 95,
+                                                value: 96,
                                             },
                                         ),
                                     ),
@@ -8052,7 +10203,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -8081,7 +10232,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -8317,7 +10468,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -8346,7 +10497,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -8678,7 +10829,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -8707,7 +10858,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -8735,7 +10886,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 8,
@@ -8764,7 +10915,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 9,

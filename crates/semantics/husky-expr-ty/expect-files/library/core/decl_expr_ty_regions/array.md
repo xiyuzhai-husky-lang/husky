@@ -98,8 +98,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: Const,
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 60,
@@ -124,6 +123,7 @@
                                         ),
                                     ),
                                 ),
+                                place: Const,
                             },
                         ],
                     },
@@ -144,7 +144,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,

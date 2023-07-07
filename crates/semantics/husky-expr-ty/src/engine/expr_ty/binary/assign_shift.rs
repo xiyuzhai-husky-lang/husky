@@ -27,7 +27,7 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_num_ty_binary_shift_ropd_ty(ropd)?;
                 Ok(lopd_ty)
             }
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path: path,
                 refined_ty_path: Left(PreludeTypePath::Num(_)),
@@ -42,13 +42,14 @@ impl<'a> ExprTypeEngine<'a> {
             | FluffyTermData::Curry { .. }
             | FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
@@ -63,7 +64,7 @@ impl<'a> ExprTypeEngine<'a> {
                 refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..
             }
-            | FluffyTermData::PlaceTypeOntology {
+            | FluffyTermData::TypeOntologyAtPlace {
                 refined_ty_path: Left(PreludeTypePath::Num(PreludeNumTypePath::Int(_))),
                 ..
             }
@@ -73,18 +74,19 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),
-            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

@@ -1688,7 +1688,7 @@ Ok(
                     use_expr_idx: 0,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        47,
+                        48,
                     ),
                 },
                 UseAllModuleSymbolsRule {
