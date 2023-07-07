@@ -9,7 +9,7 @@ use thiserror::Error;
 
 /// variables are externalized symbols, derived from symbols, and defined in a bottom-up manner
 ///
-#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar, constructor = new)]
+#[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermVariable {
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     /// this is the index to disambiguate it from all other symbols with the same type
@@ -26,5 +26,15 @@ impl DeclarativeTermVariable {
     ) -> std::fmt::Result {
         // ad hoc
         f.write_fmt(format_args!("v{}", self.idx(db)))
+    }
+}
+
+impl DeclarativeTermRewriteCopy for DeclarativeTermVariable {
+    fn substitute(
+        self,
+        db: &dyn DeclarativeTermDb,
+        substituation: &DeclarativeTermSubstitution,
+    ) -> Self {
+        todo!()
     }
 }

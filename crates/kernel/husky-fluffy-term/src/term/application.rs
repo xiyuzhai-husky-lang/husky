@@ -113,28 +113,19 @@ FluffyTermData::Variable { ty } => todo!(),
         if arguments.len() == 0 {
             TermEntityPath::TypeOntology(path).into()
         } else {
-            let mut solid_flag = false;
-            let mut hollow_flag = false;
-            for argument in &arguments {
-                match argument.nested() {
-                    NestedFluffyTerm::Ethereal(_) => (),
-                    NestedFluffyTerm::Solid(_) => solid_flag = true,
-                    NestedFluffyTerm::Hollow(_) => hollow_flag = true,
-                }
-            }
-            if hollow_flag {
-                fluffy_terms
+            let mut merger = FluffyTermDataKindMerger::default();
+            merger.accept(arguments.iter().copied());
+            match merger.data_kind() {
+                FluffyTermDataKind::Ethereal => todo!(),
+                FluffyTermDataKind::Solid => todo!(),
+                FluffyTermDataKind::Hollow => fluffy_terms
                     .hollow_terms_mut()
                     .alloc_new(HollowTermData::TypeOntology {
                         path,
                         refined_path,
                         arguments,
                     })
-                    .into()
-            } else if solid_flag {
-                todo!()
-            } else {
-                todo!()
+                    .into(),
             }
         }
     }

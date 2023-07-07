@@ -1,1 +1,9 @@
-pub gn narrow_down(...[] f: f32, skip: i32 = 5);
+pub enum OneVsAllResult<Label, const label: Label>
+| ConfidentYes
+| ConfidentNo
+| Unconfident
+
+pub gn narrow_down<Label, const label: Label>(
+    ...[] f: f32,
+    skip: i32 = 5,
+) -> OneVsAllResult Label label;

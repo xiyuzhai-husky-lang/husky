@@ -124,8 +124,8 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        meta: &mut ExpectationMeta,
         terms: &mut FluffyTerms,
+        meta: &mut ExpectationMeta,
     ) -> Option<ExpectationEffect> {
         match self.ty().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),

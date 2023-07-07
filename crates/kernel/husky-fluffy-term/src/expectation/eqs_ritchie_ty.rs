@@ -42,18 +42,18 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
         terms: &mut FluffyTerms,
+        meta: &mut ExpectationMeta,
     ) -> Option<ExpectationEffect> {
         // todo: move these to aux
-        match state.expectee().data_inner(db, terms) {
+        match meta.expectee().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
                 arguments,
                 ..
-            } => state.set_err(OriginalFluffyTermExpectationError::Todo, smallvec![]),
+            } => meta.set_err(OriginalFluffyTermExpectationError::Todo, smallvec![]),
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
@@ -63,8 +63,8 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
                 ty_ethereal_term,
             } => self.resolve_curry(
                 db,
-                state,
                 terms,
+                meta,
                 curry_kind,
                 variance,
                 parameter_symbol,
@@ -78,7 +78,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
                 parameter_contracted_tys,
                 return_ty,
                 ..
-            } => state.set_ok(
+            } => meta.set_ok(
                 ExpectEqsRitchieTypeOutcome {
                     ritchie_kind,
                     implicit_parameter_substitutions: smallvec![],
@@ -122,8 +122,8 @@ impl ExpectEqsRitchieType {
     fn resolve_curry(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
         terms: &mut FluffyTerms,
+        meta: &mut ExpectationMeta,
         curry_kind: CurryKind,
         variance: Variance,
         parameter_variable: Option<FluffyTerm>,
@@ -136,7 +136,7 @@ impl ExpectEqsRitchieType {
                 Some(parameter_variable) => {
                     let implicit_symbol = terms.new_hole_from_parameter_symbol(
                         db,
-                        HoleSource::Expectation(state.idx()),
+                        HoleSource::Expectation(meta.idx()),
                         parameter_variable,
                     );
                     let mut implicit_parameter_substitutions =
@@ -145,13 +145,13 @@ impl ExpectEqsRitchieType {
                             implicit_symbol,
                         )];
                     let expectee = return_ty;
-                    let expectee = terms.substitute_into_term(
+                    let expectee = expectee.rewrite(
                         db,
-                        HoleSource::Expectation(state.idx()),
-                        expectee,
+                        terms,
+                        HoleSource::Expectation(meta.idx()),
                         &implicit_parameter_substitutions,
                     );
-                    self.resolve_aux(db, terms, expectee, implicit_parameter_substitutions)
+                    self.resolve_aux(db, terms, meta, expectee, implicit_parameter_substitutions)
                 }
                 None => todo!(),
                 // self.resolve(db, meta, terms, idx, return_ty),
@@ -163,6 +163,7 @@ impl ExpectEqsRitchieType {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
+        meta: &mut ExpectationMeta,
         expectee: FluffyTerm,
         mut substitution_rules: SmallVec<[ImplicitParameterSubstitution; 2]>,
     ) -> Option<ExpectationEffect> {
@@ -181,7 +182,11 @@ impl ExpectEqsRitchieType {
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
-            } => todo!(),
+            } => {
+                p!(parameter_ty.debug(db));
+                p!(return_ty.debug(db));
+                todo!()
+            }
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie { .. } => todo!(),

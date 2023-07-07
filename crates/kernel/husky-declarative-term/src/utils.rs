@@ -11,7 +11,7 @@ impl DeclarativeTerm {
     pub fn family(self, db: &dyn DeclarativeTermDb) -> DeclarativeTermFamily {
         match self {
             DeclarativeTerm::Literal(_) => todo!(),
-            DeclarativeTerm::Symbol(_) => todo!(),
+            DeclarativeTerm::Symbol(_) => DeclarativeTermFamily::Other,
             DeclarativeTerm::Variable(_) => todo!(),
             DeclarativeTerm::EntityPath(path) => match path {
                 DeclarativeTermEntityPath::Form(_) => todo!(),

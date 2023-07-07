@@ -61,16 +61,16 @@ impl FluffyTermRitchieParameter {
     pub fn ty(&self) -> FluffyTerm {
         match self {
             FluffyTermRitchieParameter::Regular(param) => param.ty(),
-            FluffyTermRitchieParameter::Variadic(_) => todo!(),
-            FluffyTermRitchieParameter::Keyed(_) => todo!(),
+            FluffyTermRitchieParameter::Variadic(param) => param.ty(),
+            FluffyTermRitchieParameter::Keyed(param) => param.ty(),
         }
     }
 
     pub(crate) fn ty_mut(&mut self) -> &mut FluffyTerm {
         match self {
             FluffyTermRitchieParameter::Regular(param) => param.ty_mut(),
-            FluffyTermRitchieParameter::Variadic(_) => todo!(),
-            FluffyTermRitchieParameter::Keyed(_) => todo!(),
+            FluffyTermRitchieParameter::Variadic(param) => param.ty_mut(),
+            FluffyTermRitchieParameter::Keyed(param) => param.ty_mut(),
         }
     }
 }

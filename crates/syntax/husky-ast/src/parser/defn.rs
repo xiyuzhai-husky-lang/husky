@@ -138,27 +138,13 @@ impl<'a> AstParser<'a> {
                 match aux_parser.try_parse_expected::<IdentToken, _>(
                     OriginalAstError::ExpectedIdentForTypeVariant,
                 ) {
-                    Ok(ident_token) => {
-                        // check that variant name is available
-                        for ty_variant in &ty_variants {
-                            match ty_variant {
-                                Ast::TypeVariant {
-                                    ident_token: prev_ident_token,
-                                    ..
-                                } if prev_ident_token.ident() == ident_token.ident() => {
-                                    todo!()
-                                }
-                                _ => (),
-                            }
-                        }
-                        Ast::TypeVariant {
-                            token_group_idx,
-                            variant_path: TypeVariantPath::new(self.db, path, ident_token.ident()),
-                            vertical_token,
-                            ident_token,
-                            state_after: aux_parser.save_state(),
-                        }
-                    }
+                    Ok(ident_token) => Ast::TypeVariant {
+                        token_group_idx,
+                        variant_path: TypeVariantPath::new(self.db, path, ident_token.ident()),
+                        vertical_token,
+                        ident_token,
+                        state_after: aux_parser.save_state(),
+                    },
                     Err(error) => Ast::Err {
                         token_group_idx,
                         error,

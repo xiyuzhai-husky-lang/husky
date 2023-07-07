@@ -1,6 +1,46 @@
 [
     (
         EntityPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`malamute::OneVsAllResult`, `Enum`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Enum(
+                        EnumDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 47,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                ],
+                            },
+                            self_ty: DeclarativeTerm(`malamute::OneVsAllResult t a`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`malamute::narrow_down`, `Gn`),
             ),
@@ -11,7 +51,26 @@
                     FugitiveDeclarativeSignatureTemplate::Gn(
                         GnDeclarativeSignatureTemplate {
                             implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                data: [],
+                                data: [
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 47,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                ],
                             },
                             explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
                                 data: [
@@ -61,7 +120,7 @@
                                     ),
                                 ],
                             },
-                            return_ty: DeclarativeTerm(`core::basic::unit`),
+                            return_ty: DeclarativeTerm(`malamute::OneVsAllResult t a`),
                         },
                     ),
                 ),

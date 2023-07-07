@@ -58,8 +58,8 @@ impl ExpectFluffyTerm for ExpectExplicitlyConvertible {
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
+        terms: &mut FluffyTerms,
         meta: &mut ExpectationMeta,
-        fluffy_terms: &mut FluffyTerms,
     ) -> Option<ExpectationEffect> {
         // todo
         None

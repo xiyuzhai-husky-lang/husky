@@ -50,7 +50,8 @@ impl InheritedSymbol {
         match self.kind {
             InheritedSymbolKind::ImplicitParameter(kind) => match kind {
                 InheritedImplicitParameterSymbol::Lifetime { label } => None,
-                InheritedImplicitParameterSymbol::Type { ident } => Some(ident),
+                InheritedImplicitParameterSymbol::Type { ident }
+                | InheritedImplicitParameterSymbol::Constant { ident } => Some(ident),
             },
             InheritedSymbolKind::ExplicitParameter { ident } => Some(ident),
         }
@@ -69,6 +70,7 @@ pub enum InheritedSymbolKind {
 pub enum InheritedImplicitParameterSymbol {
     Lifetime { label: Label },
     Type { ident: Ident },
+    Constant { ident: Ident },
 }
 
 #[derive(Debug, PartialEq, Eq)]
@@ -234,8 +236,10 @@ impl CurrentImplicitParameterSymbol {
             }
             CurrentImplicitParameterSymbol::Constant {
                 ident_token,
-                ty_expr_idx: ty_expr,
-            } => todo!(),
+                ty_expr_idx,
+            } => InheritedImplicitParameterSymbol::Constant {
+                ident: ident_token.ident(),
+            },
         }
     }
 }

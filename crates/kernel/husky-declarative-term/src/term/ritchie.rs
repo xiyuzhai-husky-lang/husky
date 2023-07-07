@@ -84,16 +84,16 @@ impl DeclarativeTermRitchieParameter {
     pub fn ty(&self) -> DeclarativeTerm {
         match self {
             DeclarativeTermRitchieParameter::Regular(param) => param.ty(),
-            DeclarativeTermRitchieParameter::Variadic(_) => todo!(),
-            DeclarativeTermRitchieParameter::Keyed(_) => todo!(),
+            DeclarativeTermRitchieParameter::Variadic(param) => param.ty(),
+            DeclarativeTermRitchieParameter::Keyed(param) => param.ty(),
         }
     }
 
-    pub(crate) fn substitute_ty(self, f: impl FnOnce(DeclarativeTerm) -> DeclarativeTerm) -> Self {
+    pub(crate) fn substitute_ty(self, f: impl Fn(DeclarativeTerm) -> DeclarativeTerm) -> Self {
         match self {
             DeclarativeTermRitchieParameter::Regular(param) => param.substitute_ty(f).into(),
-            DeclarativeTermRitchieParameter::Variadic(_) => todo!(),
-            DeclarativeTermRitchieParameter::Keyed(_) => todo!(),
+            DeclarativeTermRitchieParameter::Variadic(param) => param.substitute_ty(f).into(),
+            DeclarativeTermRitchieParameter::Keyed(param) => param.substitute_ty(f).into(),
         }
     }
 

@@ -68,8 +68,17 @@ impl DeclarativeTerm {
                 }
             }
         };
+        // scan
         match self {
-            DeclarativeTerm::Curry(_) => todo!(),
+            DeclarativeTerm::Curry(term) => {
+                if let Some(v) = term.parameter_variable(db) {
+                    if let Ok(ty) = v.ty(db) {
+                        t(ty)
+                    }
+                }
+                t(term.parameter_ty(db));
+                t(term.return_ty(db));
+            }
             DeclarativeTerm::Ritchie(term) => {
                 for parameter_ty in term.params(db) {
                     t(parameter_ty.ty())

@@ -191,7 +191,10 @@ pub(crate) fn ethereal_term_application_declarative_ty(
         RawType::Declarative(DeclarativeTerm::Curry(function_ty)) => {
             match term_application.shift(db) {
                 0 => Ok(match function_ty.parameter_variable(db) {
-                    Some(_) => todo!(),
+                    Some(v) => function_ty.return_ty(db).substitute(
+                        db,
+                        &DeclarativeTermSubstitution::new(v, argument.into_declarative(db)),
+                    ),
                     None => function_ty.return_ty(db),
                 }),
                 1 => match argument.raw_ty(db)? {

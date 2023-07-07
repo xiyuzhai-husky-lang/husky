@@ -36,6 +36,6 @@ impl DeclarativeTermRewriteCopy for DeclarativeTermAsTraitSubentity {
             return self;
         }
         let ident = self.ident(db);
-        DeclarativeTermAsTraitSubentity::new(db, parent, trai, ident)
+        Self::new(db, parent, trai, ident)
     }
 }

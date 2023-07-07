@@ -425,3 +425,41 @@ impl TermApplicationFluffyData {
         }
     }
 }
+
+#[derive(Default)]
+pub(crate) struct FluffyTermDataKindMerger {
+    has_solid: bool,
+    has_hollow: bool,
+}
+
+impl FluffyTermDataKindMerger {
+    pub(crate) fn accept_one(&mut self, term: FluffyTerm) {
+        match term.nested() {
+            NestedFluffyTerm::Ethereal(_) => (),
+            NestedFluffyTerm::Solid(_) => self.has_solid = true,
+            NestedFluffyTerm::Hollow(_) => self.has_hollow = true,
+        }
+    }
+
+    pub(crate) fn accept(&mut self, terms: impl IntoIterator<Item = FluffyTerm>) {
+        for term in terms {
+            self.accept_one(term)
+        }
+    }
+
+    pub(crate) fn data_kind(self) -> FluffyTermDataKind {
+        if self.has_hollow {
+            FluffyTermDataKind::Hollow
+        } else if self.has_solid {
+            FluffyTermDataKind::Solid
+        } else {
+            FluffyTermDataKind::Ethereal
+        }
+    }
+}
+
+pub(crate) enum FluffyTermDataKind {
+    Ethereal,
+    Solid,
+    Hollow,
+}
