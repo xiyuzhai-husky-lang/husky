@@ -85,7 +85,10 @@ impl Expr {
             } => todo!(),
             Expr::Field { .. } => BaseEntityPath::None,
             Expr::MethodApplicationOrCall { .. } => BaseEntityPath::None,
-            Expr::ExplicitApplication { function, argument } => todo!(),
+            Expr::ExplicitApplication {
+                function_expr_idx: function,
+                argument_expr_idx: argument,
+            } => todo!(),
             Expr::FunctionApplicationOrCall { .. } => todo!(),
             // although unit is a valid entity,
             // but unit doesn't contains any subentity, so effectively none
@@ -247,8 +250,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     let argument = self.take_complete_expr().expect("");
                     let function = self.alloc_expr(function);
                     let argument = self.alloc_expr(argument);
-                    self.stack.complete_expr =
-                        Some(Expr::ExplicitApplication { function, argument })
+                    self.stack.complete_expr = Some(Expr::ExplicitApplication {
+                        function_expr_idx: function,
+                        argument_expr_idx: argument,
+                    })
                 }
                 IncompleteExpr::Prefix {
                     punctuation,

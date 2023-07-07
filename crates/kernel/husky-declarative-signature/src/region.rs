@@ -50,7 +50,7 @@ impl DeclarativeTermRegion {
         &self.term_symbol_region
     }
 
-    pub fn current_symbol_term(
+    pub fn current_symbol_signature(
         &self,
         current_symbol_idx: CurrentSymbolIdx,
     ) -> Option<SymbolSignature> {

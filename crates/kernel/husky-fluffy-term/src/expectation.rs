@@ -56,7 +56,7 @@ impl Expectation {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        meta: &mut ExpectationMeta,
+        meta: &mut ExpectationState,
     ) -> Option<ExpectationEffect> {
         match self {
             Expectation::ExplicitlyConvertible(epn) => epn.resolve(db, terms, meta),
@@ -137,7 +137,7 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        meta: &mut ExpectationMeta,
+        meta: &mut ExpectationState,
     ) -> Option<ExpectationEffect>;
 }
 

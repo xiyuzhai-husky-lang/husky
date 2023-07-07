@@ -79,7 +79,6 @@ impl<'a> ExprTypeEngine<'a> {
             _ => Default::default(),
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
-        p!(self.path());
         self.fluffy_term_region
             .resolve_as_much_as_possible(self.db(), FluffyTermResolveLevel::Weak);
         expectation_idx
@@ -184,12 +183,18 @@ impl<'a> ExprTypeEngine<'a> {
                     Ok(self.term_menu.bool_ty_ontology().into()),
                 ))
             }
-            Expr::Prefix { opr, opd, .. } => {
-                self.calc_prefix_expr_ty(opr, opd, expr_ty_expectation.final_destination(self))
-            }
-            Expr::Suffix { opd, opr, .. } => {
-                self.calc_suffix_expr_ty(opd, opr, expr_ty_expectation.final_destination(self))
-            }
+            Expr::Prefix { opr, opd, .. } => self.calc_prefix_expr_ty(
+                expr_idx,
+                opr,
+                opd,
+                expr_ty_expectation.final_destination(self),
+            ),
+            Expr::Suffix { opd, opr, .. } => self.calc_suffix_expr_ty(
+                expr_idx,
+                opd,
+                opr,
+                expr_ty_expectation.final_destination(self),
+            ),
             Expr::FunctionApplicationOrCall {
                 function,
                 ref implicit_arguments,
@@ -234,9 +239,13 @@ impl<'a> ExprTypeEngine<'a> {
                 template,
                 ref implicit_arguments,
             } => todo!(),
-            Expr::ExplicitApplication { function, argument } => self.calc_explicit_application(
-                function,
-                argument,
+            Expr::ExplicitApplication {
+                function_expr_idx,
+                argument_expr_idx,
+            } => self.calc_explicit_application(
+                expr_idx,
+                function_expr_idx,
+                argument_expr_idx,
                 expr_ty_expectation.final_destination(self),
             ),
             Expr::Bracketed { item, .. } => Ok((
@@ -391,13 +400,19 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_explicit_application(
         &mut self,
-        function: ExprIdx,
-        argument: ExprIdx,
+        expr_idx: ExprIdx,
+        function_expr_idx: ExprIdx,
+        argument_expr_idx: ExprIdx,
         final_destination: FinalDestination,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         Ok((
             ExprDisambiguation::Trivial,
-            self.calc_function_application_expr_ty(function, argument, final_destination),
+            self.calc_function_application_expr_ty(
+                expr_idx,
+                function_expr_idx,
+                argument_expr_idx,
+                final_destination,
+            ),
         ))
     }
 }

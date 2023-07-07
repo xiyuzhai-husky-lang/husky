@@ -5,7 +5,7 @@ pub(crate) use self::utils::*;
 use super::*;
 
 /// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = pub(crate) new)]
+#[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealTermCurry {
     pub curry_kind: CurryKind,
     pub variance: Variance,

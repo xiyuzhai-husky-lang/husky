@@ -52,6 +52,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Ok(lopd_ty)
                     }
                     HoleKind::ImplicitType => todo!(),
+                    HoleKind::Any => todo!(),
                 }
             }
             FluffyTermData::Category(_) => todo!(),

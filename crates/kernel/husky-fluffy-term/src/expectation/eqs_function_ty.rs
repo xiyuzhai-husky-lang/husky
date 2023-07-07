@@ -41,17 +41,17 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        meta: &mut ExpectationMeta,
+        state: &mut ExpectationState,
     ) -> Option<ExpectationEffect> {
         // todo: move these to aux
-        match meta.expectee().data_inner(db, terms) {
+        match state.expectee().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
                 arguments,
                 ..
-            } => meta.set_err(
+            } => state.set_err(
                 OriginalFluffyTermExpectationError::ExpectedFunctionType,
                 smallvec![],
             ),
@@ -64,7 +64,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 ty_ethereal_term,
             } => self.resolve_curry(
                 db,
-                meta,
+                state,
                 terms,
                 curry_kind,
                 variance,
@@ -73,7 +73,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 return_ty,
             ),
             FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => meta.set_err(
+            FluffyTermData::Category(_) => state.set_err(
                 OriginalFluffyTermExpectationError::ExpectedFunctionType,
                 smallvec![],
             ),
@@ -82,7 +82,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 parameter_contracted_tys,
                 return_ty,
                 ..
-            } => meta.set_ok(
+            } => state.set_ok(
                 ExpectEqsFunctionTypeOutcome {
                     implicit_parameter_substitutions: smallvec![],
                     return_ty,
@@ -142,7 +142,7 @@ impl ExpectEqsFunctionType {
     fn resolve_curry(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
+        state: &mut ExpectationState,
         terms: &mut FluffyTerms,
         curry_kind: CurryKind,
         variance: Variance,
@@ -177,7 +177,7 @@ impl ExpectEqsFunctionType {
                             implicit_symbol,
                         )];
                     let expectee = return_ty;
-                    let expectee = expectee.rewrite(
+                    let expectee = expectee.rewrite_inner(
                         db,
                         terms,
                         HoleSource::Expectation(state.idx()),
@@ -193,7 +193,7 @@ impl ExpectEqsFunctionType {
     fn resolve_aux(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
+        state: &mut ExpectationState,
         terms: &mut FluffyTerms,
         expectee: FluffyTerm,
         mut substitution_rules: SmallVec<[ImplicitParameterSubstitution; 2]>,

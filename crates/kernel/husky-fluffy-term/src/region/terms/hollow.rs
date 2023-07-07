@@ -39,10 +39,6 @@ impl HollowTerms {
         HollowTerm(idx.try_into().expect("within range"))
     }
 
-    pub(crate) fn resolve_progress(&self, hollow_term: HollowTerm) -> HollowTermResolveProgress {
-        self.entry(hollow_term).resolve_progress.share()
-    }
-
     pub(crate) fn data(&self, hollow_term: HollowTerm) -> &HollowTermData {
         &self.entry(hollow_term).data
     }
@@ -123,10 +119,10 @@ impl HollowTerms {
                 for argument in arguments {
                     match argument.resolve_progress(self) {
                         // we can't proceed if any argument is unresolved hollow
-                        HollowTermResolveProgress::UnresolvedHollow => return,
-                        HollowTermResolveProgress::ResolvedEthereal(_) => (),
-                        HollowTermResolveProgress::ResolvedSolid(_) => solid_flag = true,
-                        HollowTermResolveProgress::Err => todo!(),
+                        TermResolveProgress::UnresolvedHollow => return,
+                        TermResolveProgress::ResolvedEthereal(_) => (),
+                        TermResolveProgress::ResolvedSolid(_) => solid_flag = true,
+                        TermResolveProgress::Err => todo!(),
                     }
                 }
                 if solid_flag {
@@ -139,7 +135,7 @@ impl HollowTerms {
                         arguments
                             .iter()
                             .map(|argument| match argument.resolve_progress(self) {
-                                HollowTermResolveProgress::ResolvedEthereal(argument) => argument,
+                                TermResolveProgress::ResolvedEthereal(argument) => argument,
                                 _ => unreachable!(),
                             }),
                     ) {
@@ -157,10 +153,10 @@ impl HollowTerms {
             } => todo!(),
             HollowTermData::Hole { fill, .. } => match fill {
                 Some(fill) => match fill.resolve_progress(self) {
-                    HollowTermResolveProgress::UnresolvedHollow => return,
-                    HollowTermResolveProgress::ResolvedEthereal(_) => todo!(),
-                    HollowTermResolveProgress::ResolvedSolid(_) => todo!(),
-                    HollowTermResolveProgress::Err => todo!(),
+                    TermResolveProgress::UnresolvedHollow => return,
+                    TermResolveProgress::ResolvedEthereal(_) => todo!(),
+                    TermResolveProgress::ResolvedSolid(_) => todo!(),
+                    TermResolveProgress::Err => todo!(),
                 },
                 None => (),
             },
@@ -173,23 +169,23 @@ impl HollowTerms {
                 for param in params {
                     match param.ty().resolve_progress(self) {
                         // we can't proceed if any argument is unresolved hollow
-                        HollowTermResolveProgress::UnresolvedHollow => return,
-                        HollowTermResolveProgress::ResolvedEthereal(_) => (),
-                        HollowTermResolveProgress::ResolvedSolid(_) => todo!(),
-                        HollowTermResolveProgress::Err => todo!(),
+                        TermResolveProgress::UnresolvedHollow => return,
+                        TermResolveProgress::ResolvedEthereal(_) => (),
+                        TermResolveProgress::ResolvedSolid(_) => todo!(),
+                        TermResolveProgress::Err => todo!(),
                     }
                 }
                 match return_ty.resolve_progress(self) {
-                    HollowTermResolveProgress::UnresolvedHollow => return,
-                    HollowTermResolveProgress::ResolvedEthereal(_) => (),
-                    HollowTermResolveProgress::ResolvedSolid(_) => todo!(),
-                    HollowTermResolveProgress::Err => todo!(),
+                    TermResolveProgress::UnresolvedHollow => return,
+                    TermResolveProgress::ResolvedEthereal(_) => (),
+                    TermResolveProgress::ResolvedSolid(_) => todo!(),
+                    TermResolveProgress::Err => todo!(),
                 }
                 if solid_flag {
                     todo!()
                 } else {
                     let params = params.iter().map(|param| {
-                        let HollowTermResolveProgress::ResolvedEthereal(ty) =
+                        let TermResolveProgress::ResolvedEthereal(ty) =
                             param.ty().resolve_progress(self) else {
                             unreachable!()
                         };
@@ -203,7 +199,7 @@ impl HollowTerms {
                         }
                     });
                     let return_ty = match return_ty.resolve_progress(self) {
-                        HollowTermResolveProgress::ResolvedEthereal(return_ty) => return_ty,
+                        TermResolveProgress::ResolvedEthereal(return_ty) => return_ty,
                         _ => unreachable!(),
                     };
                     self.entries[idx].resolve_progress =
@@ -224,28 +220,46 @@ impl HollowTerms {
                 hole_kind,
                 hole,
             } => match hole.term().resolve_progress(self) {
-                HollowTermResolveProgress::UnresolvedHollow => return,
-                HollowTermResolveProgress::ResolvedEthereal(_) => todo!(),
-                HollowTermResolveProgress::ResolvedSolid(_) => todo!(),
-                HollowTermResolveProgress::Err => todo!(),
+                TermResolveProgress::UnresolvedHollow => return,
+                TermResolveProgress::ResolvedEthereal(_) => todo!(),
+                TermResolveProgress::ResolvedSolid(_) => todo!(),
+                TermResolveProgress::Err => todo!(),
             },
         }
     }
 }
 
-impl FluffyTerm {
-    fn resolve_progress(self, hollow_terms: &HollowTerms) -> HollowTermResolveProgress {
-        match self.nested() {
-            NestedFluffyTerm::Ethereal(term) => HollowTermResolveProgress::ResolvedEthereal(term),
-            NestedFluffyTerm::Solid(term) => HollowTermResolveProgress::ResolvedSolid(term),
-            NestedFluffyTerm::Hollow(term) => term.resolve_progress(hollow_terms),
-        }
+impl HollowTerm {
+    pub(crate) fn resolve_progress(
+        self,
+        hollow_terms: &impl std::borrow::Borrow<HollowTerms>,
+    ) -> TermResolveProgress {
+        hollow_terms.borrow().entries[self.idx()]
+            .resolve_progress
+            .share()
     }
 }
 
-impl HollowTerm {
-    fn resolve_progress(self, hollow_terms: &HollowTerms) -> HollowTermResolveProgress {
-        hollow_terms.entries[self.idx()].resolve_progress.share()
+impl FluffyTerm {
+    pub(crate) fn resolve_progress(
+        self,
+        terms: &impl std::borrow::Borrow<HollowTerms>,
+    ) -> TermResolveProgress {
+        match self.nested() {
+            NestedFluffyTerm::Ethereal(term) => TermResolveProgress::ResolvedEthereal(term),
+            NestedFluffyTerm::Solid(term) => TermResolveProgress::ResolvedSolid(term),
+            NestedFluffyTerm::Hollow(term) => term.resolve_progress(terms.borrow()),
+        }
+    }
+
+    pub(crate) fn resolve_as_ethereal(
+        self,
+        terms: &impl std::borrow::Borrow<HollowTerms>,
+    ) -> Option<EtherealTerm> {
+        match self.resolve_progress(terms) {
+            TermResolveProgress::ResolvedEthereal(term) => Some(term),
+            _ => None,
+        }
     }
 }
 
@@ -292,7 +306,7 @@ impl HollowTermEntry {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub enum HollowTermResolveProgress {
+pub enum TermResolveProgress {
     UnresolvedHollow,
     ResolvedEthereal(EtherealTerm),
     ResolvedSolid(SolidTerm),
@@ -300,16 +314,16 @@ pub enum HollowTermResolveProgress {
 }
 
 impl HollowTermResolveProgressBuf {
-    fn share(&self) -> HollowTermResolveProgress {
+    fn share(&self) -> TermResolveProgress {
         match self {
-            HollowTermResolveProgressBuf::Unresolved => HollowTermResolveProgress::UnresolvedHollow,
+            HollowTermResolveProgressBuf::Unresolved => TermResolveProgress::UnresolvedHollow,
             HollowTermResolveProgressBuf::ResolvedEthereal(term) => {
-                HollowTermResolveProgress::ResolvedEthereal(*term)
+                TermResolveProgress::ResolvedEthereal(*term)
             }
             HollowTermResolveProgressBuf::ResolvedSolid(term) => {
-                HollowTermResolveProgress::ResolvedSolid(*term)
+                TermResolveProgress::ResolvedSolid(*term)
             }
-            HollowTermResolveProgressBuf::Err(_) => HollowTermResolveProgress::Err,
+            HollowTermResolveProgressBuf::Err(_) => TermResolveProgress::Err,
         }
     }
 }

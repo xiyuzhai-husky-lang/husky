@@ -191,8 +191,8 @@ Ok(
                                                 ),
                                             },
                                             Expr::ExplicitApplication {
-                                                function: 5,
-                                                argument: 6,
+                                                function_expr_idx: 5,
+                                                argument_expr_idx: 6,
                                             },
                                         ],
                                     },

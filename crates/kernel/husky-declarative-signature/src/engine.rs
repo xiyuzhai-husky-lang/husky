@@ -435,7 +435,10 @@ impl<'a> DeclarativeTermEngine<'a> {
                 )
                 .into())
             }
-            Expr::ExplicitApplication { function, argument } => {
+            Expr::ExplicitApplication {
+                function_expr_idx: function,
+                argument_expr_idx: argument,
+            } => {
                 let Ok(argument) = self.infer_new_expr_term(argument) else {
                     Err(DerivedDeclarativeTermError2::CannotInferArgumentDeclarativeTermInApplication)?
                 };

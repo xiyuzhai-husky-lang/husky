@@ -111,6 +111,7 @@ fn list_index_signature(
             }
             HoleKind::UnspecifiedFloatType => todo!(),
             HoleKind::ImplicitType => todo!(),
+            HoleKind::Any => todo!(),
         },
         FluffyTermData::Category(_) => todo!(),
         FluffyTermData::Ritchie {

@@ -74,12 +74,12 @@ impl ExpectationSource {
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct ExpectationEntry {
     expectation: Expectation,
-    meta: ExpectationMeta,
+    meta: ExpectationState,
 }
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct ExpectationMeta {
+pub struct ExpectationState {
     idx: ExpectationIdx,
     src: ExpectationSource,
     expectee: FluffyTerm,
@@ -116,7 +116,7 @@ impl ExpectationEntry {
     }
 }
 
-impl ExpectationMeta {
+impl ExpectationState {
     pub fn src(&self) -> ExpectationSource {
         self.src
     }
@@ -208,7 +208,7 @@ impl FluffyTermRegion {
         self.expectations
             .alloc_expectation(ExpectationEntry {
                 expectation: expectation.into(),
-                meta: ExpectationMeta {
+                meta: ExpectationState {
                     idx,
                     src,
                     expectee: expectee.into(),

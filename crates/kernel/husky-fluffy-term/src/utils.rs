@@ -43,6 +43,7 @@ impl FluffyTerm {
                 HoleKind::UnspecifiedIntegerType
                 | HoleKind::UnspecifiedFloatType
                 | HoleKind::ImplicitType => FinalDestination::TypeOntology,
+                HoleKind::Any => todo!(),
             },
             FluffyTermData::Category(_) => FinalDestination::Sort,
             FluffyTermData::Ritchie { .. } => todo!(),

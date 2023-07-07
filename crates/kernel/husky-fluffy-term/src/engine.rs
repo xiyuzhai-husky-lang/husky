@@ -7,6 +7,9 @@ pub trait FluffyTermEngine<'a>: Sized {
     fn fluffy_terms(&self) -> &FluffyTerms {
         self.fluffy_term_region().terms()
     }
+    fn fluffy_terms_mut(&mut self) -> &mut FluffyTerms {
+        self.fluffy_term_region_mut().terms_mut()
+    }
     fn term_menu(&self) -> &'a EtherealTermMenu;
     fn expr_region_data(&self) -> &'a ExprRegionData;
 

@@ -13,6 +13,12 @@ pub struct FluffyTerms {
     hollow_terms: HollowTerms,
 }
 
+impl std::borrow::Borrow<HollowTerms> for FluffyTerms {
+    fn borrow(&self) -> &HollowTerms {
+        &self.hollow_terms
+    }
+}
+
 impl FluffyTerms {
     pub(crate) fn new(terms: Option<&Self>) -> Self {
         Self {
@@ -69,7 +75,7 @@ impl FluffyTerms {
                     hole_kind,
                     hole,
                 } => todo!(),
-                FluffyTermData::Symbol { ty } => todo!(),
+                FluffyTermData::Symbol { ty } => HoleKind::Any,
                 FluffyTermData::Variable { ty } => todo!(),
                 _ => unreachable!(),
             },

@@ -43,7 +43,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        meta: &mut ExpectationMeta,
+        meta: &mut ExpectationState,
     ) -> Option<ExpectationEffect> {
         // todo: move these to aux
         match meta.expectee().data_inner(db, terms) {
@@ -57,7 +57,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
             FluffyTermData::Curry {
                 curry_kind,
                 variance,
-                parameter_variable: parameter_symbol,
+                parameter_variable,
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
@@ -67,7 +67,7 @@ impl ExpectFluffyTerm for ExpectEqsRitchieType {
                 meta,
                 curry_kind,
                 variance,
-                parameter_symbol,
+                parameter_variable,
                 parameter_ty,
                 return_ty,
             ),
@@ -123,49 +123,33 @@ impl ExpectEqsRitchieType {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        meta: &mut ExpectationMeta,
+        meta: &mut ExpectationState,
         curry_kind: CurryKind,
         variance: Variance,
         parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
     ) -> Option<ExpectationEffect> {
-        match curry_kind {
-            CurryKind::Explicit => todo!(),
-            CurryKind::Implicit => match parameter_variable {
-                Some(parameter_variable) => {
-                    let implicit_symbol = terms.new_hole_from_parameter_symbol(
-                        db,
-                        HoleSource::Expectation(meta.idx()),
-                        parameter_variable,
-                    );
-                    let mut implicit_parameter_substitutions =
-                        smallvec![ImplicitParameterSubstitution::new(
-                            parameter_variable,
-                            implicit_symbol,
-                        )];
-                    let expectee = return_ty;
-                    let expectee = expectee.rewrite(
-                        db,
-                        terms,
-                        HoleSource::Expectation(meta.idx()),
-                        &implicit_parameter_substitutions,
-                    );
-                    self.resolve_aux(db, terms, meta, expectee, implicit_parameter_substitutions)
-                }
-                None => todo!(),
-                // self.resolve(db, meta, terms, idx, return_ty),
-            },
-        }
+        self.resolve_curry_aux(
+            db,
+            terms,
+            meta,
+            curry_kind,
+            variance,
+            parameter_variable,
+            parameter_ty,
+            return_ty,
+            smallvec![],
+        )
     }
 
     fn resolve_aux(
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        meta: &mut ExpectationMeta,
+        state: &mut ExpectationState,
         expectee: FluffyTerm,
-        mut substitution_rules: SmallVec<[ImplicitParameterSubstitution; 2]>,
+        mut implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
     ) -> Option<ExpectationEffect> {
         match expectee.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
@@ -182,14 +166,32 @@ impl ExpectEqsRitchieType {
                 parameter_ty,
                 return_ty,
                 ty_ethereal_term,
-            } => {
-                p!(parameter_ty.debug(db));
-                p!(return_ty.debug(db));
-                todo!()
-            }
+            } => self.resolve_curry_aux(
+                db,
+                terms,
+                state,
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+                implicit_parameter_substitutions,
+            ),
             FluffyTermData::Hole(_, _) => todo!(),
             FluffyTermData::Category(_) => todo!(),
-            FluffyTermData::Ritchie { .. } => todo!(),
+            FluffyTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => state.set_ok(
+                ExpectEqsRitchieTypeOutcome {
+                    ritchie_kind,
+                    implicit_parameter_substitutions,
+                    parameter_contracted_tys: parameter_contracted_tys.to_smallvec(),
+                    return_ty,
+                },
+                Default::default(),
+            ),
             FluffyTermData::PlaceTypeOntology { .. } => todo!(),
             FluffyTermData::PlaceHole {
                 place,
@@ -198,6 +200,45 @@ impl ExpectEqsRitchieType {
             } => todo!(),
             FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+        }
+    }
+
+    fn resolve_curry_aux(
+        &self,
+        db: &dyn FluffyTermDb,
+        terms: &mut FluffyTerms,
+        meta: &mut ExpectationState,
+        curry_kind: CurryKind,
+        variance: Variance,
+        parameter_variable: Option<FluffyTerm>,
+        parameter_ty: FluffyTerm,
+        return_ty: FluffyTerm,
+        mut implicit_parameter_substitutions: SmallVec<[ImplicitParameterSubstitution; 2]>,
+    ) -> Option<ExpectationEffect> {
+        match curry_kind {
+            CurryKind::Explicit => todo!(),
+            // comes from implicit parameters, or generics in other languages
+            CurryKind::Implicit => match parameter_variable {
+                Some(parameter_variable) => {
+                    let implicit_symbol = terms.new_hole_from_parameter_symbol(
+                        db,
+                        HoleSource::Expectation(meta.idx()),
+                        parameter_variable,
+                    );
+                    implicit_parameter_substitutions.push(ImplicitParameterSubstitution::new(
+                        parameter_variable,
+                        implicit_symbol,
+                    ));
+                    let expectee = return_ty.rewrite_inner(
+                        db,
+                        terms,
+                        HoleSource::Expectation(meta.idx()),
+                        &implicit_parameter_substitutions,
+                    );
+                    self.resolve_aux(db, terms, meta, expectee, implicit_parameter_substitutions)
+                }
+                None => todo!(),
+            },
         }
     }
 }

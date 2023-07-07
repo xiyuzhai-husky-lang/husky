@@ -198,8 +198,8 @@ pub enum Expr {
     },
     // todo: implicit arguments
     ExplicitApplication {
-        function: ExprIdx,
-        argument: ExprIdx,
+        function_expr_idx: ExprIdx,
+        argument_expr_idx: ExprIdx,
     },
     Unit {
         lpar_token_idx: TokenIdx,

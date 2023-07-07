@@ -169,6 +169,8 @@ pub enum DerivedExprTypeError {
     UnableToInferFunctionApplicationArgumentType,
     #[error("UnableToInferAssociatedItemParentTerm")]
     UnableToInferAssociatedItemParentTerm,
+    #[error("UnableToInferArgumentTermForDependentType")]
+    UnableToInferArgumentTermForDependentType,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

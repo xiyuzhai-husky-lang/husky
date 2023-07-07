@@ -388,8 +388,8 @@ Ok(
                                                     },
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 4,
-                                                    argument: 5,
+                                                    function_expr_idx: 4,
+                                                    argument_expr_idx: 5,
                                                 },
                                                 Expr::CurrentSymbol {
                                                     ident: `label`,
@@ -409,8 +409,8 @@ Ok(
                                                     },
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 6,
-                                                    argument: 7,
+                                                    function_expr_idx: 6,
+                                                    argument_expr_idx: 7,
                                                 },
                                             ],
                                         },

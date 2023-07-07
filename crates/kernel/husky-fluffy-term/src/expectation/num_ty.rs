@@ -33,7 +33,7 @@ impl ExpectFluffyTerm for ExpectNumType {
         &self,
         db: &dyn FluffyTermDb,
         fluffy_terms: &mut FluffyTerms,
-        state: &mut ExpectationMeta,
+        state: &mut ExpectationState,
     ) -> Option<ExpectationEffect> {
         match state.expectee().data_inner(db, fluffy_terms) {
             FluffyTermData::Literal(_) => todo!(),
@@ -61,6 +61,7 @@ impl ExpectFluffyTerm for ExpectNumType {
             FluffyTermData::Hole(hole_kind, _) => match hole_kind {
                 HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => None,
                 HoleKind::ImplicitType => todo!(),
+                HoleKind::Any => todo!(),
             },
             FluffyTermData::Category(_) => todo!(),
             FluffyTermData::Ritchie {
@@ -81,6 +82,7 @@ impl ExpectFluffyTerm for ExpectNumType {
                     smallvec![],
                 ),
                 HoleKind::ImplicitType => todo!(),
+                HoleKind::Any => todo!(),
             },
             FluffyTermData::Symbol { ty } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
