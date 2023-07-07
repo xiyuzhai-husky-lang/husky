@@ -930,6 +930,63 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `OneVsAllResult`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 3,
+                                            ident_token: IdentToken {
+                                                ident: `OneVsAllResult`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 24,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                            path: PrincipalEntityPath::ModuleItem(
+                                ModuleItemPath::Type(
+                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            ast_idx: 19,
+                            use_expr_idx: 26,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `narrow_down`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits`,
@@ -952,11 +1009,11 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 0,
+                                            ast_idx: 4,
                                             ident_token: IdentToken {
                                                 ident: `narrow_down`,
                                                 token_idx: TokenIdx(
-                                                    2,
+                                                    19,
                                                 ),
                                             },
                                         },
@@ -3778,7 +3835,7 @@ Ok(
                         `mnist_classifier::digits`,
                     ),
                     progress: Ok(
-                        31,
+                        32,
                     ),
                 },
             ],

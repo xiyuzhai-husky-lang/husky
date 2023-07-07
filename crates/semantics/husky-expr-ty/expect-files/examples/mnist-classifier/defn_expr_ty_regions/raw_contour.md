@@ -261,14 +261,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 65,
@@ -293,15 +286,15 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
-                                            1,
+                                            0,
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 51,
@@ -326,6 +319,13 @@
                                         ),
                                     ),
                                 ),
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
                             },
                         ],
                     },
@@ -342,7 +342,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -360,7 +360,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -389,7 +389,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -417,7 +417,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -439,7 +439,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -461,7 +461,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -483,7 +483,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 6,
@@ -516,7 +516,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 7,
@@ -555,7 +555,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 8,
                                 src: ExpectationSource {
                                     expr_idx: 8,
@@ -594,7 +594,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 9,
                                 src: ExpectationSource {
                                     expr_idx: 9,
@@ -827,14 +827,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 65,
@@ -859,15 +852,15 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
-                                            1,
+                                            0,
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 51,
@@ -892,6 +885,13 @@
                                         ),
                                     ),
                                 ),
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
                             },
                         ],
                     },
@@ -908,7 +908,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -926,7 +926,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -944,7 +944,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -966,7 +966,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -999,7 +999,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -1038,7 +1038,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -1077,7 +1077,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 6,
@@ -1373,14 +1373,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 65,
@@ -1405,15 +1398,15 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
-                                            1,
+                                            0,
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 51,
@@ -1438,6 +1431,13 @@
                                         ),
                                     ),
                                 ),
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
                             },
                         ],
                     },
@@ -1454,7 +1454,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -1472,7 +1472,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -1501,7 +1501,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -1529,7 +1529,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -1551,7 +1551,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -1573,7 +1573,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -1595,7 +1595,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 6,
@@ -1628,7 +1628,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 7,
@@ -1667,7 +1667,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 8,
                                 src: ExpectationSource {
                                     expr_idx: 8,
@@ -1706,7 +1706,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 9,
                                 src: ExpectationSource {
                                     expr_idx: 9,
@@ -1985,7 +1985,31 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
+                            TypeOntologyAtPlace {
+                                path: TypePath(
+                                    Id {
+                                        value: 65,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Int(
+                                            R32,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 65,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -1993,6 +2017,8 @@
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 65,
@@ -2017,8 +2043,6 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -2026,39 +2050,8 @@
                                         ),
                                     ),
                                 },
-                                path: TypePath(
-                                    Id {
-                                        value: 65,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            R32,
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
                             },
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            2,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 51,
@@ -2083,6 +2076,13 @@
                                         ),
                                     ),
                                 ),
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            2,
+                                        ),
+                                    ),
+                                },
                             },
                         ],
                     },
@@ -2101,7 +2101,7 @@
                                     final_destination: AnyOriginal,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -2182,7 +2182,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -2217,7 +2217,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -2241,7 +2241,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -2265,7 +2265,7 @@
                                     final_destination: AnyOriginal,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -2346,7 +2346,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -2381,7 +2381,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 6,
@@ -2405,7 +2405,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 7,
@@ -2827,7 +2827,33 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
+                            TypeOntologyAtPlace {
+                                path: TypePath(
+                                    Id {
+                                        value: 81,
+                                    },
+                                ),
+                                refined_path: Right(
+                                    CustomTypePath(
+                                        TypePath(
+                                            Id {
+                                                value: 81,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 81,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -2835,6 +2861,8 @@
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 81,
@@ -2861,8 +2889,6 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -2870,32 +2896,6 @@
                                         ),
                                     ),
                                 },
-                                path: TypePath(
-                                    Id {
-                                        value: 81,
-                                    },
-                                ),
-                                refined_path: Right(
-                                    CustomTypePath(
-                                        TypePath(
-                                            Id {
-                                                value: 81,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 81,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
                             },
                         ],
                     },
@@ -2916,7 +2916,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 10,
@@ -2948,7 +2948,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -2986,7 +2986,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -3004,7 +3004,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -3026,7 +3026,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 6,
@@ -3052,7 +3052,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -3090,7 +3090,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -3119,7 +3119,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -3158,7 +3158,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 8,
                                 src: ExpectationSource {
                                     expr_idx: 7,
@@ -3196,7 +3196,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 9,
                                 src: ExpectationSource {
                                     expr_idx: 8,
@@ -3228,7 +3228,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 10,
                                 src: ExpectationSource {
                                     expr_idx: 9,
@@ -3250,7 +3250,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 11,
                                 src: ExpectationSource {
                                     expr_idx: 11,
@@ -3272,7 +3272,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 12,
                                 src: ExpectationSource {
                                     expr_idx: 12,
@@ -3555,7 +3555,31 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
+                            TypeOntologyAtPlace {
+                                path: TypePath(
+                                    Id {
+                                        value: 65,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Int(
+                                            R32,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 65,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -3563,6 +3587,8 @@
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 65,
@@ -3587,8 +3613,6 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -3596,39 +3620,8 @@
                                         ),
                                     ),
                                 },
-                                path: TypePath(
-                                    Id {
-                                        value: 65,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            R32,
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
                             },
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            2,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 51,
@@ -3653,15 +3646,15 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
-                                            3,
+                                            2,
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 81,
@@ -3688,6 +3681,13 @@
                                         ),
                                     ),
                                 ),
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            3,
+                                        ),
+                                    ),
+                                },
                             },
                         ],
                     },
@@ -3706,7 +3706,7 @@
                                     final_destination: AnyOriginal,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -3787,7 +3787,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -3822,7 +3822,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -3846,7 +3846,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -3870,7 +3870,7 @@
                                     final_destination: AnyOriginal,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -3951,7 +3951,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -3986,7 +3986,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 6,
@@ -4010,7 +4010,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 7,
@@ -4559,14 +4559,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 42,
@@ -4590,11 +4583,18 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 29,
+                                                value: 31,
                                             },
                                         ),
                                     ),
                                 ),
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            0,
+                                        ),
+                                    ),
+                                },
                             },
                         ],
                     },
@@ -4656,7 +4656,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -4674,7 +4674,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -4696,7 +4696,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -4714,7 +4714,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -4732,7 +4732,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 7,
@@ -4750,7 +4750,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 9,
@@ -4770,7 +4770,7 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 12,
@@ -4840,7 +4840,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 19,
@@ -4858,7 +4858,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 8,
                                 src: ExpectationSource {
                                     expr_idx: 27,
@@ -4887,7 +4887,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 9,
                                 src: ExpectationSource {
                                     expr_idx: 29,
@@ -4926,7 +4926,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 10,
                                 src: ExpectationSource {
                                     expr_idx: 30,
@@ -5735,7 +5735,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 29,
+                                        value: 31,
                                     },
                                 ),
                             ),
@@ -10043,14 +10043,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: MutableStackOwned {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            1,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 42,
@@ -10079,15 +10072,15 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: MutableStackOwned {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
-                                            9,
+                                            1,
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 42,
@@ -10111,11 +10104,18 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 29,
+                                                value: 31,
                                             },
                                         ),
                                     ),
                                 ),
+                                place: MutableStackOwned {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            9,
+                                        ),
+                                    ),
+                                },
                             },
                         ],
                     },
@@ -10534,7 +10534,7 @@
                                     final_destination: Sort,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -10595,7 +10595,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -10619,7 +10619,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -10656,7 +10656,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -10682,7 +10682,7 @@
                             expectation: NumType(
                                 ExpectNumType,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 6,
@@ -10700,7 +10700,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 9,
@@ -10718,7 +10718,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 13,
@@ -10743,7 +10743,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 14,
@@ -10761,7 +10761,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 8,
                                 src: ExpectationSource {
                                     expr_idx: 15,
@@ -10779,7 +10779,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 9,
                                 src: ExpectationSource {
                                     expr_idx: 19,
@@ -10797,7 +10797,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 10,
                                 src: ExpectationSource {
                                     expr_idx: 28,
@@ -10826,7 +10826,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 11,
                                 src: ExpectationSource {
                                     expr_idx: 49,
@@ -10854,7 +10854,7 @@
                             expectation: NumType(
                                 ExpectNumType,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 12,
                                 src: ExpectationSource {
                                     expr_idx: 50,
@@ -10872,7 +10872,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 13,
                                 src: ExpectationSource {
                                     expr_idx: 53,
@@ -10890,7 +10890,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 14,
                                 src: ExpectationSource {
                                     expr_idx: 56,
@@ -10910,7 +10910,7 @@
                                     final_destination: Sort,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 15,
                                 src: ExpectationSource {
                                     expr_idx: 58,
@@ -10971,7 +10971,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 16,
                                 src: ExpectationSource {
                                     expr_idx: 59,
@@ -10995,7 +10995,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 17,
                                 src: ExpectationSource {
                                     expr_idx: 60,
@@ -11026,13 +11026,13 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 29,
+                                                value: 31,
                                             },
                                         ),
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 18,
                                 src: ExpectationSource {
                                     expr_idx: 61,
@@ -11041,7 +11041,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 29,
+                                            value: 31,
                                         },
                                     ),
                                 ),
@@ -11058,7 +11058,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 19,
                                 src: ExpectationSource {
                                     expr_idx: 62,
@@ -11076,7 +11076,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 20,
                                 src: ExpectationSource {
                                     expr_idx: 64,
@@ -11094,7 +11094,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 21,
                                 src: ExpectationSource {
                                     expr_idx: 70,
@@ -11114,7 +11114,7 @@
                                     final_destination: AnyOriginal,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 22,
                                 src: ExpectationSource {
                                     expr_idx: 77,
@@ -11198,7 +11198,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 23,
                                 src: ExpectationSource {
                                     expr_idx: 81,
@@ -11220,7 +11220,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 24,
                                 src: ExpectationSource {
                                     expr_idx: 85,
@@ -11238,7 +11238,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 25,
                                 src: ExpectationSource {
                                     expr_idx: 86,
@@ -11256,7 +11256,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 26,
                                 src: ExpectationSource {
                                     expr_idx: 87,
@@ -11274,7 +11274,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 27,
                                 src: ExpectationSource {
                                     expr_idx: 88,
@@ -11292,7 +11292,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 28,
                                 src: ExpectationSource {
                                     expr_idx: 89,
@@ -11310,7 +11310,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 29,
                                 src: ExpectationSource {
                                     expr_idx: 90,
@@ -11328,7 +11328,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 30,
                                 src: ExpectationSource {
                                     expr_idx: 91,
@@ -11346,7 +11346,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 31,
                                 src: ExpectationSource {
                                     expr_idx: 92,
@@ -11364,7 +11364,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 32,
                                 src: ExpectationSource {
                                     expr_idx: 93,
@@ -11393,7 +11393,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 33,
                                 src: ExpectationSource {
                                     expr_idx: 98,
@@ -11432,7 +11432,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 34,
                                 src: ExpectationSource {
                                     expr_idx: 99,
@@ -11471,7 +11471,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 35,
                                 src: ExpectationSource {
                                     expr_idx: 102,
@@ -11510,7 +11510,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 36,
                                 src: ExpectationSource {
                                     expr_idx: 103,
@@ -11549,7 +11549,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 37,
                                 src: ExpectationSource {
                                     expr_idx: 104,
@@ -11588,7 +11588,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 38,
                                 src: ExpectationSource {
                                     expr_idx: 105,
@@ -11627,7 +11627,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 39,
                                 src: ExpectationSource {
                                     expr_idx: 106,
@@ -11657,7 +11657,7 @@
                                     final_destination: AnyOriginal,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 40,
                                 src: ExpectationSource {
                                     expr_idx: 107,
@@ -11755,7 +11755,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 41,
                                 src: ExpectationSource {
                                     expr_idx: 112,
@@ -11779,7 +11779,7 @@
                                     final_destination: AnyOriginal,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 42,
                                 src: ExpectationSource {
                                     expr_idx: 113,
@@ -11849,7 +11849,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 43,
                                 src: ExpectationSource {
                                     expr_idx: 116,
@@ -11871,7 +11871,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 44,
                                 src: ExpectationSource {
                                     expr_idx: 121,
@@ -11904,7 +11904,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 45,
                                 src: ExpectationSource {
                                     expr_idx: 130,
@@ -11932,7 +11932,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 46,
                                 src: ExpectationSource {
                                     expr_idx: 132,
@@ -11950,7 +11950,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 47,
                                 src: ExpectationSource {
                                     expr_idx: 134,
@@ -11979,7 +11979,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 48,
                                 src: ExpectationSource {
                                     expr_idx: 138,
@@ -12007,7 +12007,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 49,
                                 src: ExpectationSource {
                                     expr_idx: 135,
@@ -12025,7 +12025,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 50,
                                 src: ExpectationSource {
                                     expr_idx: 137,
@@ -12054,7 +12054,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 51,
                                 src: ExpectationSource {
                                     expr_idx: 139,
@@ -12093,7 +12093,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 52,
                                 src: ExpectationSource {
                                     expr_idx: 142,
@@ -12121,7 +12121,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 53,
                                 src: ExpectationSource {
                                     expr_idx: 141,
@@ -12150,7 +12150,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 54,
                                 src: ExpectationSource {
                                     expr_idx: 143,
@@ -12189,7 +12189,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 55,
                                 src: ExpectationSource {
                                     expr_idx: 147,
@@ -12217,7 +12217,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 56,
                                 src: ExpectationSource {
                                     expr_idx: 144,
@@ -12235,7 +12235,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 57,
                                 src: ExpectationSource {
                                     expr_idx: 146,
@@ -12264,7 +12264,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 58,
                                 src: ExpectationSource {
                                     expr_idx: 148,
@@ -12303,7 +12303,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 59,
                                 src: ExpectationSource {
                                     expr_idx: 151,
@@ -12331,7 +12331,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 60,
                                 src: ExpectationSource {
                                     expr_idx: 150,
@@ -12360,7 +12360,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 61,
                                 src: ExpectationSource {
                                     expr_idx: 152,
@@ -12399,7 +12399,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 62,
                                 src: ExpectationSource {
                                     expr_idx: 153,
@@ -12427,7 +12427,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 63,
                                 src: ExpectationSource {
                                     expr_idx: 154,
@@ -12447,7 +12447,7 @@
                                     final_destination: AnyDerived,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 64,
                                 src: ExpectationSource {
                                     expr_idx: 156,
@@ -12483,7 +12483,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 29,
+                                                                            value: 31,
                                                                         },
                                                                     ),
                                                                 ),
@@ -12504,13 +12504,13 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 29,
+                                                value: 31,
                                             },
                                         ),
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 65,
                                 src: ExpectationSource {
                                     expr_idx: 157,
@@ -12534,7 +12534,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 66,
                                 src: ExpectationSource {
                                     expr_idx: 159,
@@ -12567,7 +12567,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 67,
                                 src: ExpectationSource {
                                     expr_idx: 160,
@@ -12595,7 +12595,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 68,
                                 src: ExpectationSource {
                                     expr_idx: 161,
@@ -12617,7 +12617,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 69,
                                 src: ExpectationSource {
                                     expr_idx: 162,
@@ -12647,7 +12647,7 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 70,
                                 src: ExpectationSource {
                                     expr_idx: 163,
@@ -12728,7 +12728,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 71,
                                 src: ExpectationSource {
                                     expr_idx: 166,
@@ -12767,7 +12767,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 72,
                                 src: ExpectationSource {
                                     expr_idx: 167,
@@ -12795,7 +12795,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 73,
                                 src: ExpectationSource {
                                     expr_idx: 168,
@@ -12813,7 +12813,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 74,
                                 src: ExpectationSource {
                                     expr_idx: 170,
@@ -12842,7 +12842,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 75,
                                 src: ExpectationSource {
                                     expr_idx: 171,
@@ -12870,7 +12870,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 76,
                                 src: ExpectationSource {
                                     expr_idx: 172,
@@ -12888,7 +12888,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 77,
                                 src: ExpectationSource {
                                     expr_idx: 174,
@@ -12917,7 +12917,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 78,
                                 src: ExpectationSource {
                                     expr_idx: 175,
@@ -12945,7 +12945,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 79,
                                 src: ExpectationSource {
                                     expr_idx: 176,
@@ -12963,7 +12963,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 80,
                                 src: ExpectationSource {
                                     expr_idx: 178,
@@ -12992,7 +12992,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 81,
                                 src: ExpectationSource {
                                     expr_idx: 181,
@@ -13020,7 +13020,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 82,
                                 src: ExpectationSource {
                                     expr_idx: 180,
@@ -13049,7 +13049,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 83,
                                 src: ExpectationSource {
                                     expr_idx: 182,
@@ -13088,7 +13088,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 84,
                                 src: ExpectationSource {
                                     expr_idx: 185,
@@ -13116,7 +13116,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 85,
                                 src: ExpectationSource {
                                     expr_idx: 184,
@@ -13145,7 +13145,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 86,
                                 src: ExpectationSource {
                                     expr_idx: 186,
@@ -13184,7 +13184,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 87,
                                 src: ExpectationSource {
                                     expr_idx: 187,
@@ -13212,7 +13212,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 88,
                                 src: ExpectationSource {
                                     expr_idx: 188,
@@ -13234,7 +13234,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 89,
                                 src: ExpectationSource {
                                     expr_idx: 190,
@@ -13264,7 +13264,7 @@
                                     final_destination: AnyDerived,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 90,
                                 src: ExpectationSource {
                                     expr_idx: 191,
@@ -13334,7 +13334,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 91,
                                 src: ExpectationSource {
                                     expr_idx: 195,
@@ -13367,7 +13367,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 92,
                                 src: ExpectationSource {
                                     expr_idx: 196,
@@ -13406,7 +13406,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 93,
                                 src: ExpectationSource {
                                     expr_idx: 199,
@@ -13445,7 +13445,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 94,
                                 src: ExpectationSource {
                                     expr_idx: 202,
@@ -13473,7 +13473,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 95,
                                 src: ExpectationSource {
                                     expr_idx: 203,
@@ -13491,7 +13491,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 96,
                                 src: ExpectationSource {
                                     expr_idx: 205,
@@ -13520,7 +13520,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 97,
                                 src: ExpectationSource {
                                     expr_idx: 208,
@@ -13548,7 +13548,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 98,
                                 src: ExpectationSource {
                                     expr_idx: 207,
@@ -13577,7 +13577,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 99,
                                 src: ExpectationSource {
                                     expr_idx: 209,
@@ -13616,7 +13616,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 100,
                                 src: ExpectationSource {
                                     expr_idx: 212,
@@ -13644,7 +13644,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 101,
                                 src: ExpectationSource {
                                     expr_idx: 211,
@@ -13673,7 +13673,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 102,
                                 src: ExpectationSource {
                                     expr_idx: 213,
@@ -13712,7 +13712,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 103,
                                 src: ExpectationSource {
                                     expr_idx: 216,
@@ -13740,7 +13740,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 104,
                                 src: ExpectationSource {
                                     expr_idx: 215,
@@ -13769,7 +13769,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 105,
                                 src: ExpectationSource {
                                     expr_idx: 217,
@@ -13808,7 +13808,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 106,
                                 src: ExpectationSource {
                                     expr_idx: 218,
@@ -13836,7 +13836,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 107,
                                 src: ExpectationSource {
                                     expr_idx: 219,
@@ -13858,7 +13858,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 108,
                                 src: ExpectationSource {
                                     expr_idx: 221,
@@ -13888,7 +13888,7 @@
                                     final_destination: AnyDerived,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 109,
                                 src: ExpectationSource {
                                     expr_idx: 222,
@@ -13958,7 +13958,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 110,
                                 src: ExpectationSource {
                                     expr_idx: 226,
@@ -13991,7 +13991,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 111,
                                 src: ExpectationSource {
                                     expr_idx: 227,
@@ -14019,7 +14019,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 112,
                                 src: ExpectationSource {
                                     expr_idx: 228,
@@ -14037,7 +14037,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 113,
                                 src: ExpectationSource {
                                     expr_idx: 230,
@@ -14066,7 +14066,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 114,
                                 src: ExpectationSource {
                                     expr_idx: 231,
@@ -14094,7 +14094,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 115,
                                 src: ExpectationSource {
                                     expr_idx: 232,
@@ -14112,7 +14112,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 116,
                                 src: ExpectationSource {
                                     expr_idx: 234,
@@ -14141,7 +14141,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 117,
                                 src: ExpectationSource {
                                     expr_idx: 235,
@@ -14169,7 +14169,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 118,
                                 src: ExpectationSource {
                                     expr_idx: 236,
@@ -14191,7 +14191,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 119,
                                 src: ExpectationSource {
                                     expr_idx: 237,
@@ -14221,7 +14221,7 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 120,
                                 src: ExpectationSource {
                                     expr_idx: 238,
@@ -14302,7 +14302,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 121,
                                 src: ExpectationSource {
                                     expr_idx: 241,
@@ -14341,7 +14341,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 122,
                                 src: ExpectationSource {
                                     expr_idx: 242,
@@ -14380,7 +14380,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 123,
                                 src: ExpectationSource {
                                     expr_idx: 245,
@@ -14419,7 +14419,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 124,
                                 src: ExpectationSource {
                                     expr_idx: 248,
@@ -14447,7 +14447,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 125,
                                 src: ExpectationSource {
                                     expr_idx: 250,
@@ -14476,7 +14476,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 126,
                                 src: ExpectationSource {
                                     expr_idx: 251,
@@ -14515,7 +14515,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 127,
                                 src: ExpectationSource {
                                     expr_idx: 254,
@@ -14554,7 +14554,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 128,
                                 src: ExpectationSource {
                                     expr_idx: 257,
@@ -14593,7 +14593,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 129,
                                 src: ExpectationSource {
                                     expr_idx: 260,
@@ -14621,7 +14621,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 130,
                                 src: ExpectationSource {
                                     expr_idx: 261,
@@ -14639,7 +14639,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 131,
                                 src: ExpectationSource {
                                     expr_idx: 263,
@@ -14668,7 +14668,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 132,
                                 src: ExpectationSource {
                                     expr_idx: 264,
@@ -14696,7 +14696,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 133,
                                 src: ExpectationSource {
                                     expr_idx: 267,
@@ -14714,7 +14714,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 134,
                                 src: ExpectationSource {
                                     expr_idx: 269,
@@ -14743,7 +14743,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 135,
                                 src: ExpectationSource {
                                     expr_idx: 272,
@@ -14771,7 +14771,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 136,
                                 src: ExpectationSource {
                                     expr_idx: 271,
@@ -14800,7 +14800,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 137,
                                 src: ExpectationSource {
                                     expr_idx: 273,
@@ -14839,7 +14839,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 138,
                                 src: ExpectationSource {
                                     expr_idx: 276,
@@ -14867,7 +14867,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 139,
                                 src: ExpectationSource {
                                     expr_idx: 275,
@@ -14896,7 +14896,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 140,
                                 src: ExpectationSource {
                                     expr_idx: 277,
@@ -14935,7 +14935,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 141,
                                 src: ExpectationSource {
                                     expr_idx: 278,
@@ -14963,7 +14963,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 142,
                                 src: ExpectationSource {
                                     expr_idx: 279,
@@ -14981,7 +14981,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 143,
                                 src: ExpectationSource {
                                     expr_idx: 281,
@@ -14999,7 +14999,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 144,
                                 src: ExpectationSource {
                                     expr_idx: 284,
@@ -15028,7 +15028,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 145,
                                 src: ExpectationSource {
                                     expr_idx: 286,
@@ -15065,7 +15065,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 146,
                                 src: ExpectationSource {
                                     expr_idx: 287,
@@ -15098,7 +15098,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 147,
                                 src: ExpectationSource {
                                     expr_idx: 288,
@@ -15246,7 +15246,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -15285,7 +15285,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -15558,7 +15558,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -15588,7 +15588,7 @@
                                     final_destination: AnyDerived,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -15667,7 +15667,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -15695,7 +15695,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -15717,7 +15717,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -16541,7 +16541,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -16570,7 +16570,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 26,
@@ -16609,7 +16609,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 32,
@@ -16648,7 +16648,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 38,
@@ -16687,7 +16687,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 44,
@@ -16717,7 +16717,7 @@
                                     final_destination: AnyDerived,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 45,
@@ -16789,7 +16789,7 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 46,
@@ -16870,7 +16870,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 49,
@@ -16900,7 +16900,7 @@
                                     final_destination: TypeOntology,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 8,
                                 src: ExpectationSource {
                                     expr_idx: 50,
@@ -16981,7 +16981,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 9,
                                 src: ExpectationSource {
                                     expr_idx: 53,
@@ -17009,7 +17009,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 10,
                                 src: ExpectationSource {
                                     expr_idx: 54,
@@ -17031,7 +17031,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 11,
                                 src: ExpectationSource {
                                     expr_idx: 55,
@@ -17233,7 +17233,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -18128,7 +18128,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -18146,7 +18146,7 @@
                             expectation: NumType(
                                 ExpectNumType,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -18164,7 +18164,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 11,
@@ -18193,7 +18193,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 34,
@@ -18221,7 +18221,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 40,
@@ -18239,7 +18239,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 45,
@@ -18268,7 +18268,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 6,
                                 src: ExpectationSource {
                                     expr_idx: 63,
@@ -18296,7 +18296,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 7,
                                 src: ExpectationSource {
                                     expr_idx: 65,
@@ -18634,7 +18634,31 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
+                            TypeOntologyAtPlace {
+                                path: TypePath(
+                                    Id {
+                                        value: 51,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Int(
+                                            I32,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 51,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -18642,6 +18666,8 @@
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 51,
@@ -18666,8 +18692,6 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -18675,30 +18699,6 @@
                                         ),
                                     ),
                                 },
-                                path: TypePath(
-                                    Id {
-                                        value: 51,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            I32,
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 51,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
                             },
                         ],
                     },
@@ -18715,7 +18715,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -18733,7 +18733,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 7,
@@ -18755,7 +18755,7 @@
                             expectation: AnyOriginal(
                                 ExpectAnyOriginal,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 11,
@@ -18773,7 +18773,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 13,

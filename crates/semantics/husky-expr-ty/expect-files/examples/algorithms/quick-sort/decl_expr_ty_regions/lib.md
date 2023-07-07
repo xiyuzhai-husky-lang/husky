@@ -126,14 +126,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: MutableStackOwned {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            1,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 67,
@@ -160,6 +153,13 @@
                                         ),
                                     ),
                                 ),
+                                place: MutableStackOwned {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
                             },
                         ],
                     },
@@ -178,7 +178,7 @@
                                     final_destination: Sort,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -239,7 +239,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -263,7 +263,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -484,14 +484,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: MutableStackOwned {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            1,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 67,
@@ -518,8 +511,39 @@
                                         ),
                                     ),
                                 ),
+                                place: MutableStackOwned {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
                             },
-                            PlaceTypeOntology {
+                            TypeOntologyAtPlace {
+                                path: TypePath(
+                                    Id {
+                                        value: 54,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Int(
+                                            ISize,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -527,6 +551,8 @@
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 54,
@@ -551,8 +577,6 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -560,30 +584,6 @@
                                         ),
                                     ),
                                 },
-                                path: TypePath(
-                                    Id {
-                                        value: 54,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            ISize,
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 54,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
                             },
                         ],
                     },
@@ -602,7 +602,7 @@
                                     final_destination: Sort,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -663,7 +663,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -687,7 +687,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -719,7 +719,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -751,7 +751,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -993,14 +993,7 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: MutableStackOwned {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            1,
-                                        ),
-                                    ),
-                                },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 67,
@@ -1027,8 +1020,39 @@
                                         ),
                                     ),
                                 ),
+                                place: MutableStackOwned {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            1,
+                                        ),
+                                    ),
+                                },
                             },
-                            PlaceTypeOntology {
+                            TypeOntologyAtPlace {
+                                path: TypePath(
+                                    Id {
+                                        value: 54,
+                                    },
+                                ),
+                                refined_path: Left(
+                                    Num(
+                                        Int(
+                                            ISize,
+                                        ),
+                                    ),
+                                ),
+                                arguments: [],
+                                base_ty_term: Some(
+                                    EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -1036,6 +1060,8 @@
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 54,
@@ -1060,8 +1086,6 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
@@ -1069,30 +1093,6 @@
                                         ),
                                     ),
                                 },
-                                path: TypePath(
-                                    Id {
-                                        value: 54,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Num(
-                                        Int(
-                                            ISize,
-                                        ),
-                                    ),
-                                ),
-                                arguments: [],
-                                base_ty_term: Some(
-                                    EntityPath(
-                                        TypeOntology(
-                                            TypePath(
-                                                Id {
-                                                    value: 54,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
                             },
                         ],
                     },
@@ -1111,7 +1111,7 @@
                                     final_destination: Sort,
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -1172,7 +1172,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 2,
@@ -1196,7 +1196,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 2,
                                 src: ExpectationSource {
                                     expr_idx: 3,
@@ -1228,7 +1228,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 3,
                                 src: ExpectationSource {
                                     expr_idx: 4,
@@ -1260,7 +1260,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 4,
                                 src: ExpectationSource {
                                     expr_idx: 5,
@@ -1292,7 +1292,7 @@
                                     ),
                                 },
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 5,
                                 src: ExpectationSource {
                                     expr_idx: 6,

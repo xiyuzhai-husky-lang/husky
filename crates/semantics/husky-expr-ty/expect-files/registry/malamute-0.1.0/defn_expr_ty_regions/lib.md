@@ -20,6 +20,17 @@
                 data: [
                     Some(
                         SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        SymbolType(
                             Solid(
                                 SolidTerm(
                                     0,
@@ -32,6 +43,15 @@
                             Solid(
                                 SolidTerm(
                                     1,
+                                ),
+                            ),
+                        ),
+                    ),
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    2,
                                 ),
                             ),
                         ),
@@ -49,7 +69,25 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
+                                    value: 1,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
                                     value: 5,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 6,
                                 },
                             ),
                         ),
@@ -66,14 +104,15 @@
                 solid_terms: SolidTerms {
                     entries: VecSet {
                         data: [
-                            PlaceTypeOntology {
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            0,
-                                        ),
-                                    ),
-                                },
+                            SymbolAtPlace {
+                                term: EtherealTermSymbol(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                                place: Const,
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 61,
@@ -98,15 +137,15 @@
                                         ),
                                     ),
                                 ),
-                            },
-                            PlaceTypeOntology {
                                 place: StackPure {
                                     location: StackLocationIdx(
                                         LocalSymbolIdx(
-                                            1,
+                                            2,
                                         ),
                                     ),
                                 },
+                            },
+                            TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
                                         value: 51,
@@ -131,6 +170,13 @@
                                         ),
                                     ),
                                 ),
+                                place: StackPure {
+                                    location: StackLocationIdx(
+                                        LocalSymbolIdx(
+                                            3,
+                                        ),
+                                    ),
+                                },
                             },
                         ],
                     },
@@ -147,7 +193,9 @@
                 first_unresolved_expectation: 0,
             },
         },
-        return_ty: None,
+        return_ty: Some(
+            EtherealTerm(`TypeOntology(malamute::OneVsAllResult) t a`),
+        ),
         self_ty: None,
     },
 ]

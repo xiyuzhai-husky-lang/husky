@@ -50,7 +50,7 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path: path,
                 refined_ty_path: refined_path,
@@ -73,12 +73,13 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())
@@ -96,7 +97,7 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path: path,
                 refined_ty_path: refined_path,
@@ -119,12 +120,13 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())
@@ -143,7 +145,8 @@ impl<'a> ExprTypeEngine<'a> {
         match self.infer_new_expr_ty(opd, ExpectFinalDestination::new(final_destination)) {
             Some(opd_ty) => match opd_ty.data(self) {
                 FluffyTermData::Literal(_) => todo!(),
-                FluffyTermData::TypeOntology { .. } | FluffyTermData::PlaceTypeOntology { .. } => {
+                FluffyTermData::TypeOntology { .. }
+                | FluffyTermData::TypeOntologyAtPlace { .. } => {
                     Ok((true_suffix.into(), true_suffix_f(self, opd)))
                 }
                 FluffyTermData::Curry {
@@ -161,12 +164,13 @@ impl<'a> ExprTypeEngine<'a> {
                     parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
-                FluffyTermData::PlaceHole {
+                FluffyTermData::HoleAtPlace {
                     place,
                     hole_kind,
                     hole,
                 } => todo!(),
-                FluffyTermData::Symbol { ty } => todo!(),
+                FluffyTermData::Symbol { .. } => todo!(),
+                FluffyTermData::SymbolAtPlace { .. } => todo!(),
                 FluffyTermData::Variable { ty } => todo!(),
             },
             None => Err(DerivedExprTypeError::UnableToInferSuffixOperandType.into()),
@@ -192,7 +196,7 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 ty_ethereal_term,
             } => todo!(),
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path: path,
                 refined_ty_path: refined_path,
@@ -215,12 +219,13 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

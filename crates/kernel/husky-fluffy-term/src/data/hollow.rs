@@ -138,7 +138,7 @@ impl HollowTerm {
                 place,
                 hole_kind,
                 hole,
-            } => FluffyTermData::PlaceHole {
+            } => FluffyTermData::HoleAtPlace {
                 place: *place,
                 hole_kind: *hole_kind,
                 hole: *hole,

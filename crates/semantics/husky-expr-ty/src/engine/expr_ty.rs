@@ -317,13 +317,14 @@ impl<'a> ExprTypeEngine<'a> {
                                     return_ty,
                                     ..
                                 } => todo!(),
-                                FluffyTermData::PlaceTypeOntology { .. } => todo!(),
-                                FluffyTermData::PlaceHole {
+                                FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
+                                FluffyTermData::HoleAtPlace {
                                     place,
                                     hole_kind,
                                     hole,
                                 } => todo!(),
-                                FluffyTermData::Symbol { ty } => todo!(),
+                                FluffyTermData::Symbol { .. } => todo!(),
+                                FluffyTermData::SymbolAtPlace { .. } => todo!(),
                                 FluffyTermData::Variable { ty } => todo!(),
                             },
                             None => self.new_hole(expr_idx, HoleKind::ImplicitType).into(),

@@ -42,7 +42,7 @@ impl FluffyTerms {
                     arguments,
                     ty_ethereal_term,
                 } => todo!(),
-                FluffyTermData::PlaceTypeOntology {
+                FluffyTermData::TypeOntologyAtPlace {
                     place,
                     ty_path,
                     refined_ty_path,
@@ -70,12 +70,12 @@ impl FluffyTerms {
                     parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
-                FluffyTermData::PlaceHole {
+                FluffyTermData::HoleAtPlace {
                     place,
                     hole_kind,
                     hole,
                 } => todo!(),
-                FluffyTermData::Symbol { ty } => HoleKind::Any,
+                FluffyTermData::Symbol { .. } => HoleKind::Any,
                 FluffyTermData::Variable { ty } => todo!(),
                 _ => unreachable!(),
             },

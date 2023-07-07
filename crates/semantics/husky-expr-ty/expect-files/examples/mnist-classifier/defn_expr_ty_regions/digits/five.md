@@ -24,7 +24,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 95,
+                                            value: 96,
                                         },
                                     ),
                                 ),
@@ -45,7 +45,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 95,
+                                            value: 96,
                                         },
                                     ),
                                 ),
@@ -95,7 +95,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 0,
                                 src: ExpectationSource {
                                     expr_idx: 0,
@@ -105,7 +105,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 95,
+                                                value: 96,
                                             },
                                         ),
                                     ),
@@ -117,7 +117,7 @@
                             expectation: AnyDerived(
                                 ExpectAnyDerived,
                             ),
-                            meta: ExpectationMeta {
+                            meta: ExpectationState {
                                 idx: 1,
                                 src: ExpectationSource {
                                     expr_idx: 1,
@@ -127,7 +127,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 95,
+                                                value: 96,
                                             },
                                         ),
                                     ),

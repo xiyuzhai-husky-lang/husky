@@ -21,7 +21,7 @@ impl<'a> ExprTypeEngine<'a> {
                         arguments,
                         ty_ethereal_term,
                     } => todo!(),
-                    FluffyTermData::PlaceTypeOntology {
+                    FluffyTermData::TypeOntologyAtPlace {
                         place,
                         ty_path: path,
                         refined_ty_path: refined_path,
@@ -50,12 +50,13 @@ impl<'a> ExprTypeEngine<'a> {
                         return_ty,
                         ..
                     } => todo!(),
-                    FluffyTermData::PlaceHole {
+                    FluffyTermData::HoleAtPlace {
                         place,
                         hole_kind,
                         hole,
                     } => todo!(),
-                    FluffyTermData::Symbol { ty } => todo!(),
+                    FluffyTermData::Symbol { .. } => todo!(),
+                    FluffyTermData::SymbolAtPlace { .. } => todo!(),
                     FluffyTermData::Variable { ty } => todo!(),
                 }
                 // match opd_ty {
@@ -159,13 +160,14 @@ impl<'a> ExprTypeEngine<'a> {
                 return_ty,
                 ..
             } => todo!(),
-            FluffyTermData::PlaceTypeOntology { .. } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }

@@ -48,9 +48,9 @@ impl SymbolType {
         };
         Self(match ty {
             FluffyTerm::Literal(_) => todo!(),
-            FluffyTerm::Symbol(_) => SolidTerm::new(
+            FluffyTerm::Symbol(term) => SolidTerm::new(
                 engine.fluffy_term_region_mut().solid_terms_mut(),
-                SolidTermData::PlaceSymbol {},
+                SolidTermData::SymbolAtPlace { term, place },
             )
             .into(),
             FluffyTerm::Variable(_) => todo!(),
@@ -58,7 +58,7 @@ impl SymbolType {
                 TermEntityPath::Fugitive(_) => todo!(),
                 TermEntityPath::Trait(_) => todo!(),
                 TermEntityPath::TypeOntology(path) => {
-                    let data = SolidTermData::PlaceTypeOntology {
+                    let data = SolidTermData::TypeOntologyAtPlace {
                         place,
                         path,
                         refined_path: path.refine(engine.db()),
@@ -88,7 +88,7 @@ impl SymbolType {
                 let expansion = term.application_expansion(engine.db());
                 match expansion.function() {
                     TermFunctionReduced::TypeOntology(path) => {
-                        let data = SolidTermData::PlaceTypeOntology {
+                        let data = SolidTermData::TypeOntologyAtPlace {
                             place,
                             path,
                             refined_path: path.refine(engine.db()),
@@ -119,7 +119,7 @@ impl SymbolType {
                         arguments,
                         ..
                     } => todo!(),
-                    FluffyTermData::PlaceTypeOntology { .. } => todo!(),
+                    FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
                     FluffyTermData::Curry {
                         curry_kind,
                         variance,
@@ -140,12 +140,13 @@ impl SymbolType {
                         return_ty,
                         ..
                     } => todo!(),
-                    FluffyTermData::PlaceHole {
+                    FluffyTermData::HoleAtPlace {
                         place,
                         hole_kind,
                         hole,
                     } => todo!(),
-                    FluffyTermData::Symbol { ty } => todo!(),
+                    FluffyTermData::Symbol { .. } => todo!(),
+                    FluffyTermData::SymbolAtPlace { .. } => todo!(),
                     FluffyTermData::Variable { ty } => todo!(),
                 };
                 HollowTerm::new(engine, data).into()

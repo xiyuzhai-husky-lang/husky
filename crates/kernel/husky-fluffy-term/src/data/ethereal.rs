@@ -7,6 +7,7 @@ pub(super) fn ethereal_term_data<'a>(
     match term {
         EtherealTerm::Literal(_) => todo!(),
         EtherealTerm::Symbol(term) => FluffyTermData::Symbol {
+            term,
             ty: term.ty(db).into(),
         },
         EtherealTerm::Variable(term) => FluffyTermData::Variable {

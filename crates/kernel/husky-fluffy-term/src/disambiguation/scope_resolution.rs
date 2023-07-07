@@ -54,7 +54,7 @@ impl FluffyTerm {
                 JustErr(_) => todo!(),
                 Nothing => todo!(),
             },
-            FluffyTermData::PlaceTypeOntology {
+            FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path,
                 refined_ty_path,
@@ -76,12 +76,13 @@ impl FluffyTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FluffyTermData::PlaceHole {
+            FluffyTermData::HoleAtPlace {
                 place,
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { ty } => todo!(),
+            FluffyTermData::Symbol { .. } => todo!(),
+            FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
         }
     }
