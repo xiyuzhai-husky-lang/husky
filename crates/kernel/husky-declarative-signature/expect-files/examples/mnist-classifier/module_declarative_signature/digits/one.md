@@ -23,8 +23,16 @@
                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::One`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (

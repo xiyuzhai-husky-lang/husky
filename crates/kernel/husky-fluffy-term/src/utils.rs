@@ -70,7 +70,7 @@ impl FluffyTerm {
                 refined_ty_path: refined_path,
                 arguments,
                 ty_ethereal_term,
-            } => todo!(),
+            } => 0,
             FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path,
@@ -118,6 +118,7 @@ fn curry_destination(db: &dyn EtherealTermDb, term: EtherealTerm) -> EtherealTer
             TermEntityPath::Trait(_)
             | TermEntityPath::TypeOntology(_)
             | TermEntityPath::TypeInstance(_) => term,
+            TermEntityPath::TypeVariant(_) => todo!(),
         },
         // EntityPath::Module(_) => todo!(),
         // EntityPath::ModuleItem(path) => match path {

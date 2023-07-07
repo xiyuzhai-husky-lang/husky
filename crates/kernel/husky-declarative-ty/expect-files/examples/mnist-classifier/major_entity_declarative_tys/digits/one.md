@@ -15,10 +15,8 @@
                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`{val_type} malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::One`),
         ),
     ),
     (

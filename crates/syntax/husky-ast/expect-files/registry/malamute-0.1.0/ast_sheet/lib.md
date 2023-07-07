@@ -7,7 +7,7 @@ Ok(
                         1,
                     ),
                     variant_path: TypeVariantPath {
-                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                         ident: `ConfidentYes`,
                     },
                     vertical_token: VerticalToken(
@@ -33,7 +33,7 @@ Ok(
                         2,
                     ),
                     variant_path: TypeVariantPath {
-                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                         ident: `ConfidentNo`,
                     },
                     vertical_token: VerticalToken(
@@ -59,7 +59,7 @@ Ok(
                         3,
                     ),
                     variant_path: TypeVariantPath {
-                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                         ident: `Unconfident`,
                     },
                     vertical_token: VerticalToken(
@@ -76,6 +76,84 @@ Ok(
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
                             17,
+                        ),
+                        drained: true,
+                    },
+                },
+                Ast::TypeVariant {
+                    token_group_idx: TokenGroupIdx(
+                        5,
+                    ),
+                    variant_path: TypeVariantPath {
+                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                        ident: `ConfidentYes`,
+                    },
+                    vertical_token: VerticalToken(
+                        TokenIdx(
+                            28,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `ConfidentYes`,
+                        token_idx: TokenIdx(
+                            29,
+                        ),
+                    },
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            30,
+                        ),
+                        drained: true,
+                    },
+                },
+                Ast::TypeVariant {
+                    token_group_idx: TokenGroupIdx(
+                        6,
+                    ),
+                    variant_path: TypeVariantPath {
+                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                        ident: `ConfidentNo`,
+                    },
+                    vertical_token: VerticalToken(
+                        TokenIdx(
+                            30,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `ConfidentNo`,
+                        token_idx: TokenIdx(
+                            31,
+                        ),
+                    },
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            32,
+                        ),
+                        drained: true,
+                    },
+                },
+                Ast::TypeVariant {
+                    token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    variant_path: TypeVariantPath {
+                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                        ident: `Unconfident`,
+                    },
+                    vertical_token: VerticalToken(
+                        TokenIdx(
+                            32,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `Unconfident`,
+                        token_idx: TokenIdx(
+                            33,
+                        ),
+                    },
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            34,
                         ),
                         drained: true,
                     },
@@ -101,7 +179,7 @@ Ok(
                         connection: Connected,
                     },
                     ident_token: IdentToken {
-                        ident: `OneVsAllResult`,
+                        ident: `OneVsAll`,
                         token_idx: TokenIdx(
                             2,
                         ),
@@ -143,13 +221,13 @@ Ok(
                         },
                     },
                     entity_kind: ModuleItem {
-                        module_item_kind: Fugitive(
-                            Gn,
+                        module_item_kind: Type(
+                            Enum,
                         ),
                         connection: Connected,
                     },
                     ident_token: IdentToken {
-                        ident: `narrow_down`,
+                        ident: `OneVsAllResult`,
                         token_idx: TokenIdx(
                             19,
                         ),
@@ -158,6 +236,60 @@ Ok(
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
                             20,
+                        ),
+                        drained: false,
+                    },
+                    block: Type {
+                        path: TypePath(
+                            Id {
+                                value: 58,
+                            },
+                        ),
+                        variants: Some(
+                            TypeVariants {
+                                ast_idx_range: ArenaIdxRange(
+                                    3..6,
+                                ),
+                            },
+                        ),
+                    },
+                },
+                Ast::ImplBlock {
+                    token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    items: None,
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    48,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: ModuleItem {
+                        module_item_kind: Fugitive(
+                            Gn,
+                        ),
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `narrow_down`,
+                        token_idx: TokenIdx(
+                            50,
+                        ),
+                    },
+                    is_generic: true,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            51,
                         ),
                         drained: false,
                     },
@@ -173,14 +305,17 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            3..5,
+            6..10,
         ),
         siblings: [
             ArenaIdxRange(
-                3..3,
+                6..6,
             ),
             ArenaIdxRange(
-                3..5,
+                6..6,
+            ),
+            ArenaIdxRange(
+                6..10,
             ),
         ],
     },

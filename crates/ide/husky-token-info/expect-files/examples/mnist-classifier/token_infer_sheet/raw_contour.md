@@ -207,9 +207,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::visual::Visualize`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
@@ -260,7 +272,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(

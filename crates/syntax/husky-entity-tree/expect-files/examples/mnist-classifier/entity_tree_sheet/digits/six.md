@@ -1155,6 +1155,77 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `OneVsAll`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::six`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 6,
+                                                    ident_token: IdentToken {
+                                                        ident: `OneVsAll`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                            path: PrincipalEntityPath::ModuleItem(
+                                ModuleItemPath::Type(
+                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            ast_idx: 49,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `OneVsAllResult`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::six`,
@@ -1179,11 +1250,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 3,
+                                                    ast_idx: 7,
                                                     ident_token: IdentToken {
                                                         ident: `OneVsAllResult`,
                                                         token_idx: TokenIdx(
-                                                            2,
+                                                            19,
                                                         ),
                                                     },
                                                 },
@@ -1250,11 +1321,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 9,
                                                     ident_token: IdentToken {
                                                         ident: `narrow_down`,
                                                         token_idx: TokenIdx(
-                                                            19,
+                                                            50,
                                                         ),
                                                     },
                                                 },
@@ -3353,7 +3424,7 @@ Ok(
                         `mnist_classifier::digits::six`,
                     ),
                     progress: Ok(
-                        50,
+                        51,
                     ),
                 },
             ],

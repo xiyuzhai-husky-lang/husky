@@ -8,7 +8,7 @@ Ok(
                     ModuleItemNodePath::Type(
                         TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                path: TypePath(`malamute::OneVsAll`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
@@ -78,18 +78,18 @@ Ok(
             TokenInfo::None,
             TokenInfo::EntityNode(
                 EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                    ModuleItemNodePath::Type(
+                        TypeNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
                     ),
                 ),
                 ModuleItem {
-                    module_item_kind: Fugitive(
-                        Gn,
+                    module_item_kind: Type(
+                        Enum,
                     ),
                     connection: Connected,
                 },
@@ -145,13 +145,100 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::ModuleItem(
+                    ModuleItemNodePath::Fugitive(
+                        FugitiveNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: FugitivePath(`malamute::narrow_down`, `Gn`),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                ModuleItem {
+                    module_item_kind: Fugitive(
+                        Gn,
+                    ),
+                    connection: Connected,
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `Label`,
+                            token_idx: TokenIdx(
+                                52,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 1,
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                        ident_token: IdentToken {
+                            ident: `label`,
+                            token_idx: TokenIdx(
+                                55,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `Label`,
+                            token_idx: TokenIdx(
+                                52,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::ExplicitVariadicParameter {
                     ident_token: IdentToken {
                         ident: `f`,
                         token_idx: TokenIdx(
-                            32,
+                            63,
                         ),
                     },
                 },
@@ -200,7 +287,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                21,
+                                52,
                             ),
                         },
                     },
@@ -214,7 +301,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                24,
+                                55,
                             ),
                         },
                     },

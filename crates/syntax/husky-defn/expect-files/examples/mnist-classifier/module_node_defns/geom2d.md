@@ -1504,6 +1504,148 @@ Ok(
                 ),
             ),
         ),
+        NodeDefn::ImplBlock(
+            ImplBlockNodeDecl::Type(
+                TypeImplBlockNodeDecl {
+                    node_path: TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
+                    ast_idx: 79,
+                    impl_block: TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 79,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                13,
+                            ),
+                        },
+                        ty_expr: 6,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                5..10,
+                            ),
+                        },
+                    },
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            13,
+                        ),
+                    },
+                    implicit_parameter_decl_list: Ok(
+                        None,
+                    ),
+                    ty_expr: TypeExpr {
+                        expr: 0,
+                    },
+                    eol_colon: Ok(
+                        EolToken::Colon(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    15,
+                                ),
+                            },
+                        ),
+                    ),
+                    expr_region: ExprRegion {
+                        data: ExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                EntityNodePath::ImplBlock(
+                                    ImplBlockNodePath::TypeImplBlock(
+                                        TypeImplBlockNodePath {
+                                            path: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::geom2d`,
+                                                ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_entity_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `Point2d`,
+                                                token_idx: TokenIdx(
+                                                    14,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: PatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [
+                                ExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 0,
+                                },
+                            ],
+                        },
+                    },
+                },
+            ),
+        ),
         NodeDefn::AssociatedItem(
             AssociatedItemNodeDefn::TypeItem(
                 TypeItemNodeDefn::AssociatedFn(
@@ -5581,6 +5723,148 @@ Ok(
                         },
                     },
                 ),
+            ),
+        ),
+        NodeDefn::ImplBlock(
+            ImplBlockNodeDecl::Type(
+                TypeImplBlockNodeDecl {
+                    node_path: TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
+                    ast_idx: 82,
+                    impl_block: TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 82,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                168,
+                            ),
+                        },
+                        ty_expr: 7,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                41..49,
+                            ),
+                        },
+                    },
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            168,
+                        ),
+                    },
+                    implicit_parameter_decl_list: Ok(
+                        None,
+                    ),
+                    ty_expr: TypeExpr {
+                        expr: 0,
+                    },
+                    eol_colon: Ok(
+                        EolToken::Colon(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    170,
+                                ),
+                            },
+                        ),
+                    ),
+                    expr_region: ExprRegion {
+                        data: ExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                EntityNodePath::ImplBlock(
+                                    ImplBlockNodePath::TypeImplBlock(
+                                        TypeImplBlockNodePath {
+                                            path: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::geom2d`,
+                                                ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_entity_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `Vector2d`,
+                                                token_idx: TokenIdx(
+                                                    169,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: PatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [
+                                ExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 0,
+                                },
+                            ],
+                        },
+                    },
+                },
             ),
         ),
         NodeDefn::AssociatedItem(
@@ -13348,6 +13632,148 @@ Ok(
                 ),
             ),
         ),
+        NodeDefn::ImplBlock(
+            ImplBlockNodeDecl::Type(
+                TypeImplBlockNodeDecl {
+                    node_path: TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
+                    ast_idx: 84,
+                    impl_block: TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 84,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                499,
+                            ),
+                        },
+                        ty_expr: 8,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                56..58,
+                            ),
+                        },
+                    },
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            499,
+                        ),
+                    },
+                    implicit_parameter_decl_list: Ok(
+                        None,
+                    ),
+                    ty_expr: TypeExpr {
+                        expr: 0,
+                    },
+                    eol_colon: Ok(
+                        EolToken::Colon(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    501,
+                                ),
+                            },
+                        ),
+                    ),
+                    expr_region: ExprRegion {
+                        data: ExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                EntityNodePath::ImplBlock(
+                                    ImplBlockNodePath::TypeImplBlock(
+                                        TypeImplBlockNodePath {
+                                            path: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::geom2d`,
+                                                ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_entity_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `ClosedRange`,
+                                                token_idx: TokenIdx(
+                                                    500,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: PatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [
+                                ExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 0,
+                                },
+                            ],
+                        },
+                    },
+                },
+            ),
+        ),
         NodeDefn::AssociatedItem(
             AssociatedItemNodeDefn::TypeItem(
                 TypeItemNodeDefn::MethodFn(
@@ -15548,6 +15974,148 @@ Ok(
                         },
                     },
                 ),
+            ),
+        ),
+        NodeDefn::ImplBlock(
+            ImplBlockNodeDecl::Type(
+                TypeImplBlockNodeDecl {
+                    node_path: TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
+                    ast_idx: 86,
+                    impl_block: TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 86,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                609,
+                            ),
+                        },
+                        ty_expr: 9,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                64..70,
+                            ),
+                        },
+                    },
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            609,
+                        ),
+                    },
+                    implicit_parameter_decl_list: Ok(
+                        None,
+                    ),
+                    ty_expr: TypeExpr {
+                        expr: 0,
+                    },
+                    eol_colon: Ok(
+                        EolToken::Colon(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    611,
+                                ),
+                            },
+                        ),
+                    ),
+                    expr_region: ExprRegion {
+                        data: ExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                EntityNodePath::ImplBlock(
+                                    ImplBlockNodePath::TypeImplBlock(
+                                        TypeImplBlockNodePath {
+                                            path: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::geom2d`,
+                                                ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_entity_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `BoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    610,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: PatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [
+                                ExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 0,
+                                },
+                            ],
+                        },
+                    },
+                },
             ),
         ),
         NodeDefn::AssociatedItem(
@@ -19728,6 +20296,148 @@ Ok(
                         },
                     },
                 ),
+            ),
+        ),
+        NodeDefn::ImplBlock(
+            ImplBlockNodeDecl::Type(
+                TypeImplBlockNodeDecl {
+                    node_path: TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `mnist_classifier::geom2d`,
+                            ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
+                    ast_idx: 88,
+                    impl_block: TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `mnist_classifier::geom2d`,
+                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 88,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                743,
+                            ),
+                        },
+                        ty_expr: 10,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                74..78,
+                            ),
+                        },
+                    },
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            743,
+                        ),
+                    },
+                    implicit_parameter_decl_list: Ok(
+                        None,
+                    ),
+                    ty_expr: TypeExpr {
+                        expr: 0,
+                    },
+                    eol_colon: Ok(
+                        EolToken::Colon(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    745,
+                                ),
+                            },
+                        ),
+                    ),
+                    expr_region: ExprRegion {
+                        data: ExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                EntityNodePath::ImplBlock(
+                                    ImplBlockNodePath::TypeImplBlock(
+                                        TypeImplBlockNodePath {
+                                            path: TypeImplBlockPath {
+                                                module_path: `mnist_classifier::geom2d`,
+                                                ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_entity_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `RelativeBoundingBox`,
+                                                token_idx: TokenIdx(
+                                                    744,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: PatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [
+                                ExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 0,
+                                },
+                            ],
+                        },
+                    },
+                },
             ),
         ),
         NodeDefn::AssociatedItem(

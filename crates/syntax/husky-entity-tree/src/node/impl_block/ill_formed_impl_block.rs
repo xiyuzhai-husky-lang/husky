@@ -6,19 +6,51 @@ pub struct IllFormedImplBlockNodePath {
     path: IllFormedImplBlockPath,
 }
 
+impl salsa::AsId for IllFormedImplBlockNodePath {
+    fn as_id(self) -> salsa::Id {
+        self.path.as_id()
+    }
+
+    fn from_id(id: salsa::Id) -> Self {
+        IllFormedImplBlockNodePath {
+            path: IllFormedImplBlockPath::from_id(id),
+        }
+    }
+}
+
+impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for IllFormedImplBlockNodePath
+where
+    DB: ?Sized + salsa::DbWithJar<EntityPathJar>,
+{
+    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+}
+
 impl IllFormedImplBlockNodePath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.path.module_path(db)
     }
 
-    // pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[TraitForTypeItemNodePath] {
-    //     todo!()
-    // }
+    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[IllFormedItemNodePath] {
+        // ad hoc
+        &[]
+    }
+
+    pub fn node(self, db: &dyn EntityTreeDb) -> IllFormedImplBlockNode {
+        ill_formed_impl_block_node(db, self)
+    }
 }
 
 impl From<IllFormedImplBlockNodePath> for EntityNodePath {
     fn from(id: IllFormedImplBlockNodePath) -> Self {
         EntityNodePath::ImplBlock(id.into())
+    }
+}
+
+impl HasNodePath for IllFormedImplBlockPath {
+    type NodePath = IllFormedImplBlockNodePath;
+
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+        IllFormedImplBlockNodePath { path: self }
     }
 }
 
@@ -69,4 +101,14 @@ pub enum ImplBlockIllForm {
     MissingForKeyword,
     #[error("ExpectTypePathAfterFor")]
     ExpectTypePathAfterForKeyword,
+}
+
+#[salsa::tracked(jar = EntityTreeJar)]
+pub(crate) fn ill_formed_impl_block_node(
+    db: &dyn EntityTreeDb,
+    node_path: IllFormedImplBlockNodePath,
+) -> IllFormedImplBlockNode {
+    let module_path = node_path.module_path(db);
+    let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
+    entity_tree_sheet.ill_formed_impl_block_node(db, node_path)
 }

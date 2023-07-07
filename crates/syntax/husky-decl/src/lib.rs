@@ -83,6 +83,8 @@ pub struct DeclJar(
     trai_for_ty_impl_block_node_decl,
     TraitForTypeImplBlockDecl,
     trai_for_ty_impl_block_decl,
+    IllFormedImplBlockNodeDecl,
+    ill_formed_impl_block_node_decl,
     // - variant
     ty_variant_node_decl,
     ty_variant_decl,
@@ -93,7 +95,7 @@ pub struct DeclJar(
     TupleTypeVariantNodeDecl,
     TupleTypeVariantDecl,
     // - associated items
-    // - - type item
+    // -- type item
     ty_item_node_decl,
     ty_item_decl,
     TypeAssociatedFnNodeDecl,
@@ -106,7 +108,7 @@ pub struct DeclJar(
     TypeAssociatedValDecl,
     TypeMemoizedFieldNodeDecl,
     TypeMemoizedFieldDecl,
-    // - - trait item
+    // -- trait item
     TraitAssociatedFnNodeDecl,
     TraitAssociatedFnDecl,
     TraitMethodFnNodeDecl,
@@ -115,7 +117,7 @@ pub struct DeclJar(
     TraitAssociatedTypeDecl,
     TraitAssociatedValNodeDecl,
     TraitAssociatedValDecl,
-    // - - trait for type item
+    // -- trait for type item
     trai_for_ty_item_node_decl,
     trai_for_ty_item_decl,
     TraitForTypeAssociatedFnNodeDecl,
@@ -126,6 +128,8 @@ pub struct DeclJar(
     TraitForTypeAssociatedTypeDecl,
     TraitForTypeAssociatedValNodeDecl,
     TraitForTypeAssociatedValDecl,
+    // -- ill formed item
+    IllFormedItemNodeDecl,
     // sheet
     NodeDeclSheet,
     node_decl_sheet,

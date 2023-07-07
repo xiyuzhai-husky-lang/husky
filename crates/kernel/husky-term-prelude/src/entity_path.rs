@@ -12,6 +12,7 @@ pub enum TermEntityPath {
     Trait(TraitPath),
     TypeOntology(TypePath),
     TypeInstance(TypePath),
+    TypeVariant(TypeVariantPath),
 }
 
 #[test]
@@ -28,7 +29,8 @@ impl TermEntityPath {
             TermEntityPath::TypeOntology(path) => Some(path),
             TermEntityPath::Fugitive(_)
             | TermEntityPath::Trait(_)
-            | TermEntityPath::TypeInstance(_) => None,
+            | TermEntityPath::TypeInstance(_)
+            | TermEntityPath::TypeVariant(_) => None,
         }
     }
 
@@ -38,6 +40,7 @@ impl TermEntityPath {
             TermEntityPath::Trait(path) => path.toolchain(db),
             TermEntityPath::TypeOntology(path) => path.toolchain(db),
             TermEntityPath::TypeInstance(path) => path.toolchain(db),
+            TermEntityPath::TypeVariant(path) => path.toolchain(db),
         }
     }
 }
@@ -89,6 +92,11 @@ impl<Db: ?Sized + TermPreludeDb> DisplayWithDb<Db> for TermEntityPath {
             }
             TermEntityPath::TypeInstance(path) => {
                 f.write_str("TypeConstructor(")?;
+                path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
+                f.write_str(")")
+            }
+            TermEntityPath::TypeVariant(path) => {
+                f.write_str("TypeVariant(")?;
                 path.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())?;
                 f.write_str(")")
             }

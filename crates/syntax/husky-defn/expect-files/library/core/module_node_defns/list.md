@@ -145,6 +145,226 @@ Ok(
                 ),
             ),
         ),
+        NodeDefn::ImplBlock(
+            ImplBlockNodeDecl::Type(
+                TypeImplBlockNodeDecl {
+                    node_path: TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `core::list`,
+                            ty_path: TypePath(`core::list::List`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    },
+                    ast_idx: 5,
+                    impl_block: TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `core::list`,
+                                ty_path: TypePath(`core::list::List`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 5,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                8,
+                            ),
+                        },
+                        ty_expr: 0,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                0..4,
+                            ),
+                        },
+                    },
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            8,
+                        ),
+                    },
+                    implicit_parameter_decl_list: Ok(
+                        Some(
+                            ImplicitParameterDeclList {
+                                langle: LeftAngleBracketOrLessThanToken(
+                                    TokenIdx(
+                                        9,
+                                    ),
+                                ),
+                                implicit_parameters: [
+                                    ImplicitParameterDecl {
+                                        annotated_variance_token: None,
+                                        symbol: 0,
+                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                            ident_token: IdentToken {
+                                                ident: `E`,
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
+                                            },
+                                            traits: None,
+                                        },
+                                    },
+                                ],
+                                commas: [],
+                                decl_list_result: Ok(
+                                    (),
+                                ),
+                                rangle: RightAngleBracketToken(
+                                    TokenIdx(
+                                        11,
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                    ty_expr: TypeExpr {
+                        expr: 2,
+                    },
+                    eol_colon: Ok(
+                        EolToken::Colon(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    14,
+                                ),
+                            },
+                        ),
+                    ),
+                    expr_region: ExprRegion {
+                        data: ExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                EntityNodePath::ImplBlock(
+                                    ImplBlockNodePath::TypeImplBlock(
+                                        TypeImplBlockNodePath {
+                                            path: TypeImplBlockPath {
+                                                module_path: `core::list`,
+                                                ty_path: TypePath(`core::list::List`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`core::list::List`, `Extern`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    Expr::CurrentSymbol {
+                                        ident: `E`,
+                                        token_idx: TokenIdx(
+                                            13,
+                                        ),
+                                        current_symbol_idx: 0,
+                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                ident_token: IdentToken {
+                                                    ident: `E`,
+                                                    token_idx: TokenIdx(
+                                                        10,
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    Expr::ExplicitApplication {
+                                        function_expr_idx: 0,
+                                        argument_expr_idx: 1,
+                                    },
+                                ],
+                            },
+                            principal_entity_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `List`,
+                                                token_idx: TokenIdx(
+                                                    12,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Type(
+                                                TypePath(`core::list::List`, `Extern`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: PatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [
+                                        CurrentSymbol {
+                                            modifier: Const,
+                                            access_start: TokenIdx(
+                                                11,
+                                            ),
+                                            access_end: None,
+                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `E`,
+                                                        token_idx: TokenIdx(
+                                                            10,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                    ],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [
+                                    (
+                                        ImplicitTypeParameter,
+                                        ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    ),
+                                ],
+                            },
+                            roots: [
+                                ExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 2,
+                                },
+                            ],
+                        },
+                    },
+                },
+            ),
+        ),
         NodeDefn::AssociatedItem(
             AssociatedItemNodeDefn::TypeItem(
                 TypeItemNodeDefn::MethodFn(

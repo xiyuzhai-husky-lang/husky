@@ -10,6 +10,73 @@ Ok(
                 ),
             ),
             Token::Ident(
+                `OneVsAll`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Const,
+            ),
+            Token::Ident(
+                `label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
+            ),
+            Token::Ident(
+                `ConfidentYes`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
+            ),
+            Token::Ident(
+                `ConfidentNo`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Vertical,
+                ),
+            ),
+            Token::Ident(
+                `Unconfident`,
+            ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::TypeEntity(
+                    Enum,
+                ),
+            ),
+            Token::Ident(
                 `OneVsAllResult`,
             ),
             Token::Punctuation(
@@ -67,6 +134,58 @@ Ok(
             ),
             Token::Ident(
                 `Unconfident`,
+            ),
+            Token::Keyword(
+                Keyword::Impl,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Const,
+            ),
+            Token::Ident(
+                `label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Ident(
+                `Unveil`,
+            ),
+            Token::Ident(
+                `OneVsAllResult`,
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Ident(
+                `label`,
+            ),
+            Token::Keyword(
+                Keyword::Connection(
+                    For,
+                ),
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -216,8 +335,18 @@ Ok(
             13,
             15,
             17,
+            28,
+            30,
+            32,
+            34,
+            48,
         ],
         indents: [
+            0,
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,

@@ -1,7 +1,14 @@
+pub enum OneVsAll<Label, const label: Label>
+| ConfidentYes
+| ConfidentNo
+| Unconfident
+
 pub enum OneVsAllResult<Label, const label: Label>
 | ConfidentYes
 | ConfidentNo
 | Unconfident
+
+impl<Label, const label: Label> Unveil OneVsAllResult Label label for 
 
 pub gn narrow_down<Label, const label: Label>(
     ...[] f: f32,

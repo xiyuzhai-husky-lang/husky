@@ -13,6 +13,25 @@ pub enum DeclarativeTermEntityPath {
     TypeVariant(TypeVariantPath),
 }
 
+impl From<TermEntityPath> for DeclarativeTermEntityPath {
+    fn from(path: TermEntityPath) -> Self {
+        match path {
+            TermEntityPath::Fugitive(path) => DeclarativeTermEntityPath::Fugitive(path),
+            TermEntityPath::Trait(path) => DeclarativeTermEntityPath::Trait(path),
+            TermEntityPath::TypeOntology(path) | TermEntityPath::TypeInstance(path) => {
+                DeclarativeTermEntityPath::Type(path)
+            }
+            TermEntityPath::TypeVariant(path) => DeclarativeTermEntityPath::TypeVariant(path),
+        }
+    }
+}
+
+impl From<TermEntityPath> for DeclarativeTerm {
+    fn from(path: TermEntityPath) -> Self {
+        DeclarativeTerm::EntityPath(path.into())
+    }
+}
+
 impl DeclarativeTermEntityPath {
     pub fn ty_path(self) -> Option<TypePath> {
         match self {

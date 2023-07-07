@@ -121,7 +121,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i8`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -162,10 +168,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i8`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i8`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -263,7 +287,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i16`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -304,10 +334,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i16`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -405,7 +453,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -446,10 +500,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
@@ -546,7 +618,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i64`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -587,10 +665,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i64`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i64`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -688,7 +784,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i128`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -729,10 +831,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i128`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::i128`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -830,7 +950,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::isize`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -871,10 +997,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::isize`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::isize`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -972,7 +1116,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u8`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1013,10 +1163,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u8`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u8`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1114,7 +1282,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u16`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1155,10 +1329,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u16`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u16`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1256,7 +1448,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1297,10 +1495,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1398,7 +1614,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u64`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1439,10 +1661,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u64`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u64`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1540,7 +1780,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u128`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1581,10 +1827,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u128`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::u128`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1682,7 +1946,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::usize`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1723,10 +1993,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::usize`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::usize`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1824,7 +2112,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -1903,10 +2197,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f32`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
@@ -2003,7 +2315,13 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f64`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -2044,10 +2362,28 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::ops::Add`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f64`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::num::f64`, `Extern`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

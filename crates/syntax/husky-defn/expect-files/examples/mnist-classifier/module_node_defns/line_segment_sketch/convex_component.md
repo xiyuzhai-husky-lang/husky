@@ -303,6 +303,166 @@ Ok(
                 ),
             ),
         ),
+        NodeDefn::ImplBlock(
+            ImplBlockNodeDecl::TraitForType(
+                TraitForTypeImplBlockNodeDecl {
+                    node_path: TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
+                            module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                            trai_path: TraitPath(`core::visual::Visualize`),
+                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                            disambiguator: 0,
+                        },
+                    },
+                    ast_idx: 4,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            23,
+                        ),
+                    },
+                    implicit_parameter_decl_list: Ok(
+                        None,
+                    ),
+                    trai_expr: TraitExpr {
+                        expr: 0,
+                    },
+                    for_token: ConnectionForToken {
+                        token_idx: TokenIdx(
+                            25,
+                        ),
+                    },
+                    ty_expr: TypeExpr {
+                        expr: 1,
+                    },
+                    eol_colon: Ok(
+                        EolToken::Colon(
+                            EolColonToken {
+                                token_idx: TokenIdx(
+                                    27,
+                                ),
+                            },
+                        ),
+                    ),
+                    expr_region: ExprRegion {
+                        data: ExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                EntityNodePath::ImplBlock(
+                                    ImplBlockNodePath::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockNodePath {
+                                            path: TraitForTypeImplBlockPath {
+                                                module_path: `mnist_classifier::line_segment_sketch::convex_component`,
+                                                trai_path: TraitPath(`core::visual::Visualize`),
+                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 0,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Trait(
+                                                    TraitPath(`core::visual::Visualize`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 1,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            principal_entity_path_expr_arena: Arena {
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `Visualize`,
+                                                token_idx: TokenIdx(
+                                                    24,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Trait(
+                                                TraitPath(`core::visual::Visualize`),
+                                            ),
+                                        ),
+                                    },
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `ConvexComponent`,
+                                                token_idx: TokenIdx(
+                                                    26,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Type(
+                                                TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                            ),
+                                        ),
+                                    },
+                                ],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: PatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [
+                                ExprRoot {
+                                    kind: Trait,
+                                    expr_idx: 0,
+                                },
+                                ExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 1,
+                                },
+                            ],
+                        },
+                    },
+                },
+            ),
+        ),
         NodeDefn::AssociatedItem(
             AssociatedItemNodeDefn::TraitForTypeItem(
                 TraitForTypeItemNodeDefn::MethodFn(

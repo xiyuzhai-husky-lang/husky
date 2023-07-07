@@ -109,7 +109,13 @@ Ok(
                 },
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`malamute::OneVsAll`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(

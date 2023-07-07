@@ -67,7 +67,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(

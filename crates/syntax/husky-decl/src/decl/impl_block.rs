@@ -1,6 +1,8 @@
+mod ill_formed;
 mod trai_for_ty_impl_block;
 mod ty_impl_block;
 
+pub use self::ill_formed::*;
 pub use self::trai_for_ty_impl_block::*;
 pub use self::ty_impl_block::*;
 
@@ -13,13 +15,15 @@ use husky_token::ImplToken;
 pub enum ImplBlockNodeDecl {
     Type(TypeImplBlockNodeDecl),
     TraitForType(TraitForTypeImplBlockNodeDecl),
+    IllFormed(IllFormedImplBlockNodeDecl),
 }
 
 impl ImplBlockNodeDecl {
     pub fn node_path(self, db: &dyn DeclDb) -> ImplBlockNodePath {
         match self {
             ImplBlockNodeDecl::Type(decl) => decl.node_path(db).into(),
-            ImplBlockNodeDecl::TraitForType(_) => todo!(),
+            ImplBlockNodeDecl::TraitForType(decl) => decl.node_path(db).into(),
+            ImplBlockNodeDecl::IllFormed(decl) => decl.node_path(db).into(),
         }
     }
 
@@ -27,6 +31,7 @@ impl ImplBlockNodeDecl {
         match self {
             ImplBlockNodeDecl::Type(decl) => decl.ast_idx(db),
             ImplBlockNodeDecl::TraitForType(decl) => decl.ast_idx(db),
+            ImplBlockNodeDecl::IllFormed(decl) => decl.ast_idx(db),
         }
     }
 
@@ -36,8 +41,9 @@ impl ImplBlockNodeDecl {
 
     pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
         match self {
-            ImplBlockNodeDecl::Type(decl) => decl.expr_region(db),
-            ImplBlockNodeDecl::TraitForType(decl) => decl.expr_region(db),
+            ImplBlockNodeDecl::Type(node_decl) => node_decl.expr_region(db),
+            ImplBlockNodeDecl::TraitForType(node_decl) => node_decl.expr_region(db),
+            ImplBlockNodeDecl::IllFormed(node_decl) => node_decl.expr_region(db),
         }
     }
 
@@ -45,6 +51,7 @@ impl ImplBlockNodeDecl {
         match self {
             ImplBlockNodeDecl::Type(node_decl) => node_decl.errors(db),
             ImplBlockNodeDecl::TraitForType(node_decl) => node_decl.errors(db),
+            ImplBlockNodeDecl::IllFormed(node_decl) => node_decl.errors(db),
         }
     }
 }
@@ -56,7 +63,7 @@ impl HasNodeDecl for ImplBlockNodePath {
         match self {
             ImplBlockNodePath::TypeImplBlock(node_path) => node_path.node_decl(db).into(),
             ImplBlockNodePath::TraitForTypeImplBlock(node_path) => node_path.node_decl(db).into(),
-            ImplBlockNodePath::IllFormedImplBlock(_) => todo!(),
+            ImplBlockNodePath::IllFormedImplBlock(node_path) => node_path.node_decl(db).into(),
         }
     }
 }

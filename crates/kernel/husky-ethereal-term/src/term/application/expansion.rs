@@ -15,6 +15,7 @@ impl EtherealTerm {
                     arguments: None,
                 },
                 TermEntityPath::TypeInstance(_) => todo!(),
+                TermEntityPath::TypeVariant(_) => todo!(),
             },
             _ => ApplicationExpansion {
                 function: TermFunctionReduced::Other(self),

@@ -1,7 +1,9 @@
+mod ill_formed_item;
 mod trai_for_ty_item;
 mod trai_item;
 mod ty_item;
 
+pub use self::ill_formed_item::*;
 pub use self::trai_for_ty_item::*;
 pub use self::trai_item::*;
 pub use self::ty_item::*;
@@ -17,6 +19,7 @@ pub enum AssociatedItemNodePath {
     TypeItem(TypeItemNodePath),
     TraitItem(TraitItemNodePath),
     TraitForTypeItem(TraitForTypeItemNodePath),
+    IllFormedItem(IllFormedItemNodePath),
 }
 
 impl AssociatedItemNodePath {
@@ -26,9 +29,10 @@ impl AssociatedItemNodePath {
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            AssociatedItemNodePath::TypeItem(id) => id.module_path(db),
-            AssociatedItemNodePath::TraitItem(id) => id.module_path(db),
-            AssociatedItemNodePath::TraitForTypeItem(id) => id.module_path(db),
+            AssociatedItemNodePath::TypeItem(node_path) => node_path.module_path(db),
+            AssociatedItemNodePath::TraitItem(node_path) => node_path.module_path(db),
+            AssociatedItemNodePath::TraitForTypeItem(node_path) => node_path.module_path(db),
+            AssociatedItemNodePath::IllFormedItem(node_path) => node_path.module_path(db),
         }
     }
 

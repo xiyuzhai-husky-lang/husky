@@ -96,9 +96,21 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Trait(
+                        TraitPath(`core::visual::Visualize`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(

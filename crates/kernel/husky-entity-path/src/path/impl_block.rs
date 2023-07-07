@@ -9,7 +9,7 @@ pub enum ImplBlockPath {
 }
 
 impl ImplBlockPath {
-    pub fn module(self, db: &dyn EntityPathDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
         match self {
             ImplBlockPath::TypeImplBlock(path) => path.module_path(db),
             ImplBlockPath::TraitForTypeImplBlock(path) => path.module_path(db),

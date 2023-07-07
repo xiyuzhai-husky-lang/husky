@@ -41,10 +41,42 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `E`,
+                            token_idx: TokenIdx(
+                                10,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::list::List`, `Extern`),
+                    ),
+                ),
+            ),
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 0,
+                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                        ident_token: IdentToken {
+                            ident: `E`,
+                            token_idx: TokenIdx(
+                                10,
+                            ),
+                        },
+                    },
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,

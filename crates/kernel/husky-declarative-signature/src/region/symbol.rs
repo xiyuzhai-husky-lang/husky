@@ -114,29 +114,31 @@ impl SymbolDeclarativeTermRegion {
         symbol_region: &SymbolRegion,
     ) {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty_term.is_none() {
-            self.self_ty_term = Some(match region_path {
+            self.self_ty_term = match region_path {
                 RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Trait(_))) => {
-                    self.trai_self_ty_term(db)
+                    Some(self.trai_self_ty_term(db))
                 }
                 RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Type(
                     ty_node_path,
-                ))) => self.ty_self_ty_term(
-                    db,
-                    ty_node_path
-                        .path(db)
-                        .expect("should have valid entity path"),
+                ))) => Some(
+                    self.ty_self_ty_term(
+                        db,
+                        ty_node_path
+                            .path(db)
+                            .expect("should have valid entity path"),
+                    ),
                 ),
                 RegionPath::Decl(EntityNodePath::ImplBlock(node_path)) => match node_path {
                     ImplBlockNodePath::TypeImplBlock(node_path) => {
-                        self.ty_self_ty_term(db, node_path.ty_path(db))
+                        Some(self.ty_self_ty_term(db, node_path.ty_path(db)))
                     }
                     ImplBlockNodePath::TraitForTypeImplBlock(impl_block_path) => {
-                        self.ty_self_ty_term(db, impl_block_path.ty_path(db))
+                        Some(self.ty_self_ty_term(db, impl_block_path.ty_path(db)))
                     }
-                    ImplBlockNodePath::IllFormedImplBlock(_) => unreachable!(),
+                    ImplBlockNodePath::IllFormedImplBlock(_) => None,
                 },
                 _ => unreachable!(),
-            })
+            }
         }
         if symbol_region.allow_self_value().to_bool() && self.self_value_term.is_none() {
             self.self_value_term = Some(

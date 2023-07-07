@@ -28,7 +28,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`natural_number_game::Nat`, `Inductive`),
+                    ),
+                ),
+            ),
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
