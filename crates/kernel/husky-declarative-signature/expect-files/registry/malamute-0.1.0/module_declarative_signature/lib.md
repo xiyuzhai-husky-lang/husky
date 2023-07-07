@@ -2,6 +2,46 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
+                TypePath(`malamute::OneVsAll`, `Enum`),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::Enum(
+                        EnumDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                    ImplicitParameterDeclarativeSignature {
+                                        annotated_variance: None,
+                                        symbol: DeclarativeTermSymbol(
+                                            Id {
+                                                value: 47,
+                                            },
+                                        ),
+                                        traits: [],
+                                    },
+                                ],
+                            },
+                            self_ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
                 TypePath(`malamute::OneVsAllResult`, `Enum`),
             ),
         ),

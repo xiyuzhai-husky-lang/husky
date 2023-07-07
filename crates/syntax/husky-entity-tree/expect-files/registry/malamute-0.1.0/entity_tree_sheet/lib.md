@@ -9,17 +9,51 @@ Ok(
                             node_path: ModuleItemNodePath::Type(
                                 TypeNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 6,
+                            ident_token: IdentToken {
+                                ident: `OneVsAll`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        },
+                    ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Type(
+                            TypeNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `OneVsAll`,
+                    visibility: Scope::Pub,
+                },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                         disambiguator: 0,
                                     },
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 3,
+                            ast_idx: 7,
                             ident_token: IdentToken {
                                 ident: `OneVsAllResult`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    19,
                                 ),
                             },
                         },
@@ -49,11 +83,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 4,
+                            ast_idx: 9,
                             ident_token: IdentToken {
                                 ident: `narrow_down`,
                                 token_idx: TokenIdx(
-                                    19,
+                                    50,
                                 ),
                             },
                         },
@@ -76,6 +110,33 @@ Ok(
         entity_symbol_table: EntitySymbolTable(
             [
                 EntitySymbolEntry {
+                    ident: `OneVsAll`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::ModuleItem {
+                        module_item_path: ModuleItemPath::Type(
+                            TypePath(`malamute::OneVsAll`, `Enum`),
+                        ),
+                        node: ModuleItemNode {
+                            node_path: ModuleItemNodePath::Type(
+                                TypeNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 6,
+                            ident_token: IdentToken {
+                                ident: `OneVsAll`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        },
+                    },
+                },
+                EntitySymbolEntry {
                     ident: `OneVsAllResult`,
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::ModuleItem {
@@ -92,11 +153,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 3,
+                            ast_idx: 7,
                             ident_token: IdentToken {
                                 ident: `OneVsAllResult`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    19,
                                 ),
                             },
                         },
@@ -119,11 +180,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 4,
+                            ast_idx: 9,
                             ident_token: IdentToken {
                                 ident: `narrow_down`,
                                 token_idx: TokenIdx(
-                                    19,
+                                    50,
                                 ),
                             },
                         },
@@ -131,7 +192,47 @@ Ok(
                 },
             ],
         ),
-        impl_block_node_table: [],
+        impl_block_node_table: [
+            (
+                ImplBlockNodePath::IllFormedImplBlock(
+                    IllFormedImplBlockNodePath {
+                        path: IllFormedImplBlockPath {
+                            module_path: `malamute`,
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                ImplBlockNode::IllFormedImplBlock(
+                    IllFormedImplBlockNode {
+                        node_path: IllFormedImplBlockNodePath {
+                            path: IllFormedImplBlockPath {
+                                module_path: `malamute`,
+                                disambiguator: 0,
+                            },
+                        },
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                34,
+                            ),
+                        },
+                        ast_idx: 8,
+                        items: None,
+                        ill_form: ImplBlockIllForm::MajorPath(
+                            MajorPathExprError::Original(
+                                OriginalMajorPathExprError::UnrecognizedIdent(
+                                    IdentToken {
+                                        ident: `Unveil`,
+                                        token_idx: TokenIdx(
+                                            43,
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ],
         once_use_rules: OnceUseRules(
             [],
         ),

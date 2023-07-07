@@ -133,6 +133,9 @@ impl EtherealTerm {
                 TermEntityPath::TypeInstance(path) => {
                     RawType::Declarative(ty_instance_constructor_path_declarative_ty(db, path)?)
                 }
+                TermEntityPath::TypeVariant(path) => {
+                    RawType::Declarative(ty_variant_path_declarative_ty(db, path)?)
+                }
             },
             EtherealTerm::Category(cat) => RawType::Declarative(cat.ty()?.into()),
             EtherealTerm::Universe(_) => todo!(),

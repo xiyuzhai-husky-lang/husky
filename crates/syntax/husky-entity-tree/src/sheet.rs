@@ -114,6 +114,22 @@ impl EntityTreeSheet {
             .expect("valid node path")
     }
 
+    pub(crate) fn ill_formed_impl_block_node(
+        &self,
+        db: &dyn EntityTreeDb,
+        node_path: IllFormedImplBlockNodePath,
+    ) -> IllFormedImplBlockNode {
+        self.impl_block_node_table
+            .iter()
+            .find_map(|(node_path1, node)| {
+                (*node_path1 == node_path.into()).then(|| match node {
+                    ImplBlockNode::IllFormedImplBlock(node) => *node,
+                    _ => unreachable!(),
+                })
+            })
+            .expect("valid node path")
+    }
+
     pub fn impl_block_node_paths<'a>(&'a self) -> impl Iterator<Item = ImplBlockNodePath> + 'a {
         self.impl_block_node_table
             .iter()
@@ -230,19 +246,24 @@ pub fn module_entity_node_paths(
         node_paths.push(node_path)
     }
     // todo: trait item
-    for node_path in entity_tree_sheet.impl_block_node_paths() {
-        match node_path {
-            ImplBlockNodePath::TypeImplBlock(node_path) => {
-                for node_path in node_path.item_node_paths(db) {
+    for impl_block_node_path in entity_tree_sheet.impl_block_node_paths() {
+        node_paths.push(impl_block_node_path.into());
+        match impl_block_node_path {
+            ImplBlockNodePath::TypeImplBlock(impl_block_node_path) => {
+                for node_path in impl_block_node_path.item_node_paths(db) {
                     node_paths.push(node_path.into())
                 }
             }
-            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => {
-                for node_path in node_path.item_node_paths(db) {
+            ImplBlockNodePath::TraitForTypeImplBlock(impl_block_node_path) => {
+                for node_path in impl_block_node_path.item_node_paths(db) {
                     node_paths.push(node_path.into())
                 }
             }
-            ImplBlockNodePath::IllFormedImplBlock(_) => todo!(),
+            ImplBlockNodePath::IllFormedImplBlock(impl_block_node_path) => {
+                for node_path in impl_block_node_path.item_node_paths(db).iter().copied() {
+                    node_paths.push(node_path.into())
+                }
+            }
         }
     }
     Ok(node_paths)

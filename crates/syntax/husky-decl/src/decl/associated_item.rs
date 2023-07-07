@@ -19,6 +19,7 @@ pub enum AssociatedItemNodeDecl {
     TypeItem(TypeItemNodeDecl),
     TraitItem(TraitItemNodeDecl),
     TraitForTypeItem(TraitForTypeItemNodeDecl),
+    IllFormedItem(IllFormedItemNodeDecl),
 }
 
 impl AssociatedItemNodeDecl {
@@ -27,6 +28,7 @@ impl AssociatedItemNodeDecl {
             AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.node_path(db).into(),
             AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.node_path(db).into(),
             AssociatedItemNodeDecl::TraitForTypeItem(node_decl) => node_decl.node_path(db).into(),
+            AssociatedItemNodeDecl::IllFormedItem(node_decl) => node_decl.node_path(db).into(),
         }
     }
 
@@ -35,6 +37,7 @@ impl AssociatedItemNodeDecl {
             AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.ast_idx(db),
             AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.ast_idx(db),
             AssociatedItemNodeDecl::TraitForTypeItem(node_decl) => node_decl.ast_idx(db),
+            AssociatedItemNodeDecl::IllFormedItem(_) => todo!(),
         }
     }
 
@@ -43,6 +46,7 @@ impl AssociatedItemNodeDecl {
             AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.implicit_parameters(db),
             AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.implicit_parameters(db),
             AssociatedItemNodeDecl::TraitForTypeItem(_) => todo!(),
+            AssociatedItemNodeDecl::IllFormedItem(_) => todo!(),
         }
     }
 
@@ -51,6 +55,7 @@ impl AssociatedItemNodeDecl {
             AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.expr_region(db),
             AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.expr_region(db),
             AssociatedItemNodeDecl::TraitForTypeItem(node_decl) => node_decl.expr_region(db),
+            AssociatedItemNodeDecl::IllFormedItem(_) => todo!(),
         }
     }
 
@@ -59,6 +64,7 @@ impl AssociatedItemNodeDecl {
             AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.errors(db),
             AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.errors(db),
             AssociatedItemNodeDecl::TraitForTypeItem(node_decl) => node_decl.errors(db),
+            AssociatedItemNodeDecl::IllFormedItem(_) => todo!(),
         }
     }
 }

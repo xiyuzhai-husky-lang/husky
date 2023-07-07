@@ -437,6 +437,49 @@ Ok(
                             },
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 6,
+                                            ident_token: IdentToken {
+                                                ident: `OneVsAll`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 24,
+                                    use_expr_idx: 18,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier`,
@@ -457,11 +500,11 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 3,
+                                            ast_idx: 7,
                                             ident_token: IdentToken {
                                                 ident: `OneVsAllResult`,
                                                 token_idx: TokenIdx(
-                                                    2,
+                                                    19,
                                                 ),
                                             },
                                         },
@@ -500,11 +543,11 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 4,
+                                            ast_idx: 9,
                                             ident_token: IdentToken {
                                                 ident: `narrow_down`,
                                                 token_idx: TokenIdx(
-                                                    19,
+                                                    50,
                                                 ),
                                             },
                                         },
@@ -2099,7 +2142,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                2,
+                                3,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -2123,7 +2166,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -2135,7 +2178,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -2147,7 +2190,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -2159,7 +2202,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                47,
+                                48,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -2183,7 +2226,7 @@ Ok(
                                 `mnist_classifier`,
                             ),
                             progress: Ok(
-                                34,
+                                35,
                             ),
                         },
                     ],
@@ -2854,6 +2897,63 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::connected_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 6,
+                                                    ident_token: IdentToken {
+                                                        ident: `OneVsAll`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::connected_component`,
+                                    ),
+                                    ast_idx: 119,
+                                    use_expr_idx: 3,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::connected_component`,
@@ -2876,11 +2976,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 3,
+                                                    ast_idx: 7,
                                                     ident_token: IdentToken {
                                                         ident: `OneVsAllResult`,
                                                         token_idx: TokenIdx(
-                                                            2,
+                                                            19,
                                                         ),
                                                     },
                                                 },
@@ -2933,11 +3033,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 9,
                                                     ident_token: IdentToken {
                                                         ident: `narrow_down`,
                                                         token_idx: TokenIdx(
-                                                            19,
+                                                            50,
                                                         ),
                                                     },
                                                 },
@@ -4271,7 +4371,7 @@ Ok(
                                 `mnist_classifier::connected_component`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -4283,7 +4383,7 @@ Ok(
                                 `mnist_classifier::connected_component`,
                             ),
                             progress: Ok(
-                                47,
+                                48,
                             ),
                         },
                     ],
@@ -5315,6 +5415,63 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::raw_contour`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 6,
+                                                    ident_token: IdentToken {
+                                                        ident: `OneVsAll`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::raw_contour`,
+                                    ),
+                                    ast_idx: 202,
+                                    use_expr_idx: 9,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::raw_contour`,
@@ -5337,11 +5494,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 3,
+                                                    ast_idx: 7,
                                                     ident_token: IdentToken {
                                                         ident: `OneVsAllResult`,
                                                         token_idx: TokenIdx(
-                                                            2,
+                                                            19,
                                                         ),
                                                     },
                                                 },
@@ -5394,11 +5551,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 9,
                                                     ident_token: IdentToken {
                                                         ident: `narrow_down`,
                                                         token_idx: TokenIdx(
-                                                            19,
+                                                            50,
                                                         ),
                                                     },
                                                 },
@@ -7160,7 +7317,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -7184,7 +7341,7 @@ Ok(
                                 `mnist_classifier::raw_contour`,
                             ),
                             progress: Ok(
-                                34,
+                                35,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -9448,7 +9605,7 @@ Ok(
                             use_expr_idx: 0,
                             visibility: Scope::Pub,
                             progress: Ok(
-                                48,
+                                49,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -9903,6 +10060,63 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch::concave_component`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 6,
+                                                    ident_token: IdentToken {
+                                                        ident: `OneVsAll`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::line_segment_sketch::concave_component`,
+                                    ),
+                                    ast_idx: 73,
+                                    use_expr_idx: 14,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
@@ -9925,11 +10139,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 3,
+                                                    ast_idx: 7,
                                                     ident_token: IdentToken {
                                                         ident: `OneVsAllResult`,
                                                         token_idx: TokenIdx(
-                                                            2,
+                                                            19,
                                                         ),
                                                     },
                                                 },
@@ -9982,11 +10196,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 9,
                                                     ident_token: IdentToken {
                                                         ident: `narrow_down`,
                                                         token_idx: TokenIdx(
-                                                            19,
+                                                            50,
                                                         ),
                                                     },
                                                 },
@@ -12493,7 +12707,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::concave_component`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -15207,7 +15421,7 @@ Ok(
                                 `mnist_classifier::line_segment_sketch::convexity`,
                             ),
                             progress: Ok(
-                                47,
+                                48,
                             ),
                         },
                         UseAllModuleSymbolsRule {
@@ -16094,6 +16308,63 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::fermi`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 6,
+                                                    ident_token: IdentToken {
+                                                        ident: `OneVsAll`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::fermi`,
+                                    ),
+                                    ast_idx: 21,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::fermi`,
@@ -16116,11 +16387,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 3,
+                                                    ast_idx: 7,
                                                     ident_token: IdentToken {
                                                         ident: `OneVsAllResult`,
                                                         token_idx: TokenIdx(
-                                                            2,
+                                                            19,
                                                         ),
                                                     },
                                                 },
@@ -16173,11 +16444,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 9,
                                                     ident_token: IdentToken {
                                                         ident: `narrow_down`,
                                                         token_idx: TokenIdx(
-                                                            19,
+                                                            50,
                                                         ),
                                                     },
                                                 },
@@ -17532,7 +17803,7 @@ Ok(
                                 `mnist_classifier::fermi`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                     ],
@@ -18470,6 +18741,63 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 6,
+                                                    ident_token: IdentToken {
+                                                        ident: `OneVsAll`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
@@ -18492,11 +18820,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 3,
+                                                    ast_idx: 7,
                                                     ident_token: IdentToken {
                                                         ident: `OneVsAllResult`,
                                                         token_idx: TokenIdx(
-                                                            2,
+                                                            19,
                                                         ),
                                                     },
                                                 },
@@ -18549,11 +18877,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 9,
                                                     ident_token: IdentToken {
                                                         ident: `narrow_down`,
                                                         token_idx: TokenIdx(
-                                                            19,
+                                                            50,
                                                         ),
                                                     },
                                                 },
@@ -21375,7 +21703,7 @@ Ok(
                                 `mnist_classifier::digits`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                     ],
@@ -22400,6 +22728,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::zero`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::zero`,
@@ -22424,11 +22823,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -22495,11 +22894,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -24598,7 +24997,7 @@ Ok(
                                 `mnist_classifier::digits::zero`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -25698,6 +26097,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::one`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::one`,
+                                    ),
+                                    ast_idx: 61,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::one`,
@@ -25722,11 +26192,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -25793,11 +26263,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -27955,7 +28425,7 @@ Ok(
                                 `mnist_classifier::digits::one`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -29118,6 +29588,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::six`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::six`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::six`,
@@ -29142,11 +29683,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -29213,11 +29754,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -31316,7 +31857,7 @@ Ok(
                                 `mnist_classifier::digits::six`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -32479,6 +33020,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::three`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::three`,
+                                    ),
+                                    ast_idx: 27,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::three`,
@@ -32503,11 +33115,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -32574,11 +33186,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -34677,7 +35289,7 @@ Ok(
                                 `mnist_classifier::digits::three`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -35978,6 +36590,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::four`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::four`,
+                                    ),
+                                    ast_idx: 37,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::four`,
@@ -36002,11 +36685,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -36073,11 +36756,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -38235,7 +38918,7 @@ Ok(
                                 `mnist_classifier::digits::four`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -39122,6 +39805,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::five`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::five`,
+                                    ),
+                                    ast_idx: 1,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::five`,
@@ -39146,11 +39900,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -39217,11 +39971,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -41320,7 +42074,7 @@ Ok(
                                 `mnist_classifier::digits::five`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -42552,6 +43306,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::seven`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::seven`,
+                                    ),
+                                    ast_idx: 39,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
@@ -42576,11 +43401,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -42647,11 +43472,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -44750,7 +45575,7 @@ Ok(
                                 `mnist_classifier::digits::seven`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -45775,6 +46600,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::eight`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::eight`,
+                                    ),
+                                    ast_idx: 17,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::eight`,
@@ -45799,11 +46695,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -45870,11 +46766,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -47973,7 +48869,7 @@ Ok(
                                 `mnist_classifier::digits::eight`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -49136,6 +50032,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::nine`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::nine`,
+                                    ),
+                                    ast_idx: 35,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::nine`,
@@ -49160,11 +50127,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -49231,11 +50198,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -51334,7 +52301,7 @@ Ok(
                                 `mnist_classifier::digits::nine`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -52497,6 +53464,77 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::two`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Type(
+                                                                TypeNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 6,
+                                                            ident_token: IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    2,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::PubUnder(
+                                                        `mnist_classifier`,
+                                                    ),
+                                                    ast_idx: 24,
+                                                    use_expr_idx: 18,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 26,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits::two`,
+                                    ),
+                                    ast_idx: 49,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::two`,
@@ -52521,11 +53559,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 3,
+                                                            ast_idx: 7,
                                                             ident_token: IdentToken {
                                                                 ident: `OneVsAllResult`,
                                                                 token_idx: TokenIdx(
-                                                                    2,
+                                                                    19,
                                                                 ),
                                                             },
                                                         },
@@ -52592,11 +53630,11 @@ Ok(
                                                                 },
                                                             ),
                                                             visibility: Scope::Pub,
-                                                            ast_idx: 4,
+                                                            ast_idx: 9,
                                                             ident_token: IdentToken {
                                                                 ident: `narrow_down`,
                                                                 token_idx: TokenIdx(
-                                                                    19,
+                                                                    50,
                                                                 ),
                                                             },
                                                         },
@@ -54695,7 +55733,7 @@ Ok(
                                 `mnist_classifier::digits::two`,
                             ),
                             progress: Ok(
-                                50,
+                                51,
                             ),
                         },
                     ],
@@ -55411,6 +56449,63 @@ Ok(
                             ),
                         },
                         EntitySymbolEntry {
+                            ident: `OneVsAll`,
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::ModuleItem {
+                                                module_item_path: ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                                node: ModuleItemNode {
+                                                    node_path: ModuleItemNodePath::Type(
+                                                        TypeNodePath {
+                                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                disambiguator: 0,
+                                                            },
+                                                        },
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 6,
+                                                    ident_token: IdentToken {
+                                                        ident: `OneVsAll`,
+                                                        token_idx: TokenIdx(
+                                                            2,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 24,
+                                            use_expr_idx: 18,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::major`,
+                                    ),
+                                    ast_idx: 18,
+                                    use_expr_idx: 0,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
                             ident: `OneVsAllResult`,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::major`,
@@ -55433,11 +56528,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 3,
+                                                    ast_idx: 7,
                                                     ident_token: IdentToken {
                                                         ident: `OneVsAllResult`,
                                                         token_idx: TokenIdx(
-                                                            2,
+                                                            19,
                                                         ),
                                                     },
                                                 },
@@ -55490,11 +56585,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 4,
+                                                    ast_idx: 9,
                                                     ident_token: IdentToken {
                                                         ident: `narrow_down`,
                                                         token_idx: TokenIdx(
-                                                            19,
+                                                            50,
                                                         ),
                                                     },
                                                 },
@@ -56529,7 +57624,7 @@ Ok(
                                 `mnist_classifier::major`,
                             ),
                             progress: Ok(
-                                32,
+                                33,
                             ),
                         },
                     ],

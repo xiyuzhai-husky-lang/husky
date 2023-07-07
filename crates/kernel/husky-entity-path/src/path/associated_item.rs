@@ -18,19 +18,19 @@ pub enum AssociatedItemPath {
 }
 
 impl AssociatedItemPath {
-    pub fn ident(self, _db: &dyn EntityPathDb) -> Ident {
+    pub fn ident(self, db: &dyn EntityPathDb) -> Ident {
         match self {
-            AssociatedItemPath::TypeItem(_) => todo!(),
-            AssociatedItemPath::TraitItem(_) => todo!(),
-            AssociatedItemPath::TraitForTypeItem(_) => todo!(),
+            AssociatedItemPath::TypeItem(path) => path.ident(db),
+            AssociatedItemPath::TraitItem(path) => path.ident(db),
+            AssociatedItemPath::TraitForTypeItem(path) => path.ident(db),
         }
     }
 
     pub fn module_path(self, db: &dyn EntityPathDb) -> ModulePath {
         match self {
             AssociatedItemPath::TypeItem(path) => path.module_path(db),
-            AssociatedItemPath::TraitItem(_) => todo!(),
-            AssociatedItemPath::TraitForTypeItem(_) => todo!(),
+            AssociatedItemPath::TraitItem(path) => path.module_path(db),
+            AssociatedItemPath::TraitForTypeItem(path) => path.module_path(db),
         }
     }
 
@@ -41,7 +41,9 @@ impl AssociatedItemPath {
                     AssociatedItemKind::TypeItem(path.item_kind(db))
                 }
 
-                AssociatedItemPath::TraitItem(_) => todo!(),
+                AssociatedItemPath::TraitItem(path) => {
+                    AssociatedItemKind::TraitItem(path.item_kind(db))
+                }
                 AssociatedItemPath::TraitForTypeItem(path) => {
                     AssociatedItemKind::TraitForTypeItem(path.item_kind(db))
                 }

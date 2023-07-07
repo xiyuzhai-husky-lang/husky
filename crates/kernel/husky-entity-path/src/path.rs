@@ -49,7 +49,7 @@ impl EntityPath {
             EntityPath::ModuleItem(path) => path.module_path(db),
             EntityPath::AssociatedItem(path) => path.module_path(db),
             EntityPath::TypeVariant(path) => path.module_path(db),
-            EntityPath::ImplBlock(_) => todo!(),
+            EntityPath::ImplBlock(path) => path.module_path(db),
         }
     }
 
@@ -67,7 +67,7 @@ impl EntityPath {
             EntityPath::ModuleItem(path) => path.entity_kind(db),
             EntityPath::AssociatedItem(path) => path.entity_kind(db),
             EntityPath::TypeVariant(_) => EntityKind::TypeVariant,
-            EntityPath::ImplBlock(_) => todo!(),
+            EntityPath::ImplBlock(_) => EntityKind::ImplBlock,
         }
     }
 

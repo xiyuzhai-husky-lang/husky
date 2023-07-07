@@ -92,6 +92,8 @@ impl SemanticToken {
                     }
                 },
                 EntityKind::TypeVariant => ext::SemanticTokenType::ENUM_MEMBER,
+                EntityKind::Trait => ext::SemanticTokenType::CLASS,
+                EntityKind::ImplBlock => unreachable!(),
                 // EntityKind::Module => ext::SemanticTokenType::NAMESPACE,
                 // EntityKind::Type(_) => ext::SemanticTokenType::TYPE,
                 // EntityKind::Trait => ext::SemanticTokenType::TYPE,

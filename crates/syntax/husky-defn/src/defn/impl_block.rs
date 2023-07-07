@@ -4,7 +4,7 @@ impl HasNodeDefn for ImplBlockNodePath {
     type NodeDefn = ImplBlockNodeDecl;
 
     fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
-        todo!()
+        self.node_decl(db)
     }
 }
 

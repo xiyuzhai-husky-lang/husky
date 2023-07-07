@@ -26,29 +26,28 @@ pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<No
         decls.push((node_path, node_path.node_decl(db)))
     }
     // todo: handle trait items
-    for node_path in entity_tree_sheet.impl_block_node_paths() {
-        decls.push((node_path.into(), node_path.node_decl(db).into()));
-        match node_path {
-            ImplBlockNodePath::TypeImplBlock(node_path) => {
-                for node_path in node_path.item_node_paths(db) {
-                    decls.push((node_path.into(), node_path.node_decl(db).into()))
+    for impl_block_node_path in entity_tree_sheet.impl_block_node_paths() {
+        decls.push((impl_block_node_path.into(), impl_block_node_path.node_decl(db).into()));
+        match impl_block_node_path {
+            ImplBlockNodePath::TypeImplBlock(impl_block_node_path) => {
+                for item_node_path in impl_block_node_path.item_node_paths(db) {
+                    decls.push((item_node_path.into(), item_node_path.node_decl(db).into()))
                 }
             }
-            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => {
-                for node_path in node_path.item_node_paths(db) {
-                    decls.push((node_path.into(), node_path.node_decl(db).into()))
+            ImplBlockNodePath::TraitForTypeImplBlock(impl_block_node_path) => {
+                for item_node_path in impl_block_node_path.item_node_paths(db) {
+                    decls.push((item_node_path.into(), item_node_path.node_decl(db).into()))
                 }
             }
-            ImplBlockNodePath::IllFormedImplBlock(node_path) => {
-                todo!()
-                // for ill_formed_item_node_path in
-                //     impl_block_node_path.item_node_paths(db).iter().copied()
-                // {
-                //     decls.push((
-                //         ill_formed_item_node_path.into(),
-                //         ill_formed_item_node_path.node_decl(db).into(),
-                //     ))
-                // }
+            ImplBlockNodePath::IllFormedImplBlock(impl_block_node_path) => { 
+                for item_node_path in
+                    impl_block_node_path.item_node_paths(db).iter().copied()
+                {
+                    decls.push((
+                        item_node_path.into(),
+                        item_node_path.node_decl(db).into(),
+                    ))
+                }
             }
         }
     }

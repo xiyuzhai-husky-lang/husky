@@ -100,18 +100,50 @@ impl EtherealTerm {
                                         PreludeTypePath::Num(num_ty_path) => match num_ty_path {
                                             PreludeNumTypePath::Int(int_ty_path) => {
                                                 match int_ty_path {
-                                                    PreludeIntTypePath::I8 => todo!(),
-                                                    PreludeIntTypePath::I16 => todo!(),
+                                                    PreludeIntTypePath::I8 => match i.try_into() {
+                                                        Ok::<i8, _>(i) => TermLiteral::I8(i).into(),
+                                                        Err(_) => todo!(),
+                                                    },
+                                                    PreludeIntTypePath::I16 => match i.try_into() {
+                                                        Ok::<i16, _>(i) => {
+                                                            TermLiteral::I16(i).into()
+                                                        }
+                                                        Err(_) => todo!(),
+                                                    },
                                                     PreludeIntTypePath::I32 => match i.try_into() {
                                                         Ok::<i32, _>(i) => {
                                                             TermLiteral::I32(i).into()
                                                         }
                                                         Err(_) => todo!(),
                                                     },
-                                                    PreludeIntTypePath::I64 => todo!(),
-                                                    PreludeIntTypePath::I128 => todo!(),
-                                                    PreludeIntTypePath::ISize => todo!(),
-                                                    PreludeIntTypePath::U8 => todo!(),
+                                                    PreludeIntTypePath::I64 => match i.try_into() {
+                                                        Ok::<i64, _>(i) => {
+                                                            todo!()
+                                                            // TermLiteral::I64(i).into()
+                                                        }
+                                                        Err(_) => todo!(),
+                                                    },
+                                                    PreludeIntTypePath::I128 => {
+                                                        match i.try_into() {
+                                                            Ok::<i128, _>(i) => {
+                                                                todo!()
+                                                                // TermLiteral::I128(i).into()
+                                                            }
+                                                            Err(_) => todo!(),
+                                                        }
+                                                    }
+                                                    PreludeIntTypePath::ISize => match i.try_into()
+                                                    {
+                                                        Ok::<isize, _>(i) => {
+                                                            todo!()
+                                                            // TermLiteral::ISize(i).into()
+                                                        }
+                                                        Err(_) => todo!(),
+                                                    },
+                                                    PreludeIntTypePath::U8 => match i.try_into() {
+                                                        Ok::<u8, _>(i) => TermLiteral::U8(i).into(),
+                                                        Err(_) => todo!(),
+                                                    },
                                                     PreludeIntTypePath::U16 => todo!(),
                                                     PreludeIntTypePath::U32 => todo!(),
                                                     PreludeIntTypePath::U64 => todo!(),
@@ -165,7 +197,9 @@ impl EtherealTerm {
                     }
                     TermTypeExpectation::Any => TermEntityPath::TypeInstance(path).into(),
                 },
-                DeclarativeTermEntityPath::TypeVariant(_) => todo!(),
+                DeclarativeTermEntityPath::TypeVariant(path) => {
+                    TermEntityPath::TypeVariant(path).into()
+                }
             },
             DeclarativeTerm::Category(declarative_term) => declarative_term.into(),
             DeclarativeTerm::Universe(declarative_term) => declarative_term.into(),
@@ -238,7 +272,7 @@ impl EtherealTerm {
                 DeclarativeTermVariable::new(db, Ok(v.ty(db).into_declarative(db)), v.idx(db))
                     .into()
             }
-            EtherealTerm::EntityPath(_) => todo!(),
+            EtherealTerm::EntityPath(path) => path.into(),
             EtherealTerm::Category(cat) => DeclarativeTerm::Category(cat),
             EtherealTerm::Universe(_) => todo!(),
             EtherealTerm::Curry(_) => todo!(),
@@ -263,11 +297,12 @@ impl EtherealTerm {
             | EtherealTerm::EntityPath(
                 TermEntityPath::Trait(_)
                 | TermEntityPath::TypeOntology(_)
-                | TermEntityPath::TypeInstance(_),
+                | TermEntityPath::TypeInstance(_)
+                | TermEntityPath::TypeVariant(_),
             )
             | EtherealTerm::Category(_)
             | EtherealTerm::Universe(_) => self,
-            EtherealTerm::EntityPath(_) => todo!(),
+            EtherealTerm::EntityPath(TermEntityPath::Fugitive(_)) => todo!(),
             EtherealTerm::Curry(_) => todo!(),
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),

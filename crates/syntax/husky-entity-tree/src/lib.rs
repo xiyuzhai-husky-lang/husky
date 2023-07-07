@@ -74,6 +74,8 @@ pub struct EntityTreeJar(
     TraitForTypeItemNodePath,
     TraitForTypeItemNode,
     trai_for_ty_item_node,
+    IllFormedItemNodePath,
+    IllFormedItemNode,
     TypeVariantNode,
     ty_variant_node,
     ty_impl_blocks,
@@ -93,6 +95,7 @@ pub struct EntityTreeJar(
     trai_for_ty_impl_block_node,
     // - ill formed impl block
     IllFormedImplBlockNode,
+    ill_formed_impl_block_node,
     // other
     entity_tree_presheet,
     entity_tree_crate_bundle,

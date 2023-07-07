@@ -51,6 +51,7 @@ impl HasNodeDefn for AssociatedItemNodePath {
             AssociatedItemNodePath::TypeItem(node_path) => node_path.node_defn(db).into(),
             AssociatedItemNodePath::TraitItem(node_path) => node_path.node_defn(db).into(),
             AssociatedItemNodePath::TraitForTypeItem(node_path) => node_path.node_defn(db).into(),
+            AssociatedItemNodePath::IllFormedItem(_) => todo!(),
         }
     }
 }

@@ -29,6 +29,8 @@ pub enum EntityKind {
         associated_item_kind: AssociatedItemKind,
     },
     TypeVariant,
+    Trait,
+    ImplBlock,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

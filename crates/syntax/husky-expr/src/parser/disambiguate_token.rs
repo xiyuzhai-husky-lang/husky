@@ -126,6 +126,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                         associated_item_kind,
                                     } => todo!(),
                                     EntityKind::TypeVariant => todo!(),
+                                    EntityKind::Trait => todo!(),
+                                    EntityKind::ImplBlock => todo!(),
                                 }
                             }
                             _ => DisambiguatedToken::BinaryOpr(

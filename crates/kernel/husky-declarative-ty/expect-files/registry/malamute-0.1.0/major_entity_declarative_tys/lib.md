@@ -2,6 +2,16 @@
     (
         EntityPath::ModuleItem(
             ModuleItemPath::Type(
+                TypePath(`malamute::OneVsAll`, `Enum`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`(independent v0: Type) -> independent v0 -> Type`),
+        ),
+    ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Type(
                 TypePath(`malamute::OneVsAllResult`, `Enum`),
             ),
         ),

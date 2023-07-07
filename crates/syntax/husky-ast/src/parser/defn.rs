@@ -88,6 +88,8 @@ impl<'a> AstParser<'a> {
                 body: self.try_parse_option()?,
             },
             EntityKind::TypeVariant => todo!(),
+            EntityKind::Trait => todo!(),
+            EntityKind::ImplBlock => todo!(),
         };
         Ok(Ast::Defn {
             visibility_expr,

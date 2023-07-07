@@ -448,24 +448,18 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    UnrecognizedIdent {
-                                                        token_idx: TokenIdx(
-                                                            25,
-                                                        ),
-                                                        ident: Ident(
-                                                            Word(
-                                                                Id {
-                                                                    value: 451,
-                                                                },
-                                                            ),
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Expr::PrincipalEntityPath {
+                                                entity_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
@@ -479,7 +473,7 @@ Ok(
                                                 argument_expr_idx: 1,
                                             },
                                             Expr::PrincipalEntityPath {
-                                                entity_path_expr: 2,
+                                                entity_path_expr: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath {
@@ -497,6 +491,21 @@ Ok(
                                     },
                                     principal_entity_path_expr_arena: Arena {
                                         data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `OneVsAll`,
+                                                        token_idx: TokenIdx(
+                                                            25,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                ),
+                                            },
                                             PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
@@ -528,7 +537,7 @@ Ok(
                                                 ),
                                             },
                                             PrincipalEntityPathExpr::Subentity {
-                                                parent: 1,
+                                                parent: 2,
                                                 scope_resolution_token: ScopeResolutionToken(
                                                     TokenIdx(
                                                         28,
