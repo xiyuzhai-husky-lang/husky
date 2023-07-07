@@ -64,8 +64,9 @@ impl DeclarativeTerm {
             )),
             DeclarativeTerm::Symbol(symbol) => None,
             DeclarativeTerm::EntityPath(path) => match path {
-                DeclarativeTermEntityPath::Form(_) => todo!(),
+                DeclarativeTermEntityPath::Fugitive(_) => todo!(),
                 DeclarativeTermEntityPath::Trait(_) | DeclarativeTermEntityPath::Type(_) => None,
+                DeclarativeTermEntityPath::TypeVariant(_) => todo!(),
             },
             DeclarativeTerm::Category(_) => None,
             DeclarativeTerm::Universe(_) => None,

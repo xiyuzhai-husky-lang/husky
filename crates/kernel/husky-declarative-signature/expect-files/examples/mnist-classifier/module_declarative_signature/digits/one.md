@@ -28,7 +28,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
                         ValDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel mnist::MnistLabel::One`),
                         },
                     ),
                 ),

@@ -93,7 +93,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `upmost`,
                                 token_idx: TokenIdx(
-                                    488,
+                                    491,
                                 ),
                             },
                         },
@@ -131,7 +131,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downmost`,
                                 token_idx: TokenIdx(
-                                    517,
+                                    520,
                                 ),
                             },
                         },
@@ -169,7 +169,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `hat`,
                                 token_idx: TokenIdx(
-                                    551,
+                                    554,
                                 ),
                             },
                         },

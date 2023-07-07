@@ -14,9 +14,10 @@ impl DeclarativeTerm {
             DeclarativeTerm::Symbol(_) => DeclarativeTermFamily::Other,
             DeclarativeTerm::Variable(_) => todo!(),
             DeclarativeTerm::EntityPath(path) => match path {
-                DeclarativeTermEntityPath::Form(_) => todo!(),
+                DeclarativeTermEntityPath::Fugitive(_) => todo!(),
                 DeclarativeTermEntityPath::Trait(_) => todo!(),
                 DeclarativeTermEntityPath::Type(path) => DeclarativeTermFamily::TypePath(path),
+                DeclarativeTermEntityPath::TypeVariant(_) => todo!(),
             },
             DeclarativeTerm::Category(_) => DeclarativeTermFamily::Sort,
             DeclarativeTerm::Universe(_) => todo!(),

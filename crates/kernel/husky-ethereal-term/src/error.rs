@@ -51,6 +51,8 @@ pub enum EtherealTermError {
     ExpectTraitForDeriveArgument,
     #[error("NoSuchMethod")]
     NoSuchMethod,
+    #[error("ExpectedCurryForApplicationFunctionType")]
+    ExpectedCurryForApplicationFunctionType,
 }
 
 impl From<EntityPathError> for EtherealTermError {

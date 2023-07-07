@@ -3,7 +3,7 @@ use super::*
 val one_fermi_match: FermiMatchResult =
     fermi_match(major_concave_components, [downmost, upmost, hat])
 
-pub val is_one: ?MnistLabel =
+pub val is_one: ?MnistLabel MnistLabel::One =
     narrow_down(
         major_connected_component.max_hole_ilen,
         ignored_connected_components_row_span_sum_sum,
