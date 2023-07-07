@@ -23,6 +23,7 @@ pub enum HoleKind {
     UnspecifiedIntegerType,
     UnspecifiedFloatType,
     ImplicitType,
+    Any,
 }
 
 impl HollowTerm {

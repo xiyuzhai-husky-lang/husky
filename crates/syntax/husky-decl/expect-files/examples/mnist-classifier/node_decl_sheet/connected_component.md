@@ -527,8 +527,8 @@ Ok(
                                                     opd: 1,
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 2,
-                                                    argument: 3,
+                                                    function_expr_idx: 2,
+                                                    argument_expr_idx: 3,
                                                 },
                                             ],
                                         },
@@ -1515,8 +1515,8 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 1,
-                                                    argument: 2,
+                                                    function_expr_idx: 1,
+                                                    argument_expr_idx: 2,
                                                 },
                                             ],
                                         },
@@ -2502,8 +2502,8 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 0,
-                                                    argument: 1,
+                                                    function_expr_idx: 0,
+                                                    argument_expr_idx: 1,
                                                 },
                                             ],
                                         },

@@ -14,7 +14,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return
             };
             if let Some(symbol) = signature.term_symbol() {
-                if let Ok(symbol) = EtherealTermSymbol::from_raw(self.db, symbol) {
+                if let Ok(symbol) = EtherealTermSymbol::from_declarative(self.db, symbol) {
                     self.symbol_terms
                         .insert_new(current_symbol_idx, symbol.into())
                 }

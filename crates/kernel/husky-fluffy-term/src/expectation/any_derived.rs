@@ -29,7 +29,7 @@ impl ExpectFluffyTerm for ExpectAnyDerived {
         &self,
         db: &dyn FluffyTermDb,
         fluffy_terms: &mut FluffyTerms,
-        entry: &mut ExpectationMeta,
+        state: &mut ExpectationState,
     ) -> Option<ExpectationEffect> {
         None
     }

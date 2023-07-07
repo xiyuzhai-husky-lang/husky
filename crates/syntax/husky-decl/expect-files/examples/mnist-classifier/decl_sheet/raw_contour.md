@@ -104,8 +104,8 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 2,
-                                                    argument: 3,
+                                                    function_expr_idx: 2,
+                                                    argument_expr_idx: 3,
                                                 },
                                             ],
                                         },
@@ -2487,8 +2487,8 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 0,
-                                                    argument: 1,
+                                                    function_expr_idx: 0,
+                                                    argument_expr_idx: 1,
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
@@ -2717,8 +2717,8 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 2,
-                                                    argument: 3,
+                                                    function_expr_idx: 2,
+                                                    argument_expr_idx: 3,
                                                 },
                                             ],
                                         },

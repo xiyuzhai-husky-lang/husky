@@ -113,7 +113,7 @@ FluffyTermData::Variable { ty } => todo!(),
         if arguments.len() == 0 {
             TermEntityPath::TypeOntology(path).into()
         } else {
-            let mut merger = FluffyTermDataKindMerger::default();
+            let mut merger = FluffyTermDataKindMerger::new(fluffy_terms);
             merger.accept(arguments.iter().copied());
             match merger.data_kind() {
                 FluffyTermDataKind::Ethereal => todo!(),
@@ -126,6 +126,7 @@ FluffyTermData::Variable { ty } => todo!(),
                         arguments,
                     })
                     .into(),
+                FluffyTermDataKind::Err => todo!(),
             }
         }
     }

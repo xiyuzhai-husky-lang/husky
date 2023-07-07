@@ -202,8 +202,8 @@ Ok(
                                                 },
                                             },
                                             Expr::ExplicitApplication {
-                                                function: 0,
-                                                argument: 1,
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -377,8 +377,8 @@ Ok(
                                                                 },
                                                             },
                                                             Expr::ExplicitApplication {
-                                                                function: 0,
-                                                                argument: 1,
+                                                                function_expr_idx: 0,
+                                                                argument_expr_idx: 1,
                                                             },
                                                         ],
                                                     },
@@ -679,8 +679,8 @@ Ok(
                                                                 },
                                                             },
                                                             Expr::ExplicitApplication {
-                                                                function: 0,
-                                                                argument: 1,
+                                                                function_expr_idx: 0,
+                                                                argument_expr_idx: 1,
                                                             },
                                                         ],
                                                     },
@@ -994,8 +994,8 @@ Ok(
                                                                 },
                                                             },
                                                             Expr::ExplicitApplication {
-                                                                function: 0,
-                                                                argument: 1,
+                                                                function_expr_idx: 0,
+                                                                argument_expr_idx: 1,
                                                             },
                                                         ],
                                                     },

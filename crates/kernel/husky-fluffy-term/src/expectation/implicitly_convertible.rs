@@ -125,7 +125,7 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
         &self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
-        meta: &mut ExpectationMeta,
+        state: &mut ExpectationState,
     ) -> Option<ExpectationEffect> {
         match self.ty().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
@@ -136,7 +136,7 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
                 ..
             } => self.resolve_convertible_to_ty_ontology(
                 db,
-                meta,
+                state,
                 terms,
                 path,
                 refined_path,
@@ -144,7 +144,7 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
             ),
             FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Hole(_, hole) => {
-                meta.set_holed(hole, |meta| HoleConstraint::ImplicitlyConvertibleFrom {
+                state.set_holed(hole, |meta| HoleConstraint::ImplicitlyConvertibleFrom {
                     target: meta.expectee(),
                 })
             }
@@ -153,8 +153,8 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
                 Contract::Move => todo!(),
                 Contract::BorrowMut => todo!(),
                 Contract::Const => {
-                    if meta.expectee() == self.ty() {
-                        return meta.set_ok(ImplicitConversion::Trivial, smallvec![]);
+                    if state.expectee() == self.ty() {
+                        return state.set_ok(ImplicitConversion::Trivial, smallvec![]);
                     }
                     todo!()
                 }
@@ -168,7 +168,7 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
                 ..
             } => self.resolve_convertible_to_place_ty_ontology(
                 db,
-                meta,
+                state,
                 terms,
                 place,
                 path,
@@ -191,7 +191,7 @@ impl ExpectImplicitlyConvertible {
     fn resolve_convertible_to_ty_ontology(
         &self,
         db: &dyn FluffyTermDb,
-        meta: &mut ExpectationMeta,
+        meta: &mut ExpectationState,
         terms: &FluffyTerms,
         dst_path: TypePath,
         dst_refined_path: Either<PreludeTypePath, CustomTypePath>,
@@ -310,7 +310,7 @@ impl ExpectImplicitlyConvertible {
     fn resolve_convertible_to_place_ty_ontology(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
+        state: &mut ExpectationState,
         fluffy_terms: &FluffyTerms,
         place: Place,
         dst_path: TypePath,

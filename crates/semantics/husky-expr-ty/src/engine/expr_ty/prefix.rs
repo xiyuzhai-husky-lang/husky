@@ -3,6 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_prefix_expr_ty(
         &mut self,
+        expr_idx: ExprIdx,
         opr: PrefixOpr,
         opd: ExprIdx,
         final_destination: FinalDestination,
@@ -40,6 +41,7 @@ impl<'a> ExprTypeEngine<'a> {
                             Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
                         }
                         HoleKind::ImplicitType => todo!(),
+                        HoleKind::Any => todo!(),
                     },
                     FluffyTermData::Category(_) => todo!(),
                     FluffyTermData::Ritchie {
@@ -94,6 +96,7 @@ impl<'a> ExprTypeEngine<'a> {
                 FinalDestination::Sort => Ok((
                     ExprDisambiguation::Tilde(TildeDisambiguation::Leash),
                     self.calc_function_application_expr_ty_aux(
+                        expr_idx,
                         Variance::Covariant,
                         None,
                         self.term_menu.ty0().into(),

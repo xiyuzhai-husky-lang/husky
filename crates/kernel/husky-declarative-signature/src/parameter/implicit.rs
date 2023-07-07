@@ -26,7 +26,7 @@ impl ImplicitParameterDeclarativeSignature {
             ImplicitParameterDeclPatternVariant::Type { .. } => {
                 ImplicitParameterDeclarativeSignature {
                     symbol: region
-                        .current_symbol_term(symbol)
+                        .current_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
@@ -38,7 +38,7 @@ impl ImplicitParameterDeclarativeSignature {
             ImplicitParameterDeclPatternVariant::Constant { .. } => {
                 ImplicitParameterDeclarativeSignature {
                     symbol: region
-                        .current_symbol_term(symbol)
+                        .current_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),
@@ -49,7 +49,7 @@ impl ImplicitParameterDeclarativeSignature {
             ImplicitParameterDeclPatternVariant::Lifetime { .. } => {
                 ImplicitParameterDeclarativeSignature {
                     symbol: region
-                        .current_symbol_term(symbol)
+                        .current_symbol_signature(symbol)
                         .expect("not none")
                         .term_symbol()
                         .expect("should have term"),

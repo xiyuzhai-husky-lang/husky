@@ -3,6 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_suffix_expr_ty(
         &mut self,
+        expr_idx: ExprIdx,
         opd: ExprIdx,
         opr: SuffixOpr,
         final_destination: FinalDestination,

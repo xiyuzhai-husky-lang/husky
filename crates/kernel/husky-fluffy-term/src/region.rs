@@ -25,6 +25,10 @@ impl FluffyTermRegion {
         &self.terms
     }
 
+    pub(crate) fn terms_mut(&mut self) -> &mut FluffyTerms {
+        &mut self.terms
+    }
+
     pub fn expectations(&self) -> &Expectations {
         &self.expectations
     }

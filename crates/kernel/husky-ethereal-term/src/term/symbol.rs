@@ -25,15 +25,7 @@ fn term_symbol_size_works() {
 
 impl EtherealTermSymbol {
     #[inline(always)]
-    pub fn from_raw(
-        db: &dyn EtherealTermDb,
-        declarative_term_symbol: DeclarativeTermSymbol,
-    ) -> EtherealTermResult<Self> {
-        Self::from_declarative(db, declarative_term_symbol)
-    }
-
-    #[inline(always)]
-    pub(crate) fn from_declarative(
+    pub fn from_declarative(
         db: &dyn EtherealTermDb,
         declarative_term_symbol: DeclarativeTermSymbol,
     ) -> EtherealTermResult<Self> {

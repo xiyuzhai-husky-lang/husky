@@ -316,29 +316,30 @@ impl<'a> InferContext<'a> {
             | Expr::Be { .. } => (),
             Expr::BoxColonList { .. } => (),
             Expr::FunctionApplicationOrCall { function, .. }
-            | Expr::ExplicitApplication { function, .. } => {
-                match self.expr_region_data[*function] {
-                    Expr::List {
-                        lbox_token_idx,
-                        items: _,
-                        rbox_token_idx,
-                    } => {
-                        self.sheet.add(lbox_token_idx, TokenInfo::BoxPrefix);
-                        self.sheet.add(rbox_token_idx, TokenInfo::BoxPrefix)
-                    }
-                    Expr::BoxColonList {
-                        lbox_token_idx,
-                        colon_token_idx,
-                        rbox_token_idx,
-                        ..
-                    } => {
-                        self.sheet.add(lbox_token_idx, TokenInfo::BoxColon);
-                        self.sheet.add(colon_token_idx, TokenInfo::BoxColon);
-                        self.sheet.add(rbox_token_idx, TokenInfo::BoxColon)
-                    }
-                    _ => (),
+            | Expr::ExplicitApplication {
+                function_expr_idx: function,
+                ..
+            } => match self.expr_region_data[*function] {
+                Expr::List {
+                    lbox_token_idx,
+                    items: _,
+                    rbox_token_idx,
+                } => {
+                    self.sheet.add(lbox_token_idx, TokenInfo::BoxPrefix);
+                    self.sheet.add(rbox_token_idx, TokenInfo::BoxPrefix)
                 }
-            }
+                Expr::BoxColonList {
+                    lbox_token_idx,
+                    colon_token_idx,
+                    rbox_token_idx,
+                    ..
+                } => {
+                    self.sheet.add(lbox_token_idx, TokenInfo::BoxColon);
+                    self.sheet.add(colon_token_idx, TokenInfo::BoxColon);
+                    self.sheet.add(rbox_token_idx, TokenInfo::BoxColon)
+                }
+                _ => (),
+            },
             Expr::IndexOrCompositionWithList {
                 owner: _,
                 lbox_token_idx: _,

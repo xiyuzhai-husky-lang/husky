@@ -3,6 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_function_application_expr_ty(
         &mut self,
+        expr_idx: ExprIdx,
         function_expr_idx: ExprIdx,
         argument_expr_idx: ExprIdx,
         final_destination: FinalDestination,
@@ -21,6 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
                 parameter_ty,
                 return_ty,
             } => self.calc_function_application_expr_ty_aux(
+                expr_idx,
                 *variance,
                 *parameter_symbol,
                 *parameter_ty,
@@ -36,14 +38,15 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(super) fn calc_function_application_expr_ty_aux(
         &mut self,
+        expr_idx: ExprIdx,
         variance: Variance,
-        parameter_symbol: Option<FluffyTerm>,
+        parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-        argument: ExprIdx,
+        argument_expr_idx: ExprIdx,
     ) -> ExprTypeResult<FluffyTerm> {
         let Some(argument_ty) = self.infer_new_expr_ty (
-            argument,
+            argument_expr_idx,
             ExpectCurryDestination::new(parameter_ty),
         ) else {
             Err(DerivedExprTypeError::UnableToInferFunctionApplicationArgumentType)?
@@ -52,15 +55,25 @@ impl<'a> ExprTypeEngine<'a> {
             argument_ty.curry_parameter_count(self) - parameter_ty.curry_parameter_count(self);
         // needs also to check type
         match shift {
-            0 => match parameter_symbol {
-                Some(_) => todo!(),
-                None => Ok(return_ty),
-            },
+            0 => Ok(match parameter_variable {
+                Some(parameter_variable) => {
+                    let argument_term = self
+                        .infer_new_expr_term(argument_expr_idx)
+                        .ok_or(DerivedExprTypeError::UnableToInferArgumentTermForDependentType)?;
+                    return_ty.substitute_variable(
+                        self,
+                        expr_idx.into(),
+                        parameter_variable,
+                        argument_term,
+                    )
+                }
+                None => return_ty,
+            }),
             shift if shift < 0 => todo!("invalid"),
             shift => self
                 .synthesize_function_application_expr_ty(
                     variance,
-                    parameter_symbol,
+                    parameter_variable,
                     parameter_ty,
                     return_ty,
                     argument_ty,

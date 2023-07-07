@@ -37,7 +37,7 @@ impl ExpectFluffyTerm for ExpectFinalDestination {
         &self,
         _db: &dyn FluffyTermDb,
         _terms: &mut FluffyTerms,
-        _meta: &mut ExpectationMeta,
+        _state: &mut ExpectationState,
     ) -> Option<ExpectationEffect> {
         // ad hoc
         None

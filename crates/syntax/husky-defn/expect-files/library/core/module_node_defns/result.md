@@ -285,8 +285,8 @@ Ok(
                                                             ),
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 0,
-                                                            argument: 1,
+                                                            function_expr_idx: 0,
+                                                            argument_expr_idx: 1,
                                                         },
                                                         Expr::CurrentSymbol {
                                                             ident: `T2`,
@@ -306,8 +306,8 @@ Ok(
                                                             },
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 2,
-                                                            argument: 3,
+                                                            function_expr_idx: 2,
+                                                            argument_expr_idx: 3,
                                                         },
                                                         Expr::CurrentSymbol {
                                                             ident: `E2`,
@@ -327,8 +327,8 @@ Ok(
                                                             },
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 4,
-                                                            argument: 5,
+                                                            function_expr_idx: 4,
+                                                            argument_expr_idx: 5,
                                                         },
                                                         Expr::PrincipalEntityPath {
                                                             entity_path_expr: 4,
@@ -358,8 +358,8 @@ Ok(
                                                             },
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 7,
-                                                            argument: 8,
+                                                            function_expr_idx: 7,
+                                                            argument_expr_idx: 8,
                                                         },
                                                         Expr::CurrentSymbol {
                                                             ident: `E1`,
@@ -379,8 +379,8 @@ Ok(
                                                             },
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 9,
-                                                            argument: 10,
+                                                            function_expr_idx: 9,
+                                                            argument_expr_idx: 10,
                                                         },
                                                     ],
                                                 },
@@ -764,8 +764,8 @@ Ok(
                                                                     ),
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 0,
-                                                                    argument: 1,
+                                                                    function_expr_idx: 0,
+                                                                    argument_expr_idx: 1,
                                                                 },
                                                                 Expr::CurrentSymbol {
                                                                     ident: `T2`,
@@ -785,8 +785,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 2,
-                                                                    argument: 3,
+                                                                    function_expr_idx: 2,
+                                                                    argument_expr_idx: 3,
                                                                 },
                                                                 Expr::CurrentSymbol {
                                                                     ident: `E2`,
@@ -806,8 +806,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 4,
-                                                                    argument: 5,
+                                                                    function_expr_idx: 4,
+                                                                    argument_expr_idx: 5,
                                                                 },
                                                                 Expr::PrincipalEntityPath {
                                                                     entity_path_expr: 4,
@@ -837,8 +837,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 7,
-                                                                    argument: 8,
+                                                                    function_expr_idx: 7,
+                                                                    argument_expr_idx: 8,
                                                                 },
                                                                 Expr::CurrentSymbol {
                                                                     ident: `E1`,
@@ -858,8 +858,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 9,
-                                                                    argument: 10,
+                                                                    function_expr_idx: 9,
+                                                                    argument_expr_idx: 10,
                                                                 },
                                                             ],
                                                         },
@@ -1467,8 +1467,8 @@ Ok(
                                                             ),
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 0,
-                                                            argument: 1,
+                                                            function_expr_idx: 0,
+                                                            argument_expr_idx: 1,
                                                         },
                                                         Expr::CurrentSymbol {
                                                             ident: `T2`,
@@ -1488,8 +1488,8 @@ Ok(
                                                             },
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 2,
-                                                            argument: 3,
+                                                            function_expr_idx: 2,
+                                                            argument_expr_idx: 3,
                                                         },
                                                         Expr::CurrentSymbol {
                                                             ident: `E2`,
@@ -1509,8 +1509,8 @@ Ok(
                                                             },
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 4,
-                                                            argument: 5,
+                                                            function_expr_idx: 4,
+                                                            argument_expr_idx: 5,
                                                         },
                                                         Expr::PrincipalEntityPath {
                                                             entity_path_expr: 4,
@@ -1540,8 +1540,8 @@ Ok(
                                                             },
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 7,
-                                                            argument: 8,
+                                                            function_expr_idx: 7,
+                                                            argument_expr_idx: 8,
                                                         },
                                                         Expr::CurrentSymbol {
                                                             ident: `E1`,
@@ -1561,8 +1561,8 @@ Ok(
                                                             },
                                                         },
                                                         Expr::ExplicitApplication {
-                                                            function: 9,
-                                                            argument: 10,
+                                                            function_expr_idx: 9,
+                                                            argument_expr_idx: 10,
                                                         },
                                                     ],
                                                 },
@@ -1839,8 +1839,8 @@ Ok(
                                                 ),
                                             },
                                             Expr::ExplicitApplication {
-                                                function: 0,
-                                                argument: 1,
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
                                             },
                                             Expr::InheritedSymbol {
                                                 ident: `E2`,
@@ -1855,8 +1855,8 @@ Ok(
                                                 ),
                                             },
                                             Expr::ExplicitApplication {
-                                                function: 2,
-                                                argument: 3,
+                                                function_expr_idx: 2,
+                                                argument_expr_idx: 3,
                                             },
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 1,
@@ -1881,8 +1881,8 @@ Ok(
                                                 ),
                                             },
                                             Expr::ExplicitApplication {
-                                                function: 5,
-                                                argument: 6,
+                                                function_expr_idx: 5,
+                                                argument_expr_idx: 6,
                                             },
                                             Expr::InheritedSymbol {
                                                 ident: `E1`,
@@ -1897,8 +1897,8 @@ Ok(
                                                 ),
                                             },
                                             Expr::ExplicitApplication {
-                                                function: 7,
-                                                argument: 8,
+                                                function_expr_idx: 7,
+                                                argument_expr_idx: 8,
                                             },
                                         ],
                                     },
@@ -2122,8 +2122,8 @@ Ok(
                                                                     ),
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 0,
-                                                                    argument: 1,
+                                                                    function_expr_idx: 0,
+                                                                    argument_expr_idx: 1,
                                                                 },
                                                                 Expr::CurrentSymbol {
                                                                     ident: `T2`,
@@ -2143,8 +2143,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 2,
-                                                                    argument: 3,
+                                                                    function_expr_idx: 2,
+                                                                    argument_expr_idx: 3,
                                                                 },
                                                                 Expr::CurrentSymbol {
                                                                     ident: `E2`,
@@ -2164,8 +2164,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 4,
-                                                                    argument: 5,
+                                                                    function_expr_idx: 4,
+                                                                    argument_expr_idx: 5,
                                                                 },
                                                                 Expr::PrincipalEntityPath {
                                                                     entity_path_expr: 4,
@@ -2195,8 +2195,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 7,
-                                                                    argument: 8,
+                                                                    function_expr_idx: 7,
+                                                                    argument_expr_idx: 8,
                                                                 },
                                                                 Expr::CurrentSymbol {
                                                                     ident: `E1`,
@@ -2216,8 +2216,8 @@ Ok(
                                                                     },
                                                                 },
                                                                 Expr::ExplicitApplication {
-                                                                    function: 9,
-                                                                    argument: 10,
+                                                                    function_expr_idx: 9,
+                                                                    argument_expr_idx: 10,
                                                                 },
                                                             ],
                                                         },
@@ -2494,8 +2494,8 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::ExplicitApplication {
-                                                        function: 0,
-                                                        argument: 1,
+                                                        function_expr_idx: 0,
+                                                        argument_expr_idx: 1,
                                                     },
                                                     Expr::InheritedSymbol {
                                                         ident: `E2`,
@@ -2510,8 +2510,8 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::ExplicitApplication {
-                                                        function: 2,
-                                                        argument: 3,
+                                                        function_expr_idx: 2,
+                                                        argument_expr_idx: 3,
                                                     },
                                                     Expr::PrincipalEntityPath {
                                                         entity_path_expr: 1,
@@ -2536,8 +2536,8 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::ExplicitApplication {
-                                                        function: 5,
-                                                        argument: 6,
+                                                        function_expr_idx: 5,
+                                                        argument_expr_idx: 6,
                                                     },
                                                     Expr::InheritedSymbol {
                                                         ident: `E1`,
@@ -2552,8 +2552,8 @@ Ok(
                                                         ),
                                                     },
                                                     Expr::ExplicitApplication {
-                                                        function: 7,
-                                                        argument: 8,
+                                                        function_expr_idx: 7,
+                                                        argument_expr_idx: 8,
                                                     },
                                                 ],
                                             },

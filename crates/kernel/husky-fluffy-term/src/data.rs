@@ -426,18 +426,29 @@ impl TermApplicationFluffyData {
     }
 }
 
-#[derive(Default)]
-pub(crate) struct FluffyTermDataKindMerger {
-    has_solid: bool,
+pub(crate) struct FluffyTermDataKindMerger<'a> {
+    has_err: bool,
     has_hollow: bool,
+    has_solid: bool,
+    hollow_terms: &'a HollowTerms,
 }
 
-impl FluffyTermDataKindMerger {
+impl<'a> FluffyTermDataKindMerger<'a> {
+    pub(crate) fn new(hollow_terms: &'a impl std::borrow::Borrow<HollowTerms>) -> Self {
+        Self {
+            has_err: false,
+            has_solid: false,
+            has_hollow: false,
+            hollow_terms: hollow_terms.borrow(),
+        }
+    }
+
     pub(crate) fn accept_one(&mut self, term: FluffyTerm) {
-        match term.nested() {
-            NestedFluffyTerm::Ethereal(_) => (),
-            NestedFluffyTerm::Solid(_) => self.has_solid = true,
-            NestedFluffyTerm::Hollow(_) => self.has_hollow = true,
+        match term.resolve_progress(self.hollow_terms) {
+            TermResolveProgress::UnresolvedHollow => self.has_hollow = true,
+            TermResolveProgress::ResolvedEthereal(_) => (),
+            TermResolveProgress::ResolvedSolid(_) => self.has_solid = true,
+            TermResolveProgress::Err => self.has_err = true,
         }
     }
 
@@ -448,7 +459,9 @@ impl FluffyTermDataKindMerger {
     }
 
     pub(crate) fn data_kind(self) -> FluffyTermDataKind {
-        if self.has_hollow {
+        if self.has_err {
+            todo!()
+        } else if self.has_hollow {
             FluffyTermDataKind::Hollow
         } else if self.has_solid {
             FluffyTermDataKind::Solid
@@ -459,6 +472,7 @@ impl FluffyTermDataKindMerger {
 }
 
 pub(crate) enum FluffyTermDataKind {
+    Err,
     Ethereal,
     Solid,
     Hollow,

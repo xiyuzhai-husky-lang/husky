@@ -17,7 +17,22 @@ impl ImplicitParameterSubstitution {
 }
 
 impl FluffyTerm {
-    pub(crate) fn rewrite(
+    pub fn substitute_variable(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        src: HoleSource,
+        variable: FluffyTerm,
+        substitute: FluffyTerm,
+    ) -> Self {
+        self.rewrite_inner(
+            engine.db(),
+            engine.fluffy_terms_mut(),
+            src,
+            &[ImplicitParameterSubstitution::new(variable, substitute)],
+        )
+    }
+
+    pub(crate) fn rewrite_inner(
         self,
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
@@ -46,9 +61,10 @@ impl FluffyTerm {
                 arguments,
                 ..
             } => {
-                let mut arguments = ToSmallVec::<[FluffyTerm; 2]>::to_smallvec(arguments)
+                let arguments: SmallVec<[FluffyTerm; 2]> = arguments.to_smallvec();
+                let arguments = arguments
                     .into_iter()
-                    .map(|argument| argument.rewrite(db, terms, src, substitution_rules))
+                    .map(|argument| argument.rewrite_inner(db, terms, src, substitution_rules))
                     .collect();
                 FluffyTerm::new_ty_ontology(db, terms, path, refined_ty_path, arguments)
             }
@@ -61,9 +77,9 @@ impl FluffyTerm {
                 ty_ethereal_term,
             } => {
                 let parameter_variable =
-                    parameter_variable.map(|v| v.rewrite(db, terms, src, substitution_rules));
-                let parameter_ty = parameter_ty.rewrite(db, terms, src, substitution_rules);
-                let return_ty = return_ty.rewrite(db, terms, src, substitution_rules);
+                    parameter_variable.map(|v| v.rewrite_inner(db, terms, src, substitution_rules));
+                let parameter_ty = parameter_ty.rewrite_inner(db, terms, src, substitution_rules);
+                let return_ty = return_ty.rewrite_inner(db, terms, src, substitution_rules);
                 FluffyTerm::new_curry(
                     db,
                     terms,
@@ -74,8 +90,8 @@ impl FluffyTerm {
                     return_ty,
                 )
             }
-            FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => todo!(),
+            FluffyTermData::Hole(_, _) => self,
+            FluffyTermData::Category(_) => self,
             FluffyTermData::Ritchie {
                 ritchie_kind,
                 parameter_contracted_tys,
@@ -83,12 +99,14 @@ impl FluffyTerm {
             } => {
                 let mut parameter_contracted_tys = parameter_contracted_tys.to_vec();
                 for parameter_contracted_ty in &mut parameter_contracted_tys {
-                    *parameter_contracted_ty.ty_mut() =
-                        parameter_contracted_ty
-                            .ty()
-                            .rewrite(db, terms, src, substitution_rules);
+                    *parameter_contracted_ty.ty_mut() = parameter_contracted_ty.ty().rewrite_inner(
+                        db,
+                        terms,
+                        src,
+                        substitution_rules,
+                    );
                 }
-                let return_ty = return_ty.rewrite(db, terms, src, substitution_rules);
+                let return_ty = return_ty.rewrite_inner(db, terms, src, substitution_rules);
                 FluffyTerm::new_richie(db, terms, ritchie_kind, parameter_contracted_tys, return_ty)
             }
             FluffyTermData::PlaceTypeOntology { .. } => todo!(),

@@ -161,8 +161,8 @@ Ok(
                                                     opd: 1,
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 2,
-                                                    argument: 3,
+                                                    function_expr_idx: 2,
+                                                    argument_expr_idx: 3,
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
@@ -191,8 +191,8 @@ Ok(
                                                     opd: 5,
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 6,
-                                                    argument: 7,
+                                                    function_expr_idx: 6,
+                                                    argument_expr_idx: 7,
                                                 },
                                             ],
                                         },
@@ -446,8 +446,8 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function: 1,
-                                                    argument: 2,
+                                                    function_expr_idx: 1,
+                                                    argument_expr_idx: 2,
                                                 },
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
