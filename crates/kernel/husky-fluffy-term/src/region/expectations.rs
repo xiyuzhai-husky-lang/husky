@@ -92,7 +92,7 @@ impl ExpectationEntry {
         db: &dyn FluffyTermDb,
         terms: &mut FluffyTerms,
     ) -> Option<ExpectationEffect> {
-        self.expectation.resolve(db, &mut self.meta, terms)
+        self.expectation.resolve(db, terms, &mut self.meta)
     }
 
     #[inline]

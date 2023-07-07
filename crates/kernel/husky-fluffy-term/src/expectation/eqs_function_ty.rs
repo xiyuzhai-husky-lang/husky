@@ -40,18 +40,18 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
         terms: &mut FluffyTerms,
+        meta: &mut ExpectationMeta,
     ) -> Option<ExpectationEffect> {
         // todo: move these to aux
-        match state.expectee().data_inner(db, terms) {
+        match meta.expectee().data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path: path,
                 refined_ty_path: refined_path,
                 arguments,
                 ..
-            } => state.set_err(
+            } => meta.set_err(
                 OriginalFluffyTermExpectationError::ExpectedFunctionType,
                 smallvec![],
             ),
@@ -64,7 +64,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 ty_ethereal_term,
             } => self.resolve_curry(
                 db,
-                state,
+                meta,
                 terms,
                 curry_kind,
                 variance,
@@ -73,7 +73,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 return_ty,
             ),
             FluffyTermData::Hole(_, _) => todo!(),
-            FluffyTermData::Category(_) => state.set_err(
+            FluffyTermData::Category(_) => meta.set_err(
                 OriginalFluffyTermExpectationError::ExpectedFunctionType,
                 smallvec![],
             ),
@@ -82,7 +82,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
                 parameter_contracted_tys,
                 return_ty,
                 ..
-            } => state.set_ok(
+            } => meta.set_ok(
                 ExpectEqsFunctionTypeOutcome {
                     implicit_parameter_substitutions: smallvec![],
                     return_ty,
@@ -177,10 +177,10 @@ impl ExpectEqsFunctionType {
                             implicit_symbol,
                         )];
                     let expectee = return_ty;
-                    let expectee = terms.substitute_into_term(
+                    let expectee = expectee.rewrite(
                         db,
+                        terms,
                         HoleSource::Expectation(state.idx()),
-                        expectee,
                         &implicit_parameter_substitutions,
                     );
                     self.resolve_aux(db, state, terms, expectee, implicit_parameter_substitutions)

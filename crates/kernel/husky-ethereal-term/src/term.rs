@@ -230,8 +230,13 @@ impl EtherealTerm {
     pub(crate) fn into_declarative(self, db: &dyn EtherealTermDb) -> DeclarativeTerm {
         match self {
             EtherealTerm::Literal(lit) => DeclarativeTermLiteral::Resolved(lit).into(),
-            EtherealTerm::Symbol(_) => todo!(),
-            EtherealTerm::Variable(_) => todo!(),
+            EtherealTerm::Symbol(s) => {
+                DeclarativeTermSymbol::new(db, Ok(s.ty(db).into_declarative(db)), s.idx(db)).into()
+            }
+            EtherealTerm::Variable(v) => {
+                DeclarativeTermVariable::new(db, Ok(v.ty(db).into_declarative(db)), v.idx(db))
+                    .into()
+            }
             EtherealTerm::EntityPath(_) => todo!(),
             EtherealTerm::Category(cat) => DeclarativeTerm::Category(cat),
             EtherealTerm::Universe(_) => todo!(),

@@ -6,11 +6,15 @@ pub struct DeclarativeTermSubstitution {
 }
 
 impl DeclarativeTermSubstitution {
-    pub fn src(&self) -> DeclarativeTermVariable {
+    pub fn new(src: DeclarativeTermVariable, dst: DeclarativeTerm) -> Self {
+        Self { src, dst }
+    }
+
+    pub(crate) fn src(&self) -> DeclarativeTermVariable {
         self.src
     }
 
-    pub fn dst(&self) -> DeclarativeTerm {
+    pub(crate) fn dst(&self) -> DeclarativeTerm {
         self.dst
     }
 }

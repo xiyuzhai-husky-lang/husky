@@ -53,23 +53,23 @@ impl ExpectFluffyTerm for ExpectEqsCategory {
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
-        fluffy_terms: &mut FluffyTerms,
+        terms: &mut FluffyTerms,
+        meta: &mut ExpectationMeta,
     ) -> Option<ExpectationEffect> {
-        match state.expectee() {
+        match meta.expectee() {
             FluffyTerm::Hollow(_) => todo!(),
             FluffyTerm::Solid(_) => todo!(),
             FluffyTerm::Category(cat) => match cat.universe() >= self.smallest_universe {
-                true => state.set_ok(
+                true => meta.set_ok(
                     FluffyTermExpectationOutcome::EqsSort(cat.universe()),
                     smallvec![],
                 ),
                 false => todo!(),
                 // state.set_err(todo!(), smallvec![]),
             },
-            _ => state.set_err(
+            _ => meta.set_err(
                 OriginalFluffyTermExpectationError::ExpectedCategory {
-                    expectee: state.expectee(),
+                    expectee: meta.expectee(),
                 },
                 smallvec![],
             ),

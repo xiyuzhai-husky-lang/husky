@@ -111,9 +111,28 @@ impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTer
 impl DeclarativeTermRewriteCopy for DeclarativeTermCurry {
     fn substitute(
         self,
-        _db: &dyn DeclarativeTermDb,
-        _substituation: &DeclarativeTermSubstitution,
+        db: &dyn DeclarativeTermDb,
+        substituation: &DeclarativeTermSubstitution,
     ) -> Self {
-        todo!()
+        let old_parameter_variable = self.parameter_variable(db);
+        let parameter_variable = old_parameter_variable.map(|v| v.substitute(db, substituation));
+        let old_parameter_ty = self.parameter_ty(db);
+        let parameter_ty = old_parameter_ty.substitute(db, substituation);
+        let old_return_ty = self.return_ty(db);
+        let return_ty = old_return_ty.substitute(db, substituation);
+        if old_parameter_variable == parameter_variable
+            && old_parameter_ty == parameter_ty
+            && old_return_ty == return_ty
+        {
+            return self;
+        }
+        Self::new_inner(
+            db,
+            self.curry_kind(db),
+            self.variance(db),
+            parameter_variable,
+            parameter_ty,
+            return_ty,
+        )
     }
 }

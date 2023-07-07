@@ -55,23 +55,23 @@ impl Expectation {
     pub(crate) fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        meta: &mut ExpectationMeta,
         terms: &mut FluffyTerms,
+        meta: &mut ExpectationMeta,
     ) -> Option<ExpectationEffect> {
         match self {
-            Expectation::ExplicitlyConvertible(epn) => epn.resolve(db, meta, terms),
-            Expectation::ImplicitlyConvertible(epn) => epn.resolve(db, meta, terms),
-            Expectation::EqsSort(epn) => epn.resolve(db, meta, terms),
+            Expectation::ExplicitlyConvertible(epn) => epn.resolve(db, terms, meta),
+            Expectation::ImplicitlyConvertible(epn) => epn.resolve(db, terms, meta),
+            Expectation::EqsSort(epn) => epn.resolve(db, terms, meta),
             Expectation::FrameVariableType => todo!(),
-            Expectation::EqsFunctionType(epn) => epn.resolve(db, meta, terms),
-            Expectation::EqsRitchieType(epn) => epn.resolve(db, meta, terms),
-            Expectation::InsSort(epn) => epn.resolve(db, meta, terms),
-            Expectation::EqsExactly(epn) => epn.resolve(db, meta, terms),
-            Expectation::AnyOriginal(epn) => epn.resolve(db, meta, terms),
-            Expectation::AnyDerived(epn) => epn.resolve(db, meta, terms),
-            Expectation::NumType(epn) => epn.resolve(db, meta, terms),
-            Expectation::FinalDestination(epn) => epn.resolve(db, meta, terms),
-            Expectation::CurryDestination(epn) => epn.resolve(db, meta, terms),
+            Expectation::EqsFunctionType(epn) => epn.resolve(db, terms, meta),
+            Expectation::EqsRitchieType(epn) => epn.resolve(db, terms, meta),
+            Expectation::InsSort(epn) => epn.resolve(db, terms, meta),
+            Expectation::EqsExactly(epn) => epn.resolve(db, terms, meta),
+            Expectation::AnyOriginal(epn) => epn.resolve(db, terms, meta),
+            Expectation::AnyDerived(epn) => epn.resolve(db, terms, meta),
+            Expectation::NumType(epn) => epn.resolve(db, terms, meta),
+            Expectation::FinalDestination(epn) => epn.resolve(db, terms, meta),
+            Expectation::CurryDestination(epn) => epn.resolve(db, terms, meta),
         }
     }
 }
@@ -136,8 +136,8 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
-        fluffy_terms: &mut FluffyTerms,
+        terms: &mut FluffyTerms,
+        meta: &mut ExpectationMeta,
     ) -> Option<ExpectationEffect>;
 }
 

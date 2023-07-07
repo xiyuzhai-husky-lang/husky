@@ -34,9 +34,9 @@ impl ExpectFluffyTerm for ExpectInsSort {
     /// try to tell if a term is an instance of `Type u` for some universe u
     fn resolve(
         &self,
-        db: &dyn FluffyTermDb,
-        meta: &mut ExpectationMeta,
-        fluffy_terms: &mut FluffyTerms,
+        _db: &dyn FluffyTermDb,
+        _terms: &mut FluffyTerms,
+        _meta: &mut ExpectationMeta,
     ) -> Option<ExpectationEffect> {
         todo!()
         // match expectee {

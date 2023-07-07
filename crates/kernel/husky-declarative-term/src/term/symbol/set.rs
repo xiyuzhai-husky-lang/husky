@@ -51,7 +51,7 @@ fn calc_declarative_term_symbols(
     declarative_term: DeclarativeTerm,
 ) -> Option<DeclarativeTermSymbols> {
     match declarative_term {
-        DeclarativeTerm::Literal(_) => todo!(),
+        DeclarativeTerm::Literal(_) => None,
         DeclarativeTerm::Symbol(symbol) => Some(DeclarativeTermSymbols::new(
             db,
             VecSet::new_one_elem_set(symbol),

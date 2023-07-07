@@ -79,6 +79,7 @@ impl<'a> ExprTypeEngine<'a> {
             _ => Default::default(),
         };
         self.save_new_expr_ty(expr_idx, ExprTypeInfo::new(ty_result, expectation_idx));
+        p!(self.path());
         self.fluffy_term_region
             .resolve_as_much_as_possible(self.db(), FluffyTermResolveLevel::Weak);
         expectation_idx

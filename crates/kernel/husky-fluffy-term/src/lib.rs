@@ -1,5 +1,6 @@
 #![feature(anonymous_lifetime_in_impl_trait)]
 #![feature(trait_upcasting)]
+#![feature(generic_arg_infer)]
 mod data;
 mod db;
 mod disambiguation;
@@ -11,8 +12,8 @@ mod nested;
 mod progress;
 mod region;
 mod resolve;
+mod rewite;
 mod signature;
-mod substitution;
 mod term;
 #[cfg(test)]
 mod tests;
@@ -27,8 +28,8 @@ pub use self::expectation::*;
 pub use self::progress::*;
 pub use self::region::*;
 pub use self::resolve::*;
+pub use self::rewite::*;
 pub use self::signature::*;
-pub use self::substitution::*;
 pub use self::term::*;
 
 pub(crate) use self::signature::*;

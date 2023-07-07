@@ -42,11 +42,11 @@ impl ExpectFluffyTerm for ExpectSubtype {
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
         terms: &mut FluffyTerms,
+        meta: &mut ExpectationMeta,
     ) -> Option<ExpectationEffect> {
-        if state.expectee() == self.expected {
-            return state.set_ok(ExpectSubtypeOutcome {}, smallvec![]);
+        if meta.expectee() == self.expected {
+            return meta.set_ok(ExpectSubtypeOutcome {}, smallvec![]);
         }
         match self.expected.data_inner(db, terms) {
             FluffyTermData::Literal(_) => todo!(),
@@ -54,7 +54,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 ty_path: expected_path,
                 arguments,
                 ..
-            } => match state.expectee().data_inner(db, terms) {
+            } => match meta.expectee().data_inner(db, terms) {
                 FluffyTermData::TypeOntology {
                     ty_path: expectee_path,
                     arguments,
@@ -63,7 +63,7 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     if expected_path == expectee_path {
                         todo!()
                     } else {
-                        state.set_err(
+                        meta.set_err(
                             OriginalFluffyTermExpectationError::TypePathMismatch {
                                 expected_path,
                                 expectee_path,
@@ -88,19 +88,19 @@ impl ExpectFluffyTerm for ExpectSubtype {
                 ty_ethereal_term,
             } => todo!(),
             FluffyTermData::Hole(_, hole) => {
-                state.set_ok(
+                meta.set_ok(
                     ExpectSubtypeOutcome {},
                     smallvec![FluffyTermResolveAction::FillHole {
                         // todo: check hole kind
                         hole,
                         // todo: check subtype
-                        term: state.expectee()
+                        term: meta.expectee()
                     }],
                 )
             }
-            FluffyTermData::Category(_) => state.set_err(
+            FluffyTermData::Category(_) => meta.set_err(
                 OriginalFluffyTermExpectationError::ExpectedSubtype {
-                    expectee: state.expectee(),
+                    expectee: meta.expectee(),
                 },
                 smallvec![],
             ),

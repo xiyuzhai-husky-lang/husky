@@ -1,4 +1,5 @@
 mod application;
+mod curry;
 mod hole;
 mod ritchie;
 mod symbol_ty;

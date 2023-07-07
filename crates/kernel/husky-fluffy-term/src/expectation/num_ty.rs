@@ -32,8 +32,8 @@ impl ExpectFluffyTerm for ExpectNumType {
     fn resolve(
         &self,
         db: &dyn FluffyTermDb,
-        state: &mut ExpectationMeta,
         fluffy_terms: &mut FluffyTerms,
+        state: &mut ExpectationMeta,
     ) -> Option<ExpectationEffect> {
         match state.expectee().data_inner(db, fluffy_terms) {
             FluffyTermData::Literal(_) => todo!(),
