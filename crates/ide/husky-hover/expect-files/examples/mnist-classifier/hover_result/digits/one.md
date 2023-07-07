@@ -47,11 +47,11 @@ Ok(
                             Range {
                                 start: Position {
                                     line: 5,
-                                    character: 40,
+                                    character: 48,
                                 },
                                 end: Position {
                                     line: 5,
-                                    character: 43,
+                                    character: 51,
                                 },
                             },
                         ),

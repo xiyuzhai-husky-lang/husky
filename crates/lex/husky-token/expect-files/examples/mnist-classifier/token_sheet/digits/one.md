@@ -116,10 +116,8 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Question,
-                ),
+            Token::Ident(
+                `OneVsAll`,
             ),
             Token::Ident(
                 `MnistLabel`,

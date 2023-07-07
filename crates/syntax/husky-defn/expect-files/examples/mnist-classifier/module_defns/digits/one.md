@@ -369,7 +369,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                             val_ty: Some(
                                 FormTypeExpr {
-                                    expr: 3,
+                                    expr: 4,
                                 },
                             ),
                             expr: None,
@@ -390,6 +390,22 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
+                                            Expr::Err(
+                                                ExprError::Original(
+                                                    UnrecognizedIdent {
+                                                        token_idx: TokenIdx(
+                                                            25,
+                                                        ),
+                                                        ident: Ident(
+                                                            Word(
+                                                                Id {
+                                                                    value: 451,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
                                                 opt_path: Some(
@@ -400,12 +416,9 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::Prefix {
-                                                opr: Option,
-                                                opr_token_idx: TokenIdx(
-                                                    25,
-                                                ),
-                                                opd: 0,
+                                            Expr::ExplicitApplication {
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
                                             },
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 2,
@@ -419,8 +432,8 @@ Ok(
                                                 ),
                                             },
                                             Expr::ExplicitApplication {
-                                                function_expr_idx: 1,
-                                                argument_expr_idx: 2,
+                                                function_expr_idx: 2,
+                                                argument_expr_idx: 3,
                                             },
                                         ],
                                     },
@@ -515,7 +528,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: VarType,
-                                            expr_idx: 3,
+                                            expr_idx: 4,
                                         },
                                     ],
                                 },

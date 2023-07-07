@@ -1106,7 +1106,11 @@
                 disambiguation_and_ty_result: Err(
                     Derived(
                         TypeError(
-                            ExpectedCurryForApplicationFunctionType,
+                            DeclarativeTypeError(
+                                Derived(
+                                    SignatureError,
+                                ),
+                            ),
                         ),
                     ),
                 ),
