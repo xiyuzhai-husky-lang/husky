@@ -5,8 +5,16 @@
                 FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -31,7 +39,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 51,
                                                     },
                                                 ),
                                             ),
@@ -52,8 +60,16 @@
                 FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
 ]

@@ -1349,7 +1349,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -2088,7 +2088,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -3051,7 +3051,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -3790,7 +3790,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -4753,7 +4753,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -5494,7 +5494,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -6457,7 +6457,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -7196,7 +7196,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -8159,7 +8159,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -8898,7 +8898,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -9861,7 +9861,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -10600,7 +10600,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -11563,7 +11563,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -12302,7 +12302,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -13265,7 +13265,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -14004,7 +14004,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -14967,7 +14967,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -15706,7 +15706,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -16669,7 +16669,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -17408,7 +17408,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -18371,7 +18371,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -19110,7 +19110,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -20073,7 +20073,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -20812,7 +20812,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -21775,7 +21775,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -22309,7 +22309,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -23050,7 +23050,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -24013,7 +24013,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -24752,7 +24752,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),

@@ -11,7 +11,7 @@ pub struct TraitForTypeAssociatedFnNodeDecl {
     pub explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
-    pub return_ty: NodeDeclResult<Option<ReturnTypeExpr>>,
+    pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
     pub expr_region: ExprRegion,
@@ -44,7 +44,7 @@ pub struct TraitForTypeAssociatedFnDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub implicit_parameters: ImplicitParameterDeclPatterns,
-    pub return_ty: Option<ReturnTypeExpr>,
+    pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub expr_region: ExprRegion,
 }
 

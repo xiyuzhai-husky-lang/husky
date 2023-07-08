@@ -12,7 +12,7 @@ pub struct TypeMethodFnNodeDecl {
     pub explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<true>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
-    pub return_ty: NodeDeclResult<Option<ReturnTypeExpr>>,
+    pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
     pub expr_region: ExprRegion,
@@ -90,7 +90,7 @@ pub struct TypeMethodFnDecl {
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
     pub explicit_parameters: ExplicitParameterDeclPatterns,
-    pub return_ty: Option<ReturnTypeExpr>,
+    pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub expr_region: ExprRegion,
 }
 

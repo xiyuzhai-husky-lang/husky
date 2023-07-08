@@ -14,8 +14,8 @@ Ok(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 4,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 3,
                                     },
                                 ),
                                 expr: None,
@@ -66,16 +66,6 @@ Ok(
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
-                                                            punctuation: Assign,
-                                                            punctuation_token_idx: TokenIdx(
-                                                                12,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -130,7 +120,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 4,
+                                                expr_idx: 3,
                                             },
                                         ],
                                     },
@@ -152,8 +142,8 @@ Ok(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 2,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 1,
                                     },
                                 ),
                                 expr: None,
@@ -191,16 +181,6 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
-                                                            punctuation: Assign,
-                                                            punctuation_token_idx: TokenIdx(
-                                                                23,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -255,7 +235,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 2,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -277,8 +257,8 @@ Ok(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 0,
                                     },
                                 ),
                                 expr: None,
@@ -309,16 +289,6 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
-                                                            punctuation: Assign,
-                                                            punctuation_token_idx: TokenIdx(
-                                                                73,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -373,7 +343,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 1,
+                                                expr_idx: 0,
                                             },
                                         ],
                                     },
@@ -395,8 +365,8 @@ Ok(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 4,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 3,
                                     },
                                 ),
                                 expr: None,
@@ -447,16 +417,6 @@ Ok(
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
-                                                            punctuation: Assign,
-                                                            punctuation_token_idx: TokenIdx(
-                                                                110,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -511,7 +471,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 4,
+                                                expr_idx: 3,
                                             },
                                         ],
                                     },
@@ -533,8 +493,8 @@ Ok(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 2,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 1,
                                     },
                                 ),
                                 expr: None,
@@ -572,16 +532,6 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
-                                                            punctuation: Assign,
-                                                            punctuation_token_idx: TokenIdx(
-                                                                120,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -636,7 +586,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 2,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -658,8 +608,8 @@ Ok(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 2,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 1,
                                     },
                                 ),
                                 expr: None,
@@ -697,16 +647,6 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
-                                                            punctuation: Assign,
-                                                            punctuation_token_idx: TokenIdx(
-                                                                133,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -761,7 +701,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 2,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -783,8 +723,8 @@ Ok(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 4,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 3,
                                     },
                                 ),
                                 expr: None,
@@ -835,16 +775,6 @@ Ok(
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
-                                                            punctuation: Assign,
-                                                            punctuation_token_idx: TokenIdx(
-                                                                145,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -899,7 +829,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 4,
+                                                expr_idx: 3,
                                             },
                                         ],
                                     },

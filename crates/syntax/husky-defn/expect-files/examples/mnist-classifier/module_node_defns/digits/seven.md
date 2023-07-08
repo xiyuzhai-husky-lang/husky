@@ -29,20 +29,15 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 0,
                                     },
                                 ),
                             ),
-                            eq_token: Err(
-                                NodeDeclError::Original(
-                                    OriginalNodeDeclError::ExpectEqTokenForVariable(
-                                        TokenStreamState {
-                                            next_token_idx: TokenIdx(
-                                                9,
-                                            ),
-                                            drained: true,
-                                        },
+                            eq_token: Ok(
+                                EqToken(
+                                    TokenIdx(
+                                        8,
                                     ),
                                 ),
                             ),
@@ -74,16 +69,6 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
-                                                        punctuation: Assign,
-                                                        punctuation_token_idx: TokenIdx(
-                                                            8,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -138,7 +123,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 1,
+                                            expr_idx: 0,
                                         },
                                     ],
                                 },
@@ -401,7 +386,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 3,
                                     },
                                 ),
@@ -1079,20 +1064,15 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 0,
                                     },
                                 ),
                             ),
-                            eq_token: Err(
-                                NodeDeclError::Original(
-                                    OriginalNodeDeclError::ExpectEqTokenForVariable(
-                                        TokenStreamState {
-                                            next_token_idx: TokenIdx(
-                                                52,
-                                            ),
-                                            drained: true,
-                                        },
+                            eq_token: Ok(
+                                EqToken(
+                                    TokenIdx(
+                                        51,
                                     ),
                                 ),
                             ),
@@ -1124,16 +1104,6 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
-                                                        punctuation: Assign,
-                                                        punctuation_token_idx: TokenIdx(
-                                                            51,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -1188,7 +1158,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 1,
+                                            expr_idx: 0,
                                         },
                                     ],
                                 },
@@ -1484,7 +1454,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 3,
                                     },
                                 ),
@@ -2281,7 +2251,7 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 3,
                                     },
                                 ),
@@ -3184,20 +3154,15 @@ Ok(
                             ),
                             return_ty: Ok(
                                 Some(
-                                    ReturnTypeExpr {
-                                        expr: 2,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 1,
                                     },
                                 ),
                             ),
-                            eq_token: Err(
-                                NodeDeclError::Original(
-                                    OriginalNodeDeclError::ExpectEqTokenForVariable(
-                                        TokenStreamState {
-                                            next_token_idx: TokenIdx(
-                                                169,
-                                            ),
-                                            drained: true,
-                                        },
+                            eq_token: Ok(
+                                EqToken(
+                                    TokenIdx(
+                                        168,
                                     ),
                                 ),
                             ),
@@ -3236,16 +3201,6 @@ Ok(
                                                 ),
                                                 opd: 0,
                                             },
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
-                                                        punctuation: Assign,
-                                                        punctuation_token_idx: TokenIdx(
-                                                            168,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -3300,7 +3255,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 2,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },

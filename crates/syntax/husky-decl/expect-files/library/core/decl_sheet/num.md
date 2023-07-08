@@ -1140,7 +1140,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -1553,7 +1553,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -2026,7 +2026,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -2439,7 +2439,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -2912,7 +2912,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -3325,7 +3325,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -3798,7 +3798,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -4211,7 +4211,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -4684,7 +4684,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -5097,7 +5097,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -5570,7 +5570,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -5983,7 +5983,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -6456,7 +6456,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -6869,7 +6869,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -7342,7 +7342,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -7755,7 +7755,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -8228,7 +8228,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -8641,7 +8641,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -9114,7 +9114,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -9527,7 +9527,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -10000,7 +10000,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -10413,7 +10413,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -10886,7 +10886,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -11299,7 +11299,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -11772,7 +11772,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -11994,7 +11994,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -12407,7 +12407,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),
@@ -12880,7 +12880,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
@@ -13293,7 +13293,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 1,
                                     },
                                 ),

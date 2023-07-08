@@ -429,7 +429,7 @@ Ok(
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 0,
                                     },
                                 ),
