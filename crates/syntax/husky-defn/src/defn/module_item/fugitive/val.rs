@@ -18,7 +18,7 @@ impl ValNodeDefn {
         let mut parser = expr_parser(
             db,
             node_path,
-            None,
+            node_decl.expr_region(db),
             AllowSelfType::False,
             AllowSelfValue::False,
         );

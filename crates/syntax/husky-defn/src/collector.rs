@@ -8,7 +8,7 @@ use vec_like::VecPairMap;
 pub(crate) fn expr_parser<'a>(
     db: &'a dyn DefnDb,
     node_path: impl Into<EntityNodePath>,
-    decl_expr_region: Option<ExprRegion>,
+    decl_expr_region: ExprRegion,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
 ) -> BlockExprParser<'a> {
@@ -19,7 +19,7 @@ pub(crate) fn expr_parser<'a>(
         RegionPath::Defn(node_path.into()),
         db.token_sheet_data(module_path).unwrap(),
         db.module_symbol_context(module_path).unwrap(),
-        decl_expr_region,
+        Some(decl_expr_region),
         allow_self_type,
         allow_self_value,
     );

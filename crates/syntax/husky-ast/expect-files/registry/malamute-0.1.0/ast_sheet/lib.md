@@ -8,7 +8,7 @@ Ok(
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                        ident: `ConfidentYes`,
+                        ident: `Yes`,
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
@@ -16,7 +16,7 @@ Ok(
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `ConfidentYes`,
+                        ident: `Yes`,
                         token_idx: TokenIdx(
                             12,
                         ),
@@ -34,7 +34,7 @@ Ok(
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                        ident: `ConfidentNo`,
+                        ident: `No`,
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
@@ -42,7 +42,7 @@ Ok(
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `ConfidentNo`,
+                        ident: `No`,
                         token_idx: TokenIdx(
                             14,
                         ),
@@ -56,26 +56,26 @@ Ok(
                 },
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
-                        3,
+                        4,
                     ),
                     variant_path: TypeVariantPath {
-                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                        ident: `Unconfident`,
+                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                        ident: `ConfidentYes`,
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
-                            15,
+                            26,
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `Unconfident`,
+                        ident: `ConfidentYes`,
                         token_idx: TokenIdx(
-                            16,
+                            27,
                         ),
                     },
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            17,
+                            28,
                         ),
                         drained: true,
                     },
@@ -86,7 +86,7 @@ Ok(
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                        ident: `ConfidentYes`,
+                        ident: `ConfidentNo`,
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
@@ -94,7 +94,7 @@ Ok(
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `ConfidentYes`,
+                        ident: `ConfidentNo`,
                         token_idx: TokenIdx(
                             29,
                         ),
@@ -112,7 +112,7 @@ Ok(
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                        ident: `ConfidentNo`,
+                        ident: `Unconfident`,
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
@@ -120,7 +120,7 @@ Ok(
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `ConfidentNo`,
+                        ident: `Unconfident`,
                         token_idx: TokenIdx(
                             31,
                         ),
@@ -128,32 +128,6 @@ Ok(
                     state_after: TokenStreamState {
                         next_token_idx: TokenIdx(
                             32,
-                        ),
-                        drained: true,
-                    },
-                },
-                Ast::TypeVariant {
-                    token_group_idx: TokenGroupIdx(
-                        7,
-                    ),
-                    variant_path: TypeVariantPath {
-                        parent_ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                        ident: `Unconfident`,
-                    },
-                    vertical_token: VerticalToken(
-                        TokenIdx(
-                            32,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `Unconfident`,
-                        token_idx: TokenIdx(
-                            33,
-                        ),
-                    },
-                    state_after: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            34,
                         ),
                         drained: true,
                     },
@@ -200,7 +174,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..3,
+                                    0..2,
                                 ),
                             },
                         ),
@@ -208,14 +182,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        4,
+                        3,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    17,
+                                    15,
                                 ),
                             },
                         },
@@ -229,13 +203,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `OneVsAllResult`,
                         token_idx: TokenIdx(
-                            19,
+                            17,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            20,
+                            18,
                         ),
                         drained: false,
                     },
@@ -248,7 +222,7 @@ Ok(
                         variants: Some(
                             TypeVariants {
                                 ast_idx_range: ArenaIdxRange(
-                                    3..6,
+                                    2..5,
                                 ),
                             },
                         ),
@@ -256,20 +230,20 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        8,
+                        7,
                     ),
                     items: None,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        9,
+                        8,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    48,
+                                    46,
                                 ),
                             },
                         },
@@ -283,13 +257,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `narrow_down`,
                         token_idx: TokenIdx(
-                            50,
+                            48,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            51,
+                            49,
                         ),
                         drained: false,
                     },
@@ -305,17 +279,17 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            6..10,
+            5..9,
         ),
         siblings: [
             ArenaIdxRange(
-                6..6,
+                5..5,
             ),
             ArenaIdxRange(
-                6..6,
+                5..5,
             ),
             ArenaIdxRange(
-                6..10,
+                5..9,
             ),
         ],
     },

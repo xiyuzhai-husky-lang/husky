@@ -5,20 +5,20 @@ Ok(
             start_character: Some(
                 0,
             ),
-            end_line: 3,
+            end_line: 2,
             end_character: Some(
-                13,
+                4,
             ),
             kind: Some(
                 Region,
             ),
         },
         FoldingRange {
-            start_line: 5,
+            start_line: 4,
             start_character: Some(
                 0,
             ),
-            end_line: 8,
+            end_line: 7,
             end_character: Some(
                 13,
             ),
