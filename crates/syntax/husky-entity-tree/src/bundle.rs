@@ -72,16 +72,7 @@ impl EntityTreeCrateBundle {
             .flatten()
     }
 
-    pub fn all_trai_for_ty_impl_blocks<'a>(
-        &'a self,
-    ) -> impl Iterator<Item = TraitForTypeImplBlockNode> + 'a {
-        self.sheets
-            .iter()
-            .map(|sheet| sheet.all_trai_for_ty_impl_block_nodes())
-            .flatten()
-    }
-
-    pub fn trai_for_ty_impl_block_paths_filtered_by_trai_path<'a>(
+    pub(crate) fn trai_for_ty_impl_block_paths_filtered_by_trai_path<'a>(
         &'a self,
         db: &'a dyn EntityTreeDb,
         trai_path: TraitPath,
@@ -93,7 +84,7 @@ impl EntityTreeCrateBundle {
             .filter(move |path| path.trai_path(db) == trai_path)
     }
 
-    pub fn trai_for_ty_impl_block_paths_filtered_by_ty_path<'a>(
+    pub(crate) fn trai_for_ty_impl_block_paths_filtered_by_ty_path<'a>(
         &'a self,
         db: &'a dyn EntityTreeDb,
         ty_path: TypePath,

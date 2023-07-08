@@ -10,11 +10,10 @@ mod db;
 mod error;
 mod menu;
 mod rewrite;
-mod template;
+// mod template;
 mod term;
 #[cfg(test)]
 mod tests;
-mod trai;
 mod ty;
 mod utils;
 
@@ -24,10 +23,9 @@ pub use self::error::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
-pub use self::trai::*;
 pub use self::ty::*;
 
-use self::template::*;
+// use self::template::*;
 #[cfg(test)]
 use self::tests::*;
 use either::*;
@@ -88,11 +86,11 @@ pub struct EtherealTermJar(
     utils::ethereal_term_curry_toolchain,
     utils::ethereal_term_application_toolchain,
     utils::ethereal_term_ritchie_toolchain,
-    // trai
-    trai_side_trai_for_ty_impl_blocks_aux,
-    ty_side_trai_for_ty_impl_blocks_aux,
-    trai_for_type_impl_template_from_impl_block,
-    // template
-    TemplateParameters,
-    ty_path_template_parameters,
+    // // trai
+    // trai_side_trai_for_ty_impl_blocks_aux,
+    // ty_side_trai_for_ty_impl_blocks_aux,
+    // trai_for_type_impl_template_from_impl_block,
+    // // template
+    // TemplateParameters,
+    // ty_path_template_parameters,
 );

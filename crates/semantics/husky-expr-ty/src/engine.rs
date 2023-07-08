@@ -7,7 +7,7 @@ mod symbol;
 mod utils;
 mod pattern_ty;
 
-pub(crate) use self::expr_ty::Unveiler;
+pub(crate) use self::expr_ty::*;
 pub(crate) use self::utils::*;
 
 use self::symbol::*;
@@ -35,7 +35,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     pattern_expr_contracts: PatternExprMap<Contract>,
     return_ty: Option<EtherealTerm>,
-    unveiler: Option<Unveiler>,
+    unveiler: Unveiler,
     self_ty: Option<EtherealTerm>,
 }
 
@@ -126,7 +126,7 @@ impl<'a> ExprTypeEngine<'a> {
                 pattern_expr_region.pattern_symbol_arena(),
             ),
             return_ty,
-            unveiler: return_ty.map(|return_ty| Unveiler::new(db, return_ty)),
+            unveiler: Unveiler::new(db, return_ty),
             self_ty,
             pattern_expr_contracts: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
         }

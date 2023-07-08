@@ -16,7 +16,7 @@ use husky_declarative_signature::*;
 pub trait HasEtherealSignatureTemplate {
     type EtherealSignatureTemplate;
 
-    fn ethereal_signature_template<'a>(
+    fn ethereal_signature_template(
         self,
         db: &dyn EtherealSignatureDb,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate>;

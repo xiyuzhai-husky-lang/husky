@@ -13,7 +13,7 @@ mod ritchie_call_ty;
 mod suffix;
 mod utils;
 
-pub(crate) use self::suffix::Unveiler;
+pub(crate) use self::suffix::*;
 
 use super::*;
 use husky_opn_syntax::*;

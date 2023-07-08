@@ -90,34 +90,50 @@ impl TermMenu0 {
             universe1,
             prop: TermCategory::new(universe0),
             ty0: TermCategory::new(universe1),
-            core_ops_add: EtherealTerm::EntityPath(entity_path_menu.core_ops_add().into()),
+            core_ops_add: EtherealTerm::EntityPath(
+                entity_path_menu.core_ops_add_trai_path().into(),
+            ),
             // start here
             // EtherealTerm::Entity(entity_path_menu.core_ops_())
             core_ops_add_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_add_assign().into(),
+                entity_path_menu.core_ops_add_assign_trai_path().into(),
             ),
-            core_ops_bit_and: EtherealTerm::EntityPath(entity_path_menu.core_ops_bit_and().into()),
+            core_ops_bit_and: EtherealTerm::EntityPath(
+                entity_path_menu.core_ops_bit_and_trai_path().into(),
+            ),
             core_ops_bit_and_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_bit_and_assign().into(),
+                entity_path_menu.core_ops_bit_and_assign_trai_path().into(),
             ),
-            core_ops_bit_or: EtherealTerm::EntityPath(entity_path_menu.core_ops_bit_or().into()),
+            core_ops_bit_or: EtherealTerm::EntityPath(
+                entity_path_menu.core_ops_bit_or_trai_path().into(),
+            ),
             core_ops_bit_or_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_bit_or_assign().into(),
+                entity_path_menu.core_ops_bit_or_assign_trai_path().into(),
             ),
-            core_ops_bit_xor: EtherealTerm::EntityPath(entity_path_menu.core_ops_bit_xor().into()),
+            core_ops_bit_xor: EtherealTerm::EntityPath(
+                entity_path_menu.core_ops_bit_xor_trai_path().into(),
+            ),
             core_ops_bit_xor_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_bit_xor_assign().into(),
+                entity_path_menu.core_ops_bit_xor_assign_trai_path().into(),
             ),
-            core_ops_div: EtherealTerm::EntityPath(entity_path_menu.core_ops_div().into()),
+            core_ops_div: EtherealTerm::EntityPath(
+                entity_path_menu.core_ops_div_trai_path().into(),
+            ),
             core_ops_div_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_div_assign().into(),
+                entity_path_menu.core_ops_div_assign_trai_path().into(),
             ),
-            core_ops_mul: EtherealTerm::EntityPath(entity_path_menu.core_ops_mul().into()),
+            core_ops_mul: EtherealTerm::EntityPath(
+                entity_path_menu.core_ops_mul_trai_path().into(),
+            ),
             core_ops_mul_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_mul_assign().into(),
+                entity_path_menu.core_ops_mul_assign_trai_path().into(),
             ),
-            core_ops_neg: EtherealTerm::EntityPath(entity_path_menu.core_ops_neg().into()),
-            core_ops_not: EtherealTerm::EntityPath(entity_path_menu.core_ops_not().into()),
+            core_ops_neg: EtherealTerm::EntityPath(
+                entity_path_menu.core_ops_neg_trai_path().into(),
+            ),
+            core_ops_not: EtherealTerm::EntityPath(
+                entity_path_menu.core_ops_not_trai_path().into(),
+            ),
             option_ty_path: TermEntityPath::TypeOntology(entity_path_menu.option_ty_path()).into(),
             slice_ty_path: TermEntityPath::TypeOntology(entity_path_menu.slice_ty_path()).into(),
             str_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.str_ty_path()).into(),

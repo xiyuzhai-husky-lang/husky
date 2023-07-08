@@ -84,7 +84,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_add().into(),
+            entity_path_menu.core_ops_add_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -93,7 +93,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_add_assign().into(),
+            entity_path_menu.core_ops_add_assign_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -102,7 +102,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_bit_and().into(),
+            entity_path_menu.core_ops_bit_and_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -111,7 +111,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_bit_and_assign().into(),
+            entity_path_menu.core_ops_bit_and_assign_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -120,7 +120,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_bit_or().into(),
+            entity_path_menu.core_ops_bit_or_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -129,7 +129,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_bit_or_assign().into(),
+            entity_path_menu.core_ops_bit_or_assign_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -138,7 +138,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_bit_xor().into(),
+            entity_path_menu.core_ops_bit_xor_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -147,7 +147,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_bit_xor_assign().into(),
+            entity_path_menu.core_ops_bit_xor_assign_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -156,7 +156,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_div().into(),
+            entity_path_menu.core_ops_div_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -165,7 +165,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_div_assign().into(),
+            entity_path_menu.core_ops_div_assign_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -174,7 +174,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_mul().into(),
+            entity_path_menu.core_ops_mul_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -183,7 +183,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_mul_assign().into(),
+            entity_path_menu.core_ops_mul_assign_trai_path().into(),
         ),
         Ok(invariant_ty0_to_trai_ty)
     );
@@ -192,7 +192,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_neg().into(),
+            entity_path_menu.core_ops_neg_trai_path().into(),
         ),
         Ok(trai_ty)
     );
@@ -201,7 +201,7 @@ fn entity_path_declarative_ty_works() {
         entity_path_declarative_ty(
             &db,
             TypePathDisambiguation::OntologyConstructor,
-            entity_path_menu.core_ops_not().into(),
+            entity_path_menu.core_ops_not_trai_path().into(),
         ),
         Ok(trai_ty)
     );

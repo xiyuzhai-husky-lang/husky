@@ -47,7 +47,11 @@ impl ImplicitParameterEtherealSignature {
     fn from_declarative(
         db: &dyn EtherealSignatureDb,
         implicit_paramter: &ImplicitParameterDeclarativeSignature,
-    ) -> EtherealSignatureResult<ImplicitParameterEtherealSignature> {
-        todo!()
+    ) -> EtherealSignatureResult<Self> {
+        Ok(Self {
+            annotated_variance: implicit_paramter.annotated_variance(),
+            symbol: EtherealTermSymbol::from_declarative(db, implicit_paramter.symbol())?,
+            traits: implicit_paramter.traits().iter().map(|_| todo!()).collect(),
+        })
     }
 }

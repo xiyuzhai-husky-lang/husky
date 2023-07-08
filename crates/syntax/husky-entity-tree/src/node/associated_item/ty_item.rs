@@ -242,7 +242,7 @@ pub(crate) fn ty_item_paths_map(
     for (ident, node_path) in path.item_node_paths(db)?.iter().copied() {
         if let Some(path) = node_path.path(db) {
             let ty_item_kind = path.item_kind(db);
-            paths.modify_value_or_insert(
+            paths.update_value_or_insert(
                 ident,
                 |(ty_item_kind0, result)| match result {
                     Ok(ref mut same_name_paths) => match *ty_item_kind0 == ty_item_kind {

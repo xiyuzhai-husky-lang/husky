@@ -32,6 +32,7 @@ pub use self::sheet::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
 pub use self::table::*;
+pub use self::utils::*;
 
 use self::collector::*;
 use self::context::*;
@@ -78,7 +79,7 @@ pub struct EntityTreeJar(
     IllFormedItemNode,
     TypeVariantNode,
     ty_variant_node,
-    ty_impl_blocks,
+    // ty_impl_blocks,
     ty_item_node_paths,
     ty_item_paths_map,
     trai_for_ty_impl_block_items,
@@ -105,4 +106,6 @@ pub struct EntityTreeJar(
     module_subentity_path,
     all_modules_within_crate,
     crate_specific_prelude,
+    // utils
+    ty_side_trai_for_ty_impl_block_paths_map,
 );

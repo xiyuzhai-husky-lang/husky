@@ -102,6 +102,13 @@ impl<T, E> From<Result<T, Option<E>>> for MaybeResult<T, E> {
 }
 
 impl<T, E> MaybeResult<T, E> {
+    pub fn ok(self) -> Option<T> {
+        match self {
+            JustOk(t) => Some(t),
+            JustErr(_) | Nothing => None,
+        }
+    }
+
     /// convert into `Result<Option<T>, E>`
     ///
     /// ```
@@ -146,6 +153,18 @@ impl<T, E> MaybeResult<T, E> {
     {
         match self {
             JustOk(t) => JustOk(t),
+            JustErr(e) => JustErr(*e),
+            Nothing => Nothing,
+        }
+    }
+
+    pub fn just_ok_as_ref2<S: ?Sized>(&self) -> MaybeResult<&S, E>
+    where
+        E: Copy,
+        T: AsRef<S>,
+    {
+        match self {
+            JustOk(t) => JustOk(t.as_ref()),
             JustErr(e) => JustErr(*e),
             Nothing => Nothing,
         }
