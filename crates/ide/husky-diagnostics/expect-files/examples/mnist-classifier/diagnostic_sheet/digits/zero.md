@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [21:5, 26:7),
-            },
-        ],
+        diagnostics: [],
     },
 }

@@ -178,7 +178,11 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     fn calc_unveil_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
-        Err(OriginalExprTypeError::CannotUnveil)?
+        let Some(return_ty) = self.return_ty else {
+            Err(DerivedExprTypeError::UnableToInferReturnTypeForUnveiling)?
+        };
+        todo!()
+        // Err(OriginalExprTypeError::CannotUnveil)?
     }
 
     fn calc_compose_with_option_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {

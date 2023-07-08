@@ -1362,8 +1362,8 @@
                             Unveil,
                         ),
                         Err(
-                            Original(
-                                CannotUnveil,
+                            Derived(
+                                UnableToInferReturnTypeForUnveiling,
                             ),
                         ),
                     ),

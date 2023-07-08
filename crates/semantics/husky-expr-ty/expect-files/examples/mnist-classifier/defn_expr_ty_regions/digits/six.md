@@ -943,8 +943,8 @@
                             Unveil,
                         ),
                         Err(
-                            Original(
-                                CannotUnveil,
+                            Derived(
+                                UnableToInferReturnTypeForUnveiling,
                             ),
                         ),
                     ),
@@ -1424,8 +1424,8 @@
                             Unveil,
                         ),
                         Err(
-                            Original(
-                                CannotUnveil,
+                            Derived(
+                                UnableToInferReturnTypeForUnveiling,
                             ),
                         ),
                     ),
@@ -1728,8 +1728,8 @@
                             Unveil,
                         ),
                         Err(
-                            Original(
-                                CannotUnveil,
+                            Derived(
+                                UnableToInferReturnTypeForUnveiling,
                             ),
                         ),
                     ),
@@ -1938,8 +1938,8 @@
                             Unveil,
                         ),
                         Err(
-                            Original(
-                                CannotUnveil,
+                            Derived(
+                                UnableToInferReturnTypeForUnveiling,
                             ),
                         ),
                     ),
