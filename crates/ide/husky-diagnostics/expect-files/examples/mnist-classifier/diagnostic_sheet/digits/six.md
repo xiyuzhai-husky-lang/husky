@@ -19,6 +19,52 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [16:9, 20:11),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [31:13, 34:15),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [39:9, 45:11),
+            },
+            Diagnostic {
+                message: "Type Error: cannot unveil",
+                severity: Error,
+                range: [50:5, 53:7),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                severity: Error,
+                range: [35:20, 35:35),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                severity: Error,
+                range: [47:20, 47:35),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                severity: Error,
+                range: [48:16, 48:31),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                severity: Error,
+                range: [60:5, 60:20),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                severity: Error,
+                range: [10:5, 60:20),
+            },
+        ],
     },
 }

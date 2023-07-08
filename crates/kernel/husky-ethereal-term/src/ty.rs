@@ -93,6 +93,7 @@ impl HasTypeGivenToolchain for EtherealTerm {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EtherealTermDb)]
+#[enum_class::from_variants]
 pub enum RawType {
     Prelude(PreludeTypePath),
     Declarative(DeclarativeTerm),

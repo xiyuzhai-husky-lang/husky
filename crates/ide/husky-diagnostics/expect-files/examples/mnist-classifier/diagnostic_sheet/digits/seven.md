@@ -19,6 +19,27 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                severity: Error,
+                range: [43:16, 43:33),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                severity: Error,
+                range: [47:16, 47:33),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                severity: Error,
+                range: [51:5, 51:22),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                severity: Error,
+                range: [31:5, 51:22),
+            },
+        ],
     },
 }

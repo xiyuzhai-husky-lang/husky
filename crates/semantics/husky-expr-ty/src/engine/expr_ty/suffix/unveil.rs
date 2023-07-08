@@ -11,7 +11,7 @@ impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
         match self.unveiler {
             Unveiler::Unique(_) => todo!(),
-            Unveiler::Nothing => todo!(),
+            Unveiler::Nothing => Err(OriginalExprTypeError::CannotUnveil)?,
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
                 Err(DerivedExprTypeError::UnableToInferReturnTypeForUnveiling)?
             }

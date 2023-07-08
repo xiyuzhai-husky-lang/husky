@@ -25,6 +25,37 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "type path mismatch: expect core::mem::Leash, but got core::list::List instead",
+                severity: Error,
+                range: [4:5, 4:37),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::mem::Leash, but got core::list::List instead",
+                severity: Error,
+                range: [4:5, 4:37),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::mem::Leash, but got core::list::List instead",
+                severity: Error,
+                range: [23:5, 23:43),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::mem::Leash, but got core::list::List instead",
+                severity: Error,
+                range: [23:5, 23:43),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::mem::Leash, but got mnist_classifier::raw_contour::RawContour instead",
+                severity: Error,
+                range: [27:5, 27:46),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::mem::Leash, but got mnist_classifier::raw_contour::RawContour instead",
+                severity: Error,
+                range: [27:5, 27:46),
+            },
+        ],
     },
 }
