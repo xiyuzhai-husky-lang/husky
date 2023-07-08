@@ -32,4 +32,8 @@ use smallvec::*;
 use tests::*;
 
 #[salsa::jar(db = ExprTypeDb)]
-pub struct ExprTypeJar(expr_ty_region);
+pub struct ExprTypeJar(
+    ty_ontology_path_unveil_impl_block_signature_templates,
+    ty_ontology_application_unveil_impl_block_signature_templates,
+    expr_ty_region,
+);

@@ -3,11 +3,20 @@ use smallvec::{smallvec, Array, SmallVec};
 use thiserror::Error;
 
 #[derive(PartialEq, Eq, Clone, Hash, Serialize, Deserialize)]
-pub struct SmallVecMap<V, const N: usize>
+pub struct SmallVecMap<E, const N: usize>
+where
+    [E; N]: Array<Item = E>,
+{
+    entries: SmallVec<[E; N]>,
+}
+
+impl<V, const N: usize> std::convert::AsRef<[V]> for SmallVecMap<V, N>
 where
     [V; N]: Array<Item = V>,
 {
-    data: SmallVec<[V; N]>,
+    fn as_ref(&self) -> &[V] {
+        &self.entries
+    }
 }
 
 impl<E, const N: usize> IntoIterator for SmallVecMap<E, N>
@@ -19,7 +28,7 @@ where
     type IntoIter = smallvec::IntoIter<[E; N]>;
 
     fn into_iter(self) -> Self::IntoIter {
-        self.data.into_iter()
+        self.entries.into_iter()
     }
 }
 
@@ -29,11 +38,9 @@ where
     [E; N]: Array<Item = E>,
 {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        self.data.fmt(f)
+        self.entries.fmt(f)
     }
 }
-
-pub type SmallVecPairMap<K, V, const N: usize> = SmallVecMap<(K, V), N>;
 
 #[derive(Debug, Error)]
 #[error("insert entry repeat error {old}")]
@@ -56,17 +63,17 @@ where
     [E; N]: Array<Item = E>,
 {
     pub fn clear(&mut self) {
-        self.data.clear()
+        self.entries.clear()
     }
 
     pub fn take_data(self) -> SmallVec<[E; N]> {
-        self.data
+        self.entries
     }
     pub fn data(&self) -> &[E] {
-        &self.data
+        &self.entries
     }
     pub fn data_mut(&mut self) -> &mut [E] {
-        &mut self.data
+        &mut self.entries
     }
 
     pub fn from_smallvec(data: SmallVec<[E; N]>) -> Result<Self, FromVecEntryRepeatError>
@@ -80,32 +87,32 @@ where
                 }
             }
         }
-        Ok(Self { data })
+        Ok(Self { entries: data })
     }
 
     pub fn len(&self) -> usize {
-        self.data.len()
+        self.entries.len()
     }
 
     pub fn get_entry(&self, key: K) -> Option<&E>
     where
         K: Copy,
     {
-        self.data.iter().find(|entry| entry.key() == key)
+        self.entries.iter().find(|entry| entry.key() == key)
     }
 
     pub fn get_entry_mut(&mut self, key: K) -> Option<&mut E>
     where
         K: Copy,
     {
-        self.data.iter_mut().find(|entry| entry.key() == key)
+        self.entries.iter_mut().find(|entry| entry.key() == key)
     }
 
     pub fn iget_entry(&self, key: K) -> Option<(usize, &E)>
     where
         K: Copy,
     {
-        self.data
+        self.entries
             .iter()
             .enumerate()
             .find(|(_, entry)| entry.key() == key)
@@ -115,21 +122,24 @@ where
     where
         K: Copy,
     {
-        self.data.iter().find(|entry| entry.key() == key).is_some()
+        self.entries
+            .iter()
+            .find(|entry| entry.key() == key)
+            .is_some()
     }
 
     pub fn keys<'a>(&'a self) -> impl Iterator<Item = K> + 'a
     where
         K: Copy,
     {
-        self.data.iter().map(|entry| entry.key())
+        self.entries.iter().map(|entry| entry.key())
     }
 
     pub fn get_mut(&mut self, key: K) -> Option<&mut E>
     where
         K: Copy,
     {
-        self.data.iter_mut().find(|entry| entry.key() == key)
+        self.entries.iter_mut().find(|entry| entry.key() == key)
     }
 
     pub fn insert_new(&mut self, new: E) -> Result<(), InsertEntryRepeatError<E>>
@@ -140,7 +150,7 @@ where
             let new_key = new.key();
             Err(InsertEntryRepeatError {
                 old: self
-                    .data
+                    .entries
                     .iter()
                     .position(|entry| entry.key() == new_key)
                     .unwrap()
@@ -148,7 +158,7 @@ where
                 new,
             })
         } else {
-            self.data.push(new);
+            self.entries.push(new);
             Ok(())
         }
     }
@@ -158,7 +168,7 @@ where
         K: Copy,
     {
         debug_assert!(!self.has(new.key()));
-        self.data.push(new)
+        self.entries.push(new)
     }
 
     pub fn insert(&mut self, value: E)
@@ -168,7 +178,7 @@ where
         if self.has(value.key()) {
             ()
         } else {
-            self.data.push(value)
+            self.entries.push(value)
         }
     }
     pub fn insert_from_ref(&mut self, value: &E)
@@ -179,7 +189,7 @@ where
         if self.has(value.key()) {
             ()
         } else {
-            self.data.push(value.clone())
+            self.entries.push(value.clone())
         }
     }
 
@@ -187,7 +197,7 @@ where
     where
         K: Copy,
     {
-        self.data.iter().position(|entry| entry.key() == key)
+        self.entries.iter().position(|entry| entry.key() == key)
     }
 
     pub fn extend(&mut self, iter: impl Iterator<Item = E>) -> Result<(), InsertEntryRepeatError<E>>
@@ -204,7 +214,7 @@ where
     where
         K: Copy,
     {
-        for v in other.data {
+        for v in other.entries {
             self.insert_new(v)?
         }
         Ok(())
@@ -215,7 +225,7 @@ where
         E: Clone,
         K: Copy,
     {
-        for entry in &other.data {
+        for entry in &other.entries {
             self.insert_from_ref(entry)
         }
     }
@@ -225,10 +235,10 @@ where
         E: DefaultVecMapEntry<K>,
         K: Copy,
     {
-        if let Some(position) = self.data.iter().position(|entry| entry.key() == key) {
-            self.data.remove(position);
+        if let Some(position) = self.entries.iter().position(|entry| entry.key() == key) {
+            self.entries.remove(position);
         } else {
-            self.data.push(E::default_from_key(key))
+            self.entries.push(E::default_from_key(key))
         }
     }
 }
@@ -237,30 +247,77 @@ impl<K, V, const N: usize> SmallVecPairMap<K, V, N>
 where
     [(K, V); N]: Array<Item = (K, V)>,
 {
-    pub fn get_mut_or_insert_default(&mut self, key: K) -> &mut V
+    pub fn get_value<Borrowed: ?Sized>(&self, key: K) -> Option<&Borrowed>
+    where
+        K: Eq + Copy,
+        V: std::borrow::Borrow<Borrowed>,
+    {
+        self.get_entry(key).map(|(_, v)| v.borrow())
+    }
+
+    #[inline(always)]
+    pub fn get_value_mut_or_insert_default(&mut self, key: K) -> &mut V
     where
         K: Copy + PartialEq,
         V: Default,
     {
-        match self.data.iter_mut().find(|(key1, _)| *key1 == key) {
+        match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
             Some(entry) => unsafe { wild_utils::arb_ref(&mut entry.1) },
             None => {
-                self.data.push((key, V::default()));
-                &mut unsafe { self.data.last_mut().unwrap_unchecked() }.1
+                self.entries.push((key, V::default()));
+                &mut unsafe { self.entries.last_mut().unwrap_unchecked() }.1
             }
         }
     }
 
-    pub fn get_mut_or_insert_with(&mut self, key: K, f: impl FnOnce() -> V) -> &mut V
+    #[inline(always)]
+    pub fn get_value_mut_or_insert_with(&mut self, key: K, f: impl FnOnce() -> V) -> &mut V
     where
         K: Copy + PartialEq,
     {
-        match self.data.iter_mut().find(|(key1, _)| *key1 == key) {
+        match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
             Some(entry) => unsafe { wild_utils::arb_ref(&mut entry.1) },
             None => {
-                self.data.push((key, f()));
-                &mut unsafe { self.data.last_mut().unwrap_unchecked() }.1
+                self.entries.push((key, f()));
+                &mut unsafe { self.entries.last_mut().unwrap_unchecked() }.1
             }
+        }
+    }
+
+    #[inline(always)]
+    pub fn update_value_or_insert(&mut self, key: K, update: impl FnOnce(&mut V), v: V)
+    where
+        K: Copy + PartialEq,
+    {
+        match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
+            Some(entry) => unsafe { update(&mut entry.1) },
+            None => self.entries.push((key, v)),
+        }
+    }
+
+    #[inline(always)]
+    pub fn update_value_or_insert_with(
+        &mut self,
+        key: K,
+        update: impl FnOnce(&mut V),
+        f: impl FnOnce() -> V,
+    ) where
+        K: Copy + PartialEq,
+    {
+        match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
+            Some(entry) => unsafe { update(&mut entry.1) },
+            None => self.entries.push((key, f())),
+        }
+    }
+
+    #[inline(always)]
+    pub fn map_collect<U>(&self, f: impl Fn(&V) -> U) -> SmallVecPairMap<K, U, N>
+    where
+        K: Copy,
+        [(K, U); N]: Array<Item = (K, U)>,
+    {
+        SmallVecPairMap {
+            entries: self.entries.iter().map(|(k, v)| (*k, f(v))).collect(),
         }
     }
 }
@@ -300,7 +357,7 @@ where
     type Target = [E];
 
     fn deref(&self) -> &Self::Target {
-        &self.data
+        &self.entries
     }
 }
 
@@ -309,7 +366,9 @@ where
     [E; N]: Array<Item = E>,
 {
     fn default() -> Self {
-        Self { data: smallvec![] }
+        Self {
+            entries: smallvec![],
+        }
     }
 }
 
@@ -336,3 +395,5 @@ where
         self.get_mut(index).unwrap()
     }
 }
+
+pub type SmallVecPairMap<K, V, const N: usize> = SmallVecMap<(K, V), N>;

@@ -332,7 +332,7 @@ fn configuration_struct(item_fn: &syn::ItemFn) -> syn::ItemStruct {
 
     parse_quote! {
         #[allow(non_camel_case_types)]
-        #visibility struct #fn_name {
+        pub(crate) struct #fn_name {
             intern_map: #intern_map,
             function: salsa::function::FunctionIngredient<Self>,
         }

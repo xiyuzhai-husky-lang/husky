@@ -93,11 +93,4 @@ where
     ) -> EntityTreeResult<SubentityPath> {
         subentity_path(self, parent, identifier)
     }
-
-    // fn ty_impl_blocks(&self, path: TypePath) -> EntityTreeCrateBundleResultRef<&[TypeImplBlock]> {
-    //     match ty_impl_blocks(self, path) {
-    //         Ok(impl_blocks) => Ok(impl_blocks),
-    //         Err(e) => Err(e),
-    //     }
-    // }
 }

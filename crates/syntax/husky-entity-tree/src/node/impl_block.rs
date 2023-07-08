@@ -258,15 +258,15 @@ fn ignore_util_for_is_eaten<'a>(token_stream: &mut TokenStream<'a>) -> ImplResul
     todo!()
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn ty_impl_blocks(
-    db: &dyn EntityTreeDb,
-    ty: TypePath,
-) -> EntityTreeBundleResult<Vec<TypeImplBlockNode>> {
-    let crate_path = ty.module_path(db).crate_path(db);
-    let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
-    Ok(entity_tree_crate_bundle
-        .all_ty_impl_block_nodes()
-        .filter_map(|impl_block| (impl_block.ty_path(db) == ty).then_some(impl_block))
-        .collect())
-}
+// #[salsa::tracked(jar = EntityTreeJar, return_ref)]
+// pub(crate) fn ty_impl_blocks(
+//     db: &dyn EntityTreeDb,
+//     ty: TypePath,
+// ) -> EntityTreeBundleResult<Vec<TypeImplBlockNode>> {
+//     let crate_path = ty.module_path(db).crate_path(db);
+//     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
+//     Ok(entity_tree_crate_bundle
+//         .all_ty_impl_block_nodes()
+//         .filter_map(|impl_block| (impl_block.ty_path(db) == ty).then_some(impl_block))
+//         .collect())
+// }

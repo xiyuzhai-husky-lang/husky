@@ -39,10 +39,7 @@ where
     }
 }
 
-impl<K, T> AsVecMapEntry for (K, T)
-where
-    K: PartialEq + Eq + std::fmt::Debug,
-{
+impl<K, T> AsVecMapEntry for (K, T) {
     type K = K;
 
     fn key(&self) -> K
@@ -57,10 +54,7 @@ where
     }
 }
 
-impl<K, M, T> AsVecMapEntry for (K, M, T)
-where
-    K: PartialEq + Eq + std::fmt::Debug,
-{
+impl<K, M, T> AsVecMapEntry for (K, M, T) {
     type K = K;
 
     fn key(&self) -> K
@@ -391,26 +385,28 @@ impl<K, V> VecPairMap<K, V> {
         }
     }
 
-    pub fn modify_value_or_insert(&mut self, key: K, m: impl FnOnce(&mut V), v: V)
+    #[inline(always)]
+    pub fn update_value_or_insert(&mut self, key: K, update: impl FnOnce(&mut V), v: V)
     where
         K: Copy + PartialEq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
-            Some(entry) => unsafe { m(&mut entry.1) },
+            Some(entry) => unsafe { update(&mut entry.1) },
             None => self.entries.push((key, v)),
         }
     }
 
-    pub fn modify_value_or_insert_with(
+    #[inline(always)]
+    pub fn update_value_or_insert_with(
         &mut self,
         key: K,
-        m: impl FnOnce(&mut V),
+        update: impl FnOnce(&mut V),
         f: impl FnOnce() -> V,
     ) where
         K: Copy + PartialEq,
     {
         match self.entries.iter_mut().find(|(key1, _)| *key1 == key) {
-            Some(entry) => unsafe { m(&mut entry.1) },
+            Some(entry) => unsafe { update(&mut entry.1) },
             None => self.entries.push((key, f())),
         }
     }

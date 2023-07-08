@@ -6,6 +6,7 @@ pub struct TraitForTypeImplBlockDeclarativeSignatureTemplate {
     pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
     pub trai: DeclarativeTerm,
     pub ty: DeclarativeTerm,
+    // todo: where clause
 }
 
 impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockPath {
