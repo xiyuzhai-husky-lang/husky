@@ -1,3 +1,7 @@
+mod unveil;
+
+pub(crate) use self::unveil::*;
+
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
@@ -175,14 +179,6 @@ impl<'a> ExprTypeEngine<'a> {
             },
             None => Err(DerivedExprTypeError::UnableToInferSuffixOperandType.into()),
         }
-    }
-
-    fn calc_unveil_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
-        let Some(return_ty) = self.return_ty else {
-            Err(DerivedExprTypeError::UnableToInferReturnTypeForUnveiling)?
-        };
-        todo!()
-        // Err(OriginalExprTypeError::CannotUnveil)?
     }
 
     fn calc_compose_with_option_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
