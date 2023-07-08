@@ -327,8 +327,22 @@
                 },
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            return_ty: DeclarativeTerm(`[] mnist_classifier::raw_contour::RawContour`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -345,8 +359,22 @@
                 },
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -363,8 +391,22 @@
                 },
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -381,8 +423,22 @@
                 },
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -399,8 +455,22 @@
                 },
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -417,8 +487,22 @@
                 },
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            return_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -435,8 +519,22 @@
                 },
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -453,8 +551,22 @@
                 },
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
+                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
+                        TypeMemoizedFieldDeclarativeSignatureTemplate {
+                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
+                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                    data: [],
+                                },
+                                ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                            },
+                            return_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (

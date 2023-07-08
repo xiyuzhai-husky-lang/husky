@@ -5,8 +5,16 @@
                 FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -15,8 +23,16 @@
                 FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -25,8 +41,16 @@
                 FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -51,7 +75,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 51,
                                                     },
                                                 ),
                                             ),
@@ -88,7 +112,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 51,
                                                     },
                                                 ),
                                             ),

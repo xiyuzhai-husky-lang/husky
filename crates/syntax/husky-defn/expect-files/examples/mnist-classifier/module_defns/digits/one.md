@@ -8,8 +8,8 @@ Ok(
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExpr {
-                                    expr: 1,
+                                ReturnTypeExprBeforeEq {
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -40,16 +40,6 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
-                                                        punctuation: Assign,
-                                                        punctuation_token_idx: TokenIdx(
-                                                            8,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -104,7 +94,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 1,
+                                            expr_idx: 0,
                                         },
                                     ],
                                 },
@@ -378,8 +368,8 @@ Ok(
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                             return_ty: Some(
-                                ReturnTypeExpr {
-                                    expr: 5,
+                                ReturnTypeExprBeforeEq {
+                                    expr: 4,
                                 },
                             ),
                             expr: None,
@@ -439,16 +429,6 @@ Ok(
                                                 function_expr_idx: 2,
                                                 argument_expr_idx: 3,
                                             },
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
-                                                        punctuation: Assign,
-                                                        punctuation_token_idx: TokenIdx(
-                                                            30,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -557,7 +537,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 5,
+                                            expr_idx: 4,
                                         },
                                     ],
                                 },
@@ -5779,7 +5759,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 3,
                                 },
                             ),
@@ -6434,7 +6414,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 3,
                                 },
                             ),
@@ -7116,7 +7096,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 3,
                                 },
                             ),

@@ -5,8 +5,16 @@
                 FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -15,8 +23,16 @@
                 FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -41,7 +57,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 51,
                                                     },
                                                 ),
                                             ),

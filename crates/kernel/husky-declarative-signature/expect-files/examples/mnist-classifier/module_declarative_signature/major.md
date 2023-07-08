@@ -5,8 +5,16 @@
                 FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -15,8 +23,16 @@
                 FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`~ mnist_classifier::connected_component::ConnectedComponent`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -25,8 +41,16 @@
                 FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`core::num::f32`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -35,8 +59,16 @@
                 FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::raw_contour::RawContour`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -45,8 +77,16 @@
                 FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -55,8 +95,16 @@
                 FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -65,8 +113,16 @@
                 FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
 ]

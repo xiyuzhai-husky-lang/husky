@@ -5,8 +5,16 @@
                 FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -15,8 +23,16 @@
                 FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::DeclarativeTermError,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Fugitive(
+                    FugitiveDeclarativeSignatureTemplate::Val(
+                        ValDeclarativeSignatureTemplate {
+                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                        },
+                    ),
+                ),
+            ),
         ),
     ),
     (
@@ -41,7 +57,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 51,
                                                     },
                                                 ),
                                             ),
@@ -78,7 +94,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 51,
                                                     },
                                                 ),
                                             ),
@@ -115,7 +131,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 49,
+                                                        value: 51,
                                                     },
                                                 ),
                                             ),

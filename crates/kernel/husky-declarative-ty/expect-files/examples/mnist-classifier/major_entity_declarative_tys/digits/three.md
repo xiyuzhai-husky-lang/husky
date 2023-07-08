@@ -5,10 +5,8 @@
                 FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -17,10 +15,8 @@
                 FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`{val_type} core::option::Option mnist::MnistLabel`),
         ),
     ),
     (

@@ -2201,7 +2201,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 6,
                                 },
                             ),

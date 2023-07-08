@@ -14,8 +14,8 @@ Ok(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 1,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 0,
                                     },
                                 ),
                                 expr: None,
@@ -46,16 +46,6 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
-                                                            punctuation: Assign,
-                                                            punctuation_token_idx: TokenIdx(
-                                                                8,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -110,7 +100,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 1,
+                                                expr_idx: 0,
                                             },
                                         ],
                                     },
@@ -147,7 +137,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 3,
                                     },
                                 ),
@@ -361,7 +351,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 3,
                                     },
                                 ),
@@ -575,7 +565,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: Some(
-                                    ReturnTypeExpr {
+                                    ReturnTypeExprBeforeColon {
                                         expr: 3,
                                     },
                                 ),
@@ -774,8 +764,8 @@ Ok(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 return_ty: Some(
-                                    ReturnTypeExpr {
-                                        expr: 2,
+                                    ReturnTypeExprBeforeEq {
+                                        expr: 1,
                                     },
                                 ),
                                 expr: None,
@@ -813,16 +803,6 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
-                                                            punctuation: Assign,
-                                                            punctuation_token_idx: TokenIdx(
-                                                                117,
-                                                            ),
-                                                        },
-                                                    ),
-                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -877,7 +857,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 2,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },

@@ -16,51 +16,10 @@ DiagnosticSheet {
                 severity: Error,
                 range: [172:35, 172:47),
             },
-            Diagnostic {
-                message: "Syntax Error: no right operand for binary operator",
-                severity: Error,
-                range: [16:48, 16:49),
-            },
-            Diagnostic {
-                message: "Syntax Error: no right operand for binary operator",
-                severity: Error,
-                range: [19:35, 19:36),
-            },
-            Diagnostic {
-                message: "Syntax Error: no right operand for binary operator",
-                severity: Error,
-                range: [36:52, 36:53),
-            },
-            Diagnostic {
-                message: "Syntax Error: no right operand for binary operator",
-                severity: Error,
-                range: [39:26, 39:27),
-            },
         ],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: ExpectEqTokenForVariable",
-                severity: Error,
-                range: [16:49, 16:50),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectEqTokenForVariable",
-                severity: Error,
-                range: [19:36, 19:37),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectEqTokenForVariable",
-                severity: Error,
-                range: [36:53, 36:54),
-            },
-            Diagnostic {
-                message: "Syntax Error: ExpectEqTokenForVariable",
-                severity: Error,
-                range: [39:27, 39:28),
-            },
-        ],
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

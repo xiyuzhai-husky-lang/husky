@@ -5,10 +5,8 @@
                 FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
         ),
     ),
     (
@@ -17,10 +15,8 @@
                 FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`{val_type} core::option::Option mnist::MnistLabel`),
         ),
     ),
     (

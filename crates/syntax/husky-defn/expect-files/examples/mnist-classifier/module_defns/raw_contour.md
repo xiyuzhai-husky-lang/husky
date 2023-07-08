@@ -312,7 +312,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 2,
                                 },
                             ),
@@ -1008,7 +1008,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 2,
                                 },
                             ),
@@ -1675,7 +1675,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 2,
                                 },
                             ),
@@ -2383,7 +2383,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 3,
                                 },
                             ),
@@ -3424,7 +3424,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 2,
                                 },
                             ),
@@ -4333,7 +4333,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 4,
                                 },
                             ),
@@ -5701,7 +5701,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 3,
                                 },
                             ),
@@ -6744,7 +6744,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 4,
                                 },
                             ),
@@ -12902,7 +12902,7 @@ Ok(
                             self_parameter: None,
                             explicit_parameters: [],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 0,
                                 },
                             ),
@@ -13618,8 +13618,8 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeExpr {
-                                    expr: 1,
+                                ReturnTypeExprBeforeEq {
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -13746,16 +13746,6 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
-                                                        punctuation: Assign,
-                                                        punctuation_token_idx: TokenIdx(
-                                                            67,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -13810,7 +13800,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 1,
+                                            expr_idx: 0,
                                         },
                                     ],
                                 },
@@ -13945,16 +13935,6 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            NoRightOperandForBinaryOperator {
-                                                                punctuation: Assign,
-                                                                punctuation_token_idx: TokenIdx(
-                                                                    67,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                 ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
@@ -14009,7 +13989,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 1,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },
@@ -14198,8 +14178,8 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeExpr {
-                                    expr: 1,
+                                ReturnTypeExprBeforeEq {
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -14326,16 +14306,6 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
-                                                        punctuation: Assign,
-                                                        punctuation_token_idx: TokenIdx(
-                                                            80,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -14390,7 +14360,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 1,
+                                            expr_idx: 0,
                                         },
                                     ],
                                 },
@@ -14525,16 +14495,6 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            NoRightOperandForBinaryOperator {
-                                                                punctuation: Assign,
-                                                                punctuation_token_idx: TokenIdx(
-                                                                    80,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                 ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
@@ -14589,7 +14549,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 1,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },
@@ -15976,8 +15936,8 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeExpr {
-                                    expr: 1,
+                                ReturnTypeExprBeforeEq {
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -16104,16 +16064,6 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
-                                                        punctuation: Assign,
-                                                        punctuation_token_idx: TokenIdx(
-                                                            200,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -16168,7 +16118,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 1,
+                                            expr_idx: 0,
                                         },
                                     ],
                                 },
@@ -16303,16 +16253,6 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            NoRightOperandForBinaryOperator {
-                                                                punctuation: Assign,
-                                                                punctuation_token_idx: TokenIdx(
-                                                                    200,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                 ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
@@ -16367,7 +16307,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 1,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },
@@ -16587,8 +16527,8 @@ Ok(
                                 item_kind: MemoizedField,
                             },
                             return_ty: Some(
-                                ReturnTypeExpr {
-                                    expr: 1,
+                                ReturnTypeExprBeforeEq {
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -16715,16 +16655,6 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
-                                                        punctuation: Assign,
-                                                        punctuation_token_idx: TokenIdx(
-                                                            222,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -16779,7 +16709,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 1,
+                                            expr_idx: 0,
                                         },
                                     ],
                                 },
@@ -16914,16 +16844,6 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::Err(
-                                                        ExprError::Original(
-                                                            NoRightOperandForBinaryOperator {
-                                                                punctuation: Assign,
-                                                                punctuation_token_idx: TokenIdx(
-                                                                    222,
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ),
                                                 ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
@@ -16978,7 +16898,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 1,
+                                                    expr_idx: 0,
                                                 },
                                             ],
                                         },
@@ -18289,7 +18209,7 @@ Ok(
                                 },
                             ],
                             return_ty: Some(
-                                ReturnTypeExpr {
+                                ReturnTypeExprBeforeColon {
                                     expr: 2,
                                 },
                             ),
