@@ -1,7 +1,6 @@
 mod associated_fn;
 mod associated_val;
 mod memoized_field;
-mod method;
 mod method_fn;
 mod method_function;
 
@@ -11,7 +10,6 @@ use husky_entity_tree::HasItemPaths;
 pub use self::associated_fn::*;
 pub use self::associated_val::*;
 pub use self::memoized_field::*;
-pub use self::method::*;
 pub use self::method_fn::*;
 pub use self::method_function::*;
 
