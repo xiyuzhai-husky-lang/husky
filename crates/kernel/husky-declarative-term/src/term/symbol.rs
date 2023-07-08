@@ -18,6 +18,12 @@ pub struct DeclarativeTermSymbol {
 }
 
 impl DeclarativeTermSymbol {
+    pub(crate) const AD_HOD_IDX_START: u8 = u8::MAX / 2;
+
+    pub fn new_ad_hoc(db: &dyn DeclarativeTermDb, ty: DeclarativeTerm, disambiguator: u8) -> Self {
+        Self::new(db, Ok(ty), Self::AD_HOD_IDX_START + disambiguator)
+    }
+
     pub(crate) fn show_with_db_fmt(
         self,
         f: &mut std::fmt::Formatter<'_>,

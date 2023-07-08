@@ -16,6 +16,9 @@ pub struct DeclarativeTermCurry {
 }
 
 impl DeclarativeTermCurry {
+    /// create a new term curry through converting a symbol to variable
+    /// this is the only to crate a new term curry
+    /// so that cache hit is maximized
     pub fn new_dependent(
         db: &dyn DeclarativeTermDb,
         curry_kind: CurryKind,
@@ -62,6 +65,20 @@ impl DeclarativeTermCurry {
             self.return_ty(db)
                 .substitute_symbol_with_variable(db, symbol, variable),
         )
+    }
+
+    pub fn return_ty_with_variable_substituted(
+        self,
+        db: &dyn DeclarativeTermDb,
+        substitute: DeclarativeTerm,
+    ) -> DeclarativeTerm {
+        match self.parameter_variable(db) {
+            Some(parameter_variable) => self.return_ty(db).substitute(
+                db,
+                &DeclarativeTermSubstitution::new(parameter_variable, substitute),
+            ),
+            None => self.return_ty(db),
+        }
     }
 
     pub(crate) fn show_with_db_fmt(

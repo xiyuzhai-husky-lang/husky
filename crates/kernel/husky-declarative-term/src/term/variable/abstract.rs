@@ -10,7 +10,8 @@ impl DeclarativeTerm {
     /// the only way to create new variable
     /// this is not cached because
     /// - it's not called frequently
-    /// - it's not computationally expensively
+    /// - it's not computationally
+    #[deprecated]
     pub(in crate::term) fn r#abstract(
         self,
         db: &dyn DeclarativeTermDb,

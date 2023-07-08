@@ -183,40 +183,129 @@ pub(crate) fn ethereal_term_application_declarative_ty(
     let argument = term_application.argument(db);
     match function.raw_ty(db)? {
         RawType::Declarative(DeclarativeTerm::Curry(function_ty)) => {
-            match term_application.shift(db) {
-                0 => Ok(match function_ty.parameter_variable(db) {
-                    Some(v) => function_ty.return_ty(db).substitute(
+            match function_ty.parameter_variable(db) {
+                Some(function_ty_parameter_variable) => {
+                    ethereal_term_application_declarative_ty_dependent_aux(
                         db,
-                        &DeclarativeTermSubstitution::new(v, argument.into_declarative(db)),
-                    ),
-                    None => function_ty.return_ty(db),
-                }),
-                1 => match argument.raw_ty(db)? {
-                    RawType::Declarative(DeclarativeTerm::Curry(argument_ty)) => {
-                        if argument_ty.parameter_variable(db).is_some() {
-                            todo!()
-                        }
-                        if argument_ty.return_ty(db) != function_ty.parameter_ty(db) {
-                            todo!()
-                        }
-                        if function_ty.parameter_variable(db).is_some() {
-                            todo!()
-                        }
-                        Ok(DeclarativeTermCurry::new_nondependent(
-                            db,
-                            argument_ty.curry_kind(db),
-                            argument_ty.variance(db),
-                            argument_ty.parameter_ty(db),
-                            function_ty.return_ty(db),
-                        )
-                        .into())
-                    }
-                    _ => return Err(todo!()),
-                },
-                _ => todo!(),
+                        function_ty,
+                        function_ty_parameter_variable,
+                        argument.into_declarative(db),
+                        argument.raw_ty(db)?,
+                        term_application.shift(db),
+                    )
+                }
+                None => ethereal_term_application_declarative_ty_nondependent_aux(
+                    db,
+                    function_ty,
+                    argument.raw_ty(db)?,
+                    term_application.shift(db),
+                ),
             }
         }
         _ => return Err(todo!()),
+    }
+}
+
+/// function_ty.parameter_variable(db) matches Some
+pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
+    db: &dyn EtherealTermDb,
+    function_ty: DeclarativeTermCurry,
+    function_ty_parameter_variable: DeclarativeTermVariable,
+    argument: DeclarativeTerm,
+    argument_ty: RawType,
+    shift: u8,
+) -> EtherealTermResult<DeclarativeTerm> {
+    // for example, suppose that
+    //
+    // function_ty = (a: A) -> List a
+    // function_ty_parameter_variable = a
+    match shift {
+        0 => Ok(function_ty.return_ty(db).substitute(
+            db,
+            &DeclarativeTermSubstitution::new(function_ty_parameter_variable, argument),
+        )),
+        shift => {
+            // argument = arg
+            // argument_ty = (b: B) -> C b -> A
+            // shift = 2
+            // then the type of the shifted application should be
+            // (b: B) -> (c: C b) -> List (arg b c)
+            // b, c are first created as ad hoc symbols
+            // then converted to variables
+            match argument_ty {
+                RawType::Declarative(DeclarativeTerm::Curry(argument_ty)) => {
+                    let new_parameter_ty = argument_ty.parameter_ty(db);
+                    // shift is used as disambiguator
+                    // this is possible because we expect in the recursion process
+                    // shift never appears twice
+                    let new_parameter_symbol =
+                        DeclarativeTermSymbol::new_ad_hoc(db, new_parameter_ty, shift);
+                    Ok(DeclarativeTermCurry::new_dependent(
+                        db,
+                        argument_ty.curry_kind(db),
+                        argument_ty.variance(db),
+                        new_parameter_symbol,
+                        new_parameter_ty,
+                        ethereal_term_application_declarative_ty_dependent_aux(
+                            db,
+                            function_ty,
+                            function_ty_parameter_variable,
+                            // corresponds to `arg b` in the example
+                            DeclarativeTermExplicitApplication::new(
+                                db,
+                                argument,
+                                new_parameter_symbol.into(),
+                            )
+                            .into(),
+                            // corresponds to be `C b -> A` in the example
+                            argument_ty
+                                .return_ty_with_variable_substituted(
+                                    db,
+                                    new_parameter_symbol.into(),
+                                )
+                                .into(),
+                            shift - 1,
+                        )?,
+                    )
+                    .into())
+                }
+                _ => Err(todo!()),
+            }
+        }
+    }
+}
+
+/// function_ty.parameter_variable(db) matches None
+pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
+    db: &dyn EtherealTermDb,
+    function_ty: DeclarativeTermCurry,
+    argument_ty: RawType,
+    shift: u8,
+) -> EtherealTermResult<DeclarativeTerm> {
+    debug_assert!(function_ty.parameter_variable(db).is_none());
+    match shift {
+        0 => Ok(function_ty.return_ty(db)),
+        shift => match argument_ty {
+            RawType::Declarative(DeclarativeTerm::Curry(argument_ty)) => {
+                match argument_ty.parameter_variable(db) {
+                    Some(_) => todo!(),
+                    None => Ok(DeclarativeTermCurry::new_nondependent(
+                        db,
+                        argument_ty.curry_kind(db),
+                        argument_ty.variance(db),
+                        argument_ty.parameter_ty(db),
+                        ethereal_term_application_declarative_ty_nondependent_aux(
+                            db,
+                            function_ty,
+                            argument_ty.return_ty(db).into(),
+                            shift - 1,
+                        )?,
+                    )
+                    .into()),
+                }
+            }
+            _ => Err(todo!()),
+        },
     }
 }
 

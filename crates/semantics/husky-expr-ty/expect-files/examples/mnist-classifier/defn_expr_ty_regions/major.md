@@ -52,7 +52,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 13,
+                                        value: 33,
                                     },
                                 ),
                             ),
@@ -71,7 +71,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 13,
+                                        value: 33,
                                     },
                                 ),
                             ),
@@ -119,7 +119,7 @@
                         ExpectationEntry {
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
-                                    final_destination: AnyDerived,
+                                    final_destination: TypeOntology,
                                 },
                             ),
                             meta: ExpectationState {
@@ -143,7 +143,7 @@
                                                 return_ty: Application(
                                                     EtherealTermApplication(
                                                         Id {
-                                                            value: 13,
+                                                            value: 33,
                                                         },
                                                     ),
                                                 ),
@@ -173,8 +173,17 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 1,
@@ -185,16 +194,42 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 13,
+                                            value: 33,
                                         },
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Err(
+                                        Original(
+                                            TypePathMismatch {
+                                                expected_path: TypePath(
+                                                    Id {
+                                                        value: 48,
+                                                    },
+                                                ),
+                                                expectee_path: TypePath(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 2,
@@ -205,11 +240,28 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 13,
+                                            value: 33,
                                         },
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Err(
+                                        Original(
+                                            TypePathMismatch {
+                                                expected_path: TypePath(
+                                                    Id {
+                                                        value: 48,
+                                                    },
+                                                ),
+                                                expectee_path: TypePath(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -217,7 +269,9 @@
                 first_unresolved_expectation: 0,
             },
         },
-        return_ty: None,
+        return_ty: Some(
+            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(core::list::List) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+        ),
         self_ty: None,
     },
     ExprTypeRegion {
@@ -278,7 +332,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 33,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -340,7 +394,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 33,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -602,7 +656,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 33,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -813,7 +867,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 33,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -855,7 +909,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 33,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -1072,7 +1126,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 33,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -1080,8 +1134,17 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 48,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 13,
@@ -1098,7 +1161,13 @@
                                         ),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Never,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -1106,7 +1175,9 @@
                 first_unresolved_expectation: 0,
             },
         },
-        return_ty: None,
+        return_ty: Some(
+            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+        ),
         self_ty: None,
     },
     ExprTypeRegion {
@@ -1150,7 +1221,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 33,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -1212,7 +1283,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 33,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -1363,7 +1434,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 27,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -1589,7 +1660,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 33,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -1631,7 +1702,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 33,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -1752,7 +1823,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 27,
+                                            value: 48,
                                         },
                                     ),
                                 ),
@@ -1782,8 +1853,19 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    contract: Move,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 61,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 10,
@@ -1800,7 +1882,13 @@
                                         ),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Never,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -1808,7 +1896,9 @@
                 first_unresolved_expectation: 0,
             },
         },
-        return_ty: None,
+        return_ty: Some(
+            EtherealTerm(`TypeOntology(core::num::f32)`),
+        ),
         self_ty: None,
     },
     ExprTypeRegion {
@@ -1835,7 +1925,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 27,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -1863,7 +1953,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 15,
+                                                value: 35,
                                             },
                                         ),
                                     ),
@@ -1874,7 +1964,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 35,
                                     },
                                 ),
                             ),
@@ -1893,7 +1983,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 35,
                                     },
                                 ),
                             ),
@@ -1951,7 +2041,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 27,
+                                            value: 48,
                                         },
                                     ),
                                 ),
@@ -1959,8 +2049,17 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 1,
@@ -1971,16 +2070,42 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 15,
+                                            value: 35,
                                         },
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Err(
+                                        Original(
+                                            TypePathMismatch {
+                                                expected_path: TypePath(
+                                                    Id {
+                                                        value: 48,
+                                                    },
+                                                ),
+                                                expectee_path: TypePath(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 57,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 2,
@@ -1991,11 +2116,28 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 15,
+                                            value: 35,
                                         },
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Err(
+                                        Original(
+                                            TypePathMismatch {
+                                                expected_path: TypePath(
+                                                    Id {
+                                                        value: 48,
+                                                    },
+                                                ),
+                                                expectee_path: TypePath(
+                                                    Id {
+                                                        value: 42,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -2003,7 +2145,9 @@
                 first_unresolved_expectation: 0,
             },
         },
-        return_ty: None,
+        return_ty: Some(
+            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(core::list::List) TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+        ),
         self_ty: None,
     },
     ExprTypeRegion {
@@ -2030,7 +2174,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 27,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -2058,7 +2202,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 15,
+                                                value: 35,
                                             },
                                         ),
                                     ),
@@ -2069,7 +2213,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 15,
+                                        value: 35,
                                     },
                                 ),
                             ),
@@ -2223,7 +2367,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 27,
+                                            value: 48,
                                         },
                                     ),
                                 ),
@@ -2243,7 +2387,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 15,
+                                            value: 35,
                                         },
                                     ),
                                 ),
@@ -2298,8 +2442,17 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 4,
@@ -2316,12 +2469,38 @@
                                         ),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Err(
+                                        Original(
+                                            TypePathMismatch {
+                                                expected_path: TypePath(
+                                                    Id {
+                                                        value: 48,
+                                                    },
+                                                ),
+                                                expectee_path: TypePath(
+                                                    Id {
+                                                        value: 80,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectImplicitlyConvertible {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 5,
@@ -2338,7 +2517,24 @@
                                         ),
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Err(
+                                        Original(
+                                            TypePathMismatch {
+                                                expected_path: TypePath(
+                                                    Id {
+                                                        value: 48,
+                                                    },
+                                                ),
+                                                expectee_path: TypePath(
+                                                    Id {
+                                                        value: 80,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -2346,7 +2542,9 @@
                 first_unresolved_expectation: 0,
             },
         },
-        return_ty: None,
+        return_ty: Some(
+            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+        ),
         self_ty: None,
     },
     ExprTypeRegion {
@@ -2373,7 +2571,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 12,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -2454,7 +2652,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 12,
+                                            value: 32,
                                         },
                                     ),
                                 ),
@@ -2466,7 +2664,9 @@
                 first_unresolved_expectation: 0,
             },
         },
-        return_ty: None,
+        return_ty: Some(
+            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentSketch)`),
+        ),
         self_ty: None,
     },
     ExprTypeRegion {
@@ -2493,7 +2693,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 31,
+                                        value: 52,
                                     },
                                 ),
                             ),
@@ -2574,7 +2774,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 31,
+                                            value: 52,
                                         },
                                     ),
                                 ),
