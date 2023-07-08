@@ -464,7 +464,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 74,
+                                                        value: 62,
                                                     },
                                                 ),
                                             ),
@@ -501,7 +501,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 72,
+                                                        value: 60,
                                                     },
                                                 ),
                                             ),
@@ -622,22 +622,8 @@
                 },
             ),
         ),
-        Ok(
-            SignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                    data: [],
-                                },
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
-                            },
-                            return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
-                        },
-                    ),
-                ),
-            ),
+        Err(
+            DeclarativeSignatureError::DeclarativeTermError,
         ),
     ),
     (
@@ -654,22 +640,8 @@
                 },
             ),
         ),
-        Ok(
-            SignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                    data: [],
-                                },
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
-                            },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
-                        },
-                    ),
-                ),
-            ),
+        Err(
+            DeclarativeSignatureError::DeclarativeTermError,
         ),
     ),
     (
@@ -686,22 +658,8 @@
                 },
             ),
         ),
-        Ok(
-            SignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                    data: [],
-                                },
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
-                            },
-                            return_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
-                        },
-                    ),
-                ),
-            ),
+        Err(
+            DeclarativeSignatureError::DeclarativeTermError,
         ),
     ),
     (
@@ -718,22 +676,8 @@
                 },
             ),
         ),
-        Ok(
-            SignatureTemplate::AssociatedItem(
-                AssociatedItemDeclarativeSignatureTemplate::TypeItem(
-                    TypeItemDeclarativeSignatureTemplate::MemoizedField(
-                        TypeMemoizedFieldDeclarativeSignatureTemplate {
-                            impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
-                                    data: [],
-                                },
-                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
-                            },
-                            return_ty: DeclarativeTerm(`core::num::f32`),
-                        },
-                    ),
-                ),
-            ),
+        Err(
+            DeclarativeSignatureError::DeclarativeTermError,
         ),
     ),
     (

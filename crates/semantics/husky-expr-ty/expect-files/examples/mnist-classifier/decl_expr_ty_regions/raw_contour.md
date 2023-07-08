@@ -3757,25 +3757,12 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            OntologyConstructor,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ExprError,
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
+                expectation_rule_idx: None,
             },
         ],
         extra_expr_errors: [],
@@ -3810,40 +3797,7 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            expectation: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 0,
-                                src: ExpectationSource {
-                                    expr_idx: 0,
-                                    kind: Expr,
-                                },
-                                expectee: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                resolve_progress: Resolved(
-                                    Ok(
-                                        EqsSort(
-                                            TermUniverse(
-                                                1,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    data: [],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -3876,25 +3830,12 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            OntologyConstructor,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ExprError,
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
+                expectation_rule_idx: None,
             },
         ],
         extra_expr_errors: [],
@@ -3929,40 +3870,7 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            expectation: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 0,
-                                src: ExpectationSource {
-                                    expr_idx: 0,
-                                    kind: Expr,
-                                },
-                                expectee: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                resolve_progress: Resolved(
-                                    Ok(
-                                        EqsSort(
-                                            TermUniverse(
-                                                1,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    data: [],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -3995,25 +3903,12 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            OntologyConstructor,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ExprError,
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
+                expectation_rule_idx: None,
             },
         ],
         extra_expr_errors: [],
@@ -4048,40 +3943,7 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            expectation: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 0,
-                                src: ExpectationSource {
-                                    expr_idx: 0,
-                                    kind: Expr,
-                                },
-                                expectee: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                resolve_progress: Resolved(
-                                    Ok(
-                                        EqsSort(
-                                            TermUniverse(
-                                                1,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    data: [],
                 },
                 first_unresolved_expectation: 0,
             },
@@ -4114,25 +3976,12 @@
         ),
         expr_ty_infos: [
             ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            OntologyConstructor,
-                        ),
-                        Ok(
-                            Category(
-                                TermCategory {
-                                    universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                        ),
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        ExprError,
                     ),
                 ),
-                expectation_rule_idx: Some(
-                    0,
-                ),
+                expectation_rule_idx: None,
             },
         ],
         extra_expr_errors: [],
@@ -4167,40 +4016,7 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [
-                        ExpectationEntry {
-                            expectation: EqsSort(
-                                ExpectEqsCategory {
-                                    smallest_universe: TermUniverse(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 0,
-                                src: ExpectationSource {
-                                    expr_idx: 0,
-                                    kind: Expr,
-                                },
-                                expectee: Category(
-                                    TermCategory {
-                                        universe: TermUniverse(
-                                            1,
-                                        ),
-                                    },
-                                ),
-                                resolve_progress: Resolved(
-                                    Ok(
-                                        EqsSort(
-                                            TermUniverse(
-                                                1,
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                    ],
+                    data: [],
                 },
                 first_unresolved_expectation: 0,
             },

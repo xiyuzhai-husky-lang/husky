@@ -13,9 +13,9 @@ Ok(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                                val_ty: Some(
-                                    FormTypeExpr {
-                                        expr: 0,
+                                return_ty: Some(
+                                    ReturnTypeExpr {
+                                        expr: 1,
                                     },
                                 ),
                                 expr: None,
@@ -46,6 +46,16 @@ Ok(
                                                         ),
                                                     ),
                                                 },
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        NoRightOperandForBinaryOperator {
+                                                            punctuation: Assign,
+                                                            punctuation_token_idx: TokenIdx(
+                                                                8,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -99,8 +109,8 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: VarType,
-                                                expr_idx: 0,
+                                                kind: ReturnType,
+                                                expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -121,9 +131,9 @@ Ok(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                                val_ty: Some(
-                                    FormTypeExpr {
-                                        expr: 1,
+                                return_ty: Some(
+                                    ReturnTypeExpr {
+                                        expr: 2,
                                     },
                                 ),
                                 expr: None,
@@ -161,6 +171,16 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        NoRightOperandForBinaryOperator {
+                                                            punctuation: Assign,
+                                                            punctuation_token_idx: TokenIdx(
+                                                                30,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -214,8 +234,8 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: VarType,
-                                                expr_idx: 1,
+                                                kind: ReturnType,
+                                                expr_idx: 2,
                                             },
                                         ],
                                     },

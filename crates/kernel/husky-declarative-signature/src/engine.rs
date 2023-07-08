@@ -189,7 +189,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 | ExprRootKind::Trait
                 | ExprRootKind::ReturnType
                 | ExprRootKind::TupleStructFieldType
-                | ExprRootKind::VarType
+                | ExprRootKind::ReturnType
                 | ExprRootKind::ExplicitParameterDefaultValue { .. } => (),
                 ExprRootKind::BlockExpr
                 | ExprRootKind::LetStmtType

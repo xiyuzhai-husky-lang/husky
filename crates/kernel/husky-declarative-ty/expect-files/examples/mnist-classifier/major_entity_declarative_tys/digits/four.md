@@ -5,8 +5,10 @@
                 FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -25,8 +27,10 @@
                 FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -35,8 +39,10 @@
                 FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -45,8 +51,10 @@
                 FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`{val_type} core::option::Option mnist::MnistLabel`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (

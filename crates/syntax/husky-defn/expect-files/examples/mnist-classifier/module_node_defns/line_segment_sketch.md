@@ -19730,17 +19730,22 @@ Ok(
                                     ),
                                 ),
                             ),
-                            memo_ty: Ok(
+                            return_ty: Ok(
                                 Some(
-                                    FormTypeExpr {
-                                        expr: 2,
+                                    ReturnTypeExpr {
+                                        expr: 3,
                                     },
                                 ),
                             ),
-                            eq_token: Ok(
-                                EqToken(
-                                    TokenIdx(
-                                        215,
+                            eq_token: Err(
+                                NodeDeclError::Original(
+                                    OriginalNodeDeclError::ExpectEqTokenForVariable(
+                                        TokenStreamState {
+                                            next_token_idx: TokenIdx(
+                                                216,
+                                            ),
+                                            drained: true,
+                                        },
                                     ),
                                 ),
                             ),
@@ -19881,6 +19886,16 @@ Ok(
                                                 function_expr_idx: 0,
                                                 argument_expr_idx: 1,
                                             },
+                                            Expr::Err(
+                                                ExprError::Original(
+                                                    NoRightOperandForBinaryOperator {
+                                                        punctuation: Assign,
+                                                        punctuation_token_idx: TokenIdx(
+                                                            215,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -19934,8 +19949,8 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: VarType,
-                                            expr_idx: 2,
+                                            kind: ReturnType,
+                                            expr_idx: 3,
                                         },
                                     ],
                                 },
@@ -20083,6 +20098,16 @@ Ok(
                                                         function_expr_idx: 0,
                                                         argument_expr_idx: 1,
                                                     },
+                                                    Expr::Err(
+                                                        ExprError::Original(
+                                                            NoRightOperandForBinaryOperator {
+                                                                punctuation: Assign,
+                                                                punctuation_token_idx: TokenIdx(
+                                                                    215,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
@@ -20136,8 +20161,8 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
-                                                    kind: VarType,
-                                                    expr_idx: 2,
+                                                    kind: ReturnType,
+                                                    expr_idx: 3,
                                                 },
                                             ],
                                         },
@@ -20315,17 +20340,22 @@ Ok(
                                     ),
                                 ),
                             ),
-                            memo_ty: Ok(
+                            return_ty: Ok(
                                 Some(
-                                    FormTypeExpr {
-                                        expr: 0,
+                                    ReturnTypeExpr {
+                                        expr: 1,
                                     },
                                 ),
                             ),
-                            eq_token: Ok(
-                                EqToken(
-                                    TokenIdx(
-                                        224,
+                            eq_token: Err(
+                                NodeDeclError::Original(
+                                    OriginalNodeDeclError::ExpectEqTokenForVariable(
+                                        TokenStreamState {
+                                            next_token_idx: TokenIdx(
+                                                225,
+                                            ),
+                                            drained: true,
+                                        },
                                     ),
                                 ),
                             ),
@@ -20453,6 +20483,16 @@ Ok(
                                                     ),
                                                 ),
                                             },
+                                            Expr::Err(
+                                                ExprError::Original(
+                                                    NoRightOperandForBinaryOperator {
+                                                        punctuation: Assign,
+                                                        punctuation_token_idx: TokenIdx(
+                                                            224,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -20506,8 +20546,8 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: VarType,
-                                            expr_idx: 0,
+                                            kind: ReturnType,
+                                            expr_idx: 1,
                                         },
                                     ],
                                 },
@@ -20642,6 +20682,16 @@ Ok(
                                                             ),
                                                         ),
                                                     },
+                                                    Expr::Err(
+                                                        ExprError::Original(
+                                                            NoRightOperandForBinaryOperator {
+                                                                punctuation: Assign,
+                                                                punctuation_token_idx: TokenIdx(
+                                                                    224,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    ),
                                                 ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
@@ -20695,8 +20745,8 @@ Ok(
                                             },
                                             roots: [
                                                 ExprRoot {
-                                                    kind: VarType,
-                                                    expr_idx: 0,
+                                                    kind: ReturnType,
+                                                    expr_idx: 1,
                                                 },
                                             ],
                                         },

@@ -27,17 +27,22 @@ Ok(
                                     ),
                                 ),
                             ),
-                            val_ty: Ok(
+                            return_ty: Ok(
                                 Some(
-                                    FormTypeExpr {
-                                        expr: 1,
+                                    ReturnTypeExpr {
+                                        expr: 2,
                                     },
                                 ),
                             ),
-                            eq_token: Ok(
-                                EqToken(
-                                    TokenIdx(
-                                        13,
+                            eq_token: Err(
+                                NodeDeclError::Original(
+                                    OriginalNodeDeclError::ExpectEqTokenForVariable(
+                                        TokenStreamState {
+                                            next_token_idx: TokenIdx(
+                                                14,
+                                            ),
+                                            drained: true,
+                                        },
                                     ),
                                 ),
                             ),
@@ -76,6 +81,16 @@ Ok(
                                                 ),
                                                 opd: 0,
                                             },
+                                            Expr::Err(
+                                                ExprError::Original(
+                                                    NoRightOperandForBinaryOperator {
+                                                        punctuation: Assign,
+                                                        punctuation_token_idx: TokenIdx(
+                                                            13,
+                                                        ),
+                                                    },
+                                                ),
+                                            ),
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
@@ -129,8 +144,8 @@ Ok(
                                     },
                                     roots: [
                                         ExprRoot {
-                                            kind: VarType,
-                                            expr_idx: 1,
+                                            kind: ReturnType,
+                                            expr_idx: 2,
                                         },
                                     ],
                                 },

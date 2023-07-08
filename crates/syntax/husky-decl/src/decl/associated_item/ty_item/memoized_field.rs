@@ -7,7 +7,7 @@ pub struct TypeMemoizedFieldNodeDecl {
     pub ast_idx: AstIdx,
     pub colon_token: TokenResult<Option<ColonToken>>,
     #[return_ref]
-    pub memo_ty: NodeDeclResult<Option<FormTypeExpr>>,
+    pub return_ty: NodeDeclResult<Option<ReturnTypeExpr>>,
     #[return_ref]
     pub eq_token: NodeDeclResult<EqToken>,
     pub expr: Option<ExprIdx>,
@@ -17,7 +17,7 @@ pub struct TypeMemoizedFieldNodeDecl {
 impl TypeMemoizedFieldNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.memo_ty(db)
+            self.return_ty(db)
                 .as_ref()
                 .err()
                 .into_iter()
@@ -70,7 +70,7 @@ impl<'a> DeclParser<'a> {
 pub struct TypeMemoizedFieldDecl {
     #[id]
     pub path: TypeItemPath,
-    pub memo_ty: Option<FormTypeExpr>,
+    pub return_ty: Option<ReturnTypeExpr>,
     pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
 }
@@ -81,10 +81,10 @@ impl TypeMemoizedFieldDecl {
         path: TypeItemPath,
         node_decl: TypeMemoizedFieldNodeDecl,
     ) -> DeclResult<Self> {
-        let memo_ty = *node_decl.memo_ty(db).as_ref()?;
+        let return_ty = *node_decl.return_ty(db).as_ref()?;
         let expr = node_decl.expr(db);
         let expr_region = node_decl.expr_region(db);
-        Ok(Self::new(db, path, memo_ty, expr, expr_region))
+        Ok(Self::new(db, path, return_ty, expr, expr_region))
     }
 
     pub fn impl_block_path(self, db: &dyn DeclDb) -> TypeImplBlockPath {

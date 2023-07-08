@@ -5,16 +5,8 @@
                 FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
             ),
         ),
-        Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
-                        },
-                    ),
-                ),
-            ),
+        Err(
+            DeclarativeSignatureError::DeclarativeTermError,
         ),
     ),
     (
@@ -39,7 +31,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 51,
+                                                        value: 49,
                                                     },
                                                 ),
                                             ),
@@ -60,16 +52,8 @@
                 FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
             ),
         ),
-        Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
-                        },
-                    ),
-                ),
-            ),
+        Err(
+            DeclarativeSignatureError::DeclarativeTermError,
         ),
     ),
     (
@@ -94,7 +78,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 51,
+                                                        value: 49,
                                                     },
                                                 ),
                                             ),
@@ -131,7 +115,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 51,
+                                                        value: 49,
                                                     },
                                                 ),
                                             ),
@@ -152,16 +136,8 @@
                 FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
             ),
         ),
-        Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
-                        },
-                    ),
-                ),
-            ),
+        Err(
+            DeclarativeSignatureError::DeclarativeTermError,
         ),
     ),
 ]

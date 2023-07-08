@@ -455,7 +455,7 @@
                             Curry(
                                 EtherealTermCurry(
                                     Id {
-                                        value: 15,
+                                        value: 14,
                                     },
                                 ),
                             ),
@@ -936,7 +936,7 @@
                                 expectee: Curry(
                                     EtherealTermCurry(
                                         Id {
-                                            value: 15,
+                                            value: 14,
                                         },
                                     ),
                                 ),

@@ -1,6 +1,5 @@
 mod be_variables;
 mod explicit_parameter;
-mod form_ty_expr;
 mod implicit_parameter;
 mod let_variables;
 mod props_field;
@@ -12,7 +11,6 @@ mod ty_expr;
 
 pub use self::be_variables::*;
 pub use self::explicit_parameter::*;
-pub use self::form_ty_expr::*;
 pub use self::implicit_parameter::*;
 pub use self::let_variables::*;
 pub use self::props_field::*;
