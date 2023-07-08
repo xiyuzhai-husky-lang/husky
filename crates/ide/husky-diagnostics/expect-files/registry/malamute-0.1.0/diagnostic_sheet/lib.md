@@ -5,7 +5,7 @@ DiagnosticSheet {
             Diagnostic {
                 message: "unrecognized identifier `Unveil`",
                 severity: Error,
-                range: [11:33, 11:39),
+                range: [10:33, 10:39),
             },
         ],
     },

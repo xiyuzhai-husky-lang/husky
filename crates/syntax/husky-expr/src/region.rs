@@ -47,7 +47,7 @@ impl ExprRegionData {
         self.parent
     }
 
-    pub fn region_path(&self) -> RegionPath {
+    pub fn path(&self) -> RegionPath {
         self.path
     }
 

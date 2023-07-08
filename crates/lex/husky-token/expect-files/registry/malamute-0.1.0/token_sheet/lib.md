@@ -50,7 +50,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `ConfidentYes`,
+                `Yes`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -58,15 +58,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `ConfidentNo`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Vertical,
-                ),
-            ),
-            Token::Ident(
-                `Unconfident`,
+                `No`,
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -334,15 +326,13 @@ Ok(
             11,
             13,
             15,
-            17,
+            26,
             28,
             30,
             32,
-            34,
-            48,
+            46,
         ],
         indents: [
-            0,
             0,
             0,
             0,

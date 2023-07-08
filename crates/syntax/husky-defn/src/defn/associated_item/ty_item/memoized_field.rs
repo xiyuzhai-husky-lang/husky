@@ -18,7 +18,7 @@ impl TypeMemoizedFieldNodeDefn {
         let mut parser = expr_parser(
             db,
             node_path,
-            Some(node_decl.expr_region(db)),
+            node_decl.expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::True,
         );

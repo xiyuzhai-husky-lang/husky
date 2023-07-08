@@ -34,6 +34,10 @@ impl FugitiveNodePath {
         self.maybe_ambiguous_path(db).path.module_path(db)
     }
 
+    pub fn ident(self, db: &dyn EntityTreeDb) -> Ident {
+        self.maybe_ambiguous_path(db).path.ident(db)
+    }
+
     pub fn fugitive_kind(self, db: &dyn EntityTreeDb) -> FugitiveKind {
         self.maybe_ambiguous_path(db).path.fugitive_kind(db)
     }

@@ -184,7 +184,6 @@ impl FeatureLazyStmt {
         feature_interner: &FeatureInterner,
     ) -> FeatureLazyStmtVariant {
         let mut branches: Vec<Arc<FeatureLazyBranch>> = vec![];
-
         for lazy_branch in lazy_branches {
             if let Some(last_branch) = branches.last() {
                 match last_branch.variant {

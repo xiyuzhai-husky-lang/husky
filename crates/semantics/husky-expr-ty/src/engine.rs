@@ -100,7 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
             toolchain,
             entity_path_menu: db.entity_path_menu(toolchain),
             term_menu: db.ethereal_term_menu(toolchain),
-            token_sheet_data: expr_region_data.region_path().token_sheet_data(db).unwrap(),
+            token_sheet_data: expr_region_data.path().token_sheet_data(db).unwrap(),
             expr_region_data,
             declarative_term_region: db.declarative_term_region(expr_region),
             fluffy_term_region: FluffyTermRegion::new(
@@ -200,7 +200,7 @@ impl<'a> ExprTypeEngine<'a> {
             .finalize_unresolved_term_table(self.db);
         ExprTypeRegion::new(
             self.db,
-            self.expr_region_data.region_path(),
+            self.expr_region_data.path(),
             self.expr_ty_infos,
             self.extra_expr_errors,
             self.expr_terms,

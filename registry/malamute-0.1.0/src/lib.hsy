@@ -1,7 +1,6 @@
 pub enum OneVsAll<Label, const label: Label>
-| ConfidentYes
-| ConfidentNo
-| Unconfident
+| Yes
+| No
 
 pub enum OneVsAllResult<Label, const label: Label>
 | ConfidentYes

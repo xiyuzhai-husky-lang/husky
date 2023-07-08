@@ -66,7 +66,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         self.init_current_symbol_terms();
         self.symbol_declarative_term_region.init_self_ty_and_value(
             self.db,
-            self.expr_region_data.region_path(),
+            self.expr_region_data.path(),
             self.expr_region_data.symbol_region(),
         );
         self.init_expr_roots();
@@ -232,7 +232,7 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     pub(crate) fn finish(self) -> DeclarativeTermRegion {
         DeclarativeTermRegion::new(
-            self.expr_region_data.region_path(),
+            self.expr_region_data.path(),
             self.symbol_declarative_term_region,
             self.expr_terms,
             self.pattern_expr_ty_infos,
@@ -375,7 +375,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     PrefixOpr::Minus => todo!(),
                     PrefixOpr::Not => todo!(),
                     PrefixOpr::Tilde => DeclarativeTerm::LeashOrBitNot(
-                        self.expr_region_data.region_path().toolchain(self.db),
+                        self.expr_region_data.path().toolchain(self.db),
                     ),
                     PrefixOpr::Ref => self.declarative_term_menu.ref_ty_path(),
                     PrefixOpr::Vector => todo!(),
@@ -447,7 +447,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Ok(DeclarativeTermExplicitApplication::new(self.db, function, argument).into())
             }
             Expr::NewTuple { ref items, .. } => {
-                p!(self.expr_region_data.region_path().debug(self.db));
+                p!(self.expr_region_data.path().debug(self.db));
                 p!(items.len());
                 todo!()
             }
@@ -458,7 +458,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     .collect::<DeclarativeTermResult2<Vec<_>>>()?;
                 Ok(DeclarativeTermList::new(
                     self.db,
-                    self.expr_region_data.region_path().toolchain(self.db),
+                    self.expr_region_data.path().toolchain(self.db),
                     items,
                 )
                 .into())
