@@ -139,7 +139,7 @@ impl<'a> ExprTypeEngine<'a> {
             match root.kind() {
                 ExprRootKind::SelfType
                 | ExprRootKind::ReturnType
-                | ExprRootKind::VarType
+                | ExprRootKind::ReturnType
                 | ExprRootKind::PropsStructFieldType { .. }
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ConstantImplicitParameterType

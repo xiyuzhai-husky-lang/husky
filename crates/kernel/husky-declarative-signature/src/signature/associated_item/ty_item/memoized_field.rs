@@ -30,14 +30,14 @@ pub(crate) fn ty_memoized_field_declarative_signature_template(
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let memo_ty = match decl.memo_ty(db) {
-        Some(memo_ty) => declarative_term_region.expr_term(memo_ty.expr())?,
+    let return_ty = match decl.return_ty(db) {
+        Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
         None => declarative_term_menu.unit(),
     };
     Ok(TypeMemoizedFieldDeclarativeSignatureTemplate::new(
         db,
         impl_block_declarative_signature_template,
-        memo_ty,
+        return_ty,
     ))
 }
 

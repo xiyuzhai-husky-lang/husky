@@ -5,8 +5,10 @@
                 FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -15,8 +17,10 @@
                 FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`{val_type} mnist_classifier::fermi::FermiMatchResult`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (
@@ -25,8 +29,10 @@
                 FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
         ),
-        Ok(
-            DeclarativeTerm(`{val_type} core::option::Option mnist::MnistLabel`),
+        Err(
+            DeclarativeTypeError::Derived(
+                DerivedDeclarativeTypeError::SignatureError,
+            ),
         ),
     ),
     (

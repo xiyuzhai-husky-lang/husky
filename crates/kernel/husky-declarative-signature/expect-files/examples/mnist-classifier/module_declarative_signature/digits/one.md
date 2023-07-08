@@ -5,16 +5,8 @@
                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
             ),
         ),
-        Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`mnist_classifier::fermi::FermiMatchResult`),
-                        },
-                    ),
-                ),
-            ),
+        Err(
+            DeclarativeSignatureError::DeclarativeTermError,
         ),
     ),
     (
@@ -23,16 +15,8 @@
                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
         ),
-        Ok(
-            SignatureTemplate::ModuleItem(
-                ModuleItemDeclarativeSignatureTemplate::Fugitive(
-                    FugitiveDeclarativeSignatureTemplate::Val(
-                        ValDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::One`),
-                        },
-                    ),
-                ),
-            ),
+        Err(
+            DeclarativeSignatureError::DeclarativeTermError,
         ),
     ),
     (
@@ -57,7 +41,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 51,
+                                                        value: 49,
                                                     },
                                                 ),
                                             ),
@@ -94,7 +78,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 51,
+                                                        value: 49,
                                                     },
                                                 ),
                                             ),
@@ -131,7 +115,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 51,
+                                                        value: 49,
                                                     },
                                                 ),
                                             ),

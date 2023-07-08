@@ -10,7 +10,7 @@ pub enum EtherealSignatureError {
 
 impl From<DeclarativeSignatureError> for EtherealSignatureError {
     fn from(e: DeclarativeSignatureError) -> Self {
-        todo!()
+        EtherealSignatureError::DerivedFromDeclarative
     }
 }
 

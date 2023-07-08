@@ -8,7 +8,7 @@ pub struct ValNodeDecl {
     pub ast_idx: AstIdx,
     pub colon_token: TokenResult<Option<ColonToken>>,
     #[return_ref]
-    pub val_ty: NodeDeclResult<Option<FormTypeExpr>>,
+    pub return_ty: NodeDeclResult<Option<ReturnTypeExpr>>,
     #[return_ref]
     pub eq_token: NodeDeclResult<EqToken>,
     pub expr: Option<ExprIdx>,
@@ -18,7 +18,7 @@ pub struct ValNodeDecl {
 impl ValNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.val_ty(db)
+            self.return_ty(db)
                 .as_ref()
                 .err()
                 .into_iter()
@@ -64,7 +64,7 @@ impl<'a> DeclParser<'a> {
 pub struct ValDecl {
     #[id]
     pub path: FugitivePath,
-    pub val_ty: Option<FormTypeExpr>,
+    pub return_ty: Option<ReturnTypeExpr>,
     pub expr: Option<ExprIdx>,
     pub expr_region: ExprRegion,
 }
@@ -75,7 +75,7 @@ impl ValDecl {
         path: FugitivePath,
         node_decl: ValNodeDecl,
     ) -> DeclResult<Self> {
-        let val_ty = *node_decl.val_ty(db).as_ref()?;
+        let val_ty = *node_decl.return_ty(db).as_ref()?;
         let expr = node_decl.expr(db);
         let expr_region = node_decl.expr_region(db);
         Ok(ValDecl::new(db, path, val_ty, expr, expr_region))

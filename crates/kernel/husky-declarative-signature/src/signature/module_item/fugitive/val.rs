@@ -34,7 +34,7 @@ pub fn val_declarative_signature_template(
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let val_ty = match decl.val_ty(db) {
+    let val_ty = match decl.return_ty(db) {
         Some(val_ty) => declarative_term_region.expr_term(val_ty.expr())?,
         None => declarative_term_menu.unit(),
     };

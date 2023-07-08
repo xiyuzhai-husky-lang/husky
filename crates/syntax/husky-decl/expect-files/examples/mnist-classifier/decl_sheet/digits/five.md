@@ -13,9 +13,9 @@ Ok(
                         FugitiveDecl::Val(
                             ValDecl {
                                 path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                                val_ty: Some(
-                                    FormTypeExpr {
-                                        expr: 1,
+                                return_ty: Some(
+                                    ReturnTypeExpr {
+                                        expr: 2,
                                     },
                                 ),
                                 expr: None,
@@ -53,6 +53,16 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
+                                                Expr::Err(
+                                                    ExprError::Original(
+                                                        NoRightOperandForBinaryOperator {
+                                                            punctuation: Assign,
+                                                            punctuation_token_idx: TokenIdx(
+                                                                13,
+                                                            ),
+                                                        },
+                                                    ),
+                                                ),
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
@@ -106,8 +116,8 @@ Ok(
                                         },
                                         roots: [
                                             ExprRoot {
-                                                kind: VarType,
-                                                expr_idx: 1,
+                                                kind: ReturnType,
+                                                expr_idx: 2,
                                             },
                                         ],
                                     },
