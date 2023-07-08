@@ -6,15 +6,7 @@ pub(crate) use self::ethereal::*;
 pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
-// mod dyn_trai;
-// mod trai_for_ty;
-// mod ty;
-
-// pub use self::trai_for_ty::*;
-// pub use self::ty::*;
-
 use super::*;
-use husky_ethereal_signature::EtherealMethodSignature;
 use husky_word::Ident;
 
 impl MemberSignature for MethodFluffySignature {
@@ -51,11 +43,5 @@ impl FluffyTerm {
             }
             NestedFluffyTerm::Hollow(term) => todo!(),
         }
-    }
-}
-
-impl From<EtherealMethodSignature> for MethodFluffySignature {
-    fn from(value: EtherealMethodSignature) -> Self {
-        todo!()
     }
 }

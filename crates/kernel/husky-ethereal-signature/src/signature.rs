@@ -1,19 +1,13 @@
 mod associated_item;
 mod derive_decr;
-mod fugitive;
 mod impl_block;
-mod method;
-mod trai;
-mod ty;
+mod module_item;
 mod variant;
 
 pub use self::associated_item::*;
 pub use self::derive_decr::*;
-pub use self::fugitive::*;
 pub use self::impl_block::*;
-pub use self::method::*;
-pub use self::trai::*;
-pub use self::ty::*;
+pub use self::module_item::*;
 pub use self::variant::*;
 
 use crate::*;
