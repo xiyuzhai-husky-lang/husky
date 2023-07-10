@@ -15,9 +15,9 @@ pub use self::menu::*;
 pub use self::rewrite::*;
 pub use self::term::*;
 
+use husky_coword::*;
 use husky_term_prelude::*;
 use husky_vfs::Toolchain;
-use husky_word::*;
 
 #[salsa::jar(db =  DeclarativeTermDb)]
 pub struct DeclarativeTermJar(

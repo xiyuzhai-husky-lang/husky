@@ -1,12 +1,12 @@
 pub(crate) use husky_vfs::test_utils::*;
 
 use crate::*;
+use husky_coword::CowordJar;
 use husky_vfs::VfsJar;
-use husky_word::WordJar;
 use salsa::{Database, Storage};
 use with_db::WithDb;
 
-#[salsa::db(WordJar, VfsJar)]
+#[salsa::db(CowordJar, VfsJar)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: Storage<Self>,

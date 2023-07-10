@@ -90,7 +90,7 @@ impl<'a> TomlSectionParseIter<'a> {
 
     fn next_section(
         &mut self,
-        title_words: SmallVec<[Word; 2]>,
+        title_cowords: SmallVec<[Coword; 2]>,
         kind: TomlSectionKind,
     ) -> TomlSection {
         let mut entries = VecMap::default();
@@ -112,7 +112,7 @@ impl<'a> TomlSectionParseIter<'a> {
             self.pass()
         }
         TomlSection {
-            title: TomlSectionTitle::new(title_words),
+            title: TomlSectionTitle::new(title_cowords),
             kind,
             entries,
         }

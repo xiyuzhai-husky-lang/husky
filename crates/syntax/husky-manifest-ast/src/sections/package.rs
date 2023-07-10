@@ -14,7 +14,7 @@ impl TransformFromTomlAst<ManifestAstTransformContext> for ManifestPackageSectio
 }
 
 impl TransformFromTomlParentKeyed<ManifestAstTransformContext> for ManifestPackageSectionAst {
-    fn key(menu: &<ManifestAstTransformContext as TomlDeserializeContext>::Menu) -> Word {
-        menu.package_word()
+    fn key(menu: &<ManifestAstTransformContext as TomlDeserializeContext>::Menu) -> Coword {
+        menu.package_coword()
     }
 }

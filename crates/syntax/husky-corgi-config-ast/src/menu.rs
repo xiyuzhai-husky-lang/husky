@@ -1,32 +1,32 @@
-use husky_word::Word;
+use husky_coword::Coword;
 use smallvec::smallvec;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CorgiConfigAstMenu {
-    registry_word: Word,
-    path_word: Word,
+    registry_coword: Coword,
+    path_coword: Coword,
 }
 
 impl CorgiConfigAstMenu {
     fn new(db: &dyn CorgiConfigAstDb) -> Self {
-        let registry_word = Word::from_ref(db, "registry");
-        let path_word = Word::from_ref(db, "path");
+        let registry_coword = Coword::from_ref(db, "registry");
+        let path_coword = Coword::from_ref(db, "path");
         Self {
-            registry_word,
-            path_word,
+            registry_coword,
+            path_coword,
         }
     }
 }
 
 impl CorgiConfigAstMenu {
-    pub(crate) fn registry_word(&self) -> Word {
-        self.registry_word
+    pub(crate) fn registry_coword(&self) -> Coword {
+        self.registry_coword
     }
 
-    pub(crate) fn path_word(&self) -> Word {
-        self.path_word
+    pub(crate) fn path_coword(&self) -> Coword {
+        self.path_coword
     }
 }
 
@@ -39,6 +39,6 @@ pub(crate) fn corgi_config_ast_menu(db: &dyn CorgiConfigAstDb) -> CorgiConfigAst
 fn corgi_config_ast_menu_works() {
     let db = DB::default();
     let menu = corgi_config_ast_menu(&db);
-    assert_eq!(menu.registry_word().data(&db), "registry");
-    assert_eq!(menu.path_word().data(&db), "path");
+    assert_eq!(menu.registry_coword().data(&db), "registry");
+    assert_eq!(menu.path_coword().data(&db), "path");
 }

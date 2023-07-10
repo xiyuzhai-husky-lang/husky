@@ -1,6 +1,6 @@
-use husky_word::WordJar;
+use husky_coword::CowordJar;
 
-#[salsa::db(WordJar)]
+#[salsa::db(CowordJar)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<DB>,

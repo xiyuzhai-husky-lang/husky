@@ -23,8 +23,8 @@ use tokenize::*;
 #[salsa::jar(db = LaTexTokenDb)]
 pub struct LaTexTokenJar();
 
+use husky_coword::Coword;
 use husky_text_span::DocumentSpan;
-use husky_word::Word;
 use std::char;
 use std::str;
 
@@ -67,7 +67,7 @@ impl EnglishToken {
 pub enum EnglishTokenVariant {
     Comment,
     Special(EnglishSpecialToken),
-    Word(Word),
+    Word(Coword),
     StringLiteral { val: StringValue, multiline: bool },
     Err(EnglishTokenError),
 }

@@ -6,9 +6,9 @@ pub use self::region::*;
 pub use self::symbol::*;
 
 use super::*;
+use husky_coword::Ident;
 use husky_entity_path::EntityPath;
 use husky_token::{AtToken, DotDotToken, IdentToken, TokenStream};
-use husky_word::Ident;
 use idx_arena::{ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
 use parsec::{StreamParser, TryParseOptionFromStream};

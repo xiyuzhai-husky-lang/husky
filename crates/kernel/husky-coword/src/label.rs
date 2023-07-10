@@ -36,18 +36,18 @@ impl LabelKind {
 }
 
 impl Label {
-    pub fn word(self) -> Word {
+    pub fn word(self) -> Coword {
         self.ident.word()
     }
 
-    pub fn from_owned(db: &dyn WordDb, data: String) -> Option<Self> {
+    pub fn from_owned(db: &dyn CowordDb, data: String) -> Option<Self> {
         Some(Self {
             kind: LabelKind::new(&data),
             ident: Ident::from_owned(db, data)?,
         })
     }
 
-    pub fn from_borrowed(db: &dyn WordDb, data: &str) -> Option<Self> {
+    pub fn from_borrowed(db: &dyn CowordDb, data: &str) -> Option<Self> {
         Some(Self {
             kind: LabelKind::new(&data),
             ident: Ident::from_borrowed(db, data)?,
@@ -63,14 +63,14 @@ impl Label {
     }
 }
 
-impl<Db: WordDb + ?Sized> salsa::DebugWithDb<Db> for Label {
+impl<Db: CowordDb + ?Sized> salsa::DebugWithDb<Db> for Label {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<CowordJar>>::as_jar_db(db);
         if level.is_root() {
             f.debug_tuple("Label").field(&self.ident.data(db)).finish()
         } else {

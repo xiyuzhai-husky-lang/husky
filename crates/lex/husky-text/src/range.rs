@@ -3,7 +3,7 @@ mod bind_into;
 
 pub use bind_from::*;
 pub use bind_into::*;
-use husky_word::Ident;
+use husky_coword::Ident;
 
 use crate::*;
 use husky_dev_utils::__StaticDevSource;

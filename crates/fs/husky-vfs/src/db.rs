@@ -4,7 +4,7 @@ use husky_fs_specs::FsSpecsError;
 use husky_path_utils::collect_husky_package_dirs;
 use vec_like::VecSet;
 
-pub trait VfsDb: salsa::DbWithJar<VfsJar> + WordDb + Send + VfsDbInner {
+pub trait VfsDb: salsa::DbWithJar<VfsJar> + CowordDb + Send + VfsDbInner {
     fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu;
     fn current_toolchain(&self) -> VfsResult<Toolchain>;
     fn live_packages(
@@ -47,7 +47,7 @@ pub trait VfsDbInner {
 
 impl<Db> VfsDbInner for Db
 where
-    Db: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
+    Db: salsa::DbWithJar<VfsJar> + CowordDb + Send + 'static,
 {
     fn file_from_diff_path(&self, abs_path: DiffPath) -> VfsResult<File> {
         Ok(
@@ -154,7 +154,7 @@ where
 
 impl<Db> VfsDb for Db
 where
-    Db: salsa::DbWithJar<VfsJar> + WordDb + Send + 'static,
+    Db: salsa::DbWithJar<VfsJar> + CowordDb + Send + 'static,
 {
     fn vfs_path_menu(&self, toolchain: Toolchain) -> &VfsPathMenu {
         vfs_path_menu(self, toolchain)
@@ -251,7 +251,7 @@ where
 
         let mut modules = vec![];
         let Ok(diff_path) = package.dir(self) else {
-            return vec![]
+            return vec![];
         };
         let package_dir = diff_path.data(self);
         if package_dir.join("src/lib.hsy").exists() {

@@ -3,7 +3,7 @@ use husky_opn_syntax::*;
 
 use husky_text::{TextCharIter, TextRange};
 
-use husky_word::{is_char_valid_ident_first_char, WordDb};
+use husky_coword::{is_char_valid_ident_first_char, CowordDb};
 use std::str::FromStr;
 
 pub(crate) struct RangedPretoken {
@@ -182,7 +182,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             }
             c if c.is_alphabetic() || c == '_' => {
                 self.buffer.push(c);
-                Some(self.next_word())
+                Some(self.next_coword())
             }
             c if c.is_digit(10) => {
                 self.buffer.push(c);
@@ -204,10 +204,9 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
 
     /// assume a previous single quote has been taken
     fn next_char_or_lifetime_or_label(&mut self) -> Pretoken {
-        let Some((fst, snd)) = self.char_iter.peek_two()
-            else {
-                return Pretoken::Err(TokenError::NothingAfterSingleQuote)
-            };
+        let Some((fst, snd)) = self.char_iter.peek_two() else {
+            return Pretoken::Err(TokenError::NothingAfterSingleQuote);
+        };
         match fst {
             '\\' => todo!(),
             fst if is_char_valid_ident_first_char(fst) => match snd {
@@ -227,7 +226,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
 
     fn next_auxiliary_identifier(&mut self) -> Pretoken {
         while let Some(c) = self.char_iter.peek() {
-            if is_word_char(c) {
+            if is_coword_char(c) {
                 self.eat_char();
             } else {
                 break;
@@ -249,9 +248,9 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         }
     }
 
-    fn next_word(&mut self) -> Pretoken {
+    fn next_coword(&mut self) -> Pretoken {
         while let Some(c) = self.char_iter.peek() {
-            if is_word_char(c) {
+            if is_coword_char(c) {
                 self.eat_char();
             } else {
                 break;
@@ -259,7 +258,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
         }
         assert!(self.buffer.len() > 0);
         let word = &self.buffer;
-        let pretoken = if let Some(pretoken) = new_reserved_word(self.db, word) {
+        let pretoken = if let Some(pretoken) = new_reserved_coword(self.db, word) {
             pretoken
         } else {
             match self.db.it_ident_borrowed(word) {
@@ -300,13 +299,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "i16" => todo!(),
                 "i32" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenError::ParseIntError)
+                        return Pretoken::Err(TokenError::ParseIntError);
                     };
                     IntegerLikeLiteral::I32(i).into()
                 }
                 "i64" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenError::ParseIntError)
+                        return Pretoken::Err(TokenError::ParseIntError);
                     };
                     IntegerLikeLiteral::I64(i).into()
                 }
@@ -316,13 +315,13 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                 "r16" => todo!(),
                 "r32" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenError::ParseIntError)
+                        return Pretoken::Err(TokenError::ParseIntError);
                     };
                     IntegerLikeLiteral::R32(i).into()
                 }
                 "r64" => {
                     let Ok(i) = self.buffer.parse() else {
-                        return Pretoken::Err(TokenError::ParseIntError)
+                        return Pretoken::Err(TokenError::ParseIntError);
                     };
                     IntegerLikeLiteral::R64(i).into()
                 }
@@ -563,6 +562,6 @@ impl<'token_line, 'lex: 'token_line> Iterator for PretokenStream<'token_line, 'l
     }
 }
 
-fn is_word_char(c: char) -> bool {
+fn is_coword_char(c: char) -> bool {
     c.is_alphanumeric() || c == '_'
 }

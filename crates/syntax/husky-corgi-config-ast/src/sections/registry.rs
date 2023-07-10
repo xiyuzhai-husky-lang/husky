@@ -17,7 +17,7 @@ impl TransformFromTomlAst<CorgiConfigAstTransformContext> for CorgiConfigRegistr
     fn transform_from<'a, 'b>(
         mut section_transformer: TomlTransformer<'a, 'b, CorgiConfigAstTransformContext, Self::Ast>,
     ) -> CorgiConfigAstResult<Self> {
-        let key = section_transformer.menu().path_word();
+        let key = section_transformer.menu().path_coword();
         Ok(CorgiConfigRegistrySectionAst {
             path: section_transformer.transform_value(key),
         })
@@ -29,7 +29,7 @@ impl TransformFromTomlParentKeyed<CorgiConfigAstTransformContext>
 {
     fn key(
         menu: &<CorgiConfigAstTransformContext as TomlDeserializeContext>::Menu,
-    ) -> husky_word::Word {
-        menu.registry_word()
+    ) -> husky_coword::Coword {
+        menu.registry_coword()
     }
 }

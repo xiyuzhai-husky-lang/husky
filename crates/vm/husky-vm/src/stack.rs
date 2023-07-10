@@ -1,6 +1,6 @@
 use crate::*;
 use arrayvec::ArrayVec;
-use husky_word::Ident;
+use husky_coword::Ident;
 
 pub const STACK_SIZE: usize = 255;
 

@@ -7,7 +7,7 @@ pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
 use super::*;
-use husky_word::Ident;
+use husky_coword::Ident;
 
 impl MemberSignature for MethodFluffySignature {
     fn expr_ty(&self, indirections: &[FluffyDotIndirection]) -> FluffyTermResult<FluffyTerm> {

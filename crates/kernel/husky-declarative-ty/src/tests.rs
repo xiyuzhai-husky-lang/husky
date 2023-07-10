@@ -4,6 +4,7 @@ use crate::*;
 use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
+use husky_coword::CowordJar;
 use husky_decl::DeclJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
@@ -17,10 +18,9 @@ use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
-use husky_word::WordJar;
 
 #[salsa::db(
-    WordJar,
+    CowordJar,
     VfsJar,
     EntityPathJar,
     TokenJar,
@@ -52,7 +52,7 @@ fn major_entity_declarative_tys(
     module_path: ModulePath,
 ) -> Vec<(EntityPath, DeclarativeTypeResult<DeclarativeTerm>)> {
     let Ok(entity_tree_sheet) = db.entity_tree_sheet(module_path) else {
-        return vec![]
+        return vec![];
     };
     entity_tree_sheet
         .major_entity_paths(db)

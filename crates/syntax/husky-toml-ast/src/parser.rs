@@ -41,7 +41,7 @@ impl<'a> TomlAstParser<'a> {
     }
 
     fn parse_section_title(mut self) -> TomlLineGroup {
-        let mut title: SmallVec<[Word; 2]> = Default::default();
+        let mut title: SmallVec<[Coword; 2]> = Default::default();
         let kind: TomlSectionKind = TomlSectionKind::Normal;
         let token = self.tokens.next().ok_or(TomlAstError::Expect)?;
         match token.variant() {
@@ -55,7 +55,9 @@ impl<'a> TomlAstParser<'a> {
             TomlTokenVariant::Err(_) => todo!(),
         }
         loop {
-            let Some(token) = self.tokens.next() else {todo!()};
+            let Some(token) = self.tokens.next() else {
+                todo!()
+            };
             match token.variant() {
                 TomlTokenVariant::Comment => todo!(),
                 TomlTokenVariant::Special(TomlSpecialToken::RightBox) => break,
@@ -71,7 +73,7 @@ impl<'a> TomlAstParser<'a> {
         TomlLineGroup::SectionTitle { title, kind }
     }
 
-    fn parse_key_value(mut self, word: Word) -> TomlLineGroup {
+    fn parse_key_value(mut self, word: Coword) -> TomlLineGroup {
         self.eat_special(TomlSpecialToken::Equals);
         let expr = self.parse_expr();
         TomlLineGroup::KeyValue(word, expr)
@@ -89,7 +91,7 @@ impl<'a> TomlAstParser<'a> {
         Some(self.exprs.alloc_one(match self.tokens.next()?.variant() {
             TomlTokenVariant::Comment => todo!(),
             TomlTokenVariant::Special(_) => todo!(),
-            TomlTokenVariant::Word(word) => match self.db.word_db().dt_word(*word) {
+            TomlTokenVariant::Word(word) => match self.db.word_db().dt_coword(*word) {
                 "true" => TomlExpr::Boolean(true),
                 "false" => TomlExpr::Boolean(false),
                 _ => todo!(),

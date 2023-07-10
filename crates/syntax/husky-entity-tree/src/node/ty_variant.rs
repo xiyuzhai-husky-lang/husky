@@ -1,6 +1,6 @@
 use super::*;
+use husky_coword::IdentPairMap;
 use husky_entity_taxonomy::TypeKind;
-use husky_word::IdentPairMap;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct TypeVariantNodePath {
@@ -96,7 +96,10 @@ pub(crate) fn ty_variant_nodes(
     let Ast::Defn {
         block: DefnBlock::Type { variants, .. },
         ..
-    } = ast_sheet[ty_node_path.node(db).ast_idx(db)] else { unreachable!() };
+    } = ast_sheet[ty_node_path.node(db).ast_idx(db)]
+    else {
+        unreachable!()
+    };
     let Some(variants) = variants else {
         return vec![];
     };

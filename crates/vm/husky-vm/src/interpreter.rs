@@ -1,10 +1,10 @@
 mod exec;
 mod query;
 
+use husky_coword::Ident;
 use husky_ethereal_term::EtherealTerm;
 use husky_print_utils::ps;
 use husky_text::ModuleRange;
-use husky_word::Ident;
 use indexmap::IndexMap;
 pub use query::InterpreterQueryGroup;
 

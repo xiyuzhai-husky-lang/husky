@@ -31,13 +31,13 @@ pub use self::stmt::*;
 pub use self::symbol::*;
 pub use self::utils::*;
 
+use husky_coword::*;
 use husky_entity_path::{EntityPath, PrincipalEntityPath};
 use husky_entity_tree::*;
 use husky_opn_syntax::*;
 use husky_term_prelude::*;
 use husky_text::*;
 use husky_token::*;
-use husky_word::*;
 use precedence::*;
 use range::*;
 use smallvec::SmallVec;

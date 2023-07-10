@@ -516,7 +516,7 @@ impl<'t> CodeEdit<'t> {
                 if response.double_clicked() {
                     // Select word:
                     let center = cursor_at_pointer;
-                    let ccursor_range = select_word_at(text.as_str(), center.ccursor);
+                    let ccursor_range = select_coword_at(text.as_str(), center.ccursor);
                     state.set_cursor_range(Some(CursorRange {
                         primary: galley.from_ccursor(ccursor_range.primary),
                         secondary: galley.from_ccursor(ccursor_range.secondary),
@@ -772,17 +772,17 @@ impl<'t> CodeEdit<'t> {
                             let mut character_widths = Vec::<f32>::new();
                             character_widths.reserve(glyph_count);
                             let mut word_lengths = Vec::<u8>::new();
-                            let mut was_at_word_end = false;
-                            let mut last_word_start = 0usize;
+                            let mut was_at_coword_end = false;
+                            let mut last_coword_start = 0usize;
 
                             for glyph in &row.glyphs {
-                                let is_word_char = is_word_char(glyph.chr);
-                                if is_word_char && was_at_word_end {
+                                let is_coword_char = is_coword_char(glyph.chr);
+                                if is_coword_char && was_at_coword_end {
                                     word_lengths
-                                        .push((character_lengths.len() - last_word_start) as _);
-                                    last_word_start = character_lengths.len();
+                                        .push((character_lengths.len() - last_coword_start) as _);
+                                    last_coword_start = character_lengths.len();
                                 }
-                                was_at_word_end = !is_word_char;
+                                was_at_coword_end = !is_coword_char;
                                 let old_len = value.len();
                                 value.push(glyph.chr);
                                 character_lengths.push((value.len() - old_len) as _);
@@ -796,13 +796,13 @@ impl<'t> CodeEdit<'t> {
                                 character_positions.push(row.rect.max.x - row.rect.min.x);
                                 character_widths.push(0.0);
                             }
-                            word_lengths.push((character_lengths.len() - last_word_start) as _);
+                            word_lengths.push((character_lengths.len() - last_coword_start) as _);
 
                             builder.set_value(value);
                             builder.set_character_lengths(character_lengths);
                             builder.set_character_positions(character_positions);
                             builder.set_character_widths(character_widths);
-                            builder.set_word_lengths(word_lengths);
+                            builder.set_coword_lengths(word_lengths);
                         });
                     }
                 });
@@ -1192,13 +1192,13 @@ fn delete_next_char(text: &mut dyn TextBuffer, ccursor: CCursor) -> CCursor {
     delete_selected_ccursor_range(text, [ccursor, ccursor + 1])
 }
 
-fn delete_previous_word(text: &mut dyn TextBuffer, max_ccursor: CCursor) -> CCursor {
-    let min_ccursor = ccursor_previous_word(text.as_str(), max_ccursor);
+fn delete_previous_coword(text: &mut dyn TextBuffer, max_ccursor: CCursor) -> CCursor {
+    let min_ccursor = ccursor_previous_coword(text.as_str(), max_ccursor);
     delete_selected_ccursor_range(text, [min_ccursor, max_ccursor])
 }
 
-fn delete_next_word(text: &mut dyn TextBuffer, min_ccursor: CCursor) -> CCursor {
-    let max_ccursor = ccursor_next_word(text.as_str(), min_ccursor);
+fn delete_next_coword(text: &mut dyn TextBuffer, min_ccursor: CCursor) -> CCursor {
+    let max_ccursor = ccursor_next_coword(text.as_str(), min_ccursor);
     delete_selected_ccursor_range(text, [min_ccursor, max_ccursor])
 }
 
@@ -1255,7 +1255,7 @@ fn on_key_press(
             } else if let Some(cursor) = cursor_range.single() {
                 if modifiers.alt || modifiers.ctrl {
                     // alt on mac, ctrl on windows
-                    delete_previous_word(text, cursor.ccursor)
+                    delete_previous_coword(text, cursor.ccursor)
                 } else {
                     delete_previous_char(text, cursor.ccursor)
                 }
@@ -1270,7 +1270,7 @@ fn on_key_press(
             } else if let Some(cursor) = cursor_range.single() {
                 if modifiers.alt || modifiers.ctrl {
                     // alt on mac, ctrl on windows
-                    delete_next_word(text, cursor.ccursor)
+                    delete_next_coword(text, cursor.ccursor)
                 } else {
                     delete_next_char(text, cursor.ccursor)
                 }
@@ -1307,7 +1307,7 @@ fn on_key_press(
 
         Key::W if modifiers.ctrl => {
             let ccursor = if let Some(cursor) = cursor_range.single() {
-                delete_previous_word(text, cursor.ccursor)
+                delete_previous_coword(text, cursor.ccursor)
             } else {
                 delete_selected(text, cursor_range)
             };
@@ -1360,7 +1360,8 @@ fn move_single_cursor(cursor: &mut Cursor, galley: &Galley, key: Key, modifiers:
         Key::ArrowLeft => {
             if modifiers.alt || modifiers.ctrl {
                 // alt on mac, ctrl on windows
-                *cursor = galley.from_ccursor(ccursor_previous_word(galley.text(), cursor.ccursor));
+                *cursor =
+                    galley.from_ccursor(ccursor_previous_coword(galley.text(), cursor.ccursor));
             } else if modifiers.mac_cmd {
                 *cursor = galley.cursor_begin_of_row(cursor);
             } else {
@@ -1370,7 +1371,7 @@ fn move_single_cursor(cursor: &mut Cursor, galley: &Galley, key: Key, modifiers:
         Key::ArrowRight => {
             if modifiers.alt || modifiers.ctrl {
                 // alt on mac, ctrl on windows
-                *cursor = galley.from_ccursor(ccursor_next_word(galley.text(), cursor.ccursor));
+                *cursor = galley.from_ccursor(ccursor_next_coword(galley.text(), cursor.ccursor));
             } else if modifiers.mac_cmd {
                 *cursor = galley.cursor_end_of_row(cursor);
             } else {
@@ -1417,36 +1418,36 @@ fn move_single_cursor(cursor: &mut Cursor, galley: &Galley, key: Key, modifiers:
 
 // ----------------------------------------------------------------------------
 
-fn select_word_at(text: &str, ccursor: CCursor) -> CCursorRange {
+fn select_coword_at(text: &str, ccursor: CCursor) -> CCursorRange {
     if ccursor.index == 0 {
-        CCursorRange::two(ccursor, ccursor_next_word(text, ccursor))
+        CCursorRange::two(ccursor, ccursor_next_coword(text, ccursor))
     } else {
         let it = text.chars();
         let mut it = it.skip(ccursor.index - 1);
         if let Some(char_before_cursor) = it.next() {
             if let Some(char_after_cursor) = it.next() {
-                if is_word_char(char_before_cursor) && is_word_char(char_after_cursor) {
-                    let min = ccursor_previous_word(text, ccursor + 1);
-                    let max = ccursor_next_word(text, min);
+                if is_coword_char(char_before_cursor) && is_coword_char(char_after_cursor) {
+                    let min = ccursor_previous_coword(text, ccursor + 1);
+                    let max = ccursor_next_coword(text, min);
                     CCursorRange::two(min, max)
-                } else if is_word_char(char_before_cursor) {
-                    let min = ccursor_previous_word(text, ccursor);
-                    let max = ccursor_next_word(text, min);
+                } else if is_coword_char(char_before_cursor) {
+                    let min = ccursor_previous_coword(text, ccursor);
+                    let max = ccursor_next_coword(text, min);
                     CCursorRange::two(min, max)
-                } else if is_word_char(char_after_cursor) {
-                    let max = ccursor_next_word(text, ccursor);
+                } else if is_coword_char(char_after_cursor) {
+                    let max = ccursor_next_coword(text, ccursor);
                     CCursorRange::two(ccursor, max)
                 } else {
-                    let min = ccursor_previous_word(text, ccursor);
-                    let max = ccursor_next_word(text, ccursor);
+                    let min = ccursor_previous_coword(text, ccursor);
+                    let max = ccursor_next_coword(text, ccursor);
                     CCursorRange::two(min, max)
                 }
             } else {
-                let min = ccursor_previous_word(text, ccursor);
+                let min = ccursor_previous_coword(text, ccursor);
                 CCursorRange::two(min, ccursor)
             }
         } else {
-            let max = ccursor_next_word(text, ccursor);
+            let max = ccursor_next_coword(text, ccursor);
             CCursorRange::two(ccursor, max)
         }
     }
@@ -1487,9 +1488,9 @@ fn select_line_at(text: &str, ccursor: CCursor) -> CCursorRange {
     }
 }
 
-fn ccursor_next_word(text: &str, ccursor: CCursor) -> CCursor {
+fn ccursor_next_coword(text: &str, ccursor: CCursor) -> CCursor {
     CCursor {
-        index: next_word_boundary_char_index(text.chars(), ccursor.index),
+        index: next_coword_boundary_char_index(text.chars(), ccursor.index),
         prefer_next_row: false,
     }
 }
@@ -1501,11 +1502,11 @@ fn ccursor_next_line(text: &str, ccursor: CCursor) -> CCursor {
     }
 }
 
-fn ccursor_previous_word(text: &str, ccursor: CCursor) -> CCursor {
+fn ccursor_previous_coword(text: &str, ccursor: CCursor) -> CCursor {
     let num_chars = text.chars().count();
     CCursor {
         index: num_chars
-            - next_word_boundary_char_index(text.chars().rev(), num_chars - ccursor.index),
+            - next_coword_boundary_char_index(text.chars().rev(), num_chars - ccursor.index),
         prefer_next_row: true,
     }
 }
@@ -1519,7 +1520,7 @@ fn ccursor_previous_line(text: &str, ccursor: CCursor) -> CCursor {
     }
 }
 
-fn next_word_boundary_char_index(it: impl Iterator<Item = char>, mut index: usize) -> usize {
+fn next_coword_boundary_char_index(it: impl Iterator<Item = char>, mut index: usize) -> usize {
     let mut it = it.skip(index);
     if let Some(_first) = it.next() {
         index += 1;
@@ -1527,7 +1528,7 @@ fn next_word_boundary_char_index(it: impl Iterator<Item = char>, mut index: usiz
         if let Some(second) = it.next() {
             index += 1;
             for next in it {
-                if is_word_char(next) != is_word_char(second) {
+                if is_coword_char(next) != is_coword_char(second) {
                     break;
                 }
                 index += 1;
@@ -1555,7 +1556,7 @@ fn next_line_boundary_char_index(it: impl Iterator<Item = char>, mut index: usiz
     index
 }
 
-fn is_word_char(c: char) -> bool {
+fn is_coword_char(c: char) -> bool {
     c.is_ascii_alphanumeric() || c == '_'
 }
 

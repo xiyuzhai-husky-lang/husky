@@ -318,7 +318,7 @@ Definition from_parsed (base:positive) (intPart:positive) (expPart:Z) : float :=
 Definition to_bits (f: float): int64 := Int64.repr (bits_of_b64 f).
 Definition of_bits (b: int64): float := b64_of_bits (Int64.unsigned b).
 
-Definition from_words (hi lo: int) : float := of_bits (Int64.ofwords hi lo).
+Definition from_cowords (hi lo: int) : float := of_bits (Int64.ofwords hi lo).
 
 (** ** Properties *)
 
@@ -586,7 +586,7 @@ Qed.
 
 (** Conversions from ints to floats can be defined as bitwise manipulations
   over the in-memory representation.  This is what the PowerPC port does.
-  The trick is that [from_words 0x4330_0000 x] is the float
+  The trick is that [from_cowords 0x4330_0000 x] is the float
   [2^52 + of_intu x]. *)
 
 Definition ox4330_0000 := Int.repr 1127219200.        (**r [0x4330_0000] *)
@@ -604,13 +604,13 @@ Proof.
     compute_this (2^11); lia.
 Qed.
 
-Lemma from_words_value:
+Lemma from_cowords_value:
   forall x,
-     B2R _ _ (from_words ox4330_0000 x) = (bpow radix2 52 + IZR (Int.unsigned x))%R
-  /\ is_finite _ _ (from_words ox4330_0000 x) = true
-  /\ Bsign _ _ (from_words ox4330_0000 x) = false.
+     B2R _ _ (from_cowords ox4330_0000 x) = (bpow radix2 52 + IZR (Int.unsigned x))%R
+  /\ is_finite _ _ (from_cowords ox4330_0000 x) = true
+  /\ Bsign _ _ (from_cowords ox4330_0000 x) = false.
 Proof.
-  intros; unfold from_words, of_bits, b64_of_bits, binary_float_of_bits.
+  intros; unfold from_cowords, of_bits, b64_of_bits, binary_float_of_bits.
   rewrite B2R_FF2B, is_finite_FF2B, Bsign_FF2B.
   unfold binary_float_of_bits_aux; rewrite split_bits_or; simpl; pose proof (Int.unsigned_range x).
   destruct (Int.unsigned x + Z.pow_pos 2 52) eqn:?.
@@ -620,12 +620,12 @@ Proof.
   exfalso; now smart_lia.
 Qed.
 
-Lemma from_words_eq:
-  forall x, from_words ox4330_0000 x = BofZ 53 1024 __ __ (2^52 + Int.unsigned x).
+Lemma from_cowords_eq:
+  forall x, from_cowords ox4330_0000 x = BofZ 53 1024 __ __ (2^52 + Int.unsigned x).
 Proof.
   intros.
   pose proof (Int.unsigned_range x).
-  destruct (from_words_value x) as (A & B & C).
+  destruct (from_cowords_value x) as (A & B & C).
   destruct (BofZ_exact 53 1024 __ __ (2^52 + Int.unsigned x)) as (D & E & F).
   smart_lia.
   apply B2R_Bsign_inj; auto.
@@ -633,12 +633,12 @@ Proof.
   rewrite C, F. symmetry. apply Zlt_bool_false. smart_lia.
 Qed.
 
-Theorem of_intu_from_words:
+Theorem of_intu_from_cowords:
   forall x,
-  of_intu x = sub (from_words ox4330_0000 x) (from_words ox4330_0000 Int.zero).
+  of_intu x = sub (from_cowords ox4330_0000 x) (from_cowords ox4330_0000 Int.zero).
 Proof.
   intros. pose proof (Int.unsigned_range x).
-  rewrite ! from_words_eq. unfold sub. rewrite BofZ_minus.
+  rewrite ! from_cowords_eq. unfold sub. rewrite BofZ_minus.
   unfold of_intu. apply (f_equal (BofZ 53 1024 __ __)). rewrite Int.unsigned_zero. lia.
   apply integer_representable_n; auto; smart_lia.
   apply integer_representable_n; auto; rewrite Int.unsigned_zero; smart_lia.
@@ -656,14 +656,14 @@ Proof.
   apply Int.eqm_add; [now apply Int.eqm_refl|exists 1;reflexivity].
 Qed.
 
-Theorem of_int_from_words:
+Theorem of_int_from_cowords:
   forall x,
-  of_int x = sub (from_words ox4330_0000 (Int.add x ox8000_0000))
-                 (from_words ox4330_0000 ox8000_0000).
+  of_int x = sub (from_cowords ox4330_0000 (Int.add x ox8000_0000))
+                 (from_cowords ox4330_0000 ox8000_0000).
 Proof.
   intros.
   pose proof (Int.signed_range x).
-  rewrite ! from_words_eq. rewrite ox8000_0000_signed_unsigned.
+  rewrite ! from_cowords_eq. rewrite ox8000_0000_signed_unsigned.
   change (Int.unsigned ox8000_0000) with Int.half_modulus.
   unfold sub. rewrite BofZ_minus.
   unfold of_int. apply f_equal. lia.
@@ -686,13 +686,13 @@ Proof.
     compute_this (2^11); lia.
 Qed.
 
-Lemma from_words_value':
+Lemma from_cowords_value':
   forall x,
-     B2R _ _ (from_words ox4530_0000 x) = (bpow radix2 84 + IZR (Int.unsigned x * two_p 32))%R
-  /\ is_finite _ _ (from_words ox4530_0000 x) = true
-  /\ Bsign _ _ (from_words ox4530_0000 x) = false.
+     B2R _ _ (from_cowords ox4530_0000 x) = (bpow radix2 84 + IZR (Int.unsigned x * two_p 32))%R
+  /\ is_finite _ _ (from_cowords ox4530_0000 x) = true
+  /\ Bsign _ _ (from_cowords ox4530_0000 x) = false.
 Proof.
-  intros; unfold from_words, of_bits, b64_of_bits, binary_float_of_bits.
+  intros; unfold from_cowords, of_bits, b64_of_bits, binary_float_of_bits.
   rewrite B2R_FF2B, is_finite_FF2B, Bsign_FF2B.
   unfold binary_float_of_bits_aux; rewrite split_bits_or'; simpl; pose proof (Int.unsigned_range x).
   destruct (Int.unsigned x + Z.pow_pos 2 52) eqn:?.
@@ -704,12 +704,12 @@ Proof.
   exfalso; now smart_lia.
 Qed.
 
-Lemma from_words_eq':
-  forall x, from_words ox4530_0000 x = BofZ 53 1024 __ __ (2^84 + Int.unsigned x * 2^32).
+Lemma from_cowords_eq':
+  forall x, from_cowords ox4530_0000 x = BofZ 53 1024 __ __ (2^84 + Int.unsigned x * 2^32).
 Proof.
   intros.
   pose proof (Int.unsigned_range x).
-  destruct (from_words_value' x) as (A & B & C).
+  destruct (from_cowords_value' x) as (A & B & C).
   destruct (BofZ_representable 53 1024 __ __ (2^84 + Int.unsigned x * 2^32)) as (D & E & F).
   replace (2^84 + Int.unsigned x * 2^32)
     with  ((2^52 + Int.unsigned x) * 2^32) by ring.
@@ -720,18 +720,18 @@ Proof.
   compute_this (2^84); compute_this (2^32); lia.
 Qed.
 
-Theorem of_longu_from_words:
+Theorem of_longu_from_cowords:
   forall l,
   of_longu l =
-    add (sub (from_words ox4530_0000 (Int64.hiword l))
-             (from_words ox4530_0000 (Int.repr (two_p 20))))
-        (from_words ox4330_0000 (Int64.loword l)).
+    add (sub (from_cowords ox4530_0000 (Int64.hiword l))
+             (from_cowords ox4530_0000 (Int.repr (two_p 20))))
+        (from_cowords ox4330_0000 (Int64.loword l)).
 Proof.
   intros.
   pose proof (Int64.unsigned_range l).
   pose proof (Int.unsigned_range (Int64.hiword l)).
   pose proof (Int.unsigned_range (Int64.loword l)).
-  rewrite ! from_words_eq, ! from_words_eq'.
+  rewrite ! from_cowords_eq, ! from_cowords_eq'.
   set (p20 := Int.unsigned (Int.repr (two_p 20))).
   set (x := Int64.unsigned l) in *;
   set (xl := Int.unsigned (Int64.loword l)) in *;
@@ -752,18 +752,18 @@ Proof.
   apply integer_representable_n2p; auto. lia. lia.
 Qed.
 
-Theorem of_long_from_words:
+Theorem of_long_from_cowords:
   forall l,
   of_long l =
-    add (sub (from_words ox4530_0000 (Int.add (Int64.hiword l) ox8000_0000))
-             (from_words ox4530_0000 (Int.repr (two_p 20+two_p 31))))
-        (from_words ox4330_0000 (Int64.loword l)).
+    add (sub (from_cowords ox4530_0000 (Int.add (Int64.hiword l) ox8000_0000))
+             (from_cowords ox4530_0000 (Int.repr (two_p 20+two_p 31))))
+        (from_cowords ox4330_0000 (Int64.loword l)).
 Proof.
   intros.
   pose proof (Int64.signed_range l).
   pose proof (Int.signed_range (Int64.hiword l)).
   pose proof (Int.unsigned_range (Int64.loword l)).
-  rewrite ! from_words_eq, ! from_words_eq'.
+  rewrite ! from_cowords_eq, ! from_cowords_eq'.
   set (p := Int.unsigned (Int.repr (two_p 20 + two_p 31))).
   set (x := Int64.signed l) in *;
   set (xl := Int.unsigned (Int64.loword l)) in *;
@@ -1446,7 +1446,7 @@ Global Opaque
   Float.of_int Float.of_intu Float.of_long Float.of_longu
   Float.to_int Float.to_intu Float.to_long Float.to_longu
   Float.add Float.sub Float.mul Float.div Float.cmp Float.ordered
-  Float.to_bits Float.of_bits Float.from_words.
+  Float.to_bits Float.of_bits Float.from_cowords.
 
 Global Opaque
   Float32.zero Float32.eq_dec Float32.neg Float32.abs

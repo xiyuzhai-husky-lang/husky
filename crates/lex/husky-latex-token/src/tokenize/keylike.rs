@@ -8,7 +8,10 @@ impl<'a> EnglishTokenIter<'a> {
             }
             self.next_char();
         }
-        EnglishTokenVariant::Word(self.db.it_word_borrowed(&self.input[start..self.current()]))
+        EnglishTokenVariant::Word(
+            self.db
+                .it_coword_borrowed(&self.input[start..self.current()]),
+        )
     }
 }
 

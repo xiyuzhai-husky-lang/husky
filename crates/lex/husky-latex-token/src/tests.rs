@@ -1,10 +1,10 @@
 use super::*;
 
+use husky_coword::CowordJar;
 use husky_vfs::*;
-use husky_word::WordJar;
 use salsa::Database;
 
-#[salsa::db(WordJar, VfsJar, LaTexTokenJar)]
+#[salsa::db(CowordJar, VfsJar, LaTexTokenJar)]
 #[derive(Default)]
 struct DB {
     storage: salsa::Storage<Self>,

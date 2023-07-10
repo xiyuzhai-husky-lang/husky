@@ -7,9 +7,9 @@ mod db;
 
 pub use db::*;
 
+use husky_coword::*;
 use husky_ethereal_term::*;
 use husky_vm::InstructionSheet;
-use husky_word::*;
 use std::sync::Arc;
 
 // pub fn new_visual_instruction_sheet(

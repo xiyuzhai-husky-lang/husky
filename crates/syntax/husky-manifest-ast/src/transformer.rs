@@ -1,4 +1,4 @@
-use husky_word::Word;
+use husky_coword::Coword;
 
 use crate::*;
 

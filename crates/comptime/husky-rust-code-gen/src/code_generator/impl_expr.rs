@@ -6,7 +6,7 @@ use husky_entity_taxonomy::FieldKind;
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_syntax::LiteralToken;
 
-use husky_word::RootBuiltinIdent;
+use husky_coword::RootBuiltinIdent;
 
 impl<'a> RustCodeGenerator<'a> {
     pub(super) fn gen_expr(&mut self, indent: Indent, expr: &EagerExpr) {

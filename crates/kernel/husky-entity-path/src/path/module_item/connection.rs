@@ -1,4 +1,4 @@
-use husky_word::IdentPairMap;
+use husky_coword::IdentPairMap;
 
 use super::*;
 

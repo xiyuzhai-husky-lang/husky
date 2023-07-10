@@ -20,7 +20,7 @@ husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-coword = { path = "../../kernel/husky-coword" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-decl = { path = "../../syntax/husky-decl" }

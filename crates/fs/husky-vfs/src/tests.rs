@@ -3,11 +3,11 @@ use crate::{
     watch::{WatchedVfs, DEBOUNCE_TEST_SLEEP_TIME},
     *,
 };
-use husky_word::WordJar;
+use husky_coword::CowordJar;
 use salsa::ParallelDatabase;
 use std::ops::Deref;
 
-#[salsa::db(VfsJar, WordJar)]
+#[salsa::db(VfsJar, CowordJar)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,

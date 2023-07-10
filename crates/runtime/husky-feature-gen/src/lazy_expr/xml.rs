@@ -1,6 +1,6 @@
 use crate::*;
+use husky_coword::IdentPairMap;
 use husky_lazy_semantics::{HtmlExpr, HtmlExprVariant};
-use husky_word::IdentPairMap;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureHtmlExpr {

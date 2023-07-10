@@ -16,9 +16,9 @@ pub use self::menu::*;
 pub use self::path::*;
 
 use either::*;
+use husky_coword::Ident;
 use husky_entity_taxonomy::*;
 use husky_vfs::*;
-use husky_word::Ident;
 use salsa::{DbWithJar, DebugWithDb};
 #[cfg(test)]
 use tests::*;

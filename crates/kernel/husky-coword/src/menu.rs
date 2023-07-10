@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct WordMenu {
+pub struct CowordMenu {
     std_name: Name,
     std_ident: Ident,
     core_name: Name,
@@ -36,8 +36,8 @@ pub struct WordMenu {
     crate_ident: Ident,
 }
 
-impl WordMenu {
-    pub(crate) fn new(db: &dyn WordDb) -> Self {
+impl CowordMenu {
+    pub(crate) fn new(db: &dyn CowordDb) -> Self {
         Self {
             core_name: Name::from_ref(db, "core").unwrap(),
             core_ident: Ident::from_borrowed(db, "core").unwrap(),
@@ -203,7 +203,7 @@ impl WordMenu {
     }
 }
 
-#[salsa::tracked(jar = WordJar, return_ref)]
-pub(crate) fn ident_menu(db: &dyn WordDb) -> WordMenu {
-    WordMenu::new(db)
+#[salsa::tracked(jar = CowordJar, return_ref)]
+pub(crate) fn ident_menu(db: &dyn CowordDb) -> CowordMenu {
+    CowordMenu::new(db)
 }

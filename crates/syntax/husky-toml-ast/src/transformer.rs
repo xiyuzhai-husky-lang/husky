@@ -3,7 +3,7 @@ mod transform;
 
 use std::path::Path;
 
-use husky_word::Name;
+use husky_coword::Name;
 use vec_like::{AsVecMapEntry, VecMap};
 
 use self::expr::*;
@@ -74,7 +74,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
         errors: &'b mut Vec<Context::Error>,
     ) -> VfsResult<Option<Self>> {
         let Some(toml_ast_sheet) = db.toml_ast_sheet(path)? else {
-            return Ok(None)
+            return Ok(None);
         };
         Ok(Some(Self {
             db,
@@ -96,7 +96,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
         errors: &'b mut Vec<Context::Error>,
     ) -> VfsResult<Self> {
         let Some(toml_ast_sheet) = db.toml_ast_sheet(path)? else {
-             Err(VfsError::FileNotExists(path))?
+            Err(VfsError::FileNotExists(path))?
         };
         Ok(Self {
             db,
@@ -145,7 +145,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
     #[inline(always)]
     fn value_transformer<'c>(
         &'c mut self,
-        key: Word,
+        key: Coword,
     ) -> Option<TomlTransformer<'a, 'c, Context, TomlExpr>>
     where
         'b: 'c,
@@ -180,7 +180,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
         }
     }
 
-    pub fn transform_value<Target>(mut self, key: Word) -> Option<Result<Target, Context::Error>>
+    pub fn transform_value<Target>(mut self, key: Coword) -> Option<Result<Target, Context::Error>>
     where
         Target: TransformFromTomlAst<Context, Ast = TomlExpr>,
     {
@@ -231,7 +231,7 @@ impl<'a, 'b, Context: TomlDeserializeContext> TomlTransformer<'a, 'b, Context, T
         self.visitor.line_group_idx()
     }
 
-    pub fn key(&self) -> Word {
+    pub fn key(&self) -> Coword {
         self.visitor.key()
     }
 }
@@ -240,7 +240,7 @@ pub trait TransformFromTomlParentKeyed<Context>: TransformFromTomlAst<Context>
 where
     Context: TomlDeserializeContext,
 {
-    fn key(menu: &<Context as TomlDeserializeContext>::Menu) -> Word;
+    fn key(menu: &<Context as TomlDeserializeContext>::Menu) -> Coword;
 }
 
 pub trait TransformFromTomlAst<Context>: Sized

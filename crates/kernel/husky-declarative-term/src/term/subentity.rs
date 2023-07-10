@@ -1,5 +1,5 @@
 use crate::*;
-use husky_word::Ident;
+use husky_coword::Ident;
 
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermSubentity {

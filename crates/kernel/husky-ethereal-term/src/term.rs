@@ -21,12 +21,12 @@ pub use self::symbol::*;
 pub use self::variable::*;
 
 use crate::*;
+use husky_coword::Ident;
 use husky_declarative_term::DeclarativeTerm;
 use husky_declarative_ty::{
     ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
 };
 use husky_entity_path::EntityPath;
-use husky_word::Ident;
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

@@ -11,7 +11,7 @@ rustc-hash = "1.1.0"
 lsp-types = { version = "0.93", features = ["proposed"], optional = true }
 serde = { version = "1.0.106", features = ["derive"] }
 # kernel
-husky-word = { path = "../../kernel/husky-word" }
+husky-coword = { path = "../../kernel/husky-coword" }
 # utils
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

@@ -23,8 +23,8 @@ use tokenize::*;
 #[salsa::jar(db = TomlTokenDb)]
 pub struct TomlTokenJar(toml_token_sheet);
 
+use husky_coword::Coword;
 use husky_text_span::DocumentSpan;
-use husky_word::Word;
 use std::char;
 use std::str;
 
@@ -67,7 +67,7 @@ impl TomlToken {
 pub enum TomlTokenVariant {
     Comment,
     Special(TomlSpecialToken),
-    Word(Word),
+    Word(Coword),
     StringLiteral { val: StringValue, multiline: bool },
     Err(TomlTokenError),
 }

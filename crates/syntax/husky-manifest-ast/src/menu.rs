@@ -1,14 +1,14 @@
-use husky_word::Word;
+use husky_coword::Coword;
 use smallvec::smallvec;
 
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ManifestAstMenu {
-    package_word: Word,
-    dependencies_word: Word,
-    dev_dependencies_word: Word,
-    features_word: Word,
+    package_coword: Coword,
+    dependencies_coword: Coword,
+    dev_dependencies_coword: Coword,
+    features_coword: Coword,
 }
 
 #[salsa::tracked(jar = ManifestAstJar, return_ref)]
@@ -18,31 +18,31 @@ pub(crate) fn manifest_ast_menu(db: &dyn ManifestAstDb) -> ManifestAstMenu {
 
 impl ManifestAstMenu {
     fn new(db: &dyn ManifestAstDb) -> Self {
-        let package_word = Word::from_ref(db, "package");
-        let dependencies_word = Word::from_ref(db, "dependencies");
-        let dev_dependencies_word = Word::from_ref(db, "dev-dependencies");
-        let features_word = Word::from_ref(db, "features");
+        let package_coword = Coword::from_ref(db, "package");
+        let dependencies_coword = Coword::from_ref(db, "dependencies");
+        let dev_dependencies_coword = Coword::from_ref(db, "dev-dependencies");
+        let features_coword = Coword::from_ref(db, "features");
         Self {
-            package_word,
-            dependencies_word,
-            dev_dependencies_word,
-            features_word,
+            package_coword,
+            dependencies_coword,
+            dev_dependencies_coword,
+            features_coword,
         }
     }
 
-    pub(crate) fn package_word(&self) -> Word {
-        self.package_word
+    pub(crate) fn package_coword(&self) -> Coword {
+        self.package_coword
     }
 
-    pub(crate) fn dependencies_word(&self) -> Word {
-        self.dependencies_word
+    pub(crate) fn dependencies_coword(&self) -> Coword {
+        self.dependencies_coword
     }
 
-    pub(crate) fn dev_dependencies_word(&self) -> Word {
-        self.dev_dependencies_word
+    pub(crate) fn dev_dependencies_coword(&self) -> Coword {
+        self.dev_dependencies_coword
     }
 
-    pub(crate) fn features_word(&self) -> Word {
-        self.features_word
+    pub(crate) fn features_coword(&self) -> Coword {
+        self.features_coword
     }
 }

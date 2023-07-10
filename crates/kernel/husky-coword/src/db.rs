@@ -2,12 +2,12 @@ use salsa::{storage::HasJar, DbWithJar};
 
 use crate::{style::snake_to_dash, *};
 
-pub trait WordDb: DbWithJar<WordJar> {
-    fn it_word_owned(&self, data: String) -> Word;
+pub trait CowordDb: DbWithJar<CowordJar> {
+    fn it_coword_owned(&self, data: String) -> Coword;
 
-    fn it_word_borrowed(&self, data: &str) -> Word;
+    fn it_coword_borrowed(&self, data: &str) -> Coword;
 
-    fn dt_word(&self, data: Word) -> &str;
+    fn dt_coword(&self, data: Coword) -> &str;
 
     fn it_ident_owned(&self, data: String) -> Option<Ident>;
 
@@ -17,40 +17,40 @@ pub trait WordDb: DbWithJar<WordJar> {
 
     fn dt_ident(&self, data: Ident) -> &str;
 
-    fn word_db(&self) -> &dyn WordDb;
+    fn word_db(&self) -> &dyn CowordDb;
 
-    fn word_jar(&self) -> &WordJar;
+    fn word_jar(&self) -> &CowordJar;
 
-    fn word_menu(&self) -> &WordMenu;
+    fn word_menu(&self) -> &CowordMenu;
 
     fn ident_to_dashed(&self, ident: Ident) -> String;
 }
 
-impl<T> WordDb for T
+impl<T> CowordDb for T
 where
-    T: DbWithJar<WordJar>,
+    T: DbWithJar<CowordJar>,
 {
-    fn it_word_owned(&self, data: String) -> Word {
-        Word::from_owned(self, data)
+    fn it_coword_owned(&self, data: String) -> Coword {
+        Coword::from_owned(self, data)
     }
 
-    fn it_word_borrowed(&self, data: &str) -> Word {
-        Word::from_ref(self, data)
+    fn it_coword_borrowed(&self, data: &str) -> Coword {
+        Coword::from_ref(self, data)
     }
 
-    fn dt_word(&self, word: Word) -> &str {
+    fn dt_coword(&self, word: Coword) -> &str {
         word.data(self)
     }
 
-    fn word_db(&self) -> &dyn WordDb {
+    fn word_db(&self) -> &dyn CowordDb {
         self
     }
 
-    fn word_jar(&self) -> &WordJar {
-        &<Self as HasJar<WordJar>>::jar(self).0
+    fn word_jar(&self) -> &CowordJar {
+        &<Self as HasJar<CowordJar>>::jar(self).0
     }
 
-    fn word_menu(&self) -> &WordMenu {
+    fn word_menu(&self) -> &CowordMenu {
         ident_menu(self)
     }
 

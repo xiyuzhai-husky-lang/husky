@@ -9,6 +9,6 @@ thiserror = "1.0.37"
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 # kernel
-husky-word = { path = "../../kernel/husky-word" }
+husky-coword = { path = "../../kernel/husky-coword" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

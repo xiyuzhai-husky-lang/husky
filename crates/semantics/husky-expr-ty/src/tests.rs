@@ -4,6 +4,7 @@ use crate::*;
 use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
+use husky_coword::CowordJar;
 use husky_decl::{DeclDb, DeclJar};
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
@@ -22,10 +23,9 @@ use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::*;
-use husky_word::WordJar;
 
 #[salsa::db(
-    WordJar,
+    CowordJar,
     VfsJar,
     EntityPathJar,
     TokenJar,
@@ -58,8 +58,9 @@ pub(crate) struct DB {
 impl salsa::Database for DB {}
 
 fn decl_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
-    let Ok(decl_sheet) = db.node_decl_sheet(module_path)
-        else { return vec![] };
+    let Ok(decl_sheet) = db.node_decl_sheet(module_path) else {
+        return vec![];
+    };
     decl_sheet
         .decls(db)
         .iter()
@@ -74,8 +75,9 @@ fn decl_expr_ty_sheets_works() {
 }
 
 fn defn_expr_ty_regions(db: &DB, module_path: ModulePath) -> Vec<&ExprTypeRegion> {
-    let Ok(defns) = module_path.defns(db)
-        else { return vec![] };
+    let Ok(defns) = module_path.defns(db) else {
+        return vec![];
+    };
     defns
         .iter()
         .copied()

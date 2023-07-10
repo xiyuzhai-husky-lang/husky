@@ -3,34 +3,34 @@ use salsa::DebugWithDb;
 use vec_like::{VecMap, VecPairMap};
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
-pub struct Ident(Word);
+pub struct Ident(Coword);
 
 impl Ident {
-    pub fn word(self) -> Word {
+    pub fn word(self) -> Coword {
         self.0
     }
 
-    pub fn from_owned(db: &dyn WordDb, data: String) -> Option<Self> {
+    pub fn from_owned(db: &dyn CowordDb, data: String) -> Option<Self> {
         if is_str_valid_ident(&data) {
-            Some(Self(db.it_word_owned(data)))
+            Some(Self(db.it_coword_owned(data)))
         } else {
             None
         }
     }
 
-    pub fn from_borrowed(db: &dyn WordDb, data: &str) -> Option<Self> {
+    pub fn from_borrowed(db: &dyn CowordDb, data: &str) -> Option<Self> {
         if is_str_valid_ident(data) {
-            Some(Self(db.it_word_borrowed(data)))
+            Some(Self(db.it_coword_borrowed(data)))
         } else {
             None
         }
     }
 
-    pub fn data(self, db: &dyn WordDb) -> &str {
-        db.dt_word(self.0)
+    pub fn data(self, db: &dyn CowordDb) -> &str {
+        db.dt_coword(self.0)
     }
 
-    pub fn case(self, db: &dyn WordDb) -> IdentCase {
+    pub fn case(self, db: &dyn CowordDb) -> IdentCase {
         let data = self.data(db);
         let mut chars = data.chars();
         let is_first_char_uppercase = chars.next().unwrap().is_uppercase();
@@ -53,8 +53,8 @@ impl Ident {
     }
 }
 
-#[salsa::tracked(jar = WordJar)]
-pub(crate) fn word_to_ident(db: &dyn WordDb, word: Word) -> Option<Ident> {
+#[salsa::tracked(jar = CowordJar)]
+pub(crate) fn word_to_ident(db: &dyn CowordDb, word: Coword) -> Option<Ident> {
     Ident::from_borrowed(db, word.data(db))
 }
 
@@ -120,14 +120,14 @@ pub fn is_char_valid_ident_nonfirst_char(c: char) -> bool {
     c.is_alphanumeric() || c == '_'
 }
 
-impl<Db: WordDb + ?Sized> DebugWithDb<Db> for Ident {
+impl<Db: CowordDb + ?Sized> DebugWithDb<Db> for Ident {
     fn fmt(
         &self,
         f: &mut std::fmt::Formatter<'_>,
         db: &Db,
         level: salsa::DebugFormatLevel,
     ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<WordJar>>::as_jar_db(db);
+        let db = <Db as salsa::DbWithJar<CowordJar>>::as_jar_db(db);
         if level.is_root() {
             f.debug_tuple("Ident").field(&self.data(db)).finish()
         } else {

@@ -18,8 +18,8 @@ impl TransformFromTomlAst<ManifestAstTransformContext> for ManifestDevDependenci
 impl TransformFromTomlParentKeyed<ManifestAstTransformContext>
     for ManifestDevDependenciesSectionAst
 {
-    fn key(menu: &<ManifestAstTransformContext as TomlDeserializeContext>::Menu) -> Word {
-        menu.dev_dependencies_word()
+    fn key(menu: &<ManifestAstTransformContext as TomlDeserializeContext>::Menu) -> Coword {
+        menu.dev_dependencies_coword()
     }
 }
 // impl<'a> ManifestAstTransformer<'a, TomlTable> {
@@ -28,7 +28,7 @@ impl TransformFromTomlParentKeyed<ManifestAstTransformContext>
 //         errors: &mut Vec<ManifestAstError>,
 //     ) -> ManifestAstResult<Option<ManifestDevDependenciesSectionAst>> {
 //         let Some(dev_dependencies_section_ast) = self
-//             .visit_normal_section_ast(self.menu().dev_dependencies_word(), errors)? else {
+//             .visit_normal_section_ast(self.menu().dev_dependencies_coword(), errors)? else {
 //             return Ok(None)
 //         };
 //         Ok(Some(ManifestDevDependenciesSectionAst {

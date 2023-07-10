@@ -1,5 +1,5 @@
 use crate::*;
-use husky_word::{Name, Word};
+use husky_coword::{Coword, Name};
 use vec_like::AsVecMapEntry;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -16,7 +16,7 @@ impl TransformFromTomlKeyedAst<ManifestAstTransformContext> for ManifestDependen
     ) -> ManifestAstResult<Self> {
         Ok(ManifestDependencyAst {
             line_group_idx: transformer.line_group_idx(),
-            name: Name::from_word(transformer.db(), transformer.key())
+            name: Name::from_coword(transformer.db(), transformer.key())
                 .ok_or(OriginalManifestAstError::InvalidName)?,
         })
     }
@@ -53,7 +53,7 @@ impl AsVecMapEntry for ManifestDependencyAst {
 //     builder: &mut ManifestAstTransformer<'a, TomlExpr>,
 //     errors: &mut Vec<ManifestAstError>,
 // ) -> Option<ManifestDependencyAst> {
-//     let Some(name) = Name::from_word(db, entry.key()) else {
+//     let Some(name) = Name::from_coword(db, entry.key()) else {
 //         errors.push(todo!());
 //         return None
 //     };

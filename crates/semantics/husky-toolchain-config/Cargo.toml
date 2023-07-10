@@ -13,7 +13,7 @@ salsa = { path = "../../abstraction/salsa" }
 husky-text = { path = "../../lex/husky-text" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # kernel
-husky-word = { path = "../../kernel/husky-word" }
+husky-coword = { path = "../../kernel/husky-coword" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
