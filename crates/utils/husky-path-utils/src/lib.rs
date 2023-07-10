@@ -16,7 +16,7 @@ pub use std::path::{Path, PathBuf};
 #[cfg(test)]
 use self::tests::*;
 use husky_check_utils::should_satisfy;
-use husky_word::{Name, WordDb, WordJar};
+use husky_coword::{CowordDb, CowordJar, Name};
 use relative_path::{RelativePath, RelativePathBuf};
 
 pub fn path_has_file_name(path: &Path, name: &str) -> bool {
@@ -109,7 +109,7 @@ fn collect_rust_package_dirs_aux(dir: impl AsRef<Path>, pack_paths: &mut Vec<Pat
     }
 }
 
-pub fn collect_husky_package_dirs<Db: ?Sized + WordDb>(
+pub fn collect_husky_package_dirs<Db: ?Sized + CowordDb>(
     db: &Db,
     dir: &Path,
 ) -> Vec<(PathBuf, Name)> {
@@ -120,7 +120,7 @@ pub fn collect_husky_package_dirs<Db: ?Sized + WordDb>(
     pack_paths
 }
 
-fn collect_husky_package_dirs_aux<Db: ?Sized + WordDb>(
+fn collect_husky_package_dirs_aux<Db: ?Sized + CowordDb>(
     db: &Db,
     dir: &Path,
     pack_paths: &mut Vec<(PathBuf, Name)>,
@@ -138,7 +138,7 @@ fn collect_husky_package_dirs_aux<Db: ?Sized + WordDb>(
     }
 }
 
-pub fn collect_package_relative_dirs<Db: ?Sized + WordDb>(
+pub fn collect_package_relative_dirs<Db: ?Sized + CowordDb>(
     db: &Db,
     base: &Path,
 ) -> Vec<(RelativePathBuf, Name)> {
@@ -150,7 +150,7 @@ pub fn collect_package_relative_dirs<Db: ?Sized + WordDb>(
     pack_paths
 }
 
-fn collect_package_relative_dirs_aux<Db: ?Sized + WordDb>(
+fn collect_package_relative_dirs_aux<Db: ?Sized + CowordDb>(
     db: &Db,
     base: &Path,
     dir: &RelativePath,

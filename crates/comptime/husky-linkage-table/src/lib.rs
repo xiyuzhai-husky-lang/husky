@@ -9,10 +9,10 @@ use husky_entity_path::EntityPath;
 pub use key::*;
 pub use table::*;
 
+use husky_coword::Ident;
 use husky_ethereal_term::EtherealTerm;
 use husky_vm::__ResolvedLinkage;
 use husky_vm::{Binding, EntityUid, __Linkage};
-use husky_word::Ident;
 use map_collect::MapCollect;
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;

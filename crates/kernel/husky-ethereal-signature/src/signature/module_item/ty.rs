@@ -19,11 +19,11 @@ pub use self::union::*;
 pub use self::unit_struct::*;
 
 use crate::*;
+use husky_coword::Ident;
 use husky_declarative_signature::{
     HasDeclarativeSignatureTemplate, TypeDeclarativeSignature, TypeDeclarativeSignatureTemplate,
 };
 use husky_entity_path::TypePath;
-use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]

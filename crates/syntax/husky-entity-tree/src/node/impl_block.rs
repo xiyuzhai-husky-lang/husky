@@ -7,10 +7,10 @@ pub use self::trai_for_ty_impl_block::*;
 pub use self::ty_impl_block::*;
 
 use crate::*;
+use husky_coword::IdentPairMap;
 use husky_entity_taxonomy::TypeItemKind;
 use husky_print_utils::p;
 use husky_token::*;
-use husky_word::IdentPairMap;
 use parsec::{HasStreamState, StreamParser};
 use smallvec::SmallVec;
 use thiserror::Error;

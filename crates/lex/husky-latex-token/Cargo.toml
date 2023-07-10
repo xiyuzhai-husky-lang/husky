@@ -14,7 +14,7 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-text = { path = "../../lex/husky-text" }
 husky-text-span = { path = "../../lex/husky-text-span" }
 # kernel
-husky-word = { path = "../../kernel/husky-word" }
+husky-coword = { path = "../../kernel/husky-coword" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

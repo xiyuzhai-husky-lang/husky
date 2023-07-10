@@ -7,7 +7,7 @@ use fold::Indent;
 use husky_eager_semantics::{Boundary, EagerExpr, FuncStmt, LoopVariant, ProcStmt};
 use husky_ethereal_term::EtherealTerm;
 
-use husky_word::RootBuiltinIdent;
+use husky_coword::RootBuiltinIdent;
 
 use super::*;
 

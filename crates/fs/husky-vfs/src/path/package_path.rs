@@ -1,6 +1,6 @@
 use super::*;
 
-use husky_word::Ident;
+use husky_coword::Ident;
 use salsa::DebugWithDb;
 use std::path::Path;
 use url::Url;

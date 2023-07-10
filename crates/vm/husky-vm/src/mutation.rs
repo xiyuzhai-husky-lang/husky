@@ -1,6 +1,6 @@
+use husky_coword::Ident;
 use husky_ethereal_term::EtherealTerm;
 use husky_text::ModuleRange;
-use husky_word::Ident;
 
 use crate::*;
 

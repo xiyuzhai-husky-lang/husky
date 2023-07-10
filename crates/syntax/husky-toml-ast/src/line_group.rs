@@ -8,10 +8,10 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = TomlAstDb)]
 pub enum TomlLineGroup {
     SectionTitle {
-        title: SmallVec<[Word; 2]>,
+        title: SmallVec<[Coword; 2]>,
         kind: TomlSectionKind,
     },
-    KeyValue(Word, Option<TomlExprIdx>),
+    KeyValue(Coword, Option<TomlExprIdx>),
     Comment,
     Err,
 }

@@ -27,10 +27,10 @@ pub use self::snippet::*;
 pub use self::stream::*;
 pub use self::token_visibility::*;
 
+use husky_coword::Ident;
 use husky_term_prelude::*;
 use husky_text::{HasTextRange, TextRange};
 use husky_vfs::{ModulePath, VfsResult};
-use husky_word::Ident;
 #[cfg(test)]
 use tests::*;
 use tokenize::*;
@@ -41,6 +41,6 @@ pub struct TokenJar(
     Snippet,
     ranged_token_sheet,
     token_sheet,
-    reserved_words,
+    reserved_cowords,
     tokenize_snippet,
 );

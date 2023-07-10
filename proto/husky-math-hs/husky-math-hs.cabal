@@ -36,6 +36,8 @@ library
     , HUnit
     , base >=4.7 && <5
     , containers ==0.6.*
+    , parsec
+    , syb
     , test-framework
     , test-framework-hunit
   default-language: Haskell2010
@@ -53,6 +55,8 @@ executable husky-math-hs-exe
     , base >=4.7 && <5
     , containers ==0.6.*
     , husky-math-hs
+    , parsec
+    , syb
     , test-framework
     , test-framework-hunit
   default-language: Haskell2010
@@ -71,6 +75,8 @@ test-suite husky-math-hs-test
     , base >=4.7 && <5
     , containers ==0.6.*
     , husky-math-hs
+    , parsec
+    , syb
     , test-framework
     , test-framework-hunit
   default-language: Haskell2010

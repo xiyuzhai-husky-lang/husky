@@ -37,7 +37,7 @@ fn ty_data_viewer(_db: &dyn DataViewerDb, _ty: EtherealTerm) -> Arc<HuskyDataVie
     //         ilen: comptime
     //             .method_linkage(comptime.subroute(
     //                 ty,
-    //                 comptime.it_word("ilen").custom(),
+    //                 comptime.it_coword("ilen").custom(),
     //                 Default::default(),
     //             ))
     //             .unwrap()
@@ -48,10 +48,10 @@ fn ty_data_viewer(_db: &dyn DataViewerDb, _ty: EtherealTerm) -> Arc<HuskyDataVie
     //     TyKind::Slice => todo!(),
     //     TyKind::CyclicSlice => HuskyDataViewer::CyclicSlice {
     //         start: comptime
-    //             .field_linkage_resolved(ty, comptime.it_word("start").custom(), Binding::Copy)
+    //             .field_linkage_resolved(ty, comptime.it_coword("start").custom(), Binding::Copy)
     //             .unwrap(),
     //         end: comptime
-    //             .field_linkage_resolved(ty, comptime.it_word("end").custom(), Binding::Copy)
+    //             .field_linkage_resolved(ty, comptime.it_coword("end").custom(), Binding::Copy)
     //             .unwrap(),
     //         index: comptime.index_linkage(vec![ty, RootBuiltinIdent::I32.into()]),
     //         elem_ty: ty.entity_route_argument(0),

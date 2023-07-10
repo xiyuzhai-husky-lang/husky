@@ -1,5 +1,5 @@
 use super::*;
-use husky_word::Ident;
+use husky_coword::Ident;
 
 #[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar)]
 pub struct EtherealTermAsTraitSubentity {

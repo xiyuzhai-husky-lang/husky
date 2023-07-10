@@ -4,6 +4,7 @@ use crate::*;
 use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
+use husky_coword::CowordJar;
 use husky_decl::DeclJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
@@ -20,12 +21,11 @@ use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_toml_token::TomlTokenJar;
 use husky_vfs::VfsJar;
-use husky_word::WordJar;
 
 #[salsa::db(
     EntityPathJar,
     VfsJar,
-    WordJar,
+    CowordJar,
     TokenJar,
     AstJar,
     EntityTreeJar,

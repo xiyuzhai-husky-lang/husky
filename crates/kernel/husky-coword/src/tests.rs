@@ -1,7 +1,7 @@
 use crate::*;
 use salsa::DebugWithDb;
 
-#[salsa::db(WordJar)]
+#[salsa::db(CowordJar)]
 #[derive(Default)]
 pub struct DB {
     storage: salsa::Storage<DB>,
@@ -20,7 +20,7 @@ impl salsa::ParallelDatabase for DB {
 #[test]
 fn word_debug_works() {
     let db = DB::default();
-    let haha = db.it_word_borrowed("haha");
+    let haha = db.it_coword_borrowed("haha");
     expect_test::expect![[r#"
         Word(
             "haha",

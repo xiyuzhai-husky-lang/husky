@@ -1,4 +1,4 @@
-use husky_word::{Ident, IdentMap};
+use husky_coword::{Ident, IdentMap};
 
 use crate::*;
 

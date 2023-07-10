@@ -29,12 +29,12 @@ pub use self::ty::*;
 #[cfg(test)]
 use self::tests::*;
 use either::*;
+use husky_coword::Ident;
 use husky_declarative_term::*;
 use husky_entity_path::*;
 use husky_print_utils::p;
 use husky_term_prelude::*;
 use husky_vfs::*;
-use husky_word::Ident;
 use salsa::DebugWithDb;
 use smallvec::*;
 

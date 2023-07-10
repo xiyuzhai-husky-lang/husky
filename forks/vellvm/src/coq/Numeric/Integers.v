@@ -472,7 +472,7 @@ Proof.
   unfold max_unsigned. lia.
 Qed.
 
-Remark two_wordsize_max_unsigned: 2 * zwordsize - 1 <= max_unsigned.
+Remark two_cowordsize_max_unsigned: 2 * zwordsize - 1 <= max_unsigned.
 Proof.
   assert (2 * zwordsize - 1 < modulus).
     rewrite modulus_power. apply two_p_strict_2. generalize wordsize_pos; lia.
@@ -818,7 +818,7 @@ Proof.
   congruence.
 Qed.
 
-Theorem unsigned_repr_wordsize:
+Theorem unsigned_repr_cowordsize:
   unsigned iwordsize = zwordsize.
 Proof.
   unfold iwordsize; rewrite unsigned_repr_eq. apply Zmod_small.
@@ -2169,7 +2169,7 @@ Qed.
 Lemma ltu_iwordsize_inv:
   forall x, ltu x iwordsize = true -> 0 <= unsigned x < zwordsize.
 Proof.
-  intros. generalize (ltu_inv _ _ H). rewrite unsigned_repr_wordsize. auto.
+  intros. generalize (ltu_inv _ _ H). rewrite unsigned_repr_cowordsize. auto.
 Qed.
 
 Theorem shl_shl:
@@ -2183,7 +2183,7 @@ Proof.
   generalize (ltu_iwordsize_inv _ H) (ltu_iwordsize_inv _ H0); intros.
   assert (unsigned (add y z) = unsigned y + unsigned z).
     unfold add. apply unsigned_repr.
-    generalize two_wordsize_max_unsigned; lia.
+    generalize two_cowordsize_max_unsigned; lia.
   apply same_bits_eq; intros.
   rewrite bits_shl; auto.
   destruct (zlt i (unsigned z)).
@@ -2253,7 +2253,7 @@ Proof.
   generalize (ltu_iwordsize_inv _ H) (ltu_iwordsize_inv _ H0); intros.
   assert (unsigned (add y z) = unsigned y + unsigned z).
     unfold add. apply unsigned_repr.
-    generalize two_wordsize_max_unsigned; lia.
+    generalize two_cowordsize_max_unsigned; lia.
   apply same_bits_eq; intros.
   rewrite bits_shru; auto.
   destruct (zlt (i + unsigned z) zwordsize).
@@ -2314,7 +2314,7 @@ Proof.
   generalize (ltu_iwordsize_inv _ H) (ltu_iwordsize_inv _ H0); intros.
   assert (unsigned (add y z) = unsigned y + unsigned z).
     unfold add. apply unsigned_repr.
-    generalize two_wordsize_max_unsigned; lia.
+    generalize two_cowordsize_max_unsigned; lia.
   apply same_bits_eq; intros.
   rewrite !bits_shr; auto. f_equal.
   destruct (zlt (i + unsigned z) zwordsize).
@@ -2453,7 +2453,7 @@ Theorem shl_rolm:
   ltu n iwordsize = true ->
   shl x n = rolm x n (shl mone n).
 Proof.
-  intros. generalize (ltu_inv _ _ H). rewrite unsigned_repr_wordsize; intros.
+  intros. generalize (ltu_inv _ _ H). rewrite unsigned_repr_cowordsize; intros.
   unfold rolm. apply same_bits_eq; intros.
   rewrite bits_and; auto. rewrite !bits_shl; auto. rewrite bits_rol; auto.
   destruct (zlt i (unsigned n)).
@@ -2469,15 +2469,15 @@ Theorem shru_rolm:
   ltu n iwordsize = true ->
   shru x n = rolm x (sub iwordsize n) (shru mone n).
 Proof.
-  intros. generalize (ltu_inv _ _ H). rewrite unsigned_repr_wordsize; intros.
+  intros. generalize (ltu_inv _ _ H). rewrite unsigned_repr_cowordsize; intros.
   unfold rolm. apply same_bits_eq; intros.
   rewrite bits_and; auto. rewrite !bits_shru; auto. rewrite bits_rol; auto.
   destruct (zlt (i + unsigned n) zwordsize).
   - generalize (unsigned_range n); intros.
     rewrite bits_mone. rewrite andb_true_r. f_equal.
-    unfold sub. rewrite unsigned_repr. rewrite unsigned_repr_wordsize.
+    unfold sub. rewrite unsigned_repr. rewrite unsigned_repr_cowordsize.
     symmetry. apply Zmod_unique with (-1). ring. lia.
-    rewrite unsigned_repr_wordsize. generalize wordsize_max_unsigned. lia.
+    rewrite unsigned_repr_cowordsize. generalize wordsize_max_unsigned. lia.
     lia.
   - rewrite andb_false_r; auto.
 Qed.
@@ -2537,7 +2537,7 @@ Proof.
   apply eqmod_refl.
   apply eqmod_trans with (Z.modulo (unsigned n + unsigned m) zwordsize).
   replace (M + N) with (N + M) by lia. apply eqmod_mod. apply wordsize_pos.
-  unfold modu, add. fold M; fold N. rewrite unsigned_repr_wordsize.
+  unfold modu, add. fold M; fold N. rewrite unsigned_repr_cowordsize.
   assert (forall a, eqmod zwordsize a (unsigned (repr a))).
     intros. eapply eqmod_divides. apply eqm_unsigned_repr. assumption.
   eapply eqmod_trans. 2: apply H1.
@@ -2580,9 +2580,9 @@ Proof.
   generalize (ltu_iwordsize_inv _ H); intros.
   apply same_bits_eq; intros.
   rewrite bits_ror; auto. rewrite bits_rol; auto. f_equal.
-  unfold sub. rewrite unsigned_repr. rewrite unsigned_repr_wordsize.
+  unfold sub. rewrite unsigned_repr. rewrite unsigned_repr_cowordsize.
   apply eqmod_mod_eq. apply wordsize_pos. exists 1. ring.
-  rewrite unsigned_repr_wordsize.
+  rewrite unsigned_repr_cowordsize.
   generalize wordsize_pos; generalize wordsize_max_unsigned; lia.
 Qed.
 
@@ -2614,10 +2614,10 @@ Proof.
   - apply eqm_unsigned_repr_r. apply eqm_refl2. f_equal.
     rewrite Zmod_small; auto.
     assert (unsigned (add y z) = zwordsize).
-      rewrite H1. apply unsigned_repr_wordsize.
+      rewrite H1. apply unsigned_repr_cowordsize.
     unfold add in H5. rewrite unsigned_repr in H5.
     lia.
-    generalize two_wordsize_max_unsigned; lia.
+    generalize two_cowordsize_max_unsigned; lia.
   - apply eqm_unsigned_repr_r. apply eqm_refl2. f_equal.
     apply Zmod_small; auto.
 Qed.
@@ -2694,7 +2694,7 @@ Theorem is_power2_range:
   forall n logn,
   is_power2 n = Some logn -> ltu logn iwordsize = true.
 Proof.
-  intros. unfold ltu. rewrite unsigned_repr_wordsize.
+  intros. unfold ltu. rewrite unsigned_repr_cowordsize.
   apply zlt_true. generalize (is_power2_rng _ _ H). tauto.
 Qed.
 
@@ -3031,7 +3031,7 @@ Proof.
     rewrite modulus_power. apply two_p_monotone_strict. lia.
   f_equal. rewrite shl_mul_two_p. fold uy. rewrite mul_commut. rewrite mul_one.
   unfold sub. rewrite unsigned_one. rewrite unsigned_repr.
-  rewrite unsigned_repr_wordsize. fold uy.
+  rewrite unsigned_repr_cowordsize. fold uy.
   apply same_bits_eq; intros. rewrite bits_shru by auto.
   rewrite testbit_repr by auto. rewrite Ztestbit_two_p_m1 by lia.
   rewrite unsigned_repr by (generalize wordsize_max_unsigned; lia).
@@ -4012,7 +4012,7 @@ Strategy 0 [Wordsize_32.wordsize].
 
 Notation int := Int.int.
 
-Remark int_wordsize_divides_modulus:
+Remark int_cowordsize_divides_modulus:
   Z.divide (Z.of_nat Int.wordsize) Int.modulus.
 Proof.
   exists (two_p (32-5)); reflexivity.
@@ -4576,7 +4576,7 @@ Proof.
   intros.
   assert (Int.unsigned (Int.sub Int.iwordsize y) = Int.zwordsize - Int.unsigned y).
   { unfold Int.sub. rewrite Int.unsigned_repr. auto.
-    rewrite Int.unsigned_repr_wordsize. generalize Int.wordsize_max_unsigned; lia. }
+    rewrite Int.unsigned_repr_cowordsize. generalize Int.wordsize_max_unsigned; lia. }
   assert (zwordsize = 2 * Int.zwordsize) by reflexivity.
   apply Int64.same_bits_eq; intros.
   rewrite bits_shl' by auto. symmetry. rewrite bits_ofwords by auto.
@@ -4603,7 +4603,7 @@ Proof.
   assert (zwordsize = 2 * Int.zwordsize) by reflexivity.
   assert (Int.unsigned (Int.sub y Int.iwordsize) = Int.unsigned y - Int.zwordsize).
   { unfold Int.sub. rewrite Int.unsigned_repr. auto.
-    rewrite Int.unsigned_repr_wordsize. generalize (Int.unsigned_range_2 y). lia. }
+    rewrite Int.unsigned_repr_cowordsize. generalize (Int.unsigned_range_2 y). lia. }
   apply Int64.same_bits_eq; intros.
   rewrite bits_shl' by auto. symmetry. rewrite bits_ofwords by auto.
   destruct (zlt i Int.zwordsize). rewrite zlt_true by lia. apply Int.bits_zero.
@@ -4624,7 +4624,7 @@ Proof.
   intros.
   assert (Int.unsigned (Int.sub Int.iwordsize y) = Int.zwordsize - Int.unsigned y).
   { unfold Int.sub. rewrite Int.unsigned_repr. auto.
-    rewrite Int.unsigned_repr_wordsize. generalize Int.wordsize_max_unsigned; lia. }
+    rewrite Int.unsigned_repr_cowordsize. generalize Int.wordsize_max_unsigned; lia. }
   assert (zwordsize = 2 * Int.zwordsize) by reflexivity.
   apply Int64.same_bits_eq; intros.
   rewrite bits_shru' by auto. symmetry. rewrite bits_ofwords by auto.
@@ -4655,7 +4655,7 @@ Proof.
   assert (zwordsize = 2 * Int.zwordsize) by reflexivity.
   assert (Int.unsigned (Int.sub y Int.iwordsize) = Int.unsigned y - Int.zwordsize).
   { unfold Int.sub. rewrite Int.unsigned_repr. auto.
-    rewrite Int.unsigned_repr_wordsize. generalize (Int.unsigned_range_2 y). lia. }
+    rewrite Int.unsigned_repr_cowordsize. generalize (Int.unsigned_range_2 y). lia. }
   apply Int64.same_bits_eq; intros.
   rewrite bits_shru' by auto. symmetry. rewrite bits_ofwords by auto.
   destruct (zlt i Int.zwordsize).
@@ -4677,7 +4677,7 @@ Proof.
   intros.
   assert (Int.unsigned (Int.sub Int.iwordsize y) = Int.zwordsize - Int.unsigned y).
   { unfold Int.sub. rewrite Int.unsigned_repr. auto.
-    rewrite Int.unsigned_repr_wordsize. generalize Int.wordsize_max_unsigned; lia. }
+    rewrite Int.unsigned_repr_cowordsize. generalize Int.wordsize_max_unsigned; lia. }
   assert (zwordsize = 2 * Int.zwordsize) by reflexivity.
   apply Int64.same_bits_eq; intros.
   rewrite bits_shr' by auto. symmetry. rewrite bits_ofwords by auto.
@@ -4710,7 +4710,7 @@ Proof.
   assert (zwordsize = 2 * Int.zwordsize) by reflexivity.
   assert (Int.unsigned (Int.sub y Int.iwordsize) = Int.unsigned y - Int.zwordsize).
   { unfold Int.sub. rewrite Int.unsigned_repr. auto.
-    rewrite Int.unsigned_repr_wordsize. generalize (Int.unsigned_range_2 y). lia. }
+    rewrite Int.unsigned_repr_cowordsize. generalize (Int.unsigned_range_2 y). lia. }
   apply Int64.same_bits_eq; intros.
   rewrite bits_shr' by auto. symmetry. rewrite bits_ofwords by auto.
   destruct (zlt i Int.zwordsize).

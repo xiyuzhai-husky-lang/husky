@@ -16,7 +16,7 @@ husky-toml-token = { path = "../../lex/husky-toml-token" }
 # infer
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # kernel
-husky-word = { path = "../../kernel/husky-word" }
+husky-coword = { path = "../../kernel/husky-coword" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax

@@ -1,8 +1,8 @@
 use crate::*;
+use husky_coword::RootBuiltinIdent;
 use husky_entity_semantics::{Visualizer, VisualizerVariant};
 use husky_ethereal_term::EtherealTerm;
 use husky_vm::__VMResult;
-use husky_word::RootBuiltinIdent;
 
 pub(crate) fn visual_feature_lazy_block(
     db: &dyn FeatureGenQueryGroup,

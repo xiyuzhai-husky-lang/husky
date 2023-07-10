@@ -22,7 +22,7 @@ husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-coword = { path = "../../kernel/husky-coword" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
     "binding"

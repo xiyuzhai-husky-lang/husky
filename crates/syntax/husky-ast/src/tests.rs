@@ -1,14 +1,14 @@
 pub(crate) use husky_token::test_utils::*;
 
 use crate::*;
+use husky_coword::CowordJar;
 use husky_entity_path::EntityPathJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_vfs::*;
-use husky_word::WordJar;
 use salsa::{Database, ParallelDatabase, Snapshot};
 
-#[salsa::db(WordJar, VfsJar, EntityPathJar, TokenJar, AstJar, TermPreludeJar)]
+#[salsa::db(CowordJar, VfsJar, EntityPathJar, TokenJar, AstJar, TermPreludeJar)]
 #[derive(Default)]
 pub(crate) struct DB {
     storage: salsa::Storage<Self>,

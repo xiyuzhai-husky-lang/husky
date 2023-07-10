@@ -33,8 +33,8 @@ pub use watch::{VfsWatcher, WatchableVfsDb, WatchedVfs};
 
 use dashmap::{mapref::entry::Entry, DashMap};
 use file::*;
+use husky_coword::*;
 use husky_print_utils::p;
-use husky_word::*;
 use notify_debouncer_mini::notify::RecursiveMode;
 
 use salsa::storage::HasJar;

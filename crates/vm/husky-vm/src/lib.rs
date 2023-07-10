@@ -38,7 +38,7 @@ pub use stack_idx::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_loop_syntax::*;
 
-use husky_word::Ident;
+use husky_coword::Ident;
 use std::sync::Arc;
 
 pub fn eval_fast<'temp, 'eval: 'temp>(

@@ -7,7 +7,7 @@ use husky_entity_tree::*;
 use husky_print_utils::p;
 use husky_token::*;
 
-use husky_word::Ident;
+use husky_coword::Ident;
 use parsec::*;
 
 pub(crate) struct DeclParser<'a> {

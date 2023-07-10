@@ -7,8 +7,8 @@ pub use self::regular::*;
 pub use self::variadic::*;
 
 use super::*;
+use husky_coword::Ident;
 use husky_ethereal_signature::ExplicitParameterEtherealSignatureTemplate;
-use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]

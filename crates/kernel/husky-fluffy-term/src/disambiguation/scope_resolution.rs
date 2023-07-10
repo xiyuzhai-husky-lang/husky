@@ -6,8 +6,8 @@ use self::ethereal::*;
 use self::hollow::*;
 use self::solid::*;
 use super::*;
+use husky_coword::Ident;
 use husky_ethereal_signature::{HasTypeItemTemplates, TypeItemEtherealSignatureTemplates};
-use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]

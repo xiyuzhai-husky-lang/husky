@@ -42,7 +42,7 @@ pub trait VfsTestUtils: VfsDb {
         let toolchain = self.dev_toolchain().unwrap();
         for domain in vfs_test_suites() {
             for (path, name) in collect_package_relative_dirs(
-                <Self as salsa::DbWithJar<WordJar>>::as_jar_db(self),
+                <Self as salsa::DbWithJar<CowordJar>>::as_jar_db(self),
                 &domain.src_base(),
             )
             .into_iter()

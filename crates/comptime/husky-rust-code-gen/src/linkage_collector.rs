@@ -25,7 +25,7 @@ impl<'a> LinkageCollector<'a> {
         //         if entity_path.spatial_arguments.len() > 0 {
         //             self.insert(self.db.subroute(
         //                 entity_path,
-        //                 self.db.it_word("ilen").custom(),
+        //                 self.db.it_coword("ilen").custom(),
         //                 Default::default(),
         //             ))
         //         }

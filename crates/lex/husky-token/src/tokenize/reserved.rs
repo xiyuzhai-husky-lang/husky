@@ -3,8 +3,8 @@ use vec_like::VecPairMap;
 use super::*;
 
 #[salsa::tracked(jar = TokenJar, return_ref)]
-pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pretoken> {
-    macro_rules! gen_reserved_words {
+pub(crate) fn reserved_cowords(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pretoken> {
+    macro_rules! gen_reserved_cowords {
         ($($args: expr),*,) => {
             [
                 $(($args.code(), $args.into())),*
@@ -12,7 +12,7 @@ pub(crate) fn reserved_words(_db: &dyn TokenDb) -> VecPairMap<&'static str, Pret
         };
     }
     VecPairMap::from_iter_assuming_no_repetitions(
-        gen_reserved_words![
+        gen_reserved_cowords![
             Keyword::Main,
             Keyword::Use,
             Keyword::Mod,

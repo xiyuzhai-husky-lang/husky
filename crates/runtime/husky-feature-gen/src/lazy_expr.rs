@@ -9,11 +9,11 @@ use EntityPath;
 
 use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
+use husky_coword::RootBuiltinIdent;
 use husky_entity_semantics::*;
 use husky_ethereal_term::EtherealTerm;
 use husky_lazy_semantics::*;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
-use husky_word::RootBuiltinIdent;
 use std::sync::Arc;
 
 use crate::{eval_id::FeatureEvalId, *};

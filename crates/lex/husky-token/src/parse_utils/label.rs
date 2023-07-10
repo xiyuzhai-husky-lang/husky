@@ -1,4 +1,4 @@
-use husky_word::Label;
+use husky_coword::Label;
 
 use super::*;
 

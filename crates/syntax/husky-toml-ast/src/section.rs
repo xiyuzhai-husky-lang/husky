@@ -7,7 +7,7 @@ pub use self::title::*;
 pub use self::visitor::*;
 
 use crate::*;
-use husky_word::Word;
+use husky_coword::Coword;
 use idx_arena::{Arena, ArenaIdx};
 use smallvec::SmallVec;
 use vec_like::{AsVecMapEntry, VecMap};
@@ -41,12 +41,12 @@ pub struct TomlSection {
 #[derive(Debug, PartialEq, Eq)]
 pub struct TomlSectionEntry {
     line_group_idx: TomlLineGroupIdx,
-    key: Word,
+    key: Coword,
     value: Option<TomlExprIdx>,
 }
 
 impl AsVecMapEntry for TomlSectionEntry {
-    type K = Word;
+    type K = Coword;
 
     fn key(&self) -> Self::K
     where
@@ -65,7 +65,7 @@ impl TomlSectionEntry {
         self.line_group_idx
     }
 
-    pub fn key(&self) -> Word {
+    pub fn key(&self) -> Coword {
         self.key
     }
 
@@ -98,7 +98,7 @@ impl TomlSection {
         &self.entries
     }
 
-    pub fn get_entry(&self, key: Word) -> Option<&TomlSectionEntry> {
+    pub fn get_entry(&self, key: Coword) -> Option<&TomlSectionEntry> {
         self.entries.get_entry(key)
     }
 }

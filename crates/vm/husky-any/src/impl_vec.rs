@@ -1,7 +1,7 @@
 use super::*;
+use husky_coword::RootBuiltinIdent;
 use husky_ethereal_term::make_route;
 use husky_print_utils::msg_once;
-use husky_word::RootBuiltinIdent;
 use thin_vec::thin_vec;
 
 impl<'a, T> __StaticInfo for Vec<T>

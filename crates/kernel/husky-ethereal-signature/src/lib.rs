@@ -12,9 +12,9 @@ pub use self::signature::*;
 
 use self::instantiator::*;
 use self::parameter::*;
+use husky_coword::*;
 use husky_entity_path::*;
 use husky_ethereal_term::*;
-use husky_word::*;
 use maybe_result::*;
 use smallvec::*;
 

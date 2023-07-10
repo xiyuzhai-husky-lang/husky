@@ -1,5 +1,5 @@
 [package]
-name = "husky-word"
+name = "husky-coword"
 version = "0.1.0"
 edition = "2021"
 

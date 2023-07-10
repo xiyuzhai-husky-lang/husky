@@ -1,7 +1,7 @@
+use husky_coword::{Ident, RootBuiltinIdent};
 use husky_entity_semantics::{
     CallFormSource, DefinitionRepr, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
 };
-use husky_word::{Ident, RootBuiltinIdent};
 
 use super::*;
 

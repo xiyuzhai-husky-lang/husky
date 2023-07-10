@@ -21,6 +21,7 @@ pub use self::specs::*;
 
 use self::parser::*;
 use either::*;
+use husky_coword::*;
 use husky_entity_path::{EntityPath, TypeVariantPath};
 use husky_entity_taxonomy::EntityKind;
 use husky_scope::Scope;
@@ -29,7 +30,6 @@ use husky_token::{
     DecrIdentToken, IdentToken, TokenGroupIdx, TokenIdx, TokenStreamState, VerticalToken,
 };
 use husky_vfs::*;
-use husky_word::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DbWithJar;
 

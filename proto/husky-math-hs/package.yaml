@@ -26,6 +26,8 @@ dependencies:
 - test-framework-hunit
 - HUnit
 - containers == 0.6.*
+- parsec
+-  syb
 
 ghc-options:
 - -Wall

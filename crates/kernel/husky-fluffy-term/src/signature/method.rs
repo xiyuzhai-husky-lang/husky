@@ -1,5 +1,5 @@
 use super::*;
-use husky_word::Ident;
+use husky_coword::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]

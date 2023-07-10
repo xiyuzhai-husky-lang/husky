@@ -4,13 +4,13 @@ use vec_like::VecSet;
 pub struct TomlTableVisitor<'a> {
     toml_ast_sheet: &'a TomlAstSheet,
     table: &'a TomlTable,
-    visits: VecSet<Word>,
+    visits: VecSet<Coword>,
 }
 
 impl<'a> TomlTableVisitor<'a> {
     /// get the value for the key
     /// todo: mark the entry as visited
-    pub fn visit(&mut self, key: Word) -> Option<&'a TomlTableValue> {
+    pub fn visit(&mut self, key: Coword) -> Option<&'a TomlTableValue> {
         self.visits.insert_new(key).unwrap();
         self.table.get(key)
     }

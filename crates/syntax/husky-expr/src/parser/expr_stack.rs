@@ -52,7 +52,7 @@ impl ExprStack {
 }
 
 impl Expr {
-    pub fn base_entity_path(&self, db: &dyn WordDb, arena: &ExprArena) -> BaseEntityPath {
+    pub fn base_entity_path(&self, db: &dyn CowordDb, arena: &ExprArena) -> BaseEntityPath {
         match self {
             Expr::Literal(_, _) => BaseEntityPath::None,
             Expr::PrincipalEntityPath { opt_path: path, .. } => match *path {
@@ -322,7 +322,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     eq_token,
                 } => {
                     self.reduce_aux(|this, opt_complete_expr, incomplete_expr| {
-                        let Some(argument_expr) =  opt_complete_expr else {
+                        let Some(argument_expr) = opt_complete_expr else {
                             todo!()
                         };
                         let argument_expr_idx = this.alloc_expr(argument_expr);

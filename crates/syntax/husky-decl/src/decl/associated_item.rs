@@ -9,8 +9,8 @@ pub use self::trai_item::*;
 pub use self::ty_item::*;
 
 use super::*;
+use husky_coword::Ident;
 use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
-use husky_word::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]

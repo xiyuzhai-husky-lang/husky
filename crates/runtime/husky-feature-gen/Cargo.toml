@@ -29,7 +29,7 @@ husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-word = { path = "../../kernel/husky-word" }
+husky-coword = { path = "../../kernel/husky-coword" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }

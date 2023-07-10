@@ -1,12 +1,12 @@
 use super::*;
 use expect_test::expect_file;
 
+use husky_coword::{CowordDb, CowordJar};
 use husky_vfs::*;
-use husky_word::{WordDb, WordJar};
 use salsa::Database;
 use std::sync::Arc;
 
-#[salsa::db(WordJar, VfsJar, TomlTokenJar)]
+#[salsa::db(CowordJar, VfsJar, TomlTokenJar)]
 #[derive(Default)]
 struct DB {
     storage: salsa::Storage<Self>,
@@ -24,7 +24,7 @@ fn err(input: &str, err: TomlTokenError) {
 
 #[test]
 fn literal_strings() {
-    fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
+    fn t(db: &dyn CowordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap().variant().clone();
         assert_eq!(
@@ -50,7 +50,7 @@ fn literal_strings() {
 
 #[test]
 fn basic_strings() {
-    fn t(db: &dyn WordDb, input: &str, val: &str, multiline: bool) {
+    fn t(db: &dyn CowordDb, input: &str, val: &str, multiline: bool) {
         let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap();
         assert_eq!(
@@ -106,12 +106,12 @@ fn basic_strings() {
 
 #[test]
 fn keylike() {
-    fn t(db: &dyn WordDb, input: &str) {
+    fn t(db: &dyn CowordDb, input: &str) {
         let mut t = TomlTokenIter::new(db, input);
         let token = t.next().unwrap();
         assert_eq!(
             token.variant(),
-            &TomlTokenVariant::Word(db.it_word_borrowed(input))
+            &TomlTokenVariant::Word(db.it_coword_borrowed(input))
         );
         assert!(t.next().is_none());
     }
@@ -129,7 +129,7 @@ fn keylike() {
 
 #[test]
 fn all() {
-    fn t(db: &dyn WordDb, input: &str, expected: &[((usize, usize), TomlTokenVariant, &str)]) {
+    fn t(db: &dyn CowordDb, input: &str, expected: &[((usize, usize), TomlTokenVariant, &str)]) {
         let mut tokens = TomlTokenIter::new(db, input);
         let mut actual: Vec<(TomlToken, &str)> = Vec::new();
         while let Some(token) = tokens.next() {
@@ -148,7 +148,7 @@ fn all() {
         " a ",
         &[(
             (1, 2),
-            TomlTokenVariant::Word(db.it_word_borrowed("a")),
+            TomlTokenVariant::Word(db.it_coword_borrowed("a")),
             "a",
         )],
     );
@@ -159,7 +159,7 @@ fn all() {
         &[
             (
                 (1, 2),
-                TomlTokenVariant::Word(db.it_word_borrowed("a")),
+                TomlTokenVariant::Word(db.it_coword_borrowed("a")),
                 "a",
             ),
             ((4, 5), TomlSpecialToken::LeftBox.into(), "["),

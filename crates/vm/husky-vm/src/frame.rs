@@ -1,5 +1,5 @@
 use crate::*;
-use husky_word::Ident;
+use husky_coword::Ident;
 
 #[derive(Debug)]
 pub struct LoopFrameData<'eval> {

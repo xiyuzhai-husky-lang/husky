@@ -7,7 +7,7 @@ pub use self::punctuation::*;
 pub use self::wordopr::*;
 
 use crate::*;
-use husky_word::Label;
+use husky_coword::Label;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
