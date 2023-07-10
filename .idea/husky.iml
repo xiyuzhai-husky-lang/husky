@@ -161,6 +161,29 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/vm/husky-vm-register-method/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/vm/husky-vm/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/forks/thin-vec/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/has/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/maybe-result/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/abstraction/original-error/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/experiments/template-matching-viewer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/ide/husky-token-info/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-declarative-signature/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-declarative-term/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-declarative-ty/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-ethereal-signature/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-ethereal-term/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-fluffy-term/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-scope/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/lex/husky-math-token/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/semantics/husky-binding-infer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/semantics/husky-corgi-config/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/semantics/husky-expr-ty/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/semantics/husky-lifetime-infer/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/semantics/husky-manifest/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/semantics/husky-toolchain-config/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-english/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-scope-expr/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/try/try-alloc/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/try/try-tch-rs/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
