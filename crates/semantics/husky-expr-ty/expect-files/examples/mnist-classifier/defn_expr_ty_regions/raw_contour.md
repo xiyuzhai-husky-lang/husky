@@ -2727,7 +2727,7 @@
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 310,
                                         },
@@ -7210,7 +7210,7 @@
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 337,
                                         },
@@ -7912,7 +7912,7 @@
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 337,
                                         },
@@ -8502,7 +8502,7 @@
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 337,
                                         },
@@ -9663,7 +9663,7 @@
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 339,
                                         },

@@ -41,7 +41,7 @@
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 166,
                                         },
@@ -3575,7 +3575,7 @@
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 175,
                                         },
@@ -3618,7 +3618,7 @@
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 175,
                                         },

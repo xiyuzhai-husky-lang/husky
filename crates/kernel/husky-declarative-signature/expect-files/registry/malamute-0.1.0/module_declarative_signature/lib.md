@@ -131,7 +131,7 @@
                                     Keyed(
                                         ExplicitKeyedParameterDeclarativeSignatureTemplate {
                                             key: Ident(
-                                                Word(
+                                                Coword(
                                                     Id {
                                                         value: 444,
                                                     },

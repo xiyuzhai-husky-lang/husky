@@ -2053,7 +2053,7 @@
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 5,
                                         },

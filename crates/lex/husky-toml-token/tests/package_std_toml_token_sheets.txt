@@ -18,7 +18,7 @@ Some(
                 },
                 range: [1:2, 1:9),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 46,
                         },
@@ -42,7 +42,7 @@ Some(
                 },
                 range: [2:1, 2:5),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 47,
                         },
@@ -77,7 +77,7 @@ Some(
                 },
                 range: [3:1, 3:8),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 48,
                         },
@@ -112,7 +112,7 @@ Some(
                 },
                 range: [4:1, 4:8),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 49,
                         },
@@ -147,7 +147,7 @@ Some(
                 },
                 range: [5:1, 5:11),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 50,
                         },
@@ -182,7 +182,7 @@ Some(
                 },
                 range: [6:1, 6:12),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 51,
                         },
@@ -217,7 +217,7 @@ Some(
                 },
                 range: [7:1, 7:10),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 52,
                         },
@@ -241,7 +241,7 @@ Some(
                 },
                 range: [7:13, 7:18),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 53,
                         },
@@ -255,7 +255,7 @@ Some(
                 },
                 range: [8:1, 8:12),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 54,
                         },
@@ -279,7 +279,7 @@ Some(
                 },
                 range: [8:15, 8:20),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 53,
                         },
@@ -309,7 +309,7 @@ Some(
                 },
                 range: [11:1, 11:8),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 55,
                         },
@@ -354,7 +354,7 @@ Some(
                 },
                 range: [13:2, 13:5),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 56,
                         },
@@ -378,7 +378,7 @@ Some(
                 },
                 range: [14:1, 14:5),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 57,
                         },
@@ -402,7 +402,7 @@ Some(
                 },
                 range: [14:8, 14:13),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 53,
                         },
@@ -416,7 +416,7 @@ Some(
                 },
                 range: [15:1, 15:6),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 58,
                         },
@@ -440,7 +440,7 @@ Some(
                 },
                 range: [15:9, 15:14),
                 variant: Word(
-                    Word(
+                    Coword(
                         Id {
                             value: 53,
                         },

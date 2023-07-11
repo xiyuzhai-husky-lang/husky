@@ -38,7 +38,7 @@ Ok(
                                             visibility: None,
                                             ident_token: IdentToken {
                                                 ident: Ident(
-                                                    Word(
+                                                    Coword(
                                                         Id {
                                                             value: 284,
                                                         },
@@ -61,7 +61,7 @@ Ok(
                                             visibility: None,
                                             ident_token: IdentToken {
                                                 ident: Ident(
-                                                    Word(
+                                                    Coword(
                                                         Id {
                                                             value: 285,
                                                         },
@@ -212,7 +212,7 @@ Ok(
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
-                                                        Word(
+                                                        Coword(
                                                             Id {
                                                                 value: 284,
                                                             },
@@ -229,7 +229,7 @@ Ok(
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
-                                                        Word(
+                                                        Coword(
                                                             Id {
                                                                 value: 285,
                                                             },

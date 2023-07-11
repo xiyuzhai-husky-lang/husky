@@ -17,7 +17,7 @@ TomlTokenSheet {
             },
             range: [1:2, 1:9),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 46,
                     },
@@ -41,7 +41,7 @@ TomlTokenSheet {
             },
             range: [2:1, 2:5),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 47,
                     },
@@ -76,7 +76,7 @@ TomlTokenSheet {
             },
             range: [3:1, 3:8),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 48,
                     },
@@ -111,7 +111,7 @@ TomlTokenSheet {
             },
             range: [4:1, 4:8),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 49,
                     },
@@ -146,7 +146,7 @@ TomlTokenSheet {
             },
             range: [5:1, 5:11),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 50,
                     },
@@ -181,7 +181,7 @@ TomlTokenSheet {
             },
             range: [6:1, 6:12),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 51,
                     },
@@ -216,7 +216,7 @@ TomlTokenSheet {
             },
             range: [7:1, 7:10),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 52,
                     },
@@ -240,7 +240,7 @@ TomlTokenSheet {
             },
             range: [7:13, 7:18),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 53,
                     },
@@ -254,7 +254,7 @@ TomlTokenSheet {
             },
             range: [8:1, 8:12),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 54,
                     },
@@ -278,7 +278,7 @@ TomlTokenSheet {
             },
             range: [8:15, 8:20),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 53,
                     },
@@ -308,7 +308,7 @@ TomlTokenSheet {
             },
             range: [11:1, 11:8),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 55,
                     },
@@ -353,7 +353,7 @@ TomlTokenSheet {
             },
             range: [13:2, 13:5),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 56,
                     },
@@ -377,7 +377,7 @@ TomlTokenSheet {
             },
             range: [14:1, 14:5),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 57,
                     },
@@ -401,7 +401,7 @@ TomlTokenSheet {
             },
             range: [14:8, 14:13),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 53,
                     },
@@ -415,7 +415,7 @@ TomlTokenSheet {
             },
             range: [15:1, 15:6),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 58,
                     },
@@ -439,7 +439,7 @@ TomlTokenSheet {
             },
             range: [15:9, 15:14),
             variant: Word(
-                Word(
+                Coword(
                     Id {
                         value: 53,
                     },

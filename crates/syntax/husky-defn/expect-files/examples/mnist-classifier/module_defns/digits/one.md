@@ -905,7 +905,7 @@ Ok(
                                                             39,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -1089,7 +1089,7 @@ Ok(
                                                             68,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -1564,7 +1564,7 @@ Ok(
                                                             150,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -1993,7 +1993,7 @@ Ok(
                                                             213,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -2210,7 +2210,7 @@ Ok(
                                                             243,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -2668,7 +2668,7 @@ Ok(
                                                             315,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -2831,7 +2831,7 @@ Ok(
                                                             337,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -3141,7 +3141,7 @@ Ok(
                                                             381,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -3516,7 +3516,7 @@ Ok(
                                                             445,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },

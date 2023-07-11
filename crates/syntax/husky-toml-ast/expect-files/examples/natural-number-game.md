@@ -25,7 +25,7 @@ Ok(
                     TomlSection {
                         title: TomlSectionTitle(
                             [
-                                Word(
+                                Coword(
                                     Id {
                                         value: 3,
                                     },
@@ -38,7 +38,7 @@ Ok(
                                 line_group_idx: TomlLineGroupIdx(
                                     1,
                                 ),
-                                key: Word(
+                                key: Coword(
                                     Id {
                                         value: 4,
                                     },
@@ -51,7 +51,7 @@ Ok(
                                 line_group_idx: TomlLineGroupIdx(
                                     2,
                                 ),
-                                key: Word(
+                                key: Coword(
                                     Id {
                                         value: 5,
                                     },
@@ -64,7 +64,7 @@ Ok(
                                 line_group_idx: TomlLineGroupIdx(
                                     3,
                                 ),
-                                key: Word(
+                                key: Coword(
                                     Id {
                                         value: 8,
                                     },
@@ -77,7 +77,7 @@ Ok(
                                 line_group_idx: TomlLineGroupIdx(
                                     4,
                                 ),
-                                key: Word(
+                                key: Coword(
                                     Id {
                                         value: 6,
                                     },
@@ -91,7 +91,7 @@ Ok(
                     TomlSection {
                         title: TomlSectionTitle(
                             [
-                                Word(
+                                Coword(
                                     Id {
                                         value: 19,
                                     },
@@ -104,7 +104,7 @@ Ok(
                                 line_group_idx: TomlLineGroupIdx(
                                     6,
                                 ),
-                                key: Word(
+                                key: Coword(
                                     Id {
                                         value: 21,
                                     },
@@ -179,14 +179,14 @@ Ok(
         ],
         table: TomlTable {
             data: {
-                Word(
+                Coword(
                     Id {
                         value: 3,
                     },
                 ): Section(
                     0,
                 ),
-                Word(
+                Coword(
                     Id {
                         value: 19,
                     },

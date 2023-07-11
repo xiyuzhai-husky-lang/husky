@@ -38,7 +38,7 @@ Ok(
                                             visibility: None,
                                             ident_token: IdentToken {
                                                 ident: Ident(
-                                                    Word(
+                                                    Coword(
                                                         Id {
                                                             value: 265,
                                                         },
@@ -61,7 +61,7 @@ Ok(
                                             visibility: None,
                                             ident_token: IdentToken {
                                                 ident: Ident(
-                                                    Word(
+                                                    Coword(
                                                         Id {
                                                             value: 236,
                                                         },
@@ -232,7 +232,7 @@ Ok(
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
-                                                        Word(
+                                                        Coword(
                                                             Id {
                                                                 value: 265,
                                                             },
@@ -249,7 +249,7 @@ Ok(
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
-                                                        Word(
+                                                        Coword(
                                                             Id {
                                                                 value: 236,
                                                             },
@@ -5960,7 +5960,7 @@ Ok(
                                             visibility: None,
                                             ident_token: IdentToken {
                                                 ident: Ident(
-                                                    Word(
+                                                    Coword(
                                                         Id {
                                                             value: 313,
                                                         },
@@ -5983,7 +5983,7 @@ Ok(
                                             visibility: None,
                                             ident_token: IdentToken {
                                                 ident: Ident(
-                                                    Word(
+                                                    Coword(
                                                         Id {
                                                             value: 314,
                                                         },
@@ -6134,7 +6134,7 @@ Ok(
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
-                                                        Word(
+                                                        Coword(
                                                             Id {
                                                                 value: 313,
                                                             },
@@ -6151,7 +6151,7 @@ Ok(
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
-                                                        Word(
+                                                        Coword(
                                                             Id {
                                                                 value: 314,
                                                             },
@@ -7771,7 +7771,7 @@ Ok(
                                                         980,
                                                     ),
                                                     ident: Ident(
-                                                        Word(
+                                                        Coword(
                                                             Id {
                                                                 value: 319,
                                                             },
@@ -14085,7 +14085,7 @@ Ok(
                                                 Expanded {
                                                     property_ident: IdentToken {
                                                         ident: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 236,
                                                                 },

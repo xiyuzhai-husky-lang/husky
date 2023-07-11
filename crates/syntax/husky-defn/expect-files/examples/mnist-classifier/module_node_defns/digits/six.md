@@ -1432,7 +1432,7 @@ Ok(
                                                             95,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -1797,7 +1797,7 @@ Ok(
                                                             163,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -2055,7 +2055,7 @@ Ok(
                                                             202,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },
@@ -2204,7 +2204,7 @@ Ok(
                                                             228,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },

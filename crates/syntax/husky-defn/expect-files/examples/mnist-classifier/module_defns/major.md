@@ -264,7 +264,7 @@ Ok(
                                                         15,
                                                     ),
                                                     ident: Ident(
-                                                        Word(
+                                                        Coword(
                                                             Id {
                                                                 value: 530,
                                                             },

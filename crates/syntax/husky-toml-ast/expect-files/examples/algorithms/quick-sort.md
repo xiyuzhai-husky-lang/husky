@@ -13,7 +13,7 @@ Ok(
                     TomlSection {
                         title: TomlSectionTitle(
                             [
-                                Word(
+                                Coword(
                                     Id {
                                         value: 3,
                                     },
@@ -26,7 +26,7 @@ Ok(
                                 line_group_idx: TomlLineGroupIdx(
                                     1,
                                 ),
-                                key: Word(
+                                key: Coword(
                                     Id {
                                         value: 4,
                                     },
@@ -61,7 +61,7 @@ Ok(
         ],
         table: TomlTable {
             data: {
-                Word(
+                Coword(
                     Id {
                         value: 3,
                     },
