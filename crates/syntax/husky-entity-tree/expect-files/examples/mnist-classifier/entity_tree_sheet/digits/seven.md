@@ -2091,7 +2091,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `major_connected_component`,
                                                         token_idx: TokenIdx(
-                                                            19,
+                                                            18,
                                                         ),
                                                     },
                                                 },
@@ -2162,7 +2162,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `ignored_connected_components_row_span_sum_sum`,
                                                         token_idx: TokenIdx(
-                                                            70,
+                                                            69,
                                                         ),
                                                     },
                                                 },
@@ -2233,7 +2233,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contours`,
                                                         token_idx: TokenIdx(
-                                                            104,
+                                                            103,
                                                         ),
                                                     },
                                                 },
@@ -2304,7 +2304,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `major_raw_contour`,
                                                         token_idx: TokenIdx(
-                                                            116,
+                                                            115,
                                                         ),
                                                     },
                                                 },
@@ -2375,7 +2375,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `major_line_segment_sketch`,
                                                         token_idx: TokenIdx(
-                                                            129,
+                                                            128,
                                                         ),
                                                     },
                                                 },
@@ -2446,7 +2446,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `major_concave_components`,
                                                         token_idx: TokenIdx(
-                                                            139,
+                                                            138,
                                                         ),
                                                     },
                                                 },

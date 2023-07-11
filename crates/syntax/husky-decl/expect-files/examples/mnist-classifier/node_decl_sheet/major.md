@@ -36,14 +36,14 @@ Ok(
                                 return_ty: Ok(
                                     Some(
                                         ReturnTypeExprBeforeEq {
-                                            expr: 3,
+                                            expr: 2,
                                         },
                                     ),
                                 ),
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            12,
+                                            11,
                                         ),
                                     ),
                                 ),
@@ -67,19 +67,12 @@ Ok(
                                             data: [
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        9,
+                                                        8,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        10,
+                                                        9,
                                                     ),
-                                                },
-                                                Expr::Prefix {
-                                                    opr: Tilde,
-                                                    opr_token_idx: TokenIdx(
-                                                        8,
-                                                    ),
-                                                    opd: 0,
                                                 },
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
@@ -92,8 +85,8 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::ExplicitApplication {
-                                                    function_expr_idx: 1,
-                                                    argument_expr_idx: 2,
+                                                    function_expr_idx: 0,
+                                                    argument_expr_idx: 1,
                                                 },
                                             ],
                                         },
@@ -104,7 +97,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConnectedComponent`,
                                                             token_idx: TokenIdx(
-                                                                11,
+                                                                10,
                                                             ),
                                                         },
                                                     ),
@@ -149,7 +142,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 3,
+                                                expr_idx: 2,
                                             },
                                         ],
                                     },
@@ -185,7 +178,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                20,
+                                                19,
                                             ),
                                         ),
                                     ),
@@ -200,7 +193,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            23,
+                                            22,
                                         ),
                                     ),
                                 ),
@@ -235,7 +228,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        21,
+                                                        20,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -248,7 +241,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConnectedComponent`,
                                                             token_idx: TokenIdx(
-                                                                22,
+                                                                21,
                                                             ),
                                                         },
                                                     ),
@@ -329,7 +322,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                71,
+                                                70,
                                             ),
                                         ),
                                     ),
@@ -344,7 +337,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            73,
+                                            72,
                                         ),
                                     ),
                                 ),
@@ -385,7 +378,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                72,
+                                                                71,
                                                             ),
                                                         },
                                                     ),
@@ -466,7 +459,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                105,
+                                                104,
                                             ),
                                         ),
                                     ),
@@ -481,7 +474,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            110,
+                                            109,
                                         ),
                                     ),
                                 ),
@@ -505,17 +498,17 @@ Ok(
                                             data: [
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        107,
+                                                        106,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        108,
+                                                        107,
                                                     ),
                                                 },
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        106,
+                                                        105,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -542,7 +535,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `RawContour`,
                                                             token_idx: TokenIdx(
-                                                                109,
+                                                                108,
                                                             ),
                                                         },
                                                     ),
@@ -623,7 +616,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                117,
+                                                116,
                                             ),
                                         ),
                                     ),
@@ -638,7 +631,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            120,
+                                            119,
                                         ),
                                     ),
                                 ),
@@ -673,7 +666,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        118,
+                                                        117,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -686,7 +679,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `RawContour`,
                                                             token_idx: TokenIdx(
-                                                                119,
+                                                                118,
                                                             ),
                                                         },
                                                     ),
@@ -767,7 +760,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                130,
+                                                129,
                                             ),
                                         ),
                                     ),
@@ -782,7 +775,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            133,
+                                            132,
                                         ),
                                     ),
                                 ),
@@ -817,7 +810,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        131,
+                                                        130,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -830,7 +823,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `LineSegmentSketch`,
                                                             token_idx: TokenIdx(
-                                                                132,
+                                                                131,
                                                             ),
                                                         },
                                                     ),
@@ -911,7 +904,7 @@ Ok(
                                     Some(
                                         ColonToken(
                                             TokenIdx(
-                                                140,
+                                                139,
                                             ),
                                         ),
                                     ),
@@ -926,7 +919,7 @@ Ok(
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            145,
+                                            144,
                                         ),
                                     ),
                                 ),
@@ -950,17 +943,17 @@ Ok(
                                             data: [
                                                 Expr::List {
                                                     lbox_token_idx: TokenIdx(
-                                                        142,
+                                                        141,
                                                     ),
                                                     items: [],
                                                     rbox_token_idx: TokenIdx(
-                                                        143,
+                                                        142,
                                                     ),
                                                 },
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        141,
+                                                        140,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -987,7 +980,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                144,
+                                                                143,
                                                             ),
                                                         },
                                                     ),

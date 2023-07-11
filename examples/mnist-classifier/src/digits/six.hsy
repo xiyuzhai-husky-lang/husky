@@ -32,7 +32,7 @@ pub(super) val is_six: OneVsAll MnistLabel MnistLabel::Six =
                 upmost_match_dp_y,
                 skip = 15
             )?
-            return MnistLabel::Six
+            return OneVsAll::Yes
         let rel_upmost_match_end = major_line_segment_sketch.bounding_box.relative_point(
             upmost_match.end()
         )

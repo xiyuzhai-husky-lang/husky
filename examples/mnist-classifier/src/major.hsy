@@ -1,6 +1,6 @@
 use crate::*
 
-pub val connected_components: ~[]ConnectedComponent =
+pub val connected_components: []ConnectedComponent =
     find_connected_components(input)
 
 pub val major_connected_component: ~ConnectedComponent =

@@ -40,11 +40,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [50:5, 53:7),
             },
-            Diagnostic {
-                message: "type path mismatch: expect malamute::OneVsAll, but got mnist::MnistLabel instead",
-                severity: Error,
-                range: [35:20, 35:35),
-            },
         ],
     },
 }

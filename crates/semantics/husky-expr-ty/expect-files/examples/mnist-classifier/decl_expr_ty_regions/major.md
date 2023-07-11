@@ -37,27 +37,6 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Tilde(
-                            Leash,
-                        ),
-                        Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    1,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
                         TypePath(
                             OntologyConstructor,
                         ),
@@ -73,7 +52,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    2,
+                    1,
                 ),
             },
             ExprTypeInfo {
@@ -92,7 +71,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    3,
+                    2,
                 ),
             },
         ],
@@ -130,43 +109,15 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: CurryDestination(
-                                ExpectCurryDestination {
-                                    curry_destination: Category(
-                                        TermCategory {
-                                            universe: TermUniverse(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 0,
-                                src: ExpectationSource {
-                                    expr_idx: 0,
-                                    kind: Expr,
-                                },
-                                expectee: Curry(
-                                    EtherealTermCurry(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                ),
-                                resolve_progress: Intact,
-                            },
-                        },
-                        ExpectationEntry {
                             expectation: EqsFunctionType(
                                 ExpectEqsFunctionType {
                                     final_destination: Sort,
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 0,
                                 src: ExpectationSource {
-                                    expr_idx: 1,
+                                    expr_idx: 0,
                                     kind: Expr,
                                 },
                                 expectee: Curry(
@@ -225,9 +176,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 2,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 2,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: Category(
@@ -249,9 +200,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 3,
+                                idx: 2,
                                 src: ExpectationSource {
-                                    expr_idx: 3,
+                                    expr_idx: 2,
                                     kind: Expr,
                                 },
                                 expectee: Category(
