@@ -6,7 +6,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`{val_type} ~ [] mnist_classifier::connected_component::ConnectedComponent`),
+            DeclarativeTerm(`{val_type} [] mnist_classifier::connected_component::ConnectedComponent`),
         ),
     ),
     (

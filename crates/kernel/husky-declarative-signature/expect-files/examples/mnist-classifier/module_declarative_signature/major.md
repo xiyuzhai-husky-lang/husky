@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
                         ValDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`~ [] mnist_classifier::connected_component::ConnectedComponent`),
+                            initialization_ty: DeclarativeTerm(`[] mnist_classifier::connected_component::ConnectedComponent`),
                         },
                     ),
                 ),
