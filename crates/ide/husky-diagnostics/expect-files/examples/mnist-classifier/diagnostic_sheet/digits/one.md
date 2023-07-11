@@ -65,26 +65,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [79:9, 83:11),
             },
-            Diagnostic {
-                message: "type path mismatch: expect malamute::OneVsAll, but got mnist::MnistLabel instead",
-                severity: Error,
-                range: [20:9, 20:24),
-            },
-            Diagnostic {
-                message: "type path mismatch: expect malamute::OneVsAll, but got mnist::MnistLabel instead",
-                severity: Error,
-                range: [34:20, 34:35),
-            },
-            Diagnostic {
-                message: "type path mismatch: expect malamute::OneVsAll, but got mnist::MnistLabel instead",
-                severity: Error,
-                range: [91:9, 91:24),
-            },
-            Diagnostic {
-                message: "type path mismatch: expect malamute::OneVsAll, but got mnist::MnistLabel instead",
-                severity: Error,
-                range: [7:5, 91:24),
-            },
         ],
     },
 }

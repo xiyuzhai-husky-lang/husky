@@ -593,7 +593,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
+                `OneVsAll`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -603,7 +603,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `Zero`,
+                `Yes`,
             ),
             Token::Keyword(
                 Keyword::Stmt(

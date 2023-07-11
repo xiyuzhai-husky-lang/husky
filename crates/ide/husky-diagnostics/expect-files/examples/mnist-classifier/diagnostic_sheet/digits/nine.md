@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "type path mismatch: expect malamute::OneVsAll, but got mnist::MnistLabel instead",
-                severity: Error,
-                range: [38:16, 38:32),
-            },
-        ],
+        diagnostics: [],
     },
 }

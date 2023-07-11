@@ -265,7 +265,7 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`mnist::MnistLabel`, `Enum`),
+                        TypePath(`malamute::OneVsAll`, `Enum`),
                     ),
                 ),
             ),
@@ -273,8 +273,8 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::TypeVariant(
                     TypeVariantPath {
-                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                        ident: `One`,
+                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                        ident: `Yes`,
                     },
                 ),
             ),
@@ -450,7 +450,7 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`mnist::MnistLabel`, `Enum`),
+                        TypePath(`malamute::OneVsAll`, `Enum`),
                     ),
                 ),
             ),
@@ -458,8 +458,8 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::TypeVariant(
                     TypeVariantPath {
-                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                        ident: `One`,
+                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                        ident: `Yes`,
                     },
                 ),
             ),
@@ -1159,7 +1159,7 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`mnist::MnistLabel`, `Enum`),
+                        TypePath(`malamute::OneVsAll`, `Enum`),
                     ),
                 ),
             ),
@@ -1167,8 +1167,8 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::TypeVariant(
                     TypeVariantPath {
-                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                        ident: `One`,
+                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                        ident: `Yes`,
                     },
                 ),
             ),

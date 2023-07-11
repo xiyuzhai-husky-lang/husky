@@ -409,7 +409,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
+                `OneVsAll`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -419,7 +419,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `One`,
+                `Yes`,
             ),
             Token::Keyword(
                 Keyword::Stmt(
@@ -805,7 +805,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
+                `OneVsAll`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -815,7 +815,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `One`,
+                `Yes`,
             ),
             Token::Keyword(
                 Keyword::Stmt(
@@ -2323,7 +2323,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
+                `OneVsAll`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -2333,7 +2333,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `One`,
+                `Yes`,
             ),
             Token::Keyword(
                 Keyword::Fugitive(

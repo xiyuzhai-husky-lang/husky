@@ -340,18 +340,18 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 220;\n\ntoken_line_group_idx = 27\n\ntoken = Token::Ident(\n    `Six`,\n);\n\ntoken_info = TokenInfo::Entity(\n    EntityPath::TypeVariant(\n        TypeVariantPath {\n            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),\n            ident: `Six`,\n        },\n    ),\n);\n\n\n",
+                                value: "\ntoken_idx = 220;\n\ntoken_line_group_idx = 27\n\ntoken = Token::Ident(\n    `Yes`,\n);\n\ntoken_info = TokenInfo::Entity(\n    EntityPath::TypeVariant(\n        TypeVariantPath {\n            parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),\n            ident: `Yes`,\n        },\n    ),\n);\n\n\n",
                             },
                         ),
                         range: Some(
                             Range {
                                 start: Position {
                                     line: 46,
-                                    character: 31,
+                                    character: 29,
                                 },
                                 end: Position {
                                     line: 46,
-                                    character: 34,
+                                    character: 32,
                                 },
                             },
                         ),
