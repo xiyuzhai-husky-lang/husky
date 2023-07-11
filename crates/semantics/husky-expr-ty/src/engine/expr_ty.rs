@@ -9,6 +9,7 @@ mod index_or_compose_with_list;
 mod literal;
 mod method;
 mod prefix;
+mod principal_entity_path;
 mod ritchie_call_ty;
 mod suffix;
 mod utils;
@@ -384,21 +385,6 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Expr::Err(_) => Err(DerivedExprTypeError::ExprError.into()),
         }
-    }
-
-    fn calc_principal_entity_path_expr_ty(
-        &mut self,
-        path: Option<PrincipalEntityPath>,
-        expr_ty_expectation: &impl ExpectFluffyTerm,
-    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        let disambiguation = expr_ty_expectation.disambiguate_ty_path(self);
-        Ok((
-            disambiguation.into(),
-            Ok(path
-                .ok_or(DerivedExprTypeError::EntityPathError)?
-                .ty(self.db, disambiguation)?
-                .into()),
-        ))
     }
 
     fn calc_explicit_application(

@@ -1,10 +1,13 @@
 use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
 use husky_entity_tree::EntityTreeBundleError;
+use thiserror::Error;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
 pub enum EtherealSignatureError {
+    #[error("term error")]
     TermError,
+    #[error("DerivedFromDeclarative")]
     DerivedFromDeclarative,
 }
 

@@ -6,6 +6,7 @@ pub use self::term::*;
 
 use crate::*;
 use husky_entity_path::EntityPathError;
+use husky_ethereal_signature::EtherealSignatureError;
 use husky_ethereal_term::EtherealTermError;
 use husky_expr::ExprIdx;
 use husky_token::IdentToken;
@@ -18,6 +19,12 @@ pub enum ExprTypeError {
     Original(#[from] OriginalExprTypeError),
     #[error("original {0}")]
     Derived(#[from] DerivedExprTypeError),
+}
+
+impl From<EtherealSignatureError> for ExprTypeError {
+    fn from(e: EtherealSignatureError) -> Self {
+        ExprTypeError::Derived(e.into())
+    }
 }
 
 impl From<EtherealTermError> for ExprTypeError {
@@ -173,6 +180,8 @@ pub enum DerivedExprTypeError {
     UnableToInferArgumentTermForDependentType,
     #[error("UnableToInferReturnTypeForUnveiling")]
     UnableToInferReturnTypeForUnveiling,
+    #[error("EtherealSignature")]
+    EtherealSignature(#[from] EtherealSignatureError),
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;
