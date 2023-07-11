@@ -156,7 +156,7 @@ impl<'a> ExprTypeEngine<'a> {
                 ExprRootKind::BlockExpr => match self.return_ty {
                     Some(return_ty) => self.infer_new_expr_ty_discarded(
                         root.expr_idx(),
-                        ExpectImplicitlyConvertible::new_move(return_ty.into()),
+                        ExpectCoersion::new_move(return_ty.into()),
                     ),
                     None => self.infer_new_expr_ty_discarded(root.expr_idx(), ExpectAnyDerived),
                 },
@@ -165,7 +165,7 @@ impl<'a> ExprTypeEngine<'a> {
                     match self.infer_new_expr_term(ty_expr_idx) {
                         Some(ty) => self.infer_new_expr_ty_discarded(
                             root.expr_idx(),
-                            ExpectImplicitlyConvertible::new_move(ty),
+                            ExpectCoersion::new_move(ty),
                         ),
                         _ => todo!(),
                     }

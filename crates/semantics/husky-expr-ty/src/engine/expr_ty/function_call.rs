@@ -48,7 +48,7 @@ impl<'a> ExprTypeEngine<'a> {
                     0 => unreachable!(),
                     1 => self.infer_new_expr_ty_discarded(
                         items.first().expect("len is 1").expr_idx(),
-                        ExpectImplicitlyConvertible::new_const(*parameter_ty),
+                        ExpectCoersion::new_const(*parameter_ty),
                     ),
                     // parameter_ty must be a tuple
                     // distribute the types for a tuple

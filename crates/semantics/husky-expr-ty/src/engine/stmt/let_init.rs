@@ -32,7 +32,7 @@ impl<'a> ExprTypeEngine<'a> {
                 );
                 self.infer_new_expr_ty_discarded(
                     initial_value,
-                    ExpectImplicitlyConvertible::new(contract, pattern_ty),
+                    ExpectCoersion::new(contract, pattern_ty),
                 );
             }
             None => {

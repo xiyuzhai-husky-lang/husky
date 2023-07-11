@@ -15,10 +15,7 @@ impl<'a> ExprTypeEngine<'a> {
             self.infer_new_expr_ty_discarded(ropd, ExpectAnyDerived);
             Err(DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred)?
         };
-        self.infer_new_expr_ty_discarded(
-            ropd,
-            ExpectImplicitlyConvertible::new_pure(self, lopd_ty),
-        );
+        self.infer_new_expr_ty_discarded(ropd, ExpectCoersion::new_pure(self, lopd_ty));
         match lopd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {

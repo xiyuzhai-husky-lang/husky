@@ -17,20 +17,20 @@ impl<'a> ExprTypeEngine<'a> {
                         RitchieParameterArgumentMatch::Regular(param, item) => self
                             .infer_new_expr_ty_discarded(
                                 item.argument_expr_idx(),
-                                ExpectImplicitlyConvertible::new(param.contract(), param.ty()),
+                                ExpectCoersion::new(param.contract(), param.ty()),
                             ),
                         RitchieParameterArgumentMatch::Variadic(param, items) => {
                             for item in items {
                                 self.infer_new_expr_ty_discarded(
                                     item.argument_expr_idx(),
-                                    ExpectImplicitlyConvertible::new(param.contract(), param.ty()),
+                                    ExpectCoersion::new(param.contract(), param.ty()),
                                 )
                             }
                         }
                         RitchieParameterArgumentMatch::Keyed(param, item) => self
                             .infer_new_expr_ty_discarded(
                                 item.argument_expr_idx(),
-                                ExpectImplicitlyConvertible::new(param.contract(), param.ty()),
+                                ExpectCoersion::new(param.contract(), param.ty()),
                             ),
                     }
                 }

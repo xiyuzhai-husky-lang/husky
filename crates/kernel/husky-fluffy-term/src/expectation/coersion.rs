@@ -10,12 +10,12 @@ pub enum ImplicitConversion {
 /// expect a type that is implicitly convertible to type under contract
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct ExpectImplicitlyConvertible {
+pub struct ExpectCoersion {
     contract: Contract,
     ty: FluffyTerm,
 }
 
-impl ExpectImplicitlyConvertible {
+impl ExpectCoersion {
     #[inline(always)]
     pub fn new(contract: Contract, ty: FluffyTerm) -> Self {
         Self { contract, ty }
@@ -98,7 +98,7 @@ impl ExpectImplicitlyConvertible {
     }
 }
 
-impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
+impl ExpectFluffyTerm for ExpectCoersion {
     type Outcome = ImplicitConversion;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
@@ -188,7 +188,7 @@ impl ExpectFluffyTerm for ExpectImplicitlyConvertible {
     }
 }
 
-impl ExpectImplicitlyConvertible {
+impl ExpectCoersion {
     fn resolve_convertible_to_ty_ontology(
         &self,
         db: &dyn FluffyTermDb,
