@@ -161,6 +161,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::EntityNode(
                 EntityNodePath::ModuleItem(
                     ModuleItemNodePath::Fugitive(
@@ -187,7 +194,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                50,
+                                57,
                             ),
                         },
                     },
@@ -203,7 +210,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                53,
+                                60,
                             ),
                         },
                     },
@@ -218,7 +225,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                50,
+                                57,
                             ),
                         },
                     },
@@ -236,7 +243,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `f`,
                         token_idx: TokenIdx(
-                            61,
+                            68,
                         ),
                     },
                 },
@@ -285,7 +292,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                50,
+                                57,
                             ),
                         },
                     },
@@ -299,7 +306,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                53,
+                                60,
                             ),
                         },
                     },

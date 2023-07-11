@@ -89,7 +89,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            48,
+                                            55,
                                         ),
                                     },
                                 },
@@ -186,7 +186,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            48,
+                                            55,
                                         ),
                                     },
                                 },
@@ -223,7 +223,7 @@ Ok(
                                     MajorPathExprError::Original(
                                         OriginalMajorPathExprError::UnrecognizedIdent(
                                             IdentToken {
-                                                ident: `Unveil`,
+                                                ident: `core`,
                                                 token_idx: TokenIdx(
                                                     41,
                                                 ),

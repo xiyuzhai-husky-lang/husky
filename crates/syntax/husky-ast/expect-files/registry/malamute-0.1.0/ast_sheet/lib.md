@@ -243,7 +243,7 @@ Ok(
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    46,
+                                    53,
                                 ),
                             },
                         },
@@ -257,13 +257,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `narrow_down`,
                         token_idx: TokenIdx(
-                            48,
+                            55,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            49,
+                            56,
                         ),
                         drained: false,
                     },

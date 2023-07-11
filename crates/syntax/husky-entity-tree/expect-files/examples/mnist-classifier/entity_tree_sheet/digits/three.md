@@ -1325,7 +1325,7 @@ Ok(
                                                     ident_token: IdentToken {
                                                         ident: `narrow_down`,
                                                         token_idx: TokenIdx(
-                                                            48,
+                                                            55,
                                                         ),
                                                     },
                                                 },

@@ -3,9 +3,9 @@ DiagnosticSheet {
     entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "unrecognized identifier `Unveil`",
+                message: "unrecognized identifier `core`",
                 severity: Error,
-                range: [10:33, 10:39),
+                range: [10:33, 10:37),
             },
         ],
     },

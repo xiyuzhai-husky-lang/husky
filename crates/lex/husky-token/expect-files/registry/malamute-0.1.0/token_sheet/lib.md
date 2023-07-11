@@ -163,6 +163,26 @@ Ok(
                 ),
             ),
             Token::Ident(
+                `core`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `ops`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
                 `Unveil`,
             ),
             Token::Ident(
@@ -178,6 +198,15 @@ Ok(
                 Keyword::Connection(
                     For,
                 ),
+            ),
+            Token::Ident(
+                `OneVsAll`,
+            ),
+            Token::Ident(
+                `Label`,
+            ),
+            Token::Ident(
+                `label`,
             ),
             Token::Keyword(
                 Keyword::Pub,
@@ -330,7 +359,7 @@ Ok(
             28,
             30,
             32,
-            46,
+            53,
         ],
         indents: [
             0,
