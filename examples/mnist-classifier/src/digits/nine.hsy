@@ -6,7 +6,7 @@ val nine_match: FermiMatchResult =
 val nine_match_refine: FermiMatchResult =
     fermi_match(major_concave_components, [big_cc])
 
-pub(super) val is_nine: ?MnistLabel =
+pub(super) val is_nine: OneVsAll MnistLabel MnistLabel::Nine =
     require is_zero be none
     require is_six be none 
     let eff_holes = major_connected_component.eff_holes
@@ -47,7 +47,7 @@ pub(super) val is_nine: ?MnistLabel =
     //     major_connected_component.top_k_row_span_sum(6),
     // )?
 
-    MnistLabel::Nine
+    OneVsAll::Yes
 
 fn downmost(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()

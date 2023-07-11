@@ -26,7 +26,7 @@
             ),
         ),
         Ok(
-            DeclarativeTerm(`{val_type} core::option::Option mnist::MnistLabel`),
+            DeclarativeTerm(`{val_type} malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Nine`),
         ),
     ),
     (

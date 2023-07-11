@@ -231,7 +231,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
-                                        expr: 1,
+                                        expr: 4,
                                     },
                                 ),
                                 expr: None,
@@ -257,22 +257,59 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
+                                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 1,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
                                                                 TypePath(`mnist::MnistLabel`, `Enum`),
                                                             ),
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Prefix {
-                                                    opr: Option,
-                                                    opr_token_idx: TokenIdx(
-                                                        39,
+                                                Expr::ExplicitApplication {
+                                                    function_expr_idx: 0,
+                                                    argument_expr_idx: 1,
+                                                },
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 3,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Six`,
+                                                            },
+                                                        ),
                                                     ),
-                                                    opd: 0,
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function_expr_idx: 2,
+                                                    argument_expr_idx: 3,
                                                 },
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
                                             data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `OneVsAll`,
+                                                            token_idx: TokenIdx(
+                                                                39,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
                                                 PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
@@ -285,6 +322,45 @@ Ok(
                                                     principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `MnistLabel`,
+                                                            token_idx: TokenIdx(
+                                                                41,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Subentity {
+                                                    parent: 2,
+                                                    scope_resolution_token: ScopeResolutionToken(
+                                                        TokenIdx(
+                                                            42,
+                                                        ),
+                                                    ),
+                                                    ident_token: Ok(
+                                                        IdentToken {
+                                                            ident: `Six`,
+                                                            token_idx: TokenIdx(
+                                                                43,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    path: Ok(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Six`,
+                                                            },
                                                         ),
                                                     ),
                                                 },
@@ -323,7 +399,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 1,
+                                                expr_idx: 4,
                                             },
                                         ],
                                     },
@@ -353,7 +429,7 @@ Ok(
                                         ),
                                         colon: ColonToken(
                                             TokenIdx(
-                                                297,
+                                                300,
                                             ),
                                         ),
                                         ty: 1,
@@ -394,7 +470,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        298,
+                                                        301,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -411,7 +487,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        302,
+                                                        305,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -424,7 +500,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                299,
+                                                                302,
                                                             ),
                                                         },
                                                     ),
@@ -439,7 +515,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                303,
+                                                                306,
                                                             ),
                                                         },
                                                     ),
@@ -462,7 +538,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                296,
+                                                                299,
                                                             ),
                                                         },
                                                     },
@@ -506,7 +582,7 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            297,
+                                                            300,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitRegularParameter {
@@ -567,7 +643,7 @@ Ok(
                                         ),
                                         colon: ColonToken(
                                             TokenIdx(
-                                                326,
+                                                329,
                                             ),
                                         ),
                                         ty: 1,
@@ -608,7 +684,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        327,
+                                                        330,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -625,7 +701,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        331,
+                                                        334,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -638,7 +714,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                328,
+                                                                331,
                                                             ),
                                                         },
                                                     ),
@@ -653,7 +729,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                332,
+                                                                335,
                                                             ),
                                                         },
                                                     ),
@@ -676,7 +752,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                325,
+                                                                328,
                                                             ),
                                                         },
                                                     },
@@ -720,7 +796,7 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            326,
+                                                            329,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitRegularParameter {

@@ -322,13 +322,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `uparc`,
                         token_idx: TokenIdx(
-                            156,
+                            159,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            157,
+                            160,
                         ),
                         drained: false,
                     },
@@ -370,13 +370,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downarc`,
                         token_idx: TokenIdx(
-                            190,
+                            193,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            191,
+                            194,
                         ),
                         drained: false,
                     },
@@ -418,13 +418,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `back`,
                         token_idx: TokenIdx(
-                            224,
+                            227,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            225,
+                            228,
                         ),
                         drained: false,
                     },

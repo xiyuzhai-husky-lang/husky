@@ -283,13 +283,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `big_mouth`,
                         token_idx: TokenIdx(
-                            85,
+                            88,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            86,
+                            89,
                         ),
                         drained: false,
                     },

@@ -3,7 +3,7 @@ use super::*
 val upper_mouth_match: FermiMatchResult =
     fermi_match(major_concave_components, [big_mouth])
 
-pub(super) val is_eight: ?MnistLabel =
+pub(super) val is_eight: OneVsAll MnistLabel MnistLabel::Eight  =
     require is_one be none
     require is_six be none
     require is_zero be none
@@ -22,7 +22,7 @@ pub(super) val is_eight: ?MnistLabel =
         if major_connected_component.eff_holes.matches[0] be none:
             require false
         require false
-    MnistLabel::Eight
+    OneVsAll::Yes
 
 fn big_mouth(cc: ~ConcaveComponent)->?f32:
     if cc.relative_bounding_box.ymax()>0.5:

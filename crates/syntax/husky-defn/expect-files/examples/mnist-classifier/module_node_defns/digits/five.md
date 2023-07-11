@@ -30,14 +30,14 @@ Ok(
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeExprBeforeEq {
-                                        expr: 1,
+                                        expr: 4,
                                     },
                                 ),
                             ),
                             eq_token: Ok(
                                 EqToken(
                                     TokenIdx(
-                                        13,
+                                        16,
                                     ),
                                 ),
                             ),
@@ -64,22 +64,59 @@ Ok(
                                                 opt_path: Some(
                                                     PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                            Expr::PrincipalEntityPath {
+                                                entity_path_expr: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
                                                             TypePath(`mnist::MnistLabel`, `Enum`),
                                                         ),
                                                     ),
                                                 ),
                                             },
-                                            Expr::Prefix {
-                                                opr: Option,
-                                                opr_token_idx: TokenIdx(
-                                                    11,
+                                            Expr::ExplicitApplication {
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
+                                            },
+                                            Expr::PrincipalEntityPath {
+                                                entity_path_expr: 3,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::TypeVariant(
+                                                        TypeVariantPath {
+                                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ident: `Five`,
+                                                        },
+                                                    ),
                                                 ),
-                                                opd: 0,
+                                            },
+                                            Expr::ExplicitApplication {
+                                                function_expr_idx: 2,
+                                                argument_expr_idx: 3,
                                             },
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
                                         data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `OneVsAll`,
+                                                        token_idx: TokenIdx(
+                                                            11,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`malamute::OneVsAll`, `Enum`),
+                                                    ),
+                                                ),
+                                            },
                                             PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
                                                     IdentToken {
@@ -92,6 +129,45 @@ Ok(
                                                 principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                     ModuleItemPath::Type(
                                                         TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `MnistLabel`,
+                                                        token_idx: TokenIdx(
+                                                            13,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    ),
+                                                ),
+                                            },
+                                            PrincipalEntityPathExpr::Subentity {
+                                                parent: 2,
+                                                scope_resolution_token: ScopeResolutionToken(
+                                                    TokenIdx(
+                                                        14,
+                                                    ),
+                                                ),
+                                                ident_token: Ok(
+                                                    IdentToken {
+                                                        ident: `Five`,
+                                                        token_idx: TokenIdx(
+                                                            15,
+                                                        ),
+                                                    },
+                                                ),
+                                                path: Ok(
+                                                    PrincipalEntityPath::TypeVariant(
+                                                        TypeVariantPath {
+                                                            parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ident: `Five`,
+                                                        },
                                                     ),
                                                 ),
                                             },
@@ -130,7 +206,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 1,
+                                            expr_idx: 4,
                                         },
                                     ],
                                 },
@@ -164,22 +240,59 @@ Ok(
                                                         opt_path: Some(
                                                             PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
+                                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    Expr::PrincipalEntityPath {
+                                                        entity_path_expr: 1,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
                                                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                                                 ),
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::Prefix {
-                                                        opr: Option,
-                                                        opr_token_idx: TokenIdx(
-                                                            11,
+                                                    Expr::ExplicitApplication {
+                                                        function_expr_idx: 0,
+                                                        argument_expr_idx: 1,
+                                                    },
+                                                    Expr::PrincipalEntityPath {
+                                                        entity_path_expr: 3,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::TypeVariant(
+                                                                TypeVariantPath {
+                                                                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                    ident: `Five`,
+                                                                },
+                                                            ),
                                                         ),
-                                                        opd: 0,
+                                                    },
+                                                    Expr::ExplicitApplication {
+                                                        function_expr_idx: 2,
+                                                        argument_expr_idx: 3,
                                                     },
                                                 ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
                                                 data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `OneVsAll`,
+                                                                token_idx: TokenIdx(
+                                                                    11,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    },
                                                     PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
                                                             IdentToken {
@@ -192,6 +305,45 @@ Ok(
                                                         principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
                                                                 TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `MnistLabel`,
+                                                                token_idx: TokenIdx(
+                                                                    13,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`mnist::MnistLabel`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                    PrincipalEntityPathExpr::Subentity {
+                                                        parent: 2,
+                                                        scope_resolution_token: ScopeResolutionToken(
+                                                            TokenIdx(
+                                                                14,
+                                                            ),
+                                                        ),
+                                                        ident_token: Ok(
+                                                            IdentToken {
+                                                                ident: `Five`,
+                                                                token_idx: TokenIdx(
+                                                                    15,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        path: Ok(
+                                                            PrincipalEntityPath::TypeVariant(
+                                                                TypeVariantPath {
+                                                                    parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                    ident: `Five`,
+                                                                },
                                                             ),
                                                         ),
                                                     },
@@ -230,7 +382,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 1,
+                                                    expr_idx: 4,
                                                 },
                                             ],
                                         },
@@ -255,8 +407,8 @@ Ok(
                                             opt_path: Some(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
-                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                        ident: `Five`,
+                                                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ident: `Yes`,
                                                     },
                                                 ),
                                             ),
@@ -273,15 +425,15 @@ Ok(
                                         PrincipalEntityPathExpr::Root {
                                             path_name_token: PathNameToken::Ident(
                                                 IdentToken {
-                                                    ident: `MnistLabel`,
+                                                    ident: `OneVsAll`,
                                                     token_idx: TokenIdx(
-                                                        14,
+                                                        17,
                                                     ),
                                                 },
                                             ),
                                             principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
-                                                    TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
                                             ),
                                         },
@@ -289,22 +441,22 @@ Ok(
                                             parent: 0,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
-                                                    15,
+                                                    18,
                                                 ),
                                             ),
                                             ident_token: Ok(
                                                 IdentToken {
-                                                    ident: `Five`,
+                                                    ident: `Yes`,
                                                     token_idx: TokenIdx(
-                                                        16,
+                                                        19,
                                                     ),
                                                 },
                                             ),
                                             path: Ok(
                                                 PrincipalEntityPath::TypeVariant(
                                                     TypeVariantPath {
-                                                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                                        ident: `Five`,
+                                                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ident: `Yes`,
                                                     },
                                                 ),
                                             ),

@@ -173,14 +173,14 @@ Ok(
                                 return_ty: Ok(
                                     Some(
                                         ReturnTypeExprBeforeEq {
-                                            expr: 1,
+                                            expr: 4,
                                         },
                                     ),
                                 ),
                                 eq_token: Ok(
                                     EqToken(
                                         TokenIdx(
-                                            26,
+                                            29,
                                         ),
                                     ),
                                 ),
@@ -207,22 +207,59 @@ Ok(
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
+                                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 1,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
                                                                 TypePath(`mnist::MnistLabel`, `Enum`),
                                                             ),
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Prefix {
-                                                    opr: Option,
-                                                    opr_token_idx: TokenIdx(
-                                                        24,
+                                                Expr::ExplicitApplication {
+                                                    function_expr_idx: 0,
+                                                    argument_expr_idx: 1,
+                                                },
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 3,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Eight`,
+                                                            },
+                                                        ),
                                                     ),
-                                                    opd: 0,
+                                                },
+                                                Expr::ExplicitApplication {
+                                                    function_expr_idx: 2,
+                                                    argument_expr_idx: 3,
                                                 },
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
                                             data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `OneVsAll`,
+                                                            token_idx: TokenIdx(
+                                                                24,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`malamute::OneVsAll`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
                                                 PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
@@ -235,6 +272,45 @@ Ok(
                                                     principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `MnistLabel`,
+                                                            token_idx: TokenIdx(
+                                                                26,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`mnist::MnistLabel`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Subentity {
+                                                    parent: 2,
+                                                    scope_resolution_token: ScopeResolutionToken(
+                                                        TokenIdx(
+                                                            27,
+                                                        ),
+                                                    ),
+                                                    ident_token: Ok(
+                                                        IdentToken {
+                                                            ident: `Eight`,
+                                                            token_idx: TokenIdx(
+                                                                28,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    path: Ok(
+                                                        PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath {
+                                                                parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                                ident: `Eight`,
+                                                            },
                                                         ),
                                                     ),
                                                 },
@@ -273,7 +349,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 1,
+                                                expr_idx: 4,
                                             },
                                         ],
                                     },
@@ -312,7 +388,7 @@ Ok(
                                     SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                86,
+                                                89,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -325,7 +401,7 @@ Ok(
                                                 ),
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        88,
+                                                        91,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -334,7 +410,7 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                91,
+                                                94,
                                             ),
                                         ),
                                     },
@@ -343,7 +419,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                92,
+                                                95,
                                             ),
                                         ),
                                     ),
@@ -359,7 +435,7 @@ Ok(
                                     EolToken::Colon(
                                         EolColonToken {
                                             token_idx: TokenIdx(
-                                                95,
+                                                98,
                                             ),
                                         },
                                     ),
@@ -394,7 +470,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
-                                                        89,
+                                                        92,
                                                     ),
                                                     opd: 0,
                                                 },
@@ -411,7 +487,7 @@ Ok(
                                                 Expr::Prefix {
                                                     opr: Option,
                                                     opr_token_idx: TokenIdx(
-                                                        93,
+                                                        96,
                                                     ),
                                                     opd: 2,
                                                 },
@@ -424,7 +500,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `ConcaveComponent`,
                                                             token_idx: TokenIdx(
-                                                                90,
+                                                                93,
                                                             ),
                                                         },
                                                     ),
@@ -439,7 +515,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                94,
+                                                                97,
                                                             ),
                                                         },
                                                     ),
@@ -462,7 +538,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `cc`,
                                                             token_idx: TokenIdx(
-                                                                87,
+                                                                90,
                                                             ),
                                                         },
                                                     },
@@ -506,7 +582,7 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            88,
+                                                            91,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitRegularParameter {
