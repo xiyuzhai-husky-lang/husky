@@ -1756,7 +1756,7 @@ Ok(
                                                             145,
                                                         ),
                                                         key: Ident(
-                                                            Word(
+                                                            Coword(
                                                                 Id {
                                                                     value: 443,
                                                                 },

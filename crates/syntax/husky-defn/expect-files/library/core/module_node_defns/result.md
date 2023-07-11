@@ -3253,7 +3253,7 @@ Ok(
                                                         59,
                                                     ),
                                                     ident: Ident(
-                                                        Word(
+                                                        Coword(
                                                             Id {
                                                                 value: 127,
                                                             },

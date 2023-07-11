@@ -567,7 +567,7 @@ fn parse_expr_works() {
                             path_name_token: Ident(
                                 IdentToken {
                                     ident: Ident(
-                                        Word(
+                                        Coword(
                                             Id {
                                                 value: 9,
                                             },
@@ -699,7 +699,7 @@ fn parse_expr_works() {
                             path_name_token: Ident(
                                 IdentToken {
                                     ident: Ident(
-                                        Word(
+                                        Coword(
                                             Id {
                                                 value: 9,
                                             },
@@ -839,7 +839,7 @@ fn parse_expr_works() {
                             path_name_token: Ident(
                                 IdentToken {
                                     ident: Ident(
-                                        Word(
+                                        Coword(
                                             Id {
                                                 value: 9,
                                             },
@@ -864,7 +864,7 @@ fn parse_expr_works() {
                             path_name_token: Ident(
                                 IdentToken {
                                     ident: Ident(
-                                        Word(
+                                        Coword(
                                             Id {
                                                 value: 9,
                                             },
@@ -1011,7 +1011,7 @@ fn parse_expr_works() {
                                         0,
                                     ),
                                     ident: Ident(
-                                        Word(
+                                        Coword(
                                             Id {
                                                 value: 158,
                                             },
@@ -1027,7 +1027,7 @@ fn parse_expr_works() {
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 76,
                                         },
@@ -1109,7 +1109,7 @@ fn parse_expr_works() {
                                         0,
                                     ),
                                     ident: Ident(
-                                        Word(
+                                        Coword(
                                             Id {
                                                 value: 158,
                                             },
@@ -1125,7 +1125,7 @@ fn parse_expr_works() {
                             ),
                             ident_token: IdentToken {
                                 ident: Ident(
-                                    Word(
+                                    Coword(
                                         Id {
                                             value: 159,
                                         },
