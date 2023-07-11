@@ -2,13 +2,13 @@ mod associated_item;
 mod derive_decr;
 mod impl_block;
 mod module_item;
-mod variant;
+mod ty_variant;
 
 pub use self::associated_item::*;
 pub use self::derive_decr::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
-pub use self::variant::*;
+pub use self::ty_variant::*;
 
 use crate::*;
 use husky_declarative_signature::*;

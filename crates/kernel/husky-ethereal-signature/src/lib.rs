@@ -38,6 +38,11 @@ pub struct EtherealSignatureJar(
     TupleStructEtherealSignatureTemplate,
     UnionEtherealSignatureTemplate,
     UnitStructEtherealSignatureTemplate,
+    // ty variant
+    EnumTupleTypeVariantEtherealSignatureTemplate,
+    EnumPropsTypeVariantEtherealSignatureTemplate,
+    EnumUnitTypeVariantEtherealSignatureTemplate,
+    ty_variant_ethereal_signature_template,
     // impl block
     // - type
     TypeImplBlockEtherealSignatureTemplate,
