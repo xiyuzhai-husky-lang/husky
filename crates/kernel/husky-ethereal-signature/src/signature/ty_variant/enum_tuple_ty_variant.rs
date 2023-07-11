@@ -15,6 +15,6 @@ impl EnumTupleTypeVariantEtherealSignatureTemplate {
                 path.parent_ty_path(db).ethereal_signature_template(db)? else {
             unreachable!()
         };
-        todo!()
+        Ok(Self::new(db, parent_ty_template))
     }
 }

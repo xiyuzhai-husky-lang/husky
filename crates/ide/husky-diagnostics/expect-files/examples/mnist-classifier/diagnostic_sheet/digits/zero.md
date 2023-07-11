@@ -26,19 +26,9 @@ DiagnosticSheet {
                 range: [21:5, 26:7),
             },
             Diagnostic {
-                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
+                message: "type path mismatch: expect malamute::OneVsAll, but got mnist::MnistLabel instead",
                 severity: Error,
                 range: [19:16, 19:32),
-            },
-            Diagnostic {
-                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
-                severity: Error,
-                range: [38:5, 38:21),
-            },
-            Diagnostic {
-                message: "type path mismatch: expect core::option::Option, but got mnist::MnistLabel instead",
-                severity: Error,
-                range: [11:5, 38:21),
             },
         ],
     },

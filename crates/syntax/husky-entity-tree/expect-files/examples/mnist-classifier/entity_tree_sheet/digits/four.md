@@ -211,7 +211,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `displacement_downwards`,
                                 token_idx: TokenIdx(
-                                    248,
+                                    251,
                                 ),
                             },
                         },
@@ -249,7 +249,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `cc_box_heights`,
                                 token_idx: TokenIdx(
-                                    277,
+                                    280,
                                 ),
                             },
                         },
@@ -453,7 +453,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `displacement_downwards`,
                                 token_idx: TokenIdx(
-                                    248,
+                                    251,
                                 ),
                             },
                         },
@@ -484,7 +484,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `cc_box_heights`,
                                 token_idx: TokenIdx(
-                                    277,
+                                    280,
                                 ),
                             },
                         },
@@ -1967,7 +1967,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 45,
+                                            ast_idx: 44,
                                             ident_token: IdentToken {
                                                 ident: `is_seven`,
                                                 token_idx: TokenIdx(

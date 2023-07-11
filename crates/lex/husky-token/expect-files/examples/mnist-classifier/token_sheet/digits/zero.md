@@ -252,13 +252,24 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Question,
-                ),
+            Token::Ident(
+                `OneVsAll`,
             ),
             Token::Ident(
                 `MnistLabel`,
+            ),
+            Token::Ident(
+                `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Zero`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1159,7 +1170,7 @@ Ok(
                 `norm`,
             ),
             Token::Ident(
-                `MnistLabel`,
+                `OneVsAll`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1169,7 +1180,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `Zero`,
+                `Yes`,
             ),
         ],
         group_starts: [
@@ -1180,27 +1191,27 @@ Ok(
             29,
             38,
             44,
-            54,
-            58,
-            69,
-            75,
-            79,
-            88,
-            96,
-            113,
-            117,
-            121,
-            131,
-            150,
-            156,
-            167,
-            178,
-            189,
-            207,
-            225,
-            231,
-            235,
-            241,
+            57,
+            61,
+            72,
+            78,
+            82,
+            91,
+            99,
+            116,
+            120,
+            124,
+            134,
+            153,
+            159,
+            170,
+            181,
+            192,
+            210,
+            228,
+            234,
+            238,
+            244,
         ],
         indents: [
             0,

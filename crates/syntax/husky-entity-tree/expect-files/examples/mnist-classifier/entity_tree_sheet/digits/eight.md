@@ -97,7 +97,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `big_mouth`,
                                 token_idx: TokenIdx(
-                                    85,
+                                    88,
                                 ),
                             },
                         },
@@ -208,7 +208,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `big_mouth`,
                                 token_idx: TokenIdx(
-                                    85,
+                                    88,
                                 ),
                             },
                         },
@@ -1691,7 +1691,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 45,
+                                            ast_idx: 44,
                                             ident_token: IdentToken {
                                                 ident: `is_seven`,
                                                 token_idx: TokenIdx(

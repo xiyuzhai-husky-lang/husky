@@ -17,7 +17,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            ast_idx: 40,
+                            ast_idx: 39,
                             ident_token: IdentToken {
                                 ident: `simple_seven_match`,
                                 token_idx: TokenIdx(
@@ -55,7 +55,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            ast_idx: 41,
+                            ast_idx: 40,
                             ident_token: IdentToken {
                                 ident: `simple_leftdown_pattern`,
                                 token_idx: TokenIdx(
@@ -93,7 +93,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            ast_idx: 42,
+                            ast_idx: 41,
                             ident_token: IdentToken {
                                 ident: `special_seven_match`,
                                 token_idx: TokenIdx(
@@ -131,7 +131,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            ast_idx: 43,
+                            ast_idx: 42,
                             ident_token: IdentToken {
                                 ident: `leftupcc_pattern`,
                                 token_idx: TokenIdx(
@@ -169,7 +169,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
                             ),
-                            ast_idx: 44,
+                            ast_idx: 43,
                             ident_token: IdentToken {
                                 ident: `leftdowncc_pattern`,
                                 token_idx: TokenIdx(
@@ -207,7 +207,7 @@ Ok(
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits`,
                             ),
-                            ast_idx: 45,
+                            ast_idx: 44,
                             ident_token: IdentToken {
                                 ident: `is_seven`,
                                 token_idx: TokenIdx(
@@ -236,7 +236,7 @@ Ok(
         use_one_trackers: OnceUseRules(
             [
                 OnceUseRule {
-                    ast_idx: 39,
+                    ast_idx: 38,
                     use_expr_idx: 1,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::seven`,

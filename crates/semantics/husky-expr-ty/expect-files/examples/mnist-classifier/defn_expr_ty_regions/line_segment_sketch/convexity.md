@@ -1532,7 +1532,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -1655,7 +1655,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -1766,7 +1766,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -1889,7 +1889,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -2040,7 +2040,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -2079,7 +2079,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -2136,7 +2136,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -2175,7 +2175,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: EntityPath(
                                         TypeOntology(

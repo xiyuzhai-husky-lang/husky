@@ -492,7 +492,20 @@ Ok(
                 },
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`malamute::OneVsAll`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
@@ -501,11 +514,20 @@ Ok(
                 ),
             ),
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        ident: `Seven`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                     ),
                 ),
             ),
@@ -521,7 +543,7 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     ),
                 ),
             ),
@@ -537,10 +559,14 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                     ),
                 ),
             ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
@@ -553,26 +579,6 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                    ),
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 3,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Fugitive(
                         FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     ),
                 ),
@@ -581,9 +587,9 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 3,
+                current_symbol_idx: 2,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 3,
+                    pattern_symbol_idx: 2,
                 },
                 expr_region: ExprRegionLeash(_),
             },
@@ -603,6 +609,14 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 3,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 3,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 4,
@@ -612,14 +626,6 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 5,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 5,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Fugitive(
@@ -641,9 +647,9 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 5,
+                current_symbol_idx: 4,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 5,
+                    pattern_symbol_idx: 4,
                 },
                 expr_region: ExprRegionLeash(_),
             },
@@ -652,9 +658,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 6,
+                current_symbol_idx: 5,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 6,
+                    pattern_symbol_idx: 5,
                 },
                 expr_region: ExprRegionLeash(_),
             },
@@ -677,12 +683,22 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
-                current_symbol_idx: 7,
+                current_symbol_idx: 6,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 7,
+                    pattern_symbol_idx: 6,
                 },
                 expr_region: ExprRegionLeash(_),
             },
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 5,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 5,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 6,
@@ -692,6 +708,63 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        ident: `Seven`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 2,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 2,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 7,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 7,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Field,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Fugitive(
+                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -704,73 +777,6 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Type(
-                        TypePath(`mnist::MnistLabel`, `Enum`),
-                    ),
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::TypeVariant(
-                    TypeVariantPath {
-                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                        ident: `Seven`,
-                    },
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 3,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 3,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 8,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 8,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                    ),
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::ModuleItem(
-                    ModuleItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
-                    ),
-                ),
-            ),
-            TokenInfo::None,
-            TokenInfo::Field,
-            TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 8,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 8,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
-            TokenInfo::None,
-            TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
@@ -800,6 +806,14 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::CurrentSymbol {
+                current_symbol_idx: 8,
+                current_symbol_kind: CurrentSymbolKind::LetVariable {
+                    pattern_symbol_idx: 8,
+                },
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 9,
@@ -809,14 +823,6 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
-            TokenInfo::CurrentSymbol {
-                current_symbol_idx: 10,
-                current_symbol_kind: CurrentSymbolKind::LetVariable {
-                    pattern_symbol_idx: 10,
-                },
-                expr_region: ExprRegionLeash(_),
-            },
-            TokenInfo::None,
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Fugitive(
@@ -831,7 +837,7 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`mnist::MnistLabel`, `Enum`),
+                        TypePath(`malamute::OneVsAll`, `Enum`),
                     ),
                 ),
             ),
@@ -839,8 +845,8 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::TypeVariant(
                     TypeVariantPath {
-                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                        ident: `Seven`,
+                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                        ident: `Yes`,
                     },
                 ),
             ),

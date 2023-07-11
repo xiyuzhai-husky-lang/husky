@@ -59,7 +59,7 @@ Ok(
             ),
             end_line: 24,
             end_character: Some(
-                21,
+                17,
             ),
             kind: Some(
                 Region,

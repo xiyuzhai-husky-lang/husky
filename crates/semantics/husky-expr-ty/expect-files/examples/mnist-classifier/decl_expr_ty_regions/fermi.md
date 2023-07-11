@@ -858,7 +858,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Const,
                                     ty: Category(
                                         TermCategory {

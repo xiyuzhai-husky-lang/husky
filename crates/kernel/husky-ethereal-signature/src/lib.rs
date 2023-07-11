@@ -29,7 +29,6 @@ pub struct EtherealSignatureJar(
     ty_item_ethereal_signature_template,
     // ty
     EnumEtherealSignatureTemplate,
-    enum_ethereal_signature_template,
     ExternEtherealSignatureTemplate,
     InductiveEtherealSignatureTemplate,
     RecordEtherealSignatureTemplate,
@@ -38,6 +37,7 @@ pub struct EtherealSignatureJar(
     TupleStructEtherealSignatureTemplate,
     UnionEtherealSignatureTemplate,
     UnitStructEtherealSignatureTemplate,
+    ty_ethereal_signature_template,
     // ty variant
     EnumTupleTypeVariantEtherealSignatureTemplate,
     EnumPropsTypeVariantEtherealSignatureTemplate,

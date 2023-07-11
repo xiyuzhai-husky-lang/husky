@@ -97,7 +97,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `uparc`,
                                 token_idx: TokenIdx(
-                                    156,
+                                    159,
                                 ),
                             },
                         },
@@ -135,7 +135,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downarc`,
                                 token_idx: TokenIdx(
-                                    190,
+                                    193,
                                 ),
                             },
                         },
@@ -173,7 +173,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `back`,
                                 token_idx: TokenIdx(
-                                    224,
+                                    227,
                                 ),
                             },
                         },
@@ -284,7 +284,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `uparc`,
                                 token_idx: TokenIdx(
-                                    156,
+                                    159,
                                 ),
                             },
                         },
@@ -315,7 +315,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downarc`,
                                 token_idx: TokenIdx(
-                                    190,
+                                    193,
                                 ),
                             },
                         },
@@ -346,7 +346,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `back`,
                                 token_idx: TokenIdx(
-                                    224,
+                                    227,
                                 ),
                             },
                         },
@@ -1770,7 +1770,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 45,
+                                            ast_idx: 44,
                                             ident_token: IdentToken {
                                                 ident: `is_seven`,
                                                 token_idx: TokenIdx(

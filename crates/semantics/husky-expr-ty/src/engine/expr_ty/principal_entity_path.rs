@@ -28,10 +28,29 @@ impl<'a> ExprTypeEngine<'a> {
         path: TypeVariantPath,
         expr_ty_expectation: &impl ExpectFluffyTerm,
     ) -> ExprTypeResult<FluffyTerm> {
-        Ok(match path.ethereal_signature_template(self.db)? {
+        let parent_ty_path = path.parent_ty_path(self.db);
+        match path.ethereal_signature_template(self.db)? {
             TypeVariantEtherealSignatureTemplate::Props(_) => todo!(),
-            TypeVariantEtherealSignatureTemplate::Unit(_) => todo!(),
-            TypeVariantEtherealSignatureTemplate::Tuple(_) => todo!(),
-        })
+            TypeVariantEtherealSignatureTemplate::Unit(_) => {
+                match expr_ty_expectation.destination() {
+                    Some(destination) => match destination.data(self) {
+                        FluffyTermData::TypeOntology { ty_path, .. }
+                        | FluffyTermData::TypeOntologyAtPlace {
+                            ty_path,
+                            place:
+                                Place::Const
+                                | Place::StackPure { .. }
+                                | Place::Transient
+                                | Place::Ref { .. }
+                                | Place::RefMut { .. },
+                            ..
+                        } if ty_path == parent_ty_path => Ok(destination),
+                        _ => Ok(path.ty(self.db)?.into()),
+                    },
+                    None => Ok(path.ty(self.db)?.into()),
+                }
+            }
+            TypeVariantEtherealSignatureTemplate::Tuple(_) => Ok(path.ty(self.db)?.into()),
+        }
     }
 }

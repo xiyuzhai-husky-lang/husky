@@ -35,7 +35,14 @@ fn ty_variant_ethereal_signature_template(
 ) -> EtherealSignatureResult<TypeVariantEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {
         TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),
-        TypeVariantDeclarativeSignatureTemplate::Unit(_) => todo!(),
+        TypeVariantDeclarativeSignatureTemplate::Unit(declarative_signature_template) => {
+            EnumUnitTypeVariantEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
         TypeVariantDeclarativeSignatureTemplate::Tuple(declarative_signature_template) => {
             EnumTupleTypeVariantEtherealSignatureTemplate::from_declarative(
                 db,
