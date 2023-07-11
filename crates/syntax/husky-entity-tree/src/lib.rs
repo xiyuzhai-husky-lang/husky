@@ -105,7 +105,9 @@ pub struct EntityTreeJar(
     submodules,
     module_subentity_path,
     all_modules_within_crate,
+    // prelude
     crate_specific_prelude,
+    none_core_crate_universal_prelude,
     // utils
     ty_side_trai_for_ty_impl_block_paths_map,
 );

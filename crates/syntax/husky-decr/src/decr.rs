@@ -23,9 +23,9 @@ impl Decr {
         token_group_idx: TokenGroupIdx,
         decr_id: DecrId,
     ) -> DecrResult<Self> {
-        let word_menu = db.word_menu();
+        let coword_menu = db.coword_menu();
         let decr_ident = decr_id.ident();
-        Ok(if decr_ident == word_menu.derive_ident() {
+        Ok(if decr_ident == coword_menu.derive_ident() {
             Decr::Derive(DeriveDecr::new(
                 db,
                 entity_path,

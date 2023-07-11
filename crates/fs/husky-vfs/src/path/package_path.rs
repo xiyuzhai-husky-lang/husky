@@ -10,7 +10,7 @@ use url::Url;
 fn package_ident_works() {
     let db = DB::default();
     let _toolchain = db.dev_toolchain().unwrap();
-    let ident_menu = db.word_menu();
+    let ident_menu = db.coword_menu();
     let path_menu = db.dev_path_menu().unwrap();
     assert_eq!(path_menu.core_package().ident(&db), ident_menu.core_ident());
     assert_eq!(path_menu.std_package().ident(&db), ident_menu.std_ident());

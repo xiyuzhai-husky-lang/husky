@@ -21,7 +21,7 @@ pub trait CowordDb: DbWithJar<CowordJar> {
 
     fn word_jar(&self) -> &CowordJar;
 
-    fn word_menu(&self) -> &CowordMenu;
+    fn coword_menu(&self) -> &CowordMenu;
 
     fn ident_to_dashed(&self, ident: Ident) -> String;
 }
@@ -50,7 +50,7 @@ where
         &<Self as HasJar<CowordJar>>::jar(self).0
     }
 
-    fn word_menu(&self) -> &CowordMenu {
+    fn coword_menu(&self) -> &CowordMenu {
         ident_menu(self)
     }
 

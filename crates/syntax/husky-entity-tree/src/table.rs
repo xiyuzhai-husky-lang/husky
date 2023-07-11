@@ -1,5 +1,6 @@
 use crate::*;
 use husky_manifest::PackageDependency;
+use husky_print_utils::p;
 use husky_token::IdentToken;
 
 #[derive(Debug, Default, PartialEq, Eq)]
@@ -16,14 +17,9 @@ impl EntitySymbolTable {
     }
 
     pub(crate) fn insert(&mut self, new_entry: EntitySymbolEntry) -> EntityTreeResult<()> {
-        for _ in self.0.iter().filter(|entry| entry.ident == new_entry.ident) {
-            // todo!()
-            // ad hoc
-            return Ok(());
-        }
+        // todo: should there be checks?
         self.0.push(new_entry);
         Ok(())
-        // todo!()
     }
 
     pub(crate) fn extend(
@@ -48,8 +44,6 @@ impl<'a> EntitySymbolTableRef<'a> {
         reference_module_path: ReferenceModulePath,
         ident: Ident,
     ) -> Option<EntitySymbol> {
-        // ad hoc
-        // todo: override
         self.0.iter().find_map(|entry| {
             ((entry.ident == ident) && entry.is_visible_from(db, reference_module_path))
                 .then_some(entry.symbol)
@@ -86,11 +80,45 @@ pub struct EntitySymbolEntry {
     symbol: EntitySymbol,
 }
 
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub(crate) fn none_core_crate_universal_prelude(
+    db: &dyn EntityTreeDb,
+    toolchain: Toolchain,
+) -> PreludeResult<EntitySymbolTable> {
+    let vfs_path_menu = db.vfs_path_menu(toolchain);
+    let entity_path_menu = db.entity_path_menu(toolchain);
+    let coword_menu = db.coword_menu();
+    let core_prelude_module = vfs_path_menu.core_prelude();
+    let mut table = EntitySymbolTable::default();
+    table.insert(EntitySymbolEntry {
+        ident: coword_menu.core_ident(),
+        visibility: Scope::Pub,
+        symbol: EntitySymbol::UniversalPrelude {
+            entity_path: vfs_path_menu.core().into(),
+        },
+    });
+    table.extend(
+        entity_tree_sheet(db, core_prelude_module)
+            .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e)))?
+            .module_symbols()
+            .data()
+            .iter()
+            .map(|entry| EntitySymbolEntry {
+                ident: entry.ident,
+                visibility: Scope::Pub,
+                symbol: EntitySymbol::UniversalPrelude {
+                    entity_path: entry.symbol.path(db),
+                },
+            }),
+    );
+    Ok(table)
+}
+
 impl EntitySymbolEntry {
     pub(crate) fn new_crate_root(db: &dyn EntityTreeDb, crate_path: CratePath) -> Self {
         let root_module_path = ModulePath::new_root(db, crate_path);
         Self {
-            ident: db.word_menu().crate_ident(),
+            ident: db.coword_menu().crate_ident(),
             visibility: Scope::PubUnder(root_module_path),
             symbol: EntitySymbol::CrateRoot { root_module_path },
         }

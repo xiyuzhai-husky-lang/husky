@@ -34,9 +34,10 @@ pub(crate) fn vfs_path_menu(db: &dyn VfsDb, toolchain: Toolchain) -> VfsPathMenu
 
 impl VfsPathMenu {
     fn new(db: &dyn VfsDb, toolchain: Toolchain) -> Self {
-        let word_menu = db.word_menu();
-        let core_package = PackagePath::new_toolchain_package(db, toolchain, word_menu.core_name());
-        let std_package = PackagePath::new_toolchain_package(db, toolchain, word_menu.std_name());
+        let coword_menu = db.coword_menu();
+        let core_package =
+            PackagePath::new_toolchain_package(db, toolchain, coword_menu.core_name());
+        let std_package = PackagePath::new_toolchain_package(db, toolchain, coword_menu.std_name());
         let core_library = CratePath::new(db, core_package, CrateKind::Library);
         let std_library = CratePath::new(db, std_package, CrateKind::Library);
         let core = ModulePath::new_root(db, core_library);

@@ -213,7 +213,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 195,
+                                                                    value: 196,
                                                                 },
                                                             ),
                                                         ),
@@ -230,7 +230,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 392,
+                                                                    value: 393,
                                                                 },
                                                             ),
                                                         ),
@@ -254,7 +254,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 38,
+                                value: 39,
                             },
                         ),
                     ),

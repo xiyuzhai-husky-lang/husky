@@ -80,7 +80,7 @@ impl Diagnose for IllFormedImplBlockNode {
                 MajorPathExprError::Original(e) => match e {
                     OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {
                         format!(
-                            "unrecognized identifier `{}`",
+                            "Syntax Error: unrecognized identifier `{}` for major entity path",
                             ident_token.ident().data(ctx.db())
                         )
                     }
