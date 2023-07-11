@@ -942,7 +942,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
+                `OneVsAll`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -952,7 +952,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `Nine`,
+                `Yes`,
             ),
             Token::Ident(
                 `OneVsAll`,

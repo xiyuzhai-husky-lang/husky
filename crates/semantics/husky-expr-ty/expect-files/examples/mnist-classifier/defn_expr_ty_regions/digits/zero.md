@@ -1164,13 +1164,11 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 97,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 49,
+                                    },
                                 ),
                             ),
                         ),
@@ -2582,7 +2580,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 445,
+                                                        value: 446,
                                                     },
                                                 ),
                                             ),
@@ -2705,7 +2703,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 445,
+                                                        value: 446,
                                                     },
                                                 ),
                                             ),
@@ -3410,30 +3408,17 @@
                                     expr_idx: 30,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 97,
-                                            },
-                                        ),
+                                expectee: Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 49,
+                                        },
                                     ),
                                 ),
                                 resolve_progress: Resolved(
-                                    Err(
-                                        Original(
-                                            TypePathMismatch {
-                                                expected_path: TypePath(
-                                                    Id {
-                                                        value: 95,
-                                                    },
-                                                ),
-                                                expectee_path: TypePath(
-                                                    Id {
-                                                        value: 97,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
                                         ),
                                     ),
                                 ),
@@ -3531,7 +3516,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 445,
+                                                                        value: 446,
                                                                     },
                                                                 ),
                                                             ),
