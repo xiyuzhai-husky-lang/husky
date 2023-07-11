@@ -80,7 +80,7 @@ pub struct EntityPathMenu {
 
 impl EntityPathMenu {
     pub(crate) fn new(db: &dyn EntityPathDb, toolchain: Toolchain) -> Self {
-        let ident_menu = db.word_menu();
+        let ident_menu = db.coword_menu();
         let path_menu = db.vfs_path_menu(toolchain);
         let core_ops = path_menu.core_ops();
         let core_option = path_menu.core_option_ty_path();

@@ -40,9 +40,9 @@ impl<'a> EntityTreeCollector<'a> {
         let universal_prelude: Option<EntitySymbolTableRef<'a>> = {
             if crate_path != path_menu.core_library() {
                 Some(
-                    entity_tree_sheet(db, core_prelude_module)
-                        .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e)))?
-                        .module_symbols(),
+                    none_core_crate_universal_prelude(db, toolchain)
+                        .as_ref()?
+                        .as_ref(),
                 )
             } else {
                 None

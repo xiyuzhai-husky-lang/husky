@@ -17,3 +17,9 @@ impl From<&EntityTreeBundleError> for EntityTreeBundleError {
         todo!()
     }
 }
+
+impl From<&PreludeError> for EntityTreeBundleError {
+    fn from(_value: &PreludeError) -> Self {
+        todo!()
+    }
+}

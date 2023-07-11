@@ -31,6 +31,9 @@ pub enum EntitySymbol {
         current_module_path: ModulePath,
         super_module_path: ModulePath,
     },
+    UniversalPrelude {
+        entity_path: PrincipalEntityPath,
+    },
     PackageDependency {
         entity_path: PrincipalEntityPath,
     },
@@ -74,7 +77,8 @@ impl EntitySymbol {
             EntitySymbol::SuperModule {
                 super_module_path, ..
             } => super_module_path.into(),
-            EntitySymbol::PackageDependency { entity_path } => entity_path.into(),
+            EntitySymbol::UniversalPrelude { entity_path }
+            | EntitySymbol::PackageDependency { entity_path } => entity_path.into(),
             EntitySymbol::Submodule { submodule_path, .. } => submodule_path.into(),
             EntitySymbol::ModuleItem {
                 module_item_path, ..

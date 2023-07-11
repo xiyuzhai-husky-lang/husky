@@ -1,4 +1,5 @@
 use super::*;
+use husky_print_utils::p;
 use husky_token::*;
 use original_error::*;
 use parsec::*;
@@ -95,16 +96,18 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
         let name_token: PathNameToken =
             self.try_parse_expected(OriginalMajorPathExprError::ExpectedName)?;
         let path = match name_token {
-            PathNameToken::Ident(ident_token) => match self
-                .entity_tree_symbol_context
-                .resolve_root_ident(ident_token)
-                .ok_or(OriginalMajorPathExprError::UnrecognizedIdent(ident_token))?
-                .path(self.db)
-                .major()
-            {
-                Some(path) => path,
-                None => todo!(),
-            },
+            PathNameToken::Ident(ident_token) => {
+                match self
+                    .entity_tree_symbol_context
+                    .resolve_root_ident(ident_token)
+                    .ok_or(OriginalMajorPathExprError::UnrecognizedIdent(ident_token))?
+                    .path(self.db)
+                    .major()
+                {
+                    Some(path) => path,
+                    None => todo!(),
+                }
+            }
             PathNameToken::CrateRoot(_) => self.crate_root_path.into(),
             PathNameToken::SelfMod(_) => todo!(),
             PathNameToken::Super(_) => todo!(),
