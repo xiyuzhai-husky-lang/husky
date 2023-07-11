@@ -44,7 +44,7 @@ impl<'a> ExprTypeEngine<'a> {
                     Some(return_ty) => {
                         self.infer_new_expr_ty_discarded(
                             result,
-                            ExpectImplicitlyConvertible::new_move(return_ty.into()),
+                            ExpectCoersion::new_move(return_ty.into()),
                         );
                     }
                     None => {
@@ -83,7 +83,7 @@ impl<'a> ExprTypeEngine<'a> {
                         Some(expected_frame_var_ty) => {
                             self.infer_new_expr_ty_discarded(
                                 bound_expr,
-                                ExpectImplicitlyConvertible::new_pure(self, expected_frame_var_ty),
+                                ExpectCoersion::new_pure(self, expected_frame_var_ty),
                             );
                         }
                         None => {

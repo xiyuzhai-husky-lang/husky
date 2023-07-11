@@ -1,25 +1,25 @@
 mod any_derived;
 mod any_original;
+mod casting;
+mod coersion;
 mod curry_destination;
 mod eqs_category;
 mod eqs_function_ty;
 mod eqs_ritchie_ty;
-mod explicitly_convertible;
 mod final_destination;
-mod implicitly_convertible;
 mod ins_sort;
 mod num_ty;
 mod subtype;
 
 pub use self::any_derived::*;
 pub use self::any_original::*;
+pub use self::casting::*;
+pub use self::coersion::*;
 pub use self::curry_destination::*;
 pub use self::eqs_category::*;
 pub use self::eqs_function_ty::*;
 pub use self::eqs_ritchie_ty::*;
-pub use self::explicitly_convertible::*;
 pub use self::final_destination::*;
-pub use self::implicitly_convertible::*;
 pub use self::ins_sort::*;
 pub use self::num_ty::*;
 pub use self::subtype::*;
@@ -34,8 +34,8 @@ use thiserror::Error;
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 #[enum_class::from_variants]
 pub enum Expectation {
-    ExplicitlyConvertible(ExpectExplicitlyConvertible),
-    ImplicitlyConvertible(ExpectImplicitlyConvertible),
+    ExplicitlyConvertible(ExpectCasting),
+    ImplicitlyConvertible(ExpectCoersion),
     /// expect term to be an instance of Type u for some universe
     InsSort(ExpectInsSort),
     EqsSort(ExpectEqsCategory),

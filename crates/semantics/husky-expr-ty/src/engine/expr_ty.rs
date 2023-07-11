@@ -335,7 +335,7 @@ impl<'a> ExprTypeEngine<'a> {
                         for item in items {
                             self.infer_new_expr_ty_discarded(
                                 item.expr_idx(),
-                                ExpectImplicitlyConvertible::new_move(element_ty),
+                                ExpectCoersion::new_move(element_ty),
                             );
                         }
                         (

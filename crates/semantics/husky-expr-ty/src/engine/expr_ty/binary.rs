@@ -88,7 +88,7 @@ impl<'a> ExprTypeEngine<'a> {
             else {
                 return Err(DerivedExprTypeError::AsOperationRightOperandTermNotInferred.into())
             };
-        self.infer_new_expr_ty_discarded(lopd, ExpectExplicitlyConvertible::new(ropd_term));
+        self.infer_new_expr_ty_discarded(lopd, ExpectCasting::new(ropd_term));
         Ok(ropd_term)
     }
 

@@ -98,10 +98,8 @@ fn list_index_signature(
         } => todo!(),
         FluffyTermData::Hole(hole_kind, _) => match hole_kind {
             HoleKind::UnspecifiedIntegerType => {
-                let expectation = ExpectImplicitlyConvertible::new_pure(
-                    engine,
-                    engine.term_menu().usize_ty_ontology().into(),
-                );
+                let expectation =
+                    ExpectCoersion::new_pure(engine, engine.term_menu().usize_ty_ontology().into());
                 engine.fluffy_term_region_mut().add_expectation(
                     ExpectationSource::new_expr(expr_idx),
                     index_ty,
