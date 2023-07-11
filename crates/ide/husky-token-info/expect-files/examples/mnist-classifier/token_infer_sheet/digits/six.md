@@ -158,12 +158,34 @@ Ok(
                 },
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`malamute::OneVsAll`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`mnist::MnistLabel`, `Enum`),
                     ),
+                ),
+            ),
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
+                    ),
+                ),
+            ),
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                        ident: `Six`,
+                    },
                 ),
             ),
             TokenInfo::None,
@@ -763,7 +785,7 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(
-                        TypePath(`mnist::MnistLabel`, `Enum`),
+                        TypePath(`malamute::OneVsAll`, `Enum`),
                     ),
                 ),
             ),
@@ -771,8 +793,8 @@ Ok(
             TokenInfo::Entity(
                 EntityPath::TypeVariant(
                     TypeVariantPath {
-                        parent_ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
-                        ident: `Six`,
+                        parent_ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                        ident: `Yes`,
                     },
                 ),
             ),

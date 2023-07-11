@@ -4,21 +4,11 @@ use husky_declarative_signature::EnumDeclarativeSignatureTemplate;
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct EnumEtherealSignatureTemplate {}
 
-impl HasEtherealSignatureTemplate for EnumDeclarativeSignatureTemplate {
-    type EtherealSignatureTemplate = EnumEtherealSignatureTemplate;
-
-    fn ethereal_signature_template(
-        self,
+impl EnumEtherealSignatureTemplate {
+    pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
-        enum_ethereal_signature_template(db, self)
+        declarative_signature_template: EnumDeclarativeSignatureTemplate,
+    ) -> EtherealSignatureResult<Self> {
+        Ok(Self::new(db))
     }
-}
-
-#[salsa::tracked(jar = EtherealSignatureJar)]
-pub(crate) fn enum_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
-    declarative_signature: EnumDeclarativeSignatureTemplate,
-) -> EtherealSignatureResult<EnumEtherealSignatureTemplate> {
-    todo!()
 }

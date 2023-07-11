@@ -509,7 +509,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -640,7 +640,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -781,7 +781,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 49,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -863,7 +863,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 49,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -940,7 +940,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 54,
+                                        value: 66,
                                     },
                                 ),
                             ),
@@ -1044,7 +1044,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 49,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -1441,7 +1441,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -1614,7 +1614,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -1787,7 +1787,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -2010,7 +2010,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 52,
+                                        value: 60,
                                     },
                                 ),
                             ),
@@ -2041,7 +2041,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 52,
+                                        value: 60,
                                     },
                                 ),
                             ),
@@ -2209,13 +2209,11 @@
                             InstanceConstructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 97,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 49,
+                                    },
                                 ),
                             ),
                         ),
@@ -2230,13 +2228,11 @@
                     (
                         Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 97,
-                                        },
-                                    ),
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 49,
+                                    },
                                 ),
                             ),
                         ),
@@ -2586,7 +2582,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 444,
+                                                        value: 445,
                                                     },
                                                 ),
                                             ),
@@ -2709,7 +2705,7 @@
                                             key: Ident(
                                                 Coword(
                                                     Id {
-                                                        value: 444,
+                                                        value: 445,
                                                     },
                                                 ),
                                             ),
@@ -2849,7 +2845,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -2899,7 +2895,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -2950,7 +2946,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -2989,7 +2985,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3039,7 +3035,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 49,
+                                            value: 56,
                                         },
                                     ),
                                 ),
@@ -3066,7 +3062,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3116,7 +3112,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 49,
+                                            value: 56,
                                         },
                                     ),
                                 ),
@@ -3143,7 +3139,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3193,7 +3189,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 54,
+                                            value: 66,
                                         },
                                     ),
                                 ),
@@ -3224,7 +3220,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3263,7 +3259,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3313,7 +3309,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 49,
+                                            value: 56,
                                         },
                                     ),
                                 ),
@@ -3358,7 +3354,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3397,12 +3393,12 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 43,
+                                                value: 49,
                                             },
                                         ),
                                     ),
@@ -3429,7 +3425,7 @@
                                             TypePathMismatch {
                                                 expected_path: TypePath(
                                                     Id {
-                                                        value: 64,
+                                                        value: 95,
                                                     },
                                                 ),
                                                 expectee_path: TypePath(
@@ -3535,7 +3531,7 @@
                                                             key: Ident(
                                                                 Coword(
                                                                     Id {
-                                                                        value: 444,
+                                                                        value: 445,
                                                                     },
                                                                 ),
                                                             ),
@@ -3572,7 +3568,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3649,7 +3645,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3699,7 +3695,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -3768,7 +3764,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3817,7 +3813,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3867,7 +3863,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -3936,7 +3932,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -3985,7 +3981,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -4035,7 +4031,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -4104,7 +4100,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -4164,7 +4160,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 52,
+                                            value: 60,
                                         },
                                     ),
                                 ),
@@ -4184,7 +4180,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 52,
+                                            value: 60,
                                         },
                                     ),
                                 ),
@@ -4211,7 +4207,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -4250,12 +4246,12 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 43,
+                                                value: 49,
                                             },
                                         ),
                                     ),
@@ -4267,30 +4263,17 @@
                                     expr_idx: 88,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 97,
-                                            },
-                                        ),
+                                expectee: Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 49,
+                                        },
                                     ),
                                 ),
                                 resolve_progress: Resolved(
-                                    Err(
-                                        Original(
-                                            TypePathMismatch {
-                                                expected_path: TypePath(
-                                                    Id {
-                                                        value: 64,
-                                                    },
-                                                ),
-                                                expectee_path: TypePath(
-                                                    Id {
-                                                        value: 97,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
                                         ),
                                     ),
                                 ),
@@ -4298,12 +4281,12 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 43,
+                                                value: 49,
                                             },
                                         ),
                                     ),
@@ -4315,30 +4298,17 @@
                                     expr_idx: 89,
                                     kind: Expr,
                                 },
-                                expectee: EntityPath(
-                                    TypeOntology(
-                                        TypePath(
-                                            Id {
-                                                value: 97,
-                                            },
-                                        ),
+                                expectee: Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 49,
+                                        },
                                     ),
                                 ),
                                 resolve_progress: Resolved(
-                                    Err(
-                                        Original(
-                                            TypePathMismatch {
-                                                expected_path: TypePath(
-                                                    Id {
-                                                        value: 64,
-                                                    },
-                                                ),
-                                                expectee_path: TypePath(
-                                                    Id {
-                                                        value: 97,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
                                         ),
                                     ),
                                 ),
@@ -4350,7 +4320,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::option::Option) TypeOntology(mnist::MnistLabel)`),
+            EtherealTerm(`TypeOntology(malamute::OneVsAll) TypeOntology(mnist::MnistLabel) TypeVariant(mnist::MnistLabel::Zero)`),
         ),
         self_ty: None,
     },

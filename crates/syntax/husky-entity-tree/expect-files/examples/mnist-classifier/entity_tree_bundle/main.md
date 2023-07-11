@@ -19273,7 +19273,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 45,
+                                            ast_idx: 44,
                                             ident_token: IdentToken {
                                                 ident: `is_seven`,
                                                 token_idx: TokenIdx(
@@ -21580,7 +21580,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 45,
+                                            ast_idx: 44,
                                             ident_token: IdentToken {
                                                 ident: `is_seven`,
                                                 token_idx: TokenIdx(
@@ -23343,7 +23343,7 @@ Ok(
                                                     visibility: Scope::PubUnder(
                                                         `mnist_classifier::digits`,
                                                     ),
-                                                    ast_idx: 45,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(
@@ -26771,7 +26771,7 @@ Ok(
                                                     visibility: Scope::PubUnder(
                                                         `mnist_classifier::digits`,
                                                     ),
-                                                    ast_idx: 45,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(
@@ -28568,7 +28568,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `upmost`,
                                         token_idx: TokenIdx(
-                                            294,
+                                            297,
                                         ),
                                     },
                                 },
@@ -28606,7 +28606,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `bottom1`,
                                         token_idx: TokenIdx(
-                                            323,
+                                            326,
                                         ),
                                     },
                                 },
@@ -28748,7 +28748,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `upmost`,
                                         token_idx: TokenIdx(
-                                            294,
+                                            297,
                                         ),
                                     },
                                 },
@@ -28779,7 +28779,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `bottom1`,
                                         token_idx: TokenIdx(
-                                            323,
+                                            326,
                                         ),
                                     },
                                 },
@@ -30203,7 +30203,7 @@ Ok(
                                                     visibility: Scope::PubUnder(
                                                         `mnist_classifier::digits`,
                                                     ),
-                                                    ast_idx: 45,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(
@@ -31962,7 +31962,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `uparc`,
                                         token_idx: TokenIdx(
-                                            156,
+                                            159,
                                         ),
                                     },
                                 },
@@ -32000,7 +32000,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `downarc`,
                                         token_idx: TokenIdx(
-                                            190,
+                                            193,
                                         ),
                                     },
                                 },
@@ -32038,7 +32038,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `back`,
                                         token_idx: TokenIdx(
-                                            224,
+                                            227,
                                         ),
                                     },
                                 },
@@ -32149,7 +32149,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `uparc`,
                                         token_idx: TokenIdx(
-                                            156,
+                                            159,
                                         ),
                                     },
                                 },
@@ -32180,7 +32180,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `downarc`,
                                         token_idx: TokenIdx(
-                                            190,
+                                            193,
                                         ),
                                     },
                                 },
@@ -32211,7 +32211,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `back`,
                                         token_idx: TokenIdx(
-                                            224,
+                                            227,
                                         ),
                                     },
                                 },
@@ -33635,7 +33635,7 @@ Ok(
                                                     visibility: Scope::PubUnder(
                                                         `mnist_classifier::digits`,
                                                     ),
-                                                    ast_idx: 45,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(
@@ -35508,7 +35508,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `displacement_downwards`,
                                         token_idx: TokenIdx(
-                                            248,
+                                            251,
                                         ),
                                     },
                                 },
@@ -35546,7 +35546,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `cc_box_heights`,
                                         token_idx: TokenIdx(
-                                            277,
+                                            280,
                                         ),
                                     },
                                 },
@@ -35750,7 +35750,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `displacement_downwards`,
                                         token_idx: TokenIdx(
-                                            248,
+                                            251,
                                         ),
                                     },
                                 },
@@ -35781,7 +35781,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `cc_box_heights`,
                                         token_idx: TokenIdx(
-                                            277,
+                                            280,
                                         ),
                                     },
                                 },
@@ -37264,7 +37264,7 @@ Ok(
                                                     visibility: Scope::PubUnder(
                                                         `mnist_classifier::digits`,
                                                     ),
-                                                    ast_idx: 45,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(
@@ -40420,7 +40420,7 @@ Ok(
                                                     visibility: Scope::PubUnder(
                                                         `mnist_classifier::digits`,
                                                     ),
-                                                    ast_idx: 45,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(
@@ -42099,7 +42099,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 40,
+                                    ast_idx: 39,
                                     ident_token: IdentToken {
                                         ident: `simple_seven_match`,
                                         token_idx: TokenIdx(
@@ -42137,7 +42137,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 41,
+                                    ast_idx: 40,
                                     ident_token: IdentToken {
                                         ident: `simple_leftdown_pattern`,
                                         token_idx: TokenIdx(
@@ -42175,7 +42175,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 42,
+                                    ast_idx: 41,
                                     ident_token: IdentToken {
                                         ident: `special_seven_match`,
                                         token_idx: TokenIdx(
@@ -42213,7 +42213,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 43,
+                                    ast_idx: 42,
                                     ident_token: IdentToken {
                                         ident: `leftupcc_pattern`,
                                         token_idx: TokenIdx(
@@ -42251,7 +42251,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 44,
+                                    ast_idx: 43,
                                     ident_token: IdentToken {
                                         ident: `leftdowncc_pattern`,
                                         token_idx: TokenIdx(
@@ -42289,7 +42289,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 45,
+                                    ast_idx: 44,
                                     ident_token: IdentToken {
                                         ident: `is_seven`,
                                         token_idx: TokenIdx(
@@ -42338,7 +42338,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 40,
+                                    ast_idx: 39,
                                     ident_token: IdentToken {
                                         ident: `simple_seven_match`,
                                         token_idx: TokenIdx(
@@ -42369,7 +42369,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 41,
+                                    ast_idx: 40,
                                     ident_token: IdentToken {
                                         ident: `simple_leftdown_pattern`,
                                         token_idx: TokenIdx(
@@ -42400,7 +42400,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 42,
+                                    ast_idx: 41,
                                     ident_token: IdentToken {
                                         ident: `special_seven_match`,
                                         token_idx: TokenIdx(
@@ -42431,7 +42431,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 43,
+                                    ast_idx: 42,
                                     ident_token: IdentToken {
                                         ident: `leftupcc_pattern`,
                                         token_idx: TokenIdx(
@@ -42462,7 +42462,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 44,
+                                    ast_idx: 43,
                                     ident_token: IdentToken {
                                         ident: `leftdowncc_pattern`,
                                         token_idx: TokenIdx(
@@ -42493,7 +42493,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits`,
                                     ),
-                                    ast_idx: 45,
+                                    ast_idx: 44,
                                     ident_token: IdentToken {
                                         ident: `is_seven`,
                                         token_idx: TokenIdx(
@@ -42537,7 +42537,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42576,7 +42576,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42615,7 +42615,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42654,7 +42654,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42693,7 +42693,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42732,7 +42732,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42771,7 +42771,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42810,7 +42810,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42849,7 +42849,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42888,7 +42888,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42943,7 +42943,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -42994,7 +42994,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43045,7 +43045,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43096,7 +43096,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43147,7 +43147,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43198,7 +43198,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43249,7 +43249,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43300,7 +43300,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43371,7 +43371,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43442,7 +43442,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43513,7 +43513,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43584,7 +43584,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43655,7 +43655,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43714,7 +43714,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43773,7 +43773,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43832,7 +43832,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43891,7 +43891,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -43950,7 +43950,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44009,7 +44009,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44068,7 +44068,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44139,7 +44139,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44210,7 +44210,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44281,7 +44281,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44352,7 +44352,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44423,7 +44423,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44494,7 +44494,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44565,7 +44565,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44636,7 +44636,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44707,7 +44707,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44778,7 +44778,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44849,7 +44849,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44920,7 +44920,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -44991,7 +44991,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -45074,7 +45074,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -45157,7 +45157,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -45240,7 +45240,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -45311,7 +45311,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -45382,7 +45382,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -45453,7 +45453,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -45524,7 +45524,7 @@ Ok(
                                     visibility: Scope::PubUnder(
                                         `mnist_classifier::digits::seven`,
                                     ),
-                                    ast_idx: 39,
+                                    ast_idx: 38,
                                     use_expr_idx: 0,
                                 },
                             ),
@@ -45535,7 +45535,7 @@ Ok(
                 once_use_rules: OnceUseRules(
                     [
                         OnceUseRule {
-                            ast_idx: 39,
+                            ast_idx: 38,
                             use_expr_idx: 1,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
@@ -45569,7 +45569,7 @@ Ok(
                         UseAllModuleSymbolsRule {
                             parent_module_path: `mnist_classifier::digits`,
                             is_same_crate: true,
-                            ast_idx: 39,
+                            ast_idx: 38,
                             use_expr_idx: 0,
                             visibility: Scope::PubUnder(
                                 `mnist_classifier::digits::seven`,
@@ -45680,7 +45680,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `big_mouth`,
                                         token_idx: TokenIdx(
-                                            85,
+                                            88,
                                         ),
                                     },
                                 },
@@ -45791,7 +45791,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `big_mouth`,
                                         token_idx: TokenIdx(
-                                            85,
+                                            88,
                                         ),
                                     },
                                 },
@@ -47274,7 +47274,7 @@ Ok(
                                                     visibility: Scope::PubUnder(
                                                         `mnist_classifier::digits`,
                                                     ),
-                                                    ast_idx: 45,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(
@@ -49012,7 +49012,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `downmost`,
                                         token_idx: TokenIdx(
-                                            208,
+                                            211,
                                         ),
                                     },
                                 },
@@ -49050,7 +49050,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `big_cc`,
                                         token_idx: TokenIdx(
-                                            237,
+                                            240,
                                         ),
                                     },
                                 },
@@ -49192,7 +49192,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `downmost`,
                                         token_idx: TokenIdx(
-                                            208,
+                                            211,
                                         ),
                                     },
                                 },
@@ -49223,7 +49223,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `big_cc`,
                                         token_idx: TokenIdx(
-                                            237,
+                                            240,
                                         ),
                                     },
                                 },
@@ -50706,7 +50706,7 @@ Ok(
                                                     visibility: Scope::PubUnder(
                                                         `mnist_classifier::digits`,
                                                     ),
-                                                    ast_idx: 45,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(
@@ -54079,7 +54079,7 @@ Ok(
                                                     visibility: Scope::PubUnder(
                                                         `mnist_classifier::digits`,
                                                     ),
-                                                    ast_idx: 45,
+                                                    ast_idx: 44,
                                                     ident_token: IdentToken {
                                                         ident: `is_seven`,
                                                         token_idx: TokenIdx(

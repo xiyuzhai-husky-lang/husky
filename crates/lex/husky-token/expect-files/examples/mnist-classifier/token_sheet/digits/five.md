@@ -56,18 +56,11 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Question,
-                ),
+            Token::Ident(
+                `OneVsAll`,
             ),
             Token::Ident(
                 `MnistLabel`,
-            ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Eq,
-                ),
             ),
             Token::Ident(
                 `MnistLabel`,
@@ -82,11 +75,29 @@ Ok(
             Token::Ident(
                 `Five`,
             ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Ident(
+                `OneVsAll`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Yes`,
+            ),
         ],
         group_starts: [
             0,
             4,
-            14,
+            17,
         ],
         indents: [
             0,

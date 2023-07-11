@@ -174,12 +174,12 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 54,
+                                                value: 66,
                                             },
                                         ),
                                     ),
@@ -220,12 +220,12 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 54,
+                                                value: 66,
                                             },
                                         ),
                                     ),
@@ -332,7 +332,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 54,
+                                        value: 66,
                                     },
                                 ),
                             ),
@@ -394,7 +394,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 54,
+                                        value: 66,
                                     },
                                 ),
                             ),
@@ -656,7 +656,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 54,
+                                        value: 66,
                                     },
                                 ),
                             ),
@@ -867,7 +867,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 54,
+                                            value: 66,
                                         },
                                     ),
                                 ),
@@ -909,7 +909,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 54,
+                                            value: 66,
                                         },
                                     ),
                                 ),
@@ -980,7 +980,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -1019,7 +1019,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -1076,7 +1076,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -1126,7 +1126,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 54,
+                                            value: 66,
                                         },
                                     ),
                                 ),
@@ -1135,12 +1135,12 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 48,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -1221,7 +1221,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 54,
+                                        value: 66,
                                     },
                                 ),
                             ),
@@ -1283,7 +1283,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 54,
+                                        value: 66,
                                     },
                                 ),
                             ),
@@ -1434,7 +1434,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -1660,7 +1660,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 54,
+                                            value: 66,
                                         },
                                     ),
                                 ),
@@ -1702,7 +1702,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 54,
+                                            value: 66,
                                         },
                                     ),
                                 ),
@@ -1773,7 +1773,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -1823,7 +1823,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -1854,7 +1854,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -1925,7 +1925,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -2041,7 +2041,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -2050,12 +2050,12 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 57,
+                                                value: 69,
                                             },
                                         ),
                                     ),
@@ -2096,12 +2096,12 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 57,
+                                                value: 69,
                                             },
                                         ),
                                     ),
@@ -2174,7 +2174,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -2367,7 +2367,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -2414,7 +2414,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: None,
                                     ty: EntityPath(
                                         TypeOntology(
@@ -2443,7 +2443,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
@@ -2491,7 +2491,7 @@
                         },
                         ExpectationEntry {
                             expectation: ImplicitlyConvertible(
-                                ExpectImplicitlyConvertible {
+                                ExpectCoersion {
                                     contract: Move,
                                     ty: Application(
                                         EtherealTermApplication(
@@ -2693,7 +2693,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 52,
+                                        value: 60,
                                     },
                                 ),
                             ),
@@ -2774,7 +2774,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 52,
+                                            value: 60,
                                         },
                                     ),
                                 ),

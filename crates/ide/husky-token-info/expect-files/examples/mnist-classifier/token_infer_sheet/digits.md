@@ -668,7 +668,7 @@ Ok(
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::digits`,
                                 ),
-                                ast_idx: 45,
+                                ast_idx: 44,
                                 ident_token: IdentToken {
                                     ident: `is_seven`,
                                     token_idx: TokenIdx(

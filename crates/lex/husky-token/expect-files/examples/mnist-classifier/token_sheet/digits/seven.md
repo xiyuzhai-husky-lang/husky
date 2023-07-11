@@ -787,32 +787,29 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Question,
-                ),
+            Token::Ident(
+                `OneVsAll`,
+            ),
+            Token::Ident(
+                `MnistLabel`,
             ),
             Token::Ident(
                 `MnistLabel`,
             ),
             Token::Punctuation(
                 Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Seven`,
+            ),
+            Token::Punctuation(
+                Punctuation(
                     PunctuationMapped::Eq,
                 ),
-            ),
-            Token::Keyword(
-                Keyword::Stmt(
-                    Require,
-                ),
-            ),
-            Token::Ident(
-                `is_one`,
-            ),
-            Token::WordOpr(
-                WordOpr::Be,
-            ),
-            Token::Ident(
-                `none`,
             ),
             Token::Keyword(
                 Keyword::Stmt(
@@ -1342,7 +1339,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
+                `OneVsAll`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -1352,7 +1349,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `Seven`,
+                `Yes`,
             ),
         ],
         group_starts: [
@@ -1378,27 +1375,26 @@ Ok(
             154,
             158,
             159,
-            169,
-            173,
-            177,
-            181,
-            187,
-            193,
-            198,
-            207,
-            217,
-            222,
-            235,
-            241,
-            246,
-            250,
-            255,
-            265,
-            269,
-            273,
-            282,
-            288,
-            290,
+            172,
+            176,
+            180,
+            186,
+            192,
+            197,
+            206,
+            216,
+            221,
+            234,
+            240,
+            245,
+            249,
+            254,
+            264,
+            268,
+            272,
+            281,
+            287,
+            289,
         ],
         indents: [
             0,
@@ -1423,7 +1419,6 @@ Ok(
             4,
             4,
             0,
-            4,
             4,
             4,
             4,

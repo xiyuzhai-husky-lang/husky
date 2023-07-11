@@ -46,33 +46,35 @@ impl HasEtherealSignatureTemplate for TypePath {
         self,
         db: &dyn EtherealSignatureDb,
     ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
-        self.declarative_signature_template(db)?
-            .ethereal_signature_template(db)
+        ty_ethereal_signature_template(db, self)
     }
 }
 
-impl HasEtherealSignatureTemplate for TypeDeclarativeSignatureTemplate {
-    type EtherealSignatureTemplate = TypeEtherealSignatureTemplate;
-
-    #[inline(always)]
-    fn ethereal_signature_template(
-        self,
-        db: &dyn EtherealSignatureDb,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
-        match self {
-            TypeDeclarativeSignatureTemplate::Enum(_) => todo!(),
-            TypeDeclarativeSignatureTemplate::PropsStruct(signature_template) => signature_template
-                .ethereal_signature_template(db)
-                .map(Into::into),
-            TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
-            TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
-            TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
-            TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
-            TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
-            TypeDeclarativeSignatureTemplate::Extern(_) => todo!(),
-            TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
+#[salsa::tracked(jar = EtherealSignatureJar)]
+fn ty_ethereal_signature_template(
+    db: &dyn EtherealSignatureDb,
+    path: TypePath,
+) -> EtherealSignatureResult<TypeEtherealSignatureTemplate> {
+    Ok(match path.declarative_signature_template(db)? {
+        TypeDeclarativeSignatureTemplate::Enum(declarative_signature_template) => {
+            EnumEtherealSignatureTemplate::from_declarative(db, declarative_signature_template)?
+                .into()
         }
-    }
+        TypeDeclarativeSignatureTemplate::PropsStruct(declarative_signature_template) => {
+            PropsStructEtherealSignatureTemplate::from_declarative(
+                db,
+                declarative_signature_template,
+            )?
+            .into()
+        }
+        TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::TupleStruct(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Structure(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Extern(_) => todo!(),
+        TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
+    })
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

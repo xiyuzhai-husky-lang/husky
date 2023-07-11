@@ -31,41 +31,28 @@ impl HasRegularFieldEtherealSignature for PropsStructEtherealSignatureTemplate {
     }
 }
 
-impl HasEtherealSignatureTemplate for PropsStructDeclarativeSignatureTemplate {
-    type EtherealSignatureTemplate = PropsStructEtherealSignatureTemplate;
-
-    fn ethereal_signature_template(
-        self,
+impl PropsStructEtherealSignatureTemplate {
+    pub(super) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-    ) -> EtherealSignatureResult<Self::EtherealSignatureTemplate> {
-        props_struct_ethereal_signature_template(db, self)
+        declarative_signature_template: PropsStructDeclarativeSignatureTemplate,
+    ) -> EtherealSignatureResult<Self> {
+        let implicit_parameters = ImplicitParameterEtherealSignatures::from_declarative(
+            db,
+            declarative_signature_template.implicit_parameters(db),
+        )?;
+        let fields = declarative_signature_template
+            .fields(db)
+            .iter()
+            .copied()
+            .map(|declarative_signature_template| {
+                RegularFieldEtherealSignatureTemplate::from_declarative(
+                    db,
+                    declarative_signature_template,
+                )
+            })
+            .collect::<EtherealSignatureResult<_>>()?;
+        Ok(Self::new(db, implicit_parameters, fields))
     }
-}
-
-pub(crate) fn props_struct_ethereal_signature_template(
-    db: &dyn EtherealSignatureDb,
-    declarative_signature_template: PropsStructDeclarativeSignatureTemplate,
-) -> EtherealSignatureResult<PropsStructEtherealSignatureTemplate> {
-    let implicit_parameters = ImplicitParameterEtherealSignatures::from_declarative(
-        db,
-        declarative_signature_template.implicit_parameters(db),
-    )?;
-    let fields = declarative_signature_template
-        .fields(db)
-        .iter()
-        .copied()
-        .map(|declarative_signature_template| {
-            RegularFieldEtherealSignatureTemplate::from_declarative(
-                db,
-                declarative_signature_template,
-            )
-        })
-        .collect::<EtherealSignatureResult<_>>()?;
-    Ok(PropsStructEtherealSignatureTemplate::new(
-        db,
-        implicit_parameters,
-        fields,
-    ))
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

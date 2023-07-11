@@ -135,7 +135,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downmost`,
                                 token_idx: TokenIdx(
-                                    208,
+                                    211,
                                 ),
                             },
                         },
@@ -173,7 +173,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `big_cc`,
                                 token_idx: TokenIdx(
-                                    237,
+                                    240,
                                 ),
                             },
                         },
@@ -315,7 +315,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `downmost`,
                                 token_idx: TokenIdx(
-                                    208,
+                                    211,
                                 ),
                             },
                         },
@@ -346,7 +346,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `big_cc`,
                                 token_idx: TokenIdx(
-                                    237,
+                                    240,
                                 ),
                             },
                         },
@@ -1829,7 +1829,7 @@ Ok(
                                             visibility: Scope::PubUnder(
                                                 `mnist_classifier::digits`,
                                             ),
-                                            ast_idx: 45,
+                                            ast_idx: 44,
                                             ident_token: IdentToken {
                                                 ident: `is_seven`,
                                                 token_idx: TokenIdx(

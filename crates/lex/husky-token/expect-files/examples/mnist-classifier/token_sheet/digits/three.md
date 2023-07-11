@@ -135,13 +135,24 @@ Ok(
                     PunctuationMapped::Colon,
                 ),
             ),
-            Token::Punctuation(
-                Punctuation(
-                    PunctuationMapped::Question,
-                ),
+            Token::Ident(
+                `OneVsAll`,
             ),
             Token::Ident(
                 `MnistLabel`,
+            ),
+            Token::Ident(
+                `MnistLabel`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Binary(
+                        ScopeResolution,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Three`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -726,7 +737,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `MnistLabel`,
+                `OneVsAll`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -736,7 +747,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `Three`,
+                `Yes`,
             ),
             Token::Keyword(
                 Keyword::Fugitive(
@@ -1236,35 +1247,35 @@ Ok(
             4,
             9,
             21,
-            31,
-            39,
-            47,
-            56,
-            65,
-            74,
-            78,
-            84,
-            88,
-            101,
-            110,
-            118,
-            126,
-            135,
-            139,
-            145,
-            152,
+            34,
+            42,
+            50,
+            59,
+            68,
+            77,
+            81,
+            87,
+            91,
+            104,
+            113,
+            121,
+            129,
+            138,
+            142,
+            148,
             155,
-            167,
-            175,
-            181,
-            189,
-            201,
-            209,
-            215,
-            223,
-            235,
-            243,
-            249,
+            158,
+            170,
+            178,
+            184,
+            192,
+            204,
+            212,
+            218,
+            226,
+            238,
+            246,
+            252,
         ],
         indents: [
             0,

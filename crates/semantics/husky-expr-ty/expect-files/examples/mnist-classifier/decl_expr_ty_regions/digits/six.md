@@ -238,6 +238,27 @@
                             OntologyConstructor,
                         ),
                         Ok(
+                            Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            OntologyConstructor,
+                        ),
+                        Ok(
                             Category(
                                 TermCategory {
                                     universe: TermUniverse(
@@ -249,7 +270,49 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    0,
+                    1,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    2,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            InstanceConstructor,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 97,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    3,
                 ),
             },
             ExprTypeInfo {
@@ -268,12 +331,20 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    1,
+                    4,
                 ),
             },
         ],
         extra_expr_errors: [],
-        expr_fluffy_terms: [],
+        expr_fluffy_terms: [
+            Ok(
+                FluffyTerm::EntityPath(
+                    TermEntityPath::TypeOntology(
+                        TypePath(`mnist::MnistLabel`, `Enum`),
+                    ),
+                ),
+            ),
+        ],
         symbol_tys: SymbolMap {
             inherited_symbol_map: ArenaMap {
                 data: [],
@@ -306,9 +377,72 @@
                 arena: Arena {
                     data: [
                         ExpectationEntry {
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Category(
+                            expectation: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: Sort,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: Curry(
+                                    EtherealTermCurry(
+                                        Id {
+                                            value: 13,
+                                        },
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        EqsFunctionCallType(
+                                            ExpectEqsFunctionTypeOutcome {
+                                                implicit_parameter_substitutions: [],
+                                                return_ty: Curry(
+                                                    EtherealTermCurry(
+                                                        Id {
+                                                            value: 12,
+                                                        },
+                                                    ),
+                                                ),
+                                                variant: Curry {
+                                                    variance: Independent,
+                                                    parameter_symbol: Some(
+                                                        Variable(
+                                                            EtherealTermVariable(
+                                                                Id {
+                                                                    value: 1,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    parameter_ty: Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    return_ty: Curry(
+                                                        EtherealTermCurry(
+                                                            Id {
+                                                                value: 12,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -318,9 +452,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 0,
+                                idx: 1,
                                 src: ExpectationSource {
-                                    expr_idx: 0,
+                                    expr_idx: 1,
                                     kind: Expr,
                                 },
                                 expectee: Category(
@@ -330,13 +464,96 @@
                                         ),
                                     },
                                 ),
+                                resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsFunctionType(
+                                ExpectEqsFunctionType {
+                                    final_destination: Sort,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: Curry(
+                                    EtherealTermCurry(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
                                 resolve_progress: Resolved(
                                     Ok(
-                                        Subtype(
-                                            ExpectSubtypeOutcome,
+                                        EqsFunctionCallType(
+                                            ExpectEqsFunctionTypeOutcome {
+                                                implicit_parameter_substitutions: [],
+                                                return_ty: Category(
+                                                    TermCategory {
+                                                        universe: TermUniverse(
+                                                            1,
+                                                        ),
+                                                    },
+                                                ),
+                                                variant: Curry {
+                                                    variance: Independent,
+                                                    parameter_symbol: None,
+                                                    parameter_ty: EntityPath(
+                                                        TypeOntology(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 97,
+                                                                },
+                                                            ),
+                                                        ),
+                                                    ),
+                                                    return_ty: Category(
+                                                        TermCategory {
+                                                            universe: TermUniverse(
+                                                                1,
+                                                            ),
+                                                        },
+                                                    ),
+                                                },
+                                            },
                                         ),
                                     ),
                                 ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: CurryDestination(
+                                ExpectCurryDestination {
+                                    curry_destination: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 97,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 3,
+                                src: ExpectationSource {
+                                    expr_idx: 3,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 97,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Intact,
                             },
                         },
                         ExpectationEntry {
@@ -348,9 +565,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 1,
+                                idx: 4,
                                 src: ExpectationSource {
-                                    expr_idx: 1,
+                                    expr_idx: 4,
                                     kind: Expr,
                                 },
                                 expectee: Category(
