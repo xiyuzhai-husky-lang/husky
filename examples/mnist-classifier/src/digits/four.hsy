@@ -83,7 +83,7 @@ val is_four: OneVsAll MnistLabel MnistLabel::Four =
 
         require a < 22.0
         require a > 9.0
-        return MnistLabel::Four
+        return OneVsAll::Yes
     
 
     // narrow_down(

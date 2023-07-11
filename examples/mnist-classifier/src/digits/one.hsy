@@ -17,7 +17,7 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
         )?
         if major_connected_component.max_row_span > 6.5:
             require major_connected_component.max_hole_ilen == 0.0
-        MnistLabel::One
+        OneVsAll::Yes
     else:
         require major_connected_component.max_hole_ilen == 0.0
         require ignored_connected_components_row_span_sum_sum == 0.0
@@ -31,7 +31,7 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
                 skip = 5,
             )?
             require 2.0 * major_connected_component.lower_mass - major_connected_component.upper_mass < 52.0
-            return MnistLabel::One
+            return OneVsAll::Yes
         let downmost_number_of_strokes = downmost.strokes.end - downmost.strokes.start
         require one_fermi_match.norm < 1.0
         narrow_down(
@@ -88,7 +88,7 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
         let d = c + a
         require c >= -10.0
         require c <= 20.0
-        MnistLabel::One
+        OneVsAll::Yes
 
 fn upmost(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()

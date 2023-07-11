@@ -35,7 +35,7 @@ pub(super) val is_nine: OneVsAll MnistLabel MnistLabel::Nine =
 
         require a < 22.0
         require a > 9.0
-        return MnistLabel::Nine
+        return OneVsAll::Yes
     
 
     // narrow_down(

@@ -44,8 +44,8 @@ pub(super) val is_six: OneVsAll MnistLabel MnistLabel::Six =
             skip = 15
         )?
         if rel_upmost_match_end.x < 0.7:
-            return MnistLabel::Six
-        return MnistLabel::Six
+            return OneVsAll::Yes
+        return OneVsAll::Yes
     // narrow_down: filter the data that satisfy the given features. 
     narrow_down(
         six_match.norm,
