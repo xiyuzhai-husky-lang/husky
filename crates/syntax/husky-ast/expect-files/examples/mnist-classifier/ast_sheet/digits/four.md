@@ -510,13 +510,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `displacement_downwards`,
                         token_idx: TokenIdx(
-                            248,
+                            251,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            249,
+                            252,
                         ),
                         drained: false,
                     },
@@ -558,13 +558,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `cc_box_heights`,
                         token_idx: TokenIdx(
-                            277,
+                            280,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            278,
+                            281,
                         ),
                         drained: false,
                     },

@@ -7,7 +7,7 @@ fn almost_closed(cc: ~ConcaveComponent) -> ?f32:
     require cc.angle_change + 0.0 < -140.0
     -cc.angle_change + 0.0
 
-pub(super) val is_zero: ?MnistLabel =
+pub(super) val is_zero: OneVsAll MnistLabel MnistLabel::Zero =
     require is_one be none
     if major_connected_component.raw_contours.ilen() == 1:
         let n = open_one_match.norm
@@ -35,4 +35,4 @@ pub(super) val is_zero: ?MnistLabel =
     let ratio = a/b
     require ratio > 0.4
     let a = simp_zero_match.norm
-    MnistLabel::Zero
+    OneVsAll::Yes

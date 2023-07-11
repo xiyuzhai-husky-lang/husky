@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
                         ValDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                            initialization_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Five`),
                         },
                     ),
                 ),

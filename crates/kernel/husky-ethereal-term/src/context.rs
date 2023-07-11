@@ -33,7 +33,8 @@ impl TermShowContext {
         variable: EtherealTermVariable,
         f: &mut std::fmt::Formatter<'_>,
     ) -> std::fmt::Result {
-        todo!()
+        // ad hoc
+        f.write_str("variable_ad_hoc_fmt")
     }
 
     pub(crate) fn fmt_with_symbol(
@@ -54,6 +55,7 @@ impl TermShowContext {
         variable: EtherealTermVariable,
         f: impl FnOnce(&mut Self) -> std::fmt::Result,
     ) -> std::fmt::Result {
-        todo!()
+        // ad hoc
+        f(self)
     }
 }

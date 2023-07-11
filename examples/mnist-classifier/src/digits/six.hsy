@@ -6,7 +6,7 @@ val six_match: FermiMatchResult =
 val six_match_refined1: FermiMatchResult =
     fermi_match(major_concave_components, [upmost, bottom1])
 
-pub(super) val is_six: ?MnistLabel =
+pub(super) val is_six: OneVsAll MnistLabel MnistLabel::Six =
     require is_one be none
     let upmost_match = six_match.matches[0]
     require upmost_match be some
@@ -57,7 +57,7 @@ pub(super) val is_six: ?MnistLabel =
     if eff_holes.matches[1] be some:
         require eff_holes.matches[1].relative_bounding_box.ymax() < 0.75
     require lower_excess > 15.0
-    MnistLabel::Six
+    OneVsAll::Yes
 
 fn upmost(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()

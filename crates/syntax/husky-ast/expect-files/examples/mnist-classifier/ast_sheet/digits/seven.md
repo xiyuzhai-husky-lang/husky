@@ -94,6 +94,12 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
+                        30,
+                    ),
+                    body: None,
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
                         31,
                     ),
                     body: None,
@@ -106,13 +112,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        33,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        30,
+                        29,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -124,13 +124,13 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        28,
+                        27,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        29,
+                        28,
                     ),
                     body: None,
                 },
@@ -143,13 +143,13 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        34,
+                        33,
                     ),
                     body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        27,
+                        26,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -158,6 +158,12 @@ Ok(
                             ),
                         },
                     ),
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
+                        35,
+                    ),
+                    body: None,
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
@@ -173,13 +179,7 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        38,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        35,
+                        34,
                     ),
                     body: Some(
                         FugitiveBody {
@@ -213,12 +213,6 @@ Ok(
                     ),
                     body: None,
                 },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        26,
-                    ),
-                    body: None,
-                },
                 Ast::IfElseStmts {
                     if_branch: 23,
                     elif_branches: ArenaIdxRange(
@@ -235,6 +229,12 @@ Ok(
                 },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
+                        38,
+                    ),
+                    body: None,
+                },
+                Ast::BasicStmtOrBranch {
+                    token_group_idx: TokenGroupIdx(
                         39,
                     ),
                     body: None,
@@ -248,12 +248,6 @@ Ok(
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
                         41,
-                    ),
-                    body: None,
-                },
-                Ast::BasicStmtOrBranch {
-                    token_group_idx: TokenGroupIdx(
-                        42,
                     ),
                     body: None,
                 },
@@ -578,7 +572,7 @@ Ok(
                         body: Some(
                             FugitiveBody {
                                 ast_idx_range: ArenaIdxRange(
-                                    28..39,
+                                    28..38,
                                 ),
                             },
                         ),
@@ -587,7 +581,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            39..46,
+            38..45,
         ),
         siblings: [
             ArenaIdxRange(
@@ -678,9 +672,6 @@ Ok(
                 15..15,
             ),
             ArenaIdxRange(
-                15..15,
-            ),
-            ArenaIdxRange(
                 15..18,
             ),
             ArenaIdxRange(
@@ -714,10 +705,10 @@ Ok(
                 28..28,
             ),
             ArenaIdxRange(
-                28..39,
+                28..38,
             ),
             ArenaIdxRange(
-                39..46,
+                38..45,
             ),
         ],
     },

@@ -39,7 +39,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 51,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -76,7 +76,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 51,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -113,7 +113,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 51,
+                                                        value: 52,
                                                     },
                                                 ),
                                             ),
@@ -139,7 +139,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Val(
                         ValDeclarativeSignatureTemplate {
-                            initialization_ty: DeclarativeTerm(`core::option::Option mnist::MnistLabel`),
+                            initialization_ty: DeclarativeTerm(`malamute::OneVsAll mnist::MnistLabel mnist::MnistLabel::Two`),
                         },
                     ),
                 ),

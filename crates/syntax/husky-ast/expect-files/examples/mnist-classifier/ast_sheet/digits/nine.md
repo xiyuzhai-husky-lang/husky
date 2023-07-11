@@ -425,13 +425,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `downmost`,
                         token_idx: TokenIdx(
-                            208,
+                            211,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            209,
+                            212,
                         ),
                         drained: false,
                     },
@@ -473,13 +473,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `big_cc`,
                         token_idx: TokenIdx(
-                            237,
+                            240,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            238,
+                            241,
                         ),
                         drained: false,
                     },
