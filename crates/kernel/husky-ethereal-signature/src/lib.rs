@@ -1,7 +1,6 @@
 #![feature(trait_upcasting)]
 mod db;
 mod error;
-mod instantiator;
 mod parameter;
 mod signature;
 
@@ -10,11 +9,10 @@ pub use self::error::*;
 pub use self::parameter::*;
 pub use self::signature::*;
 
-use self::instantiator::*;
 use self::parameter::*;
 use husky_coword::*;
 use husky_entity_path::*;
-use husky_ethereal_term::*;
+use husky_ethereal_term::{instantiator::*, *};
 use maybe_result::*;
 use smallvec::*;
 

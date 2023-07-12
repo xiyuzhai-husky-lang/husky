@@ -134,7 +134,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         ty_target: EtherealTerm,
     ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated>
     {
-        let mut instantiator = EtherealInstantiator::new(self.implicit_parameters(db));
+        let mut instantiator = self.implicit_parameters(db).instantiator();
         match instantiator.try_add_rules_from_application(db, self.ty(db), arguments) {
             JustOk(_) => Ok(
                 TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated::new(
@@ -154,7 +154,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
 impl TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated {
     fn new(
         db: &dyn EtherealSignatureDb,
-        instantiator: EtherealInstantiator,
+        instantiator: EtherealTermInstantiator,
         implicit_parameters: &ImplicitParameterEtherealSignatures,
         trai: EtherealTerm,
         ty_instantiated: EtherealTerm,

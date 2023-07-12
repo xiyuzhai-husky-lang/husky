@@ -64,3 +64,22 @@ impl<Db: EtherealTermDb + ?Sized> salsa::DisplayWithDb<Db> for EtherealTermSymbo
         f.write_fmt(format_args!("${}", self.idx(db)))
     }
 }
+
+impl EtherealTermInstantiate for EtherealTermSymbol {
+    type Target = EtherealTerm;
+
+    fn instantiate(
+        self,
+        db: &dyn EtherealTermDb,
+        instantiator: &EtherealTermInstantiator,
+    ) -> Self::Target {
+        instantiator.symbol_mapped(self).unwrap_or(
+            EtherealTermSymbol::new_inner(
+                db,
+                self.ty(db).instantiate(db, instantiator),
+                self.idx(db),
+            )
+            .into(),
+        )
+    }
+}

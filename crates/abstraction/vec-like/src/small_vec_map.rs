@@ -163,7 +163,7 @@ where
         }
     }
 
-    pub fn insert_new_unchecked(&mut self, new: E)
+    pub unsafe fn insert_new_unchecked(&mut self, new: E)
     where
         K: Copy,
     {
@@ -339,10 +339,11 @@ where
     E: AsVecMapEntry<K = K> + std::fmt::Debug,
     [E; N]: Array<Item = E>,
 {
+    // deprecated: make this an unsafe method because this is unsafe
     fn from_iter<T: IntoIterator<Item = E>>(iter: T) -> Self {
         let mut map = Self::default();
         for v in iter {
-            map.insert_new(v).unwrap();
+            unsafe { map.insert_new_unchecked(v) }
         }
         map
     }

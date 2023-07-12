@@ -72,13 +72,13 @@ impl std::ops::Deref for ExplicitParameterEtherealSignatureTemplates {
     }
 }
 
-impl EtherealInstantiateRef for ExplicitParameterEtherealSignatureTemplate {
+impl EtherealTermInstantiateRef for ExplicitParameterEtherealSignatureTemplate {
     type Target = Option<Self>;
 
     fn instantiate(
         &self,
-        db: &dyn EtherealSignatureDb,
-        instantiator: &EtherealInstantiator,
+        db: &dyn EtherealTermDb,
+        instantiator: &EtherealTermInstantiator,
     ) -> Self::Target {
         todo!()
     }

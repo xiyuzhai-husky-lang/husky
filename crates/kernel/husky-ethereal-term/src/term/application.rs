@@ -349,3 +349,20 @@ impl std::fmt::Display for EtherealTermApplication {
         todo!()
     }
 }
+
+impl EtherealTermInstantiate for EtherealTermApplication {
+    type Target = EtherealTerm;
+
+    fn instantiate(
+        self,
+        db: &dyn EtherealTermDb,
+        instantiator: &EtherealTermInstantiator,
+    ) -> Self::Target {
+        Self::new_reduced(
+            db,
+            self.function(db).instantiate(db, instantiator),
+            self.argument(db).instantiate(db, instantiator),
+            self.shift(db),
+        )
+    }
+}
