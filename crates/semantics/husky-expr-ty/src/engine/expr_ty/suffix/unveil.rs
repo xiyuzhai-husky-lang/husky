@@ -1,7 +1,9 @@
 use husky_ethereal_signature::{
-    EtherealSignatureError, EtherealSignatureMaybeResult,
+    EtherealSignatureError, EtherealSignatureMaybeResult, EtherealSignatureResult,
     HasTypeSideTraitForTypeImplBlockSignatureTemplates,
-    TraitForTypeImplBlockEtherealSignatureTemplate, TraitForTypeImplBlockSignature,
+    TraitForTypeImplBlockEtherealSignatureTemplate,
+    TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated,
+    TraitForTypeImplBlockSignature,
 };
 use maybe_result::*;
 
@@ -48,7 +50,9 @@ impl Unveiler {
 fn unveil_impl_block_signature_templates(
     db: &dyn ExprTypeDb,
     term: EtherealTerm,
-) -> EtherealSignatureMaybeResult<&[TraitForTypeImplBlockEtherealSignatureTemplate]> {
+) -> EtherealSignatureMaybeResult<
+    &[TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated],
+> {
     match term {
         EtherealTerm::Literal(_) => todo!(),
         EtherealTerm::Symbol(_) => {
@@ -84,31 +88,53 @@ fn unveil_impl_block_signature_templates(
 fn ty_ontology_path_unveil_impl_block_signature_templates(
     db: &dyn ExprTypeDb,
     ty_path: TypePath,
-) -> EtherealSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplate; 2]>> {
-    unveil_impl_block_signature_templates_aux(db, ty_path, &[])
+) -> EtherealSignatureMaybeResult<
+    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated; 2]>,
+> {
+    unveil_impl_block_signature_templates_aux(
+        db,
+        ty_path,
+        &[],
+        EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)),
+    )
 }
 
 #[salsa::tracked(jar = ExprTypeJar, return_ref)]
 fn ty_ontology_application_unveil_impl_block_signature_templates(
     db: &dyn ExprTypeDb,
-    term_application: EtherealTermApplication,
-) -> EtherealSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplate; 2]>> {
-    let application_expansion = term_application.application_expansion(db);
+    ty_target: EtherealTermApplication,
+) -> EtherealSignatureMaybeResult<
+    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated; 2]>,
+> {
+    let application_expansion = ty_target.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
         todo!()
     };
-    unveil_impl_block_signature_templates_aux(db, ty_path, application_expansion.arguments(db))
+    unveil_impl_block_signature_templates_aux(
+        db,
+        ty_path,
+        application_expansion.arguments(db),
+        ty_target.into(),
+    )
 }
 
 fn unveil_impl_block_signature_templates_aux(
     db: &dyn ExprTypeDb,
     ty_path: TypePath,
     arguments: &[EtherealTerm],
-) -> EtherealSignatureMaybeResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplate; 2]>> {
+    ty_target: EtherealTerm,
+) -> EtherealSignatureMaybeResult<
+    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated; 2]>,
+> {
     let entity_path_menu = db.entity_path_menu(ty_path.toolchain(db));
     let templates = ty_path.ty_side_trai_for_ty_impl_block_signature_templates(
         db,
         entity_path_menu.core_ops_unveil_trai_path(),
     )?;
-    todo!()
+    JustOk(
+        templates
+            .iter()
+            .map(|template| template.instantiate_ty(db, arguments, ty_target))
+            .collect::<EtherealSignatureResult<_>>()?,
+    )
 }

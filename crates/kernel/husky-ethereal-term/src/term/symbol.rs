@@ -7,7 +7,7 @@ pub use self::set::*;
 use super::*;
 use thiserror::Error;
 
-#[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = new_inner)]
+#[salsa::interned(db = EtherealTermDb, jar = EtherealTermJar, constructor = pub new_inner)]
 pub struct EtherealTermSymbol {
     pub ty: EtherealTerm,
     /// this is the index for all symbols with the same type

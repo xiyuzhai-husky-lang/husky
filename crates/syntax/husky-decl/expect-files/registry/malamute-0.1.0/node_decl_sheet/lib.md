@@ -478,7 +478,7 @@ Ok(
                                                 Expr::CurrentSymbol {
                                                     ident: `Label`,
                                                     token_idx: TokenIdx(
-                                                        62,
+                                                        63,
                                                     ),
                                                     current_symbol_idx: 0,
                                                     current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
@@ -486,7 +486,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Label`,
                                                                 token_idx: TokenIdx(
-                                                                    57,
+                                                                    58,
                                                                 ),
                                                             },
                                                         },
@@ -514,7 +514,7 @@ Ok(
                                                 },
                                                 Expr::Literal(
                                                     TokenIdx(
-                                                        76,
+                                                        77,
                                                     ),
                                                     Literal::Integer(
                                                         UnspecifiedRegular(
@@ -535,7 +535,7 @@ Ok(
                                                 Expr::CurrentSymbol {
                                                     ident: `Label`,
                                                     token_idx: TokenIdx(
-                                                        81,
+                                                        82,
                                                     ),
                                                     current_symbol_idx: 0,
                                                     current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
@@ -543,7 +543,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `Label`,
                                                                 token_idx: TokenIdx(
-                                                                    57,
+                                                                    58,
                                                                 ),
                                                             },
                                                         },
@@ -556,7 +556,7 @@ Ok(
                                                 Expr::CurrentSymbol {
                                                     ident: `label`,
                                                     token_idx: TokenIdx(
-                                                        82,
+                                                        83,
                                                     ),
                                                     current_symbol_idx: 1,
                                                     current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
@@ -564,7 +564,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `label`,
                                                                 token_idx: TokenIdx(
-                                                                    60,
+                                                                    61,
                                                                 ),
                                                             },
                                                         },
@@ -583,7 +583,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `f32`,
                                                             token_idx: TokenIdx(
-                                                                70,
+                                                                71,
                                                             ),
                                                         },
                                                     ),
@@ -598,7 +598,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `i32`,
                                                             token_idx: TokenIdx(
-                                                                74,
+                                                                75,
                                                             ),
                                                         },
                                                     ),
@@ -613,7 +613,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `OneVsAllResult`,
                                                             token_idx: TokenIdx(
-                                                                80,
+                                                                81,
                                                             ),
                                                         },
                                                     ),
@@ -636,7 +636,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `skip`,
                                                             token_idx: TokenIdx(
-                                                                72,
+                                                                73,
                                                             ),
                                                         },
                                                     },
@@ -680,7 +680,7 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
-                                                            58,
+                                                            59,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
@@ -688,7 +688,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
-                                                                        57,
+                                                                        58,
                                                                     ),
                                                                 },
                                                             },
@@ -697,7 +697,7 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
-                                                            63,
+                                                            64,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ImplicitParameter {
@@ -705,7 +705,7 @@ Ok(
                                                                 ident_token: IdentToken {
                                                                     ident: `label`,
                                                                     token_idx: TokenIdx(
-                                                                        60,
+                                                                        61,
                                                                     ),
                                                                 },
                                                                 ty_expr_idx: 0,
@@ -715,7 +715,7 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            66,
+                                                            67,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitVariadicParameter {
@@ -723,7 +723,7 @@ Ok(
                                                             ident_token: IdentToken {
                                                                 ident: `f`,
                                                                 token_idx: TokenIdx(
-                                                                    68,
+                                                                    69,
                                                                 ),
                                                             },
                                                         },
@@ -731,7 +731,7 @@ Ok(
                                                     CurrentSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
-                                                            73,
+                                                            74,
                                                         ),
                                                         access_end: None,
                                                         variant: CurrentSymbolVariant::ExplicitRegularParameter {
@@ -806,7 +806,7 @@ Ok(
                                         ImplicitParameterDeclList {
                                             langle: LeftAngleBracketOrLessThanToken(
                                                 TokenIdx(
-                                                    56,
+                                                    57,
                                                 ),
                                             ),
                                             implicit_parameters: [
@@ -817,7 +817,7 @@ Ok(
                                                         ident_token: IdentToken {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
-                                                                57,
+                                                                58,
                                                             ),
                                                         },
                                                         traits: None,
@@ -829,18 +829,18 @@ Ok(
                                                     variant: ImplicitParameterDeclPatternVariant::Constant {
                                                         const_token: ConstToken {
                                                             token_idx: TokenIdx(
-                                                                59,
+                                                                60,
                                                             ),
                                                         },
                                                         ident_token: IdentToken {
                                                             ident: `label`,
                                                             token_idx: TokenIdx(
-                                                                60,
+                                                                61,
                                                             ),
                                                         },
                                                         colon_token: ColonToken(
                                                             TokenIdx(
-                                                                61,
+                                                                62,
                                                             ),
                                                         ),
                                                         ty_expr: 0,
@@ -850,7 +850,7 @@ Ok(
                                             commas: [
                                                 CommaToken(
                                                     TokenIdx(
-                                                        58,
+                                                        59,
                                                     ),
                                                 ),
                                             ],
@@ -859,7 +859,7 @@ Ok(
                                             ),
                                             rangle: RightAngleBracketToken(
                                                 TokenIdx(
-                                                    63,
+                                                    64,
                                                 ),
                                             ),
                                         },
@@ -869,7 +869,7 @@ Ok(
                                     SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                64,
+                                                65,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -878,18 +878,18 @@ Ok(
                                             ExplicitParameterDecl::Variadic {
                                                 dot_dot_dot_token: DotDotDotToken(
                                                     TokenIdx(
-                                                        65,
+                                                        66,
                                                     ),
                                                 ),
                                                 variadic_variant: VariadicVariant::Vec {
                                                     lbox_token: LeftBoxBracketToken(
                                                         TokenIdx(
-                                                            66,
+                                                            67,
                                                         ),
                                                     ),
                                                     rbox_token: RightBoxBracketToken(
                                                         TokenIdx(
-                                                            67,
+                                                            68,
                                                         ),
                                                     ),
                                                 },
@@ -897,13 +897,13 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `f`,
                                                     token_idx: TokenIdx(
-                                                        68,
+                                                        69,
                                                     ),
                                                 },
                                                 variable: 2,
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        69,
+                                                        70,
                                                     ),
                                                 ),
                                                 ty: 1,
@@ -914,19 +914,19 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `skip`,
                                                     token_idx: TokenIdx(
-                                                        72,
+                                                        73,
                                                     ),
                                                 },
                                                 variable: 3,
                                                 colon: ColonToken(
                                                     TokenIdx(
-                                                        73,
+                                                        74,
                                                     ),
                                                 ),
                                                 ty: 2,
                                                 eq_token: EqToken(
                                                     TokenIdx(
-                                                        75,
+                                                        76,
                                                     ),
                                                 ),
                                                 default: Right(
@@ -937,18 +937,18 @@ Ok(
                                         commas: [
                                             CommaToken(
                                                 TokenIdx(
-                                                    71,
+                                                    72,
                                                 ),
                                             ),
                                             CommaToken(
                                                 TokenIdx(
-                                                    77,
+                                                    78,
                                                 ),
                                             ),
                                         ],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                78,
+                                                79,
                                             ),
                                         ),
                                     },
@@ -957,7 +957,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                79,
+                                                80,
                                             ),
                                         ),
                                     ),
@@ -973,7 +973,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                83,
+                                                84,
                                             ),
                                         },
                                     ),
@@ -1088,16 +1088,13 @@ Ok(
                             ty_expr: TypeExpr {
                                 expr: 12,
                             },
-                            eol_colon: Err(
-                                NodeDeclError::Original(
-                                    OriginalNodeDeclError::ExpectedEolColon(
-                                        TokenStreamState {
-                                            next_token_idx: TokenIdx(
-                                                53,
-                                            ),
-                                            drained: true,
-                                        },
-                                    ),
+                            eol_colon: Ok(
+                                EolToken::Colon(
+                                    EolColonToken {
+                                        token_idx: TokenIdx(
+                                            53,
+                                        ),
+                                    },
                                 ),
                             ),
                             expr_region: ExprRegion {

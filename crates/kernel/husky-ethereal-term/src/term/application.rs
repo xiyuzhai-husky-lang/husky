@@ -275,7 +275,7 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     }
 }
 
-/// function_ty.parameter_variable(db) matches None
+/// function_ty.parameter_variable(db) is None
 pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
     db: &dyn EtherealTermDb,
     function_ty: DeclarativeTermCurry,
@@ -287,22 +287,19 @@ pub(crate) fn ethereal_term_application_declarative_ty_nondependent_aux(
         0 => Ok(function_ty.return_ty(db)),
         shift => match argument_ty {
             RawType::Declarative(DeclarativeTerm::Curry(argument_ty)) => {
-                match argument_ty.parameter_variable(db) {
-                    Some(_) => todo!(),
-                    None => Ok(DeclarativeTermCurry::new_nondependent(
+                Ok(DeclarativeTermCurry::new_nondependent(
+                    db,
+                    argument_ty.curry_kind(db),
+                    argument_ty.variance(db),
+                    argument_ty.parameter_ty(db),
+                    ethereal_term_application_declarative_ty_nondependent_aux(
                         db,
-                        argument_ty.curry_kind(db),
-                        argument_ty.variance(db),
-                        argument_ty.parameter_ty(db),
-                        ethereal_term_application_declarative_ty_nondependent_aux(
-                            db,
-                            function_ty,
-                            argument_ty.return_ty(db).into(),
-                            shift - 1,
-                        )?,
-                    )
-                    .into()),
-                }
+                        function_ty,
+                        argument_ty.return_ty(db).into(),
+                        shift - 1,
+                    )?,
+                )
+                .into())
             }
             _ => Err(todo!()),
         },

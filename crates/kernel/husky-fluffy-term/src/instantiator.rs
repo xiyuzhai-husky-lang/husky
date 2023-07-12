@@ -4,11 +4,13 @@ use vec_like::VecPairMap;
 use super::*;
 
 #[derive(Default)]
-pub(crate) struct Instantiator {
+pub(crate) struct FluffyInstantiator {
     symbol_map: VecPairMap<EtherealTermSymbol, FluffyTerm>,
 }
 
-impl Instantiator {
+impl FluffyInstantiator {
+    // todo: add try_add_rules_from_application as in EtherealInstantiator
+
     /// JustOk(()) means rule is added and everything is compatible
     /// Nothing means something is incompatible
     /// JustErr(_) means something is wrong
@@ -27,7 +29,7 @@ impl Instantiator {
                         return JustOk(());
                     }
                 }
-                self.symbol_map.insert_new_unchecked((symbol, dst));
+                unsafe { self.symbol_map.insert_new_unchecked((symbol, dst)) };
                 JustOk(())
             }
             EtherealTerm::Variable(_) => todo!(),
@@ -51,7 +53,7 @@ pub(crate) trait Instantiate: Copy {
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
-        instantiator: &mut Instantiator,
+        instantiator: &mut FluffyInstantiator,
     ) -> Self::Target;
 }
 
@@ -61,7 +63,7 @@ pub(crate) trait InstantiateRef {
     fn instantiate(
         &self,
         engine: &mut impl FluffyTermEngine,
-        instantiator: &mut Instantiator,
+        instantiator: &mut FluffyInstantiator,
     ) -> Self::Target;
 }
 
@@ -71,7 +73,7 @@ impl Instantiate for EtherealTerm {
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
-        instantiator: &mut Instantiator,
+        instantiator: &mut FluffyInstantiator,
     ) -> Self::Target {
         if instantiator.symbol_map.len() == 0 {
             return self.into();

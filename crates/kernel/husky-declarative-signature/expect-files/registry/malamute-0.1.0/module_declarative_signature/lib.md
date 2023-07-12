@@ -167,4 +167,47 @@
             ),
         ),
     ),
+    (
+        EntityPath::ImplBlock(
+            TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath(
+                    Id {
+                        value: 39,
+                    },
+                ),
+            ),
+        ),
+        Ok(
+            SignatureTemplate::ImplBlock(
+                ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDeclarativeSignatureTemplate {
+                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            data: [
+                                ImplicitParameterDeclarativeSignature {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                                ImplicitParameterDeclarativeSignature {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 47,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
+                            ],
+                        },
+                        trai: DeclarativeTerm(`core::ops::Unveil malamute::OneVsAllResult t a`),
+                        ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                    },
+                ),
+            ),
+        ),
+    ),
 ]
