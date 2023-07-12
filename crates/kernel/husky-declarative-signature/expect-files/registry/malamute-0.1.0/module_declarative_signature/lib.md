@@ -210,4 +210,29 @@
             ),
         ),
     ),
+    (
+        EntityPath::AssociatedItem(
+            AssociatedItemPath::TraitForTypeItem(
+                TraitForTypeItemPath {
+                    impl_block: TraitForTypeImplBlockPath {
+                        module_path: `malamute`,
+                        trai_path: TraitPath(`core::ops::Unveil`),
+                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                        disambiguator: 0,
+                    },
+                    ident: `Output`,
+                    item_kind: AssociatedType,
+                },
+            ),
+        ),
+        Ok(
+            SignatureTemplate::AssociatedItem(
+                AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
+                    TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
+                        TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
+                    ),
+                ),
+            ),
+        ),
+    ),
 ]
