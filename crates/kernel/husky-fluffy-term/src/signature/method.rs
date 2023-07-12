@@ -78,7 +78,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
-    let mut instantiator = Instantiator::default();
+    let mut instantiator = FluffyInstantiator::default();
     // initialize pattern matcher
     std::iter::zip(
         self_ty_application_expansion.arguments(db).iter().copied(),

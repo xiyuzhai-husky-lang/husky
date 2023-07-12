@@ -40,14 +40,6 @@ impl ExplicitParameterEtherealSignatureTemplate {
     }
 }
 
-impl Instantiate for ExplicitParameterEtherealSignatureTemplate {
-    type Target = ExplicitParameterEtherealSignature;
-
-    fn instantiate(&self, instantiator: Instantiator) -> Self::Target {
-        todo!()
-    }
-}
-
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct ExplicitParameterEtherealSignatureTemplates {
     data: SmallVec<[ExplicitParameterEtherealSignatureTemplate; 4]>,
@@ -77,6 +69,18 @@ impl std::ops::Deref for ExplicitParameterEtherealSignatureTemplates {
 
     fn deref(&self) -> &Self::Target {
         &self.data
+    }
+}
+
+impl EtherealInstantiateRef for ExplicitParameterEtherealSignatureTemplate {
+    type Target = Option<Self>;
+
+    fn instantiate(
+        &self,
+        db: &dyn EtherealSignatureDb,
+        instantiator: &EtherealInstantiator,
+    ) -> Self::Target {
+        todo!()
     }
 }
 

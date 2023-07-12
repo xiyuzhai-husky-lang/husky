@@ -3,7 +3,7 @@ use husky_entity_tree::{EntityTreeBundleResult, HasTypeSideTraitForTypeImplBlock
 use smallvec::SmallVec;
 use vec_like::SmallVecPairMap;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
 pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
     #[return_ref]
     pub implicit_parameters: ImplicitParameterEtherealSignatures,
@@ -72,7 +72,7 @@ impl HasTypeSideTraitForTypeImplBlockSignatureTemplates for TypePath {
     ) -> EtherealSignatureMaybeResult<&'a [TraitForTypeImplBlockEtherealSignatureTemplate]> {
         match ty_side_impl_block_signature_templates_map(db, self).get_value(key) {
             Some(result) => match result {
-                Ok(_) => todo!(),
+                Ok(templates) => JustOk(templates),
                 Err(e) => JustErr(*e),
             },
             None => Nothing,
@@ -113,6 +113,60 @@ impl HasTraitSideTraitForTypeImplBlockSignatureTemplates for TraitPath {
         key: Self::Key,
     ) -> Option<&'a [TraitForTypeImplBlockEtherealSignatureTemplate]> {
         todo!()
+    }
+}
+
+#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new_inner)]
+pub struct TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated {
+    #[return_ref]
+    pub implicit_parameters: ImplicitParameterEtherealSignatures,
+    pub trai: EtherealTerm,
+    pub ty: EtherealTerm,
+    // todo: where clause
+}
+
+impl TraitForTypeImplBlockEtherealSignatureTemplate {
+    #[inline(always)]
+    pub fn instantiate_ty(
+        self,
+        db: &dyn EtherealSignatureDb,
+        arguments: &[EtherealTerm],
+        ty_target: EtherealTerm,
+    ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated>
+    {
+        let mut instantiator = EtherealInstantiator::new(self.implicit_parameters(db));
+        match instantiator.try_add_rules_from_application(db, self.ty(db), arguments) {
+            JustOk(_) => Ok(
+                TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated::new(
+                    db,
+                    instantiator,
+                    self.implicit_parameters(db),
+                    self.trai(db),
+                    ty_target,
+                ),
+            ),
+            JustErr(_) => todo!(),
+            Nothing => todo!(),
+        }
+    }
+}
+
+impl TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated {
+    fn new(
+        db: &dyn EtherealSignatureDb,
+        instantiator: EtherealInstantiator,
+        implicit_parameters: &ImplicitParameterEtherealSignatures,
+        trai: EtherealTerm,
+        ty_instantiated: EtherealTerm,
+    ) -> Self {
+        let implicit_parameters_instantiated = implicit_parameters.instantiate(db, &instantiator);
+        let trai_instantied = trai.instantiate(db, &instantiator);
+        Self::new_inner(
+            db,
+            implicit_parameters_instantiated,
+            trai_instantied,
+            ty_instantiated,
+        )
     }
 }
 

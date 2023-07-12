@@ -261,7 +261,8 @@ where
         }
     }
 
-    pub fn insert_new_unchecked(&mut self, new: Entry)
+    /// use this when you are absoluately sure!
+    pub unsafe fn insert_new_unchecked(&mut self, new: Entry)
     where
         K: Copy,
     {
@@ -426,6 +427,17 @@ where
             map.insert_new(v)?
         }
         Ok(map)
+    }
+
+    /// use this when you are absoluately sure!
+    pub unsafe fn from_iter_assuming_no_repetitions_unchecked<T: IntoIterator<Item = Entry>>(
+        iter: T,
+    ) -> Self {
+        let mut map = Self::default();
+        for v in iter {
+            map.insert_new_unchecked(v)
+        }
+        map
     }
 
     /// if there are repetitive keys, take the first value

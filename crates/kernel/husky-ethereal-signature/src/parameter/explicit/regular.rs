@@ -26,10 +26,14 @@ impl ExplicitRegularParameterEtherealSignatureTemplate {
     }
 }
 
-impl Instantiate for ExplicitRegularParameterEtherealSignatureTemplate {
-    type Target = ExplicitRegularParameterEtherealSignature;
+impl EtherealInstantiateRef for ExplicitRegularParameterEtherealSignatureTemplate {
+    type Target = Self;
 
-    fn instantiate(&self, instantiator: Instantiator) -> Self::Target {
+    fn instantiate(
+        &self,
+        db: &dyn EtherealSignatureDb,
+        instantiator: &EtherealInstantiator,
+    ) -> Self::Target {
         todo!()
     }
 }
