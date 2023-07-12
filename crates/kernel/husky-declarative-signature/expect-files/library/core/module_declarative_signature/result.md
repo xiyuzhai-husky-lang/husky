@@ -119,7 +119,11 @@
             SignatureTemplate::AssociatedItem(
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
-                        TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
+                        TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
+                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                data: [],
+                            },
+                        },
                     ),
                 ),
             ),
