@@ -25,6 +25,11 @@ pub enum ImplBlockNodePath {
     IllFormedImplBlock(IllFormedImplBlockNodePath),
 }
 
+pub trait HasItemPaths: Copy {
+    type ItemPath;
+    fn item_paths(self, db: &dyn EntityTreeDb) -> &[(Ident, Self::ItemPath)];
+}
+
 pub(crate) struct ImplBlockNodePathRegistry {}
 
 impl ImplBlockNodePath {

@@ -918,7 +918,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 64,
+                                                value: 65,
                                             },
                                         ),
                                     ),
@@ -934,7 +934,7 @@ fn parse_expr_works() {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 65,
+                                            value: 66,
                                         },
                                     ),
                                 ),
@@ -1016,7 +1016,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 64,
+                                                value: 65,
                                             },
                                         ),
                                     ),
@@ -1032,7 +1032,7 @@ fn parse_expr_works() {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 66,
+                                            value: 67,
                                         },
                                     ),
                                 ),

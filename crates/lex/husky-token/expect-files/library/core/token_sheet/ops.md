@@ -2049,7 +2049,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `Continue`,
+                `Output`,
             ),
             Token::Punctuation(
                 Punctuation(
@@ -2127,7 +2127,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `Continue`,
+                `Output`,
             ),
             Token::Punctuation(
                 Punctuation(

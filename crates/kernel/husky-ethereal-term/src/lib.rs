@@ -8,7 +8,7 @@ mod context;
 mod conversion;
 mod db;
 mod error;
-pub mod instantiator;
+pub mod instantiation;
 mod menu;
 mod rewrite;
 // mod template;

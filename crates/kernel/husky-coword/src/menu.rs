@@ -34,6 +34,7 @@ pub struct CowordMenu {
     lifetime_ty_ident: Ident,
     module_ident: Ident,
     crate_ident: Ident,
+    camel_case_output_ident: Ident,
 }
 
 impl CowordMenu {
@@ -71,6 +72,7 @@ impl CowordMenu {
             module_ident: db.it_ident_borrowed("Module").unwrap(),
             crate_ident: db.it_ident_borrowed("crate").unwrap(),
             lifetime_ty_ident: db.it_ident_borrowed("Lifetime").unwrap(),
+            camel_case_output_ident: db.it_ident_borrowed("Output").unwrap(),
         }
     }
 
@@ -200,6 +202,10 @@ impl CowordMenu {
 
     pub fn derive_ident(&self) -> Ident {
         self.derive_ident
+    }
+
+    pub fn camel_case_output_ident(&self) -> Ident {
+        self.camel_case_output_ident
     }
 }
 

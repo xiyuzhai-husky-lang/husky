@@ -1,11 +1,14 @@
 use crate::*;
 use maybe_result::*;
 use vec_like::{SmallVecPairMap, VecPairMap};
-pub struct EtherealTermInstantiator {
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EtherealTermDb)]
+pub struct EtherealTermInstantiation {
     symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 2>,
 }
 
-impl EtherealTermInstantiator {
+impl EtherealTermInstantiation {
     /// symbols must be unique
     pub unsafe fn new(symbols: impl Iterator<Item = EtherealTermSymbol>) -> Self {
         Self {
@@ -97,7 +100,7 @@ pub trait EtherealTermInstantiate: Copy {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiator: &EtherealTermInstantiator,
+        instantiation: &EtherealTermInstantiation,
     ) -> Self::Target;
 }
 
@@ -107,6 +110,6 @@ pub trait EtherealTermInstantiateRef {
     fn instantiate(
         &self,
         db: &dyn EtherealTermDb,
-        instantiator: &EtherealTermInstantiator,
+        instantiation: &EtherealTermInstantiation,
     ) -> Self::Target;
 }

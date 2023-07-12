@@ -7,7 +7,7 @@ mod disambiguation;
 mod engine;
 mod error;
 mod expectation;
-mod instantiator;
+mod instantiation;
 mod nested;
 mod progress;
 mod region;
@@ -36,7 +36,7 @@ pub(crate) use self::signature::*;
 #[cfg(test)]
 pub(crate) use self::tests::*;
 
-use self::instantiator::*;
+use self::instantiation::*;
 use self::nested::*;
 use either::*;
 use husky_declarative_signature::*;

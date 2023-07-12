@@ -1,3 +1,5 @@
+use vec_like::SmallVecPairMap;
+
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -139,4 +141,24 @@ pub(crate) fn trai_for_ty_impl_block_node(
     let module_path = node_path.module_path(db);
     let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
     entity_tree_sheet.trai_for_ty_impl_block_node(db, node_path)
+}
+
+impl HasItemPaths for TraitForTypeImplBlockPath {
+    type ItemPath = TraitForTypeItemPath;
+
+    fn item_paths(self, db: &dyn EntityTreeDb) -> &[(Ident, Self::ItemPath)] {
+        trai_for_ty_impl_block_item_paths(db, self)
+    }
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+fn trai_for_ty_impl_block_item_paths(
+    db: &dyn EntityTreeDb,
+    path: TraitForTypeImplBlockPath,
+) -> SmallVecPairMap<Ident, TraitForTypeItemPath, 2> {
+    path.node_path(db)
+        .items(db)
+        .iter()
+        .filter_map(|(ident, node_path, _)| Some((*ident, node_path.path(db)?)))
+        .collect()
 }

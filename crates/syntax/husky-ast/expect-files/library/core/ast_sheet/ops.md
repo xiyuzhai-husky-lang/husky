@@ -922,7 +922,7 @@ Ok(
                         ),
                     },
                     ident_token: IdentToken {
-                        ident: `Continue`,
+                        ident: `Output`,
                         token_idx: TokenIdx(
                             415,
                         ),

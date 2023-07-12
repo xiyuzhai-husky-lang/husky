@@ -27,8 +27,8 @@ impl ImplicitParameterEtherealSignatures {
         &self.data
     }
 
-    pub(crate) fn instantiator(&self) -> EtherealTermInstantiator {
-        unsafe { EtherealTermInstantiator::new(self.iter().map(|param| param.symbol())) }
+    pub(crate) fn instantiation(&self) -> EtherealTermInstantiation {
+        unsafe { EtherealTermInstantiation::new(self.iter().map(|param| param.symbol())) }
     }
 }
 
@@ -46,13 +46,13 @@ impl EtherealTermInstantiateRef for ImplicitParameterEtherealSignatures {
     fn instantiate(
         &self,
         db: &dyn EtherealTermDb,
-        instantiator: &EtherealTermInstantiator,
+        instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
         ImplicitParameterEtherealSignatures {
             data: self
                 .data
                 .iter()
-                .filter_map(|param| param.instantiate(db, instantiator))
+                .filter_map(|param| param.instantiate(db, instantiation))
                 .collect(),
         }
     }
@@ -92,9 +92,9 @@ impl EtherealTermInstantiateRef for ImplicitParameterEtherealSignature {
     fn instantiate(
         &self,
         db: &dyn EtherealTermDb,
-        instantiator: &EtherealTermInstantiator,
+        instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
-        if instantiator.is_symbol_resolved(self.symbol) {
+        if instantiation.is_symbol_resolved(self.symbol) {
             return None;
         }
         Some(ImplicitParameterEtherealSignature {
@@ -103,7 +103,7 @@ impl EtherealTermInstantiateRef for ImplicitParameterEtherealSignature {
             // make new_inner private
             symbol: EtherealTermSymbol::new_inner(
                 db,
-                self.symbol.ty(db).instantiate(db, instantiator),
+                self.symbol.ty(db).instantiate(db, instantiation),
                 self.symbol.idx(db),
             ),
             traits: self.traits.iter().map(|_| todo!()).collect(),

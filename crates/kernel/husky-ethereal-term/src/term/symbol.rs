@@ -71,12 +71,12 @@ impl EtherealTermInstantiate for EtherealTermSymbol {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiator: &EtherealTermInstantiator,
+        instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
-        instantiator.symbol_mapped(self).unwrap_or(
+        instantiation.symbol_mapped(self).unwrap_or(
             EtherealTermSymbol::new_inner(
                 db,
-                self.ty(db).instantiate(db, instantiator),
+                self.ty(db).instantiate(db, instantiation),
                 self.idx(db),
             )
             .into(),

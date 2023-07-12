@@ -79,9 +79,9 @@ pub trait Sub<Rhs>:
     fn sub(other: Rhs) -> Self::Output;
 
 pub trait Unveil<T> extends Sized:
-    type Continue;
+    type Output;
 
-    fn branch(t: T) -> ControlFlow<Self, Self::Continue>;
+    fn branch(t: T) -> ControlFlow<Self, Self::Output>;
 
 pub enum ControlFlow<R, C>
 | Return(R)

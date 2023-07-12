@@ -202,7 +202,7 @@ Ok(
             ),
             end_line: 83,
             end_character: Some(
-                57,
+                55,
             ),
             kind: Some(
                 Region,

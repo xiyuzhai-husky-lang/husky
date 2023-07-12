@@ -83,6 +83,7 @@ pub struct EntityTreeJar(
     ty_item_node_paths,
     ty_item_paths_map,
     trai_for_ty_impl_block_items,
+    trai_for_ty_impl_block_item_paths,
     // variants
     ty_variant_nodes,
     ty_variant_paths,

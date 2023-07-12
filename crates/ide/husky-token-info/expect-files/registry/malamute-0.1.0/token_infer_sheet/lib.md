@@ -285,6 +285,7 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::EntityNode(
                 EntityNodePath::ModuleItem(
                     ModuleItemNodePath::Fugitive(
@@ -311,7 +312,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                57,
+                                58,
                             ),
                         },
                     },
@@ -327,7 +328,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                60,
+                                61,
                             ),
                         },
                     },
@@ -342,7 +343,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                57,
+                                58,
                             ),
                         },
                     },
@@ -360,7 +361,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `f`,
                         token_idx: TokenIdx(
-                            68,
+                            69,
                         ),
                     },
                 },
@@ -409,7 +410,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                57,
+                                58,
                             ),
                         },
                     },
@@ -423,7 +424,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                60,
+                                61,
                             ),
                         },
                     },

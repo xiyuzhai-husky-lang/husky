@@ -13,13 +13,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: expect end-of-line colon",
-                severity: Error,
-                range: [10:102, 10:103),
-            },
-        ],
+        diagnostics: [],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

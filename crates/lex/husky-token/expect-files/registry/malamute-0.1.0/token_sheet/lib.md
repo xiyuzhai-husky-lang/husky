@@ -208,6 +208,11 @@ Ok(
             Token::Ident(
                 `label`,
             ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
             Token::Keyword(
                 Keyword::Pub,
             ),
@@ -359,7 +364,7 @@ Ok(
             28,
             30,
             32,
-            53,
+            54,
         ],
         indents: [
             0,

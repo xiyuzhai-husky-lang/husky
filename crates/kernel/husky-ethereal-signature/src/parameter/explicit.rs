@@ -78,7 +78,7 @@ impl EtherealTermInstantiateRef for ExplicitParameterEtherealSignatureTemplate {
     fn instantiate(
         &self,
         db: &dyn EtherealTermDb,
-        instantiator: &EtherealTermInstantiator,
+        instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
         todo!()
     }
