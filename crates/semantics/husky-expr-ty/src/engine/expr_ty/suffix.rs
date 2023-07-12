@@ -15,18 +15,9 @@ impl<'a> ExprTypeEngine<'a> {
         match opr {
             SuffixOpr::Incr => Ok((ExprDisambiguation::Trivial, self.calc_incr_expr_ty(opd))),
             SuffixOpr::Decr => Ok((ExprDisambiguation::Trivial, self.calc_decr_expr_ty(opd))),
-            SuffixOpr::UnveilOrComposeWithOption => self.calc_ambiguous_suffix_expr_ty(
-                opd,
-                final_destination,
-                (
-                    UnveilOrComposeWithOptionExprDisambiguation::Unveil,
-                    Self::calc_unveil_expr_ty,
-                ),
-                (
-                    UnveilOrComposeWithOptionExprDisambiguation::ComposeWithOption,
-                    Self::calc_compose_with_option_expr_ty,
-                ),
-            ),
+            SuffixOpr::UnveilOrComposeWithOption => {
+                self.calc_unveil_or_compose_with_option_expr_ty(opd, final_destination)
+            }
             SuffixOpr::UnwrapOrComposeWithNot => self.calc_ambiguous_suffix_expr_ty(
                 opd,
                 final_destination,
@@ -136,6 +127,30 @@ impl<'a> ExprTypeEngine<'a> {
         Ok(self.term_menu.unit_ty_ontology().into())
     }
 
+    fn calc_unveil_or_compose_with_option_expr_ty(
+        &mut self,
+        opd: ExprIdx,
+        final_destination: FinalDestination,
+    ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
+        // (
+        //     UnveilOrComposeWithOptionExprDisambiguation::Unveil,
+        //     Self::calc_unveil_expr_ty,
+        // ),
+        // (
+        //     UnveilOrComposeWithOptionExprDisambiguation::ComposeWithOption,
+        //     Self::calc_compose_with_option_expr_ty,
+        // ),
+        match self.unveiler {
+            Unveiler::Unique { .. } => todo!(),
+            Unveiler::Nothing => todo!(),
+            Unveiler::ErrUnableToInferReturnTypeForUnveiling
+            | Unveiler::ErrEtherealSignature(_) => {
+                self.infer_new_expr_ty_discarded(opd, ExpectAnyDerived);
+                Err(DerivedExprTypeError::UnveilerError)?
+            }
+        }
+    }
+
     fn calc_ambiguous_suffix_expr_ty<D: std::fmt::Debug + Into<ExprDisambiguation>>(
         &mut self,
         opd: ExprIdx,
@@ -198,8 +213,8 @@ impl<'a> ExprTypeEngine<'a> {
             } => todo!(),
             FluffyTermData::TypeOntologyAtPlace {
                 place,
-                ty_path: path,
-                refined_ty_path: refined_path,
+                ty_path,
+                refined_ty_path,
                 arguments,
                 base_ty_ethereal_term,
             } => todo!(),

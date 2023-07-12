@@ -87,7 +87,7 @@
                         Symbol(
                             EtherealTermSymbol(
                                 Id {
-                                    value: 6,
+                                    value: 7,
                                 },
                             ),
                         ),

@@ -191,7 +191,7 @@ pub(crate) fn ty_item_node_paths(
         .collect())
 }
 
-pub trait HasItemPaths: Copy {
+pub trait HasItemPathsMap: Copy {
     type ItemKind;
 
     type ItemPath;
@@ -211,7 +211,7 @@ pub trait HasItemPaths: Copy {
     >;
 }
 
-impl HasItemPaths for TypePath {
+impl HasItemPathsMap for TypePath {
     type ItemKind = TypeItemKind;
 
     type ItemPath = TypeItemPath;

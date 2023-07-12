@@ -32,7 +32,7 @@ impl EtherealTermInstantiateRef for ExplicitRegularParameterEtherealSignatureTem
     fn instantiate(
         &self,
         db: &dyn EtherealTermDb,
-        instantiator: &EtherealTermInstantiator,
+        instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
         todo!()
     }

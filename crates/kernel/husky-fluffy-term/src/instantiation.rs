@@ -4,12 +4,12 @@ use vec_like::VecPairMap;
 use super::*;
 
 #[derive(Default)]
-pub(crate) struct FluffyInstantiator {
+pub(crate) struct FluffyTermInstantiation {
     symbol_map: VecPairMap<EtherealTermSymbol, FluffyTerm>,
 }
 
-impl FluffyInstantiator {
-    // todo: add try_add_rules_from_application as in EtherealInstantiator
+impl FluffyTermInstantiation {
+    // todo: add try_add_rules_from_application as in Etherealinstantiation
 
     /// JustOk(()) means rule is added and everything is compatible
     /// Nothing means something is incompatible
@@ -47,13 +47,13 @@ impl FluffyInstantiator {
     }
 }
 
-pub(crate) trait Instantiate: Copy {
+pub(crate) trait FluffyTermInstantiate: Copy {
     type Target;
 
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
-        instantiator: &mut FluffyInstantiator,
+        instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target;
 }
 
@@ -63,24 +63,24 @@ pub(crate) trait InstantiateRef {
     fn instantiate(
         &self,
         engine: &mut impl FluffyTermEngine,
-        instantiator: &mut FluffyInstantiator,
+        instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target;
 }
 
-impl Instantiate for EtherealTerm {
+impl FluffyTermInstantiate for EtherealTerm {
     type Target = FluffyTerm;
 
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
-        instantiator: &mut FluffyInstantiator,
+        instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
-        if instantiator.symbol_map.len() == 0 {
+        if instantiation.symbol_map.len() == 0 {
             return self.into();
         }
         match self {
             EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(symbol) => match instantiator.symbol_map.get_entry(symbol) {
+            EtherealTerm::Symbol(symbol) => match instantiation.symbol_map.get_entry(symbol) {
                 Some((_, instantiated_term)) => *instantiated_term,
                 None => todo!(),
             },

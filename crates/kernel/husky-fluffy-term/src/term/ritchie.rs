@@ -41,13 +41,13 @@ impl InstantiateRef for ExplicitParameterEtherealSignatureTemplate {
     fn instantiate(
         &self,
         engine: &mut impl FluffyTermEngine,
-        instantiator: &mut FluffyInstantiator,
+        instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
         match self {
             ExplicitParameterEtherealSignatureTemplate::Regular(signature_template) => {
                 FluffyTermRitchieRegularParameter::new(
                     signature_template.contract(),
-                    signature_template.ty().instantiate(engine, instantiator),
+                    signature_template.ty().instantiate(engine, instantiation),
                 )
                 .into()
             }

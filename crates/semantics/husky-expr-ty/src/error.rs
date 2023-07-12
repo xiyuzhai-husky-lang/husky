@@ -182,6 +182,8 @@ pub enum DerivedExprTypeError {
     UnableToInferReturnTypeForUnveiling,
     #[error("EtherealSignature")]
     EtherealSignature(#[from] EtherealSignatureError),
+    #[error("UnveilerError")]
+    UnveilerError,
 }
 
 pub type ExprTypeResult<T> = Result<T, ExprTypeError>;

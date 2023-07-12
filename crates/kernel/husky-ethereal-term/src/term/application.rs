@@ -356,12 +356,12 @@ impl EtherealTermInstantiate for EtherealTermApplication {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiator: &EtherealTermInstantiator,
+        instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
         Self::new_reduced(
             db,
-            self.function(db).instantiate(db, instantiator),
-            self.argument(db).instantiate(db, instantiator),
+            self.function(db).instantiate(db, instantiation),
+            self.argument(db).instantiate(db, instantiation),
             self.shift(db),
         )
     }

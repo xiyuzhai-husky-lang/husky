@@ -12,7 +12,7 @@ pub use self::signature::*;
 use self::parameter::*;
 use husky_coword::*;
 use husky_entity_path::*;
-use husky_ethereal_term::{instantiator::*, *};
+use husky_ethereal_term::{instantiation::*, *};
 use maybe_result::*;
 use smallvec::*;
 
@@ -50,4 +50,6 @@ pub struct EtherealSignatureJar(
     trai_for_ty_impl_block_ethereal_signature_template,
     ty_impl_block_ethereal_signature_template,
     ty_side_impl_block_signature_templates_map,
+    trai_for_ty_impl_block_with_ty_instantiated_associated_output_term,
+    trai_for_ty_impl_block_with_ty_instantiated_associated_item_term,
 );

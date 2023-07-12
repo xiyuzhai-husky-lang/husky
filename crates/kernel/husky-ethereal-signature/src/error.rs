@@ -9,6 +9,8 @@ pub enum EtherealSignatureError {
     TermError,
     #[error("DerivedFromDeclarative")]
     DerivedFromDeclarative,
+    #[error("NoSuchItem")]
+    NoSuchItem,
 }
 
 impl From<DeclarativeSignatureError> for EtherealSignatureError {

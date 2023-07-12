@@ -20,7 +20,7 @@ pub use self::subentity::*;
 pub use self::symbol::*;
 pub use self::variable::*;
 
-use crate::instantiator::*;
+use crate::instantiation::*;
 use crate::*;
 use husky_coword::Ident;
 use husky_declarative_term::DeclarativeTerm;
@@ -524,11 +524,11 @@ impl EtherealTermInstantiate for EtherealTerm {
     fn instantiate(
         self,
         db: &dyn EtherealTermDb,
-        instantiator: &EtherealTermInstantiator,
+        instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
         match self {
             EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(term) => term.instantiate(db, instantiator),
+            EtherealTerm::Symbol(term) => term.instantiate(db, instantiation),
             EtherealTerm::Variable(_) => todo!(),
             EtherealTerm::EntityPath(_) => self,
             EtherealTerm::Category(_) => self,
@@ -536,7 +536,7 @@ impl EtherealTermInstantiate for EtherealTerm {
             EtherealTerm::Curry(_) => todo!(),
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(term) => term.instantiate(db, instantiator),
+            EtherealTerm::Application(term) => term.instantiate(db, instantiation),
             EtherealTerm::Subentity(_) => todo!(),
             EtherealTerm::AsTraitSubentity(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),

@@ -29,13 +29,13 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
         todo!()
     }
-    let mut instantiator = FluffyInstantiator::default();
+    let mut instantiation = FluffyTermInstantiation::default();
     // initialize pattern matcher
     std::iter::zip(
         self_ty_application_expansion.arguments(db).iter().copied(),
         ty_template_arguments.iter().copied(),
     )
-    .try_for_each(|(src, dst)| instantiator.try_add_rule(src, dst.into()))?;
+    .try_for_each(|(src, dst)| instantiation.try_add_rule(src, dst.into()))?;
     let mut associated_fn_template_argument_iter = associated_fn_template_arguments.iter();
     for _ in template.implicit_parameters(db).iter() {
         todo!()
@@ -44,11 +44,11 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         explicit_parameters: template
             .explicit_parameters(db)
             .iter()
-            .map(|param| param.instantiate(engine, &mut instantiator))
+            .map(|param| param.instantiate(engine, &mut instantiation))
             .collect(),
         return_ty: template
             .return_ty(db)
-            .instantiate(engine, &mut instantiator),
-        ty: template.ty(db).instantiate(engine, &mut instantiator),
+            .instantiate(engine, &mut instantiation),
+        ty: template.ty(db).instantiate(engine, &mut instantiation),
     })
 }

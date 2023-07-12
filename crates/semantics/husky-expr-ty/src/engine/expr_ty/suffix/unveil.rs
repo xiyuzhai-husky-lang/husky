@@ -12,7 +12,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
         match self.unveiler {
-            Unveiler::Unique(ty) => {
+            Unveiler::Unique { .. } => {
                 // self.infer_new_expr_ty_discarded(
                 //     opd,
                 //     ExpectCoersion::new(Contract::Move, ty.into()),
@@ -29,7 +29,11 @@ impl<'a> ExprTypeEngine<'a> {
 }
 
 pub(crate) enum Unveiler {
-    Unique(EtherealTerm),
+    Unique {
+        opd_ty: EtherealTerm,
+        unveil_output_ty: EtherealTerm,
+        unveil_output_ty_final_destination: FinalDestination,
+    },
     Nothing,
     ErrUnableToInferReturnTypeForUnveiling,
     ErrEtherealSignature(EtherealSignatureError),
@@ -58,7 +62,13 @@ impl Unveiler {
                         let trai_arguments =
                             template.trai(db).application_expansion(db).arguments(db);
                         debug_assert_eq!(trai_arguments.len(), 1);
-                        JustOk(Unveiler::Unique(trai_arguments[0]))
+                        let unveil_output_ty = template.associated_output_term(db)?;
+                        let unveil_output_ty_final_destination = todo!();
+                        JustOk(Unveiler::Unique {
+                            opd_ty: trai_arguments[0],
+                            unveil_output_ty,
+                            unveil_output_ty_final_destination,
+                        })
                     }
                     _ => todo!(),
                 }
