@@ -8,6 +8,7 @@ pub enum OneVsAllResult<Label, const label: Label>
 | Unconfident
 
 impl<Label, const label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
+    type Output = ()
 
 pub gn narrow_down<Label, const label: Label>(
     ...[] f: f32,

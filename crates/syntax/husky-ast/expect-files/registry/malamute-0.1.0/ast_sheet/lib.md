@@ -134,6 +134,42 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
+                        8,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: PubUnder(
+                            ModulePath(
+                                Id {
+                                    value: 49,
+                                },
+                            ),
+                        ),
+                        variant: Protected,
+                    },
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TraitForTypeItem(
+                            AssociatedType,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `Output`,
+                        token_idx: TokenIdx(
+                            55,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            56,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
                         0,
                     ),
                     visibility_expr: VisibilityExpr {
@@ -232,18 +268,26 @@ Ok(
                     token_group_idx: TokenGroupIdx(
                         7,
                     ),
-                    items: None,
+                    items: Some(
+                        TraitForType(
+                            TraitForTypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    5..6,
+                                ),
+                            },
+                        ),
+                    ),
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        8,
+                        9,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    54,
+                                    59,
                                 ),
                             },
                         },
@@ -257,13 +301,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `narrow_down`,
                         token_idx: TokenIdx(
-                            56,
+                            61,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            57,
+                            62,
                         ),
                         drained: false,
                     },
@@ -279,17 +323,20 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            5..9,
+            6..10,
         ),
         siblings: [
             ArenaIdxRange(
                 5..5,
             ),
             ArenaIdxRange(
-                5..5,
+                5..6,
             ),
             ArenaIdxRange(
-                5..9,
+                6..6,
+            ),
+            ArenaIdxRange(
+                6..10,
             ),
         ],
     },
