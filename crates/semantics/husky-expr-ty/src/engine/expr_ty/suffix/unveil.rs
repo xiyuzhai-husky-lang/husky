@@ -12,7 +12,13 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
         match self.unveiler {
-            Unveiler::Unique(_) => todo!(),
+            Unveiler::Unique(ty) => {
+                // self.infer_new_expr_ty_discarded(
+                //     opd,
+                //     ExpectCoersion::new(Contract::Move, ty.into()),
+                // );
+                todo!()
+            }
             Unveiler::Nothing => Err(OriginalExprTypeError::CannotUnveil)?,
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
                 Err(DerivedExprTypeError::UnableToInferReturnTypeForUnveiling)?
@@ -43,7 +49,22 @@ impl Unveiler {
 
     fn new_aux(db: &dyn ExprTypeDb, return_ty: EtherealTerm) -> EtherealSignatureMaybeResult<Self> {
         let templates = unveil_impl_block_signature_templates(db, return_ty)?;
-        todo!()
+        match templates.len() {
+            0 => todo!(),
+            1 => {
+                let template = templates[0];
+                match template.implicit_parameters(db).len() {
+                    0 => {
+                        let trai_arguments =
+                            template.trai(db).application_expansion(db).arguments(db);
+                        debug_assert_eq!(trai_arguments.len(), 1);
+                        JustOk(Unveiler::Unique(trai_arguments[0]))
+                    }
+                    _ => todo!(),
+                }
+            }
+            _ => todo!(),
+        }
     }
 }
 
