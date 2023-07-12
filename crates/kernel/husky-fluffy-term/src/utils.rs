@@ -101,9 +101,9 @@ impl FluffyTerm {
                 hole_kind,
                 hole,
             } => todo!(),
-            FluffyTermData::Symbol { .. } => 0,
-            FluffyTermData::SymbolAtPlace { .. } => 0,
-            FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::Symbol { .. }
+            | FluffyTermData::SymbolAtPlace { .. }
+            | FluffyTermData::Variable { .. } => 0,
         }
     }
 }
