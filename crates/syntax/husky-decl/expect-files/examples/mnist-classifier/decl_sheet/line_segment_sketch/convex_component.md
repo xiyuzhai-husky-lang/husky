@@ -86,7 +86,7 @@ Ok(
                                                 },
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        NoLeftOperandForBinaryOperator {
+                                                        OriginalExprError::NoLeftOperandForBinaryOperator {
                                                             binary_token_idx: TokenIdx(
                                                                 18,
                                                             ),
@@ -95,7 +95,7 @@ Ok(
                                                 ),
                                                 Expr::Err(
                                                     ExprError::Original(
-                                                        NoRightOperandForBinaryOperator {
+                                                        OriginalExprError::NoRightOperandForBinaryOperator {
                                                             punctuation: Closed(
                                                                 RemEuclid,
                                                             ),
@@ -254,7 +254,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 39,
+                                value: 38,
                             },
                         ),
                     ),

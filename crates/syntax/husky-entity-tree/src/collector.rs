@@ -12,9 +12,6 @@ pub(crate) struct EntityTreeCollector<'a> {
     impl_registry: ImplBlockRegistry,
     presheets: VecMap<EntityTreePresheetMut<'a>>,
     core_prelude_module: ModulePath,
-    // can't use `crate_prelude` here because it might not be available
-    opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
-    crate_specific_prelude: EntitySymbolTableRef<'a>,
     major_path_expr_arena: MajorPathExprArena,
 }
 
@@ -37,17 +34,6 @@ impl<'a> EntityTreeCollector<'a> {
         let toolchain = crate_path.toolchain(db);
         let path_menu = db.vfs_path_menu(toolchain);
         let core_prelude_module = path_menu.core_prelude();
-        let universal_prelude: Option<EntitySymbolTableRef<'a>> = {
-            if crate_path != path_menu.core_library() {
-                Some(
-                    none_core_crate_universal_prelude(db, toolchain)
-                        .as_ref()?
-                        .as_ref(),
-                )
-            } else {
-                None
-            }
-        };
         Ok(Self {
             db,
             crate_path,
@@ -55,11 +41,6 @@ impl<'a> EntityTreeCollector<'a> {
             impl_registry: ImplBlockRegistry::default(),
             presheets,
             core_prelude_module,
-            opt_universal_prelude: universal_prelude,
-            crate_specific_prelude: crate_specific_prelude(db, crate_path)
-                .as_ref()
-                .map(|table| table.as_ref())
-                .map_err(|e| e.clone())?,
             major_path_expr_arena: Default::default(),
         })
     }
@@ -111,34 +92,20 @@ impl<'a> EntityTreeCollector<'a> {
                         Ast::ImplBlock {
                             token_group_idx,
                             items,
-                        } => {
-                            let crate_prelude = crate_prelude(
-                                self.opt_universal_prelude,
-                                self.core_prelude_module,
-                                &self.presheets,
-                                self.crate_specific_prelude,
-                            );
-                            let module_symbol_context = ModuleSymbolContext::new(
-                                crate_prelude,
-                                presheet.module_specific_symbols(),
-                            );
-                            context!(self, presheet);
-                            Some(ImplBlockNode::parse_from_token_group(
-                                self.db,
-                                self.crate_root_path,
-                                &mut self.impl_registry,
-                                module_symbol_context,
-                                context!(self, presheet),
-                                module_path,
-                                ast_idx,
-                                *items,
-                                self.db
-                                    .token_sheet_data(module_path)
-                                    .unwrap()
-                                    .token_group_token_stream(*token_group_idx, None),
-                                &mut self.major_path_expr_arena,
-                            ))
-                        }
+                        } => Some(ImplBlockNode::parse_from_token_group(
+                            self.db,
+                            self.crate_root_path,
+                            &mut self.impl_registry,
+                            context!(self, presheet),
+                            module_path,
+                            ast_idx,
+                            *items,
+                            self.db
+                                .token_sheet_data(module_path)
+                                .unwrap()
+                                .token_group_token_stream(*token_group_idx, None),
+                            &mut self.major_path_expr_arena,
+                        )),
                         _ => None,
                     })
                     .map(|impl_block_node| (impl_block_node.node_path(self.db), impl_block_node)),
@@ -211,18 +178,4 @@ impl<'a> EntityTreeCollector<'a> {
             } => self.presheets[module_path].mark_once_use_rule_as_erroneous(rule_idx, error),
         }
     }
-}
-
-fn crate_prelude<'a, 'b>(
-    opt_universal_prelude: Option<EntitySymbolTableRef<'a>>,
-    core_prelude_module: ModulePath,
-    presheets: &'b VecMap<EntityTreePresheetMut<'a>>,
-    crate_specific_prelude: EntitySymbolTableRef<'a>,
-) -> CrateSymbolContext<'b>
-where
-    'a: 'b,
-{
-    let universal_prelude = opt_universal_prelude
-        .unwrap_or_else(|| presheets[core_prelude_module].module_specific_symbols());
-    CrateSymbolContext::new(universal_prelude, crate_specific_prelude)
 }

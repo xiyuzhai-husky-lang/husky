@@ -20,12 +20,7 @@ impl<'a> EntityTreeCollector<'a> {
             self.db,
             self.crate_path,
             self.crate_root_path,
-            crate_prelude(
-                self.opt_universal_prelude,
-                self.core_prelude_module,
-                &self.presheets,
-                self.crate_specific_prelude,
-            ),
+            CratePrelude::new(self.db, self.crate_path).expect("todo"),
             presheet,
             &self.presheets,
         )
@@ -39,12 +34,7 @@ macro_rules! context {
             $self.db,
             $self.crate_path,
             $self.crate_root_path,
-            crate_prelude(
-                $self.opt_universal_prelude,
-                $self.core_prelude_module,
-                &$self.presheets,
-                $self.crate_specific_prelude,
-            ),
+            CratePrelude::new($self.db, $self.crate_path).expect("todo"),
             $presheet,
             &$self.presheets,
         )

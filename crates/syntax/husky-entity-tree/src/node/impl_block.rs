@@ -85,7 +85,6 @@ impl ImplBlockNode {
         db: &dyn EntityTreeDb,
         crate_root_path: ModulePath,
         registry: &mut ImplBlockRegistry,
-        module_symbol_context: ModuleSymbolContext<'a>,
         entity_tree_context: EntityTreeSymbolContext<'a, 'b>,
         module_path: ModulePath,
         ast_idx: AstIdx,

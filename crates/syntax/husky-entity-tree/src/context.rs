@@ -12,7 +12,7 @@ where
     db: &'a dyn EntityTreeDb,
     crate_path: CratePath,
     crate_root: ModulePath,
-    crate_prelude: CrateSymbolContext<'b>,
+    crate_prelude: CratePrelude<'b>,
     current_sheet: &'b EntityTreePresheetMut<'a>,
     presheets: &'b VecMap<EntityTreePresheetMut<'a>>,
 }
@@ -25,7 +25,7 @@ where
         db: &'a dyn EntityTreeDb,
         crate_path: CratePath,
         crate_root: ModulePath,
-        crate_prelude: CrateSymbolContext<'b>,
+        crate_prelude: CratePrelude<'b>,
         current_sheet: &'b EntityTreePresheetMut<'a>,
         sheets: &'b VecMap<EntityTreePresheetMut<'a>>,
     ) -> Self {

@@ -1,5 +1,6 @@
 use crate::*;
 use husky_manifest::{HasPackageManifest, ManifestError};
+use husky_print_utils::p;
 use husky_vfs::*;
 use thiserror::Error;
 
@@ -17,49 +18,22 @@ pub enum PreludeError {
 }
 pub type PreludeResult<T> = Result<T, PreludeError>;
 
+impl From<&PreludeError> for PreludeError {
+    fn from(value: &PreludeError) -> Self {
+        todo!()
+    }
+}
+
 impl From<&ManifestError> for PreludeError {
     fn from(value: &ManifestError) -> Self {
         todo!()
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn crate_specific_prelude(
-    db: &dyn EntityTreeDb,
-    crate_path: CratePath,
-) -> PreludeResult<EntitySymbolTable> {
-    let package_path = crate_path.package_path(db);
-    let package_dependencies = package_path.package_dependencies(db)?;
-    let mut entries: EntitySymbolTable = Default::default();
-    entries.insert(EntitySymbolEntry::new_crate_root(db, crate_path));
-    entries.extend(package_dependencies.iter().map(|package_dependency| {
-        EntitySymbolEntry::new_package_dependency(db, package_dependency)
-    }));
-    Ok(entries)
-}
-
-pub(crate) fn crate_symbol_context<'a>(
-    db: &'a dyn EntityTreeDb,
-    crate_path: CratePath,
-) -> PreludeResult<CrateSymbolContext<'a>> {
-    let toolchain = crate_path.toolchain(db);
-    let path_menu = db.vfs_path_menu(toolchain);
-    let core_prelude_module = path_menu.core_prelude();
-    Ok(CrateSymbolContext::new(
-        entity_tree_sheet(db, core_prelude_module)
-            .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e.clone())))?
-            .module_symbols(),
-        crate_specific_prelude(db, crate_path)
-            .as_ref()
-            .map(|table| table.as_ref())
-            .map_err(|e| e.clone())?,
-    ))
-}
-
 #[test]
 fn crate_symbol_context_works() {
     DB::default().ast_plain_test("crate-symbol-context", |db, crate_path| {
-        let crate_symbol_context = crate_symbol_context(db, crate_path).unwrap();
+        let crate_symbol_context = CratePrelude::new(db, crate_path).unwrap();
         let root_module_path = crate_path.root_module_path(db);
         let t = |path: EntityPath| {
             let symbol =
@@ -90,64 +64,4 @@ fn crate_symbol_context_works() {
         t(entity_path_menu.f32_ty_path().into());
         t(entity_path_menu.f64_ty_path().into());
     })
-}
-
-#[derive(Debug, Clone, Copy)]
-pub struct CrateSymbolContext<'a> {
-    universal_prelude: EntitySymbolTableRef<'a>,
-    crate_specific_symbol_context: EntitySymbolTableRef<'a>,
-}
-
-impl<'a> CrateSymbolContext<'a> {
-    pub(crate) fn new(
-        universal_prelude: EntitySymbolTableRef<'a>,
-        crate_specific_symbol_context: EntitySymbolTableRef<'a>,
-    ) -> Self {
-        Self {
-            universal_prelude,
-            crate_specific_symbol_context,
-        }
-    }
-
-    fn new_default(_db: &dyn EntityTreeDb) -> Self {
-        todo!()
-        // ad hoc
-        // let menu = db.entity_path_menu(toolchain);
-        // Self {}
-    }
-
-    pub(crate) fn resolve_ident(
-        &self,
-        db: &dyn EntityTreeDb,
-        reference_module_path: ModulePath,
-        ident: Ident,
-    ) -> Option<EntitySymbol> {
-        self.crate_specific_symbol_context
-            .resolve_ident(db, reference_module_path.into(), ident)
-            .or_else(|| {
-                self.universal_prelude
-                    .resolve_ident(db, reference_module_path.into(), ident)
-            })
-    }
-}
-
-impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for CrateSymbolContext<'a> {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        let db = <Db as salsa::DbWithJar<EntityTreeJar>>::as_jar_db(db);
-        f.debug_struct("CrateSymbolContext")
-            .field(
-                "universal_prelude",
-                &self.universal_prelude.debug_with(db, level.next()),
-            )
-            .field(
-                "crate_specific_symbol_context",
-                &(&self.crate_specific_symbol_context).debug_with(db, level.next()),
-            )
-            .finish()
-    }
 }

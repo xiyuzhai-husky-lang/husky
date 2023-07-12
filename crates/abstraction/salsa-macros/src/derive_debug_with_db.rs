@@ -1,10 +1,11 @@
 mod impl_enum;
 mod impl_struct;
+mod utils;
 
+use self::impl_enum::*;
+use self::impl_struct::*;
+use self::utils::*;
 use crate::options::Options;
-use impl_enum::*;
-use impl_struct::*;
-
 use syn::{spanned::Spanned, Item};
 use syn::{Ident, ItemStruct, Path};
 
