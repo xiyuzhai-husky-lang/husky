@@ -71,9 +71,6 @@ impl EtherealTerm {
         }
         match argument_ty {
             EtherealTerm::Curry(argument_ty) => {
-                if argument_ty.parameter_variable(db).is_some() {
-                    todo!()
-                }
                 let expr_ty = Self::synthesize_function_application_expr_ty(
                     db,
                     variance,

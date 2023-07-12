@@ -370,7 +370,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 48;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Ident(\n    `label`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 48;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Ident(\n    `label`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {\n            ident_token: IdentToken {\n                ident: `label`,\n                token_idx: TokenIdx(\n                    37,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        40,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {\n            ident_token: IdentToken {\n                ident: `label`,\n                token_idx: TokenIdx(\n                    37,\n                ),\n            },\n            ty_expr_idx: 0,\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
@@ -400,7 +400,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Ident(\n    `label`,\n);\n\ntoken_info = TokenInfo::None;\n\n\n",
+                                value: "\ntoken_idx = 52;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Ident(\n    `label`,\n);\n\ntoken_info = TokenInfo::CurrentSymbol {\n    current_symbol_idx: 1,\n    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {\n        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {\n            ident_token: IdentToken {\n                ident: `label`,\n                token_idx: TokenIdx(\n                    37,\n                ),\n            },\n        },\n    },\n    expr_region: ExprRegionLeash(_),\n};\n\nCurrentSymbol {\n    modifier: Const,\n    access_start: TokenIdx(\n        40,\n    ),\n    access_end: None,\n    variant: CurrentSymbolVariant::ImplicitParameter {\n        implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {\n            ident_token: IdentToken {\n                ident: `label`,\n                token_idx: TokenIdx(\n                    37,\n                ),\n            },\n            ty_expr_idx: 0,\n        },\n    },\n}\n",
                             },
                         ),
                         range: Some(
