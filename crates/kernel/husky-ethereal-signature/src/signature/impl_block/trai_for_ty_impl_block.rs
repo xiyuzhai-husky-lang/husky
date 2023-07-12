@@ -222,6 +222,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_associated_item_term(
         .get_entry(ident)
         .ok_or(EtherealSignatureError::NoSuchItem)?
         .1;
+    let signature_template = path.ethereal_signature_template(db)?;
     todo!()
 }
 
