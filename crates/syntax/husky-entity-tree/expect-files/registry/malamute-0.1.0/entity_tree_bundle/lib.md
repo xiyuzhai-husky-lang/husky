@@ -196,41 +196,38 @@ Ok(
                 ),
                 impl_block_node_table: [
                     (
-                        ImplBlockNodePath::IllFormedImplBlock(
-                            IllFormedImplBlockNodePath {
-                                path: IllFormedImplBlockPath {
+                        ImplBlockNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNodePath {
+                                path: TraitForTypeImplBlockPath {
                                     module_path: `malamute`,
+                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                     disambiguator: 0,
                                 },
                             },
                         ),
-                        ImplBlockNode::IllFormedImplBlock(
-                            IllFormedImplBlockNode {
-                                node_path: IllFormedImplBlockNodePath {
-                                    path: IllFormedImplBlockPath {
+                        ImplBlockNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockNode {
+                                node_path: TraitForTypeImplBlockNodePath {
+                                    path: TraitForTypeImplBlockPath {
                                         module_path: `malamute`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                         disambiguator: 0,
                                     },
                                 },
+                                ast_idx: 7,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         32,
                                     ),
                                 },
-                                ast_idx: 7,
-                                items: None,
-                                ill_form: ImplBlockIllForm::MajorPath(
-                                    MajorPathExprError::Original(
-                                        OriginalMajorPathExprError::UnrecognizedIdent(
-                                            IdentToken {
-                                                ident: `core`,
-                                                token_idx: TokenIdx(
-                                                    41,
-                                                ),
-                                            },
-                                        ),
-                                    ),
+                                trai_expr: 2,
+                                for_token: TokenIdx(
+                                    49,
                                 ),
+                                ty_expr: 3,
+                                items: None,
                             },
                         ),
                     ),
@@ -245,7 +242,70 @@ Ok(
             },
         ],
         principal_entity_path_expr_arena: Arena {
-            data: [],
+            data: [
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `Unveil`,
+                            token_idx: TokenIdx(
+                                45,
+                            ),
+                        },
+                    ),
+                    major_entity_path: MajorEntityPath::ModuleItem(
+                        ModuleItemPath::Trait(
+                            TraitPath(`core::ops::Unveil`),
+                        ),
+                    ),
+                },
+                ModuleItemPathExpr::Subentity {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `ops`,
+                            token_idx: TokenIdx(
+                                43,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: ScopeResolutionToken(
+                        TokenIdx(
+                            44,
+                        ),
+                    ),
+                    subexpr: 0,
+                },
+                ModuleItemPathExpr::Subentity {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `core`,
+                            token_idx: TokenIdx(
+                                41,
+                            ),
+                        },
+                    ),
+                    scope_resolution_token: ScopeResolutionToken(
+                        TokenIdx(
+                            42,
+                        ),
+                    ),
+                    subexpr: 1,
+                },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `OneVsAll`,
+                            token_idx: TokenIdx(
+                                50,
+                            ),
+                        },
+                    ),
+                    major_entity_path: MajorEntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`malamute::OneVsAll`, `Enum`),
+                        ),
+                    ),
+                },
+            ],
         },
     },
 )

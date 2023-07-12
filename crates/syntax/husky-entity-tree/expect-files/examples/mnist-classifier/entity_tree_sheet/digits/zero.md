@@ -1431,6 +1431,65 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `is_zero`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::zero`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier::digits`,
+                                            ),
+                                            ast_idx: 28,
+                                            ident_token: IdentToken {
+                                                ident: `is_zero`,
+                                                token_idx: TokenIdx(
+                                                    49,
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 12,
+                                    use_expr_idx: 5,
+                                },
+                            ),
+                            path: PrincipalEntityPath::ModuleItem(
+                                ModuleItemPath::Fugitive(
+                                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            ast_idx: 25,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `is_two`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::digits::zero`,
@@ -2271,6 +2330,89 @@ Ok(
                             path: PrincipalEntityPath::ModuleItem(
                                 ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::digits::zero`,
+                            ),
+                            ast_idx: 25,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `is_one`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::digits::zero`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::Use(
+                                        UseSymbol {
+                                            original_symbol: EntitySymbol::Use(
+                                                UseSymbol {
+                                                    original_symbol: EntitySymbol::ModuleItem {
+                                                        module_item_path: ModuleItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                        ),
+                                                        node: ModuleItemNode {
+                                                            node_path: ModuleItemNodePath::Fugitive(
+                                                                FugitiveNodePath {
+                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                                        path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                                        disambiguator: 0,
+                                                                    },
+                                                                },
+                                                            ),
+                                                            visibility: Scope::Pub,
+                                                            ast_idx: 63,
+                                                            ident_token: IdentToken {
+                                                                ident: `is_one`,
+                                                                token_idx: TokenIdx(
+                                                                    23,
+                                                                ),
+                                                            },
+                                                        },
+                                                    },
+                                                    path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Fugitive(
+                                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                        ),
+                                                    ),
+                                                    visibility: Scope::Pub,
+                                                    ast_idx: 10,
+                                                    use_expr_idx: 0,
+                                                },
+                                            ),
+                                            path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                ),
+                                            ),
+                                            visibility: Scope::PubUnder(
+                                                `mnist_classifier`,
+                                            ),
+                                            ast_idx: 19,
+                                            use_expr_idx: 3,
+                                        },
+                                    ),
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier::digits`,
+                                    ),
+                                    ast_idx: 19,
+                                    use_expr_idx: 26,
+                                },
+                            ),
+                            path: PrincipalEntityPath::ModuleItem(
+                                ModuleItemPath::Fugitive(
+                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                             ),
                             visibility: Scope::PubUnder(
@@ -3286,7 +3428,7 @@ Ok(
                         `mnist_classifier::digits::zero`,
                     ),
                     progress: Ok(
-                        51,
+                        52,
                     ),
                 },
             ],

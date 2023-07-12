@@ -836,6 +836,49 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `LineSegment`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 16,
+                                    ident_token: IdentToken {
+                                        ident: `LineSegment`,
+                                        token_idx: TokenIdx(
+                                            8,
+                                        ),
+                                    },
+                                },
+                            },
+                            path: PrincipalEntityPath::ModuleItem(
+                                ModuleItemPath::Type(
+                                    TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
+                            ast_idx: 168,
+                            use_expr_idx: 12,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `RawContour`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::line_segment_sketch`,
@@ -1688,7 +1731,7 @@ Ok(
                     use_expr_idx: 0,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        49,
+                        65,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -1698,7 +1741,7 @@ Ok(
                     use_expr_idx: 2,
                     visibility: Scope::Pub,
                     progress: Ok(
-                        22,
+                        23,
                     ),
                 },
                 UseAllModuleSymbolsRule {

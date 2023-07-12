@@ -19,52 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [7:5, 11:7),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [14:9, 17:11),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [29:13, 32:15),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [37:9, 43:11),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [44:9, 48:11),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [55:13, 60:15),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [61:13, 65:15),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [67:13, 72:15),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unveil",
-                severity: Error,
-                range: [79:9, 83:11),
-            },
-        ],
+        diagnostics: [],
     },
 }

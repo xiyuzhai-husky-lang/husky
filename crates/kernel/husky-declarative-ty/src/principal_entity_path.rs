@@ -225,13 +225,13 @@ pub fn ty_ontology_path_declarative_ty(
     let Ok(variances) =  ty_implicit_parameter_variances(db, path) else {
         todo!()
     };
-    Ok(curry_from_implicit_parameters(
+    curry_from_implicit_parameters(
         db,
         CurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
         declarative_term_menu.ty0(),
-    ))
+    )
 }
 
 #[test]
@@ -260,7 +260,7 @@ pub fn ty_variant_path_declarative_ty(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
-    Ok(match signature_template {
+    match signature_template {
         TypeVariantDeclarativeSignatureTemplate::Props(_) => todo!(),
         TypeVariantDeclarativeSignatureTemplate::Unit(signature_template) => {
             let Ok(parent_ty_implicit_parameter_variances) =  ty_implicit_parameter_variances(db, path.parent_ty_path(db)) else {
@@ -292,25 +292,7 @@ pub fn ty_variant_path_declarative_ty(
                 signature_template.instance_constructor_ty(db),
             )
         }
-    })
-    // match decl {
-    //     TypeVariantDecl::Props(_) => todo!(),
-    //     TypeVariantDecl::Unit(_) => Ok(path.ty_path(db).into()),
-    //     TypeVariantDecl::Tuple(decl) => {
-    //         // let signature =
-    //         todo!()
-    //     }
-    // }
-    // let Ok(variances) =  ty_entity_variances(db, path) else {
-    //     todo!()
-    // };
-    // Ok(curry_from_implicit_parameters(
-    //     db,
-    //     CurryKind::Explicit,
-    //     variances,
-    //     signature.implicit_parameters(db),
-    //     declarative_term_menu.ty0(),
-    // ))
+    }
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
@@ -326,11 +308,11 @@ pub fn trai_path_declarative_ty(
         Ok(signature) => signature,
         Err(_) => todo!(),
     };
-    Ok(curry_from_implicit_parameters(
+    curry_from_implicit_parameters(
         db,
         CurryKind::Explicit,
         variances,
         signature.implicit_parameters(db),
         declarative_term_menu.trai_ty(),
-    ))
+    )
 }

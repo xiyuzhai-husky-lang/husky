@@ -73,7 +73,7 @@ impl HasTypeSideTraitForTypeImplBlockSignatureTemplates for TypePath {
         match ty_side_impl_block_signature_templates_map(db, self).get_value(key) {
             Some(result) => match result {
                 Ok(_) => todo!(),
-                Err(_) => todo!(),
+                Err(e) => JustErr(*e),
             },
             None => Nothing,
         }

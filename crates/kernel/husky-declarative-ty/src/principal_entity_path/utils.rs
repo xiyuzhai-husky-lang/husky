@@ -8,7 +8,7 @@ pub(super) fn curry_from_implicit_parameters(
     variances: &[Variance],
     implicit_parameters: &[ImplicitParameterDeclarativeSignature],
     term: impl Into<DeclarativeTerm>,
-) -> DeclarativeTerm {
+) -> DeclarativeTypeResult<DeclarativeTerm> {
     let mut term = term.into();
     debug_assert_eq!(variances.len(), implicit_parameters.len());
     for (variance, implicit_parameter) in
@@ -20,10 +20,10 @@ pub(super) fn curry_from_implicit_parameters(
             term_curry_kind,
             *variance,
             symbol,
-            implicit_parameter.ty(db),
+            implicit_parameter.ty(db)?,
             term,
         )
         .into()
     }
-    term
+    Ok(term)
 }

@@ -194,41 +194,38 @@ Ok(
         ),
         impl_block_node_table: [
             (
-                ImplBlockNodePath::IllFormedImplBlock(
-                    IllFormedImplBlockNodePath {
-                        path: IllFormedImplBlockPath {
+                ImplBlockNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
                             module_path: `malamute`,
+                            trai_path: TraitPath(`core::ops::Unveil`),
+                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                             disambiguator: 0,
                         },
                     },
                 ),
-                ImplBlockNode::IllFormedImplBlock(
-                    IllFormedImplBlockNode {
-                        node_path: IllFormedImplBlockNodePath {
-                            path: IllFormedImplBlockPath {
+                ImplBlockNode::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockNode {
+                        node_path: TraitForTypeImplBlockNodePath {
+                            path: TraitForTypeImplBlockPath {
                                 module_path: `malamute`,
+                                trai_path: TraitPath(`core::ops::Unveil`),
+                                ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
+                        ast_idx: 7,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
                                 32,
                             ),
                         },
-                        ast_idx: 7,
-                        items: None,
-                        ill_form: ImplBlockIllForm::MajorPath(
-                            MajorPathExprError::Original(
-                                OriginalMajorPathExprError::UnrecognizedIdent(
-                                    IdentToken {
-                                        ident: `core`,
-                                        token_idx: TokenIdx(
-                                            41,
-                                        ),
-                                    },
-                                ),
-                            ),
+                        trai_expr: 2,
+                        for_token: TokenIdx(
+                            49,
                         ),
+                        ty_expr: 3,
+                        items: None,
                     },
                 ),
             ),

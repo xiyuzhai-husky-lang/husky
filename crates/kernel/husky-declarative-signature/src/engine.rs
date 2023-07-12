@@ -103,7 +103,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                         CurrentImplicitParameterSymbol::Constant {
                             ident_token,
                             ty_expr_idx,
-                        } => self.infer_new_expr_term(*ty_expr_idx).map_err(|_| todo!()),
+                        } => self.infer_new_expr_term(*ty_expr_idx).map_err(Into::into),
                         _ => todo!(),
                     };
                     self.symbol_declarative_term_region

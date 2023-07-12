@@ -66,8 +66,11 @@ impl ImplicitParameterDeclarativeSignature {
         self.symbol
     }
 
-    pub fn ty(&self, db: &dyn DeclarativeTermDb) -> DeclarativeTerm {
-        self.symbol.ty(db).expect("should be okay")
+    pub fn ty(
+        &self,
+        db: &dyn DeclarativeTermDb,
+    ) -> DeclarativeTermSymbolTypeResult<DeclarativeTerm> {
+        self.symbol.ty(db)
     }
 
     pub fn traits(&self) -> &[DeclarativeTerm] {

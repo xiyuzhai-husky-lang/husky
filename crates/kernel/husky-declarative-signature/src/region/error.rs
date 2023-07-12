@@ -1,7 +1,15 @@
+use husky_declarative_term::DeclarativeTermSymbolTypeErrorKind;
+
 #[derive(Debug, PartialEq, Eq)]
 pub enum DeclarativeTermError2 {
     Original(OriginalDeclarativeTermError2),
     Derived(DerivedDeclarativeTermError2),
+}
+
+impl Into<DeclarativeTermSymbolTypeErrorKind> for DeclarativeTermError2 {
+    fn into(self) -> DeclarativeTermSymbolTypeErrorKind {
+        DeclarativeTermSymbolTypeErrorKind::SignatureDeclarativeTermError
+    }
 }
 
 impl From<OriginalDeclarativeTermError2> for DeclarativeTermError2 {

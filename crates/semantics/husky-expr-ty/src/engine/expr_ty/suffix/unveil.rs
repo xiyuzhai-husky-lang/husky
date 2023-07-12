@@ -15,9 +15,8 @@ impl<'a> ExprTypeEngine<'a> {
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
                 Err(DerivedExprTypeError::UnableToInferReturnTypeForUnveiling)?
             }
-            Unveiler::ErrEtherealSignature(_) => todo!(),
+            Unveiler::ErrEtherealSignature(e) => Err(e.into()),
         }
-        // Err(OriginalExprTypeError::CannotUnveil)?
     }
 }
 

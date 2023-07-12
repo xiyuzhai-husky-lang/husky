@@ -80,7 +80,7 @@ Ok(
                                             },
                                             Expr::Err(
                                                 ExprError::Original(
-                                                    NoLeftOperandForBinaryOperator {
+                                                    OriginalExprError::NoLeftOperandForBinaryOperator {
                                                         binary_token_idx: TokenIdx(
                                                             45,
                                                         ),
@@ -89,7 +89,7 @@ Ok(
                                             ),
                                             Expr::Err(
                                                 ExprError::Original(
-                                                    NoRightOperandForBinaryOperator {
+                                                    OriginalExprError::NoRightOperandForBinaryOperator {
                                                         punctuation: Closed(
                                                             RemEuclid,
                                                         ),
@@ -207,7 +207,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 193,
+                                                                value: 194,
                                                             },
                                                         ),
                                                     ),
@@ -224,7 +224,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 365,
+                                                                value: 366,
                                                             },
                                                         ),
                                                     ),
