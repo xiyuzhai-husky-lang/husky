@@ -121,7 +121,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 61,
+                                                            value: 58,
                                                         },
                                                     ),
                                                 ),
@@ -142,7 +142,7 @@
                                                 Type(
                                                     TypePath(
                                                         Id {
-                                                            value: 51,
+                                                            value: 42,
                                                         },
                                                     ),
                                                 ),

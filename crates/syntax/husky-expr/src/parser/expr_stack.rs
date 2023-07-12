@@ -52,7 +52,7 @@ impl ExprStack {
 }
 
 impl Expr {
-    pub fn base_entity_path(&self, db: &dyn CowordDb, arena: &ExprArena) -> BaseEntityPath {
+    pub fn base_entity_path(&self, db: &dyn ExprDb, arena: &ExprArena) -> BaseEntityPath {
         match self {
             Expr::Literal(_, _) => BaseEntityPath::None,
             Expr::PrincipalEntityPath { opt_path: path, .. } => match *path {
@@ -69,10 +69,152 @@ impl Expr {
             Expr::SelfType(_) => todo!(),
             Expr::Binary {
                 lopd,
-                opr: punctuation,
+                opr,
                 opr_token_idx: punctuation_token_idx,
                 ropd,
-            } => todo!(),
+            } => {
+                match &arena[lopd] {
+                    Expr::Literal(_, _) => todo!(),
+                    Expr::PrincipalEntityPath {
+                        entity_path_expr,
+                        opt_path,
+                    } => todo!(),
+                    Expr::ScopeResolution {
+                        parent_expr_idx,
+                        scope_resolution_token,
+                        ident_token,
+                    } => todo!(),
+                    Expr::InheritedSymbol {
+                        ident,
+                        token_idx,
+                        inherited_symbol_idx,
+                        inherited_symbol_kind,
+                    } => todo!(),
+                    Expr::CurrentSymbol {
+                        ident,
+                        token_idx,
+                        current_symbol_idx,
+                        current_symbol_kind,
+                    } => todo!(),
+                    Expr::FrameVarDecl {
+                        token_idx,
+                        ident,
+                        frame_var_symbol_idx,
+                        current_symbol_kind,
+                    } => todo!(),
+                    Expr::SelfType(_) => todo!(),
+                    Expr::SelfValue(_) => todo!(),
+                    Expr::Binary {
+                        lopd,
+                        opr,
+                        opr_token_idx,
+                        ropd,
+                    } => todo!(),
+                    Expr::Be {
+                        src,
+                        be_token_idx,
+                        target,
+                    } => todo!(),
+                    Expr::Prefix {
+                        opr,
+                        opr_token_idx,
+                        opd,
+                    } => todo!(),
+                    Expr::Suffix {
+                        opd,
+                        opr,
+                        opr_token_idx,
+                    } => todo!(),
+                    Expr::FunctionApplicationOrCall {
+                        function,
+                        implicit_arguments,
+                        lpar_token_idx,
+                        items,
+                        rpar_token_idx,
+                    } => todo!(),
+                    Expr::Ritchie {
+                        ritchie_kind_token_idx,
+                        ritchie_kind,
+                        lpar_token,
+                        parameter_ty_items,
+                        rpar_token_idx,
+                        light_arrow_token,
+                        return_ty_expr,
+                    } => todo!(),
+                    Expr::FunctionCall {
+                        function,
+                        implicit_arguments,
+                        lpar_token_idx,
+                        items,
+                        rpar_token_idx,
+                    } => todo!(),
+                    Expr::Field {
+                        owner,
+                        dot_token_idx,
+                        ident_token,
+                    } => todo!(),
+                    Expr::MethodApplicationOrCall {
+                        self_argument,
+                        dot_token_idx,
+                        ident_token,
+                        implicit_arguments,
+                        lpar_token_idx,
+                        items,
+                        rpar_token_idx,
+                    } => todo!(),
+                    Expr::TemplateInstantiation {
+                        template,
+                        implicit_arguments,
+                    } => todo!(),
+                    Expr::ExplicitApplication {
+                        function_expr_idx,
+                        argument_expr_idx,
+                    } => todo!(),
+                    Expr::Unit {
+                        lpar_token_idx,
+                        rpar_token_idx,
+                    } => todo!(),
+                    Expr::Bracketed {
+                        lpar_token_idx,
+                        item,
+                        rpar_token_idx,
+                    } => todo!(),
+                    Expr::NewTuple {
+                        lpar_token_idx,
+                        items,
+                        rpar_token_idx,
+                    } => todo!(),
+                    Expr::IndexOrCompositionWithList {
+                        owner,
+                        lbox_token_idx,
+                        items,
+                        rbox_token_idx,
+                    } => todo!(),
+                    Expr::List {
+                        lbox_token_idx,
+                        items,
+                        rbox_token_idx,
+                    } => todo!(),
+                    Expr::BoxColonList {
+                        lbox_token_idx,
+                        colon_token_idx,
+                        items,
+                        rbox_token_idx,
+                    } => todo!(),
+                    Expr::Block { stmts } => todo!(),
+                    Expr::EmptyHtmlTag {
+                        empty_html_bra_idx,
+                        function_ident,
+                        arguments,
+                        empty_html_ket,
+                    } => todo!(),
+                    Expr::Err(e) => {
+                        p!(e.debug(db));
+                        todo!()
+                    }
+                };
+                todo!()
+            }
             Expr::Prefix {
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,

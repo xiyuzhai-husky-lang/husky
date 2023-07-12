@@ -22,6 +22,7 @@ impl From<TokenError> for ExprError {
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprDb)]
 // #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalExprError {
     #[error("expected `>`")]

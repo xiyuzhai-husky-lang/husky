@@ -100,15 +100,12 @@ impl EntitySymbol {
 // can only see module symbols
 #[derive(Debug, Clone, Copy)]
 pub struct ModuleSymbolContext<'a> {
-    crate_prelude: CrateSymbolContext<'a>,
+    crate_prelude: CratePrelude<'a>,
     module_symbols: EntitySymbolTableRef<'a>,
 }
 
 impl<'a> ModuleSymbolContext<'a> {
-    pub fn new(
-        crate_prelude: CrateSymbolContext<'a>,
-        module_symbols: EntitySymbolTableRef<'a>,
-    ) -> Self {
+    pub fn new(crate_prelude: CratePrelude<'a>, module_symbols: EntitySymbolTableRef<'a>) -> Self {
         Self {
             crate_prelude,
             module_symbols,
@@ -117,7 +114,7 @@ impl<'a> ModuleSymbolContext<'a> {
 
     pub fn new_default(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
         Ok(Self {
-            crate_prelude: crate_symbol_context(db, crate_path)?,
+            crate_prelude: CratePrelude::new(db, crate_path)?,
             module_symbols: Default::default(),
         })
     }
@@ -144,7 +141,7 @@ pub(crate) fn module_symbol_context<'a>(
 ) -> EntityTreeResult<ModuleSymbolContext<'a>> {
     let entity_tree_sheet = db.entity_tree_sheet(module_path)?;
     Ok(ModuleSymbolContext {
-        crate_prelude: crate_symbol_context(db, module_path.crate_path(db))?,
+        crate_prelude: CratePrelude::new(db, module_path.crate_path(db))?,
         module_symbols: entity_tree_sheet.module_symbols().into(),
     })
 }

@@ -1325,7 +1325,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 34,
+                                value: 33,
                             },
                         ),
                     ),

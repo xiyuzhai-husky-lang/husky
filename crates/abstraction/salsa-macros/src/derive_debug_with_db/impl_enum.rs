@@ -5,12 +5,7 @@ use super::*;
 pub(super) fn enum_debug_with_db_impl(db_path: &Path, item: &ItemEnum) -> proc_macro2::TokenStream {
     let ident = &item.ident;
     let _ident_string = ident.to_string();
-    let item_generics_punctuated = &item.generics.params;
-    let generic_decls = if item_generics_punctuated.is_empty() {
-        quote! { _Db:  #db_path + ?Sized }
-    } else {
-        quote! { #item_generics_punctuated, _Db:  #db_path + ?Sized }
-    };
+    let generic_decls = generic_decls(&item.generics, db_path);
     let self_ty = if item.generics.params.is_empty() {
         quote! { #ident }
     } else {

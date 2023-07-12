@@ -1,3 +1,7 @@
+mod prelude;
+
+pub use self::prelude::*;
+
 use crate::*;
 use husky_manifest::PackageDependency;
 use husky_print_utils::p;
@@ -34,6 +38,7 @@ impl EntitySymbolTable {
 }
 
 #[derive(Debug, Default, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntitySymbolTableRef<'a>(&'a [EntitySymbolEntry]);
 
 impl<'a> EntitySymbolTableRef<'a> {
@@ -59,59 +64,12 @@ impl<'a> EntitySymbolTableRef<'a> {
     }
 }
 
-impl<'a, Db: EntityTreeDb + ?Sized> salsa::DebugWithDb<Db> for EntitySymbolTableRef<'a> {
-    fn fmt(
-        &self,
-        f: &mut std::fmt::Formatter<'_>,
-        db: &Db,
-        _level: salsa::DebugFormatLevel,
-    ) -> std::fmt::Result {
-        f.debug_tuple("EntitySymbolTableRef")
-            .field(&(&self.0).debug(db))
-            .finish()
-    }
-}
-
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 pub struct EntitySymbolEntry {
     ident: Ident,
     visibility: Scope,
     symbol: EntitySymbol,
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub(crate) fn none_core_crate_universal_prelude(
-    db: &dyn EntityTreeDb,
-    toolchain: Toolchain,
-) -> PreludeResult<EntitySymbolTable> {
-    let vfs_path_menu = db.vfs_path_menu(toolchain);
-    let entity_path_menu = db.entity_path_menu(toolchain);
-    let coword_menu = db.coword_menu();
-    let core_prelude_module = vfs_path_menu.core_prelude();
-    let mut table = EntitySymbolTable::default();
-    table.insert(EntitySymbolEntry {
-        ident: coword_menu.core_ident(),
-        visibility: Scope::Pub,
-        symbol: EntitySymbol::UniversalPrelude {
-            entity_path: vfs_path_menu.core().into(),
-        },
-    });
-    table.extend(
-        entity_tree_sheet(db, core_prelude_module)
-            .map_err(|e| PreludeError::CorePreludeEntityTreeSheet(Box::new(e)))?
-            .module_symbols()
-            .data()
-            .iter()
-            .map(|entry| EntitySymbolEntry {
-                ident: entry.ident,
-                visibility: Scope::Pub,
-                symbol: EntitySymbol::UniversalPrelude {
-                    entity_path: entry.symbol.path(db),
-                },
-            }),
-    );
-    Ok(table)
 }
 
 impl EntitySymbolEntry {
