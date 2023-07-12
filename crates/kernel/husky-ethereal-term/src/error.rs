@@ -5,6 +5,7 @@ use husky_declarative_ty::DeclarativeTypeError;
 use husky_decr::DecrError;
 use husky_entity_path::{EntityPath, EntityPathError};
 use husky_entity_tree::{EntityTreeBundleError, EntityTreeError};
+use maybe_result::MaybeResult;
 use std::sync::Arc;
 use thiserror::Error;
 
@@ -104,3 +105,5 @@ impl From<DeclarativeTermError> for EtherealTermError {
 }
 
 pub type EtherealTermResult<T> = Result<T, EtherealTermError>;
+
+pub type EtherealTermMaybeResult<T> = MaybeResult<T, EtherealTermError>;

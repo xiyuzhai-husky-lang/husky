@@ -26,6 +26,10 @@ impl ImplicitParameterEtherealSignatures {
     pub fn data(&self) -> &[ImplicitParameterEtherealSignature] {
         &self.data
     }
+
+    pub(crate) fn instantiator(&self) -> EtherealTermInstantiator {
+        unsafe { EtherealTermInstantiator::new(self.iter().map(|param| param.symbol())) }
+    }
 }
 
 impl std::ops::Deref for ImplicitParameterEtherealSignatures {
@@ -36,13 +40,13 @@ impl std::ops::Deref for ImplicitParameterEtherealSignatures {
     }
 }
 
-impl EtherealInstantiateRef for ImplicitParameterEtherealSignatures {
+impl EtherealTermInstantiateRef for ImplicitParameterEtherealSignatures {
     type Target = Self;
 
     fn instantiate(
         &self,
-        db: &dyn EtherealSignatureDb,
-        instantiator: &EtherealInstantiator,
+        db: &dyn EtherealTermDb,
+        instantiator: &EtherealTermInstantiator,
     ) -> Self::Target {
         ImplicitParameterEtherealSignatures {
             data: self
@@ -82,13 +86,13 @@ impl ImplicitParameterEtherealSignature {
     }
 }
 
-impl EtherealInstantiateRef for ImplicitParameterEtherealSignature {
+impl EtherealTermInstantiateRef for ImplicitParameterEtherealSignature {
     type Target = Option<Self>;
 
     fn instantiate(
         &self,
-        db: &dyn EtherealSignatureDb,
-        instantiator: &EtherealInstantiator,
+        db: &dyn EtherealTermDb,
+        instantiator: &EtherealTermInstantiator,
     ) -> Self::Target {
         if instantiator.is_symbol_resolved(self.symbol) {
             return None;

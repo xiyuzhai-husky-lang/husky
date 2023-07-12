@@ -1,32 +1,27 @@
 use crate::*;
-use vec_like::VecPairMap;
-
-pub(crate) struct EtherealInstantiator {
-    symbol_map: VecPairMap<EtherealTermSymbol, Option<EtherealTerm>>,
+use maybe_result::*;
+use vec_like::{SmallVecPairMap, VecPairMap};
+pub struct EtherealTermInstantiator {
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 2>,
 }
 
-impl EtherealInstantiator {
-    pub(crate) fn new(implicit_parameters: &ImplicitParameterEtherealSignatures) -> Self {
+impl EtherealTermInstantiator {
+    /// symbols must be unique
+    pub unsafe fn new(symbols: impl Iterator<Item = EtherealTermSymbol>) -> Self {
         Self {
-            symbol_map: unsafe {
-                VecPairMap::from_iter_assuming_no_repetitions_unchecked(
-                    implicit_parameters
-                        .iter()
-                        .map(|param| (param.symbol(), None)),
-                )
-            },
+            symbol_map: symbols.map(|symbol| (symbol, None)).collect(),
         }
     }
 
     /// JustOk(()) means rule is added and everything is compatible
     /// Nothing means something is incompatible
     /// JustErr(_) means something is wrong
-    pub(crate) fn try_add_rules_from_application(
+    pub fn try_add_rules_from_application(
         &mut self,
-        db: &dyn EtherealSignatureDb,
+        db: &dyn EtherealTermDb,
         src: EtherealTerm,
         dst_arguments: &[EtherealTerm],
-    ) -> EtherealSignatureMaybeResult<()> {
+    ) -> EtherealTermMaybeResult<()> {
         let src_application_expansion = src.application_expansion(db);
         if src_application_expansion.arguments(db).len() != dst_arguments.len() {
             todo!()
@@ -42,11 +37,11 @@ impl EtherealInstantiator {
     /// JustOk(()) means rule is added and everything is compatible
     /// Nothing means something is incompatible
     /// JustErr(_) means something is wrong
-    pub(crate) fn try_add_rule(
+    pub fn try_add_rule(
         &mut self,
         src: EtherealTerm,
         dst: EtherealTerm,
-    ) -> EtherealSignatureMaybeResult<()> {
+    ) -> EtherealTermMaybeResult<()> {
         if src == dst {
             return JustOk(());
         }
@@ -87,53 +82,31 @@ impl EtherealInstantiator {
 
     /// assume that symbol is in symbol_map
     /// panic otherwise
-    pub(crate) fn is_symbol_resolved(&self, symbol: EtherealTermSymbol) -> bool {
+    pub fn is_symbol_resolved(&self, symbol: EtherealTermSymbol) -> bool {
         self.symbol_map[symbol].1.is_some()
+    }
+
+    pub fn symbol_mapped(&self, symbol: EtherealTermSymbol) -> Option<EtherealTerm> {
+        *self.symbol_map.get_value(symbol)?
     }
 }
 
-pub(crate) trait EtherealInstantiate: Copy {
+pub trait EtherealTermInstantiate: Copy {
     type Target;
 
     fn instantiate(
         self,
-        db: &dyn EtherealSignatureDb,
-        instantiator: &EtherealInstantiator,
+        db: &dyn EtherealTermDb,
+        instantiator: &EtherealTermInstantiator,
     ) -> Self::Target;
 }
 
-impl EtherealInstantiate for EtherealTerm {
-    type Target = EtherealTerm;
-
-    fn instantiate(
-        self,
-        db: &dyn EtherealSignatureDb,
-        instantiator: &EtherealInstantiator,
-    ) -> Self::Target {
-        match self {
-            EtherealTerm::Literal(_) => todo!(),
-            EtherealTerm::Symbol(_) => todo!(),
-            EtherealTerm::Variable(_) => todo!(),
-            EtherealTerm::EntityPath(_) => todo!(),
-            EtherealTerm::Category(_) => todo!(),
-            EtherealTerm::Universe(_) => todo!(),
-            EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
-            EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(_) => todo!(),
-            EtherealTerm::Subentity(_) => todo!(),
-            EtherealTerm::AsTraitSubentity(_) => todo!(),
-            EtherealTerm::TraitConstraint(_) => todo!(),
-        }
-    }
-}
-
-pub(crate) trait EtherealInstantiateRef {
+pub trait EtherealTermInstantiateRef {
     type Target;
 
     fn instantiate(
         &self,
-        db: &dyn EtherealSignatureDb,
-        instantiator: &EtherealInstantiator,
+        db: &dyn EtherealTermDb,
+        instantiator: &EtherealTermInstantiator,
     ) -> Self::Target;
 }
