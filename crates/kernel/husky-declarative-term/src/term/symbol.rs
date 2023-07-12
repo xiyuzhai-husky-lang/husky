@@ -41,6 +41,7 @@ pub enum DeclarativeTermSymbolTypeErrorKind {
     #[error("sketch declarative_term error")]
     SketchDeclarativeTermError,
 }
+
 pub type DeclarativeTermSymbolTypeResult<T> = Result<T, DeclarativeTermSymbolTypeErrorKind>;
 
 impl<Db: DeclarativeTermDb + ?Sized> salsa::DisplayWithDb<Db> for DeclarativeTermSymbol {

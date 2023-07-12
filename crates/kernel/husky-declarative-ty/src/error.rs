@@ -13,6 +13,12 @@ pub enum DeclarativeTypeError {
     Derived(#[from] DerivedDeclarativeTypeError),
 }
 
+impl From<DeclarativeTermSymbolTypeErrorKind> for DeclarativeTypeError {
+    fn from(e: DeclarativeTermSymbolTypeErrorKind) -> Self {
+        DerivedDeclarativeTypeError::SymbolType.into()
+    }
+}
+
 impl From<&DeclError> for DeclarativeTypeError {
     fn from(value: &DeclError) -> Self {
         todo!()
@@ -55,4 +61,6 @@ pub enum DerivedDeclarativeTypeError {
     TypePathApplicationMethodFnDeclError,
     #[error("TypeItemNotFound")]
     TypeItemNotFound,
+    #[error("SymbolType")]
+    SymbolType,
 }

@@ -2164,7 +2164,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        33,
+                        40,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2176,7 +2176,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        51,
+                        52,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2188,7 +2188,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        33,
+                        35,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2200,7 +2200,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        48,
+                        59,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2212,7 +2212,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        21,
+                        22,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2224,7 +2224,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        35,
+                        41,
                     ),
                 },
             ],

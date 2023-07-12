@@ -541,31 +541,12 @@ fn parse_expr_works() {
                                 1,
                             ),
                         },
-                        PrincipalEntityPath {
-                            entity_path_expr: 0,
-                            opt_path: Some(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
+                        Err(
+                            Original(
+                                UnrecognizedIdent {
+                                    token_idx: TokenIdx(
+                                        2,
                                     ),
-                                ),
-                            ),
-                        },
-                        ExplicitApplication {
-                            function_expr_idx: 0,
-                            argument_expr_idx: 1,
-                        },
-                    ],
-                },
-                principal_entity_path_expr_arena: Arena {
-                    data: [
-                        Root {
-                            path_name_token: Ident(
-                                IdentToken {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -573,22 +554,17 @@ fn parse_expr_works() {
                                             },
                                         ),
                                     ),
-                                    token_idx: TokenIdx(
-                                        2,
-                                    ),
                                 },
                             ),
-                            principal_entity_path: ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
-                                ),
-                            ),
+                        ),
+                        ExplicitApplication {
+                            function_expr_idx: 0,
+                            argument_expr_idx: 1,
                         },
                     ],
+                },
+                principal_entity_path_expr_arena: Arena {
+                    data: [],
                 },
                 stmt_arena: Arena {
                     data: [],
@@ -673,31 +649,12 @@ fn parse_expr_works() {
                                 2,
                             ),
                         },
-                        PrincipalEntityPath {
-                            entity_path_expr: 0,
-                            opt_path: Some(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 16,
-                                            },
-                                        ),
+                        Err(
+                            Original(
+                                UnrecognizedIdent {
+                                    token_idx: TokenIdx(
+                                        3,
                                     ),
-                                ),
-                            ),
-                        },
-                        ExplicitApplication {
-                            function_expr_idx: 1,
-                            argument_expr_idx: 2,
-                        },
-                    ],
-                },
-                principal_entity_path_expr_arena: Arena {
-                    data: [
-                        Root {
-                            path_name_token: Ident(
-                                IdentToken {
                                     ident: Ident(
                                         Coword(
                                             Id {
@@ -705,22 +662,17 @@ fn parse_expr_works() {
                                             },
                                         ),
                                     ),
-                                    token_idx: TokenIdx(
-                                        3,
-                                    ),
                                 },
                             ),
-                            principal_entity_path: ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
-                                ),
-                            ),
+                        ),
+                        ExplicitApplication {
+                            function_expr_idx: 1,
+                            argument_expr_idx: 2,
                         },
                     ],
+                },
+                principal_entity_path_expr_arena: Arena {
+                    data: [],
                 },
                 stmt_arena: Arena {
                     data: [],
@@ -781,34 +733,38 @@ fn parse_expr_works() {
                 ),
                 expr_arena: Arena {
                     data: [
-                        PrincipalEntityPath {
-                            entity_path_expr: 0,
-                            opt_path: Some(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
+                        Err(
+                            Original(
+                                UnrecognizedIdent {
+                                    token_idx: TokenIdx(
+                                        1,
+                                    ),
+                                    ident: Ident(
+                                        Coword(
                                             Id {
-                                                value: 16,
+                                                value: 9,
                                             },
                                         ),
                                     ),
-                                ),
+                                },
                             ),
-                        },
-                        PrincipalEntityPath {
-                            entity_path_expr: 1,
-                            opt_path: Some(
-                                ModuleItem(
-                                    Type(
-                                        TypePath(
+                        ),
+                        Err(
+                            Original(
+                                UnrecognizedIdent {
+                                    token_idx: TokenIdx(
+                                        3,
+                                    ),
+                                    ident: Ident(
+                                        Coword(
                                             Id {
-                                                value: 16,
+                                                value: 9,
                                             },
                                         ),
                                     ),
-                                ),
+                                },
                             ),
-                        },
+                        ),
                         NewTuple {
                             lpar_token_idx: TokenIdx(
                                 0,
@@ -834,58 +790,7 @@ fn parse_expr_works() {
                     ],
                 },
                 principal_entity_path_expr_arena: Arena {
-                    data: [
-                        Root {
-                            path_name_token: Ident(
-                                IdentToken {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                    token_idx: TokenIdx(
-                                        1,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                        Root {
-                            path_name_token: Ident(
-                                IdentToken {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 9,
-                                            },
-                                        ),
-                                    ),
-                                    token_idx: TokenIdx(
-                                        3,
-                                    ),
-                                },
-                            ),
-                            principal_entity_path: ModuleItem(
-                                Type(
-                                    TypePath(
-                                        Id {
-                                            value: 16,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        },
-                    ],
+                    data: [],
                 },
                 stmt_arena: Arena {
                     data: [],
@@ -1013,7 +918,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 158,
+                                                value: 64,
                                             },
                                         ),
                                     ),
@@ -1029,7 +934,7 @@ fn parse_expr_works() {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 76,
+                                            value: 65,
                                         },
                                     ),
                                 ),
@@ -1111,7 +1016,7 @@ fn parse_expr_works() {
                                     ident: Ident(
                                         Coword(
                                             Id {
-                                                value: 158,
+                                                value: 64,
                                             },
                                         ),
                                     ),
@@ -1127,7 +1032,7 @@ fn parse_expr_works() {
                                 ident: Ident(
                                     Coword(
                                         Id {
-                                            value: 159,
+                                            value: 66,
                                         },
                                     ),
                                 ),

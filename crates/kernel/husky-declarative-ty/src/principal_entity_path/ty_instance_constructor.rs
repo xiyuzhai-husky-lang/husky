@@ -20,11 +20,11 @@ pub fn ty_instance_constructor_path_declarative_ty(
         TypeDeclarativeSignatureTemplate::PropsStruct(signature) => {
             Ok(props_struct_ty_instance_constructor_path_declarative_ty(
                 db, path, variances, signature,
-            ))
+            )?)
         }
         TypeDeclarativeSignatureTemplate::UnitStruct(_) => todo!(),
         TypeDeclarativeSignatureTemplate::TupleStruct(signature) => Ok(
-            tuple_struct_ty_constructor_path_declarative_ty(db, path, variances, signature),
+            tuple_struct_ty_constructor_path_declarative_ty(db, path, variances, signature)?,
         ),
         TypeDeclarativeSignatureTemplate::Record(_) => todo!(),
         TypeDeclarativeSignatureTemplate::Inductive(_) => {
@@ -41,7 +41,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
     path: TypePath,
     variances: &[Variance],
     signature: PropsStructDeclarativeSignatureTemplate,
-) -> DeclarativeTerm {
+) -> DeclarativeTypeResult<DeclarativeTerm> {
     let implicit_parameters = &signature.implicit_parameters(db);
     let self_ty = signature.self_ty(db);
     let parameter_tys = signature
@@ -66,7 +66,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
     path: TypePath,
     variances: &[Variance],
     signature: TupleStructDeclarativeSignatureTemplate,
-) -> DeclarativeTerm {
+) -> DeclarativeTypeResult<DeclarativeTerm> {
     let implicit_parameters = &signature.implicit_parameters(db);
     let self_ty = signature.self_ty(db);
     let parameter_tys = signature

@@ -3248,17 +3248,11 @@ Ok(
                                     data: [
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnrecognizedIdent {
+                                                OriginalExprError::UnrecognizedIdent {
                                                     token_idx: TokenIdx(
                                                         59,
                                                     ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 127,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `todo`,
                                                 },
                                             ),
                                         ),

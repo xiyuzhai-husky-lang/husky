@@ -245,17 +245,11 @@ Ok(
                                         },
                                         Expr::Err(
                                             ExprError::Original(
-                                                UnrecognizedIdent {
+                                                OriginalExprError::UnrecognizedIdent {
                                                     token_idx: TokenIdx(
                                                         14,
                                                     ),
-                                                    ident: Ident(
-                                                        Coword(
-                                                            Id {
-                                                                value: 531,
-                                                            },
-                                                        ),
-                                                    ),
+                                                    ident: `input`,
                                                 },
                                             ),
                                         ),

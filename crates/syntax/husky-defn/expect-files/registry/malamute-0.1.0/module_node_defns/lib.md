@@ -1410,24 +1410,120 @@ Ok(
             ),
         ),
         NodeDefn::ImplBlock(
-            ImplBlockNodeDecl::IllFormed(
-                IllFormedImplBlockNodeDecl {
-                    node_path: IllFormedImplBlockNodePath {
-                        path: IllFormedImplBlockPath {
+            ImplBlockNodeDecl::TraitForType(
+                TraitForTypeImplBlockNodeDecl {
+                    node_path: TraitForTypeImplBlockNodePath {
+                        path: TraitForTypeImplBlockPath {
                             module_path: `malamute`,
+                            trai_path: TraitPath(`core::ops::Unveil`),
+                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                             disambiguator: 0,
                         },
                     },
                     ast_idx: 7,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            32,
+                        ),
+                    },
+                    implicit_parameter_decl_list: Ok(
+                        Some(
+                            ImplicitParameterDeclList {
+                                langle: LeftAngleBracketOrLessThanToken(
+                                    TokenIdx(
+                                        33,
+                                    ),
+                                ),
+                                implicit_parameters: [
+                                    ImplicitParameterDecl {
+                                        annotated_variance_token: None,
+                                        symbol: 0,
+                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                            ident_token: IdentToken {
+                                                ident: `Label`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
+                                            traits: None,
+                                        },
+                                    },
+                                    ImplicitParameterDecl {
+                                        annotated_variance_token: None,
+                                        symbol: 1,
+                                        variant: ImplicitParameterDeclPatternVariant::Constant {
+                                            const_token: ConstToken {
+                                                token_idx: TokenIdx(
+                                                    36,
+                                                ),
+                                            },
+                                            ident_token: IdentToken {
+                                                ident: `label`,
+                                                token_idx: TokenIdx(
+                                                    37,
+                                                ),
+                                            },
+                                            colon_token: ColonToken(
+                                                TokenIdx(
+                                                    38,
+                                                ),
+                                            ),
+                                            ty_expr: 0,
+                                        },
+                                    },
+                                ],
+                                commas: [
+                                    CommaToken(
+                                        TokenIdx(
+                                            35,
+                                        ),
+                                    ),
+                                ],
+                                decl_list_result: Ok(
+                                    (),
+                                ),
+                                rangle: RightAngleBracketToken(
+                                    TokenIdx(
+                                        40,
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                    trai_expr: TraitExpr {
+                        expr: 7,
+                    },
+                    for_token: ConnectionForToken {
+                        token_idx: TokenIdx(
+                            49,
+                        ),
+                    },
+                    ty_expr: TypeExpr {
+                        expr: 12,
+                    },
+                    eol_colon: Err(
+                        NodeDeclError::Original(
+                            OriginalNodeDeclError::ExpectedEolColon(
+                                TokenStreamState {
+                                    next_token_idx: TokenIdx(
+                                        53,
+                                    ),
+                                    drained: true,
+                                },
+                            ),
+                        ),
+                    ),
                     expr_region: ExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
                                 EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::IllFormedImplBlock(
-                                        IllFormedImplBlockNodePath {
-                                            path: IllFormedImplBlockPath {
+                                    ImplBlockNodePath::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockNodePath {
+                                            path: TraitForTypeImplBlockPath {
                                                 module_path: `malamute`,
+                                                trai_path: TraitPath(`core::ops::Unveil`),
+                                                ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -1435,10 +1531,234 @@ Ok(
                                 ),
                             ),
                             expr_arena: Arena {
-                                data: [],
+                                data: [
+                                    Expr::CurrentSymbol {
+                                        ident: `Label`,
+                                        token_idx: TokenIdx(
+                                            39,
+                                        ),
+                                        current_symbol_idx: 0,
+                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                ident_token: IdentToken {
+                                                    ident: `Label`,
+                                                    token_idx: TokenIdx(
+                                                        34,
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 2,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Trait(
+                                                    TraitPath(`core::ops::Unveil`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 3,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    Expr::ExplicitApplication {
+                                        function_expr_idx: 1,
+                                        argument_expr_idx: 2,
+                                    },
+                                    Expr::CurrentSymbol {
+                                        ident: `Label`,
+                                        token_idx: TokenIdx(
+                                            47,
+                                        ),
+                                        current_symbol_idx: 0,
+                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                ident_token: IdentToken {
+                                                    ident: `Label`,
+                                                    token_idx: TokenIdx(
+                                                        34,
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    Expr::ExplicitApplication {
+                                        function_expr_idx: 3,
+                                        argument_expr_idx: 4,
+                                    },
+                                    Expr::CurrentSymbol {
+                                        ident: `label`,
+                                        token_idx: TokenIdx(
+                                            48,
+                                        ),
+                                        current_symbol_idx: 1,
+                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                                ident_token: IdentToken {
+                                                    ident: `label`,
+                                                    token_idx: TokenIdx(
+                                                        37,
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    Expr::ExplicitApplication {
+                                        function_expr_idx: 5,
+                                        argument_expr_idx: 6,
+                                    },
+                                    Expr::PrincipalEntityPath {
+                                        entity_path_expr: 4,
+                                        opt_path: Some(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Type(
+                                                    TypePath(`malamute::OneVsAll`, `Enum`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    Expr::CurrentSymbol {
+                                        ident: `Label`,
+                                        token_idx: TokenIdx(
+                                            51,
+                                        ),
+                                        current_symbol_idx: 0,
+                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                ident_token: IdentToken {
+                                                    ident: `Label`,
+                                                    token_idx: TokenIdx(
+                                                        34,
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    Expr::ExplicitApplication {
+                                        function_expr_idx: 8,
+                                        argument_expr_idx: 9,
+                                    },
+                                    Expr::CurrentSymbol {
+                                        ident: `label`,
+                                        token_idx: TokenIdx(
+                                            52,
+                                        ),
+                                        current_symbol_idx: 1,
+                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                                ident_token: IdentToken {
+                                                    ident: `label`,
+                                                    token_idx: TokenIdx(
+                                                        37,
+                                                    ),
+                                                },
+                                            },
+                                        },
+                                    },
+                                    Expr::ExplicitApplication {
+                                        function_expr_idx: 10,
+                                        argument_expr_idx: 11,
+                                    },
+                                ],
                             },
                             principal_entity_path_expr_arena: Arena {
-                                data: [],
+                                data: [
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `core`,
+                                                token_idx: TokenIdx(
+                                                    41,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::Module(
+                                            `core`,
+                                        ),
+                                    },
+                                    PrincipalEntityPathExpr::Subentity {
+                                        parent: 0,
+                                        scope_resolution_token: ScopeResolutionToken(
+                                            TokenIdx(
+                                                42,
+                                            ),
+                                        ),
+                                        ident_token: Ok(
+                                            IdentToken {
+                                                ident: `ops`,
+                                                token_idx: TokenIdx(
+                                                    43,
+                                                ),
+                                            },
+                                        ),
+                                        path: Ok(
+                                            PrincipalEntityPath::Module(
+                                                `core::ops`,
+                                            ),
+                                        ),
+                                    },
+                                    PrincipalEntityPathExpr::Subentity {
+                                        parent: 1,
+                                        scope_resolution_token: ScopeResolutionToken(
+                                            TokenIdx(
+                                                44,
+                                            ),
+                                        ),
+                                        ident_token: Ok(
+                                            IdentToken {
+                                                ident: `Unveil`,
+                                                token_idx: TokenIdx(
+                                                    45,
+                                                ),
+                                            },
+                                        ),
+                                        path: Ok(
+                                            PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Trait(
+                                                    TraitPath(`core::ops::Unveil`),
+                                                ),
+                                            ),
+                                        ),
+                                    },
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `OneVsAllResult`,
+                                                token_idx: TokenIdx(
+                                                    46,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Type(
+                                                TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                            ),
+                                        ),
+                                    },
+                                    PrincipalEntityPathExpr::Root {
+                                        path_name_token: PathNameToken::Ident(
+                                            IdentToken {
+                                                ident: `OneVsAll`,
+                                                token_idx: TokenIdx(
+                                                    50,
+                                                ),
+                                            },
+                                        ),
+                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                            ModuleItemPath::Type(
+                                                TypePath(`malamute::OneVsAll`, `Enum`),
+                                            ),
+                                        ),
+                                    },
+                                ],
                             },
                             stmt_arena: Arena {
                                 data: [],
@@ -1464,13 +1784,75 @@ Ok(
                                     data: [],
                                 },
                                 current_symbol_arena: Arena {
-                                    data: [],
+                                    data: [
+                                        CurrentSymbol {
+                                            modifier: Const,
+                                            access_start: TokenIdx(
+                                                35,
+                                            ),
+                                            access_end: None,
+                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
+                                                    ident_token: IdentToken {
+                                                        ident: `Label`,
+                                                        token_idx: TokenIdx(
+                                                            34,
+                                                        ),
+                                                    },
+                                                },
+                                            },
+                                        },
+                                        CurrentSymbol {
+                                            modifier: Const,
+                                            access_start: TokenIdx(
+                                                40,
+                                            ),
+                                            access_end: None,
+                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
+                                                    ident_token: IdentToken {
+                                                        ident: `label`,
+                                                        token_idx: TokenIdx(
+                                                            37,
+                                                        ),
+                                                    },
+                                                    ty_expr_idx: 0,
+                                                },
+                                            },
+                                        },
+                                    ],
                                 },
                                 allow_self_type: True,
                                 allow_self_value: False,
-                                pattern_ty_constraints: [],
+                                pattern_ty_constraints: [
+                                    (
+                                        ImplicitTypeParameter,
+                                        ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    ),
+                                    (
+                                        ImplicitTypeParameter,
+                                        ArenaIdxRange(
+                                            1..2,
+                                        ),
+                                    ),
+                                ],
                             },
-                            roots: [],
+                            roots: [
+                                ExprRoot {
+                                    kind: ConstantImplicitParameterType,
+                                    expr_idx: 0,
+                                },
+                                ExprRoot {
+                                    kind: Trait,
+                                    expr_idx: 7,
+                                },
+                                ExprRoot {
+                                    kind: SelfType,
+                                    expr_idx: 12,
+                                },
+                            ],
                         },
                     },
                 },
