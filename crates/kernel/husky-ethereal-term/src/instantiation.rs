@@ -5,7 +5,7 @@ use vec_like::{SmallVecPairMap, VecPairMap};
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EtherealTermDb)]
 pub struct EtherealTermPartialInstantiation {
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 2>,
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 4>,
 }
 
 impl EtherealTermPartialInstantiation {
@@ -83,15 +83,20 @@ impl EtherealTermPartialInstantiation {
         }
     }
 
-    pub fn finish(self) -> Option<EtherealTermInstantiation> {
-        todo!()
+    pub fn try_into_instantiation(self) -> Option<EtherealTermInstantiation> {
+        let mut symbol_map = SmallVecPairMap::<EtherealTermSymbol, EtherealTerm, 4>::default();
+        for (symbol, mapped) in self.symbol_map.iter() {
+            let mapped = (*mapped)?;
+            unsafe { symbol_map.insert_new_unchecked((*symbol, mapped)) }
+        }
+        Some(EtherealTermInstantiation { symbol_map })
     }
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EtherealTermDb)]
 pub struct EtherealTermInstantiation {
-    symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTerm, 2>,
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTerm, 4>,
 }
 
 impl EtherealTermInstantiation {

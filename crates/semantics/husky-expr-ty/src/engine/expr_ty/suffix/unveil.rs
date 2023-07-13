@@ -1,9 +1,8 @@
 use husky_ethereal_signature::{
     EtherealSignatureError, EtherealSignatureMaybeResult, EtherealSignatureResult,
-    HasTypeSideTraitForTypeImplBlockSignatureTemplates,
+    HasTypeSideTraitForTypeImplBlockSignatureTemplates, TraitForTypeImplBlockEtherealSignature,
     TraitForTypeImplBlockEtherealSignatureTemplate,
     TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated,
-    TraitForTypeImplBlockSignature,
 };
 use maybe_result::*;
 
@@ -56,8 +55,13 @@ impl Unveiler {
         match templates.len() {
             0 => todo!(),
             1 => {
-                todo!()
-                // let template = templates[0];
+                let template = templates[0];
+                if let Some(signature) = template.try_into_signature(db) {
+                    todo!()
+                } else {
+                    todo!()
+                }
+                //
                 // match template.implicit_parameters(db).len() {
                 //     0 => {
                 //         let trai_arguments =

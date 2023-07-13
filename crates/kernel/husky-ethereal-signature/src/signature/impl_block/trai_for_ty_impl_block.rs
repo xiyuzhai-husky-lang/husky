@@ -152,6 +152,19 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
 }
 
 impl TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated {
+    pub fn try_into_signature(
+        self,
+        db: &dyn EtherealSignatureDb,
+    ) -> Option<TraitForTypeImplBlockEtherealSignature> {
+        let instantiation = self.partial_instantiation(db).try_into_instantiation()?;
+        let template = self.template(db);
+        Some(TraitForTypeImplBlockEtherealSignature {
+            path: template.path(db),
+            trai: template.trai(db).instantiate(db, &instantiation),
+            ty: template.ty(db).instantiate(db, &instantiation),
+        })
+    }
+
     /// for better caching, many common traits use "Output" as an associated item
     pub fn associated_output_term(
         self,
@@ -197,5 +210,23 @@ fn trai_for_ty_impl_block_with_ty_instantiated_associated_item_term(
     todo!()
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct TraitForTypeImplBlockSignature {}
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct TraitForTypeImplBlockEtherealSignature {
+    path: TraitForTypeImplBlockPath,
+    trai: EtherealTerm,
+    ty: EtherealTerm,
+}
+
+impl TraitForTypeImplBlockEtherealSignature {
+    pub fn path(&self) -> TraitForTypeImplBlockPath {
+        self.path
+    }
+
+    pub fn trai(&self) -> EtherealTerm {
+        self.trai
+    }
+
+    pub fn ty(&self) -> EtherealTerm {
+        self.ty
+    }
+}
