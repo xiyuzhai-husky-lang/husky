@@ -25,7 +25,7 @@ Ok(
                                             10,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -160,7 +160,7 @@ Ok(
                                             39,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -295,7 +295,7 @@ Ok(
                                             68,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -430,7 +430,7 @@ Ok(
                                             97,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -565,7 +565,7 @@ Ok(
                                             122,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -700,7 +700,7 @@ Ok(
                                             151,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -835,7 +835,7 @@ Ok(
                                             176,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -970,7 +970,7 @@ Ok(
                                             205,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1105,7 +1105,7 @@ Ok(
                                             230,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1240,7 +1240,7 @@ Ok(
                                             259,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1375,7 +1375,7 @@ Ok(
                                             284,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1510,7 +1510,7 @@ Ok(
                                             313,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1801,7 +1801,7 @@ Ok(
                                             386,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -1936,7 +1936,7 @@ Ok(
                                             408,
                                         ),
                                     ),
-                                    implicit_parameters: [
+                                    generic_parameters: [
                                         GenericParameterDecl {
                                             annotated_variance_token: None,
                                             symbol: 0,
@@ -2072,7 +2072,7 @@ Ok(
                                                 437,
                                             ),
                                         ),
-                                        implicit_parameters: [
+                                        generic_parameters: [
                                             GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,

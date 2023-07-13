@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::logic::Prop`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::logic::Prop`, `Extern`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -74,7 +74,7 @@ Ok(
                         path: TypePath(`core::logic::LogicAnd`, `Structure`),
                         decl: StructureTypeDecl {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
@@ -295,7 +295,7 @@ Ok(
                         path: TypePath(`core::logic::LogicOr`, `Inductive`),
                         decl: InductiveTypeDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,

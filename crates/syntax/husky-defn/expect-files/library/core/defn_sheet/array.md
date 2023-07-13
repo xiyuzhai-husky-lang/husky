@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::array::Array`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::array::Array`, `Extern`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 ImplicitParameterDeclPattern {
                                     annotated_variance_token: None,
                                     symbol: 0,

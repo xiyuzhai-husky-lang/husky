@@ -39,7 +39,7 @@ Ok(
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             fields: [
                                 PropsFieldDeclPattern {
                                     decorators: [],
@@ -485,7 +485,7 @@ Ok(
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             fields: [
                                 PropsFieldDeclPattern {
                                     decorators: [],
@@ -695,7 +695,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -2179,7 +2179,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -3663,7 +3663,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -6891,7 +6891,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -10543,7 +10543,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -15462,7 +15462,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         disambiguator: 0,
                     },
-                    implicit_parameters: [],
+                    generic_parameters: [],
                     trai_expr: TraitExpr {
                         expr: 0,
                     },
@@ -15614,7 +15614,7 @@ Ok(
                                 ident: `visualize`,
                                 item_kind: MethodFn,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [],
                             return_ty: None,
@@ -16199,7 +16199,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         disambiguator: 0,
                     },
-                    implicit_parameters: [],
+                    generic_parameters: [],
                     ty_expr: TypeExpr {
                         expr: 0,
                     },
@@ -16316,7 +16316,7 @@ Ok(
                                 ident: `new`,
                                 item_kind: AssociatedFn,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -17494,7 +17494,7 @@ Ok(
                                 ident: `displacement`,
                                 item_kind: MethodFn,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [],
                             return_ty: Some(
@@ -18024,7 +18024,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         disambiguator: 0,
                     },
-                    implicit_parameters: [],
+                    generic_parameters: [],
                     trai_expr: TraitExpr {
                         expr: 0,
                     },
@@ -18176,7 +18176,7 @@ Ok(
                                 ident: `visualize`,
                                 item_kind: MethodFn,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [],
                             return_ty: Some(
@@ -18746,7 +18746,7 @@ Ok(
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         disambiguator: 0,
                     },
-                    implicit_parameters: [],
+                    generic_parameters: [],
                     ty_expr: TypeExpr {
                         expr: 0,
                     },
@@ -21201,7 +21201,7 @@ Ok(
                                 ident: `new`,
                                 item_kind: AssociatedFn,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,

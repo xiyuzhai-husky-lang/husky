@@ -32,7 +32,7 @@ Ok(
                                                     3,
                                                 ),
                                             ),
-                                            implicit_parameters: [
+                                            generic_parameters: [
                                                 GenericParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
@@ -230,7 +230,7 @@ Ok(
                                                     14,
                                                 ),
                                             ),
-                                            implicit_parameters: [
+                                            generic_parameters: [
                                                 GenericParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
@@ -428,7 +428,7 @@ Ok(
                                                     25,
                                                 ),
                                             ),
-                                            implicit_parameters: [
+                                            generic_parameters: [
                                                 GenericParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
@@ -585,7 +585,7 @@ Ok(
                                                 31,
                                             ),
                                         ),
-                                        implicit_parameters: [
+                                        generic_parameters: [
                                             GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,

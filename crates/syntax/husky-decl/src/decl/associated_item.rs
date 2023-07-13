@@ -41,10 +41,10 @@ impl AssociatedItemNodeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.implicit_parameters(db),
-            AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.implicit_parameters(db),
+            AssociatedItemNodeDecl::TypeItem(node_decl) => node_decl.generic_parameters(db),
+            AssociatedItemNodeDecl::TraitItem(node_decl) => node_decl.generic_parameters(db),
             AssociatedItemNodeDecl::TraitForTypeItem(_) => todo!(),
             AssociatedItemNodeDecl::IllFormedItem(_) => todo!(),
         }
@@ -87,10 +87,10 @@ impl AssociatedItemDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            AssociatedItemDecl::TypeItem(decl) => decl.implicit_parameters(db),
-            AssociatedItemDecl::TraitItem(decl) => decl.implicit_parameters(db),
+            AssociatedItemDecl::TypeItem(decl) => decl.generic_parameters(db),
+            AssociatedItemDecl::TraitItem(decl) => decl.generic_parameters(db),
             AssociatedItemDecl::TraitForTypeItem(_) => todo!(),
         }
     }

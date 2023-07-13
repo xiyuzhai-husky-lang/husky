@@ -67,7 +67,7 @@ pub(crate) fn trai_item_declarative_signature_template(
 }
 
 impl TraitItemDeclarativeSignatureTemplate {
-    pub fn implicit_parameters(
+    pub fn generic_parameters(
         self,
         _db: &dyn DeclarativeSignatureDb,
     ) -> &[DeclarativeGenericParameter] {

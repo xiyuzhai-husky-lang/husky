@@ -87,12 +87,12 @@ pub struct DeclarativeGenericParameters {
 
 impl DeclarativeGenericParameters {
     pub(crate) fn from_decl(
-        implicit_parameters: &[GenericParameterDecl],
+        generic_parameters: &[GenericParameterDecl],
         declarative_term_region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> Self {
         Self {
-            data: implicit_parameters
+            data: generic_parameters
                 .iter()
                 .map(|parameter| {
                     DeclarativeGenericParameter::from_decl(

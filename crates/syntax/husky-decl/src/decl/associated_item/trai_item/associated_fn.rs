@@ -40,7 +40,7 @@ pub struct TraitAssociatedFnDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub expr_region: ExprRegion,
 }

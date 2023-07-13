@@ -31,7 +31,7 @@ impl HasDeclarativeSignatureTemplate for ImplBlockPath {
 }
 
 impl ImplBlockDeclarativeSignatureTemplate {
-    pub fn implicit_parameters(
+    pub fn generic_parameters(
         self,
         _db: &dyn DeclarativeSignatureDb,
     ) -> &[DeclarativeGenericParameter] {

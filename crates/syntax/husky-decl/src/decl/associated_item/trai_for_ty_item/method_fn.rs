@@ -87,7 +87,7 @@ pub struct TraitForTypeMethodFnDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
     pub explicit_parameters: ExplicitParameterDeclPatterns,
@@ -101,11 +101,11 @@ impl TraitForTypeMethodFnDecl {
         path: TraitForTypeItemPath,
         node_decl: TraitForTypeMethodFnNodeDecl,
     ) -> DeclResult<Self> {
-        let implicit_parameters = node_decl
+        let generic_parameters = node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.implicit_parameters().to_smallvec())
+            .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
         let self_parameter = *explicit_parameter_decl_list.self_parameter();
@@ -119,7 +119,7 @@ impl TraitForTypeMethodFnDecl {
         Ok(TraitForTypeMethodFnDecl::new(
             db,
             path,
-            implicit_parameters,
+            generic_parameters,
             self_parameter,
             explicit_parameters,
             return_ty,

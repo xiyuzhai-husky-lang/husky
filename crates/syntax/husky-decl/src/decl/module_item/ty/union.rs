@@ -26,7 +26,7 @@ pub struct UnionTypeDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
 

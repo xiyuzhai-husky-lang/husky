@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::Enum(
                             EnumTypeDecl {
                                 path: TypePath(`core::result::Result`, `Enum`),
-                                implicit_parameters: [
+                                generic_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
@@ -167,7 +167,7 @@ Ok(
                                 ty_path: TypePath(`core::result::Result`, `Enum`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [
+                            generic_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
@@ -625,7 +625,7 @@ Ok(
                                     ident: `Continue`,
                                     item_kind: AssociatedType,
                                 },
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
@@ -1134,7 +1134,7 @@ Ok(
                                     ident: `branch`,
                                     item_kind: MethodFn,
                                 },
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 self_parameter: None,
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {

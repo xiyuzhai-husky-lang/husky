@@ -7,7 +7,7 @@ pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[GenericParameterDecl; 
 #[salsa::derive_debug_with_db(db = DeclDb)]
 pub struct ImplicitParameterDeclList {
     langle: LeftAngleBracketOrLessThanToken,
-    implicit_parameters: ImplicitParameterDeclPatterns,
+    generic_parameters: ImplicitParameterDeclPatterns,
     commas: CommaTokens,
     decl_list_result: Result<(), NodeDeclError>,
     rangle: RightAngleBracketToken,
@@ -18,8 +18,8 @@ impl ImplicitParameterDeclList {
         self.langle
     }
 
-    pub fn implicit_parameters(&self) -> &[GenericParameterDecl] {
-        &self.implicit_parameters
+    pub fn generic_parameters(&self) -> &[GenericParameterDecl] {
+        &self.generic_parameters
     }
 
     pub fn commas(&self) -> &[CommaToken] {
@@ -36,14 +36,14 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ImplicitPara
         let Some(langle) = ctx.try_parse_option::< LeftAngleBracketOrLessThanToken>()? else {
             return Ok(None)
         };
-        let (implicit_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(
+        let (generic_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(
             ctx,
             1,
             OriginalNodeDeclError::ExpectedImplicitParameterDecl,
         );
         Ok(Some(Self {
             langle,
-            implicit_parameters,
+            generic_parameters,
             commas,
             decl_list_result,
             rangle: ctx.try_parse_expected(|token_stream_state| {

@@ -22,6 +22,6 @@ pub struct TraitForTypeAssociatedValDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }

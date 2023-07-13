@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
@@ -41,7 +41,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
@@ -62,7 +62,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             explicit_parameters: DeclarativeSpecificParameters {
@@ -115,7 +115,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             explicit_parameters: DeclarativeSpecificParameters {
@@ -168,7 +168,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             explicit_parameters: DeclarativeSpecificParameters {
@@ -221,7 +221,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             explicit_parameters: DeclarativeSpecificParameters {
@@ -288,7 +288,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             explicit_parameters: DeclarativeSpecificParameters {
@@ -341,7 +341,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             explicit_parameters: DeclarativeSpecificParameters {
@@ -422,7 +422,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::StreakCache`),
@@ -453,7 +453,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             explicit_parameters: DeclarativeSpecificParameters {
@@ -490,7 +490,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             explicit_parameters: DeclarativeSpecificParameters {
@@ -530,7 +530,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        implicit_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameters {
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
@@ -560,7 +560,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
@@ -599,7 +599,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        implicit_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameters {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
@@ -628,7 +628,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
@@ -660,7 +660,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
@@ -692,7 +692,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
@@ -724,7 +724,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
@@ -756,13 +756,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {

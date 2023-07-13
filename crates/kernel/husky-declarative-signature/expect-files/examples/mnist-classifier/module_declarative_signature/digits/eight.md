@@ -46,7 +46,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                             explicit_parameters: DeclarativeSpecificParameters {

@@ -20,16 +20,16 @@ pub enum AssociatedItemDeclarativeSignatureTemplate {
 }
 
 impl AssociatedItemDeclarativeSignatureTemplate {
-    pub fn implicit_parameters(
+    pub fn generic_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> &[DeclarativeGenericParameter] {
         match self {
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(decl) => {
-                decl.implicit_parameters(db)
+                decl.generic_parameters(db)
             }
             AssociatedItemDeclarativeSignatureTemplate::TraitItem(decl) => {
-                decl.implicit_parameters(db)
+                decl.generic_parameters(db)
             }
             AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(_) => todo!(),
         }

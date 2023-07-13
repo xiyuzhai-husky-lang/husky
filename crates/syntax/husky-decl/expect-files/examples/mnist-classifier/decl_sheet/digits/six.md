@@ -420,7 +420,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -634,7 +634,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,

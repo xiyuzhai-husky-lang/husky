@@ -28,6 +28,7 @@ pub struct EtherealSignatureJar(
     ty_item_ethereal_signature_template,
     // - trait for type
     TraitForTypeAssociatedTypeEtherealSignatureTemplate,
+    TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated,
     trai_for_ty_item_ethereal_signature_template,
     // ty
     EnumEtherealSignatureTemplate,
@@ -50,10 +51,10 @@ pub struct EtherealSignatureJar(
     TypeImplBlockEtherealSignatureTemplate,
     // - trait for type
     TraitForTypeImplBlockEtherealSignatureTemplate,
-    TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated,
+    TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
     trai_for_ty_impl_block_ethereal_signature_template,
     ty_impl_block_ethereal_signature_template,
     ty_side_impl_block_signature_templates_map,
-    trai_for_ty_impl_block_with_ty_instantiated_associated_output_term,
-    trai_for_ty_impl_block_with_ty_instantiated_associated_item_term,
+    trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_template,
+    trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template,
 );

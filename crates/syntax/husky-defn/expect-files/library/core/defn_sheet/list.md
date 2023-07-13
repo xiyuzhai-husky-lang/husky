@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::list::List`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::list::List`, `Extern`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 ImplicitParameterDeclPattern {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
@@ -122,7 +122,7 @@ Ok(
                         ty_path: TypePath(`core::list::List`, `Extern`),
                         disambiguator: 0,
                     },
-                    implicit_parameters: [
+                    generic_parameters: [
                         ImplicitParameterDeclPattern {
                             annotated_variance_token: None,
                             symbol: 0,
@@ -299,7 +299,7 @@ Ok(
                                 ident: `ilen`,
                                 item_kind: MethodFn,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             self_parameter: None,
                             regular_parameters: [],
                             return_ty: Some(
@@ -891,7 +891,7 @@ Ok(
                                 ident: `push`,
                                 item_kind: MethodFn,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             self_parameter: Some(
                                 SelfParameterDeclPattern::Mut {
                                     mut_token: MutToken {
@@ -1584,7 +1584,7 @@ Ok(
                                 ident: `first`,
                                 item_kind: MethodFn,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             self_parameter: None,
                             regular_parameters: [],
                             return_ty: Some(

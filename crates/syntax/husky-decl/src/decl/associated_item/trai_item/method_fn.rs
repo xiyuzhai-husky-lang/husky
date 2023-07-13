@@ -22,7 +22,7 @@ pub struct TraitMethodFnDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
     pub explicit_parameters: ExplicitParameterDeclPatterns,

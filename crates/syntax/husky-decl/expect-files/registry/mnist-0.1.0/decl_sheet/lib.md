@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::Enum(
                             EnumTypeDecl {
                                 path: TypePath(`mnist::MnistLabel`, `Enum`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -84,7 +84,7 @@ Ok(
                         TypeDecl::TupleStruct(
                             TupleStructTypeDecl {
                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 fields: [
                                     TupleFieldDeclPattern {
                                         decorators: [],

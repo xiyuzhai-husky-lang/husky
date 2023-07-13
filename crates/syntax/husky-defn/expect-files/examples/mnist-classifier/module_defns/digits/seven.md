@@ -388,7 +388,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -1464,7 +1464,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -2211,7 +2211,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,

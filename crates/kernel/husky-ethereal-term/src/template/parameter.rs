@@ -24,11 +24,11 @@ impl TemplateParameter {
 impl TemplateParameters {
     fn new(
         db: &dyn EtherealTermDb,
-        implicit_parameters: &[DeclarativeGenericParameter],
+        generic_parameters: &[DeclarativeGenericParameter],
     ) -> EtherealTermResult<Self> {
         Ok(Self::new_inner(
             db,
-            implicit_parameters
+            generic_parameters
                 .iter()
                 .rev()
                 .map(|implicit_parameter| {
@@ -57,7 +57,7 @@ impl HasTemplateParameters for TraitForTypeImplBlockDeclarativeSignatureTemplate
         self,
         db: &'a dyn EtherealTermDb,
     ) -> EtherealTermResult<TemplateParameters> {
-        TemplateParameters::new(db, self.implicit_parameters(db))
+        TemplateParameters::new(db, self.generic_parameters(db))
     }
 }
 
@@ -78,6 +78,6 @@ pub(crate) fn ty_path_template_parameters(
     TemplateParameters::new(
         db,
         path.declarative_signature_template(db)?
-            .implicit_parameters(db),
+            .generic_parameters(db),
     )
 }

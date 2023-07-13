@@ -208,7 +208,7 @@ impl<'a> DeclParser<'a> {
         let mut parser =
             self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.try_parse_option();
+        let generic_parameters = ctx.try_parse_option();
         if let Some(lpar) = ctx.try_parse_err_as_none::<LeftParenthesisToken>() {
             let field_comma_list = ctx.try_parse();
             let rpar = ctx.try_parse();
@@ -216,7 +216,7 @@ impl<'a> DeclParser<'a> {
                 db,
                 node_path,
                 ast_idx,
-                implicit_parameters,
+                generic_parameters,
                 lpar,
                 field_comma_list,
                 rpar,
@@ -234,7 +234,7 @@ impl<'a> DeclParser<'a> {
                 db,
                 node_path,
                 ast_idx,
-                implicit_parameters,
+                generic_parameters,
                 lcurl,
                 field_comma_list,
                 rcurl,
@@ -275,17 +275,17 @@ impl TypeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            TypeDecl::Enum(decl) => decl.implicit_parameters(db),
-            TypeDecl::UnitStruct(decl) => decl.implicit_parameters(db),
-            TypeDecl::TupleStruct(decl) => decl.implicit_parameters(db),
-            TypeDecl::PropsStruct(decl) => decl.implicit_parameters(db),
-            TypeDecl::Record(decl) => decl.implicit_parameters(db),
-            TypeDecl::Inductive(decl) => decl.implicit_parameters(db),
-            TypeDecl::Structure(decl) => decl.implicit_parameters(db),
-            TypeDecl::Extern(decl) => decl.implicit_parameters(db),
-            TypeDecl::Union(decl) => decl.implicit_parameters(db),
+            TypeDecl::Enum(decl) => decl.generic_parameters(db),
+            TypeDecl::UnitStruct(decl) => decl.generic_parameters(db),
+            TypeDecl::TupleStruct(decl) => decl.generic_parameters(db),
+            TypeDecl::PropsStruct(decl) => decl.generic_parameters(db),
+            TypeDecl::Record(decl) => decl.generic_parameters(db),
+            TypeDecl::Inductive(decl) => decl.generic_parameters(db),
+            TypeDecl::Structure(decl) => decl.generic_parameters(db),
+            TypeDecl::Extern(decl) => decl.generic_parameters(db),
+            TypeDecl::Union(decl) => decl.generic_parameters(db),
         }
     }
 

@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                         },
@@ -30,7 +30,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Structure(
                         StructureDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: None,
@@ -69,7 +69,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Inductive(
                         InductiveDeclarativeSignatureTemplate {
-                            implicit_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameters {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: None,

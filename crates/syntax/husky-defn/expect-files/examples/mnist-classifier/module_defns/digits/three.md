@@ -2387,7 +2387,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -3069,7 +3069,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -3751,7 +3751,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             explicit_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,

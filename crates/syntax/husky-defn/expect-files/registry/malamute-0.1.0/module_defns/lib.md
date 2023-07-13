@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`malamute::OneVsAll`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`malamute::OneVsAll`, `Enum`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
@@ -183,7 +183,7 @@ Ok(
                         path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
@@ -359,7 +359,7 @@ Ok(
                         path: FugitivePath(`malamute::narrow_down`, `Gn`),
                         decl: GnDecl {
                             path: FugitivePath(`malamute::narrow_down`, `Gn`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
@@ -1259,7 +1259,7 @@ Ok(
                         ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
                         disambiguator: 0,
                     },
-                    implicit_parameters: [
+                    generic_parameters: [
                         GenericParameterDecl {
                             annotated_variance_token: None,
                             symbol: 0,
@@ -1673,7 +1673,7 @@ Ok(
                                 ident: `Output`,
                                 item_kind: AssociatedType,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(

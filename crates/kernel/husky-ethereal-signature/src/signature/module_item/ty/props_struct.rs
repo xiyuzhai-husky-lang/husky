@@ -6,7 +6,7 @@ use husky_declarative_signature::{
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct PropsStructEtherealSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: EtherealGenericParameters,
+    pub generic_parameters: EtherealGenericParameters,
     #[return_ref]
     pub fields: SmallVec<[RegularFieldEtherealSignatureTemplate; 4]>,
 }
@@ -25,7 +25,7 @@ impl HasRegularFieldEtherealSignature for PropsStructEtherealSignatureTemplate {
             .find(|field| field.ident == ident)?;
         JustOk(
             field
-                .instantiate(self.implicit_parameters(db), arguments)
+                .instantiate(self.generic_parameters(db), arguments)
                 .into(),
         )
     }
@@ -36,9 +36,9 @@ impl PropsStructEtherealSignatureTemplate {
         db: &dyn EtherealSignatureDb,
         declarative_signature_template: PropsStructDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let implicit_parameters = EtherealGenericParameters::from_declarative(
+        let generic_parameters = EtherealGenericParameters::from_declarative(
             db,
-            declarative_signature_template.implicit_parameters(db),
+            declarative_signature_template.generic_parameters(db),
         )?;
         let fields = declarative_signature_template
             .fields(db)
@@ -51,7 +51,7 @@ impl PropsStructEtherealSignatureTemplate {
                 )
             })
             .collect::<EtherealSignatureResult<_>>()?;
-        Ok(Self::new(db, implicit_parameters, fields))
+        Ok(Self::new(db, generic_parameters, fields))
     }
 }
 
@@ -76,14 +76,14 @@ impl RegularFieldEtherealSignatureTemplate {
     // todo: move this to trait
     fn instantiate(
         self,
-        implicit_parameters: &EtherealGenericParameters,
+        generic_parameters: &EtherealGenericParameters,
         arguments: &[EtherealTerm],
     ) -> PropsStructFieldEtherealSignature {
-        if implicit_parameters.data().len() != arguments.len() {
+        if generic_parameters.data().len() != arguments.len() {
             todo!()
         }
 
-        if implicit_parameters.data().len() == 0 {
+        if generic_parameters.data().len() == 0 {
             return PropsStructFieldEtherealSignature {
                 ident: self.ident,
                 ty: self.ty,

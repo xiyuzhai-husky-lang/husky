@@ -130,8 +130,8 @@ impl Defn {
         // self.decl(db).ast_idx(db)
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DefnDb) -> &'a [GenericParameterDecl] {
-        self.decl(db).implicit_parameters(db)
+    pub fn generic_parameters<'a>(self, db: &'a dyn DefnDb) -> &'a [GenericParameterDecl] {
+        self.decl(db).generic_parameters(db)
     }
 
     pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {

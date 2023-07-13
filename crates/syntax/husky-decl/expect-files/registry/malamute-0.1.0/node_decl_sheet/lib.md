@@ -32,7 +32,7 @@ Ok(
                                                     3,
                                                 ),
                                             ),
-                                            implicit_parameters: [
+                                            generic_parameters: [
                                                 GenericParameterDecl {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
@@ -249,7 +249,7 @@ Ok(
                                                     18,
                                                 ),
                                             ),
-                                            implicit_parameters: [
+                                            generic_parameters: [
                                                 GenericParameterDecl {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
@@ -809,7 +809,7 @@ Ok(
                                                     62,
                                                 ),
                                             ),
-                                            implicit_parameters: [
+                                            generic_parameters: [
                                                 GenericParameterDecl {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
@@ -1021,7 +1021,7 @@ Ok(
                                                 33,
                                             ),
                                         ),
-                                        implicit_parameters: [
+                                        generic_parameters: [
                                             GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,

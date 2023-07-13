@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::Extern(
                             ExternTypeDecl {
                                 path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,

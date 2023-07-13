@@ -121,7 +121,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,

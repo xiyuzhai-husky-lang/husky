@@ -1384,7 +1384,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             regular_parameters: [
                                 RegularParameterDeclPattern {
                                     pattern: 0,

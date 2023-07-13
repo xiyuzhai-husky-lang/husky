@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::Inductive(
                             InductiveTypeDecl {
                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -84,7 +84,7 @@ Ok(
                         TypeDecl::Structure(
                             StructureTypeDecl {
                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -155,7 +155,7 @@ Ok(
                         TypeDecl::Structure(
                             StructureTypeDecl {
                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -233,7 +233,7 @@ Ok(
                                 ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },

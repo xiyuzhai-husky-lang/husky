@@ -18,7 +18,7 @@ impl HasDeclarativeSignatureTemplate for ValDecl {
 
 impl ValDeclarativeSignatureTemplate {
     #[inline(always)]
-    pub fn implicit_parameters(
+    pub fn generic_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> &[DeclarativeGenericParameter] {
