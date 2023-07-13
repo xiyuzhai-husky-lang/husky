@@ -6,7 +6,7 @@ pub struct TypeAssociatedFnEtherealSignatureTemplate {
     #[id]
     pub path: TypeItemPath,
     pub self_ty: EtherealTerm,
-    pub implicit_parameters: EtherealGenericParameters,
+    pub generic_parameters: EtherealGenericParameters,
     pub explicit_parameters: ExplicitParameterEtherealSignatureTemplates,
     pub return_ty: EtherealTerm,
     pub ty: EtherealTerm,
@@ -19,9 +19,9 @@ impl TypeAssociatedFnEtherealSignatureTemplate {
         declarative_signature: TypeAssociatedFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
-        let implicit_parameters = EtherealGenericParameters::from_declarative(
+        let generic_parameters = EtherealGenericParameters::from_declarative(
             db,
-            declarative_signature.implicit_parameters(db),
+            declarative_signature.generic_parameters(db),
         )?;
         let explicit_parameters = ExplicitParameterEtherealSignatureTemplates::from_declarative(
             db,
@@ -52,7 +52,7 @@ impl TypeAssociatedFnEtherealSignatureTemplate {
             db,
             path,
             self_ty,
-            implicit_parameters,
+            generic_parameters,
             explicit_parameters,
             return_ty,
             ty,

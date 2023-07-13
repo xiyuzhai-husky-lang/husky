@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::PropsStruct(
                             PropsStructTypeDecl {
                                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 fields: [
                                     PropsFieldDeclPattern {
                                         decorators: [],
@@ -325,7 +325,7 @@ Ok(
                         TypeDecl::PropsStruct(
                             PropsStructTypeDecl {
                                 path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 fields: [
                                     PropsFieldDeclPattern {
                                         decorators: [],
@@ -487,7 +487,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -701,7 +701,7 @@ Ok(
                         TypeDecl::PropsStruct(
                             PropsStructTypeDecl {
                                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 fields: [
                                     PropsFieldDeclPattern {
                                         decorators: [],
@@ -836,7 +836,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -1118,7 +1118,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -1339,7 +1339,7 @@ Ok(
                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 0,
                             },
@@ -1496,7 +1496,7 @@ Ok(
                                     ident: `visualize`,
                                     item_kind: MethodFn,
                                 },
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
@@ -1740,7 +1740,7 @@ Ok(
                                 ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
@@ -3635,7 +3635,7 @@ Ok(
                                     ident: `top_k_row_span_sum`,
                                     item_kind: MethodFn,
                                 },
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 self_parameter: None,
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -3948,7 +3948,7 @@ Ok(
                                     ident: `top_k_row_right_mass_sum`,
                                     item_kind: MethodFn,
                                 },
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 self_parameter: None,
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {

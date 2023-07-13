@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct FnDeclarativeSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: DeclarativeGenericParameters,
+    pub generic_parameters: DeclarativeGenericParameters,
     #[return_ref]
     pub explicit_parameters: DeclarativeSpecificParameters,
     pub return_ty: DeclarativeTerm,
@@ -29,8 +29,8 @@ pub fn fn_declarative_signature_template(
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = DeclarativeGenericParameters::from_decl(
-        decl.implicit_parameters(db),
+    let generic_parameters = DeclarativeGenericParameters::from_decl(
+        decl.generic_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
@@ -45,7 +45,7 @@ pub fn fn_declarative_signature_template(
     };
     Ok(FnDeclarativeSignatureTemplate::new(
         db,
-        implicit_parameters,
+        generic_parameters,
         explicit_parameters,
         return_ty,
     ))

@@ -83,13 +83,24 @@ impl EtherealTermPartialInstantiation {
         }
     }
 
-    pub fn try_into_instantiation(self) -> Option<EtherealTermInstantiation> {
+    pub fn try_into_instantiation(&self) -> Option<EtherealTermInstantiation> {
         let mut symbol_map = SmallVecPairMap::<EtherealTermSymbol, EtherealTerm, 4>::default();
         for (symbol, mapped) in self.symbol_map.iter() {
             let mapped = (*mapped)?;
             unsafe { symbol_map.insert_new_unchecked((*symbol, mapped)) }
         }
         Some(EtherealTermInstantiation { symbol_map })
+    }
+
+    pub fn merge_with_item_generic_parameters(
+        &self,
+        generic_parameters: &EtherealGenericParameters,
+    ) -> Self {
+        let mut symbol_map = self.symbol_map.clone();
+        for param in generic_parameters.iter() {
+            unsafe { symbol_map.insert_new_unchecked((param.symbol(), None)) }
+        }
+        Self { symbol_map }
     }
 }
 

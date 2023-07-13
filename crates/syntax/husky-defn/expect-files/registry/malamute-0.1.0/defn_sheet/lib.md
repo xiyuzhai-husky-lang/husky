@@ -7,7 +7,7 @@ Ok(
                         path: FugitivePath(`malamute::narrow_down`, `Gn`),
                         decl: GnDecl {
                             path: FugitivePath(`malamute::narrow_down`, `Gn`),
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             regular_parameters: [],
                             return_ty: None,
                             expr_region: ExprRegion {

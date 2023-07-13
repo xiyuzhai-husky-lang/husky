@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::option::Option`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`core::option::Option`, `Enum`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 ImplicitParameterDeclPattern {
                                     annotated_variance_token: None,
                                     symbol: 0,

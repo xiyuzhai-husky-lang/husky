@@ -5,7 +5,7 @@ use husky_entity_tree::ImplBlockNode;
 pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
-    pub implicit_parameters: DeclarativeGenericParameters,
+    pub generic_parameters: DeclarativeGenericParameters,
     #[return_ref]
     pub self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate,
     #[return_ref]
@@ -33,8 +33,8 @@ pub fn ty_method_function_declarative_signature_template(
             .ty(db),
     );
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = DeclarativeGenericParameters::from_decl(
-        decl.implicit_parameters(db),
+    let generic_parameters = DeclarativeGenericParameters::from_decl(
+        decl.generic_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
@@ -49,7 +49,7 @@ pub fn ty_method_function_declarative_signature_template(
     };
     Ok(TypeMethodFunctionDeclarativeSignatureTemplate::new(
         db,
-        implicit_parameters,
+        generic_parameters,
         self_parameter,
         explicit_parameters,
         return_ty,

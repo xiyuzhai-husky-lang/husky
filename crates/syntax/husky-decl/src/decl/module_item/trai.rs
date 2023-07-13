@@ -59,8 +59,8 @@ impl<'a> DeclParser<'a> {
     ) -> TraitNodeDecl {
         let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let implicit_parameters = ctx.try_parse_option();
-        TraitNodeDecl::new(self.db(), id, ast_idx, implicit_parameters, parser.finish())
+        let generic_parameters = ctx.try_parse_option();
+        TraitNodeDecl::new(self.db(), id, ast_idx, generic_parameters, parser.finish())
     }
 }
 
@@ -70,7 +70,7 @@ pub struct TraitDecl {
     pub path: TraitPath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
 
@@ -81,18 +81,18 @@ impl TraitDecl {
         node_decl: TraitNodeDecl,
     ) -> DeclResult<TraitDecl> {
         let ast_idx = node_decl.ast_idx(db);
-        let implicit_parameters = node_decl
+        let generic_parameters = node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.implicit_parameters().to_smallvec())
+            .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let expr_region = node_decl.expr_region(db);
         Ok(TraitDecl::new(
             db,
             path,
             ast_idx,
-            implicit_parameters,
+            generic_parameters,
             expr_region,
         ))
     }

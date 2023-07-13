@@ -86,7 +86,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     )
     .try_for_each(|(src, dst)| instantiation.try_add_rule(src, dst.into()))?;
     let mut method_template_argument_iter = method_template_arguments.iter();
-    for _ in template.implicit_parameters(db).iter() {
+    for _ in template.generic_parameters(db).iter() {
         todo!()
     }
     JustOk(MethodFnFluffySignature {

@@ -68,7 +68,7 @@ pub struct PropsStructTypeDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldDeclPattern; 4]>,
     pub expr_region: ExprRegion,
@@ -80,20 +80,14 @@ impl PropsStructTypeDecl {
         path: TypePath,
         node_decl: PropsStructTypeNodeDecl,
     ) -> DeclResult<Self> {
-        let implicit_parameters = node_decl
+        let generic_parameters = node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.implicit_parameters().to_smallvec())
+            .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let fields = SmallVec::from(node_decl.fields(db).as_ref()?.elements());
         let expr_region = node_decl.expr_region(db);
-        Ok(Self::new(
-            db,
-            path,
-            implicit_parameters,
-            fields,
-            expr_region,
-        ))
+        Ok(Self::new(db, path, generic_parameters, fields, expr_region))
     }
 }

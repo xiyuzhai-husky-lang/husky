@@ -2,7 +2,7 @@ use husky_ethereal_signature::{
     EtherealSignatureError, EtherealSignatureMaybeResult, EtherealSignatureResult,
     HasTypeSideTraitForTypeImplBlockSignatureTemplates, TraitForTypeImplBlockEtherealSignature,
     TraitForTypeImplBlockEtherealSignatureTemplate,
-    TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated,
+    TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
 };
 use maybe_result::*;
 
@@ -57,12 +57,16 @@ impl Unveiler {
             1 => {
                 let template = templates[0];
                 if let Some(signature) = template.try_into_signature(db) {
+                    template
+                        .associated_output_template(db)?
+                        .try_into_signature(db)
+                        .expect("no generic parameters for Unveil::Output");
                     todo!()
                 } else {
                     todo!()
                 }
                 //
-                // match template.implicit_parameters(db).len() {
+                // match template.generic_parameters(db).len() {
                 //     0 => {
                 //         let trai_arguments =
                 //             template.trai(db).application_expansion(db).arguments(db);
@@ -87,7 +91,7 @@ fn unveil_impl_block_signature_templates(
     db: &dyn ExprTypeDb,
     term: EtherealTerm,
 ) -> EtherealSignatureMaybeResult<
-    &[TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated],
+    &[TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated],
 > {
     match term {
         EtherealTerm::Literal(_) => todo!(),
@@ -125,7 +129,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates(
     db: &dyn ExprTypeDb,
     ty_path: TypePath,
 ) -> EtherealSignatureMaybeResult<
-    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated; 2]>,
+    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2]>,
 > {
     unveil_impl_block_signature_templates_aux(
         db,
@@ -140,7 +144,7 @@ fn ty_ontology_application_unveil_impl_block_signature_templates(
     db: &dyn ExprTypeDb,
     ty_target: EtherealTermApplication,
 ) -> EtherealSignatureMaybeResult<
-    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated; 2]>,
+    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2]>,
 > {
     let application_expansion = ty_target.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
@@ -160,7 +164,7 @@ fn unveil_impl_block_signature_templates_aux(
     arguments: &[EtherealTerm],
     ty_target: EtherealTerm,
 ) -> EtherealSignatureMaybeResult<
-    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated; 2]>,
+    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2]>,
 > {
     let entity_path_menu = db.entity_path_menu(ty_path.toolchain(db));
     let templates = ty_path.ty_side_trai_for_ty_impl_block_signature_templates(

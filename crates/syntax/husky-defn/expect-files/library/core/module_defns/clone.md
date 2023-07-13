@@ -7,7 +7,7 @@ Ok(
                     decl: TraitDecl {
                         path: TraitPath(`core::clone::Clone`),
                         ast_idx: 1,
-                        implicit_parameters: [],
+                        generic_parameters: [],
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,

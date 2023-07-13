@@ -11,11 +11,11 @@ pub struct InductiveTypeNodeDecl {
 }
 
 impl InductiveTypeNodeDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         todo!()
         // self.implicit_parameter_decl_list(db)
         //     .as_ref()
-        //     .map(ImplicitParameterDeclList::implicit_parameters)
+        //     .map(ImplicitParameterDeclList::generic_parameters)
         //     .unwrap_or(&[])
     }
 
@@ -57,7 +57,7 @@ pub struct InductiveTypeDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     pub expr_region: ExprRegion,
 }
 
@@ -68,13 +68,13 @@ impl InductiveTypeDecl {
         path: TypePath,
         node_decl: InductiveTypeNodeDecl,
     ) -> DeclResult<Self> {
-        let implicit_parameters = node_decl
+        let generic_parameters = node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.implicit_parameters().to_smallvec())
+            .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let expr_region = node_decl.expr_region(db);
-        Ok(Self::new(db, path, implicit_parameters, expr_region))
+        Ok(Self::new(db, path, generic_parameters, expr_region))
     }
 }

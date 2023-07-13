@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::PropsStruct(
                             PropsStructTypeDecl {
                                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 fields: [
                                     PropsFieldDeclPattern {
                                         decorators: [],
@@ -227,7 +227,7 @@ Ok(
                         TypeDecl::Enum(
                             EnumTypeDecl {
                                 path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
@@ -298,7 +298,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -580,7 +580,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -862,7 +862,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -1144,7 +1144,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -1508,7 +1508,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -1790,7 +1790,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -2236,7 +2236,7 @@ Ok(
                         TypeDecl::PropsStruct(
                             PropsStructTypeDecl {
                                 path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 fields: [
                                     PropsFieldDeclPattern {
                                         decorators: [],
@@ -2430,7 +2430,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -2643,7 +2643,7 @@ Ok(
                         FugitiveDecl::Fn(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -2871,7 +2871,7 @@ Ok(
                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 0,
                             },
@@ -3028,7 +3028,7 @@ Ok(
                                     ident: `visualize`,
                                     item_kind: MethodFn,
                                 },
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 self_parameter: None,
                                 explicit_parameters: [],
                                 return_ty: Some(
@@ -3272,7 +3272,7 @@ Ok(
                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 disambiguator: 0,
                             },
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             ty_expr: TypeExpr {
                                 expr: 0,
                             },
@@ -4274,7 +4274,7 @@ Ok(
                                     ident: `displacement`,
                                     item_kind: MethodFn,
                                 },
-                                implicit_parameters: [],
+                                generic_parameters: [],
                                 self_parameter: None,
                                 explicit_parameters: [
                                     SpecificParameterDecl::Regular {

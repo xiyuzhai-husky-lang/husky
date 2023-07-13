@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::slice::Slice`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::slice::Slice`, `Extern`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 ImplicitParameterDeclPattern {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(

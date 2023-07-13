@@ -86,7 +86,7 @@ pub struct TypeMethodFnDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
     pub explicit_parameters: ExplicitParameterDeclPatterns,
@@ -100,11 +100,11 @@ impl TypeMethodFnDecl {
         path: TypeItemPath,
         node_decl: TypeMethodFnNodeDecl,
     ) -> DeclResult<Self> {
-        let implicit_parameters = node_decl
+        let generic_parameters = node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.implicit_parameters().to_smallvec())
+            .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
         let self_parameter = *explicit_parameter_decl_list.self_parameter();
@@ -118,7 +118,7 @@ impl TypeMethodFnDecl {
         Ok(TypeMethodFnDecl::new(
             db,
             path,
-            implicit_parameters,
+            generic_parameters,
             self_parameter,
             explicit_parameters,
             return_ty,

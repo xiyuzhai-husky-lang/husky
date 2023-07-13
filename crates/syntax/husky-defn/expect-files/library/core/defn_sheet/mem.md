@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::mem::Ref`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::mem::Ref`, `Extern`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 ImplicitParameterDeclPattern {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
@@ -164,7 +164,7 @@ Ok(
                         path: TypePath(`core::mem::RefMut`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::mem::RefMut`, `Extern`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 ImplicitParameterDeclPattern {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
@@ -321,7 +321,7 @@ Ok(
                         path: TypePath(`core::mem::Leash`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::mem::Leash`, `Extern`),
-                            implicit_parameters: [
+                            generic_parameters: [
                                 ImplicitParameterDeclPattern {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
@@ -437,7 +437,7 @@ Ok(
                         ty_path: TypePath(`core::mem::Leash`, `Extern`),
                         disambiguator: 0,
                     },
-                    implicit_parameters: [
+                    generic_parameters: [
                         ImplicitParameterDeclPattern {
                             annotated_variance_token: None,
                             symbol: 0,

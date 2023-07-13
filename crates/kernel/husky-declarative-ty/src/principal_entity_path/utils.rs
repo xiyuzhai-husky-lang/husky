@@ -2,17 +2,17 @@ use vec_like::{VecPairMap, VecSet};
 
 use super::*;
 
-pub(super) fn curry_from_implicit_parameters(
+pub(super) fn curry_from_generic_parameters(
     db: &dyn DeclarativeSignatureDb,
     term_curry_kind: CurryKind,
     variances: &[Variance],
-    implicit_parameters: &[DeclarativeGenericParameter],
+    generic_parameters: &[DeclarativeGenericParameter],
     term: impl Into<DeclarativeTerm>,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let mut term = term.into();
-    debug_assert_eq!(variances.len(), implicit_parameters.len());
+    debug_assert_eq!(variances.len(), generic_parameters.len());
     for (variance, implicit_parameter) in
-        std::iter::zip(variances.iter(), implicit_parameters.iter()).rev()
+        std::iter::zip(variances.iter(), generic_parameters.iter()).rev()
     {
         let symbol = implicit_parameter.symbol();
         term = DeclarativeTermCurry::new_dependent(

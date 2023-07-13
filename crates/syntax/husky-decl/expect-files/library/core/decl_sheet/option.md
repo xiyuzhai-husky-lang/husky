@@ -13,7 +13,7 @@ Ok(
                         TypeDecl::Enum(
                             EnumTypeDecl {
                                 path: TypePath(`core::option::Option`, `Enum`),
-                                implicit_parameters: [
+                                generic_parameters: [
                                     GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,

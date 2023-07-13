@@ -7,7 +7,7 @@ Ok(
                     decl: TraitDecl {
                         path: TraitPath(`core::cmp::PartialEq`),
                         ast_idx: 0,
-                        implicit_parameters: [],
+                        generic_parameters: [],
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
@@ -73,7 +73,7 @@ Ok(
                     decl: TraitDecl {
                         path: TraitPath(`core::cmp::Eq`),
                         ast_idx: 1,
-                        implicit_parameters: [],
+                        generic_parameters: [],
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
@@ -139,7 +139,7 @@ Ok(
                     decl: TraitDecl {
                         path: TraitPath(`core::cmp::PartialOrd`),
                         ast_idx: 2,
-                        implicit_parameters: [],
+                        generic_parameters: [],
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,
@@ -205,7 +205,7 @@ Ok(
                     decl: TraitDecl {
                         path: TraitPath(`core::cmp::Ord`),
                         ast_idx: 3,
-                        implicit_parameters: [],
+                        generic_parameters: [],
                         expr_region: ExprRegion {
                             data: ExprRegionData {
                                 parent: None,

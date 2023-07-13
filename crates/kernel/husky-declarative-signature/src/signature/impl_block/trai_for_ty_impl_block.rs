@@ -3,7 +3,7 @@ use super::*;
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TraitForTypeImplBlockDeclarativeSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: DeclarativeGenericParameters,
+    pub generic_parameters: DeclarativeGenericParameters,
     pub trai: DeclarativeTerm,
     pub ty: DeclarativeTerm,
     // todo: where clause
@@ -29,8 +29,8 @@ pub(crate) fn trai_for_ty_impl_block_declarative_signature_template(
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = DeclarativeGenericParameters::from_decl(
-        decl.implicit_parameters(db),
+    let generic_parameters = DeclarativeGenericParameters::from_decl(
+        decl.generic_parameters(db),
         &declarative_term_region,
         declarative_term_menu,
     );
@@ -46,7 +46,7 @@ pub(crate) fn trai_for_ty_impl_block_declarative_signature_template(
     };
     Ok(TraitForTypeImplBlockDeclarativeSignatureTemplate::new(
         db,
-        implicit_parameters,
+        generic_parameters,
         trai,
         ty,
     ))

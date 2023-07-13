@@ -27,7 +27,7 @@ pub struct UnitStructTypeDecl {
     pub path: TypePath,
     pub expr_region: ExprRegion,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
 }
 
 impl UnitStructTypeDecl {

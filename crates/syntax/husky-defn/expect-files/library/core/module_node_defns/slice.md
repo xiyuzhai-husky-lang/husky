@@ -26,7 +26,7 @@ Ok(
                                                 3,
                                             ),
                                         ),
-                                        implicit_parameters: [
+                                        generic_parameters: [
                                             GenericParameterDecl {
                                                 annotated_variance_token: Some(
                                                     VarianceToken::Covariant(

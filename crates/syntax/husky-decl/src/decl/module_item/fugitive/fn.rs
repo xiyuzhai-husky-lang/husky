@@ -79,7 +79,7 @@ pub struct FnDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclPatterns,
+    pub generic_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
     pub explicit_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
@@ -92,11 +92,11 @@ impl FnDecl {
         path: FugitivePath,
         node_decl: FnNodeDecl,
     ) -> DeclResult<Self> {
-        let implicit_parameters = node_decl
+        let generic_parameters = node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.implicit_parameters().to_smallvec())
+            .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
         let explicit_parameters: ExplicitParameterDeclPatterns = explicit_parameter_decl_list
@@ -109,7 +109,7 @@ impl FnDecl {
         Ok(FnDecl::new(
             db,
             path,
-            implicit_parameters,
+            generic_parameters,
             explicit_parameters,
             return_ty,
             expr_region,

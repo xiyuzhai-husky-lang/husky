@@ -18,6 +18,34 @@ pub enum TraitForTypeItemEtherealSignatureTemplate {
     AssociatedType(TraitForTypeAssociatedTypeEtherealSignatureTemplate),
 }
 
+impl TraitForTypeItemEtherealSignatureTemplate {
+    pub(crate) fn inherit_partial_instantiation(
+        self,
+        db: &dyn EtherealSignatureDb,
+        impl_block_template_partially_instantiated: TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
+    ) -> TraitForTypeItemEtherealSignatureTemplatePartiallyInstantiated {
+        match self {
+            TraitForTypeItemEtherealSignatureTemplate::AssociatedType(item_template) => {
+                let partial_instantiation = impl_block_template_partially_instantiated
+                    .partial_instantiation(db)
+                    .merge_with_item_generic_parameters(item_template.generic_parameters(db));
+                TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated::new(
+                    db,
+                    item_template,
+                    partial_instantiation,
+                )
+                .into()
+            }
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[enum_class::from_variants]
+pub enum TraitForTypeItemEtherealSignatureTemplatePartiallyInstantiated {
+    AssociatedType(TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated),
+}
+
 impl HasEtherealSignatureTemplate for TraitForTypeItemPath {
     type EtherealSignatureTemplate = TraitForTypeItemEtherealSignatureTemplate;
 

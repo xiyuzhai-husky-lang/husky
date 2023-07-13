@@ -21,8 +21,8 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = DeclarativeGenericParameters::from_decl(
-        decl.implicit_parameters(db),
+    let generic_parameters = DeclarativeGenericParameters::from_decl(
+        decl.generic_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
@@ -37,7 +37,7 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     };
     Ok(TraitForTypeMethodFnDeclarativeSignatureTemplate::new(
         db,
-        implicit_parameters,
+        generic_parameters,
         self_parameter,
         explicit_parameters,
         return_ty,
@@ -47,7 +47,7 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: DeclarativeGenericParameters,
+    pub generic_parameters: DeclarativeGenericParameters,
     #[return_ref]
     pub self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate,
     #[return_ref]

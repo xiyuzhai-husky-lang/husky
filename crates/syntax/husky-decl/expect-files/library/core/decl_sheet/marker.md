@@ -13,7 +13,7 @@ Ok(
                         TraitDecl {
                             path: TraitPath(`core::marker::Copy`),
                             ast_idx: 0,
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -83,7 +83,7 @@ Ok(
                         TraitDecl {
                             path: TraitPath(`core::marker::Sized`),
                             ast_idx: 1,
-                            implicit_parameters: [],
+                            generic_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,

@@ -4,7 +4,7 @@ use husky_declarative_signature::EnumDeclarativeSignatureTemplate;
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct EnumEtherealSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: EtherealGenericParameters,
+    pub generic_parameters: EtherealGenericParameters,
 }
 
 impl EnumEtherealSignatureTemplate {
@@ -12,10 +12,10 @@ impl EnumEtherealSignatureTemplate {
         db: &dyn EtherealSignatureDb,
         declarative_signature_template: EnumDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let implicit_parameters = EtherealGenericParameters::from_declarative(
+        let generic_parameters = EtherealGenericParameters::from_declarative(
             db,
-            declarative_signature_template.implicit_parameters(db),
+            declarative_signature_template.generic_parameters(db),
         )?;
-        Ok(Self::new(db, implicit_parameters))
+        Ok(Self::new(db, generic_parameters))
     }
 }

@@ -39,11 +39,11 @@ pub(crate) fn fn_path_declarative_ty(
         .map(DeclarativeSpecificParameter::into_ritchie_parameter_contracted_ty)
         .collect();
     let return_declarative_ty = signature.return_ty(db);
-    curry_from_implicit_parameters(
+    curry_from_generic_parameters(
         db,
         CurryKind::Implicit,
         variances,
-        signature.implicit_parameters(db),
+        signature.generic_parameters(db),
         DeclarativeTermRitchie::new(
             db,
             RitchieKind::FnType,
@@ -65,11 +65,11 @@ pub(crate) fn gn_path_declarative_ty(
         .map(DeclarativeSpecificParameter::into_ritchie_parameter_contracted_ty)
         .collect();
     let return_declarative_ty = signature.return_ty(db);
-    curry_from_implicit_parameters(
+    curry_from_generic_parameters(
         db,
         CurryKind::Implicit,
         variances,
-        signature.implicit_parameters(db),
+        signature.generic_parameters(db),
         DeclarativeTermRitchie::new(
             db,
             RitchieKind::FnType,

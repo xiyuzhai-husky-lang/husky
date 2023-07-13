@@ -3,7 +3,7 @@ use super::*;
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TupleStructDeclarativeSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: DeclarativeGenericParameters,
+    pub generic_parameters: DeclarativeGenericParameters,
     pub self_ty: DeclarativeTerm,
     #[return_ref]
     pub fields: SmallVec<[TupleStructFieldDeclarativeSignatureTemplate; 4]>,
@@ -23,12 +23,12 @@ impl TupleStructDeclarativeSignatureTemplate {
         let expr_region = decl.expr_region(db);
         let declarative_term_region = declarative_term_region(db, expr_region);
         let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-        let implicit_parameters = DeclarativeGenericParameters::from_decl(
-            decl.implicit_parameters(db),
+        let generic_parameters = DeclarativeGenericParameters::from_decl(
+            decl.generic_parameters(db),
             declarative_term_region,
             declarative_term_menu,
         );
-        let self_ty = construct_self_ty(db, path, &implicit_parameters);
+        let self_ty = construct_self_ty(db, path, &generic_parameters);
         let fields = decl
             .fields(db)
             .iter()
@@ -46,7 +46,7 @@ impl TupleStructDeclarativeSignatureTemplate {
                 })
             })
             .collect::<DeclarativeSignatureResult<SmallVec<_>>>()?;
-        Ok(Self::new(db, implicit_parameters, self_ty, fields))
+        Ok(Self::new(db, generic_parameters, self_ty, fields))
     }
 }
 
