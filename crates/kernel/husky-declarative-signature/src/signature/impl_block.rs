@@ -34,7 +34,7 @@ impl ImplBlockDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         _db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterDeclarativeSignature] {
+    ) -> &[DeclarativeGenericParameter] {
         todo!()
     }
 }

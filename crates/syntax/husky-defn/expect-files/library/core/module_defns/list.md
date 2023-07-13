@@ -8,7 +8,7 @@ Ok(
                         decl: ExternTypeDecl {
                             path: TypePath(`core::list::List`, `Extern`),
                             implicit_parameters: [
-                                ImplicitParameterDecl {
+                                GenericParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
                                             CovariantToken {
@@ -19,7 +19,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                    variant: GenericParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
                                             token_idx: TokenIdx(
@@ -123,10 +123,10 @@ Ok(
                         disambiguator: 0,
                     },
                     implicit_parameters: [
-                        ImplicitParameterDecl {
+                        GenericParameterDecl {
                             annotated_variance_token: None,
                             symbol: 0,
-                            variant: ImplicitParameterDeclPatternVariant::Type {
+                            variant: GenericParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `E`,
                                     token_idx: TokenIdx(
@@ -907,7 +907,7 @@ Ok(
                                 },
                             ),
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,

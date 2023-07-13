@@ -24,7 +24,7 @@ impl FugitiveDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterDeclarativeSignature] {
+    ) -> &[DeclarativeGenericParameter] {
         match self {
             FugitiveDeclarativeSignatureTemplate::Fn(decl) => decl.implicit_parameters(db),
             FugitiveDeclarativeSignatureTemplate::Val(decl) => decl.implicit_parameters(db),

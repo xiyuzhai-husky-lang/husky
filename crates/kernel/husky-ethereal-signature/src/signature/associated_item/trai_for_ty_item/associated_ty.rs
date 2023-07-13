@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitForTypeAssociatedTypeEtherealSignatureTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterEtherealSignatures,
+    pub implicit_parameters: EtherealGenericParameters,
 }
 
 impl TraitForTypeAssociatedTypeEtherealSignatureTemplate {
@@ -13,7 +13,7 @@ impl TraitForTypeAssociatedTypeEtherealSignatureTemplate {
         path: TraitForTypeItemPath,
         declarative_signature_template: TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let implicit_parameters = ImplicitParameterEtherealSignatures::from_declarative(
+        let implicit_parameters = EtherealGenericParameters::from_declarative(
             db,
             declarative_signature_template.implicit_parameters(db),
         )?;

@@ -27,7 +27,7 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: Some(
                                                     VarianceToken::Covariant(
                                                         CovariantToken {
@@ -38,7 +38,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Lifetime {
+                                                variant: GenericParameterDeclPatternVariant::Lifetime {
                                                     label_token: LifetimeLabelToken {
                                                         label: `'a`,
                                                         token_idx: TokenIdx(
@@ -47,7 +47,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: Some(
                                                     VarianceToken::Covariant(
                                                         CovariantToken {
@@ -58,7 +58,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 1,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
@@ -221,7 +221,7 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: Some(
                                                     VarianceToken::Covariant(
                                                         CovariantToken {
@@ -232,7 +232,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Lifetime {
+                                                variant: GenericParameterDeclPatternVariant::Lifetime {
                                                     label_token: LifetimeLabelToken {
                                                         label: `'a`,
                                                         token_idx: TokenIdx(
@@ -241,7 +241,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: Some(
                                                     VarianceToken::Invariant(
                                                         InvariantToken {
@@ -252,7 +252,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 1,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
@@ -415,7 +415,7 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: Some(
                                                     VarianceToken::Covariant(
                                                         CovariantToken {
@@ -426,7 +426,7 @@ Ok(
                                                     ),
                                                 ),
                                                 symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
@@ -559,10 +559,10 @@ Ok(
                                     ),
                                 ),
                                 implicit_parameters: [
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                        variant: GenericParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(

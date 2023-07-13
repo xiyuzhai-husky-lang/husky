@@ -723,7 +723,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -735,7 +735,7 @@ Ok(
                                         ),
                                         ty: 0,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -1005,7 +1005,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -1017,7 +1017,7 @@ Ok(
                                         ),
                                         ty: 0,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -1287,7 +1287,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -1299,7 +1299,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -1311,7 +1311,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -1658,7 +1658,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -1670,7 +1670,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -1682,7 +1682,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -1694,7 +1694,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 3,
                                         variables: ArenaIdxRange(
                                             3..4,
@@ -2111,7 +2111,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -2123,7 +2123,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -2908,7 +2908,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -2920,7 +2920,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -2932,7 +2932,7 @@ Ok(
                                         ),
                                         ty: 2,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -4581,7 +4581,7 @@ Ok(
                                 },
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -4593,7 +4593,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             1..2,

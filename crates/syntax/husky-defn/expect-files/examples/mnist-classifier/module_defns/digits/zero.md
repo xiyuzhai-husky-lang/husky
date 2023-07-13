@@ -390,7 +390,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                             implicit_parameters: [],
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,

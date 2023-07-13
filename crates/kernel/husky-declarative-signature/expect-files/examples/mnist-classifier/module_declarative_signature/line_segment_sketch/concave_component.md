@@ -22,13 +22,13 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [
                                     Regular(
-                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularParameterDeclarativeSignatureTemplate {
                                             contract: None,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
@@ -62,7 +62,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: DeclarativeGenericParameters {
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
@@ -92,10 +92,10 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -107,7 +107,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::visual::Html`),
@@ -131,7 +131,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: DeclarativeGenericParameters {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -160,7 +160,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -192,7 +192,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -224,7 +224,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -256,7 +256,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -288,7 +288,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -320,7 +320,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -352,16 +352,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -373,7 +373,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`),
@@ -403,16 +403,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -424,7 +424,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -454,16 +454,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -475,7 +475,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -505,16 +505,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -526,7 +526,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -556,16 +556,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -577,7 +577,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -607,16 +607,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -628,7 +628,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),

@@ -6,7 +6,7 @@ use husky_declarative_signature::{
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct PropsStructEtherealSignatureTemplate {
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterEtherealSignatures,
+    pub implicit_parameters: EtherealGenericParameters,
     #[return_ref]
     pub fields: SmallVec<[RegularFieldEtherealSignatureTemplate; 4]>,
 }
@@ -36,7 +36,7 @@ impl PropsStructEtherealSignatureTemplate {
         db: &dyn EtherealSignatureDb,
         declarative_signature_template: PropsStructDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let implicit_parameters = ImplicitParameterEtherealSignatures::from_declarative(
+        let implicit_parameters = EtherealGenericParameters::from_declarative(
             db,
             declarative_signature_template.implicit_parameters(db),
         )?;
@@ -76,7 +76,7 @@ impl RegularFieldEtherealSignatureTemplate {
     // todo: move this to trait
     fn instantiate(
         self,
-        implicit_parameters: &ImplicitParameterEtherealSignatures,
+        implicit_parameters: &EtherealGenericParameters,
         arguments: &[EtherealTerm],
     ) -> PropsStructFieldEtherealSignature {
         if implicit_parameters.data().len() != arguments.len() {

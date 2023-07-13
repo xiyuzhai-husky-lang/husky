@@ -107,10 +107,10 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `P`,
                                                         token_idx: TokenIdx(
@@ -129,10 +129,10 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Q`,
                                                         token_idx: TokenIdx(
@@ -365,10 +365,10 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `P`,
                                                         token_idx: TokenIdx(
@@ -387,10 +387,10 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Q`,
                                                         token_idx: TokenIdx(

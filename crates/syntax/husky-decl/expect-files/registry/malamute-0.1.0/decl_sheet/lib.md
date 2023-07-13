@@ -14,10 +14,10 @@ Ok(
                             EnumTypeDecl {
                                 path: TypePath(`malamute::OneVsAll`, `Enum`),
                                 implicit_parameters: [
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                        variant: GenericParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `Label`,
                                                 token_idx: TokenIdx(
@@ -27,10 +27,10 @@ Ok(
                                             traits: None,
                                         },
                                     },
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: ImplicitParameterDeclPatternVariant::Constant {
+                                        variant: GenericParameterDeclPatternVariant::Constant {
                                             const_token: ConstToken {
                                                 token_idx: TokenIdx(
                                                     6,
@@ -194,10 +194,10 @@ Ok(
                             EnumTypeDecl {
                                 path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 implicit_parameters: [
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                        variant: GenericParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `Label`,
                                                 token_idx: TokenIdx(
@@ -207,10 +207,10 @@ Ok(
                                             traits: None,
                                         },
                                     },
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: ImplicitParameterDeclPatternVariant::Constant {
+                                        variant: GenericParameterDeclPatternVariant::Constant {
                                             const_token: ConstToken {
                                                 token_idx: TokenIdx(
                                                     21,
@@ -374,10 +374,10 @@ Ok(
                             GnDecl {
                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                 implicit_parameters: [
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                        variant: GenericParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `Label`,
                                                 token_idx: TokenIdx(
@@ -387,10 +387,10 @@ Ok(
                                             traits: None,
                                         },
                                     },
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: ImplicitParameterDeclPatternVariant::Constant {
+                                        variant: GenericParameterDeclPatternVariant::Constant {
                                             const_token: ConstToken {
                                                 token_idx: TokenIdx(
                                                     65,
@@ -412,7 +412,7 @@ Ok(
                                     },
                                 ],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Variadic {
+                                    SpecificParameterDecl::Variadic {
                                         dot_dot_dot_token: DotDotDotToken(
                                             TokenIdx(
                                                 71,
@@ -445,7 +445,7 @@ Ok(
                                         ),
                                         ty: 1,
                                     },
-                                    ExplicitParameterDecl::Keyed {
+                                    SpecificParameterDecl::Keyed {
                                         pattern: 0,
                                         symbol_modifier_keyword_group: None,
                                         ident_token: IdentToken {
@@ -844,10 +844,10 @@ Ok(
                                 disambiguator: 0,
                             },
                             implicit_parameters: [
-                                ImplicitParameterDecl {
+                                GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                    variant: GenericParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Label`,
                                             token_idx: TokenIdx(
@@ -857,10 +857,10 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                ImplicitParameterDecl {
+                                GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: ImplicitParameterDeclPatternVariant::Constant {
+                                    variant: GenericParameterDeclPatternVariant::Constant {
                                         const_token: ConstToken {
                                             token_idx: TokenIdx(
                                                 36,

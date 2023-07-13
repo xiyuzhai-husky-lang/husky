@@ -10,9 +10,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [
-                                    ImplicitParameterDeclarativeSignature {
+                                    DeclarativeGenericParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -21,7 +21,7 @@
                                         ),
                                         traits: [],
                                     },
-                                    ImplicitParameterDeclarativeSignature {
+                                    DeclarativeGenericParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -50,9 +50,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [
-                                    ImplicitParameterDeclarativeSignature {
+                                    DeclarativeGenericParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -61,7 +61,7 @@
                                         ),
                                         traits: [],
                                     },
-                                    ImplicitParameterDeclarativeSignature {
+                                    DeclarativeGenericParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -90,9 +90,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Gn(
                         GnDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [
-                                    ImplicitParameterDeclarativeSignature {
+                                    DeclarativeGenericParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -101,7 +101,7 @@
                                         ),
                                         traits: [],
                                     },
-                                    ImplicitParameterDeclarativeSignature {
+                                    DeclarativeGenericParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -112,10 +112,10 @@
                                     },
                                 ],
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [
                                     Variadic(
-                                        ExplicitVariadicParameterDeclarativeSignatureTemplate {
+                                        SpecificVariadicParameterDeclarativeSignatureTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -129,7 +129,7 @@
                                         },
                                     ),
                                     Keyed(
-                                        ExplicitKeyedParameterDeclarativeSignatureTemplate {
+                                        SpecificKeyedParameterDeclarativeSignatureTemplate {
                                             key: Ident(
                                                 Coword(
                                                     Id {
@@ -181,9 +181,9 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: DeclarativeGenericParameters {
                             data: [
-                                ImplicitParameterDeclarativeSignature {
+                                DeclarativeGenericParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -192,7 +192,7 @@
                                     ),
                                     traits: [],
                                 },
-                                ImplicitParameterDeclarativeSignature {
+                                DeclarativeGenericParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -230,7 +230,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
                         TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
                         },

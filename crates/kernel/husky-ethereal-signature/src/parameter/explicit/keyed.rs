@@ -1,5 +1,5 @@
 use super::*;
-use husky_declarative_signature::ExplicitKeyedParameterDeclarativeSignatureTemplate;
+use husky_declarative_signature::SpecificKeyedParameterDeclarativeSignatureTemplate;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct ExplicitKeyedParameterEtherealSignatureTemplate {
@@ -12,7 +12,7 @@ pub struct ExplicitKeyedParameterEtherealSignatureTemplate {
 impl ExplicitKeyedParameterEtherealSignatureTemplate {
     pub(super) fn from_declarative_signature_template(
         db: &dyn EtherealSignatureDb,
-        declarative_signature: &ExplicitKeyedParameterDeclarativeSignatureTemplate,
+        declarative_signature: &SpecificKeyedParameterDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {
             key: declarative_signature.key(),

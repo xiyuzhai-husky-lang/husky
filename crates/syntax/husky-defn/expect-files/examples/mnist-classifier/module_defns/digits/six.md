@@ -4336,7 +4336,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                             implicit_parameters: [],
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -4991,7 +4991,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                             implicit_parameters: [],
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,

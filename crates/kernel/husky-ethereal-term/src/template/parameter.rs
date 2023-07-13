@@ -24,7 +24,7 @@ impl TemplateParameter {
 impl TemplateParameters {
     fn new(
         db: &dyn EtherealTermDb,
-        implicit_parameters: &[ImplicitParameterDeclarativeSignature],
+        implicit_parameters: &[DeclarativeGenericParameter],
     ) -> EtherealTermResult<Self> {
         Ok(Self::new_inner(
             db,

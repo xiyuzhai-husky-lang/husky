@@ -1,12 +1,11 @@
-mod explicit;
-mod implicit;
+mod generic;
+mod specific;
 
-pub use self::explicit::*;
-pub use self::implicit::*;
+pub use self::generic::*;
+pub use self::specific::*;
 
 use crate::*;
 use husky_expr::{
-    ExplicitParameterDecl, ExprRegionData, ImplicitParameterDecl,
-    ImplicitParameterDeclPatternVariant,
+    ExprRegionData, GenericParameterDecl, GenericParameterDeclPatternVariant, SpecificParameterDecl,
 };
 use husky_token::VarianceToken;

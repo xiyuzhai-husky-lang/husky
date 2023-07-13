@@ -11,7 +11,7 @@ pub struct EnumTypeNodeDecl {
 }
 
 impl EnumTypeNodeDecl {
-    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[ImplicitParameterDecl] {
+    pub fn implicit_parameters(self, db: &dyn DeclDb) -> &[GenericParameterDecl] {
         todo!()
         // self.implicit_parameter_decl_list(db)
         //     .as_ref()

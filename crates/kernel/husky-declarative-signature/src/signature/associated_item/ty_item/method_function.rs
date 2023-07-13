@@ -5,11 +5,11 @@ use husky_entity_tree::ImplBlockNode;
 pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
     // todo: formal method, method that is not a function pointer
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
+    pub implicit_parameters: DeclarativeGenericParameters,
     #[return_ref]
-    pub self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate,
+    pub self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate,
     #[return_ref]
-    pub explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates,
+    pub explicit_parameters: DeclarativeSpecificParameters,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -23,7 +23,7 @@ pub fn ty_method_function_declarative_signature_template(
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);
     let declarative_term_region = declarative_term_region(db, expr_region);
-    let self_parameter = ExplicitRegularParameterDeclarativeSignatureTemplate::new(
+    let self_parameter = SpecificRegularParameterDeclarativeSignatureTemplate::new(
         match decl.self_parameter(db) {
             Some(self_parameter) => todo!(),
             None => Contract::None,
@@ -33,12 +33,12 @@ pub fn ty_method_function_declarative_signature_template(
             .ty(db),
     );
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
+    let implicit_parameters = DeclarativeGenericParameters::from_decl(
         decl.implicit_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
-    let explicit_parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
+    let explicit_parameters = DeclarativeSpecificParameters::from_decl(
         decl.explicit_parameters(db),
         expr_region_data,
         declarative_term_region,

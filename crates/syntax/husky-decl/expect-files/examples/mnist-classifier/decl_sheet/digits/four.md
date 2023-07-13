@@ -123,7 +123,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -744,7 +744,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -958,7 +958,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,

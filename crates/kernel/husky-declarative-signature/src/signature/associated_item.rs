@@ -23,7 +23,7 @@ impl AssociatedItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterDeclarativeSignature] {
+    ) -> &[DeclarativeGenericParameter] {
         match self {
             AssociatedItemDeclarativeSignatureTemplate::TypeItem(decl) => {
                 decl.implicit_parameters(db)

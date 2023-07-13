@@ -48,7 +48,7 @@ impl TraitForTypeItemNodeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
             TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
             TraitForTypeItemNodeDecl::MethodFn(_) => todo!(),
@@ -199,7 +199,7 @@ impl TraitForTypeItemDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
             TraitForTypeItemDecl::AssociatedFn(decl) => decl.implicit_parameters(db),
             TraitForTypeItemDecl::MethodFn(decl) => decl.implicit_parameters(db),

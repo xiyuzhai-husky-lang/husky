@@ -1697,7 +1697,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -3194,7 +3194,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -4691,7 +4691,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -6188,7 +6188,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -7685,7 +7685,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -9182,7 +9182,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -10679,7 +10679,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -12176,7 +12176,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -13673,7 +13673,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -15170,7 +15170,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -16667,7 +16667,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -18164,7 +18164,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -20125,7 +20125,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -21622,7 +21622,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,

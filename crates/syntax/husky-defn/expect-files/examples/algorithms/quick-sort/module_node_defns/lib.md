@@ -27,10 +27,10 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `T`,
                                                         token_idx: TokenIdx(
@@ -72,7 +72,7 @@ Ok(
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
                                     explicit_parameters: [
-                                        ExplicitParameterDecl::Regular {
+                                        SpecificParameterDecl::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -900,10 +900,10 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `T`,
                                                         token_idx: TokenIdx(
@@ -945,7 +945,7 @@ Ok(
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
                                     explicit_parameters: [
-                                        ExplicitParameterDecl::Regular {
+                                        SpecificParameterDecl::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -957,7 +957,7 @@ Ok(
                                             ),
                                             ty: 3,
                                         },
-                                        ExplicitParameterDecl::Regular {
+                                        SpecificParameterDecl::Regular {
                                             pattern: 1,
                                             variables: ArenaIdxRange(
                                                 2..3,
@@ -969,7 +969,7 @@ Ok(
                                             ),
                                             ty: 4,
                                         },
-                                        ExplicitParameterDecl::Regular {
+                                        SpecificParameterDecl::Regular {
                                             pattern: 2,
                                             variables: ArenaIdxRange(
                                                 3..4,
@@ -2293,10 +2293,10 @@ Ok(
                                             ),
                                         ),
                                         implicit_parameters: [
-                                            ImplicitParameterDecl {
+                                            GenericParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: ImplicitParameterDeclPatternVariant::Type {
+                                                variant: GenericParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `T`,
                                                         token_idx: TokenIdx(
@@ -2338,7 +2338,7 @@ Ok(
                                     self_parameter: None,
                                     comma_after_self_parameter: None,
                                     explicit_parameters: [
-                                        ExplicitParameterDecl::Regular {
+                                        SpecificParameterDecl::Regular {
                                             pattern: 0,
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -2350,7 +2350,7 @@ Ok(
                                             ),
                                             ty: 3,
                                         },
-                                        ExplicitParameterDecl::Regular {
+                                        SpecificParameterDecl::Regular {
                                             pattern: 1,
                                             variables: ArenaIdxRange(
                                                 2..3,
@@ -2362,7 +2362,7 @@ Ok(
                                             ),
                                             ty: 4,
                                         },
-                                        ExplicitParameterDecl::Regular {
+                                        SpecificParameterDecl::Regular {
                                             pattern: 2,
                                             variables: ArenaIdxRange(
                                                 3..4,

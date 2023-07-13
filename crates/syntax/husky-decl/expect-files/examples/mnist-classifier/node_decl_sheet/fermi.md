@@ -338,7 +338,7 @@ Ok(
                                         self_parameter: None,
                                         comma_after_self_parameter: None,
                                         explicit_parameters: [
-                                            ExplicitParameterDecl::Regular {
+                                            SpecificParameterDecl::Regular {
                                                 pattern: 0,
                                                 variables: ArenaIdxRange(
                                                     0..1,
@@ -350,7 +350,7 @@ Ok(
                                                 ),
                                                 ty: 3,
                                             },
-                                            ExplicitParameterDecl::Regular {
+                                            SpecificParameterDecl::Regular {
                                                 pattern: 1,
                                                 variables: ArenaIdxRange(
                                                     1..2,

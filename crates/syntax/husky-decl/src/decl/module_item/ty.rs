@@ -275,7 +275,7 @@ impl TypeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
             TypeDecl::Enum(decl) => decl.implicit_parameters(db),
             TypeDecl::UnitStruct(decl) => decl.implicit_parameters(db),

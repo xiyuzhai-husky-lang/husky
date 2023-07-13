@@ -73,13 +73,8 @@ impl EtherealTermInstantiate for EtherealTermSymbol {
         db: &dyn EtherealTermDb,
         instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
-        instantiation.symbol_mapped(self).unwrap_or(
-            EtherealTermSymbol::new_inner(
-                db,
-                self.ty(db).instantiate(db, instantiation),
-                self.idx(db),
-            )
-            .into(),
-        )
+        /// it's assumed that all symbols will be replaced by its map
+        /// otherwise it's illegal
+        instantiation.symbol_mapped(self)
     }
 }

@@ -10,9 +10,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [
-                                    ImplicitParameterDeclarativeSignature {
+                                    DeclarativeGenericParameter {
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
@@ -45,9 +45,9 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                        implicit_parameters: DeclarativeGenericParameters {
                             data: [
-                                ImplicitParameterDeclarativeSignature {
+                                DeclarativeGenericParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -84,9 +84,9 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [
-                                        ImplicitParameterDeclarativeSignature {
+                                        DeclarativeGenericParameter {
                                             annotated_variance: None,
                                             symbol: DeclarativeTermSymbol(
                                                 Id {
@@ -100,10 +100,10 @@
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
                             self_ty: DeclarativeTerm(`core::list::List t`),
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: None,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -113,7 +113,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i32`),
@@ -143,9 +143,9 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [
-                                        ImplicitParameterDeclarativeSignature {
+                                        DeclarativeGenericParameter {
                                             annotated_variance: None,
                                             symbol: DeclarativeTermSymbol(
                                                 Id {
@@ -159,10 +159,10 @@
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
                             self_ty: DeclarativeTerm(`core::list::List t`),
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: BorrowMut,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -172,10 +172,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [
                                     Regular(
-                                        ExplicitRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularParameterDeclarativeSignatureTemplate {
                                             contract: None,
                                             ty: Symbol(
                                                 DeclarativeTermSymbol(
@@ -215,9 +215,9 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                                implicit_parameters: DeclarativeGenericParameters {
                                     data: [
-                                        ImplicitParameterDeclarativeSignature {
+                                        DeclarativeGenericParameter {
                                             annotated_variance: None,
                                             symbol: DeclarativeTermSymbol(
                                                 Id {
@@ -231,10 +231,10 @@
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
                             self_ty: DeclarativeTerm(`core::list::List t`),
-                            implicit_parameters: ImplicitParameterDeclarativeSignatures {
+                            implicit_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
-                            self_parameter: ExplicitRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
                                 contract: None,
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
@@ -244,7 +244,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates {
+                            explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`t`),

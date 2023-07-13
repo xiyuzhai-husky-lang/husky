@@ -33,7 +33,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum ExplicitParameterDecl {
+pub enum SpecificParameterDecl {
     Regular {
         pattern: PatternExprIdx,
         variables: CurrentSymbolIdxRange,
@@ -62,7 +62,7 @@ pub enum ExplicitParameterDecl {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ExplicitParameterDecl {
+impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificParameterDecl {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -117,7 +117,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ExplicitPara
                         OriginalExprError::ExpectedExplicitParameterDefaultValue,
                     ))
                 };
-                Ok(Some(ExplicitParameterDecl::Keyed {
+                Ok(Some(SpecificParameterDecl::Keyed {
                     pattern: pattern_expr_idx,
                     symbol_modifier_keyword_group,
                     ident_token,
@@ -128,7 +128,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ExplicitPara
                     default,
                 }))
             } else {
-                Ok(Some(ExplicitParameterDecl::Regular {
+                Ok(Some(SpecificParameterDecl::Regular {
                     pattern: pattern_expr_idx,
                     variables,
                     colon,
@@ -161,7 +161,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ExplicitPara
                 variable,
                 Some(PatternTypeConstraint::ExplicitVariadicParameter { ty }),
             );
-            Ok(Some(ExplicitParameterDecl::Variadic {
+            Ok(Some(SpecificParameterDecl::Variadic {
                 dot_dot_dot_token,
                 variadic_variant,
                 symbol_modifier_keyword_group,

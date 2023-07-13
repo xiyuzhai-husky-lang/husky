@@ -73,7 +73,7 @@ pub enum ModuleItemDecl {
 }
 
 impl ModuleItemDecl {
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
             ModuleItemDecl::Type(decl) => decl.implicit_parameters(db),
             ModuleItemDecl::Fugitive(decl) => decl.implicit_parameters(db),
