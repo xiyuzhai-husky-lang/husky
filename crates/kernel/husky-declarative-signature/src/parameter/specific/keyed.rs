@@ -1,14 +1,14 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitKeyedParameterDeclarativeSignatureTemplate {
+pub struct SpecificKeyedParameterDeclarativeSignatureTemplate {
     key: Ident,
     contract: Contract,
     ty: DeclarativeTerm,
     default: Option<DeclarativeTerm>,
 }
 
-impl ExplicitKeyedParameterDeclarativeSignatureTemplate {
+impl SpecificKeyedParameterDeclarativeSignatureTemplate {
     pub(crate) fn new(
         key: Ident,
         contract: Contract,

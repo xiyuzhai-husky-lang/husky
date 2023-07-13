@@ -8,11 +8,12 @@ pub use self::variadic::*;
 
 use super::*;
 use husky_declarative_signature::{
-    ExplicitParameterDeclarativeSignatureTemplate, ExplicitParameterDeclarativeSignatureTemplates,
-    ExplicitRegularParameterDeclarativeSignatureTemplate,
+    DeclarativeSpecificParameter, DeclarativeSpecificParameters,
+    SpecificRegularParameterDeclarativeSignatureTemplate,
 };
 use husky_term_prelude::Contract;
 
+// todo: use variable for dependent type
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum ExplicitParameterEtherealSignatureTemplate {
@@ -24,18 +25,18 @@ pub enum ExplicitParameterEtherealSignatureTemplate {
 impl ExplicitParameterEtherealSignatureTemplate {
     pub fn from_declarative_signature(
         db: &dyn EtherealSignatureDb,
-        declarative_signature: &ExplicitParameterDeclarativeSignatureTemplate,
+        declarative_signature: &DeclarativeSpecificParameter,
     ) -> EtherealSignatureResult<Self> {
         Ok(match declarative_signature {
-            ExplicitParameterDeclarativeSignatureTemplate::Regular(declarative_signature_template) => {
+            DeclarativeSpecificParameter::Regular(declarative_signature_template) => {
                 ExplicitRegularParameterEtherealSignatureTemplate::from_declarative_signature_template(
                     db,
                     declarative_signature_template,
                 )?
                 .into()
             }
-            ExplicitParameterDeclarativeSignatureTemplate::Variadic(_) => todo!(),
-            ExplicitParameterDeclarativeSignatureTemplate::Keyed(_) => todo!(),
+            DeclarativeSpecificParameter::Variadic(_) => todo!(),
+            DeclarativeSpecificParameter::Keyed(_) => todo!(),
         })
     }
 }
@@ -48,7 +49,7 @@ pub struct ExplicitParameterEtherealSignatureTemplates {
 impl ExplicitParameterEtherealSignatureTemplates {
     pub(crate) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signature_templates: &ExplicitParameterDeclarativeSignatureTemplates,
+        declarative_signature_templates: &DeclarativeSpecificParameters,
     ) -> EtherealSignatureResult<Self> {
         Ok(ExplicitParameterEtherealSignatureTemplates {
             data: declarative_signature_templates

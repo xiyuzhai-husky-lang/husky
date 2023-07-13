@@ -138,7 +138,7 @@ impl FugitiveDecl {
         })
     }
 
-    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
             FugitiveDecl::Fn(decl) => decl.implicit_parameters(db),
             FugitiveDecl::Val(_decl) => &[],

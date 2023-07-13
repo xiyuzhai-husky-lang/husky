@@ -35,7 +35,7 @@ impl ImplBlockNodeDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         todo!()
     }
 
@@ -84,7 +84,7 @@ impl ImplBlockDecl {
         }
     }
 
-    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [ImplicitParameterDecl] {
+    pub fn implicit_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         todo!()
     }
 

@@ -50,7 +50,7 @@ pub struct EtherealSignatureJar(
     TypeImplBlockEtherealSignatureTemplate,
     // - trait for type
     TraitForTypeImplBlockEtherealSignatureTemplate,
-    TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated,
+    TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated,
     trai_for_ty_impl_block_ethereal_signature_template,
     ty_impl_block_ethereal_signature_template,
     ty_side_impl_block_signature_templates_map,

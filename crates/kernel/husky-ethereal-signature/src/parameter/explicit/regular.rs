@@ -9,7 +9,7 @@ pub struct ExplicitRegularParameterEtherealSignatureTemplate {
 impl ExplicitRegularParameterEtherealSignatureTemplate {
     pub(crate) fn from_declarative_signature_template(
         db: &dyn EtherealSignatureDb,
-        declarative_signature: &ExplicitRegularParameterDeclarativeSignatureTemplate,
+        declarative_signature: &SpecificRegularParameterDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {
             contract: declarative_signature.contract(),

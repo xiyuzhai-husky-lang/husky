@@ -70,7 +70,7 @@ impl TraitItemDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         _db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterDeclarativeSignature] {
+    ) -> &[DeclarativeGenericParameter] {
         match self {
             TraitItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
             TraitItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),

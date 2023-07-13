@@ -6,7 +6,7 @@ pub(super) fn curry_from_implicit_parameters(
     db: &dyn DeclarativeSignatureDb,
     term_curry_kind: CurryKind,
     variances: &[Variance],
-    implicit_parameters: &[ImplicitParameterDeclarativeSignature],
+    implicit_parameters: &[DeclarativeGenericParameter],
     term: impl Into<DeclarativeTerm>,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
     let mut term = term.into();

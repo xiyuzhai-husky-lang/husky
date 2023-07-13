@@ -4,13 +4,13 @@ use vec_like::{SmallVecPairMap, VecPairMap};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EtherealTermDb)]
-pub struct EtherealTermInstantiation {
+pub struct EtherealTermPartialInstantiation {
     symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 2>,
 }
 
-impl EtherealTermInstantiation {
+impl EtherealTermPartialInstantiation {
     /// symbols must be unique
-    pub unsafe fn new(symbols: impl Iterator<Item = EtherealTermSymbol>) -> Self {
+    pub(crate) fn new(symbols: impl Iterator<Item = EtherealTermSymbol>) -> Self {
         Self {
             symbol_map: symbols.map(|symbol| (symbol, None)).collect(),
         }
@@ -83,15 +83,32 @@ impl EtherealTermInstantiation {
         }
     }
 
+    pub fn finish(self) -> Option<EtherealTermInstantiation> {
+        todo!()
+    }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[salsa::derive_debug_with_db(db = EtherealTermDb)]
+pub struct EtherealTermInstantiation {
+    symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTerm, 2>,
+}
+
+impl EtherealTermInstantiation {
     /// assume that symbol is in symbol_map
     /// panic otherwise
-    pub fn is_symbol_resolved(&self, symbol: EtherealTermSymbol) -> bool {
-        self.symbol_map[symbol].1.is_some()
+    pub fn symbol_mapped(&self, symbol: EtherealTermSymbol) -> EtherealTerm {
+        *self
+            .symbol_map
+            .get_value(symbol)
+            .expect("symbol should be in symbol_map")
     }
 
-    pub fn symbol_mapped(&self, symbol: EtherealTermSymbol) -> Option<EtherealTerm> {
-        *self.symbol_map.get_value(symbol)?
-    }
+    // /// assume that symbol is in symbol_map
+    // /// panic otherwise
+    // pub fn is_symbol_resolved(&self, symbol: EtherealTermSymbol) -> bool {
+    //     self.symbol_map[symbol].1.is_some()
+    // }
 }
 
 pub trait EtherealTermInstantiate: Copy {

@@ -8,10 +8,10 @@ Ok(
                         decl: ExternTypeDecl {
                             path: TypePath(`core::array::Array`, `Extern`),
                             implicit_parameters: [
-                                ImplicitParameterDecl {
+                                GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Constant {
+                                    variant: GenericParameterDeclPatternVariant::Constant {
                                         const_token: ConstToken {
                                             token_idx: TokenIdx(
                                                 4,
@@ -31,7 +31,7 @@ Ok(
                                         ty_expr: 0,
                                     },
                                 },
-                                ImplicitParameterDecl {
+                                GenericParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
                                             CovariantToken {
@@ -42,7 +42,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 1,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                    variant: GenericParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
                                             token_idx: TokenIdx(

@@ -475,7 +475,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                             implicit_parameters: [],
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -1247,7 +1247,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                             implicit_parameters: [],
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -1259,7 +1259,7 @@ Ok(
                                     ),
                                     ty: 0,
                                 },
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 1,
                                     variables: ArenaIdxRange(
                                         1..2,
@@ -2556,7 +2556,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                             implicit_parameters: [],
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -13961,7 +13961,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -15255,7 +15255,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,

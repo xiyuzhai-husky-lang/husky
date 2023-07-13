@@ -11,30 +11,30 @@ use either::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-pub enum ExplicitParameterDeclarativeSignatureTemplate {
-    Regular(ExplicitRegularParameterDeclarativeSignatureTemplate),
-    Variadic(ExplicitVariadicParameterDeclarativeSignatureTemplate),
-    Keyed(ExplicitKeyedParameterDeclarativeSignatureTemplate),
+pub enum DeclarativeSpecificParameter {
+    Regular(SpecificRegularParameterDeclarativeSignatureTemplate),
+    Variadic(SpecificVariadicParameterDeclarativeSignatureTemplate),
+    Keyed(SpecificKeyedParameterDeclarativeSignatureTemplate),
 }
 
-impl ExplicitParameterDeclarativeSignatureTemplate {
+impl DeclarativeSpecificParameter {
     pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeTermRitchieParameter {
         match self {
-            ExplicitParameterDeclarativeSignatureTemplate::Regular(signature_template) => {
+            DeclarativeSpecificParameter::Regular(signature_template) => {
                 DeclarativeTermRitchieRegularParameter::new(
                     signature_template.contract(),
                     signature_template.ty(),
                 )
                 .into()
             }
-            ExplicitParameterDeclarativeSignatureTemplate::Variadic(signature_template) => {
+            DeclarativeSpecificParameter::Variadic(signature_template) => {
                 DeclarativeTermRitchieVariadicParameter::new(
                     signature_template.contract(),
                     signature_template.ty(),
                 )
                 .into()
             }
-            ExplicitParameterDeclarativeSignatureTemplate::Keyed(signature_template) => {
+            DeclarativeSpecificParameter::Keyed(signature_template) => {
                 DeclarativeTermRitchieKeyedParameter::new(
                     signature_template.key(),
                     signature_template.contract(),
@@ -48,21 +48,21 @@ impl ExplicitParameterDeclarativeSignatureTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ExplicitParameterDeclarativeSignatureTemplates {
-    data: SmallVec<[ExplicitParameterDeclarativeSignatureTemplate; 4]>,
+pub struct DeclarativeSpecificParameters {
+    data: SmallVec<[DeclarativeSpecificParameter; 4]>,
 }
 
-impl std::ops::Deref for ExplicitParameterDeclarativeSignatureTemplates {
-    type Target = [ExplicitParameterDeclarativeSignatureTemplate];
+impl std::ops::Deref for DeclarativeSpecificParameters {
+    type Target = [DeclarativeSpecificParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data
     }
 }
 
-impl ExplicitParameterDeclarativeSignatureTemplates {
+impl DeclarativeSpecificParameters {
     pub(crate) fn from_decl(
-        parameters: &[ExplicitParameterDecl],
+        parameters: &[SpecificParameterDecl],
         expr_region_data: &ExprRegionData,
         signature_region: &DeclarativeTermRegion,
     ) -> DeclarativeSignatureResult<Self> {
@@ -72,12 +72,12 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                 .enumerate()
                 .map(|(i, parameter)| {
                     Ok(match parameter {
-                        ExplicitParameterDecl::Regular {
+                        SpecificParameterDecl::Regular {
                             pattern,
                             variables,
                             colon,
                             ty,
-                        } => ExplicitRegularParameterDeclarativeSignatureTemplate::new(
+                        } => SpecificRegularParameterDeclarativeSignatureTemplate::new(
                             expr_region_data.pattern_contract(*pattern),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
@@ -86,11 +86,11 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                             })?,
                         )
                         .into(),
-                        ExplicitParameterDecl::Variadic {
+                        SpecificParameterDecl::Variadic {
                             symbol_modifier_keyword_group,
                             ty,
                             ..
-                        } => ExplicitVariadicParameterDeclarativeSignatureTemplate::new(
+                        } => SpecificVariadicParameterDeclarativeSignatureTemplate::new(
                             Contract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
@@ -99,13 +99,13 @@ impl ExplicitParameterDeclarativeSignatureTemplates {
                             })?,
                         )
                         .into(),
-                        ExplicitParameterDecl::Keyed {
+                        SpecificParameterDecl::Keyed {
                             symbol_modifier_keyword_group,
                             ident_token,
                             ty,
                             default,
                             ..
-                        } => ExplicitKeyedParameterDeclarativeSignatureTemplate::new(
+                        } => SpecificKeyedParameterDeclarativeSignatureTemplate::new(
                             ident_token.ident(),
                             Contract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {

@@ -8,10 +8,10 @@ Ok(
                         decl: EnumTypeDecl {
                             path: TypePath(`core::option::Option`, `Enum`),
                             implicit_parameters: [
-                                ImplicitParameterDecl {
+                                GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                    variant: GenericParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `T`,
                                             token_idx: TokenIdx(

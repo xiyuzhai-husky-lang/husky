@@ -8,10 +8,10 @@ Ok(
                         decl: EnumTypeDecl {
                             path: TypePath(`core::result::Result`, `Enum`),
                             implicit_parameters: [
-                                ImplicitParameterDecl {
+                                GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                    variant: GenericParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `T`,
                                             token_idx: TokenIdx(
@@ -21,10 +21,10 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                ImplicitParameterDecl {
+                                GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                    variant: GenericParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
                                             token_idx: TokenIdx(
@@ -152,10 +152,10 @@ Ok(
                         disambiguator: 0,
                     },
                     implicit_parameters: [
-                        ImplicitParameterDecl {
+                        GenericParameterDecl {
                             annotated_variance_token: None,
                             symbol: 0,
-                            variant: ImplicitParameterDeclPatternVariant::Type {
+                            variant: GenericParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `T1`,
                                     token_idx: TokenIdx(
@@ -165,10 +165,10 @@ Ok(
                                 traits: None,
                             },
                         },
-                        ImplicitParameterDecl {
+                        GenericParameterDecl {
                             annotated_variance_token: None,
                             symbol: 1,
-                            variant: ImplicitParameterDeclPatternVariant::Type {
+                            variant: GenericParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `T2`,
                                     token_idx: TokenIdx(
@@ -178,10 +178,10 @@ Ok(
                                 traits: None,
                             },
                         },
-                        ImplicitParameterDecl {
+                        GenericParameterDecl {
                             annotated_variance_token: None,
                             symbol: 2,
-                            variant: ImplicitParameterDeclPatternVariant::Type {
+                            variant: GenericParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `E1`,
                                     token_idx: TokenIdx(
@@ -191,10 +191,10 @@ Ok(
                                 traits: None,
                             },
                         },
-                        ImplicitParameterDecl {
+                        GenericParameterDecl {
                             annotated_variance_token: None,
                             symbol: 3,
-                            variant: ImplicitParameterDeclPatternVariant::Type {
+                            variant: GenericParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `E2`,
                                     token_idx: TokenIdx(
@@ -1695,7 +1695,7 @@ Ok(
                             implicit_parameters: [],
                             self_parameter: None,
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,

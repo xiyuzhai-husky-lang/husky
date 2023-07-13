@@ -9,7 +9,7 @@ Ok(
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                             implicit_parameters: [],
                             explicit_parameters: [
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
                                         0..1,
@@ -21,7 +21,7 @@ Ok(
                                     ),
                                     ty: 0,
                                 },
-                                ExplicitParameterDecl::Regular {
+                                SpecificParameterDecl::Regular {
                                     pattern: 1,
                                     variables: ArenaIdxRange(
                                         1..2,

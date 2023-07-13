@@ -1,18 +1,18 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ImplicitParameterDeclarativeSignature {
+pub struct DeclarativeGenericParameter {
     annotated_variance: Option<Variance>,
     symbol: DeclarativeTermSymbol,
     traits: Vec<DeclarativeTerm>,
 }
 
-impl ImplicitParameterDeclarativeSignature {
+impl DeclarativeGenericParameter {
     fn from_decl(
-        parameter_decl_pattern: &ImplicitParameterDecl,
+        parameter_decl_pattern: &GenericParameterDecl,
         region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
-    ) -> ImplicitParameterDeclarativeSignature {
+    ) -> DeclarativeGenericParameter {
         let symbol = parameter_decl_pattern.symbol();
         let annotated_variance =
             parameter_decl_pattern
@@ -23,8 +23,8 @@ impl ImplicitParameterDeclarativeSignature {
                     VarianceToken::Invariant(_) => Variance::Invariant,
                 });
         match parameter_decl_pattern.variant() {
-            ImplicitParameterDeclPatternVariant::Type { .. } => {
-                ImplicitParameterDeclarativeSignature {
+            GenericParameterDeclPatternVariant::Type { .. } => {
+                DeclarativeGenericParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
                         .expect("not none")
@@ -35,19 +35,17 @@ impl ImplicitParameterDeclarativeSignature {
                     annotated_variance,
                 }
             }
-            ImplicitParameterDeclPatternVariant::Constant { .. } => {
-                ImplicitParameterDeclarativeSignature {
-                    symbol: region
-                        .current_symbol_signature(symbol)
-                        .expect("not none")
-                        .term_symbol()
-                        .expect("should have term"),
-                    traits: vec![],
-                    annotated_variance,
-                }
-            }
-            ImplicitParameterDeclPatternVariant::Lifetime { .. } => {
-                ImplicitParameterDeclarativeSignature {
+            GenericParameterDeclPatternVariant::Constant { .. } => DeclarativeGenericParameter {
+                symbol: region
+                    .current_symbol_signature(symbol)
+                    .expect("not none")
+                    .term_symbol()
+                    .expect("should have term"),
+                traits: vec![],
+                annotated_variance,
+            },
+            GenericParameterDeclPatternVariant::Lifetime { .. } => {
+                DeclarativeGenericParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
                         .expect("not none")
@@ -58,7 +56,7 @@ impl ImplicitParameterDeclarativeSignature {
                     annotated_variance,
                 }
             }
-            ImplicitParameterDeclPatternVariant::Binding { .. } => todo!(),
+            GenericParameterDeclPatternVariant::Binding { .. } => todo!(),
         }
     }
 
@@ -83,13 +81,13 @@ impl ImplicitParameterDeclarativeSignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ImplicitParameterDeclarativeSignatures {
-    data: SmallVec<[ImplicitParameterDeclarativeSignature; 4]>,
+pub struct DeclarativeGenericParameters {
+    data: SmallVec<[DeclarativeGenericParameter; 4]>,
 }
 
-impl ImplicitParameterDeclarativeSignatures {
+impl DeclarativeGenericParameters {
     pub(crate) fn from_decl(
-        implicit_parameters: &[ImplicitParameterDecl],
+        implicit_parameters: &[GenericParameterDecl],
         declarative_term_region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> Self {
@@ -97,7 +95,7 @@ impl ImplicitParameterDeclarativeSignatures {
             data: implicit_parameters
                 .iter()
                 .map(|parameter| {
-                    ImplicitParameterDeclarativeSignature::from_decl(
+                    DeclarativeGenericParameter::from_decl(
                         parameter,
                         declarative_term_region,
                         declarative_term_menu,
@@ -107,13 +105,13 @@ impl ImplicitParameterDeclarativeSignatures {
         }
     }
 
-    pub fn data(&self) -> &[ImplicitParameterDeclarativeSignature] {
+    pub fn data(&self) -> &[DeclarativeGenericParameter] {
         self.data.as_ref()
     }
 }
 
-impl std::ops::Deref for ImplicitParameterDeclarativeSignatures {
-    type Target = [ImplicitParameterDeclarativeSignature];
+impl std::ops::Deref for DeclarativeGenericParameters {
+    type Target = [DeclarativeGenericParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data

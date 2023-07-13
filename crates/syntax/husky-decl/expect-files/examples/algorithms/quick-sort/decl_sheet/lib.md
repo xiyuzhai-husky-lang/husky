@@ -14,10 +14,10 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                 implicit_parameters: [
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                        variant: GenericParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `T`,
                                                 token_idx: TokenIdx(
@@ -38,7 +38,7 @@ Ok(
                                     },
                                 ],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -272,10 +272,10 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                 implicit_parameters: [
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                        variant: GenericParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `T`,
                                                 token_idx: TokenIdx(
@@ -296,7 +296,7 @@ Ok(
                                     },
                                 ],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -308,7 +308,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -320,7 +320,7 @@ Ok(
                                         ),
                                         ty: 4,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             3..4,
@@ -694,10 +694,10 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
                                 implicit_parameters: [
-                                    ImplicitParameterDecl {
+                                    GenericParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: ImplicitParameterDeclPatternVariant::Type {
+                                        variant: GenericParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `T`,
                                                 token_idx: TokenIdx(
@@ -718,7 +718,7 @@ Ok(
                                     },
                                 ],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -730,7 +730,7 @@ Ok(
                                         ),
                                         ty: 3,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 1,
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -742,7 +742,7 @@ Ok(
                                         ),
                                         ty: 4,
                                     },
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 2,
                                         variables: ArenaIdxRange(
                                             3..4,

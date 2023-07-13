@@ -1,5 +1,5 @@
 use super::*;
-use husky_declarative_signature::ExplicitVariadicParameterDeclarativeSignatureTemplate;
+use husky_declarative_signature::SpecificVariadicParameterDeclarativeSignatureTemplate;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct ExplicitVariadicParameterEtherealSignatureTemplate {
@@ -10,7 +10,7 @@ pub struct ExplicitVariadicParameterEtherealSignatureTemplate {
 impl ExplicitVariadicParameterEtherealSignatureTemplate {
     pub(super) fn from_declarative_signature_template(
         db: &dyn EtherealSignatureDb,
-        declarative_signature: &ExplicitVariadicParameterDeclarativeSignatureTemplate,
+        declarative_signature: &SpecificVariadicParameterDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {
             contract: declarative_signature.contract(),

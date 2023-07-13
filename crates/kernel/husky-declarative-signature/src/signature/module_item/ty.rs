@@ -53,7 +53,7 @@ impl TypeDeclarativeSignatureTemplate {
     pub fn implicit_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[ImplicitParameterDeclarativeSignature] {
+    ) -> &[DeclarativeGenericParameter] {
         match self {
             TypeDeclarativeSignatureTemplate::Enum(decl) => decl.implicit_parameters(db),
             TypeDeclarativeSignatureTemplate::UnitStruct(decl) => decl.implicit_parameters(db),
@@ -118,7 +118,7 @@ pub(crate) fn ty_declarative_signature_template(
 fn construct_self_ty(
     db: &dyn DeclarativeSignatureDb,
     path: TypePath,
-    implicit_parameters: &[ImplicitParameterDeclarativeSignature],
+    implicit_parameters: &[DeclarativeGenericParameter],
 ) -> DeclarativeTerm {
     let mut self_ty: DeclarativeTerm = path.into();
     for implicit_parameter in implicit_parameters {

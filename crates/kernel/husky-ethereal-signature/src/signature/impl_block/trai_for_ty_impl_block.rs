@@ -9,7 +9,7 @@ use vec_like::{SmallVecPairMap, VecMapGetEntry};
 pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterEtherealSignatures,
+    pub implicit_parameters: EtherealGenericParameters,
     pub trai: EtherealTerm,
     pub ty: EtherealTerm,
     // todo: where clause
@@ -44,7 +44,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         path: TraitForTypeImplBlockPath,
         declarative_signature_template: TraitForTypeImplBlockDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let implicit_parameters = ImplicitParameterEtherealSignatures::from_declarative(
+        let implicit_parameters = EtherealGenericParameters::from_declarative(
             db,
             declarative_signature_template.implicit_parameters(db),
         )?;
@@ -121,16 +121,10 @@ impl HasTraitSideTraitForTypeImplBlockSignatureTemplates for TraitPath {
     }
 }
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new_inner)]
-pub struct TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated {
-    pub path: TraitForTypeImplBlockPath,
-    #[return_ref]
-    pub implicit_parameters: ImplicitParameterEtherealSignatures,
-    pub trai: EtherealTerm,
-    pub ty: EtherealTerm,
-    #[return_ref]
-    pub instantiation: EtherealTermInstantiation,
-    // todo: where clause
+#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
+pub struct TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated {
+    template: TraitForTypeImplBlockEtherealSignatureTemplate,
+    partial_instantiation: EtherealTermPartialInstantiation,
 }
 
 impl TraitForTypeImplBlockEtherealSignatureTemplate {
@@ -140,18 +134,15 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         db: &dyn EtherealSignatureDb,
         arguments: &[EtherealTerm],
         ty_target: EtherealTerm,
-    ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated>
+    ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated>
     {
         let mut instantiation = self.implicit_parameters(db).instantiation();
         match instantiation.try_add_rules_from_application(db, self.ty(db), arguments) {
             JustOk(_) => Ok(
-                TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated::new(
+                TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated::new(
                     db,
-                    self.path(db),
+                    self,
                     instantiation,
-                    self.implicit_parameters(db),
-                    self.trai(db),
-                    ty_target,
                 ),
             ),
             JustErr(_) => todo!(),
@@ -160,27 +151,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
     }
 }
 
-impl TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated {
-    fn new(
-        db: &dyn EtherealSignatureDb,
-        path: TraitForTypeImplBlockPath,
-        instantiation: EtherealTermInstantiation,
-        implicit_parameters: &ImplicitParameterEtherealSignatures,
-        trai: EtherealTerm,
-        ty_instantiated: EtherealTerm,
-    ) -> Self {
-        let implicit_parameters_instantiated = implicit_parameters.instantiate(db, &instantiation);
-        let trai_instantied = trai.instantiate(db, &instantiation);
-        Self::new_inner(
-            db,
-            path,
-            implicit_parameters_instantiated,
-            trai_instantied,
-            ty_instantiated,
-            instantiation,
-        )
-    }
-
+impl TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated {
     /// for better caching, many common traits use "Output" as an associated item
     pub fn associated_output_term(
         self,
@@ -201,7 +172,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated {
 #[salsa::tracked(jar = EtherealSignatureJar)]
 fn trai_for_ty_impl_block_with_ty_instantiated_associated_output_term(
     db: &dyn EtherealSignatureDb,
-    template: TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated,
+    template: TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated,
 ) -> EtherealSignatureResult<EtherealTerm> {
     trai_for_ty_impl_block_with_ty_instantiated_associated_item_term(
         db,
@@ -213,16 +184,16 @@ fn trai_for_ty_impl_block_with_ty_instantiated_associated_output_term(
 #[salsa::tracked(jar = EtherealSignatureJar)]
 fn trai_for_ty_impl_block_with_ty_instantiated_associated_item_term(
     db: &dyn EtherealSignatureDb,
-    template: TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated,
+    template: TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated,
     ident: Ident,
 ) -> EtherealSignatureResult<EtherealTerm> {
-    let path = template
-        .path(db)
-        .item_paths(db)
-        .get_entry(ident)
-        .ok_or(EtherealSignatureError::NoSuchItem)?
-        .1;
-    let signature_template = path.ethereal_signature_template(db)?;
+    // let path = template
+    //     .path(db)
+    //     .item_paths(db)
+    //     .get_entry(ident)
+    //     .ok_or(EtherealSignatureError::NoSuchItem)?
+    //     .1;
+    // let ethereal_signature_template = path.ethereal_signature_template(db)?;
     todo!()
 }
 

@@ -14,10 +14,10 @@ Ok(
                             path: TraitPath(`std::ops::Add`),
                             ast_idx: 3,
                             implicit_parameters: [
-                                ImplicitParameterDecl {
+                                GenericParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: ImplicitParameterDeclPatternVariant::Type {
+                                    variant: GenericParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `B`,
                                             token_idx: TokenIdx(

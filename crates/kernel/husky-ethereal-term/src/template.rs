@@ -8,8 +8,7 @@ pub(crate) use self::trai_for_ty_impl::*;
 use self::term::*;
 use crate::*;
 use husky_declarative_signature::{
-    HasDeclarativeSignatureTemplate, ImplicitParameterDeclarativeSignature,
-    TypeDeclarativeSignatureTemplate,
+    DeclarativeGenericParameter, HasDeclarativeSignatureTemplate, TypeDeclarativeSignatureTemplate,
 };
 use husky_decr::Decr;
 use husky_entity_tree::TraitForTypeImplBlockNode;

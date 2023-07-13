@@ -1,12 +1,12 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitVariadicParameterDeclarativeSignatureTemplate {
+pub struct SpecificVariadicParameterDeclarativeSignatureTemplate {
     contract: Contract,
     ty: DeclarativeTerm,
 }
 
-impl ExplicitVariadicParameterDeclarativeSignatureTemplate {
+impl SpecificVariadicParameterDeclarativeSignatureTemplate {
     pub(crate) fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
         Self { contract, ty }
     }

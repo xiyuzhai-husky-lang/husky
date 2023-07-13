@@ -123,7 +123,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -337,7 +337,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -551,7 +551,7 @@ Ok(
                                 path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                 implicit_parameters: [],
                                 explicit_parameters: [
-                                    ExplicitParameterDecl::Regular {
+                                    SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
                                             0..1,

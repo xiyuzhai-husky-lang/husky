@@ -2,7 +2,7 @@ use husky_ethereal_signature::{
     EtherealSignatureError, EtherealSignatureMaybeResult, EtherealSignatureResult,
     HasTypeSideTraitForTypeImplBlockSignatureTemplates,
     TraitForTypeImplBlockEtherealSignatureTemplate,
-    TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated,
+    TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated,
     TraitForTypeImplBlockSignature,
 };
 use maybe_result::*;
@@ -56,22 +56,23 @@ impl Unveiler {
         match templates.len() {
             0 => todo!(),
             1 => {
-                let template = templates[0];
-                match template.implicit_parameters(db).len() {
-                    0 => {
-                        let trai_arguments =
-                            template.trai(db).application_expansion(db).arguments(db);
-                        debug_assert_eq!(trai_arguments.len(), 1);
-                        let unveil_output_ty = template.associated_output_term(db)?;
-                        let unveil_output_ty_final_destination = todo!();
-                        JustOk(Unveiler::Unique {
-                            opd_ty: trai_arguments[0],
-                            unveil_output_ty,
-                            unveil_output_ty_final_destination,
-                        })
-                    }
-                    _ => todo!(),
-                }
+                todo!()
+                // let template = templates[0];
+                // match template.implicit_parameters(db).len() {
+                //     0 => {
+                //         let trai_arguments =
+                //             template.trai(db).application_expansion(db).arguments(db);
+                //         debug_assert_eq!(trai_arguments.len(), 1);
+                //         let unveil_output_ty = template.associated_output_term(db)?;
+                //         let unveil_output_ty_final_destination = todo!();
+                //         JustOk(Unveiler::Unique {
+                //             opd_ty: trai_arguments[0],
+                //             unveil_output_ty,
+                //             unveil_output_ty_final_destination,
+                //         })
+                //     }
+                //     _ => todo!(),
+                // }
             }
             _ => todo!(),
         }
@@ -82,7 +83,7 @@ fn unveil_impl_block_signature_templates(
     db: &dyn ExprTypeDb,
     term: EtherealTerm,
 ) -> EtherealSignatureMaybeResult<
-    &[TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated],
+    &[TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated],
 > {
     match term {
         EtherealTerm::Literal(_) => todo!(),
@@ -120,7 +121,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates(
     db: &dyn ExprTypeDb,
     ty_path: TypePath,
 ) -> EtherealSignatureMaybeResult<
-    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated; 2]>,
+    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated; 2]>,
 > {
     unveil_impl_block_signature_templates_aux(
         db,
@@ -135,7 +136,7 @@ fn ty_ontology_application_unveil_impl_block_signature_templates(
     db: &dyn ExprTypeDb,
     ty_target: EtherealTermApplication,
 ) -> EtherealSignatureMaybeResult<
-    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated; 2]>,
+    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated; 2]>,
 > {
     let application_expansion = ty_target.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
@@ -155,7 +156,7 @@ fn unveil_impl_block_signature_templates_aux(
     arguments: &[EtherealTerm],
     ty_target: EtherealTerm,
 ) -> EtherealSignatureMaybeResult<
-    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplateWithTypeInstantiated; 2]>,
+    SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartialInstantiated; 2]>,
 > {
     let entity_path_menu = db.entity_path_menu(ty_path.toolchain(db));
     let templates = ty_path.ty_side_trai_for_ty_impl_block_signature_templates(

@@ -8,9 +8,9 @@ pub struct TypeAssociatedFnDeclarativeSignatureTemplate {
     /// we don't use self_ty_arguments because it's not determined for declarative terms
     pub self_ty: DeclarativeTerm,
     #[return_ref]
-    pub implicit_parameters: ImplicitParameterDeclarativeSignatures,
+    pub implicit_parameters: DeclarativeGenericParameters,
     #[return_ref]
-    pub explicit_parameters: ExplicitParameterDeclarativeSignatureTemplates,
+    pub explicit_parameters: DeclarativeSpecificParameters,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -39,12 +39,12 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
         .impl_block(db)
         .declarative_signature_template(db)?;
     let self_ty = impl_block.ty(db);
-    let implicit_parameters = ImplicitParameterDeclarativeSignatures::from_decl(
+    let implicit_parameters = DeclarativeGenericParameters::from_decl(
         decl.implicit_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
-    let explicit_parameters = ExplicitParameterDeclarativeSignatureTemplates::from_decl(
+    let explicit_parameters = DeclarativeSpecificParameters::from_decl(
         decl.explicit_parameters(db),
         expr_region_data,
         declarative_term_region,
