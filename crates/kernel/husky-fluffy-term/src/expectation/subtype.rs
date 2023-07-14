@@ -72,7 +72,16 @@ impl ExpectFluffyTerm for ExpectSubtype {
                         )
                     }
                 }
-                FluffyTermData::Hole(_, _) => todo!(),
+                FluffyTermData::Hole(_, hole) => { 
+                    match terms.hollow_terms().hollow_term_data(hole.term()) {
+                        HollowTermData::Hole { hole_source, hole_kind, fill, constraints } => {
+                            p!(hole_source.debug(db));
+                            todo!()
+                        },
+                        _ => todo!(),
+                    };
+                    todo!()
+                },
                 _ => todo!()
                 // Some(FluffyTermExpectationEffect {
                 //     result: Err(todo!()),

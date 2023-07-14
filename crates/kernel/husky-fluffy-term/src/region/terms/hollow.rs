@@ -39,7 +39,7 @@ impl HollowTerms {
         HollowTerm(idx.try_into().expect("within range"))
     }
 
-    pub(crate) fn data(&self, hollow_term: HollowTerm) -> &HollowTermData {
+    pub(crate) fn hollow_term_data(&self, hollow_term: HollowTerm) -> &HollowTermData {
         &self.entry(hollow_term).data
     }
 
