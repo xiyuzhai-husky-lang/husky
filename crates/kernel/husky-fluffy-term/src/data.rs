@@ -56,6 +56,9 @@ pub enum FluffyTermData<'a> {
     Variable {
         ty: FluffyTerm,
     },
+    TypeVariant {
+        path: TypeVariantPath,
+    },
 }
 
 impl FluffyTerm {

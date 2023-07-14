@@ -58,6 +58,7 @@ impl<'a> ExprTypeEngine<'a> {
                     FluffyTermData::Symbol { .. } => todo!(),
                     FluffyTermData::SymbolAtPlace { .. } => todo!(),
                     FluffyTermData::Variable { ty } => todo!(),
+                    FluffyTermData::TypeVariant { path } => todo!(),
                 }
                 // match opd_ty {
                 //     Some(opd_ty) => match opd_ty {
@@ -169,6 +170,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

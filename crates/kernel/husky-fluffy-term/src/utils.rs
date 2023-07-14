@@ -22,6 +22,7 @@ impl FluffyTerm {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 
@@ -57,6 +58,7 @@ impl FluffyTerm {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 
@@ -104,6 +106,7 @@ impl FluffyTerm {
             FluffyTermData::Symbol { .. }
             | FluffyTermData::SymbolAtPlace { .. }
             | FluffyTermData::Variable { .. } => 0,
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

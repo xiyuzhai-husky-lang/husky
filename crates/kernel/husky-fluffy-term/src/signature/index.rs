@@ -126,5 +126,6 @@ fn list_index_signature(
         FluffyTermData::Symbol { .. } => todo!(),
         FluffyTermData::SymbolAtPlace { .. } => todo!(),
         FluffyTermData::Variable { ty } => todo!(),
+        FluffyTermData::TypeVariant { path } => todo!(),
     }
 }

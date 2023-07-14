@@ -144,7 +144,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
             ),
             FluffyTermData::Curry { .. } => todo!(),
             FluffyTermData::Hole(_, hole) => {
-                state.set_holed(hole, |meta| HoleConstraint::ImplicitlyConvertibleFrom {
+                state.set_holed(hole, |meta| HoleConstraint::CoercibleFrom {
                     target: meta.expectee(),
                 })
             }
@@ -184,6 +184,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 }
@@ -290,7 +291,7 @@ impl ExpectCoersion {
                 )
             }
             FluffyTermData::Hole(_, hole) => {
-                meta.set_holed(hole, |meta| HoleConstraint::ImplicitlyConvertibleTo {
+                meta.set_holed(hole, |meta| HoleConstraint::CoercibleTo {
                     target: meta.expectee(),
                 })
             }

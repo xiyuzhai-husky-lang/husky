@@ -72,15 +72,8 @@ impl ExpectFluffyTerm for ExpectSubtype {
                         )
                     }
                 }
-                FluffyTermData::Hole(_, hole) => { 
-                    match terms.hollow_terms().hollow_term_data(hole.term()) {
-                        HollowTermData::Hole { hole_source, hole_kind, fill, constraints } => {
-                            p!(hole_source.debug(db));
-                            todo!()
-                        },
-                        _ => todo!(),
-                    };
-                    todo!()
+                FluffyTermData::Hole(_, hole) => {
+                    state.set_holed(hole, |state| HoleConstraint::CoercibleTo { target: state.expectee() } )
                 },
                 _ => todo!()
                 // Some(FluffyTermExpectationEffect {
@@ -128,6 +121,48 @@ impl ExpectFluffyTerm for ExpectSubtype {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => match state.expectee().data_inner(db, terms) {
+                FluffyTermData::Literal(_) => todo!(),
+                FluffyTermData::TypeOntology {
+                    ty_path,
+                    refined_ty_path,
+                    arguments,
+                    ty_ethereal_term,
+                } => todo!(),
+                FluffyTermData::TypeOntologyAtPlace {
+                    ty_path,
+                    refined_ty_path,
+                    arguments,
+                    base_ty_ethereal_term,
+                    place,
+                } => todo!(),
+                FluffyTermData::Curry {
+                    curry_kind,
+                    variance,
+                    parameter_variable,
+                    parameter_ty,
+                    return_ty,
+                    ty_ethereal_term,
+                } => todo!(),
+                FluffyTermData::Hole(_, _) => {
+                    todo!()
+                }
+                FluffyTermData::HoleAtPlace {
+                    hole_kind,
+                    hole,
+                    place,
+                } => todo!(),
+                FluffyTermData::Category(_) => todo!(),
+                FluffyTermData::Ritchie {
+                    ritchie_kind,
+                    parameter_contracted_tys,
+                    return_ty,
+                } => todo!(),
+                FluffyTermData::Symbol { term, ty } => todo!(),
+                FluffyTermData::SymbolAtPlace { term, place } => todo!(),
+                FluffyTermData::Variable { ty } => todo!(),
+                FluffyTermData::TypeVariant { path } => todo!(),
+            },
         }
     }
 }

@@ -23,7 +23,7 @@ pub(super) fn ethereal_term_data<'a>(
                 ty_ethereal_term: Some(path.into()),
             },
             TermEntityPath::TypeInstance(_) => todo!(),
-            TermEntityPath::TypeVariant(_) => todo!(),
+            TermEntityPath::TypeVariant(path) => FluffyTermData::TypeVariant { path },
         },
         EtherealTerm::Category(term) => FluffyTermData::Category(term),
         EtherealTerm::Universe(_) => todo!(),
