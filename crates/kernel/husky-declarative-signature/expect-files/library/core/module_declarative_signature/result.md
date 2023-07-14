@@ -123,6 +123,7 @@
                             generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
+                            ty_term: DeclarativeTerm(`t`),
                         },
                     ),
                 ),

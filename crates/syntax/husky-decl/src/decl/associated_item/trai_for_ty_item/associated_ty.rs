@@ -1,3 +1,5 @@
+use husky_print_utils::p;
+
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = DeclJar)]
@@ -7,7 +9,11 @@ pub struct TraitForTypeAssociatedTypeNodeDecl {
     pub node: TraitForTypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    pub generics: NodeDeclResult<Option<Generics>>,
+    #[return_ref]
+    pub eq_token: NodeDeclResult<EqToken>,
+    // todo: change this to NodeDeclResult??
+    pub ty_term_expr_idx: ExprIdx,
     pub expr_region: ExprRegion,
 }
 
@@ -36,13 +42,21 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::False,
         );
         let mut ctx = parser.ctx(None, token_group_idx, saved_stream_state);
-        let implicit_parameter_decl_list = ctx.try_parse_option();
+        let eq_token = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEqForAssociatedType);
+        let ty_term_expr_idx = ctx.parse_expr_expected2(
+            None,
+            ExprRootKind::AssociatedTypeTerm,
+            OriginalExprError::ExpectedTypeTermForAssociatedType,
+        );
+        let generics = ctx.try_parse_option();
         TraitForTypeAssociatedTypeNodeDecl::new(
             db,
             node.node_path(db),
             node,
             ast_idx,
-            implicit_parameter_decl_list,
+            generics,
+            eq_token,
+            ty_term_expr_idx,
             parser.finish(),
         )
     }
@@ -54,6 +68,7 @@ pub struct TraitForTypeAssociatedTypeDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub ty_term_expr_idx: ExprIdx,
     pub expr_region: ExprRegion,
 }
 
@@ -64,16 +79,18 @@ impl TraitForTypeAssociatedTypeDecl {
         node_decl: TraitForTypeAssociatedTypeNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = node_decl
-            .implicit_parameter_decl_list(db)
+            .generics(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let expr_region = node_decl.expr_region(db);
+        let ty_term_expr_idx = node_decl.ty_term_expr_idx(db);
         Ok(TraitForTypeAssociatedTypeDecl::new(
             db,
             path,
             generic_parameters,
+            ty_term_expr_idx,
             expr_region,
         ))
     }

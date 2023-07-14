@@ -72,6 +72,8 @@ pub enum OriginalNodeDeclError {
     ExpectEqTokenForVariable(TokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]
     ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(TokenStreamState),
+    #[error("expected `=` for associated type")]
+    ExpectedEqForAssociatedType(TokenStreamState),
 }
 
 impl IntoError for OriginalNodeDeclError {

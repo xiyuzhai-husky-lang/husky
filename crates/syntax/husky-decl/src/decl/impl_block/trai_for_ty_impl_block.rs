@@ -9,7 +9,7 @@ pub struct TraitForTypeImplBlockNodeDecl {
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     pub trai_expr: TraitExpr,
     pub for_token: ConnectionForToken,
     pub ty_expr: TypeExpr,

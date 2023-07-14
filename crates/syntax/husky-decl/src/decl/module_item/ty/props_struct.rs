@@ -8,7 +8,7 @@ pub struct PropsStructTypeNodeDecl {
     pub node_path: TypeNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
     lcurl: NodeDeclResult<PropsStructLeftCurlyBrace>,
     #[return_ref]

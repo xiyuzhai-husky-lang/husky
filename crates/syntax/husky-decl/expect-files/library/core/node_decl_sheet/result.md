@@ -26,7 +26,7 @@ Ok(
                                 ast_idx: 5,
                                 implicit_parameter_decl_list: Ok(
                                     Some(
-                                        ImplicitParameterDeclList {
+                                        Generics {
                                             langle: LeftAngleBracketOrLessThanToken(
                                                 TokenIdx(
                                                     3,
@@ -217,7 +217,7 @@ Ok(
                             },
                             implicit_parameter_decl_list: Ok(
                                 Some(
-                                    ImplicitParameterDeclList {
+                                    Generics {
                                         langle: LeftAngleBracketOrLessThanToken(
                                             TokenIdx(
                                                 19,
@@ -758,9 +758,17 @@ Ok(
                                     is_generic: false,
                                 },
                                 ast_idx: 3,
-                                implicit_parameter_decl_list: Ok(
+                                generics: Ok(
                                     None,
                                 ),
+                                eq_token: Ok(
+                                    EqToken(
+                                        TokenIdx(
+                                            43,
+                                        ),
+                                    ),
+                                ),
+                                ty_term_expr_idx: 0,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
@@ -1152,7 +1160,20 @@ Ok(
                                             ),
                                         ),
                                         expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                Expr::InheritedSymbol {
+                                                    ident: `E2`,
+                                                    token_idx: TokenIdx(
+                                                        44,
+                                                    ),
+                                                    inherited_symbol_idx: 3,
+                                                    inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
+                                                        InheritedImplicitParameterSymbol::Type {
+                                                            ident: `E2`,
+                                                        },
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
                                             data: [],
@@ -1232,7 +1253,12 @@ Ok(
                                             allow_self_value: False,
                                             pattern_ty_constraints: [],
                                         },
-                                        roots: [],
+                                        roots: [
+                                            ExprRoot {
+                                                kind: AssociatedTypeTerm,
+                                                expr_idx: 0,
+                                            },
+                                        ],
                                     },
                                 },
                             },

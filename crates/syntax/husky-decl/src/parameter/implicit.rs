@@ -5,7 +5,7 @@ pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[GenericParameterDecl; 
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
-pub struct ImplicitParameterDeclList {
+pub struct Generics {
     langle: LeftAngleBracketOrLessThanToken,
     generic_parameters: ImplicitParameterDeclPatterns,
     commas: CommaTokens,
@@ -13,7 +13,7 @@ pub struct ImplicitParameterDeclList {
     rangle: RightAngleBracketToken,
 }
 
-impl ImplicitParameterDeclList {
+impl Generics {
     pub fn lcurl(&self) -> LeftAngleBracketOrLessThanToken {
         self.langle
     }
@@ -27,7 +27,7 @@ impl ImplicitParameterDeclList {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ImplicitParameterDeclList {
+impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Generics {
     type Error = NodeDeclError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(

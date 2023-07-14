@@ -9,7 +9,7 @@ pub struct TypeImplBlockNodeDecl {
     pub impl_block: TypeImplBlockNode,
     pub impl_token: ImplToken,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     pub ty_expr: TypeExpr,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,

@@ -20,7 +20,7 @@ Ok(
                             ast_idx: 6,
                             implicit_parameter_decl_list: Ok(
                                 Some(
-                                    ImplicitParameterDeclList {
+                                    Generics {
                                         langle: LeftAngleBracketOrLessThanToken(
                                             TokenIdx(
                                                 3,
@@ -233,7 +233,7 @@ Ok(
                             ast_idx: 7,
                             implicit_parameter_decl_list: Ok(
                                 Some(
-                                    ImplicitParameterDeclList {
+                                    Generics {
                                         langle: LeftAngleBracketOrLessThanToken(
                                             TokenIdx(
                                                 18,
@@ -789,7 +789,7 @@ Ok(
                             },
                             implicit_parameter_decl_list: Ok(
                                 Some(
-                                    ImplicitParameterDeclList {
+                                    Generics {
                                         langle: LeftAngleBracketOrLessThanToken(
                                             TokenIdx(
                                                 62,
@@ -1428,7 +1428,7 @@ Ok(
                     },
                     implicit_parameter_decl_list: Ok(
                         Some(
-                            ImplicitParameterDeclList {
+                            Generics {
                                 langle: LeftAngleBracketOrLessThanToken(
                                     TokenIdx(
                                         33,
@@ -1915,9 +1915,17 @@ Ok(
                                 is_generic: false,
                             },
                             ast_idx: 5,
-                            implicit_parameter_decl_list: Ok(
+                            generics: Ok(
                                 None,
                             ),
+                            eq_token: Ok(
+                                EqToken(
+                                    TokenIdx(
+                                        56,
+                                    ),
+                                ),
+                            ),
+                            ty_term_expr_idx: 0,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
@@ -2286,7 +2294,16 @@ Ok(
                                         ),
                                     ),
                                     expr_arena: Arena {
-                                        data: [],
+                                        data: [
+                                            Expr::Unit {
+                                                lpar_token_idx: TokenIdx(
+                                                    57,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    58,
+                                                ),
+                                            },
+                                        ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
                                         data: [],
@@ -2344,7 +2361,12 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [],
+                                    roots: [
+                                        ExprRoot {
+                                            kind: AssociatedTypeTerm,
+                                            expr_idx: 0,
+                                        },
+                                    ],
                                 },
                             },
                         },
@@ -2720,7 +2742,16 @@ Ok(
                                                 ),
                                             ),
                                             expr_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    Expr::Unit {
+                                                        lpar_token_idx: TokenIdx(
+                                                            57,
+                                                        ),
+                                                        rpar_token_idx: TokenIdx(
+                                                            58,
+                                                        ),
+                                                    },
+                                                ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
                                                 data: [],
@@ -2778,7 +2809,12 @@ Ok(
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [],
                                             },
-                                            roots: [],
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: AssociatedTypeTerm,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
                                         },
                                     },
                                 ),

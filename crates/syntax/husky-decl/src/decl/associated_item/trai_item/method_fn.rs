@@ -7,7 +7,7 @@ pub struct TraitMethodFnNodeDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: Option<ImplicitParameterDeclList>,
+    implicit_parameter_decl_list: Option<Generics>,
     #[return_ref]
     parameter_decl_list: SelfParameterAndExplicitParameters<true>,
     pub curry_token: Option<CurryToken>,

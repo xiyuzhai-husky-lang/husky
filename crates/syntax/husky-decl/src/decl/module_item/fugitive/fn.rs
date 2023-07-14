@@ -7,7 +7,7 @@ pub struct FnNodeDecl {
     pub node_path: FugitiveNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
     explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     #[return_ref]

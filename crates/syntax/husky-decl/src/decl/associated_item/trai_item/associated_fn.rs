@@ -6,7 +6,7 @@ pub struct TraitAssociatedFnNodeDecl {
     pub path: TraitItemPath,
     pub ast_idx: AstIdx,
     #[return_ref]
-    pub implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    pub implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
     pub explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,

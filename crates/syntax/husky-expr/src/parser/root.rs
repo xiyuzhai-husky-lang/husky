@@ -41,6 +41,7 @@ pub enum ExprRootKind {
     Traits,
     ValExpr,
     EvalExpr,
+    AssociatedTypeTerm,
 }
 
 impl<'a> ExprParser<'a> {
