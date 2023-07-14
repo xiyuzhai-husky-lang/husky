@@ -86,7 +86,7 @@ impl HollowTerm {
         db: &'a dyn FluffyTermDb,
         fluffy_terms: &'a FluffyTerms,
     ) -> FluffyTermData<'a> {
-        match fluffy_terms.hollow_terms().data(self) {
+        match fluffy_terms.hollow_terms().hollow_term_data(self) {
             HollowTermData::TypeOntology {
                 path,
                 refined_path,
