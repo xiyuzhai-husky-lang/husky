@@ -7,7 +7,7 @@ pub struct GnNodeDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
     explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,

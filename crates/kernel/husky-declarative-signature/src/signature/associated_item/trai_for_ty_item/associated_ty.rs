@@ -4,6 +4,7 @@ use crate::*;
 pub struct TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
     #[return_ref]
     pub generic_parameters: DeclarativeGenericParameters,
+    pub ty_term: DeclarativeTerm,
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
@@ -19,8 +20,10 @@ pub(crate) fn trai_for_ty_associated_ty_declarative_signature_template(
         declarative_term_region,
         declarative_term_menu,
     );
+    let ty_term = declarative_term_region.expr_term(decl.ty_term_expr_idx(db))?;
     Ok(TraitForTypeAssociatedTypeDeclarativeSignatureTemplate::new(
         db,
         generic_parameters,
+        ty_term,
     ))
 }

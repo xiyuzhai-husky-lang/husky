@@ -75,6 +75,7 @@ impl Diagnose for OriginalNodeDeclError {
             ) => {
                 format!("Syntax Error: expected `{{` `(` or `;` for struct",)
             }
+            OriginalNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
         }
     }
 
@@ -104,6 +105,7 @@ impl Diagnose for OriginalNodeDeclError {
             | OriginalNodeDeclError::ExpectedLeftCurlyBraceOrLeftParenthesisOrSemicolonForStruct(
                 token_stream_state,
             ) => ctx.token_stream_state_text_range(*token_stream_state),
+            OriginalNodeDeclError::ExpectedEqForAssociatedType(_) => todo!(),
         }
     }
 }

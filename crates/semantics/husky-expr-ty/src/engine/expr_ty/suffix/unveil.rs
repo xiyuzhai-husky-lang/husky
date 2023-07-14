@@ -11,12 +11,16 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_unveil_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
         match self.unveiler {
-            Unveiler::Unique { .. } => {
-                // self.infer_new_expr_ty_discarded(
-                //     opd,
-                //     ExpectCoersion::new(Contract::Move, ty.into()),
-                // );
-                todo!()
+            Unveiler::Unique {
+                opd_ty,
+                unveil_output_ty,
+                ..
+            } => {
+                self.infer_new_expr_ty_discarded(
+                    opd,
+                    ExpectCoersion::new(Contract::Move, opd_ty.into()),
+                );
+                Ok(unveil_output_ty.into())
             }
             Unveiler::Nothing => Err(OriginalExprTypeError::CannotUnveil)?,
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => {
@@ -56,31 +60,23 @@ impl Unveiler {
             0 => todo!(),
             1 => {
                 let template = templates[0];
-                if let Some(signature) = template.try_into_signature(db) {
-                    template
+                if let Some(impl_block_signature) = template.try_into_signature(db) {
+                    let associated_output_signature = template
                         .associated_output_template(db)?
                         .try_into_signature(db)
                         .expect("no generic parameters for Unveil::Output");
-                    todo!()
+                    let unveil_output_ty = associated_output_signature.ty_term();
+                    JustOk(Unveiler::Unique {
+                        opd_ty: impl_block_signature
+                            .trai()
+                            .application_expansion(db)
+                            .arguments(db)[0],
+                        unveil_output_ty,
+                        unveil_output_ty_final_destination: unveil_output_ty.final_destination(db),
+                    })
                 } else {
                     todo!()
                 }
-                //
-                // match template.generic_parameters(db).len() {
-                //     0 => {
-                //         let trai_arguments =
-                //             template.trai(db).application_expansion(db).arguments(db);
-                //         debug_assert_eq!(trai_arguments.len(), 1);
-                //         let unveil_output_ty = template.associated_output_term(db)?;
-                //         let unveil_output_ty_final_destination = todo!();
-                //         JustOk(Unveiler::Unique {
-                //             opd_ty: trai_arguments[0],
-                //             unveil_output_ty,
-                //             unveil_output_ty_final_destination,
-                //         })
-                //     }
-                //     _ => todo!(),
-                // }
             }
             _ => todo!(),
         }

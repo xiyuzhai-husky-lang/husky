@@ -130,18 +130,35 @@ impl<'a> ExprTypeEngine<'a> {
     fn calc_unveil_or_compose_with_option_expr_ty(
         &mut self,
         opd: ExprIdx,
-        final_destination: FinalDestination,
+        expected_final_destination: FinalDestination,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
-        // (
-        //     UnveilOrComposeWithOptionExprDisambiguation::Unveil,
-        //     Self::calc_unveil_expr_ty,
-        // ),
-        // (
-        //     UnveilOrComposeWithOptionExprDisambiguation::ComposeWithOption,
-        //     Self::calc_compose_with_option_expr_ty,
-        // ),
         match self.unveiler {
-            Unveiler::Unique { .. } => todo!(),
+            Unveiler::Unique {
+                opd_ty,
+                unveil_output_ty,
+                unveil_output_ty_final_destination,
+            } => match unveil_output_ty_final_destination {
+                FinalDestination::Sort => todo!(),
+                FinalDestination::TypeOntology => match expected_final_destination {
+                    FinalDestination::Sort => todo!(),
+                    FinalDestination::TypeOntology => {
+                        self.infer_new_expr_ty_discarded(
+                            opd,
+                            ExpectCoersion::new(Contract::Move, opd_ty.into()),
+                        );
+                        Ok((
+                            ExprDisambiguation::UnveilOrComposeWithOption(
+                                UnveilOrComposeWithOptionExprDisambiguation::Unveil,
+                            ),
+                            Ok(unveil_output_ty.into()),
+                        ))
+                    }
+                    FinalDestination::AnyOriginal => todo!(),
+                    FinalDestination::AnyDerived => todo!(),
+                },
+                FinalDestination::AnyOriginal => todo!(),
+                FinalDestination::AnyDerived => todo!(),
+            },
             Unveiler::Nothing => todo!(),
             Unveiler::ErrUnableToInferReturnTypeForUnveiling
             | Unveiler::ErrEtherealSignature(_) => {

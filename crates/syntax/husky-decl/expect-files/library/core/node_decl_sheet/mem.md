@@ -26,7 +26,7 @@ Ok(
                                 ast_idx: 0,
                                 implicit_parameter_decl_list: Ok(
                                     Some(
-                                        ImplicitParameterDeclList {
+                                        Generics {
                                             langle: LeftAngleBracketOrLessThanToken(
                                                 TokenIdx(
                                                     3,
@@ -224,7 +224,7 @@ Ok(
                                 ast_idx: 1,
                                 implicit_parameter_decl_list: Ok(
                                     Some(
-                                        ImplicitParameterDeclList {
+                                        Generics {
                                             langle: LeftAngleBracketOrLessThanToken(
                                                 TokenIdx(
                                                     14,
@@ -422,7 +422,7 @@ Ok(
                                 ast_idx: 2,
                                 implicit_parameter_decl_list: Ok(
                                     Some(
-                                        ImplicitParameterDeclList {
+                                        Generics {
                                             langle: LeftAngleBracketOrLessThanToken(
                                                 TokenIdx(
                                                     25,
@@ -579,7 +579,7 @@ Ok(
                             },
                             implicit_parameter_decl_list: Ok(
                                 Some(
-                                    ImplicitParameterDeclList {
+                                    Generics {
                                         langle: LeftAngleBracketOrLessThanToken(
                                             TokenIdx(
                                                 31,

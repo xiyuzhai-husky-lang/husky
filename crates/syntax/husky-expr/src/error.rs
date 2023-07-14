@@ -131,6 +131,8 @@ pub enum OriginalExprError {
     UnexpectedLeftCurlyBrace(TokenIdx),
     #[error("ExpectedTypeAfterLightArrow")]
     ExpectedTypeAfterLightArrow { light_arrow_token: LightArrowToken },
+    #[error("ExpectedTypeTermForAssociatedType")]
+    ExpectedTypeTermForAssociatedType(TokenStreamState),
 }
 
 impl OriginalExprError {
@@ -221,6 +223,7 @@ impl OriginalExprError {
             }
             OriginalExprError::ExpectedBlock(_) => todo!(),
             OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
+            OriginalExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
         }
     }
 }

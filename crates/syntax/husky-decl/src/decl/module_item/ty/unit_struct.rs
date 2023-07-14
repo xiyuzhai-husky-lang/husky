@@ -7,7 +7,7 @@ pub struct UnitStructTypeNodeDecl {
     pub ast_idx: AstIdx,
     pub expr_region: ExprRegion,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
 }
 
 impl UnitStructTypeNodeDecl {

@@ -605,6 +605,7 @@ Ok(
                                 item_kind: AssociatedType,
                             },
                             generic_parameters: [],
+                            ty_term_expr_idx: 0,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
@@ -996,7 +997,20 @@ Ok(
                                         ),
                                     ),
                                     expr_arena: Arena {
-                                        data: [],
+                                        data: [
+                                            Expr::InheritedSymbol {
+                                                ident: `E2`,
+                                                token_idx: TokenIdx(
+                                                    44,
+                                                ),
+                                                inherited_symbol_idx: 3,
+                                                inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
+                                                    InheritedImplicitParameterSymbol::Type {
+                                                        ident: `E2`,
+                                                    },
+                                                ),
+                                            },
+                                        ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
                                         data: [],
@@ -1076,7 +1090,12 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [],
+                                    roots: [
+                                        ExprRoot {
+                                            kind: AssociatedTypeTerm,
+                                            expr_idx: 0,
+                                        },
+                                    ],
                                 },
                             },
                         },
@@ -1474,7 +1493,20 @@ Ok(
                                                 ),
                                             ),
                                             expr_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    Expr::InheritedSymbol {
+                                                        ident: `E2`,
+                                                        token_idx: TokenIdx(
+                                                            44,
+                                                        ),
+                                                        inherited_symbol_idx: 3,
+                                                        inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
+                                                            InheritedImplicitParameterSymbol::Type {
+                                                                ident: `E2`,
+                                                            },
+                                                        ),
+                                                    },
+                                                ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
                                                 data: [],
@@ -1554,7 +1586,12 @@ Ok(
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [],
                                             },
-                                            roots: [],
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: AssociatedTypeTerm,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
                                         },
                                     },
                                 ),

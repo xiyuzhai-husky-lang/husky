@@ -146,7 +146,8 @@ impl<'a> ExprTypeEngine<'a> {
                 | ExprRootKind::PropsStructFieldType { .. }
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ConstantImplicitParameterType
-                | ExprRootKind::ExplicitParameterType => self.infer_new_expr_ty_discarded(
+                | ExprRootKind::ExplicitParameterType
+                | ExprRootKind::AssociatedTypeTerm => self.infer_new_expr_ty_discarded(
                     root.expr_idx(),
                     ExpectEqsCategory::new_expect_eqs_ty_kind(),
                 ),

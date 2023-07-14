@@ -233,6 +233,7 @@
                             generic_parameters: DeclarativeGenericParameters {
                                 data: [],
                             },
+                            ty_term: DeclarativeTerm(`core::basic::unit`),
                         },
                     ),
                 ),

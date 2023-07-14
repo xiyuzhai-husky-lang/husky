@@ -1674,6 +1674,7 @@ Ok(
                                 item_kind: AssociatedType,
                             },
                             generic_parameters: [],
+                            ty_term_expr_idx: 0,
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
@@ -2042,7 +2043,16 @@ Ok(
                                         ),
                                     ),
                                     expr_arena: Arena {
-                                        data: [],
+                                        data: [
+                                            Expr::Unit {
+                                                lpar_token_idx: TokenIdx(
+                                                    57,
+                                                ),
+                                                rpar_token_idx: TokenIdx(
+                                                    58,
+                                                ),
+                                            },
+                                        ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
                                         data: [],
@@ -2100,7 +2110,12 @@ Ok(
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    roots: [],
+                                    roots: [
+                                        ExprRoot {
+                                            kind: AssociatedTypeTerm,
+                                            expr_idx: 0,
+                                        },
+                                    ],
                                 },
                             },
                         },
@@ -2475,7 +2490,16 @@ Ok(
                                                 ),
                                             ),
                                             expr_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    Expr::Unit {
+                                                        lpar_token_idx: TokenIdx(
+                                                            57,
+                                                        ),
+                                                        rpar_token_idx: TokenIdx(
+                                                            58,
+                                                        ),
+                                                    },
+                                                ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
                                                 data: [],
@@ -2533,7 +2557,12 @@ Ok(
                                                 allow_self_value: False,
                                                 pattern_ty_constraints: [],
                                             },
-                                            roots: [],
+                                            roots: [
+                                                ExprRoot {
+                                                    kind: AssociatedTypeTerm,
+                                                    expr_idx: 0,
+                                                },
+                                            ],
                                         },
                                     },
                                 ),

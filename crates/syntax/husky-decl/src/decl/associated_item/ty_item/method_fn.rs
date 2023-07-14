@@ -7,7 +7,7 @@ pub struct TypeMethodFnNodeDecl {
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
-    implicit_parameter_decl_list: NodeDeclResult<Option<ImplicitParameterDeclList>>,
+    implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
     pub explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<true>>,
     pub curry_token: TokenResult<Option<CurryToken>>,

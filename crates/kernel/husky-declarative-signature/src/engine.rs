@@ -190,7 +190,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                 | ExprRootKind::ReturnType
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ReturnType
-                | ExprRootKind::ExplicitParameterDefaultValue { .. } => (),
+                | ExprRootKind::ExplicitParameterDefaultValue { .. }
+                | ExprRootKind::AssociatedTypeTerm => (),
                 ExprRootKind::BlockExpr
                 | ExprRootKind::LetStmtType
                 | ExprRootKind::LetStmtInitialValue
@@ -479,7 +480,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             Expr::Unit {
                 lpar_token_idx,
                 rpar_token_idx,
-            } => todo!(),
+            } => Ok(self.declarative_term_menu.unit()),
             Expr::EmptyHtmlTag {
                 empty_html_bra_idx: langle_token_idx,
                 function_ident,

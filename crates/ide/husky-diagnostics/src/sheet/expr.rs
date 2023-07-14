@@ -190,6 +190,7 @@ impl Diagnose for OriginalExprError {
             OriginalExprError::ExpectedTraits(_) => todo!(),
             OriginalExprError::ExpectedTypeAfterLightArrow { light_arrow_token } => todo!(),
             OriginalExprError::ExpectedExplicitParameterDefaultValue(_) => todo!(),
+            OriginalExprError::ExpectedTypeTermForAssociatedType(_) => todo!(),
         }
     }
 
