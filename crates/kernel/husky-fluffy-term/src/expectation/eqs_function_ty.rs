@@ -102,6 +102,7 @@ impl ExpectFluffyTerm for ExpectEqsFunctionType {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 }
@@ -242,6 +243,7 @@ impl ExpectEqsFunctionType {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

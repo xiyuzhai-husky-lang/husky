@@ -11,8 +11,8 @@ pub struct HollowTerms {
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HoleConstraint {
-    ImplicitlyConvertibleFrom { target: FluffyTerm },
-    ImplicitlyConvertibleTo { target: FluffyTerm },
+    CoercibleFrom { target: FluffyTerm },
+    CoercibleTo { target: FluffyTerm },
 }
 
 impl HollowTerms {

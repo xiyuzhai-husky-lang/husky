@@ -84,6 +84,7 @@ impl FluffyTerm {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

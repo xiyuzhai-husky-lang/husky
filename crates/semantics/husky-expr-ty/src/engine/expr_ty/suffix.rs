@@ -76,6 +76,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())
     }
@@ -123,6 +124,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
         Ok(self.term_menu.unit_ty_ontology().into())
     }
@@ -208,6 +210,7 @@ impl<'a> ExprTypeEngine<'a> {
                 FluffyTermData::Symbol { .. } => todo!(),
                 FluffyTermData::SymbolAtPlace { .. } => todo!(),
                 FluffyTermData::Variable { ty } => todo!(),
+                FluffyTermData::TypeVariant { path } => todo!(),
             },
             None => Err(DerivedExprTypeError::UnableToInferSuffixOperandType.into()),
         }
@@ -259,6 +262,7 @@ impl<'a> ExprTypeEngine<'a> {
             FluffyTermData::Symbol { .. } => todo!(),
             FluffyTermData::SymbolAtPlace { .. } => todo!(),
             FluffyTermData::Variable { ty } => todo!(),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

@@ -329,6 +329,7 @@ impl<'a> ExprTypeEngine<'a> {
                                 FluffyTermData::Symbol { .. } => todo!(),
                                 FluffyTermData::SymbolAtPlace { .. } => todo!(),
                                 FluffyTermData::Variable { ty } => todo!(),
+                                FluffyTermData::TypeVariant { path } => todo!(),
                             },
                             None => self.new_hole(expr_idx, HoleKind::ImplicitType).into(),
                         };

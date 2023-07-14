@@ -122,6 +122,7 @@ impl FluffyTerm {
                 .copied()
                 .find_map(|rule| (rule.variable == self).then_some(rule.substitute))
                 .unwrap_or(self),
+            FluffyTermData::TypeVariant { path } => todo!(),
         }
     }
 }

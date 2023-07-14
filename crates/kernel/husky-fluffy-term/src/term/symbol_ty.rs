@@ -149,6 +149,7 @@ impl SymbolType {
                     FluffyTermData::Symbol { .. } => todo!(),
                     FluffyTermData::SymbolAtPlace { .. } => todo!(),
                     FluffyTermData::Variable { ty } => todo!(),
+                    FluffyTermData::TypeVariant { path } => todo!(),
                 };
                 HollowTerm::new(engine, data).into()
             }
