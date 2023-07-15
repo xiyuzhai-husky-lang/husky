@@ -12,14 +12,9 @@ DiagnosticSheet {
     expr_diagnostic_sheet: ExprDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Syntax Error: no left operand for binary operator",
+                message: "Syntax Error: unrecognized identifier",
                 severity: Error,
-                range: [15:14, 15:15),
-            },
-            Diagnostic {
-                message: "Syntax Error: no right operand for binary operator",
-                severity: Error,
-                range: [15:14, 15:15),
+                range: [15:13, 15:31),
             },
         ],
     },

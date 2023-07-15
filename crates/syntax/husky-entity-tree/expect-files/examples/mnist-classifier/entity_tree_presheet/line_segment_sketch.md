@@ -189,7 +189,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
-                                    173,
+                                    171,
                                 ),
                             },
                         },
@@ -225,7 +225,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    372,
+                                    370,
                                 ),
                             },
                         },
@@ -263,7 +263,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    469,
+                                    467,
                                 ),
                             },
                         },
@@ -301,7 +301,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    566,
+                                    564,
                                 ),
                             },
                         },
@@ -339,7 +339,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    799,
+                                    797,
                                 ),
                             },
                         },
@@ -377,7 +377,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1065,
+                                    1063,
                                 ),
                             },
                         },
