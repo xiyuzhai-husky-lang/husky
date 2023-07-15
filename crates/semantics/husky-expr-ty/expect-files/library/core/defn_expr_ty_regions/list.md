@@ -276,7 +276,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`t`),
+            EtherealTerm(`TypeOntology(core::option::Option) t`),
         ),
         self_ty: None,
     },
@@ -362,7 +362,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`t`),
+            EtherealTerm(`TypeOntology(core::option::Option) t`),
         ),
         self_ty: None,
     },

@@ -247,7 +247,7 @@
                             explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`t`),
+                            return_ty: DeclarativeTerm(`core::option::Option t`),
                         },
                     ),
                 ),
@@ -306,7 +306,7 @@
                             explicit_parameters: DeclarativeSpecificParameters {
                                 data: [],
                             },
-                            return_ty: DeclarativeTerm(`t`),
+                            return_ty: DeclarativeTerm(`core::option::Option t`),
                         },
                     ),
                 ),

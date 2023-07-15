@@ -31,21 +31,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [102:74, 102:83),
             },
-            Diagnostic {
-                message: "Type Error: cannot unwrap",
-                severity: Error,
-                range: [219:25, 219:40),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unwrap",
-                severity: Error,
-                range: [226:25, 226:40),
-            },
-            Diagnostic {
-                message: "Type Error: cannot unwrap",
-                severity: Error,
-                range: [233:25, 233:40),
-            },
         ],
     },
 }
