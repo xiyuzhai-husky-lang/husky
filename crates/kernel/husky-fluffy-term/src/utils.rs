@@ -48,7 +48,7 @@ impl FluffyTerm {
                 HoleKind::Any => todo!(),
             },
             FluffyTermData::Category(_) => FinalDestination::Sort,
-            FluffyTermData::Ritchie { .. } => todo!(),
+            FluffyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
             FluffyTermData::TypeOntologyAtPlace { .. } => todo!(),
             FluffyTermData::HoleAtPlace {
                 place,

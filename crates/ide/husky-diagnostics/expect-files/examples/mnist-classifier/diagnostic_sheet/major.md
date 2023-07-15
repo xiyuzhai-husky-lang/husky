@@ -45,6 +45,16 @@ DiagnosticSheet {
                 severity: Error,
                 range: [27:5, 27:46),
             },
+            Diagnostic {
+                message: "type path mismatch: expect core::mem::Leash, but got core::list::List instead",
+                severity: Error,
+                range: [33:5, 33:49),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::mem::Leash, but got core::list::List instead",
+                severity: Error,
+                range: [33:5, 33:49),
+            },
         ],
     },
 }

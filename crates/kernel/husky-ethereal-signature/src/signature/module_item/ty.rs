@@ -24,6 +24,7 @@ use husky_declarative_signature::{
     HasDeclarativeSignatureTemplate, TypeDeclarativeSignature, TypeDeclarativeSignatureTemplate,
 };
 use husky_entity_path::TypePath;
+use husky_print_utils::p;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
@@ -57,8 +58,12 @@ fn ty_ethereal_signature_template(
 ) -> EtherealSignatureResult<TypeEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {
         TypeDeclarativeSignatureTemplate::Enum(declarative_signature_template) => {
-            EnumEtherealSignatureTemplate::from_declarative(db, declarative_signature_template)?
-                .into()
+            EnumEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
         }
         TypeDeclarativeSignatureTemplate::PropsStruct(declarative_signature_template) => {
             PropsStructEtherealSignatureTemplate::from_declarative(
@@ -113,9 +118,9 @@ impl HasRegularFieldEtherealSignature for TypeEtherealSignatureTemplate {
         ident: Ident,
     ) -> EtherealSignatureMaybeResult<RegularFieldEtherealSignature> {
         match self {
-            TypeEtherealSignatureTemplate::Enum(_) => todo!(),
-            TypeEtherealSignatureTemplate::PropsStruct(signature_template) => {
-                signature_template.regular_field_ethereal_signature(db, arguments, ident)
+            TypeEtherealSignatureTemplate::Enum(ethereal_signature_template) => Nothing,
+            TypeEtherealSignatureTemplate::PropsStruct(ethereal_signature_template) => {
+                ethereal_signature_template.regular_field_ethereal_signature(db, arguments, ident)
             }
             TypeEtherealSignatureTemplate::UnitStruct(_) => todo!(),
             TypeEtherealSignatureTemplate::TupleStruct(_) => todo!(),

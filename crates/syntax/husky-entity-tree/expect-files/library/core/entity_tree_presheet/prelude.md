@@ -177,6 +177,25 @@ Ok(
                     parent: None,
                     state: OnceUseRuleState::Unresolved,
                 },
+                OnceUseRule {
+                    ast_idx: 9,
+                    use_expr_idx: 29,
+                    visibility: Scope::Pub,
+                    variant: OnceUseRuleVariant::Parent {
+                        parent_name_token: PathNameToken::CrateRoot(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    65,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            28..29,
+                        ),
+                    },
+                    parent: None,
+                    state: OnceUseRuleState::Unresolved,
+                },
             ],
         ),
         use_all_trackers: UseAllModuleSymbolsRules(
@@ -666,6 +685,60 @@ Ok(
                         children: Ok(
                             UseExprChildren::Single {
                                 child: 25,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::All {
+                    star_token: StarToken(
+                        TokenIdx(
+                            69,
+                        ),
+                    ),
+                },
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: PathNameToken::Ident(
+                            IdentToken {
+                                ident: `slice`,
+                                token_idx: TokenIdx(
+                                    67,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    68,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 27,
+                            },
+                        ),
+                    },
+                ),
+                UseExpr::Parent(
+                    ParentUseExpr {
+                        parent_name_token: PathNameToken::CrateRoot(
+                            CrateToken {
+                                token_idx: TokenIdx(
+                                    65,
+                                ),
+                            },
+                        ),
+                        scope_resolution_token: Ok(
+                            ScopeResolutionToken(
+                                TokenIdx(
+                                    66,
+                                ),
+                            ),
+                        ),
+                        children: Ok(
+                            UseExprChildren::Single {
+                                child: 28,
                             },
                         ),
                     },

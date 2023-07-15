@@ -5,9 +5,28 @@
                 TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::FieldTypeDeclarativeTermError(
-                1,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
+                            generic_parameters: DeclarativeGenericParameters {
+                                data: [],
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
+                            fields: [
+                                PropsStructFieldDeclarativeSignatureTemplate {
+                                    ident: `line_segment_sketch`,
+                                    ty: DeclarativeTerm(`core::mem::Ref mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                },
+                                PropsStructFieldDeclarativeSignatureTemplate {
+                                    ident: `line_segments`,
+                                    ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                },
+                            ],
+                        },
+                    ),
+                ),
             ),
         ),
     ),
@@ -64,7 +83,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 92,
+                                                value: 94,
                                             },
                                         ),
                                     ),

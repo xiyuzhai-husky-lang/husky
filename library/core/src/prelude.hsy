@@ -7,3 +7,4 @@ pub use crate::marker::*
 pub use crate::clone::*
 pub use crate::option::*
 pub use crate::cmp::*
+pub use crate::slice::*

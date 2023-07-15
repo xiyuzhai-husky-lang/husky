@@ -10,13 +10,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [15:13, 15:31),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],
@@ -25,6 +19,17 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Type Error: no method named `popx` for type `FluffyTerm::Solid(SolidTerm(2))`",
+                severity: Error,
+                range: [185:49, 185:53),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `popx` for type `FluffyTerm::Solid(SolidTerm(2))`",
+                severity: Error,
+                range: [196:47, 196:51),
+            },
+        ],
     },
 }

@@ -736,7 +736,7 @@
                             TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
-                                        value: 67,
+                                        value: 68,
                                     },
                                 ),
                                 refined_path: Left(
@@ -749,7 +749,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 80,
+                                                    value: 82,
                                                 },
                                             ),
                                         ),
@@ -1152,7 +1152,7 @@
                             TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
-                                        value: 55,
+                                        value: 56,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1168,7 +1168,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 55,
+                                                    value: 56,
                                                 },
                                             ),
                                         ),
@@ -1185,7 +1185,7 @@
                             TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
-                                        value: 55,
+                                        value: 56,
                                     },
                                 ),
                                 refined_path: Left(
@@ -1201,7 +1201,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 55,
+                                                    value: 56,
                                                 },
                                             ),
                                         ),
@@ -1465,14 +1465,14 @@
                             TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
-                                        value: 98,
+                                        value: 100,
                                     },
                                 ),
                                 refined_path: Right(
                                     CustomTypePath(
                                         TypePath(
                                             Id {
-                                                value: 98,
+                                                value: 100,
                                             },
                                         ),
                                     ),
@@ -1483,7 +1483,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 98,
+                                                    value: 100,
                                                 },
                                             ),
                                         ),
@@ -1690,7 +1690,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 64,
+                                            value: 65,
                                         },
                                     ),
                                 ),
@@ -1771,7 +1771,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 64,
+                                                value: 65,
                                             },
                                         ),
                                     ),
@@ -3227,7 +3227,7 @@
                             TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
-                                        value: 43,
+                                        value: 44,
                                     },
                                 ),
                                 refined_path: Left(
@@ -3243,7 +3243,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 43,
+                                                    value: 44,
                                                 },
                                             ),
                                         ),
@@ -3445,7 +3445,7 @@
                             TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
-                                        value: 43,
+                                        value: 44,
                                     },
                                 ),
                                 refined_path: Left(
@@ -3461,7 +3461,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 43,
+                                                    value: 44,
                                                 },
                                             ),
                                         ),

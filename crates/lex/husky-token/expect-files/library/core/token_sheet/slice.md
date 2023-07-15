@@ -35,11 +35,47 @@ Ok(
                     PunctuationMapped::Semicolon,
                 ),
             ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::TypeEntity(
+                    Extern,
+                ),
+            ),
+            Token::Ident(
+                `CyclicSliceLeashed`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::LaOrLt,
+                ),
+            ),
+            Token::Keyword(
+                Keyword::Modifier(
+                    Covariant,
+                ),
+            ),
+            Token::Ident(
+                `E`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::RaOrGt,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
         ],
         group_starts: [
             0,
+            8,
         ],
         indents: [
+            0,
             0,
         ],
     },

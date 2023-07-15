@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum ImplicitConversion {
+pub enum Coersion {
     Trivial,
     Never,
     Other,
@@ -99,7 +99,7 @@ impl ExpectCoersion {
 }
 
 impl ExpectFluffyTerm for ExpectCoersion {
-    type Outcome = ImplicitConversion;
+    type Outcome = Coersion;
 
     fn retrieve_outcome(outcome: &FluffyTermExpectationOutcome) -> &Self::Outcome {
         match outcome {
@@ -154,12 +154,15 @@ impl ExpectFluffyTerm for ExpectCoersion {
                 Contract::BorrowMut => todo!(),
                 Contract::Const => {
                     if state.expectee() == self.ty() {
-                        return state.set_ok(ImplicitConversion::Trivial, smallvec![]);
+                        return state.set_ok(Coersion::Trivial, smallvec![]);
                     }
                     todo!()
                 }
             },
-            FluffyTermData::Ritchie { .. } => todo!(),
+            FluffyTermData::Ritchie { .. } => state.set_err(
+                OriginalFluffyTermExpectationError::ExpectedCoersion,
+                smallvec![],
+            ),
             FluffyTermData::TypeOntologyAtPlace {
                 place,
                 ty_path: path,
@@ -203,7 +206,7 @@ impl ExpectCoersion {
             FluffyTermData::TypeOntology {
                 refined_ty_path: Left(PreludeTypePath::NEVER),
                 ..
-            } => meta.set_ok(ImplicitConversion::Never, smallvec![]),
+            } => meta.set_ok(Coersion::Never, smallvec![]),
             FluffyTermData::TypeOntology {
                 refined_ty_path: src_path,
                 arguments: src_argument_tys,
@@ -227,8 +230,8 @@ impl ExpectCoersion {
                     }
                 }
                 match self.contract() {
-                    Contract::None => meta.set_ok(ImplicitConversion::Trivial, actions),
-                    Contract::Move => meta.set_ok(ImplicitConversion::Trivial, actions),
+                    Contract::None => meta.set_ok(Coersion::Trivial, actions),
+                    Contract::Move => meta.set_ok(Coersion::Trivial, actions),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),
                 }
@@ -269,8 +272,8 @@ impl ExpectCoersion {
                     }
                 }
                 match self.contract() {
-                    Contract::None => meta.set_ok(ImplicitConversion::Trivial, actions),
-                    Contract::Move => meta.set_ok(ImplicitConversion::Trivial, actions),
+                    Contract::None => meta.set_ok(Coersion::Trivial, actions),
+                    Contract::Move => meta.set_ok(Coersion::Trivial, actions),
                     Contract::BorrowMut => todo!(),
                     Contract::Const => todo!(),
                 }

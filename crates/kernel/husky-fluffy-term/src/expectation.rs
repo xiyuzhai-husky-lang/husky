@@ -118,6 +118,10 @@ pub trait ExpectFluffyTerm: Into<Expectation> + Clone {
             FinalDestination::TypeOntology
             | FinalDestination::AnyOriginal
             | FinalDestination::AnyDerived => TypePathDisambiguation::InstanceConstructor,
+            FinalDestination::Ritchie(RitchieKind::FnType) => {
+                TypePathDisambiguation::InstanceConstructor
+            }
+            FinalDestination::Ritchie(_) => todo!(),
         }
     }
 
@@ -149,7 +153,7 @@ pub type OptionFluffyTermExpectationIdx = OptionArenaIdx<ExpectationEntry>;
 #[enum_class::from_variants]
 pub enum FluffyTermExpectationOutcome {
     ExplicitlyConvertible(ExpectExplicitlyConvertibleOutcome),
-    ImplicitlyConvertible(ImplicitConversion),
+    ImplicitlyConvertible(Coersion),
     InsSort(ExpectInsSortOutcome),
     EqsSort(TermUniverse),
     Subtype(ExpectSubtypeOutcome),
@@ -216,6 +220,8 @@ pub enum OriginalFluffyTermExpectationError {
     ExpectedSubtype { expectee: FluffyTerm },
     #[error("expected function type")]
     ExpectedFunctionType,
+    #[error("ExpectedCoersion")]
+    ExpectedCoersion,
     #[error("todo")]
     Todo,
 }

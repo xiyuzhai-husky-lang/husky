@@ -1466,7 +1466,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 40,
+                                value: 41,
                             },
                         ),
                         variants: None,
@@ -1522,7 +1522,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 41,
+                                value: 42,
                             },
                         ),
                         variants: None,
@@ -1564,7 +1564,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 42,
+                                value: 43,
                             },
                         ),
                         variants: None,
@@ -1620,7 +1620,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 43,
+                                value: 44,
                             },
                         ),
                         variants: None,
@@ -1676,7 +1676,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 44,
+                                value: 45,
                             },
                         ),
                         variants: None,
@@ -1732,7 +1732,7 @@ Ok(
                     block: Type {
                         path: TypePath(
                             Id {
-                                value: 45,
+                                value: 46,
                             },
                         ),
                         variants: None,

@@ -289,7 +289,14 @@ Ok(
         },
         SemanticToken {
             delta_line: 0,
-            delta_start: 21,
+            delta_start: 2,
+            length: 18,
+            token_type: 8,
+            token_modifiers_bitset: 0,
+        },
+        SemanticToken {
+            delta_line: 0,
+            delta_start: 19,
             length: 17,
             token_type: 8,
             token_modifiers_bitset: 0,

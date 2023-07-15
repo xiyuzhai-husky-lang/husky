@@ -14,4 +14,5 @@ pub enum FinalDestination {
     TypeOntology,
     AnyOriginal,
     AnyDerived,
+    Ritchie(RitchieKind),
 }

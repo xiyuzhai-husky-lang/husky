@@ -37,10 +37,8 @@
                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
             ),
         ),
-        Err(
-            DeclarativeTypeError::Derived(
-                DerivedDeclarativeTypeError::SignatureError,
-            ),
+        Ok(
+            DeclarativeTerm(`Type`),
         ),
     ),
     (

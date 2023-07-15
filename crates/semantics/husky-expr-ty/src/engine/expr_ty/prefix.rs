@@ -16,11 +16,37 @@ impl<'a> ExprTypeEngine<'a> {
                 match opd_ty.data(self) {
                     FluffyTermData::Literal(_) => todo!(),
                     FluffyTermData::TypeOntology {
-                        ty_path: path,
-                        refined_ty_path: refined_path,
+                        ty_path,
+                        refined_ty_path,
                         arguments,
                         ty_ethereal_term,
-                    } => todo!(),
+                    } => match refined_ty_path {
+                        Left(prelude_ty_path) => match prelude_ty_path {
+                            PreludeTypePath::Basic(_) => todo!(),
+                            PreludeTypePath::Num(num_ty_path) => match num_ty_path {
+                                PreludeNumTypePath::Int(_) | PreludeNumTypePath::Float(_) => {
+                                    Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
+                                }
+                            },
+                            PreludeTypePath::Borrow(_) => todo!(),
+                            PreludeTypePath::Nat => todo!(),
+                            PreludeTypePath::Lifetime => todo!(),
+                            PreludeTypePath::Module => todo!(),
+                            PreludeTypePath::Trait => todo!(),
+                            PreludeTypePath::List => todo!(),
+                            PreludeTypePath::Array => todo!(),
+                            PreludeTypePath::Array2d => todo!(),
+                            PreludeTypePath::Array3d => todo!(),
+                            PreludeTypePath::Array4d => todo!(),
+                            PreludeTypePath::Array5d => todo!(),
+                            PreludeTypePath::Slice => todo!(),
+                            PreludeTypePath::StringLiteral => todo!(),
+                            PreludeTypePath::Str => todo!(),
+                            PreludeTypePath::Option => todo!(),
+                            PreludeTypePath::Result => todo!(),
+                        },
+                        Right(_) => todo!(),
+                    },
                     FluffyTermData::TypeOntologyAtPlace {
                         place,
                         ty_path: path,
@@ -60,31 +86,6 @@ impl<'a> ExprTypeEngine<'a> {
                     FluffyTermData::Variable { ty } => todo!(),
                     FluffyTermData::TypeVariant { path } => todo!(),
                 }
-                // match opd_ty {
-                //     Some(opd_ty) => match opd_ty {
-                //         FluffyTerm::EtherealTerm(_) => todo!(),
-                //         FluffyTerm::Unresolved(unresolved_term) => {
-                //             match self.fluffy_term_region[unresolved_term].unresolved_term() {
-                //                 FluffyTermData::ImplicitSymbol(implicit_symbol) => {
-                //                     match implicit_symbol.variant() {
-                //                         ImplicitSymbolVariant::ExprEvalLifetime => todo!(),
-                //                         ImplicitSymbolVariant::UnspecifiedIntegerType
-                //                         | ImplicitSymbolVariant::UnspecifiedFloatType => {
-                //                             Ok((ExprDisambiguation::Trivial, Ok(opd_ty)))
-                //                         }
-                //                         ImplicitSymbolVariant::ImplicitType => todo!(),
-                //                         ImplicitSymbolVariant::ImplicitLifetime => todo!(),
-                //                     }
-                //                 }
-                //                 FluffyTermData::TypeOntology(_) => todo!(),
-                //                 FluffyTermData::Ritchie(_) => todo!(),
-                //                 FluffyTermData::PlaceType { .. } => todo!(),
-                //             }
-                //         }
-                //         _ => todo!(),
-                //     },
-                //     None => Err(DerivedExprTypeError::PrefixOperandTypeNotInferred.into()),
-                // }
             }
             PrefixOpr::Not => {
                 self.infer_new_expr_ty_discarded(opd, self.expect_argument_ty_bool());
@@ -112,6 +113,7 @@ impl<'a> ExprTypeEngine<'a> {
                     ExprDisambiguation::Tilde(TildeDisambiguation::BitNot),
                     self.calc_bitnot_expr_ty(opd),
                 )),
+                FinalDestination::Ritchie(_) => todo!(),
             },
             PrefixOpr::Ref => {
                 self.infer_new_expr_ty_discarded(opd, self.expect_ty0_subtype());

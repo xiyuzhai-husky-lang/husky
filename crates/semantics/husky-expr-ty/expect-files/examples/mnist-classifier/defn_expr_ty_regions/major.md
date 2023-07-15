@@ -23,7 +23,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 23,
+                                        value: 32,
                                     },
                                 ),
                             ),
@@ -44,7 +44,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 97,
+                                        value: 110,
                                     },
                                 ),
                             ),
@@ -144,7 +144,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 23,
+                                            value: 32,
                                         },
                                     ),
                                 ),
@@ -170,7 +170,7 @@
                                                                     TypeOntology(
                                                                         TypePath(
                                                                             Id {
-                                                                                value: 98,
+                                                                                value: 100,
                                                                             },
                                                                         ),
                                                                     ),
@@ -193,7 +193,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 98,
+                                                    value: 100,
                                                 },
                                             ),
                                         ),
@@ -209,7 +209,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 97,
+                                            value: 110,
                                         },
                                     ),
                                 ),
@@ -219,12 +219,12 @@
                                             TypePathMismatch {
                                                 expected_path: TypePath(
                                                     Id {
-                                                        value: 98,
+                                                        value: 100,
                                                     },
                                                 ),
                                                 expectee_path: TypePath(
                                                     Id {
-                                                        value: 67,
+                                                        value: 68,
                                                     },
                                                 ),
                                             },
@@ -371,7 +371,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 96,
+                                        value: 106,
                                     },
                                 ),
                             ),
@@ -402,7 +402,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 96,
+                                        value: 106,
                                     },
                                 ),
                             ),
@@ -477,7 +477,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 40,
+                                            value: 41,
                                         },
                                     ),
                                 ),
@@ -524,7 +524,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 38,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -571,7 +571,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 38,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -593,7 +593,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 96,
+                                        value: 106,
                                     },
                                 ),
                             ),
@@ -634,7 +634,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 39,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -762,7 +762,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 96,
+                                            value: 106,
                                         },
                                     ),
                                 ),
@@ -782,7 +782,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 96,
+                                            value: 106,
                                         },
                                     ),
                                 ),
@@ -797,7 +797,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 40,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -814,7 +814,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 40,
+                                                value: 41,
                                             },
                                         ),
                                     ),
@@ -836,7 +836,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 38,
+                                                    value: 39,
                                                 },
                                             ),
                                         ),
@@ -853,7 +853,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 38,
+                                                value: 39,
                                             },
                                         ),
                                     ),
@@ -875,7 +875,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 38,
+                                                    value: 39,
                                                 },
                                             ),
                                         ),
@@ -892,7 +892,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 38,
+                                                value: 39,
                                             },
                                         ),
                                     ),
@@ -919,7 +919,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 96,
+                                            value: 106,
                                         },
                                     ),
                                 ),
@@ -933,7 +933,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 66,
+                                                value: 71,
                                             },
                                         ),
                                     ),
@@ -949,7 +949,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 39,
+                                                value: 40,
                                             },
                                         ),
                                     ),
@@ -1014,7 +1014,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 96,
+                                        value: 106,
                                     },
                                 ),
                             ),
@@ -1045,7 +1045,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 96,
+                                        value: 106,
                                     },
                                 ),
                             ),
@@ -1107,7 +1107,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 38,
+                                            value: 39,
                                         },
                                     ),
                                 ),
@@ -1129,7 +1129,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 66,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -1163,7 +1163,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 79,
+                                        value: 81,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -1171,7 +1171,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 59,
+                                                    value: 60,
                                                 },
                                             ),
                                         ),
@@ -1184,7 +1184,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 59,
+                                            value: 60,
                                         },
                                     ),
                                 ),
@@ -1218,7 +1218,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 39,
+                                            value: 40,
                                         },
                                     ),
                                 ),
@@ -1313,7 +1313,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 96,
+                                            value: 106,
                                         },
                                     ),
                                 ),
@@ -1333,7 +1333,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 96,
+                                            value: 106,
                                         },
                                     ),
                                 ),
@@ -1348,7 +1348,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 38,
+                                                    value: 39,
                                                 },
                                             ),
                                         ),
@@ -1365,7 +1365,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 38,
+                                                value: 39,
                                             },
                                         ),
                                     ),
@@ -1392,7 +1392,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 66,
+                                            value: 71,
                                         },
                                     ),
                                 ),
@@ -1413,7 +1413,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 59,
+                                                value: 60,
                                             },
                                         ),
                                     ),
@@ -1429,7 +1429,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 59,
+                                                    value: 60,
                                                 },
                                             ),
                                         ),
@@ -1446,7 +1446,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 39,
+                                                value: 40,
                                             },
                                         ),
                                     ),
@@ -1494,7 +1494,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 66,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -1515,7 +1515,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 79,
+                                        value: 81,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -1610,7 +1610,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 66,
+                                            value: 71,
                                         },
                                     ),
                                 ),
@@ -1624,7 +1624,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 112,
                                             },
                                         ),
                                     ),
@@ -1649,12 +1649,12 @@
                                             TypePathMismatch {
                                                 expected_path: TypePath(
                                                     Id {
-                                                        value: 67,
+                                                        value: 68,
                                                     },
                                                 ),
                                                 expectee_path: TypePath(
                                                     Id {
-                                                        value: 68,
+                                                        value: 69,
                                                     },
                                                 ),
                                             },
@@ -1670,7 +1670,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 99,
+                                                value: 112,
                                             },
                                         ),
                                     ),
@@ -1695,12 +1695,12 @@
                                             TypePathMismatch {
                                                 expected_path: TypePath(
                                                     Id {
-                                                        value: 67,
+                                                        value: 68,
                                                     },
                                                 ),
                                                 expectee_path: TypePath(
                                                     Id {
-                                                        value: 68,
+                                                        value: 69,
                                                     },
                                                 ),
                                             },
@@ -1743,7 +1743,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 66,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -1764,7 +1764,7 @@
                                 ],
                                 ty_path: TypePath(
                                     Id {
-                                        value: 79,
+                                        value: 81,
                                     },
                                 ),
                                 signature: FluffyFieldSignature {
@@ -1822,7 +1822,7 @@
                                             TypeOntology(
                                                 TypePath(
                                                     Id {
-                                                        value: 80,
+                                                        value: 82,
                                                     },
                                                 ),
                                             ),
@@ -1836,7 +1836,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 80,
+                                            value: 82,
                                         },
                                     ),
                                 ),
@@ -1857,7 +1857,7 @@
                                 TypeOntology(
                                     TypePath(
                                         Id {
-                                            value: 80,
+                                            value: 82,
                                         },
                                     ),
                                 ),
@@ -1936,7 +1936,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 66,
+                                            value: 71,
                                         },
                                     ),
                                 ),
@@ -1989,7 +1989,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 52,
+                                                    value: 53,
                                                 },
                                             ),
                                         ),
@@ -2033,7 +2033,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 80,
+                                                value: 82,
                                             },
                                         ),
                                     ),
@@ -2044,12 +2044,12 @@
                                             TypePathMismatch {
                                                 expected_path: TypePath(
                                                     Id {
-                                                        value: 67,
+                                                        value: 68,
                                                     },
                                                 ),
                                                 expectee_path: TypePath(
                                                     Id {
-                                                        value: 80,
+                                                        value: 82,
                                                     },
                                                 ),
                                             },
@@ -2081,7 +2081,7 @@
                                     TypeOntology(
                                         TypePath(
                                             Id {
-                                                value: 80,
+                                                value: 82,
                                             },
                                         ),
                                     ),
@@ -2092,12 +2092,12 @@
                                             TypePathMismatch {
                                                 expected_path: TypePath(
                                                     Id {
-                                                        value: 67,
+                                                        value: 68,
                                                     },
                                                 ),
                                                 expectee_path: TypePath(
                                                     Id {
-                                                        value: 80,
+                                                        value: 82,
                                                     },
                                                 ),
                                             },
@@ -2262,7 +2262,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 85,
+                                        value: 72,
                                     },
                                 ),
                             ),
@@ -2274,27 +2274,62 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 92,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 45,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    1,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                BlockTypeError,
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
                             ),
                         ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    2,
+                ),
             },
         ],
         extra_expr_errors: [],
@@ -2343,11 +2378,103 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 85,
+                                            value: 72,
                                         },
                                     ),
                                 ),
                                 resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 1,
+                                src: ExpectationSource {
+                                    expr_idx: 1,
+                                    kind: Expr,
+                                },
+                                expectee: Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 45,
+                                        },
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Err(
+                                        Original(
+                                            TypePathMismatch {
+                                                expected_path: TypePath(
+                                                    Id {
+                                                        value: 68,
+                                                    },
+                                                ),
+                                                expectee_path: TypePath(
+                                                    Id {
+                                                        value: 69,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 46,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 2,
+                                src: ExpectationSource {
+                                    expr_idx: 2,
+                                    kind: Expr,
+                                },
+                                expectee: Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 45,
+                                        },
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Err(
+                                        Original(
+                                            TypePathMismatch {
+                                                expected_path: TypePath(
+                                                    Id {
+                                                        value: 68,
+                                                    },
+                                                ),
+                                                expectee_path: TypePath(
+                                                    Id {
+                                                        value: 69,
+                                                    },
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                     ],
@@ -2355,7 +2482,9 @@
                 first_unresolved_expectation: 0,
             },
         },
-        return_ty: None,
+        return_ty: Some(
+            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(core::list::List) TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+        ),
         self_ty: None,
     },
 ]

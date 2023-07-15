@@ -158,9 +158,11 @@ impl<'a> ExprTypeEngine<'a> {
                     }
                     FinalDestination::AnyOriginal => todo!(),
                     FinalDestination::AnyDerived => todo!(),
+                    FinalDestination::Ritchie(_) => todo!(),
                 },
                 FinalDestination::AnyOriginal => todo!(),
                 FinalDestination::AnyDerived => todo!(),
+                FinalDestination::Ritchie(_) => todo!(),
             },
             Unveiler::Nothing => todo!(),
             Unveiler::ErrUnableToInferReturnTypeForUnveiling
