@@ -86,6 +86,8 @@ pub enum OriginalExprTypeError {
     CannotUnveil,
     #[error("cannot unwrap")]
     CannotUnwrap,
+    #[error("unexpected argument")]
+    UnexpectedArgument,
 }
 
 impl IntoError for OriginalExprTypeError {

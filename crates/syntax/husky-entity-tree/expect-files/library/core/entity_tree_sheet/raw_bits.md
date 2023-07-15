@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `r32`,
                                 token_idx: TokenIdx(
@@ -58,7 +58,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 2,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `r32`,
                                 token_idx: TokenIdx(
@@ -70,7 +70,42 @@ Ok(
                 },
             ],
         ),
-        impl_block_node_table: [],
+        impl_block_node_table: [
+            (
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `core::raw_bits`,
+                            ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                ImplBlockNode::TypeImplBlock(
+                    TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `core::raw_bits`,
+                                ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 4,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                24,
+                            ),
+                        },
+                        ty_expr: 45,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                0..1,
+                            ),
+                        },
+                    },
+                ),
+            ),
+        ],
         once_use_rules: OnceUseRules(
             [],
         ),

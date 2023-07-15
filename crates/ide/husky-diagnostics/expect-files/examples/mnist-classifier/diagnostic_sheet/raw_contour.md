@@ -25,12 +25,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `last_bits` for type `FluffyTerm::EntityPath(TermEntityPath::TypeOntology(TypePath(`core::raw_bits::r32`, `Extern`)))`",
-                severity: Error,
-                range: [102:74, 102:83),
-            },
-        ],
+        diagnostics: [],
     },
 }

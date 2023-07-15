@@ -89,7 +89,7 @@ mod matcher {
                 self.match_step(*ritchie_parameter)?
             }
             match self.ritchie_call_items.next() {
-                Some(_) => todo!("unexpected"),
+                Some(_) => Err(OriginalExprTypeError::UnexpectedArgument)?,
                 None => Ok(self.ritchie_matches),
             }
         }
