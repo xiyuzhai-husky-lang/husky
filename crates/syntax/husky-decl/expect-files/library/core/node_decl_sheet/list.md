@@ -1233,7 +1233,7 @@ Ok(
                                 return_ty: Ok(
                                     Some(
                                         ReturnTypeExprBeforeColon {
-                                            expr: 0,
+                                            expr: 2,
                                         },
                                     ),
                                 ),
@@ -1241,7 +1241,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                42,
+                                                43,
                                             ),
                                         },
                                     ),
@@ -1405,10 +1405,20 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 0,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::option::Option`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
                                                 Expr::InheritedSymbol {
                                                     ident: `E`,
                                                     token_idx: TokenIdx(
-                                                        41,
+                                                        42,
                                                     ),
                                                     inherited_symbol_idx: 0,
                                                     inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -1417,10 +1427,30 @@ Ok(
                                                         },
                                                     ),
                                                 },
+                                                Expr::ExplicitApplication {
+                                                    function_expr_idx: 0,
+                                                    argument_expr_idx: 1,
+                                                },
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `Option`,
+                                                            token_idx: TokenIdx(
+                                                                41,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::option::Option`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         stmt_arena: Arena {
                                             data: [],
@@ -1467,7 +1497,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 0,
+                                                expr_idx: 2,
                                             },
                                         ],
                                     },
@@ -1543,7 +1573,7 @@ Ok(
                                     SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                46,
+                                                47,
                                             ),
                                         ),
                                         self_parameter: None,
@@ -1552,7 +1582,7 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                47,
+                                                48,
                                             ),
                                         ),
                                     },
@@ -1561,7 +1591,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                48,
+                                                49,
                                             ),
                                         ),
                                     ),
@@ -1569,7 +1599,7 @@ Ok(
                                 return_ty: Ok(
                                     Some(
                                         ReturnTypeExprBeforeColon {
-                                            expr: 0,
+                                            expr: 2,
                                         },
                                     ),
                                 ),
@@ -1577,7 +1607,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                50,
+                                                52,
                                             ),
                                         },
                                     ),
@@ -1741,10 +1771,20 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 0,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::option::Option`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
                                                 Expr::InheritedSymbol {
                                                     ident: `E`,
                                                     token_idx: TokenIdx(
-                                                        49,
+                                                        51,
                                                     ),
                                                     inherited_symbol_idx: 0,
                                                     inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -1753,10 +1793,30 @@ Ok(
                                                         },
                                                     ),
                                                 },
+                                                Expr::ExplicitApplication {
+                                                    function_expr_idx: 0,
+                                                    argument_expr_idx: 1,
+                                                },
                                             ],
                                         },
                                         principal_entity_path_expr_arena: Arena {
-                                            data: [],
+                                            data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `Option`,
+                                                            token_idx: TokenIdx(
+                                                                50,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::option::Option`, `Enum`),
+                                                        ),
+                                                    ),
+                                                },
+                                            ],
                                         },
                                         stmt_arena: Arena {
                                             data: [],
@@ -1803,7 +1863,7 @@ Ok(
                                         roots: [
                                             ExprRoot {
                                                 kind: ReturnType,
-                                                expr_idx: 0,
+                                                expr_idx: 2,
                                             },
                                         ],
                                     },
@@ -1879,19 +1939,19 @@ Ok(
                                     SelfParameterAndExplicitParameters {
                                         lpar: LeftParenthesisToken(
                                             TokenIdx(
-                                                54,
+                                                56,
                                             ),
                                         ),
                                         self_parameter: Some(
                                             SelfParameterDeclPattern::Mut {
                                                 mut_token: MutToken {
                                                     token_idx: TokenIdx(
-                                                        55,
+                                                        57,
                                                     ),
                                                 },
                                                 self_value_token: SelfValueToken {
                                                     token_idx: TokenIdx(
-                                                        56,
+                                                        58,
                                                     ),
                                                 },
                                             },
@@ -1901,7 +1961,7 @@ Ok(
                                         commas: [],
                                         rpar: RightParenthesisToken(
                                             TokenIdx(
-                                                57,
+                                                59,
                                             ),
                                         ),
                                     },
@@ -1910,7 +1970,7 @@ Ok(
                                     Some(
                                         CurryToken(
                                             TokenIdx(
-                                                58,
+                                                60,
                                             ),
                                         ),
                                     ),
@@ -1926,7 +1986,7 @@ Ok(
                                     EolToken::Semicolon(
                                         EolSemicolonToken {
                                             token_idx: TokenIdx(
-                                                61,
+                                                63,
                                             ),
                                         },
                                     ),
@@ -2103,7 +2163,7 @@ Ok(
                                                 Expr::InheritedSymbol {
                                                     ident: `E`,
                                                     token_idx: TokenIdx(
-                                                        60,
+                                                        62,
                                                     ),
                                                     inherited_symbol_idx: 0,
                                                     inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -2125,7 +2185,7 @@ Ok(
                                                         IdentToken {
                                                             ident: `Option`,
                                                             token_idx: TokenIdx(
-                                                                59,
+                                                                61,
                                                             ),
                                                         },
                                                     ),

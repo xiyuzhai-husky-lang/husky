@@ -196,6 +196,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::option::Option`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -236,6 +243,13 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::option::Option`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(

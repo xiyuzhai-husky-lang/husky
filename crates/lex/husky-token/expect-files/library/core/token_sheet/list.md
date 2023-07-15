@@ -191,6 +191,9 @@ Ok(
                 ),
             ),
             Token::Ident(
+                `Option`,
+            ),
+            Token::Ident(
                 `E`,
             ),
             Token::Punctuation(
@@ -229,6 +232,9 @@ Ok(
                         Curry,
                     ),
                 ),
+            ),
+            Token::Ident(
+                `Option`,
             ),
             Token::Ident(
                 `E`,
@@ -298,8 +304,8 @@ Ok(
             15,
             23,
             35,
-            43,
-            51,
+            44,
+            53,
         ],
         indents: [
             0,

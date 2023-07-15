@@ -1589,7 +1589,7 @@ Ok(
                             explicit_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
-                                    expr: 0,
+                                    expr: 2,
                                 },
                             ),
                             expr_region: ExprRegion {
@@ -1751,10 +1751,20 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
+                                            Expr::PrincipalEntityPath {
+                                                entity_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::option::Option`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                             Expr::InheritedSymbol {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(
-                                                    41,
+                                                    42,
                                                 ),
                                                 inherited_symbol_idx: 0,
                                                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -1763,10 +1773,30 @@ Ok(
                                                     },
                                                 ),
                                             },
+                                            Expr::ExplicitApplication {
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
+                                            },
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
-                                        data: [],
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `Option`,
+                                                        token_idx: TokenIdx(
+                                                            41,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::option::Option`, `Enum`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
                                     },
                                     stmt_arena: Arena {
                                         data: [],
@@ -1813,7 +1843,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 0,
+                                            expr_idx: 2,
                                         },
                                     ],
                                 },
@@ -1982,10 +2012,20 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
+                                                    Expr::PrincipalEntityPath {
+                                                        entity_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::option::Option`, `Enum`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
                                                     Expr::InheritedSymbol {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            41,
+                                                            42,
                                                         ),
                                                         inherited_symbol_idx: 0,
                                                         inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -1994,10 +2034,30 @@ Ok(
                                                             },
                                                         ),
                                                     },
+                                                    Expr::ExplicitApplication {
+                                                        function_expr_idx: 0,
+                                                        argument_expr_idx: 1,
+                                                    },
                                                 ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Option`,
+                                                                token_idx: TokenIdx(
+                                                                    41,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::option::Option`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                             },
                                             stmt_arena: Arena {
                                                 data: [],
@@ -2044,7 +2104,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 0,
+                                                    expr_idx: 2,
                                                 },
                                             ],
                                         },
@@ -2153,7 +2213,7 @@ Ok(
                             explicit_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
-                                    expr: 0,
+                                    expr: 2,
                                 },
                             ),
                             expr_region: ExprRegion {
@@ -2315,10 +2375,20 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
+                                            Expr::PrincipalEntityPath {
+                                                entity_path_expr: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::option::Option`, `Enum`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                             Expr::InheritedSymbol {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(
-                                                    49,
+                                                    51,
                                                 ),
                                                 inherited_symbol_idx: 0,
                                                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -2327,10 +2397,30 @@ Ok(
                                                     },
                                                 ),
                                             },
+                                            Expr::ExplicitApplication {
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
+                                            },
                                         ],
                                     },
                                     principal_entity_path_expr_arena: Arena {
-                                        data: [],
+                                        data: [
+                                            PrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameToken::Ident(
+                                                    IdentToken {
+                                                        ident: `Option`,
+                                                        token_idx: TokenIdx(
+                                                            50,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                    ModuleItemPath::Type(
+                                                        TypePath(`core::option::Option`, `Enum`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
                                     },
                                     stmt_arena: Arena {
                                         data: [],
@@ -2377,7 +2467,7 @@ Ok(
                                     roots: [
                                         ExprRoot {
                                             kind: ReturnType,
-                                            expr_idx: 0,
+                                            expr_idx: 2,
                                         },
                                     ],
                                 },
@@ -2546,10 +2636,20 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
+                                                    Expr::PrincipalEntityPath {
+                                                        entity_path_expr: 0,
+                                                        opt_path: Some(
+                                                            PrincipalEntityPath::ModuleItem(
+                                                                ModuleItemPath::Type(
+                                                                    TypePath(`core::option::Option`, `Enum`),
+                                                                ),
+                                                            ),
+                                                        ),
+                                                    },
                                                     Expr::InheritedSymbol {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            49,
+                                                            51,
                                                         ),
                                                         inherited_symbol_idx: 0,
                                                         inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -2558,10 +2658,30 @@ Ok(
                                                             },
                                                         ),
                                                     },
+                                                    Expr::ExplicitApplication {
+                                                        function_expr_idx: 0,
+                                                        argument_expr_idx: 1,
+                                                    },
                                                 ],
                                             },
                                             principal_entity_path_expr_arena: Arena {
-                                                data: [],
+                                                data: [
+                                                    PrincipalEntityPathExpr::Root {
+                                                        path_name_token: PathNameToken::Ident(
+                                                            IdentToken {
+                                                                ident: `Option`,
+                                                                token_idx: TokenIdx(
+                                                                    50,
+                                                                ),
+                                                            },
+                                                        ),
+                                                        principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::option::Option`, `Enum`),
+                                                            ),
+                                                        ),
+                                                    },
+                                                ],
                                             },
                                             stmt_arena: Arena {
                                                 data: [],
@@ -2608,7 +2728,7 @@ Ok(
                                             roots: [
                                                 ExprRoot {
                                                     kind: ReturnType,
-                                                    expr_idx: 0,
+                                                    expr_idx: 2,
                                                 },
                                             ],
                                         },
@@ -2717,12 +2837,12 @@ Ok(
                                 SelfParameterDeclPattern::Mut {
                                     mut_token: MutToken {
                                         token_idx: TokenIdx(
-                                            55,
+                                            57,
                                         ),
                                     },
                                     self_value_token: SelfValueToken {
                                         token_idx: TokenIdx(
-                                            56,
+                                            58,
                                         ),
                                     },
                                 },
@@ -2905,7 +3025,7 @@ Ok(
                                             Expr::InheritedSymbol {
                                                 ident: `E`,
                                                 token_idx: TokenIdx(
-                                                    60,
+                                                    62,
                                                 ),
                                                 inherited_symbol_idx: 0,
                                                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -2927,7 +3047,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Option`,
                                                         token_idx: TokenIdx(
-                                                            59,
+                                                            61,
                                                         ),
                                                     },
                                                 ),
@@ -3166,7 +3286,7 @@ Ok(
                                                     Expr::InheritedSymbol {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(
-                                                            60,
+                                                            62,
                                                         ),
                                                         inherited_symbol_idx: 0,
                                                         inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
@@ -3188,7 +3308,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `Option`,
                                                                 token_idx: TokenIdx(
-                                                                    59,
+                                                                    61,
                                                                 ),
                                                             },
                                                         ),
