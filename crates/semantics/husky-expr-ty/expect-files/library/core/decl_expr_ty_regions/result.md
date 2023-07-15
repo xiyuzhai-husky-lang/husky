@@ -970,7 +970,27 @@
                 ),
             ),
         ),
-        expr_ty_infos: [],
+        expr_ty_infos: [
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+        ],
         extra_expr_errors: [],
         expr_fluffy_terms: [],
         symbol_tys: SymbolMap {
@@ -1085,7 +1105,40 @@
             },
             expectations: Expectations {
                 arena: Arena {
-                    data: [],
+                    data: [
+                        ExpectationEntry {
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: Category(
+                                    TermCategory {
+                                        universe: TermUniverse(
+                                            1,
+                                        ),
+                                    },
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        EqsSort(
+                                            TermUniverse(
+                                                1,
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
                 },
                 first_unresolved_expectation: 0,
             },

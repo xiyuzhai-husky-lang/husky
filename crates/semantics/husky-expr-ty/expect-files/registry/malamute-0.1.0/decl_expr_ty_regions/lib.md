@@ -1922,4 +1922,183 @@
         return_ty: None,
         self_ty: None,
     },
+    ExprTypeRegion {
+        path: RegionPath::Decl(
+            EntityNodePath::AssociatedItem(
+                AssociatedItemNodePath::TraitForTypeItem(
+                    TraitForTypeItemNodePath {
+                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                            path: TraitForTypeItemPath {
+                                impl_block: TraitForTypeImplBlockPath {
+                                    module_path: `malamute`,
+                                    trai_path: TraitPath(`core::ops::Unveil`),
+                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                    disambiguator: 0,
+                                },
+                                ident: `Output`,
+                                item_kind: AssociatedType,
+                            },
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+            ),
+        ),
+        expr_ty_infos: [
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 37,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    0,
+                ),
+            },
+        ],
+        extra_expr_errors: [],
+        expr_fluffy_terms: [],
+        symbol_tys: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        SymbolType(
+                            Category(
+                                TermCategory {
+                                    universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        SymbolType(
+                            Solid(
+                                SolidTerm(
+                                    0,
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        symbol_terms: SymbolMap {
+            inherited_symbol_map: ArenaMap {
+                data: [
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
+                        ),
+                    ),
+                    Some(
+                        Symbol(
+                            EtherealTermSymbol(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
+                        ),
+                    ),
+                ],
+            },
+            current_symbol_map: ArenaMap {
+                data: [],
+            },
+        },
+        fluffy_term_region: FluffyTermRegion {
+            terms: FluffyTerms {
+                solid_terms: SolidTerms {
+                    entries: VecSet {
+                        data: [
+                            SymbolAtPlace {
+                                term: EtherealTermSymbol(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                                place: Const,
+                            },
+                        ],
+                    },
+                },
+                hollow_terms: HollowTerms {
+                    entries: [],
+                    first_unresolved_term_idx: 0,
+                },
+            },
+            expectations: Expectations {
+                arena: Arena {
+                    data: [
+                        ExpectationEntry {
+                            expectation: EqsSort(
+                                ExpectEqsCategory {
+                                    smallest_universe: TermUniverse(
+                                        1,
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 0,
+                                src: ExpectationSource {
+                                    expr_idx: 0,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Err(
+                                        Original(
+                                            ExpectedCategory {
+                                                expectee: EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 37,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                    ],
+                },
+                first_unresolved_expectation: 0,
+            },
+        },
+        return_ty: None,
+        self_ty: Some(
+            EtherealTerm(`TypeOntology(malamute::OneVsAll) t a`),
+        ),
+    },
 ]

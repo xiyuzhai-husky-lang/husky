@@ -366,7 +366,12 @@ impl<'a> InferContext<'a> {
             Expr::Unit {
                 lpar_token_idx,
                 rpar_token_idx,
-            } => todo!(),
+            } => {
+                self.sheet
+                    .add(*lpar_token_idx, TokenInfo::UnitLeftParenthesis);
+                self.sheet
+                    .add(*rpar_token_idx, TokenInfo::UnitRightParenthesis);
+            }
             Expr::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,

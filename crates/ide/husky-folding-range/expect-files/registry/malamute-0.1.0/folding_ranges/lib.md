@@ -26,5 +26,18 @@ Ok(
                 Region,
             ),
         },
+        FoldingRange {
+            start_line: 9,
+            start_character: Some(
+                0,
+            ),
+            end_line: 10,
+            end_character: Some(
+                20,
+            ),
+            kind: Some(
+                Region,
+            ),
+        },
     ],
 )

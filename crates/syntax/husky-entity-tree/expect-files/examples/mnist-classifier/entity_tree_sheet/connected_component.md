@@ -685,7 +685,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 5,
+                                            ast_idx: 6,
                                             ident_token: IdentToken {
                                                 ident: `OneVsAll`,
                                                 token_idx: TokenIdx(
@@ -742,7 +742,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 6,
+                                            ast_idx: 7,
                                             ident_token: IdentToken {
                                                 ident: `OneVsAllResult`,
                                                 token_idx: TokenIdx(
@@ -799,11 +799,11 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 8,
+                                            ast_idx: 9,
                                             ident_token: IdentToken {
                                                 ident: `narrow_down`,
                                                 token_idx: TokenIdx(
-                                                    56,
+                                                    61,
                                                 ),
                                             },
                                         },

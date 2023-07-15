@@ -3872,7 +3872,7 @@
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
                                 constraints: [
-                                    ImplicitlyConvertibleFrom {
+                                    CoercibleFrom {
                                         target: Hollow(
                                             HollowTerm(
                                                 0,
@@ -6417,7 +6417,7 @@
                                 hole_kind: ImplicitType,
                                 fill: None,
                                 constraints: [
-                                    ImplicitlyConvertibleFrom {
+                                    CoercibleFrom {
                                         target: Solid(
                                             SolidTerm(
                                                 0,

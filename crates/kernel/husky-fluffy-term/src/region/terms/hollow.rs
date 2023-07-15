@@ -109,12 +109,14 @@ impl HollowTerms {
             | HollowTermResolveProgressBuf::ResolvedSolid(_) => return,
             _ => (),
         }
+        let mut merger = FluffyTermDataKindMerger::new(self);
         match self.entries[idx].data {
             HollowTermData::TypeOntology {
                 path,
                 refined_path,
                 ref arguments,
             } => {
+                // todo: use merger
                 let mut solid_flag = false;
                 for argument in arguments {
                     match argument.resolve_progress(self) {
@@ -150,7 +152,19 @@ impl HollowTerms {
                 parameter_variable,
                 parameter_ty,
                 return_ty,
-            } => todo!(),
+            } => {
+                if let Some(parameter_variable) = parameter_variable {
+                    merger.accept_one(parameter_variable);
+                }
+                merger.accept_one(parameter_ty);
+                merger.accept_one(return_ty);
+                match merger.data_kind() {
+                    FluffyTermDataKind::Err => todo!(),
+                    FluffyTermDataKind::Ethereal => todo!(),
+                    FluffyTermDataKind::Solid => todo!(),
+                    FluffyTermDataKind::Hollow => return,
+                }
+            }
             HollowTermData::Hole { fill, .. } => match fill {
                 Some(fill) => match fill.resolve_progress(self) {
                     TermResolveProgress::UnresolvedHollow => return,

@@ -37,6 +37,8 @@ pub enum TokenInfo {
     HtmlFunctionIdent,
     HtmlPropertyIdent,
     SubmoduleIdent,
+    UnitLeftParenthesis,
+    UnitRightParenthesis,
 }
 
 /// the purpose is to avoid extra debug with db in expr region

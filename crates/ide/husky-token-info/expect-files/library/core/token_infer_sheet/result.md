@@ -243,7 +243,15 @@ Ok(
                 },
             ),
             TokenInfo::None,
-            TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 3,
+                inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
+                    InheritedImplicitParameterSymbol::Type {
+                        ident: `E2`,
+                    },
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
             TokenInfo::None,
             TokenInfo::EntityNode(
                 EntityNodePath::AssociatedItem(

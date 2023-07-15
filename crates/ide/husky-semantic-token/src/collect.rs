@@ -77,6 +77,12 @@ fn token_to_semantic_token(
         TokenInfo::HtmlFunctionIdent => SemanticToken::HtmlFunctionIdent,
         TokenInfo::HtmlPropertyIdent => SemanticToken::HtmlPropertyIdent,
         TokenInfo::SubmoduleIdent => SemanticToken::SubmoduleIdent,
+        TokenInfo::UnitLeftParenthesis | TokenInfo::UnitRightParenthesis => {
+            SemanticToken::Entity(EntityKind::ModuleItem {
+                module_item_kind: ModuleItemKind::Type(TypeKind::Extern),
+                connection: ModuleItemConnectionKind::Connected,
+            })
+        }
     };
     Some(RangedSemanticToken {
         semantic_token,

@@ -446,7 +446,7 @@
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
                                 constraints: [
-                                    ImplicitlyConvertibleFrom {
+                                    CoercibleFrom {
                                         target: Solid(
                                             SolidTerm(
                                                 1,
@@ -465,7 +465,7 @@
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
                                 constraints: [
-                                    ImplicitlyConvertibleFrom {
+                                    CoercibleFrom {
                                         target: Solid(
                                             SolidTerm(
                                                 0,
@@ -5166,7 +5166,7 @@
                                 hole_kind: UnspecifiedFloatType,
                                 fill: None,
                                 constraints: [
-                                    ImplicitlyConvertibleTo {
+                                    CoercibleTo {
                                         target: Hollow(
                                             HollowTerm(
                                                 3,
@@ -6815,7 +6815,7 @@
                                 hole_kind: UnspecifiedFloatType,
                                 fill: None,
                                 constraints: [
-                                    ImplicitlyConvertibleTo {
+                                    CoercibleTo {
                                         target: Hollow(
                                             HollowTerm(
                                                 5,
