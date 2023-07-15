@@ -11,3 +11,5 @@ pub enum MnistLabel
 | Nine
 
 pub struct BinaryImage28([30]r32)
+
+pub val input: BinaryImage28;

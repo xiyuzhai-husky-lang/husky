@@ -7,4 +7,6 @@ impl<E> List E:
 
     pub fn first() -> E;
 
-    pub fn first() -> E;
+    pub fn last() -> E;
+
+    pub fn pop(mut self) -> Option E;
