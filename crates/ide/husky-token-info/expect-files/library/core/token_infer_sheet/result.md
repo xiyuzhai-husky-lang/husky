@@ -3,6 +3,43 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 1,
+                rule_idx: OnceUseRuleIdx(
+                    0,
+                ),
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::ModuleItem {
+                            module_item_path: ModuleItemPath::Type(
+                                TypePath(`core::result::Result`, `Enum`),
+                            ),
+                            node: ModuleItemNode {
+                                node_path: ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::result::Result`, `Enum`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 6,
+                                ident_token: IdentToken {
+                                    ident: `Result`,
+                                    token_idx: TokenIdx(
+                                        7,
+                                    ),
+                                },
+                            },
+                        },
+                    ),
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExprStar,
+            TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::EntityNode(
                 EntityNodePath::ModuleItem(
                     ModuleItemNodePath::Type(
@@ -29,7 +66,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T`,
                             token_idx: TokenIdx(
-                                4,
+                                9,
                             ),
                         },
                     },
@@ -44,7 +81,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
-                                6,
+                                11,
                             ),
                         },
                     },
@@ -71,7 +108,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T1`,
                             token_idx: TokenIdx(
-                                20,
+                                25,
                             ),
                         },
                     },
@@ -86,7 +123,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T2`,
                             token_idx: TokenIdx(
-                                22,
+                                27,
                             ),
                         },
                     },
@@ -101,7 +138,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E1`,
                             token_idx: TokenIdx(
-                                24,
+                                29,
                             ),
                         },
                     },
@@ -116,7 +153,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E2`,
                             token_idx: TokenIdx(
-                                26,
+                                31,
                             ),
                         },
                     },
@@ -157,7 +194,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T2`,
                             token_idx: TokenIdx(
-                                22,
+                                27,
                             ),
                         },
                     },
@@ -171,7 +208,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E2`,
                             token_idx: TokenIdx(
-                                26,
+                                31,
                             ),
                         },
                     },
@@ -193,7 +230,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `T1`,
                             token_idx: TokenIdx(
-                                20,
+                                25,
                             ),
                         },
                     },
@@ -207,7 +244,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `E1`,
                             token_idx: TokenIdx(
-                                24,
+                                29,
                             ),
                         },
                     },

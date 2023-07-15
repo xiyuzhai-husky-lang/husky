@@ -1,4 +1,4 @@
-// pub use Result::*
+pub use Result::*
 
 pub enum Result<T, E>
 | Ok(T)

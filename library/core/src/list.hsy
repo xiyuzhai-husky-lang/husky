@@ -5,8 +5,8 @@ impl<E> List E:
 
     pub fn push(mut self, e: E);
 
-    pub fn first() -> E;
+    pub fn first() -> Option E;
 
-    pub fn last() -> E;
+    pub fn last() -> Option E;
 
     pub fn pop(mut self) -> Option E;

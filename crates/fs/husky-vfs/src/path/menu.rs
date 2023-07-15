@@ -24,6 +24,7 @@ pub struct VfsPathMenu {
     core_option: ModulePath,
     core_prelude: ModulePath,
     core_raw_bits: ModulePath,
+    core_result: ModulePath,
     core_visual: ModulePath,
 }
 
@@ -57,6 +58,7 @@ impl VfsPathMenu {
             ModulePath::new_child(db, core, db.it_ident_borrowed("prelude").unwrap());
         let core_raw_bits =
             ModulePath::new_child(db, core, db.it_ident_borrowed("raw_bits").unwrap());
+        let core_result = ModulePath::new_child(db, core, db.it_ident_borrowed("result").unwrap());
         let core_slice = ModulePath::new_child(db, core, db.it_ident_borrowed("slice").unwrap());
         let core_str = ModulePath::new_child(db, core, db.it_ident_borrowed("str").unwrap());
         let core_visual = ModulePath::new_child(db, core, db.it_ident_borrowed("visual").unwrap());
@@ -78,6 +80,7 @@ impl VfsPathMenu {
             core_option,
             core_prelude,
             core_raw_bits,
+            core_result,
             core_slice,
             core_str,
             core_list,
@@ -135,6 +138,10 @@ impl VfsPathMenu {
     /// core::raw_bits
     pub fn core_raw_bits(&self) -> ModulePath {
         self.core_raw_bits
+    }
+
+    pub fn core_result(&self) -> ModulePath {
+        self.core_result
     }
 
     /// core::list

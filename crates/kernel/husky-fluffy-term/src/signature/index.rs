@@ -85,6 +85,8 @@ fn list_index_signature(
                 PreludeTypePath::Slice => todo!(),
                 PreludeTypePath::StringLiteral => todo!(),
                 PreludeTypePath::Str => todo!(),
+                PreludeTypePath::Option => todo!(),
+                PreludeTypePath::Result => todo!(),
             },
             Right(_) => todo!(),
         },

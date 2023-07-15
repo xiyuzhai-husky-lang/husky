@@ -101,7 +101,7 @@
                             TypeOntologyAtPlace {
                                 path: TypePath(
                                     Id {
-                                        value: 51,
+                                        value: 52,
                                     },
                                 ),
                                 refined_path: Left(
@@ -117,7 +117,7 @@
                                         TypeOntology(
                                             TypePath(
                                                 Id {
-                                                    value: 51,
+                                                    value: 52,
                                                 },
                                             ),
                                         ),

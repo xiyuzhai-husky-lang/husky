@@ -4,37 +4,11 @@ Ok(
             data: [
                 Ast::TypeVariant {
                     token_group_idx: TokenGroupIdx(
-                        1,
-                    ),
-                    variant_path: TypeVariantPath {
-                        parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                        ident: `Ok`,
-                    },
-                    vertical_token: VerticalToken(
-                        TokenIdx(
-                            8,
-                        ),
-                    ),
-                    ident_token: IdentToken {
-                        ident: `Ok`,
-                        token_idx: TokenIdx(
-                            9,
-                        ),
-                    },
-                    state_after: TokenStreamState {
-                        next_token_idx: TokenIdx(
-                            10,
-                        ),
-                        drained: false,
-                    },
-                },
-                Ast::TypeVariant {
-                    token_group_idx: TokenGroupIdx(
                         2,
                     ),
                     variant_path: TypeVariantPath {
                         parent_ty_path: TypePath(`core::result::Result`, `Enum`),
-                        ident: `Err`,
+                        ident: `Ok`,
                     },
                     vertical_token: VerticalToken(
                         TokenIdx(
@@ -42,7 +16,7 @@ Ok(
                         ),
                     ),
                     ident_token: IdentToken {
-                        ident: `Err`,
+                        ident: `Ok`,
                         token_idx: TokenIdx(
                             14,
                         ),
@@ -54,15 +28,41 @@ Ok(
                         drained: false,
                     },
                 },
+                Ast::TypeVariant {
+                    token_group_idx: TokenGroupIdx(
+                        3,
+                    ),
+                    variant_path: TypeVariantPath {
+                        parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                        ident: `Err`,
+                    },
+                    vertical_token: VerticalToken(
+                        TokenIdx(
+                            18,
+                        ),
+                    ),
+                    ident_token: IdentToken {
+                        ident: `Err`,
+                        token_idx: TokenIdx(
+                            19,
+                        ),
+                    },
+                    state_after: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            20,
+                        ),
+                        drained: false,
+                    },
+                },
                 Ast::BasicStmtOrBranch {
                     token_group_idx: TokenGroupIdx(
-                        6,
+                        7,
                     ),
                     body: None,
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        4,
+                        5,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -82,13 +82,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Continue`,
                         token_idx: TokenIdx(
-                            42,
+                            47,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            43,
+                            48,
                         ),
                         drained: false,
                     },
@@ -98,7 +98,7 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        5,
+                        6,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: PubUnder(
@@ -118,13 +118,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `branch`,
                         token_idx: TokenIdx(
-                            46,
+                            51,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            47,
+                            52,
                         ),
                         drained: false,
                     },
@@ -138,7 +138,7 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Use {
                     token_group_idx: TokenGroupIdx(
                         0,
                     ),
@@ -152,6 +152,29 @@ Ok(
                             },
                         },
                     },
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                1,
+                            ),
+                            drained: false,
+                        },
+                    ),
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        1,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    5,
+                                ),
+                            },
+                        },
+                    },
                     entity_kind: ModuleItem {
                         module_item_kind: Type(
                             Enum,
@@ -161,13 +184,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `Result`,
                         token_idx: TokenIdx(
-                            2,
+                            7,
                         ),
                     },
                     is_generic: true,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            3,
+                            8,
                         ),
                         drained: false,
                     },
@@ -188,7 +211,7 @@ Ok(
                 },
                 Ast::ImplBlock {
                     token_group_idx: TokenGroupIdx(
-                        3,
+                        4,
                     ),
                     items: Some(
                         TraitForType(
@@ -203,7 +226,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            5..7,
+            5..8,
         ),
         siblings: [
             ArenaIdxRange(
@@ -219,7 +242,7 @@ Ok(
                 3..5,
             ),
             ArenaIdxRange(
-                5..7,
+                5..8,
             ),
         ],
     },
