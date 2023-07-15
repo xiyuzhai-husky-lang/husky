@@ -19,4 +19,14 @@
             DeclarativeTerm(`Type`),
         ),
     ),
+    (
+        EntityPath::ModuleItem(
+            ModuleItemPath::Fugitive(
+                FugitivePath(`mnist::input`, `Val`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`{val_type} mnist::BinaryImage28`),
+        ),
+    ),
 ]

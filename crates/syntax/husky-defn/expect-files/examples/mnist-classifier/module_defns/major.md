@@ -243,16 +243,16 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Expr::Err(
-                                            ExprError::Original(
-                                                OriginalExprError::UnrecognizedIdent {
-                                                    token_idx: TokenIdx(
-                                                        14,
+                                        Expr::PrincipalEntityPath {
+                                            entity_path_expr: 1,
+                                            opt_path: Some(
+                                                PrincipalEntityPath::ModuleItem(
+                                                    ModuleItemPath::Fugitive(
+                                                        FugitivePath(`mnist::input`, `Val`),
                                                     ),
-                                                    ident: `input`,
-                                                },
+                                                ),
                                             ),
-                                        ),
+                                        },
                                         Expr::FunctionApplicationOrCall {
                                             function: 0,
                                             implicit_arguments: None,
@@ -290,6 +290,21 @@ Ok(
                                             principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Fugitive(
                                                     FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
+                                                ),
+                                            ),
+                                        },
+                                        PrincipalEntityPathExpr::Root {
+                                            path_name_token: PathNameToken::Ident(
+                                                IdentToken {
+                                                    ident: `input`,
+                                                    token_idx: TokenIdx(
+                                                        14,
+                                                    ),
+                                                },
+                                            ),
+                                            principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                ModuleItemPath::Fugitive(
+                                                    FugitivePath(`mnist::input`, `Val`),
                                                 ),
                                             ),
                                         },

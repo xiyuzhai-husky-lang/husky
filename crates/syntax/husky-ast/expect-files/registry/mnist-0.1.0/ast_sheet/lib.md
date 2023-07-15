@@ -352,14 +352,59 @@ Ok(
                         variants: None,
                     },
                 },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        12,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    32,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: ModuleItem {
+                        module_item_kind: Fugitive(
+                            Val,
+                        ),
+                        connection: Connected,
+                    },
+                    ident_token: IdentToken {
+                        ident: `input`,
+                        token_idx: TokenIdx(
+                            34,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            35,
+                        ),
+                        drained: false,
+                    },
+                    block: Fugitive {
+                        path: FugitivePath(
+                            Id {
+                                value: 79,
+                            },
+                        ),
+                        body: None,
+                    },
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            10..12,
+            10..13,
         ),
         siblings: [
             ArenaIdxRange(
-                10..12,
+                10..10,
+            ),
+            ArenaIdxRange(
+                10..13,
             ),
         ],
     },
