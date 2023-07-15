@@ -339,9 +339,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
-            TokenInfo::BoxPrefix,
             TokenInfo::None,
-            TokenInfo::BoxPrefix,
             TokenInfo::Entity(
                 EntityPath::ModuleItem(
                     ModuleItemPath::Type(

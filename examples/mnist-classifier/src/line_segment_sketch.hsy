@@ -12,7 +12,7 @@ use crate::raw_contour::RawContour
 use line_segment::*
 
 pub struct LineSegmentStroke {
-    points: [%]Point2d,
+    points: CyclicSliceLeashed Point2d,
     start: Point2d := self.points.first()!.clone(),
     end: Point2d := self.points.last()!.clone(),
 }

@@ -40,7 +40,7 @@ Ok(
                                             15,
                                         ),
                                     ),
-                                    ty_expr_idx: 7,
+                                    ty_expr_idx: 4,
                                     initialization: None,
                                 },
                             ],
@@ -80,46 +80,14 @@ Ok(
                                             },
                                             Expr::Err(
                                                 ExprError::Original(
-                                                    OriginalExprError::NoLeftOperandForBinaryOperator {
-                                                        binary_token_idx: TokenIdx(
-                                                            18,
+                                                    OriginalExprError::UnrecognizedIdent {
+                                                        token_idx: TokenIdx(
+                                                            16,
                                                         ),
+                                                        ident: `CyclicSliceLeashed`,
                                                     },
                                                 ),
                                             ),
-                                            Expr::Err(
-                                                ExprError::Original(
-                                                    OriginalExprError::NoRightOperandForBinaryOperator {
-                                                        punctuation: Closed(
-                                                            RemEuclid,
-                                                        ),
-                                                        punctuation_token_idx: TokenIdx(
-                                                            18,
-                                                        ),
-                                                    },
-                                                ),
-                                            ),
-                                            Expr::List {
-                                                lbox_token_idx: TokenIdx(
-                                                    17,
-                                                ),
-                                                items: [
-                                                    CommaListItem {
-                                                        expr_idx: 3,
-                                                        comma_token_idx: None,
-                                                    },
-                                                ],
-                                                rbox_token_idx: TokenIdx(
-                                                    19,
-                                                ),
-                                            },
-                                            Expr::Prefix {
-                                                opr: Tilde,
-                                                opr_token_idx: TokenIdx(
-                                                    16,
-                                                ),
-                                                opd: 4,
-                                            },
                                             Expr::PrincipalEntityPath {
                                                 entity_path_expr: 1,
                                                 opt_path: Some(
@@ -131,8 +99,8 @@ Ok(
                                                 ),
                                             },
                                             Expr::ExplicitApplication {
-                                                function_expr_idx: 5,
-                                                argument_expr_idx: 6,
+                                                function_expr_idx: 2,
+                                                argument_expr_idx: 3,
                                             },
                                         ],
                                     },
@@ -158,7 +126,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `LineSegmentStroke`,
                                                         token_idx: TokenIdx(
-                                                            20,
+                                                            17,
                                                         ),
                                                     },
                                                 ),
@@ -224,7 +192,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 391,
+                                                                value: 392,
                                                             },
                                                         ),
                                                     ),
@@ -233,7 +201,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            expr_idx: 7,
+                                            expr_idx: 4,
                                         },
                                     ],
                                 },
@@ -307,7 +275,7 @@ Ok(
                                             IdentToken {
                                                 ident: `Visualize`,
                                                 token_idx: TokenIdx(
-                                                    24,
+                                                    21,
                                                 ),
                                             },
                                         ),
@@ -322,7 +290,7 @@ Ok(
                                             IdentToken {
                                                 ident: `ConvexComponent`,
                                                 token_idx: TokenIdx(
-                                                    26,
+                                                    23,
                                                 ),
                                             },
                                         ),
@@ -463,7 +431,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `Visualize`,
                                                                     token_idx: TokenIdx(
-                                                                        24,
+                                                                        21,
                                                                     ),
                                                                 },
                                                             ),
@@ -478,7 +446,7 @@ Ok(
                                                                 IdentToken {
                                                                     ident: `ConvexComponent`,
                                                                     token_idx: TokenIdx(
-                                                                        26,
+                                                                        23,
                                                                     ),
                                                                 },
                                                             ),
@@ -575,7 +543,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `Html`,
                                                         token_idx: TokenIdx(
-                                                            33,
+                                                            30,
                                                         ),
                                                     },
                                                 ),
@@ -683,7 +651,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `Visualize`,
                                                                             token_idx: TokenIdx(
-                                                                                24,
+                                                                                21,
                                                                             ),
                                                                         },
                                                                     ),
@@ -698,7 +666,7 @@ Ok(
                                                                         IdentToken {
                                                                             ident: `ConvexComponent`,
                                                                             token_idx: TokenIdx(
-                                                                                26,
+                                                                                23,
                                                                             ),
                                                                         },
                                                                     ),
@@ -795,7 +763,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `Html`,
                                                                 token_idx: TokenIdx(
-                                                                    33,
+                                                                    30,
                                                                 ),
                                                             },
                                                         ),
@@ -871,39 +839,39 @@ Ok(
                                     data: [
                                         Expr::SelfValue(
                                             TokenIdx(
-                                                35,
+                                                32,
                                             ),
                                         ),
                                         Expr::Field {
                                             owner: 0,
                                             dot_token_idx: TokenIdx(
-                                                36,
+                                                33,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `line_segments`,
                                                 token_idx: TokenIdx(
-                                                    37,
+                                                    34,
                                                 ),
                                             },
                                         },
                                         Expr::MethodApplicationOrCall {
                                             self_argument: 1,
                                             dot_token_idx: TokenIdx(
-                                                38,
+                                                35,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `visualize`,
                                                 token_idx: TokenIdx(
-                                                    39,
+                                                    36,
                                                 ),
                                             },
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                40,
+                                                37,
                                             ),
                                             items: [],
                                             rpar_token_idx: TokenIdx(
-                                                41,
+                                                38,
                                             ),
                                         },
                                         Expr::Block {

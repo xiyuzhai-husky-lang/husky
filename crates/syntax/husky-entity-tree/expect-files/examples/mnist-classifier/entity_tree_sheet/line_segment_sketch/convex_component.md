@@ -300,7 +300,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `LineSegmentSketch`,
                                         token_idx: TokenIdx(
-                                            173,
+                                            171,
                                         ),
                                     },
                                 },
@@ -345,7 +345,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `go_right`,
                                         token_idx: TokenIdx(
-                                            372,
+                                            370,
                                         ),
                                     },
                                 },
@@ -390,7 +390,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `go_left`,
                                         token_idx: TokenIdx(
-                                            469,
+                                            467,
                                         ),
                                     },
                                 },
@@ -435,7 +435,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `extend_end`,
                                         token_idx: TokenIdx(
-                                            566,
+                                            564,
                                         ),
                                     },
                                 },
@@ -480,7 +480,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `extend_start`,
                                         token_idx: TokenIdx(
-                                            799,
+                                            797,
                                         ),
                                     },
                                 },
@@ -525,7 +525,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_line_segments`,
                                         token_idx: TokenIdx(
-                                            1065,
+                                            1063,
                                         ),
                                     },
                                 },
@@ -625,7 +625,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_concave_components`,
                                                 token_idx: TokenIdx(
-                                                    541,
+                                                    538,
                                                 ),
                                             },
                                         },
@@ -1191,12 +1191,12 @@ Ok(
                         ast_idx: 4,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                23,
+                                20,
                             ),
                         },
                         trai_expr: 20,
                         for_token: TokenIdx(
-                            25,
+                            22,
                         ),
                         ty_expr: 21,
                         items: Some(

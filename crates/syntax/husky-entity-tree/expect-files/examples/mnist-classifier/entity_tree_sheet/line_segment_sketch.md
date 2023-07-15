@@ -189,7 +189,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
-                                    173,
+                                    171,
                                 ),
                             },
                         },
@@ -225,7 +225,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    372,
+                                    370,
                                 ),
                             },
                         },
@@ -263,7 +263,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    469,
+                                    467,
                                 ),
                             },
                         },
@@ -301,7 +301,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    566,
+                                    564,
                                 ),
                             },
                         },
@@ -339,7 +339,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    799,
+                                    797,
                                 ),
                             },
                         },
@@ -377,7 +377,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1065,
+                                    1063,
                                 ),
                             },
                         },
@@ -557,7 +557,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `LineSegmentSketch`,
                                 token_idx: TokenIdx(
-                                    173,
+                                    171,
                                 ),
                             },
                         },
@@ -588,7 +588,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
-                                    372,
+                                    370,
                                 ),
                             },
                         },
@@ -619,7 +619,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `go_left`,
                                 token_idx: TokenIdx(
-                                    469,
+                                    467,
                                 ),
                             },
                         },
@@ -650,7 +650,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
-                                    566,
+                                    564,
                                 ),
                             },
                         },
@@ -681,7 +681,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `extend_start`,
                                 token_idx: TokenIdx(
-                                    799,
+                                    797,
                                 ),
                             },
                         },
@@ -712,7 +712,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
-                                    1065,
+                                    1063,
                                 ),
                             },
                         },
@@ -780,7 +780,7 @@ Ok(
                                     ident_token: IdentToken {
                                         ident: `find_concave_components`,
                                         token_idx: TokenIdx(
-                                            541,
+                                            538,
                                         ),
                                     },
                                 },
@@ -1206,12 +1206,12 @@ Ok(
                         ast_idx: 170,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                85,
+                                83,
                             ),
                         },
                         trai_expr: 11,
                         for_token: TokenIdx(
-                            87,
+                            85,
                         ),
                         ty_expr: 12,
                         items: Some(
@@ -1248,7 +1248,7 @@ Ok(
                         ast_idx: 171,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                112,
+                                110,
                             ),
                         },
                         ty_expr: 13,
@@ -1284,12 +1284,12 @@ Ok(
                         ast_idx: 173,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                187,
+                                185,
                             ),
                         },
                         trai_expr: 14,
                         for_token: TokenIdx(
-                            189,
+                            187,
                         ),
                         ty_expr: 15,
                         items: Some(
@@ -1326,7 +1326,7 @@ Ok(
                         ast_idx: 174,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                206,
+                                204,
                             ),
                         },
                         ty_expr: 16,
