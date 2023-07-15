@@ -941,12 +941,27 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        UnveilerError,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        UnveilOrComposeWithOption(
+                            Unveil,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 37,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    21,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -966,7 +981,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    19,
+                    22,
                 ),
             },
             ExprTypeInfo {
@@ -993,7 +1008,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    20,
+                    23,
                 ),
             },
             ExprTypeInfo {
@@ -1093,7 +1108,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    21,
+                    24,
                 ),
             },
             ExprTypeInfo {
@@ -1124,7 +1139,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    22,
+                    25,
                 ),
             },
             ExprTypeInfo {
@@ -1151,78 +1166,6 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    23,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    24,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    25,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    11,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
                     26,
                 ),
             },
@@ -1230,23 +1173,14 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
                         Ok(
-                            Hollow(
-                                HollowTerm(
-                                    11,
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 39,
+                                        },
+                                    ),
                                 ),
                             ),
                         ),
@@ -1255,6 +1189,19 @@
                 expectation_rule_idx: Some(
                     27,
                 ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -1280,17 +1227,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
-                            InstanceConstructor,
-                        ),
+                        Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 58,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    11,
                                 ),
                             ),
                         ),
@@ -1304,14 +1245,23 @@
                 disambiguation_and_ty_result: Ok(
                     (
                         Trivial,
+                        Err(
+                            Derived(
+                                CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 58,
-                                        },
-                                    ),
+                            Hollow(
+                                HollowTerm(
+                                    11,
                                 ),
                             ),
                         ),
@@ -1349,6 +1299,71 @@
                             InstanceConstructor,
                         ),
                         Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 58,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    32,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 58,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    33,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 39,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    34,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            InstanceConstructor,
+                        ),
+                        Ok(
                             Curry(
                                 EtherealTermCurry(
                                     Id {
@@ -1360,7 +1375,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    32,
+                    35,
                 ),
             },
             ExprTypeInfo {
@@ -1394,7 +1409,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    33,
+                    36,
                 ),
             },
             ExprTypeInfo {
@@ -1411,16 +1426,31 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    34,
+                    37,
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        UnveilerError,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        UnveilOrComposeWithOption(
+                            Unveil,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 37,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    40,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -1440,7 +1470,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    35,
+                    41,
                 ),
             },
             ExprTypeInfo {
@@ -1461,7 +1491,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    36,
+                    42,
                 ),
             },
             ExprTypeInfo {
@@ -1521,7 +1551,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    37,
+                    43,
                 ),
             },
             ExprTypeInfo {
@@ -1557,7 +1587,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    38,
+                    44,
                 ),
             },
             ExprTypeInfo {
@@ -1591,7 +1621,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    39,
+                    45,
                 ),
             },
             ExprTypeInfo {
@@ -1612,7 +1642,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    40,
+                    46,
                 ),
             },
             ExprTypeInfo {
@@ -1668,7 +1698,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    41,
+                    47,
                 ),
             },
             ExprTypeInfo {
@@ -1689,7 +1719,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    42,
+                    48,
                 ),
             },
             ExprTypeInfo {
@@ -1706,16 +1736,31 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    43,
+                    49,
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        UnveilerError,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        UnveilOrComposeWithOption(
+                            Unveil,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 37,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    52,
+                ),
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -1746,215 +1791,6 @@
                             Hollow(
                                 HollowTerm(
                                     26,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    44,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    45,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            InstanceConstructor,
-                        ),
-                        Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    46,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            InstanceConstructor,
-                        ),
-                        Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 59,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    47,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            InstanceConstructor,
-                        ),
-                        Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 19,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    48,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            InstanceConstructor,
-                        ),
-                        Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    49,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 42,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    50,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    32,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    51,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        UnveilerError,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        TypePath(
-                            InstanceConstructor,
-                        ),
-                        Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 72,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    52,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    34,
                                 ),
                             ),
                         ),
@@ -1995,7 +1831,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 72,
+                                        value: 59,
                                     },
                                 ),
                             ),
@@ -2004,6 +1840,230 @@
                 ),
                 expectation_rule_idx: Some(
                     55,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            InstanceConstructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 59,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    56,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            InstanceConstructor,
+                        ),
+                        Ok(
+                            Curry(
+                                EtherealTermCurry(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    57,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            InstanceConstructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 72,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    58,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 42,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    59,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    32,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    60,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        UnveilOrComposeWithOption(
+                            Unveil,
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 37,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    63,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            InstanceConstructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 72,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    64,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            Hollow(
+                                HollowTerm(
+                                    34,
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    65,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Trivial,
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 39,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    66,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        TypePath(
+                            InstanceConstructor,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 72,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    67,
                 ),
             },
             ExprTypeInfo {
@@ -2030,7 +2090,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    56,
+                    68,
                 ),
             },
             ExprTypeInfo {
@@ -2051,7 +2111,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    57,
+                    69,
                 ),
             },
             ExprTypeInfo {
@@ -2089,7 +2149,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    58,
+                    70,
                 ),
             },
             ExprTypeInfo {
@@ -2130,7 +2190,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    59,
+                    71,
                 ),
             },
             ExprTypeInfo {
@@ -2151,7 +2211,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    60,
+                    72,
                 ),
             },
             ExprTypeInfo {
@@ -2189,7 +2249,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    61,
+                    73,
                 ),
             },
             ExprTypeInfo {
@@ -2218,7 +2278,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    62,
+                    74,
                 ),
             },
             ExprTypeInfo {
@@ -2256,7 +2316,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    63,
+                    75,
                 ),
             },
             ExprTypeInfo {
@@ -2297,7 +2357,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    64,
+                    76,
                 ),
             },
             ExprTypeInfo {
@@ -2318,7 +2378,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    65,
+                    77,
                 ),
             },
             ExprTypeInfo {
@@ -2348,7 +2408,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    66,
+                    78,
                 ),
             },
             ExprTypeInfo {
@@ -2369,7 +2429,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    67,
+                    79,
                 ),
             },
             ExprTypeInfo {
@@ -2390,7 +2450,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    68,
+                    80,
                 ),
             },
             ExprTypeInfo {
@@ -2409,7 +2469,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    69,
+                    81,
                 ),
             },
         ],
@@ -2545,7 +2605,15 @@
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [],
+                                constraints: [
+                                    CoercibleTo {
+                                        target: Hollow(
+                                            HollowTerm(
+                                                2,
+                                            ),
+                                        ),
+                                    },
+                                ],
                             },
                             resolve_progress: Unresolved,
                         },
@@ -2669,10 +2737,30 @@
                                     14,
                                 ),
                                 hole_kind: Any,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeVariant(
+                                            TypeVariantPath(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [],
                             },
-                            resolve_progress: Unresolved,
+                            resolve_progress: ResolvedEthereal(
+                                EntityPath(
+                                    TypeVariant(
+                                        TypeVariantPath(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
                         },
                         HollowTermEntry {
                             data: TypeOntology {
@@ -2796,11 +2884,19 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expectation(
-                                    32,
+                                    35,
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [],
+                                constraints: [
+                                    CoercibleTo {
+                                        target: Hollow(
+                                            HollowTerm(
+                                                12,
+                                            ),
+                                        ),
+                                    },
+                                ],
                             },
                             resolve_progress: Unresolved,
                         },
@@ -2921,13 +3017,33 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expectation(
-                                    32,
+                                    35,
                                 ),
                                 hole_kind: Any,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeVariant(
+                                            TypeVariantPath(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [],
                             },
-                            resolve_progress: Unresolved,
+                            resolve_progress: ResolvedEthereal(
+                                EntityPath(
+                                    TypeVariant(
+                                        TypeVariantPath(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
                         },
                         HollowTermEntry {
                             data: TypeOntology {
@@ -3018,11 +3134,19 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expectation(
-                                    37,
+                                    43,
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [],
+                                constraints: [
+                                    CoercibleTo {
+                                        target: Hollow(
+                                            HollowTerm(
+                                                19,
+                                            ),
+                                        ),
+                                    },
+                                ],
                             },
                             resolve_progress: Unresolved,
                         },
@@ -3143,13 +3267,33 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expectation(
-                                    37,
+                                    43,
                                 ),
                                 hole_kind: Any,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeVariant(
+                                            TypeVariantPath(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [],
                             },
-                            resolve_progress: Unresolved,
+                            resolve_progress: ResolvedEthereal(
+                                EntityPath(
+                                    TypeVariant(
+                                        TypeVariantPath(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
                         },
                         HollowTermEntry {
                             data: TypeOntology {
@@ -3251,11 +3395,19 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expectation(
-                                    48,
+                                    57,
                                 ),
                                 hole_kind: ImplicitType,
                                 fill: None,
-                                constraints: [],
+                                constraints: [
+                                    CoercibleTo {
+                                        target: Hollow(
+                                            HollowTerm(
+                                                27,
+                                            ),
+                                        ),
+                                    },
+                                ],
                             },
                             resolve_progress: Unresolved,
                         },
@@ -3376,13 +3528,33 @@
                         HollowTermEntry {
                             data: Hole {
                                 hole_source: Expectation(
-                                    48,
+                                    57,
                                 ),
                                 hole_kind: Any,
-                                fill: None,
+                                fill: Some(
+                                    EntityPath(
+                                        TypeVariant(
+                                            TypeVariantPath(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
                                 constraints: [],
                             },
-                            resolve_progress: Unresolved,
+                            resolve_progress: ResolvedEthereal(
+                                EntityPath(
+                                    TypeVariant(
+                                        TypeVariantPath(
+                                            Id {
+                                                value: 32,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
                         },
                         HollowTermEntry {
                             data: TypeOntology {
@@ -3926,7 +4098,7 @@
                         ExpectationEntry {
                             expectation: EqsRitchieType(
                                 ExpectEqsRitchieType {
-                                    final_destination: AnyDerived,
+                                    final_destination: TypeOntology,
                                 },
                             ),
                             meta: ExpectationState {
@@ -4112,8 +4284,17 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 82,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
                                 idx: 18,
@@ -4126,7 +4307,118 @@
                                         7,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 97,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 19,
+                                src: ExpectationSource {
+                                    expr_idx: 26,
+                                    kind: Expectation(
+                                        18,
+                                    ),
+                                },
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        2,
+                                    ),
+                                ),
+                                resolve_progress: Holed,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: EntityPath(
+                                        TypeVariant(
+                                            TypeVariantPath(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 20,
+                                src: ExpectationSource {
+                                    expr_idx: 26,
+                                    kind: Expectation(
+                                        18,
+                                    ),
+                                },
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        6,
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 21,
+                                src: ExpectationSource {
+                                    expr_idx: 27,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -4134,7 +4426,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 19,
+                                idx: 22,
                                 src: ExpectationSource {
                                     expr_idx: 28,
                                     kind: Expr,
@@ -4154,7 +4446,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 20,
+                                idx: 23,
                                 src: ExpectationSource {
                                     expr_idx: 30,
                                     kind: Expr,
@@ -4172,7 +4464,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 21,
+                                idx: 24,
                                 src: ExpectationSource {
                                     expr_idx: 39,
                                     kind: Expr,
@@ -4192,7 +4484,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 22,
+                                idx: 25,
                                 src: ExpectationSource {
                                     expr_idx: 41,
                                     kind: Expr,
@@ -4212,7 +4504,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 23,
+                                idx: 26,
                                 src: ExpectationSource {
                                     expr_idx: 43,
                                     kind: Expr,
@@ -4241,7 +4533,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 24,
+                                idx: 27,
                                 src: ExpectationSource {
                                     expr_idx: 44,
                                     kind: Expr,
@@ -4280,7 +4572,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 25,
+                                idx: 28,
                                 src: ExpectationSource {
                                     expr_idx: 46,
                                     kind: Expr,
@@ -4308,7 +4600,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 26,
+                                idx: 29,
                                 src: ExpectationSource {
                                     expr_idx: 47,
                                     kind: Expr,
@@ -4326,7 +4618,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 27,
+                                idx: 30,
                                 src: ExpectationSource {
                                     expr_idx: 49,
                                     kind: Expr,
@@ -4355,7 +4647,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 28,
+                                idx: 31,
                                 src: ExpectationSource {
                                     expr_idx: 50,
                                     kind: Expr,
@@ -4383,7 +4675,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 29,
+                                idx: 32,
                                 src: ExpectationSource {
                                     expr_idx: 51,
                                     kind: Expr,
@@ -4416,7 +4708,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 30,
+                                idx: 33,
                                 src: ExpectationSource {
                                     expr_idx: 52,
                                     kind: Expr,
@@ -4455,7 +4747,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 31,
+                                idx: 34,
                                 src: ExpectationSource {
                                     expr_idx: 53,
                                     kind: Expr,
@@ -4481,11 +4773,11 @@
                         ExpectationEntry {
                             expectation: EqsRitchieType(
                                 ExpectEqsRitchieType {
-                                    final_destination: AnyDerived,
+                                    final_destination: TypeOntology,
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 32,
+                                idx: 35,
                                 src: ExpectationSource {
                                     expr_idx: 54,
                                     kind: Expr,
@@ -4603,7 +4895,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 33,
+                                idx: 36,
                                 src: ExpectationSource {
                                     expr_idx: 56,
                                     kind: Expr,
@@ -4627,11 +4919,20 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 82,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
-                                idx: 34,
+                                idx: 37,
                                 src: ExpectationSource {
                                     expr_idx: 57,
                                     kind: Expr,
@@ -4641,7 +4942,118 @@
                                         17,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 97,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 38,
+                                src: ExpectationSource {
+                                    expr_idx: 57,
+                                    kind: Expectation(
+                                        37,
+                                    ),
+                                },
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        12,
+                                    ),
+                                ),
+                                resolve_progress: Holed,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: EntityPath(
+                                        TypeVariant(
+                                            TypeVariantPath(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 39,
+                                src: ExpectationSource {
+                                    expr_idx: 57,
+                                    kind: Expectation(
+                                        37,
+                                    ),
+                                },
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        16,
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 40,
+                                src: ExpectationSource {
+                                    expr_idx: 58,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -4658,7 +5070,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 35,
+                                idx: 41,
                                 src: ExpectationSource {
                                     expr_idx: 59,
                                     kind: Expr,
@@ -4684,7 +5096,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 36,
+                                idx: 42,
                                 src: ExpectationSource {
                                     expr_idx: 60,
                                     kind: Expr,
@@ -4702,11 +5114,11 @@
                         ExpectationEntry {
                             expectation: EqsRitchieType(
                                 ExpectEqsRitchieType {
-                                    final_destination: AnyDerived,
+                                    final_destination: TypeOntology,
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 37,
+                                idx: 43,
                                 src: ExpectationSource {
                                     expr_idx: 65,
                                     kind: Expr,
@@ -4824,7 +5236,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 38,
+                                idx: 44,
                                 src: ExpectationSource {
                                     expr_idx: 67,
                                     kind: Expr,
@@ -4852,7 +5264,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 39,
+                                idx: 45,
                                 src: ExpectationSource {
                                     expr_idx: 69,
                                     kind: Expr,
@@ -4883,7 +5295,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 40,
+                                idx: 46,
                                 src: ExpectationSource {
                                     expr_idx: 70,
                                     kind: Expr,
@@ -4922,7 +5334,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 41,
+                                idx: 47,
                                 src: ExpectationSource {
                                     expr_idx: 71,
                                     kind: Expr,
@@ -4961,7 +5373,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 42,
+                                idx: 48,
                                 src: ExpectationSource {
                                     expr_idx: 72,
                                     kind: Expr,
@@ -4985,11 +5397,20 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 82,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
-                                idx: 43,
+                                idx: 49,
                                 src: ExpectationSource {
                                     expr_idx: 73,
                                     kind: Expr,
@@ -4999,7 +5420,118 @@
                                         24,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 97,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 50,
+                                src: ExpectationSource {
+                                    expr_idx: 73,
+                                    kind: Expectation(
+                                        49,
+                                    ),
+                                },
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        19,
+                                    ),
+                                ),
+                                resolve_progress: Holed,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: EntityPath(
+                                        TypeVariant(
+                                            TypeVariantPath(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 51,
+                                src: ExpectationSource {
+                                    expr_idx: 73,
+                                    kind: Expectation(
+                                        49,
+                                    ),
+                                },
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        23,
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 52,
+                                src: ExpectationSource {
+                                    expr_idx: 74,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -5007,7 +5539,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 44,
+                                idx: 53,
                                 src: ExpectationSource {
                                     expr_idx: 77,
                                     kind: Expr,
@@ -5036,7 +5568,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 45,
+                                idx: 54,
                                 src: ExpectationSource {
                                     expr_idx: 78,
                                     kind: Expr,
@@ -5073,7 +5605,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 46,
+                                idx: 55,
                                 src: ExpectationSource {
                                     expr_idx: 79,
                                     kind: Expr,
@@ -5108,7 +5640,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 47,
+                                idx: 56,
                                 src: ExpectationSource {
                                     expr_idx: 80,
                                     kind: Expr,
@@ -5132,11 +5664,11 @@
                         ExpectationEntry {
                             expectation: EqsRitchieType(
                                 ExpectEqsRitchieType {
-                                    final_destination: AnyDerived,
+                                    final_destination: TypeOntology,
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 48,
+                                idx: 57,
                                 src: ExpectationSource {
                                     expr_idx: 81,
                                     kind: Expr,
@@ -5243,7 +5775,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 49,
+                                idx: 58,
                                 src: ExpectationSource {
                                     expr_idx: 82,
                                     kind: Expr,
@@ -5274,7 +5806,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 50,
+                                idx: 59,
                                 src: ExpectationSource {
                                     expr_idx: 84,
                                     kind: Expr,
@@ -5298,11 +5830,20 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: AnyDerived(
-                                ExpectAnyDerived,
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 82,
+                                            },
+                                        ),
+                                    ),
+                                },
                             ),
                             meta: ExpectationState {
-                                idx: 51,
+                                idx: 60,
                                 src: ExpectationSource {
                                     expr_idx: 85,
                                     kind: Expr,
@@ -5312,7 +5853,118 @@
                                         32,
                                     ),
                                 ),
-                                resolve_progress: Intact,
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 97,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 61,
+                                src: ExpectationSource {
+                                    expr_idx: 85,
+                                    kind: Expectation(
+                                        60,
+                                    ),
+                                },
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        27,
+                                    ),
+                                ),
+                                resolve_progress: Holed,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: EqsExactly(
+                                ExpectSubtype {
+                                    expected: EntityPath(
+                                        TypeVariant(
+                                            TypeVariantPath(
+                                                Id {
+                                                    value: 32,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 62,
+                                src: ExpectationSource {
+                                    expr_idx: 85,
+                                    kind: Expectation(
+                                        60,
+                                    ),
+                                },
+                                expectee: Hollow(
+                                    HollowTerm(
+                                        31,
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        Subtype(
+                                            ExpectSubtypeOutcome,
+                                        ),
+                                    ),
+                                ),
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 37,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 63,
+                                src: ExpectationSource {
+                                    expr_idx: 86,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 37,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -5320,7 +5972,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 52,
+                                idx: 64,
                                 src: ExpectationSource {
                                     expr_idx: 87,
                                     kind: Expr,
@@ -5340,7 +5992,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 53,
+                                idx: 65,
                                 src: ExpectationSource {
                                     expr_idx: 89,
                                     kind: Expr,
@@ -5369,7 +6021,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 54,
+                                idx: 66,
                                 src: ExpectationSource {
                                     expr_idx: 90,
                                     kind: Expr,
@@ -5397,7 +6049,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 55,
+                                idx: 67,
                                 src: ExpectationSource {
                                     expr_idx: 91,
                                     kind: Expr,
@@ -5417,7 +6069,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 56,
+                                idx: 68,
                                 src: ExpectationSource {
                                     expr_idx: 93,
                                     kind: Expr,
@@ -5446,7 +6098,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 57,
+                                idx: 69,
                                 src: ExpectationSource {
                                     expr_idx: 94,
                                     kind: Expr,
@@ -5474,7 +6126,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 58,
+                                idx: 70,
                                 src: ExpectationSource {
                                     expr_idx: 97,
                                     kind: Expr,
@@ -5492,7 +6144,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 59,
+                                idx: 71,
                                 src: ExpectationSource {
                                     expr_idx: 101,
                                     kind: Expr,
@@ -5521,7 +6173,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 60,
+                                idx: 72,
                                 src: ExpectationSource {
                                     expr_idx: 102,
                                     kind: Expr,
@@ -5549,7 +6201,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 61,
+                                idx: 73,
                                 src: ExpectationSource {
                                     expr_idx: 105,
                                     kind: Expr,
@@ -5578,7 +6230,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 62,
+                                idx: 74,
                                 src: ExpectationSource {
                                     expr_idx: 107,
                                     kind: Expr,
@@ -5606,7 +6258,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 63,
+                                idx: 75,
                                 src: ExpectationSource {
                                     expr_idx: 110,
                                     kind: Expr,
@@ -5624,7 +6276,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 64,
+                                idx: 76,
                                 src: ExpectationSource {
                                     expr_idx: 114,
                                     kind: Expr,
@@ -5653,7 +6305,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 65,
+                                idx: 77,
                                 src: ExpectationSource {
                                     expr_idx: 115,
                                     kind: Expr,
@@ -5681,7 +6333,7 @@
                                 ExpectAnyDerived,
                             ),
                             meta: ExpectationState {
-                                idx: 66,
+                                idx: 78,
                                 src: ExpectationSource {
                                     expr_idx: 117,
                                     kind: Expr,
@@ -5710,7 +6362,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 67,
+                                idx: 79,
                                 src: ExpectationSource {
                                     expr_idx: 118,
                                     kind: Expr,
@@ -5747,7 +6399,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 68,
+                                idx: 80,
                                 src: ExpectationSource {
                                     expr_idx: 119,
                                     kind: Expr,
@@ -5782,7 +6434,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 69,
+                                idx: 81,
                                 src: ExpectationSource {
                                     expr_idx: 120,
                                     kind: Expr,

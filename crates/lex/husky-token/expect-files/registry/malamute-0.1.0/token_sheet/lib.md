@@ -214,6 +214,33 @@ Ok(
                 ),
             ),
             Token::Keyword(
+                Keyword::Fugitive(
+                    Type,
+                ),
+            ),
+            Token::Ident(
+                `Output`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Eq,
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Keyword(
                 Keyword::Pub,
             ),
             Token::Keyword(
@@ -365,6 +392,7 @@ Ok(
             30,
             32,
             54,
+            59,
         ],
         indents: [
             0,
@@ -375,6 +403,7 @@ Ok(
             0,
             0,
             0,
+            4,
             0,
         ],
     },

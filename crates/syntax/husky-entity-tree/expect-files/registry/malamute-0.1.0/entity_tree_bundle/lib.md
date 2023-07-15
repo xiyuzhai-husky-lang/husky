@@ -17,7 +17,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 5,
+                                    ast_idx: 6,
                                     ident_token: IdentToken {
                                         ident: `OneVsAll`,
                                         token_idx: TokenIdx(
@@ -51,7 +51,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 6,
+                                    ast_idx: 7,
                                     ident_token: IdentToken {
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
@@ -85,11 +85,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 8,
+                                    ast_idx: 9,
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            56,
+                                            61,
                                         ),
                                     },
                                 },
@@ -128,7 +128,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 5,
+                                    ast_idx: 6,
                                     ident_token: IdentToken {
                                         ident: `OneVsAll`,
                                         token_idx: TokenIdx(
@@ -155,7 +155,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 6,
+                                    ast_idx: 7,
                                     ident_token: IdentToken {
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
@@ -182,11 +182,11 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 8,
+                                    ast_idx: 9,
                                     ident_token: IdentToken {
                                         ident: `narrow_down`,
                                         token_idx: TokenIdx(
-                                            56,
+                                            61,
                                         ),
                                     },
                                 },
@@ -216,7 +216,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 7,
+                                ast_idx: 8,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         32,
@@ -227,7 +227,15 @@ Ok(
                                     49,
                                 ),
                                 ty_expr: 3,
-                                items: None,
+                                items: Some(
+                                    TraitForType(
+                                        TraitForTypeItems {
+                                            ast_idx_range: ArenaIdxRange(
+                                                5..6,
+                                            ),
+                                        },
+                                    ),
+                                ),
                             },
                         ),
                     ),

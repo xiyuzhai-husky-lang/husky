@@ -144,9 +144,13 @@ impl ExpectFluffyTerm for ExpectSubtype {
                     return_ty,
                     ty_ethereal_term,
                 } => todo!(),
-                FluffyTermData::Hole(_, _) => {
-                    todo!()
-                }
+                FluffyTermData::Hole(_, hole) => state.set_ok(
+                    ExpectSubtypeOutcome {},
+                    smallvec![FluffyTermResolveAction::FillHole {
+                        hole,
+                        term: self.expected,
+                    }],
+                ),
                 FluffyTermData::HoleAtPlace {
                     hole_kind,
                     hole,

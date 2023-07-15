@@ -285,6 +285,36 @@ Ok(
             },
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TraitForTypeItem(
+                        TraitForTypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TraitForTypeItemPath {
+                                    impl_block: TraitForTypeImplBlockPath {
+                                        module_path: `malamute`,
+                                        trai_path: TraitPath(`core::ops::Unveil`),
+                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `Output`,
+                                    item_kind: AssociatedType,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TraitForTypeItem(
+                        AssociatedType,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::UnitLeftParenthesis,
+            TokenInfo::UnitRightParenthesis,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
                 EntityNodePath::ModuleItem(
@@ -312,7 +342,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                58,
+                                63,
                             ),
                         },
                     },
@@ -328,7 +358,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                61,
+                                66,
                             ),
                         },
                     },
@@ -343,7 +373,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                58,
+                                63,
                             ),
                         },
                     },
@@ -361,7 +391,7 @@ Ok(
                     ident_token: IdentToken {
                         ident: `f`,
                         token_idx: TokenIdx(
-                            69,
+                            74,
                         ),
                     },
                 },
@@ -410,7 +440,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
-                                58,
+                                63,
                             ),
                         },
                     },
@@ -424,7 +454,7 @@ Ok(
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
-                                61,
+                                66,
                             ),
                         },
                     },

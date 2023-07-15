@@ -1279,7 +1279,7 @@
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
                                 constraints: [
-                                    ImplicitlyConvertibleTo {
+                                    CoercibleTo {
                                         target: Hollow(
                                             HollowTerm(
                                                 0,
@@ -1298,7 +1298,7 @@
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
                                 constraints: [
-                                    ImplicitlyConvertibleTo {
+                                    CoercibleTo {
                                         target: Hollow(
                                             HollowTerm(
                                                 1,
