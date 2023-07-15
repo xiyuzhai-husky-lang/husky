@@ -993,6 +993,63 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `input`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier::major`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist::input`, `Val`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Fugitive(
+                                                FugitiveNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: FugitivePath(`mnist::input`, `Val`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 12,
+                                            ident_token: IdentToken {
+                                                ident: `input`,
+                                                token_idx: TokenIdx(
+                                                    34,
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Fugitive(
+                                            FugitivePath(`mnist::input`, `Val`),
+                                        ),
+                                    ),
+                                    visibility: Scope::PubUnder(
+                                        `mnist_classifier`,
+                                    ),
+                                    ast_idx: 25,
+                                    use_expr_idx: 20,
+                                },
+                            ),
+                            path: PrincipalEntityPath::ModuleItem(
+                                ModuleItemPath::Fugitive(
+                                    FugitivePath(`mnist::input`, `Val`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier::major`,
+                            ),
+                            ast_idx: 18,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `connected_components`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier::major`,
@@ -2282,7 +2339,7 @@ Ok(
                         `mnist_classifier::major`,
                     ),
                     progress: Ok(
-                        33,
+                        34,
                     ),
                 },
             ],

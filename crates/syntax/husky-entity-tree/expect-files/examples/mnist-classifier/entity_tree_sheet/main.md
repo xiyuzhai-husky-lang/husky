@@ -650,6 +650,49 @@ Ok(
                     ),
                 },
                 EntitySymbolEntry {
+                    ident: `input`,
+                    visibility: Scope::PubUnder(
+                        `mnist_classifier`,
+                    ),
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Fugitive(
+                                    FugitivePath(`mnist::input`, `Val`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Fugitive(
+                                        FugitiveNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: FugitivePath(`mnist::input`, `Val`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 12,
+                                    ident_token: IdentToken {
+                                        ident: `input`,
+                                        token_idx: TokenIdx(
+                                            34,
+                                        ),
+                                    },
+                                },
+                            },
+                            path: PrincipalEntityPath::ModuleItem(
+                                ModuleItemPath::Fugitive(
+                                    FugitivePath(`mnist::input`, `Val`),
+                                ),
+                            ),
+                            visibility: Scope::PubUnder(
+                                `mnist_classifier`,
+                            ),
+                            ast_idx: 25,
+                            use_expr_idx: 20,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
                     ident: `connected_components`,
                     visibility: Scope::PubUnder(
                         `mnist_classifier`,
@@ -2152,7 +2195,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        2,
+                        3,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2164,7 +2207,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        40,
+                        41,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2176,7 +2219,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        52,
+                        53,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2188,7 +2231,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        35,
+                        36,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2200,7 +2243,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        59,
+                        60,
                     ),
                 },
                 UseAllModuleSymbolsRule {
@@ -2224,7 +2267,7 @@ Ok(
                         `mnist_classifier`,
                     ),
                     progress: Ok(
-                        41,
+                        42,
                     ),
                 },
             ],

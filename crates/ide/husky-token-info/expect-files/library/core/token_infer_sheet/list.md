@@ -219,10 +219,10 @@ Ok(
                                         ty_path: TypePath(`core::list::List`, `Extern`),
                                         disambiguator: 0,
                                     },
-                                    ident: `first`,
+                                    ident: `last`,
                                     item_kind: MethodFn,
                                 },
-                                disambiguator: 1,
+                                disambiguator: 0,
                             },
                         },
                     ),
@@ -236,6 +236,55 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::InheritedSymbol {
+                inherited_symbol_idx: 0,
+                inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
+                    InheritedImplicitParameterSymbol::Type {
+                        ident: `E`,
+                    },
+                ),
+                expr_region: ExprRegionLeash(_),
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::list`,
+                                        ty_path: TypePath(`core::list::List`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `pop`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::ModuleItem(
+                    ModuleItemPath::Type(
+                        TypePath(`core::option::Option`, `Enum`),
+                    ),
+                ),
+            ),
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
                 inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(

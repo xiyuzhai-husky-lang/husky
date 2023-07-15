@@ -141,6 +141,30 @@ Ok(
                     ),
                 ),
             ),
+            Token::Keyword(
+                Keyword::Pub,
+            ),
+            Token::Keyword(
+                Keyword::Fugitive(
+                    Val,
+                ),
+            ),
+            Token::Ident(
+                `input`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Colon,
+                ),
+            ),
+            Token::Ident(
+                `BinaryImage28`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Semicolon,
+                ),
+            ),
         ],
         group_starts: [
             0,
@@ -155,8 +179,10 @@ Ok(
             19,
             21,
             23,
+            32,
         ],
         indents: [
+            0,
             0,
             0,
             0,

@@ -10,13 +10,7 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_diagnostic_sheet: ExprDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Syntax Error: unrecognized identifier",
-                severity: Error,
-                range: [4:31, 4:36),
-            },
-        ],
+        diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
         diagnostics: [],
@@ -26,6 +20,11 @@ DiagnosticSheet {
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
+            Diagnostic {
+                message: "type path mismatch: expect mnist::BinaryImage28, but got core::mem::Leash instead",
+                severity: Error,
+                range: [4:31, 4:36),
+            },
             Diagnostic {
                 message: "type path mismatch: expect core::mem::Leash, but got core::list::List instead",
                 severity: Error,

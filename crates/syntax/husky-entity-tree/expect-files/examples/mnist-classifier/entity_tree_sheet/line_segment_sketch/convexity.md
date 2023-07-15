@@ -1761,7 +1761,7 @@ Ok(
                         `mnist_classifier::line_segment_sketch::convexity`,
                     ),
                     progress: Ok(
-                        59,
+                        60,
                     ),
                 },
                 UseAllModuleSymbolsRule {

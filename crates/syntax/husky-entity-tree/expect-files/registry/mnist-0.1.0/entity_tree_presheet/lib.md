@@ -71,6 +71,40 @@ Ok(
                     ident: `BinaryImage28`,
                     visibility: Scope::Pub,
                 },
+                EntityNodeEntry {
+                    node: EntityNode::ModuleItem(
+                        ModuleItemNode {
+                            node_path: ModuleItemNodePath::Fugitive(
+                                FugitiveNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: FugitivePath(`mnist::input`, `Val`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 12,
+                            ident_token: IdentToken {
+                                ident: `input`,
+                                token_idx: TokenIdx(
+                                    34,
+                                ),
+                            },
+                        },
+                    ),
+                    node_path: EntityNodePath::ModuleItem(
+                        ModuleItemNodePath::Fugitive(
+                            FugitiveNodePath {
+                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                    path: FugitivePath(`mnist::input`, `Val`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                    ),
+                    ident: `input`,
+                    visibility: Scope::Pub,
+                },
             ],
         },
         use_one_trackers: OnceUseRules(

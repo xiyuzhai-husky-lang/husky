@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 4,
+                            ast_idx: 5,
                             ident_token: IdentToken {
                                 ident: `List`,
                                 token_idx: TokenIdx(
