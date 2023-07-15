@@ -2714,30 +2714,10 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Original(
-                        NoMethodForType {
-                            self_expr_ty: EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 55,
-                                        },
-                                    ),
-                                ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 312,
-                                        },
-                                    ),
-                                ),
-                                token_idx: TokenIdx(
-                                    647,
-                                ),
-                            },
-                        },
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,

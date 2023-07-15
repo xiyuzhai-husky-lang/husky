@@ -6714,7 +6714,7 @@ Ok(
                                                 },
                                             ),
                                             visibility: Scope::Pub,
-                                            ast_idx: 2,
+                                            ast_idx: 3,
                                             ident_token: IdentToken {
                                                 ident: `r32`,
                                                 token_idx: TokenIdx(
@@ -7993,7 +7993,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 2,
+                                    ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `r32`,
                                         token_idx: TokenIdx(
@@ -8036,7 +8036,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 2,
+                                    ast_idx: 3,
                                     ident_token: IdentToken {
                                         ident: `r32`,
                                         token_idx: TokenIdx(
@@ -8048,7 +8048,42 @@ Ok(
                         },
                     ],
                 ),
-                impl_block_node_table: [],
+                impl_block_node_table: [
+                    (
+                        ImplBlockNodePath::TypeImplBlock(
+                            TypeImplBlockNodePath {
+                                path: TypeImplBlockPath {
+                                    module_path: `core::raw_bits`,
+                                    ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                    disambiguator: 0,
+                                },
+                            },
+                        ),
+                        ImplBlockNode::TypeImplBlock(
+                            TypeImplBlockNode {
+                                node_path: TypeImplBlockNodePath {
+                                    path: TypeImplBlockPath {
+                                        module_path: `core::raw_bits`,
+                                        ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                },
+                                ast_idx: 4,
+                                impl_token: ImplToken {
+                                    token_idx: TokenIdx(
+                                        24,
+                                    ),
+                                },
+                                ty_expr: 45,
+                                items: TypeItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
+                            },
+                        ),
+                    ),
+                ],
                 once_use_rules: OnceUseRules(
                     [],
                 ),
@@ -8202,11 +8237,11 @@ Ok(
                                         23,
                                     ),
                                 },
-                                trai_expr: 47,
+                                trai_expr: 48,
                                 for_token: TokenIdx(
                                     41,
                                 ),
-                                ty_expr: 48,
+                                ty_expr: 49,
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {
@@ -9336,6 +9371,21 @@ Ok(
                 ModuleItemPathExpr::Root {
                     name_token: PathNameToken::Ident(
                         IdentToken {
+                            ident: `r32`,
+                            token_idx: TokenIdx(
+                                25,
+                            ),
+                        },
+                    ),
+                    major_entity_path: MajorEntityPath::ModuleItem(
+                        ModuleItemPath::Type(
+                            TypePath(`core::raw_bits::r32`, `Extern`),
+                        ),
+                    ),
+                },
+                ModuleItemPathExpr::Root {
+                    name_token: PathNameToken::Ident(
+                        IdentToken {
                             ident: `Unveil`,
                             token_idx: TokenIdx(
                                 37,
@@ -9362,7 +9412,7 @@ Ok(
                             36,
                         ),
                     ),
-                    subexpr: 45,
+                    subexpr: 46,
                 },
                 ModuleItemPathExpr::Subentity {
                     name_token: PathNameToken::CrateRoot(
@@ -9377,7 +9427,7 @@ Ok(
                             34,
                         ),
                     ),
-                    subexpr: 46,
+                    subexpr: 47,
                 },
                 ModuleItemPathExpr::Root {
                     name_token: PathNameToken::Ident(

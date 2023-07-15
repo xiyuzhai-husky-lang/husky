@@ -180,7 +180,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 270,
+                                                                    value: 271,
                                                                 },
                                                             ),
                                                         ),
@@ -197,7 +197,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 241,
+                                                                    value: 243,
                                                                 },
                                                             ),
                                                         ),
@@ -3259,7 +3259,7 @@ Ok(
                     TypeImplBlock(
                         TypeImplBlockPath(
                             Id {
-                                value: 32,
+                                value: 34,
                             },
                         ),
                     ),

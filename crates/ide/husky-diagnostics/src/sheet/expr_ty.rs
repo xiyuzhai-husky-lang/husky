@@ -168,6 +168,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::CannotUnwrap => {
                 format!("Type Error: cannot unwrap")
             }
+            OriginalExprTypeError::UnexpectedArgument => {
+                format!("Type Error: unexpected argument")
+            }
         }
     }
 

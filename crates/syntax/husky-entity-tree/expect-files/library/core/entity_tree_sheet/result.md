@@ -144,11 +144,11 @@ Ok(
                                 23,
                             ),
                         },
-                        trai_expr: 47,
+                        trai_expr: 48,
                         for_token: TokenIdx(
                             41,
                         ),
-                        ty_expr: 48,
+                        ty_expr: 49,
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
