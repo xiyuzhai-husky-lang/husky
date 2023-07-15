@@ -84,6 +84,8 @@ pub enum OriginalExprTypeError {
     ExpectedIndices,
     #[error("cannot unveil")]
     CannotUnveil,
+    #[error("cannot unwrap")]
+    CannotUnwrap,
 }
 
 impl IntoError for OriginalExprTypeError {

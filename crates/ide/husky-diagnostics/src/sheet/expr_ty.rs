@@ -165,6 +165,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::CannotUnveil => {
                 format!("Type Error: cannot unveil")
             }
+            OriginalExprTypeError::CannotUnwrap => {
+                format!("Type Error: cannot unwrap")
+            }
         }
     }
 

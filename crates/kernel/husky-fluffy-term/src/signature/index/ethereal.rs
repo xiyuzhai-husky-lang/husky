@@ -61,5 +61,7 @@ fn common_ethereal_owner_ty_index_signature(
         PreludeTypePath::Array5d => todo!(),
         PreludeTypePath::StringLiteral => todo!(),
         PreludeTypePath::Str => todo!(),
+        PreludeTypePath::Option => todo!(),
+        PreludeTypePath::Result => todo!(),
     }
 }

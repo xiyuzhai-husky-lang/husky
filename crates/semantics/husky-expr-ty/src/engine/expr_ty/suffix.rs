@@ -1,4 +1,5 @@
 mod unveil;
+mod unwrap;
 
 pub(crate) use self::unveil::*;
 
@@ -23,7 +24,7 @@ impl<'a> ExprTypeEngine<'a> {
                 final_destination,
                 (
                     UnwrapOrComposeWithNotExprDisambiguation::Unwrap,
-                    Self::calc_unveil_expr_ty,
+                    Self::calc_unwrap_expr_ty,
                 ),
                 (
                     UnwrapOrComposeWithNotExprDisambiguation::ComposeWithNot,
@@ -174,10 +175,13 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         opd: ExprIdx,
         final_destination: FinalDestination,
-        (true_suffix, true_suffix_f): (D, fn(&mut Self, ExprIdx) -> ExprTypeResult<FluffyTerm>),
+        (true_suffix, true_suffix_f): (
+            D,
+            fn(&mut Self, opd_ty: FluffyTerm) -> ExprTypeResult<FluffyTerm>,
+        ),
         (application_composition, application_composition_f): (
             D,
-            fn(&mut Self, ExprIdx) -> ExprTypeResult<FluffyTerm>,
+            fn(&mut Self, opd_ty: FluffyTerm) -> ExprTypeResult<FluffyTerm>,
         ),
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.infer_new_expr_ty(opd, ExpectFinalDestination::new(final_destination)) {
@@ -185,7 +189,7 @@ impl<'a> ExprTypeEngine<'a> {
                 FluffyTermData::Literal(_) => todo!(),
                 FluffyTermData::TypeOntology { .. }
                 | FluffyTermData::TypeOntologyAtPlace { .. } => {
-                    Ok((true_suffix.into(), true_suffix_f(self, opd)))
+                    Ok((true_suffix.into(), true_suffix_f(self, opd_ty)))
                 }
                 FluffyTermData::Curry {
                     curry_kind,
@@ -216,13 +220,10 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_compose_with_option_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
-        let opd_ty = self
-            .infer_new_expr_ty(
-                opd,
-                ExpectEqsFunctionType::new(FinalDestination::TypeOntology),
-            )
-            .ok_or(DerivedExprTypeError::SuffixOperandTypeNotInferred)?;
+    fn calc_compose_with_option_expr_ty(
+        &mut self,
+        opd_ty: FluffyTerm,
+    ) -> ExprTypeResult<FluffyTerm> {
         match opd_ty.data(self) {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {

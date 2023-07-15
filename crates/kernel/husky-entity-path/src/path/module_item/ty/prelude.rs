@@ -21,6 +21,8 @@ pub enum PreludeTypePath {
     Slice,
     StringLiteral,
     Str,
+    Option,
+    Result,
 }
 
 impl PreludeTypePath {
@@ -140,6 +142,8 @@ pub(crate) fn prelude_ty_path(db: &dyn EntityPathDb, path: TypePath) -> Option<P
         path if path == menu.slice_ty_path() => PreludeTypePath::Slice.into(),
         path if path == menu.string_literal_ty_path() => PreludeTypePath::StringLiteral.into(),
         path if path == menu.str_ty_path() => PreludeTypePath::Str.into(),
+        path if path == menu.option_ty_path() => PreludeTypePath::Option.into(),
+        path if path == menu.result_ty_path() => PreludeTypePath::Result.into(),
         _ => return None,
     })
 }

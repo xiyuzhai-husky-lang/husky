@@ -40,6 +40,7 @@ pub struct EntityPathMenu {
     copy_trai_path: TraitPath,
     default_trai_path: TraitPath,
     option_ty_path: TypePath,
+    result_ty_path: TypePath,
     slice_ty_path: TypePath,
     string_literal_ty_path: TypePath,
     str_ty_path: TypePath,
@@ -88,6 +89,7 @@ impl EntityPathMenu {
         let core_str = path_menu.core_str();
         let core_basic = path_menu.core_basic();
         let core_clone = path_menu.core_clone();
+        let core_result = path_menu.core_result();
         let core_default = path_menu.core_default();
         let core_marker = path_menu.core_marker();
         let core_num = path_menu.core_num();
@@ -100,6 +102,13 @@ impl EntityPathMenu {
             db,
             core_option,
             db.it_ident_borrowed("Option").unwrap(),
+            ModuleItemConnection::Connected,
+            TypeKind::Enum,
+        );
+        let result_ty_path = TypePath::new(
+            db,
+            core_result,
+            db.it_ident_borrowed("Result").unwrap(),
             ModuleItemConnection::Connected,
             TypeKind::Enum,
         );
@@ -511,6 +520,7 @@ impl EntityPathMenu {
             clone_trai_path,
             copy_trai_path,
             default_trai_path,
+            result_ty_path,
         }
     }
 
@@ -640,6 +650,10 @@ impl EntityPathMenu {
 
     pub fn ref_mut_ty_path(&self) -> TypePath {
         self.ref_mut_ty_path
+    }
+
+    pub fn result_ty_path(&self) -> TypePath {
+        self.result_ty_path
     }
 
     pub fn list_ty_path(&self) -> TypePath {

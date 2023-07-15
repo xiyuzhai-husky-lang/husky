@@ -15,11 +15,11 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 5,
+                            ast_idx: 6,
                             ident_token: IdentToken {
                                 ident: `Result`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    7,
                                 ),
                             },
                         },
@@ -58,15 +58,61 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 5,
+                            ast_idx: 6,
                             ident_token: IdentToken {
                                 ident: `Result`,
                                 token_idx: TokenIdx(
-                                    2,
+                                    7,
                                 ),
                             },
                         },
                     },
+                },
+                EntitySymbolEntry {
+                    ident: `Ok`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::TypeVariant {
+                                ty_variant_path: TypeVariantPath {
+                                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                    ident: `Ok`,
+                                },
+                            },
+                            path: PrincipalEntityPath::TypeVariant(
+                                TypeVariantPath {
+                                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                    ident: `Ok`,
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 5,
+                            use_expr_idx: 0,
+                        },
+                    ),
+                },
+                EntitySymbolEntry {
+                    ident: `Err`,
+                    visibility: Scope::Pub,
+                    symbol: EntitySymbol::Use(
+                        UseSymbol {
+                            original_symbol: EntitySymbol::TypeVariant {
+                                ty_variant_path: TypeVariantPath {
+                                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                    ident: `Err`,
+                                },
+                            },
+                            path: PrincipalEntityPath::TypeVariant(
+                                TypeVariantPath {
+                                    parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                                    ident: `Err`,
+                                },
+                            ),
+                            visibility: Scope::Pub,
+                            ast_idx: 5,
+                            use_expr_idx: 0,
+                        },
+                    ),
                 },
             ],
         ),
@@ -92,15 +138,15 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 6,
+                        ast_idx: 7,
                         impl_token: ImplToken {
                             token_idx: TokenIdx(
-                                18,
+                                23,
                             ),
                         },
                         trai_expr: 47,
                         for_token: TokenIdx(
-                            36,
+                            41,
                         ),
                         ty_expr: 48,
                         items: Some(
@@ -117,7 +163,72 @@ Ok(
             ),
         ],
         once_use_rules: OnceUseRules(
-            [],
+            [
+                OnceUseRule {
+                    ast_idx: 5,
+                    use_expr_idx: 1,
+                    visibility: Scope::Pub,
+                    variant: OnceUseRuleVariant::Parent {
+                        parent_name_token: PathNameToken::Ident(
+                            IdentToken {
+                                ident: `Result`,
+                                token_idx: TokenIdx(
+                                    2,
+                                ),
+                            },
+                        ),
+                        children: ArenaIdxRange(
+                            0..1,
+                        ),
+                    },
+                    parent: None,
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: Some(
+                            EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::result::Result`, `Enum`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::result::Result`, `Enum`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 6,
+                                    ident_token: IdentToken {
+                                        ident: `Result`,
+                                        token_idx: TokenIdx(
+                                            7,
+                                        ),
+                                    },
+                                },
+                            },
+                        ),
+                    },
+                },
+                OnceUseRule {
+                    ast_idx: 5,
+                    use_expr_idx: 0,
+                    visibility: Scope::Pub,
+                    variant: OnceUseRuleVariant::UseAllTypeVariants {
+                        parent_ty_path: TypePath(`core::result::Result`, `Enum`),
+                    },
+                    parent: Some(
+                        MajorEntityPath::ModuleItem(
+                            ModuleItemPath::Type(
+                                TypePath(`core::result::Result`, `Enum`),
+                            ),
+                        ),
+                    ),
+                    state: OnceUseRuleState::Resolved {
+                        original_symbol: None,
+                    },
+                },
+            ],
         ),
         use_all_rules: UseAllModuleSymbolsRules(
             [],

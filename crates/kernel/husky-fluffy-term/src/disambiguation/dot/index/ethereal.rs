@@ -75,6 +75,8 @@ pub(super) fn ethereal_owner_ty_index_disambiguation_aux(
             | PreludeTypePath::Slice
             | PreludeTypePath::StringLiteral
             | PreludeTypePath::Str => Nothing,
+            PreludeTypePath::Option => todo!(),
+            PreludeTypePath::Result => todo!(),
         },
         Right(_) => todo!(),
     }
