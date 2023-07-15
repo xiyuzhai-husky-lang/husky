@@ -19,6 +19,37 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Term Error: expected coersion",
+                severity: Error,
+                range: [4:43, 4:66),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion",
+                severity: Error,
+                range: [12:43, 12:59),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion",
+                severity: Error,
+                range: [12:61, 12:79),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got core::num::f32 instead",
+                severity: Error,
+                range: [18:5, 18:15),
+            },
+            Diagnostic {
+                message: "type path mismatch: expect core::option::Option, but got core::num::f32 instead",
+                severity: Error,
+                range: [15:5, 18:15),
+            },
+            Diagnostic {
+                message: "Type Error: no method named `end_tangent` for type `FluffyTerm::Application(EtherealTermApplication { function: EtherealTerm(`TypeOntology(core::option::Option)`), argument: EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`), shift: 0 })`",
+                severity: Error,
+                range: [39:61, 39:72),
+            },
+        ],
     },
 }

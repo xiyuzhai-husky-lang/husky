@@ -305,7 +305,7 @@ impl EtherealTerm {
             | EtherealTerm::Universe(_) => self,
             EtherealTerm::EntityPath(TermEntityPath::Fugitive(_)) => todo!(),
             EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Ritchie(term) => term.reduce(db).into(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => term.reduce(db),
             EtherealTerm::Subentity(_) => todo!(),

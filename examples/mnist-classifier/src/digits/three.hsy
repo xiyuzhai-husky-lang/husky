@@ -40,14 +40,14 @@ pub(super) val is_three: OneVsAll MnistLabel MnistLabel::Three =
 fn uparc(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y <= 0.0
-    -cc.bounding_box.ymin()
+    Some(-cc.bounding_box.ymin())
     
 fn downarc(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y <= 0.0
-    -cc.bounding_box.ymin()
+    Some(-cc.bounding_box.ymin())
 
 fn back(cc: ~ConcaveComponent) -> ?f32:
     let dp = cc.displacement()
     require dp.y >= 0.0
-    -cc.bounding_box.ymin()
+    Some(-cc.bounding_box.ymin())

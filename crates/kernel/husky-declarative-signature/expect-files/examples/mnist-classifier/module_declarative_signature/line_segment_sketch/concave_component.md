@@ -5,9 +5,28 @@
                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
             ),
         ),
-        Err(
-            DeclarativeSignatureError::FieldTypeDeclarativeTermError(
-                1,
+        Ok(
+            SignatureTemplate::ModuleItem(
+                ModuleItemDeclarativeSignatureTemplate::Type(
+                    TypeDeclarativeSignatureTemplate::PropsStruct(
+                        PropsStructDeclarativeSignatureTemplate {
+                            generic_parameters: DeclarativeGenericParameters {
+                                data: [],
+                            },
+                            self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                            fields: [
+                                PropsStructFieldDeclarativeSignatureTemplate {
+                                    ident: `line_segment_sketch`,
+                                    ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                                },
+                                PropsStructFieldDeclarativeSignatureTemplate {
+                                    ident: `strokes`,
+                                    ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                                },
+                            ],
+                        },
+                    ),
+                ),
             ),
         ),
     ),
@@ -33,7 +52,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 69,
+                                                        value: 71,
                                                     },
                                                 ),
                                             ),
@@ -101,7 +120,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 91,
+                                                value: 93,
                                             },
                                         ),
                                     ),
@@ -367,7 +386,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 91,
+                                                value: 93,
                                             },
                                         ),
                                     ),
@@ -418,7 +437,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 91,
+                                                value: 93,
                                             },
                                         ),
                                     ),
@@ -469,7 +488,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 91,
+                                                value: 93,
                                             },
                                         ),
                                     ),
@@ -520,7 +539,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 91,
+                                                value: 93,
                                             },
                                         ),
                                     ),
@@ -571,7 +590,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 91,
+                                                value: 93,
                                             },
                                         ),
                                     ),
@@ -622,7 +641,7 @@
                                     Type(
                                         TypePath(
                                             Id {
-                                                value: 91,
+                                                value: 93,
                                             },
                                         ),
                                     ),

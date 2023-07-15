@@ -20,7 +20,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 1,
                 rule_idx: OnceUseRuleIdx(
-                    9,
+                    10,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -67,7 +67,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 4,
                 rule_idx: OnceUseRuleIdx(
-                    10,
+                    11,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -114,7 +114,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 7,
                 rule_idx: OnceUseRuleIdx(
-                    11,
+                    12,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -161,7 +161,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 10,
                 rule_idx: OnceUseRuleIdx(
-                    12,
+                    13,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -208,7 +208,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 13,
                 rule_idx: OnceUseRuleIdx(
-                    13,
+                    14,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -255,7 +255,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 16,
                 rule_idx: OnceUseRuleIdx(
-                    14,
+                    15,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -302,7 +302,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 19,
                 rule_idx: OnceUseRuleIdx(
-                    15,
+                    16,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -349,7 +349,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 22,
                 rule_idx: OnceUseRuleIdx(
-                    16,
+                    17,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -396,7 +396,7 @@ Ok(
             TokenInfo::UseExpr {
                 use_expr_idx: 25,
                 rule_idx: OnceUseRuleIdx(
-                    17,
+                    18,
                 ),
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
@@ -415,6 +415,53 @@ Ok(
                                     ident: `cmp`,
                                     token_idx: TokenIdx(
                                         11,
+                                    ),
+                                },
+                            },
+                        },
+                    ),
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 29,
+                rule_idx: OnceUseRuleIdx(
+                    9,
+                ),
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
+                    ),
+                },
+            },
+            TokenInfo::None,
+            TokenInfo::UseExpr {
+                use_expr_idx: 28,
+                rule_idx: OnceUseRuleIdx(
+                    19,
+                ),
+                state: OnceUseRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_path: `core::slice`,
+                            node: SubmoduleNode {
+                                node_path: SubmoduleNodePath {
+                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                        path: `core::slice`,
+                                        disambiguator: 0,
+                                    },
+                                },
+                                visibility: Scope::Pub,
+                                ast_idx: 16,
+                                ident_token: IdentToken {
+                                    ident: `slice`,
+                                    token_idx: TokenIdx(
+                                        50,
                                     ),
                                 },
                             },

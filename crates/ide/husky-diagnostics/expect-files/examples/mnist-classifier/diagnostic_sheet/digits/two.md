@@ -19,6 +19,22 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Term Error: expected coersion",
+                severity: Error,
+                range: [4:43, 4:58),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion",
+                severity: Error,
+                range: [4:60, 4:76),
+            },
+            Diagnostic {
+                message: "Term Error: expected coersion",
+                severity: Error,
+                range: [4:77, 4:92),
+            },
+        ],
     },
 }

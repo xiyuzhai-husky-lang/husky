@@ -171,6 +171,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
             OriginalExprTypeError::UnexpectedArgument => {
                 format!("Type Error: unexpected argument")
             }
+            OriginalExprTypeError::MissingArgument => {
+                format!("Type Error: missing argument")
+            }
         }
     }
 
@@ -234,6 +237,9 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
             }
             OriginalFluffyTermExpectationError::ExpectedSubtype { expectee } => {
                 format!("Term Error: expected subtype",)
+            }
+            OriginalFluffyTermExpectationError::ExpectedCoersion => {
+                format!("Term Error: expected coersion",)
             }
         }
     }

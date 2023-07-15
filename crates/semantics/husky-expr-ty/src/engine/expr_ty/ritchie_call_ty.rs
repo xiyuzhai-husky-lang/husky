@@ -103,7 +103,7 @@ mod matcher {
                             .push(RitchieParameterArgumentMatch::Regular(param, item))),
                         CallListItem::Keyed(_) => todo!(),
                     },
-                    None => todo!(),
+                    None => Err(OriginalExprTypeError::MissingArgument)?,
                 },
                 FluffyTermRitchieParameter::Variadic(param) => {
                     let mut items = vec![];

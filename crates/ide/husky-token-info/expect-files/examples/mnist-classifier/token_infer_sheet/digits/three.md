@@ -521,6 +521,15 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                        ident: `Some`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -533,6 +542,7 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Method,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -614,6 +624,15 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                        ident: `Some`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -626,6 +645,7 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Method,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
@@ -707,6 +727,15 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::Entity(
+                EntityPath::TypeVariant(
+                    TypeVariantPath {
+                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
+                        ident: `Some`,
+                    },
+                ),
+            ),
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
@@ -719,6 +748,7 @@ Ok(
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Method,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
         ],

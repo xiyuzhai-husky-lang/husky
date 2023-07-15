@@ -875,6 +875,16 @@ Ok(
                     Unspecified,
                 ),
             ),
+            Token::Ident(
+                `Some`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Minus,
@@ -902,6 +912,13 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
                         Par,
                     ),
                 ),
@@ -1039,6 +1056,16 @@ Ok(
                     Unspecified,
                 ),
             ),
+            Token::Ident(
+                `Some`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Minus,
@@ -1066,6 +1093,13 @@ Ok(
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
                         Par,
                     ),
                 ),
@@ -1203,6 +1237,16 @@ Ok(
                     Unspecified,
                 ),
             ),
+            Token::Ident(
+                `Some`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
             Token::Punctuation(
                 Punctuation(
                     PunctuationMapped::Minus,
@@ -1241,6 +1285,13 @@ Ok(
                     ),
                 ),
             ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
         ],
         group_starts: [
             0,
@@ -1268,14 +1319,14 @@ Ok(
             170,
             178,
             184,
-            192,
-            204,
-            212,
-            218,
-            226,
-            238,
-            246,
+            195,
+            207,
+            215,
+            221,
+            232,
+            244,
             252,
+            258,
         ],
         indents: [
             0,

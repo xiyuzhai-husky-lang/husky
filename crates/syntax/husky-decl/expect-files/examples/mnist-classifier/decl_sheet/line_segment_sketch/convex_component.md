@@ -84,18 +84,18 @@ Ok(
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                16,
-                                                            ),
-                                                            ident: `CyclicSliceLeashed`,
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -124,6 +124,21 @@ Ok(
                                                     principal_entity_path: PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
                                                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                                        ),
+                                                    ),
+                                                },
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `CyclicSliceLeashed`,
+                                                            token_idx: TokenIdx(
+                                                                16,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                                                         ),
                                                     ),
                                                 },
@@ -181,7 +196,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 200,
+                                                                    value: 201,
                                                                 },
                                                             ),
                                                         ),

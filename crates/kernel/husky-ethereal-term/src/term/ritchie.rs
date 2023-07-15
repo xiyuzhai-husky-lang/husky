@@ -86,7 +86,8 @@ impl EtherealTermRitchie {
     }
 
     pub(super) fn reduce(self, db: &dyn EtherealTermDb) -> EtherealTermRitchie {
-        todo!()
+        // ad hoc
+        self
     }
 
     #[inline(always)]

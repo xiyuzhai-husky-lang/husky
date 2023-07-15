@@ -130,7 +130,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 241,
+                                                                value: 242,
                                                             },
                                                         ),
                                                     ),
@@ -153,7 +153,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 288,
+                                                                value: 289,
                                                             },
                                                         ),
                                                     ),
@@ -185,7 +185,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 289,
+                                                                value: 290,
                                                             },
                                                         ),
                                                     ),
@@ -257,18 +257,18 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::Err(
-                                                    ExprError::Original(
-                                                        OriginalExprError::UnrecognizedIdent {
-                                                            token_idx: TokenIdx(
-                                                                45,
-                                                            ),
-                                                            ident: `CyclicSliceLeashed`,
-                                                        },
-                                                    ),
-                                                ),
                                                 Expr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
+                                                    opt_path: Some(
+                                                        PrincipalEntityPath::ModuleItem(
+                                                            ModuleItemPath::Type(
+                                                                TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                            ),
+                                                        ),
+                                                    ),
+                                                },
+                                                Expr::PrincipalEntityPath {
+                                                    entity_path_expr: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -282,7 +282,7 @@ Ok(
                                                     argument_expr_idx: 1,
                                                 },
                                                 Expr::PrincipalEntityPath {
-                                                    entity_path_expr: 1,
+                                                    entity_path_expr: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -356,7 +356,7 @@ Ok(
                                                     ),
                                                 },
                                                 Expr::PrincipalEntityPath {
-                                                    entity_path_expr: 2,
+                                                    entity_path_expr: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -433,6 +433,21 @@ Ok(
                                         },
                                         principal_entity_path_expr_arena: Arena {
                                             data: [
+                                                PrincipalEntityPathExpr::Root {
+                                                    path_name_token: PathNameToken::Ident(
+                                                        IdentToken {
+                                                            ident: `CyclicSliceLeashed`,
+                                                            token_idx: TokenIdx(
+                                                                45,
+                                                            ),
+                                                        },
+                                                    ),
+                                                    principal_entity_path: PrincipalEntityPath::ModuleItem(
+                                                        ModuleItemPath::Type(
+                                                            TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                        ),
+                                                    ),
+                                                },
                                                 PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
                                                         IdentToken {
@@ -517,7 +532,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 241,
+                                                                    value: 242,
                                                                 },
                                                             ),
                                                         ),
@@ -534,7 +549,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 288,
+                                                                    value: 289,
                                                                 },
                                                             ),
                                                         ),
@@ -557,7 +572,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 289,
+                                                                    value: 290,
                                                                 },
                                                             ),
                                                         ),
@@ -626,7 +641,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 327,
+                                                                value: 328,
                                                             },
                                                         ),
                                                     ),
@@ -820,7 +835,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 327,
+                                                                    value: 328,
                                                                 },
                                                             ),
                                                         ),

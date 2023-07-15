@@ -7235,6 +7235,84 @@ Ok(
                                 },
                             ),
                         },
+                        EntitySymbolEntry {
+                            ident: `Slice`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::slice::Slice`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::slice::Slice`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 0,
+                                            ident_token: IdentToken {
+                                                ident: `Slice`,
+                                                token_idx: TokenIdx(
+                                                    2,
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`core::slice::Slice`, `Extern`),
+                                        ),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 9,
+                                    use_expr_idx: 27,
+                                },
+                            ),
+                        },
+                        EntitySymbolEntry {
+                            ident: `CyclicSliceLeashed`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::Use(
+                                UseSymbol {
+                                    original_symbol: EntitySymbol::ModuleItem {
+                                        module_item_path: ModuleItemPath::Type(
+                                            TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                        ),
+                                        node: ModuleItemNode {
+                                            node_path: ModuleItemNodePath::Type(
+                                                TypeNodePath {
+                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                        path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                            visibility: Scope::Pub,
+                                            ast_idx: 1,
+                                            ident_token: IdentToken {
+                                                ident: `CyclicSliceLeashed`,
+                                                token_idx: TokenIdx(
+                                                    10,
+                                                ),
+                                            },
+                                        },
+                                    },
+                                    path: PrincipalEntityPath::ModuleItem(
+                                        ModuleItemPath::Type(
+                                            TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                        ),
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 9,
+                                    use_expr_idx: 27,
+                                },
+                            ),
+                        },
                     ],
                 ),
                 impl_block_node_table: [],
@@ -7454,6 +7532,31 @@ Ok(
                                 ),
                                 children: ArenaIdxRange(
                                     25..26,
+                                ),
+                            },
+                            parent: None,
+                            state: OnceUseRuleState::Resolved {
+                                original_symbol: Some(
+                                    EntitySymbol::CrateRoot {
+                                        root_module_path: `core`,
+                                    },
+                                ),
+                            },
+                        },
+                        OnceUseRule {
+                            ast_idx: 9,
+                            use_expr_idx: 29,
+                            visibility: Scope::Pub,
+                            variant: OnceUseRuleVariant::Parent {
+                                parent_name_token: PathNameToken::CrateRoot(
+                                    CrateToken {
+                                        token_idx: TokenIdx(
+                                            65,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    28..29,
                                 ),
                             },
                             parent: None,
@@ -7879,6 +7982,52 @@ Ok(
                                 ),
                             },
                         },
+                        OnceUseRule {
+                            ast_idx: 9,
+                            use_expr_idx: 28,
+                            visibility: Scope::Pub,
+                            variant: OnceUseRuleVariant::Parent {
+                                parent_name_token: PathNameToken::Ident(
+                                    IdentToken {
+                                        ident: `slice`,
+                                        token_idx: TokenIdx(
+                                            67,
+                                        ),
+                                    },
+                                ),
+                                children: ArenaIdxRange(
+                                    27..28,
+                                ),
+                            },
+                            parent: Some(
+                                MajorEntityPath::Module(
+                                    `core`,
+                                ),
+                            ),
+                            state: OnceUseRuleState::Resolved {
+                                original_symbol: Some(
+                                    EntitySymbol::Submodule {
+                                        submodule_path: `core::slice`,
+                                        node: SubmoduleNode {
+                                            node_path: SubmoduleNodePath {
+                                                maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                    path: `core::slice`,
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                            visibility: Scope::Pub,
+                                            ast_idx: 16,
+                                            ident_token: IdentToken {
+                                                ident: `slice`,
+                                                token_idx: TokenIdx(
+                                                    50,
+                                                ),
+                                            },
+                                        },
+                                    },
+                                ),
+                            },
+                        },
                     ],
                 ),
                 use_all_rules: UseAllModuleSymbolsRules(
@@ -7971,6 +8120,16 @@ Ok(
                             visibility: Scope::Pub,
                             progress: Ok(
                                 4,
+                            ),
+                        },
+                        UseAllModuleSymbolsRule {
+                            parent_module_path: `core::slice`,
+                            is_same_crate: true,
+                            ast_idx: 9,
+                            use_expr_idx: 27,
+                            visibility: Scope::Pub,
+                            progress: Ok(
+                                2,
                             ),
                         },
                     ],
@@ -8366,6 +8525,40 @@ Ok(
                             ident: `Slice`,
                             visibility: Scope::Pub,
                         },
+                        EntityNodeEntry {
+                            node: EntityNode::ModuleItem(
+                                ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `CyclicSliceLeashed`,
+                                        token_idx: TokenIdx(
+                                            10,
+                                        ),
+                                    },
+                                },
+                            ),
+                            node_path: EntityNodePath::ModuleItem(
+                                ModuleItemNodePath::Type(
+                                    TypeNodePath {
+                                        maybe_ambiguous_path: MaybeAmbiguousPath {
+                                            path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            ),
+                            ident: `CyclicSliceLeashed`,
+                            visibility: Scope::Pub,
+                        },
                     ],
                 },
                 entity_symbol_table: EntitySymbolTable(
@@ -8392,6 +8585,33 @@ Ok(
                                         ident: `Slice`,
                                         token_idx: TokenIdx(
                                             2,
+                                        ),
+                                    },
+                                },
+                            },
+                        },
+                        EntitySymbolEntry {
+                            ident: `CyclicSliceLeashed`,
+                            visibility: Scope::Pub,
+                            symbol: EntitySymbol::ModuleItem {
+                                module_item_path: ModuleItemPath::Type(
+                                    TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                ),
+                                node: ModuleItemNode {
+                                    node_path: ModuleItemNodePath::Type(
+                                        TypeNodePath {
+                                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                                path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                    visibility: Scope::Pub,
+                                    ast_idx: 1,
+                                    ident_token: IdentToken {
+                                        ident: `CyclicSliceLeashed`,
+                                        token_idx: TokenIdx(
+                                            10,
                                         ),
                                     },
                                 },

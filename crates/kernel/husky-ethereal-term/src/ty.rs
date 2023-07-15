@@ -141,7 +141,9 @@ impl EtherealTerm {
             EtherealTerm::Category(cat) => RawType::Declarative(cat.ty()?.into()),
             EtherealTerm::Universe(_) => todo!(),
             EtherealTerm::Curry(_) => todo!(),
-            EtherealTerm::Ritchie(_) => todo!(),
+            EtherealTerm::Ritchie(_) => {
+                DeclarativeTerm::Category(TermCategory::new(1.into())).into()
+            }
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
             EtherealTerm::Subentity(_) => todo!(),

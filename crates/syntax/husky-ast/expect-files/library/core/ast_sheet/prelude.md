@@ -209,14 +209,37 @@ Ok(
                         },
                     ),
                 },
+                Ast::Use {
+                    token_group_idx: TokenGroupIdx(
+                        9,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    63,
+                                ),
+                            },
+                        },
+                    },
+                    state_after_visibility_expr: Some(
+                        TokenStreamState {
+                            next_token_idx: TokenIdx(
+                                64,
+                            ),
+                            drained: false,
+                        },
+                    ),
+                },
             ],
         },
         top_level_asts: ArenaIdxRange(
-            0..9,
+            0..10,
         ),
         siblings: [
             ArenaIdxRange(
-                0..9,
+                0..10,
             ),
         ],
     },
