@@ -1,3 +1,4 @@
+#![feature(let_chains)]
 #![feature(anonymous_lifetime_in_impl_trait)]
 #![feature(trait_upcasting)]
 #![feature(generic_arg_infer)]

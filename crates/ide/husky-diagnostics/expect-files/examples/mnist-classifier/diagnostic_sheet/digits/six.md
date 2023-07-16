@@ -35,16 +35,6 @@ DiagnosticSheet {
                 severity: Error,
                 range: [7:52, 7:59),
             },
-            Diagnostic {
-                message: "type path mismatch: expect core::option::Option, but got core::num::f32 instead",
-                severity: Error,
-                range: [74:5, 74:16),
-            },
-            Diagnostic {
-                message: "type path mismatch: expect core::option::Option, but got core::num::f32 instead",
-                severity: Error,
-                range: [68:5, 74:16),
-            },
         ],
     },
 }
