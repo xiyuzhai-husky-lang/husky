@@ -10,7 +10,7 @@
 mod icon_data;
 
 #[cfg(not(target_arch = "wasm32"))]
-pub use icon_data::IconData;
+pub use self::icon_data::IconData;
 
 #[cfg(target_arch = "wasm32")]
 use std::any::Any;

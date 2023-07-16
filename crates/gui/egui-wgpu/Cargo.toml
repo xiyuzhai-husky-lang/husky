@@ -8,48 +8,28 @@ authors = [
   "Emil Ernerfeldt <emil.ernerfeldt@gmail.com>",
 ]
 edition = "2021"
-rust-version = "1.65"
-homepage = "https://github.com/emilk/egui/tree/master/crates/egui-wgpu"
-license = "MIT OR Apache-2.0"
-readme = "README.md"
-repository = "https://github.com/emilk/egui/tree/master/crates/egui-wgpu"
-categories = ["gui", "game-development"]
-keywords = ["wgpu", "egui", "gui", "gamedev"]
-include = [
-  "../LICENSE-APACHE",
-  "../LICENSE-MIT",
-  "**/*.rs",
-  "**/*.wgsl",
-  "Cargo.toml",
-]
 
 [package.metadata.docs.rs]
 all-features = true
 
-
 [features]
 ## Enable profiling with the [`puffin`](https://docs.rs/puffin) crate.
 puffin = ["dep:puffin"]
-
 ## Enable [`winit`](https://docs.rs/winit) integration.
 winit = ["dep:winit"]
-
 
 [dependencies]
 epaint = { version = "0.22.0", path = "../epaint", default-features = false, features = [
   "bytemuck",
 ] }
-
 bytemuck = "1.7"
 log = { version = "0.4", features = ["std"] }
 thiserror.workspace = true
 type-map = "0.5.0"
 wgpu = "0.16.0"
-
 #! ### Optional dependencies
 ## Enable this when generating docs.
 document-features = { version = "0.2", optional = true }
-
 winit = { version = "0.28", optional = true }
 
 # Native:
