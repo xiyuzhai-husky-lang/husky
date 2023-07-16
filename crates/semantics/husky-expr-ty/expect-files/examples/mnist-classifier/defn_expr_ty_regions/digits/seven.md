@@ -2147,20 +2147,9 @@
                                     ),
                                 ),
                                 resolve_progress: Resolved(
-                                    Err(
-                                        Original(
-                                            TypePathMismatch {
-                                                expected_path: TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
-                                                expectee_path: TypePath(
-                                                    Id {
-                                                        value: 60,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            WrapInSome,
                                         ),
                                     ),
                                 ),
@@ -2195,20 +2184,9 @@
                                     ),
                                 ),
                                 resolve_progress: Resolved(
-                                    Err(
-                                        Original(
-                                            TypePathMismatch {
-                                                expected_path: TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
-                                                expectee_path: TypePath(
-                                                    Id {
-                                                        value: 60,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            WrapInSome,
                                         ),
                                     ),
                                 ),

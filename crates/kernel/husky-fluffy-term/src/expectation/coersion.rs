@@ -5,6 +5,7 @@ pub enum Coersion {
     Trivial,
     Never,
     Other,
+    WrapInSome,
 }
 
 /// expect a type that is implicitly convertible to type under contract
@@ -131,7 +132,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
             FluffyTermData::Literal(_) => todo!(),
             FluffyTermData::TypeOntology {
                 ty_path: path,
-                refined_ty_path: refined_path,
+                refined_ty_path,
                 arguments,
                 ..
             } => self.resolve_convertible_to_ty_ontology(
@@ -139,7 +140,7 @@ impl ExpectFluffyTerm for ExpectCoersion {
                 state,
                 terms,
                 path,
-                refined_path,
+                refined_ty_path,
                 arguments,
             ),
             FluffyTermData::Curry { .. } => todo!(),
@@ -199,115 +200,120 @@ impl ExpectCoersion {
         meta: &mut ExpectationState,
         terms: &FluffyTerms,
         dst_path: TypePath,
-        dst_refined_path: Either<PreludeTypePath, CustomTypePath>,
-        dst_argument_tys: &[FluffyTerm],
+        dst_refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
+        dst_ty_arguments: &[FluffyTerm],
     ) -> Option<ExpectationEffect> {
-        match meta.expectee().data_inner(db, terms) {
-            FluffyTermData::TypeOntology {
-                refined_ty_path: Left(PreludeTypePath::NEVER),
-                ..
-            } => meta.set_ok(Coersion::Never, smallvec![]),
-            FluffyTermData::TypeOntology {
-                refined_ty_path: src_path,
-                arguments: src_argument_tys,
-                ..
-            } if dst_refined_path == src_path => {
-                if dst_argument_tys.len() != src_argument_tys.len() {
-                    p!(meta.expectee().debug(db), self.ty().debug(db));
-                    todo!()
-                }
-                let mut actions = smallvec![];
-                for (src_argument_ty, dst_argument_ty) in std::iter::zip(
-                    src_argument_tys.iter().copied(),
-                    dst_argument_tys.iter().copied(),
-                ) {
-                    if src_argument_ty != dst_argument_ty {
-                        actions.push(FluffyTermResolveAction::AddExpectation {
-                            src: meta.child_src(),
-                            expectee: src_argument_ty,
-                            expectation: ExpectSubtype::new(dst_argument_ty).into(),
-                        })
+        if let Left(PreludeTypePath::Option) = dst_refined_ty_path && dst_ty_arguments[0] == meta.expectee() {
+            debug_assert_eq!(dst_ty_arguments.len() ,1);
+            meta.set_ok(Coersion::WrapInSome, smallvec![])
+        } else {
+            match meta.expectee().data_inner(db, terms) {
+                FluffyTermData::TypeOntology {
+                    refined_ty_path: Left(PreludeTypePath::NEVER),
+                    ..
+                } => meta.set_ok(Coersion::Never, smallvec![]),
+                FluffyTermData::TypeOntology {
+                    refined_ty_path: src_path,
+                    arguments: src_argument_tys,
+                    ..
+                } if dst_refined_ty_path == src_path => {
+                    if dst_ty_arguments.len() != src_argument_tys.len() {
+                        p!(meta.expectee().debug(db), self.ty().debug(db));
+                        todo!()
+                    }
+                    let mut actions = smallvec![];
+                    for (src_argument_ty, dst_argument_ty) in std::iter::zip(
+                        src_argument_tys.iter().copied(),
+                        dst_ty_arguments.iter().copied(),
+                    ) {
+                        if src_argument_ty != dst_argument_ty {
+                            actions.push(FluffyTermResolveAction::AddExpectation {
+                                src: meta.child_src(),
+                                expectee: src_argument_ty,
+                                expectation: ExpectSubtype::new(dst_argument_ty).into(),
+                            })
+                        }
+                    }
+                    match self.contract() {
+                        Contract::None => meta.set_ok(Coersion::Trivial, actions),
+                        Contract::Move => meta.set_ok(Coersion::Trivial, actions),
+                        Contract::BorrowMut => todo!(),
+                        Contract::Const => todo!(),
                     }
                 }
-                match self.contract() {
-                    Contract::None => meta.set_ok(Coersion::Trivial, actions),
-                    Contract::Move => meta.set_ok(Coersion::Trivial, actions),
-                    Contract::BorrowMut => todo!(),
-                    Contract::Const => todo!(),
-                }
-            }
-            FluffyTermData::TypeOntology {
-                ty_path: src_path,
-                refined_ty_path: src_refined_path,
-                arguments: src_arguments,
-                ..
-            } => meta.set_err(
-                OriginalFluffyTermExpectationError::TypePathMismatch {
-                    expected_path: dst_path,
-                    expectee_path: src_path,
-                },
-                smallvec![],
-            ),
-            FluffyTermData::TypeOntologyAtPlace {
-                place,
-                refined_ty_path: src_path,
-                arguments: src_argument_tys,
-                ..
-            } if dst_refined_path == src_path => {
-                if dst_argument_tys.len() != src_argument_tys.len() {
-                    p!(meta.expectee().debug(db), self.ty().debug(db));
-                    todo!()
-                }
-                let mut actions = smallvec![];
-                for (src_argument_ty, dst_argument_ty) in std::iter::zip(
-                    src_argument_tys.iter().copied(),
-                    dst_argument_tys.iter().copied(),
-                ) {
-                    if src_argument_ty != dst_argument_ty {
-                        actions.push(FluffyTermResolveAction::AddExpectation {
-                            src: meta.child_src(),
-                            expectee: src_argument_ty,
-                            expectation: ExpectSubtype::new(dst_argument_ty).into(),
-                        })
-                    }
-                }
-                match self.contract() {
-                    Contract::None => meta.set_ok(Coersion::Trivial, actions),
-                    Contract::Move => meta.set_ok(Coersion::Trivial, actions),
-                    Contract::BorrowMut => todo!(),
-                    Contract::Const => todo!(),
-                }
-            }
-            FluffyTermData::TypeOntologyAtPlace {
-                ty_path: src_path,
-                refined_ty_path: src_refined_path,
-                arguments: src_arguments,
-                ..
-            } => {
-                // todo: consider `Deref` and `DerefMut`
-                meta.set_err(
+                FluffyTermData::TypeOntology {
+                    ty_path: src_path,
+                    refined_ty_path: src_refined_path,
+                    arguments: src_arguments,
+                    ..
+                } => meta.set_err(
                     OriginalFluffyTermExpectationError::TypePathMismatch {
                         expected_path: dst_path,
                         expectee_path: src_path,
                     },
                     smallvec![],
-                )
-            }
-            FluffyTermData::Hole(_, hole) => {
-                meta.set_holed(hole, |meta| HoleConstraint::CoercibleTo {
-                    target: meta.expectee(),
-                })
-            }
-            _ => {
-                p!(
-                    meta.expectee().data_inner(db, terms).debug(db),
-                    self.ty().data_inner(db, terms).debug(db)
-                );
-                // Some(FluffyTermExpectationEffect {
-                //     result: Err(todo!()),
-                //     actions: smallvec![],
-                // })
-                todo!()
+                ),
+                FluffyTermData::TypeOntologyAtPlace {
+                    place,
+                    refined_ty_path: src_path,
+                    arguments: src_argument_tys,
+                    ..
+                } if dst_refined_ty_path == src_path => {
+                    if dst_ty_arguments.len() != src_argument_tys.len() {
+                        p!(meta.expectee().debug(db), self.ty().debug(db));
+                        todo!()
+                    }
+                    let mut actions = smallvec![];
+                    for (src_argument_ty, dst_argument_ty) in std::iter::zip(
+                        src_argument_tys.iter().copied(),
+                        dst_ty_arguments.iter().copied(),
+                    ) {
+                        if src_argument_ty != dst_argument_ty {
+                            actions.push(FluffyTermResolveAction::AddExpectation {
+                                src: meta.child_src(),
+                                expectee: src_argument_ty,
+                                expectation: ExpectSubtype::new(dst_argument_ty).into(),
+                            })
+                        }
+                    }
+                    match self.contract() {
+                        Contract::None => meta.set_ok(Coersion::Trivial, actions),
+                        Contract::Move => meta.set_ok(Coersion::Trivial, actions),
+                        Contract::BorrowMut => todo!(),
+                        Contract::Const => todo!(),
+                    }
+                }
+                FluffyTermData::TypeOntologyAtPlace {
+                    ty_path: src_path,
+                    refined_ty_path: src_refined_path,
+                    arguments: src_arguments,
+                    ..
+                } => {
+                    // todo: consider `Deref` and `DerefMut`
+                    meta.set_err(
+                        OriginalFluffyTermExpectationError::TypePathMismatch {
+                            expected_path: dst_path,
+                            expectee_path: src_path,
+                        },
+                        smallvec![],
+                    )
+                }
+                FluffyTermData::Hole(_, hole) => {
+                    meta.set_holed(hole, |meta| HoleConstraint::CoercibleTo {
+                        target: meta.expectee(),
+                    })
+                }
+                _ => {
+                    p!(
+                        meta.expectee().data_inner(db, terms).debug(db),
+                        self.ty().data_inner(db, terms).debug(db)
+                    );
+                    // Some(FluffyTermExpectationEffect {
+                    //     result: Err(todo!()),
+                    //     actions: smallvec![],
+                    // })
+                    todo!()
+                }
             }
         }
     }
