@@ -1,12 +1,12 @@
 [workspace]
 members = [
     "crates/abstraction/*",
-    "crates/apps/*",
+    # "crates/apps/*",
     "crates/arch/*",
     "crates/comptime/*",
     "crates/devtools/*",
     "crates/debugtime/*",
-    "crates/experiments/*",
+    # "crates/experiments/*",
     "crates/fs/*",
     "crates/gui/*",
     "crates/ide/*",
@@ -21,7 +21,6 @@ members = [
     "crates/vm/*",
     "crates/benchmarks/*"
 ]
-exclude = ["crates/gui"]
 resolver = "2"
 
 [profile.dev]
@@ -34,3 +33,6 @@ opt-level = 0
 [profile.release]
 opt-level = 0
 lto = false
+
+[workspace.dependencies]
+thiserror = "1.0.37"

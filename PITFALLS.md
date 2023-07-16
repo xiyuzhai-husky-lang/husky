@@ -5,7 +5,7 @@ user may use `lib.rs` instead of `lib.hsy`, there should be errors shown on `Cor
 
 ## no libtorch found
 
-It might be fish environment variable set flags (use -gx) 
+It might be fish environment variable set flags (use -gx)
 
 ## error: undefined symbol: c10::detail::torchCheckFail
 
@@ -17,4 +17,8 @@ Restart vscode
 
 ## LD_LIBRARY_PATH missing paths outside target
 
-https://doc.rust-lang.org/cargo/reference/environment-variables.html#dynamic-library-paths
+<https://doc.rust-lang.org/cargo/reference/environment-variables.html#dynamic-library-paths>
+
+## Unresolved import everywhere
+
+Mismatched edition key in Cargo.toml
