@@ -12,7 +12,11 @@ impl eframe::App for MyApp {
     }
 }
 
-#[test]
-fn run_me() {
-    todo!()
+fn main() -> Result<(), eframe::Error> {
+    let options = eframe::NativeOptions::default();
+    eframe::run_native(
+        "egui example: global font style",
+        options,
+        Box::new(|cc| Box::new(MyApp::new(cc))),
+    )
 }
