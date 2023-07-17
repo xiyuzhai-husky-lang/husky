@@ -53,8 +53,29 @@ pub(crate) trait FluffyTermInstantiate: Copy {
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target;
+
+    // set flag to true if target is different
+    fn instantiate_with_flag(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
+        instantiation: &mut FluffyTermInstantiation,
+        flag: &mut bool,
+    ) -> Self::Target
+    where
+        Self: Into<Self::Target>,
+        Self::Target: Eq,
+    {
+        let target = self.instantiate(engine, expr_idx, instantiation);
+        let this: Self::Target = self.into();
+        if target != this {
+            *flag = true
+        }
+        target
+    }
 }
 
 pub(crate) trait InstantiateRef {
@@ -63,6 +84,7 @@ pub(crate) trait InstantiateRef {
     fn instantiate(
         &self,
         engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target;
 }
@@ -73,6 +95,7 @@ impl FluffyTermInstantiate for EtherealTerm {
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
         if instantiation.symbol_map.len() == 0 {
@@ -91,10 +114,40 @@ impl FluffyTermInstantiate for EtherealTerm {
             EtherealTerm::Curry(_) => todo!(),
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
-            EtherealTerm::Application(_) => todo!(),
+            EtherealTerm::Application(term) => term.instantiate(engine, expr_idx, instantiation),
             EtherealTerm::Subentity(_) => todo!(),
             EtherealTerm::AsTraitSubentity(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
+        }
+    }
+}
+
+impl FluffyTermInstantiate for EtherealTermApplication {
+    type Target = FluffyTerm;
+
+    fn instantiate(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
+        instantiation: &mut FluffyTermInstantiation,
+    ) -> Self::Target {
+        let mut flag = false;
+        let function = self.function(engine.db()).instantiate_with_flag(
+            engine,
+            expr_idx,
+            instantiation,
+            &mut flag,
+        );
+        let argument = self.argument(engine.db()).instantiate_with_flag(
+            engine,
+            expr_idx,
+            instantiation,
+            &mut flag,
+        );
+        match flag {
+            true => FluffyTerm::new_application(engine, expr_idx, function, argument)
+                .expect("should be okay"),
+            false => self.into(),
         }
     }
 }

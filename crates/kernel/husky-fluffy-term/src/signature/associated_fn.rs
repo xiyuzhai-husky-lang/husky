@@ -20,6 +20,7 @@ impl AssociatedFnFluffySignature {
 
 pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
+    expr_idx: ExprIdx,
     template: TypeAssociatedFnEtherealSignatureTemplate,
     ty_template_arguments: &[Term],
     associated_fn_template_arguments: &[FluffyTerm],
@@ -44,11 +45,13 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         explicit_parameters: template
             .explicit_parameters(db)
             .iter()
-            .map(|param| param.instantiate(engine, &mut instantiation))
+            .map(|param| param.instantiate(engine, expr_idx, &mut instantiation))
             .collect(),
         return_ty: template
             .return_ty(db)
-            .instantiate(engine, &mut instantiation),
-        ty: template.ty(db).instantiate(engine, &mut instantiation),
+            .instantiate(engine, expr_idx, &mut instantiation),
+        ty: template
+            .ty(db)
+            .instantiate(engine, expr_idx, &mut instantiation),
     })
 }

@@ -15,6 +15,7 @@ impl<'a> ExprTypeEngine<'a> {
             .ok_or(DerivedExprTypeError::UnableToInferAssociatedItemParentTerm)?;
         match parent_term.disambiguate_scope_resolution(
             self,
+            expr_idx,
             ident_token.ident(),
             /*ad hoc */ &[],
         ) {

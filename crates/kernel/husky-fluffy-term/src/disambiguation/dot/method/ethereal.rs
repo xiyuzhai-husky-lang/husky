@@ -4,16 +4,17 @@ use super::*;
 
 pub(super) fn ethereal_ty_method_disambiguation(
     engine: &mut impl FluffyTermEngine,
+    expr_idx: ExprIdx,
     ty_term: EtherealTerm,
     ident: Ident,
 ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
     // divide into cases for memoization
     match ty_term {
         EtherealTerm::EntityPath(TermEntityPath::TypeOntology(ty_path)) => {
-            ethereal_ty_ontology_path_ty_method_disambiguation(engine, ty_path, ident)
+            ethereal_ty_ontology_path_ty_method_disambiguation(engine, expr_idx, ty_path, ident)
         }
         EtherealTerm::Application(ty_term) => {
-            ethereal_term_application_ty_method_disambiguation(engine, ty_term, ident)
+            ethereal_term_application_ty_method_disambiguation(engine, expr_idx, ty_term, ident)
         }
         _ => Nothing,
     }
@@ -21,14 +22,16 @@ pub(super) fn ethereal_ty_method_disambiguation(
 
 pub(crate) fn ethereal_ty_ontology_path_ty_method_disambiguation(
     engine: &mut impl FluffyTermEngine,
+    expr_idx: ExprIdx,
     ty_path: TypePath,
     ident: Ident,
 ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
-    ethereal_ty_method_disambiguation_aux(engine, ty_path, &[], ident, smallvec![])
+    ethereal_ty_method_disambiguation_aux(engine, expr_idx, ty_path, &[], ident, smallvec![])
 }
 
 pub(crate) fn ethereal_term_application_ty_method_disambiguation(
     engine: &mut impl FluffyTermEngine,
+    expr_idx: ExprIdx,
     ty_term: EtherealTermApplication,
     ident: Ident,
 ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
@@ -36,6 +39,7 @@ pub(crate) fn ethereal_term_application_ty_method_disambiguation(
     match application_expansion.function() {
         TermFunctionReduced::TypeOntology(ty_path) => ethereal_ty_method_disambiguation_aux(
             engine,
+            expr_idx,
             ty_path,
             application_expansion.arguments(engine.db()),
             ident,
@@ -47,6 +51,7 @@ pub(crate) fn ethereal_term_application_ty_method_disambiguation(
 
 fn ethereal_ty_method_disambiguation_aux(
     engine: &mut impl FluffyTermEngine,
+    expr_idx: ExprIdx,
     ty_path: TypePath,
     arguments: &[EtherealTerm],
     ident: Ident,
@@ -63,16 +68,22 @@ fn ethereal_ty_method_disambiguation_aux(
                     todo!()
                 }
                 return JustOk(
-                    ethereal_ty_method_disambiguation(engine, arguments[0], ident)?
+                    ethereal_ty_method_disambiguation(engine, expr_idx, arguments[0], ident)?
                         .merge(indirections),
                 );
             }
         },
         _ => (),
     }
-    if let Some(signature) =
-        ty_method_fluffy_signature(engine, ty_path, arguments, /* ad hoc */ &[], ident)
-            .into_result_option()?
+    if let Some(signature) = ty_method_fluffy_signature(
+        engine,
+        expr_idx,
+        ty_path,
+        arguments,
+        /* ad hoc */ &[],
+        ident,
+    )
+    .into_result_option()?
     {
         return JustOk(FluffyDotDisambiguation {
             indirections,

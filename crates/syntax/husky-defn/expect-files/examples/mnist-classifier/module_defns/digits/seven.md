@@ -3275,7 +3275,7 @@ Ok(
                             },
                         },
                         body: Some(
-                            59,
+                            60,
                         ),
                         expr_region: ExprRegion {
                             data: ExprRegionData {
@@ -3792,30 +3792,37 @@ Ok(
                                                 229,
                                             ),
                                         },
-                                        Expr::MethodApplicationOrCall {
-                                            self_argument: 29,
-                                            dot_token_idx: TokenIdx(
+                                        Expr::Suffix {
+                                            opd: 29,
+                                            opr: UnwrapOrComposeWithNot,
+                                            opr_token_idx: TokenIdx(
                                                 230,
+                                            ),
+                                        },
+                                        Expr::MethodApplicationOrCall {
+                                            self_argument: 30,
+                                            dot_token_idx: TokenIdx(
+                                                231,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `end_tangent`,
                                                 token_idx: TokenIdx(
-                                                    231,
+                                                    232,
                                                 ),
                                             },
                                             implicit_arguments: None,
                                             lpar_token_idx: TokenIdx(
-                                                232,
+                                                233,
                                             ),
                                             items: [],
                                             rpar_token_idx: TokenIdx(
-                                                233,
+                                                234,
                                             ),
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `end_tangent`,
                                             token_idx: TokenIdx(
-                                                237,
+                                                238,
                                             ),
                                             current_symbol_idx: 5,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
@@ -3823,20 +3830,20 @@ Ok(
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 31,
+                                            owner: 32,
                                             dot_token_idx: TokenIdx(
-                                                238,
+                                                239,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `y`,
                                                 token_idx: TokenIdx(
-                                                    239,
+                                                    240,
                                                 ),
                                             },
                                         },
                                         Expr::Literal(
                                             TokenIdx(
-                                                244,
+                                                245,
                                             ),
                                             Literal::Float(
                                                 Unspecified,
@@ -3845,7 +3852,7 @@ Ok(
                                         Expr::CurrentSymbol {
                                             ident: `a`,
                                             token_idx: TokenIdx(
-                                                241,
+                                                242,
                                             ),
                                             current_symbol_idx: 6,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
@@ -3855,19 +3862,19 @@ Ok(
                                         Expr::Prefix {
                                             opr: Minus,
                                             opr_token_idx: TokenIdx(
-                                                243,
+                                                244,
                                             ),
-                                            opd: 33,
+                                            opd: 34,
                                         },
                                         Expr::Binary {
-                                            lopd: 34,
+                                            lopd: 35,
                                             opr: Comparison(
                                                 Less,
                                             ),
                                             opr_token_idx: TokenIdx(
-                                                242,
+                                                243,
                                             ),
-                                            ropd: 35,
+                                            ropd: 36,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 9,
@@ -3883,7 +3890,7 @@ Ok(
                                         Expr::CurrentSymbol {
                                             ident: `simple_match_norm`,
                                             token_idx: TokenIdx(
-                                                250,
+                                                251,
                                             ),
                                             current_symbol_idx: 2,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
@@ -3892,21 +3899,21 @@ Ok(
                                         },
                                         Expr::Literal(
                                             TokenIdx(
-                                                252,
+                                                253,
                                             ),
                                             Literal::Float(
                                                 Unspecified,
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 38,
+                                            lopd: 39,
                                             opr: Comparison(
                                                 Less,
                                             ),
                                             opr_token_idx: TokenIdx(
-                                                251,
+                                                252,
                                             ),
-                                            ropd: 39,
+                                            ropd: 40,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 10,
@@ -3929,43 +3936,43 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 41,
+                                            owner: 42,
                                             dot_token_idx: TokenIdx(
-                                                258,
+                                                259,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `upper_mass`,
                                                 token_idx: TokenIdx(
-                                                    259,
+                                                    260,
                                                 ),
                                             },
                                         },
                                         Expr::Field {
-                                            owner: 42,
+                                            owner: 43,
                                             dot_token_idx: TokenIdx(
-                                                262,
+                                                263,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `lower_mass`,
                                                 token_idx: TokenIdx(
-                                                    263,
+                                                    264,
                                                 ),
                                             },
                                         },
                                         Expr::Binary {
-                                            lopd: 43,
+                                            lopd: 44,
                                             opr: Closed(
                                                 Sub,
                                             ),
                                             opr_token_idx: TokenIdx(
-                                                260,
+                                                261,
                                             ),
-                                            ropd: 44,
+                                            ropd: 45,
                                         },
                                         Expr::CurrentSymbol {
                                             ident: `upper_excess`,
                                             token_idx: TokenIdx(
-                                                265,
+                                                266,
                                             ),
                                             current_symbol_idx: 7,
                                             current_symbol_kind: CurrentSymbolKind::LetVariable {
@@ -3974,21 +3981,21 @@ Ok(
                                         },
                                         Expr::Literal(
                                             TokenIdx(
-                                                267,
+                                                268,
                                             ),
                                             Literal::Float(
                                                 Unspecified,
                                             ),
                                         ),
                                         Expr::Binary {
-                                            lopd: 46,
+                                            lopd: 47,
                                             opr: Comparison(
                                                 Greater,
                                             ),
                                             opr_token_idx: TokenIdx(
-                                                266,
+                                                267,
                                             ),
-                                            ropd: 47,
+                                            ropd: 48,
                                         },
                                         Expr::PrincipalEntityPath {
                                             entity_path_expr: 13,
@@ -4012,20 +4019,20 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 50,
+                                            owner: 51,
                                             dot_token_idx: TokenIdx(
-                                                274,
+                                                275,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `matches`,
                                                 token_idx: TokenIdx(
-                                                    275,
+                                                    276,
                                                 ),
                                             },
                                         },
                                         Expr::Literal(
                                             TokenIdx(
-                                                277,
+                                                278,
                                             ),
                                             Literal::Integer(
                                                 UnspecifiedRegular(
@@ -4034,24 +4041,24 @@ Ok(
                                             ),
                                         ),
                                         Expr::IndexOrCompositionWithList {
-                                            owner: 51,
+                                            owner: 52,
                                             lbox_token_idx: TokenIdx(
-                                                276,
+                                                277,
                                             ),
                                             items: [
                                                 CommaListItem {
-                                                    expr_idx: 52,
+                                                    expr_idx: 53,
                                                     comma_token_idx: None,
                                                 },
                                             ],
                                             rbox_token_idx: TokenIdx(
-                                                278,
+                                                279,
                                             ),
                                         },
                                         Expr::Be {
-                                            src: 53,
+                                            src: 54,
                                             be_token_idx: TokenIdx(
-                                                279,
+                                                280,
                                             ),
                                             target: Ok(
                                                 BeVariablesPattern {
@@ -4073,20 +4080,20 @@ Ok(
                                             ),
                                         },
                                         Expr::Field {
-                                            owner: 55,
+                                            owner: 56,
                                             dot_token_idx: TokenIdx(
-                                                285,
+                                                286,
                                             ),
                                             ident_token: IdentToken {
                                                 ident: `others`,
                                                 token_idx: TokenIdx(
-                                                    286,
+                                                    287,
                                                 ),
                                             },
                                         },
                                         Expr::Literal(
                                             TokenIdx(
-                                                288,
+                                                289,
                                             ),
                                             Literal::Bool(
                                                 False,
@@ -4237,7 +4244,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `OneVsAll`,
                                                     token_idx: TokenIdx(
-                                                        246,
+                                                        247,
                                                     ),
                                                 },
                                             ),
@@ -4251,14 +4258,14 @@ Ok(
                                             parent: 8,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
-                                                    247,
+                                                    248,
                                                 ),
                                             ),
                                             ident_token: Ok(
                                                 IdentToken {
                                                     ident: `Yes`,
                                                     token_idx: TokenIdx(
-                                                        248,
+                                                        249,
                                                     ),
                                                 },
                                             ),
@@ -4276,7 +4283,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `major_connected_component`,
                                                     token_idx: TokenIdx(
-                                                        257,
+                                                        258,
                                                     ),
                                                 },
                                             ),
@@ -4291,7 +4298,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `major_connected_component`,
                                                     token_idx: TokenIdx(
-                                                        261,
+                                                        262,
                                                     ),
                                                 },
                                             ),
@@ -4306,7 +4313,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `OneVsAll`,
                                                     token_idx: TokenIdx(
-                                                        269,
+                                                        270,
                                                     ),
                                                 },
                                             ),
@@ -4320,14 +4327,14 @@ Ok(
                                             parent: 12,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
-                                                    270,
+                                                    271,
                                                 ),
                                             ),
                                             ident_token: Ok(
                                                 IdentToken {
                                                     ident: `Yes`,
                                                     token_idx: TokenIdx(
-                                                        271,
+                                                        272,
                                                     ),
                                                 },
                                             ),
@@ -4345,7 +4352,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `special_seven_match`,
                                                     token_idx: TokenIdx(
-                                                        273,
+                                                        274,
                                                     ),
                                                 },
                                             ),
@@ -4360,7 +4367,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `special_seven_match`,
                                                     token_idx: TokenIdx(
-                                                        284,
+                                                        285,
                                                     ),
                                                 },
                                             ),
@@ -4375,7 +4382,7 @@ Ok(
                                                 IdentToken {
                                                     ident: `OneVsAll`,
                                                     token_idx: TokenIdx(
-                                                        289,
+                                                        290,
                                                     ),
                                                 },
                                             ),
@@ -4389,14 +4396,14 @@ Ok(
                                             parent: 16,
                                             scope_resolution_token: ScopeResolutionToken(
                                                 TokenIdx(
-                                                    290,
+                                                    291,
                                                 ),
                                             ),
                                             ident_token: Ok(
                                                 IdentToken {
                                                     ident: `Yes`,
                                                     token_idx: TokenIdx(
-                                                        291,
+                                                        292,
                                                     ),
                                                 },
                                             ),
@@ -4438,12 +4445,12 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 30,
+                                            initial_value: 31,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
-                                                    234,
+                                                    235,
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
@@ -4461,19 +4468,19 @@ Ok(
                                             assign_token: Ok(
                                                 EqToken(
                                                     TokenIdx(
-                                                        236,
+                                                        237,
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 32,
+                                            initial_value: 33,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
-                                                    240,
+                                                    241,
                                                 ),
                                             },
-                                            condition: 36,
+                                            condition: 37,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -4541,15 +4548,15 @@ Ok(
                                         Stmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
-                                                    245,
+                                                    246,
                                                 ),
                                             },
-                                            result: 37,
+                                            result: 38,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
-                                                    254,
+                                                    255,
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
@@ -4567,27 +4574,27 @@ Ok(
                                             assign_token: Ok(
                                                 EqToken(
                                                     TokenIdx(
-                                                        256,
+                                                        257,
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 45,
+                                            initial_value: 46,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
-                                                    264,
+                                                    265,
                                                 ),
                                             },
-                                            condition: 48,
+                                            condition: 49,
                                         },
                                         Stmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
-                                                    268,
+                                                    269,
                                                 ),
                                             },
-                                            result: 49,
+                                            result: 50,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
@@ -4672,17 +4679,17 @@ Ok(
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
-                                                        249,
+                                                        250,
                                                     ),
                                                 },
                                                 condition: Ok(
-                                                    40,
+                                                    41,
                                                 ),
                                                 eol_colon: Ok(
                                                     Colon(
                                                         EolColonToken {
                                                             token_idx: TokenIdx(
-                                                                253,
+                                                                254,
                                                             ),
                                                         },
                                                     ),
@@ -4699,15 +4706,15 @@ Ok(
                                         Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
-                                                    272,
+                                                    273,
                                                 ),
                                             },
-                                            condition: 54,
+                                            condition: 55,
                                         },
                                         Stmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
-                                                    281,
+                                                    282,
                                                 ),
                                             },
                                             let_variable_pattern: Ok(
@@ -4725,22 +4732,22 @@ Ok(
                                             assign_token: Ok(
                                                 EqToken(
                                                     TokenIdx(
-                                                        283,
+                                                        284,
                                                     ),
                                                 ),
                                             ),
-                                            initial_value: 56,
+                                            initial_value: 57,
                                         },
                                         Stmt::Require {
                                             require_token: RequireToken {
                                                 token_idx: TokenIdx(
-                                                    287,
+                                                    288,
                                                 ),
                                             },
-                                            condition: 57,
+                                            condition: 58,
                                         },
                                         Stmt::Eval {
-                                            expr_idx: 58,
+                                            expr_idx: 59,
                                         },
                                     ],
                                 },
@@ -4806,7 +4813,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `a`,
                                                     token_idx: TokenIdx(
-                                                        235,
+                                                        236,
                                                     ),
                                                 },
                                             },
@@ -4815,7 +4822,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `upper_excess`,
                                                     token_idx: TokenIdx(
-                                                        255,
+                                                        256,
                                                     ),
                                                 },
                                             },
@@ -4824,7 +4831,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `some`,
                                                     token_idx: TokenIdx(
-                                                        280,
+                                                        281,
                                                     ),
                                                 },
                                             },
@@ -4833,7 +4840,7 @@ Ok(
                                                 ident_token: IdentToken {
                                                     ident: `others`,
                                                     token_idx: TokenIdx(
-                                                        282,
+                                                        283,
                                                     ),
                                                 },
                                             },
@@ -4990,7 +4997,7 @@ Ok(
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            292,
+                                                            293,
                                                         ),
                                                     ),
                                                 ),
@@ -5007,7 +5014,7 @@ Ok(
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            292,
+                                                            293,
                                                         ),
                                                     ),
                                                 ),
@@ -5024,7 +5031,7 @@ Ok(
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            292,
+                                                            293,
                                                         ),
                                                     ),
                                                 ),
@@ -5041,7 +5048,7 @@ Ok(
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            249,
+                                                            250,
                                                         ),
                                                     ),
                                                 ),
@@ -5058,7 +5065,7 @@ Ok(
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            249,
+                                                            250,
                                                         ),
                                                     ),
                                                 ),
@@ -5075,7 +5082,7 @@ Ok(
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            245,
+                                                            246,
                                                         ),
                                                     ),
                                                 ),
@@ -5087,12 +5094,12 @@ Ok(
                                             CurrentSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
-                                                    236,
+                                                    237,
                                                 ),
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            245,
+                                                            246,
                                                         ),
                                                     ),
                                                 ),
@@ -5104,12 +5111,12 @@ Ok(
                                             CurrentSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
-                                                    256,
+                                                    257,
                                                 ),
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            272,
+                                                            273,
                                                         ),
                                                     ),
                                                 ),
@@ -5121,12 +5128,12 @@ Ok(
                                             CurrentSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
-                                                    281,
+                                                    282,
                                                 ),
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            292,
+                                                            293,
                                                         ),
                                                     ),
                                                 ),
@@ -5138,12 +5145,12 @@ Ok(
                                             CurrentSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
-                                                    283,
+                                                    284,
                                                 ),
                                                 access_end: Some(
                                                     TokenIdxRangeEnd(
                                                         TokenIdx(
-                                                            292,
+                                                            293,
                                                         ),
                                                     ),
                                                 ),
@@ -5185,51 +5192,51 @@ Ok(
                                     },
                                     ExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 30,
+                                        expr_idx: 31,
                                     },
                                     ExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 32,
+                                        expr_idx: 33,
                                     },
                                     ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 36,
-                                    },
-                                    ExprRoot {
-                                        kind: ReturnExpr,
                                         expr_idx: 37,
                                     },
                                     ExprRoot {
+                                        kind: ReturnExpr,
+                                        expr_idx: 38,
+                                    },
+                                    ExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 45,
+                                        expr_idx: 46,
                                     },
                                     ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 48,
-                                    },
-                                    ExprRoot {
-                                        kind: ReturnExpr,
                                         expr_idx: 49,
                                     },
                                     ExprRoot {
+                                        kind: ReturnExpr,
+                                        expr_idx: 50,
+                                    },
+                                    ExprRoot {
                                         kind: Condition,
-                                        expr_idx: 54,
+                                        expr_idx: 55,
                                     },
                                     ExprRoot {
                                         kind: LetStmtInitialValue,
-                                        expr_idx: 56,
-                                    },
-                                    ExprRoot {
-                                        kind: Condition,
                                         expr_idx: 57,
                                     },
                                     ExprRoot {
-                                        kind: EvalExpr,
+                                        kind: Condition,
                                         expr_idx: 58,
                                     },
                                     ExprRoot {
-                                        kind: BlockExpr,
+                                        kind: EvalExpr,
                                         expr_idx: 59,
+                                    },
+                                    ExprRoot {
+                                        kind: BlockExpr,
+                                        expr_idx: 60,
                                     },
                                 ],
                             },
