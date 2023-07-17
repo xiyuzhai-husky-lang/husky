@@ -1009,8 +1009,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1067,7 +1067,7 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyDotDisambiguation {
+                                FluffyDynamicDispatch {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: Application(
@@ -1154,8 +1154,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1239,8 +1239,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1282,8 +1282,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1455,8 +1455,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1519,8 +1519,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1644,8 +1644,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1702,7 +1702,7 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyDotDisambiguation {
+                                FluffyDynamicDispatch {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: Application(
@@ -1826,8 +1826,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1886,8 +1886,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -2275,8 +2275,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -2339,8 +2339,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
@@ -2505,8 +2505,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -2765,8 +2765,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -2890,8 +2890,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -2996,8 +2996,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -7894,8 +7894,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
                                         StackPure {
@@ -8277,8 +8277,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
                                         StackPure {
@@ -8534,8 +8534,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Place(
                                         StackPure {
@@ -8586,8 +8586,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
@@ -8684,8 +8684,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Place(
                                         StackPure {
@@ -8732,8 +8732,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -8792,8 +8792,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
                                         StackPure {
@@ -8842,8 +8842,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
@@ -8972,8 +8972,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
                                         StackPure {
@@ -9022,8 +9022,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [],
                                 ty_path: TypePath(
                                     Id {

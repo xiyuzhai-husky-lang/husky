@@ -21,13 +21,13 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
-        let method_disambiguation = self_expr_ty
-            .method_disambiguation(self, expr_idx, ident_token.ident(), /* ad hoc */ &[])
+        let method_dispatch = self_expr_ty
+            .method_dispatch(self, expr_idx, ident_token.ident(), /* ad hoc */ &[])
             .into_result_or(OriginalExprTypeError::NoMethodForType {
                 self_expr_ty,
                 ident_token,
             })?;
-        let return_ty = match method_disambiguation.signature() {
+        let return_ty = match method_dispatch.signature() {
             MethodFluffySignature::MethodFn(signature) => {
                 self.calc_ritchie_arguments_expr_ty(
                     expr_idx,
@@ -38,6 +38,6 @@ impl<'a> ExprTypeEngine<'a> {
             }
             MethodFluffySignature::MethodFunction(signature) => todo!(),
         };
-        Ok((method_disambiguation.into(), Ok(return_ty)))
+        Ok((method_dispatch.into(), Ok(return_ty)))
     }
 }

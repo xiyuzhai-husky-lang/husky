@@ -1156,8 +1156,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1508,8 +1508,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1757,8 +1757,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],
@@ -1815,7 +1815,7 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyDotDisambiguation {
+                                FluffyDynamicDispatch {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: EntityPath(
@@ -2276,8 +2276,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Field(
-                            FluffyFieldDisambiguation {
+                        FieldDispatch(
+                            FluffyFieldDispatch {
                                 indirections: [
                                     Leash,
                                 ],

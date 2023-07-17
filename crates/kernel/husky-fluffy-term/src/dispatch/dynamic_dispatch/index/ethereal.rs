@@ -1,27 +1,21 @@
 use super::*;
 
-pub(super) fn ethereal_owner_ty_index_disambiguation(
+pub(super) fn ethereal_owner_ty_index_dispatch(
     engine: &mut impl FluffyTermEngine,
     expr_idx: ExprIdx,
     owner_ty: EtherealTerm,
     index_ty: FluffyTerm,
-) -> FluffyTermMaybeResult<FluffyIndexDisambiguation> {
-    ethereal_owner_ty_index_disambiguation_aux(
-        engine,
-        expr_idx,
-        owner_ty,
-        index_ty,
-        Default::default(),
-    )
+) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
+    ethereal_owner_ty_index_dispatch_aux(engine, expr_idx, owner_ty, index_ty, Default::default())
 }
 
-pub(super) fn ethereal_owner_ty_index_disambiguation_aux(
+pub(super) fn ethereal_owner_ty_index_dispatch_aux(
     engine: &mut impl FluffyTermEngine,
     expr_idx: ExprIdx,
     owner_ty: EtherealTerm,
     index_ty: FluffyTerm,
     mut indirections: FluffyIndirections,
-) -> FluffyTermMaybeResult<FluffyIndexDisambiguation> {
+) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
     let db = engine.db();
     let owner_ty_application_expansion = owner_ty.application_expansion(db);
     let TermFunctionReduced::TypeOntology(ty_path) = owner_ty_application_expansion.function() else {
@@ -38,7 +32,7 @@ pub(super) fn ethereal_owner_ty_index_disambiguation_aux(
     )
     .into_result_option()?
     {
-        return JustOk(FluffyIndexDisambiguation::new(index_signature));
+        return JustOk(FluffyIndexDispatch::new(index_signature));
     };
     // indirections
     match refined_ty_path {
@@ -47,11 +41,11 @@ pub(super) fn ethereal_owner_ty_index_disambiguation_aux(
                 PreludeBorrowTypePath::Ref => todo!(),
                 PreludeBorrowTypePath::RefMut => todo!(),
                 PreludeBorrowTypePath::Leash => {
-                    indirections.push(FluffyDotIndirection::Leash);
+                    indirections.push(FluffyDynamicDispatchIndirection::Leash);
                     if owner_ty_arguments.len() != 1 {
                         todo!()
                     }
-                    ethereal_owner_ty_index_disambiguation_aux(
+                    ethereal_owner_ty_index_dispatch_aux(
                         engine,
                         expr_idx,
                         owner_ty_arguments[0],

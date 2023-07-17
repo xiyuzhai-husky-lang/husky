@@ -11,7 +11,7 @@ impl<'a> ExprTypeEngine<'a> {
             return Err(DerivedExprTypeError::FieldOwnerTypeNotInferred.into())
         };
         let disambiguation = owner_ty
-            .field_disambiguation(self, ident_token.ident(), /* ad hoc: traits */ &[])
+            .field_dispatch(self, ident_token.ident(), /* ad hoc: traits */ &[])
             .into_result_or(OriginalExprTypeError::NoSuchField {
                 owner_ty,
                 ident_token,

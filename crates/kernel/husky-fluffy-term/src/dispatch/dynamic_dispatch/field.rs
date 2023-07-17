@@ -12,14 +12,14 @@ use husky_ethereal_signature::{RegularFieldEtherealSignature, TypeMemoizedFieldE
 
 #[derive(Debug, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db(db = FluffyTermDb)]
-pub struct FluffyFieldDisambiguation {
-    indirections: SmallVec<[FluffyDotIndirection; 2]>,
+pub struct FluffyFieldDispatch {
+    indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
     ty_path: TypePath,
     signature: FluffyFieldSignature,
 }
 
-impl FluffyFieldDisambiguation {
-    fn merge(&self, mut indirections: SmallVec<[FluffyDotIndirection; 2]>) -> Self {
+impl FluffyFieldDispatch {
+    fn merge(&self, mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>) -> Self {
         indirections.extend(self.indirections.iter().copied());
         Self {
             indirections,
@@ -28,7 +28,7 @@ impl FluffyFieldDisambiguation {
         }
     }
 
-    pub fn indirections(&self) -> &SmallVec<[FluffyDotIndirection; 2]> {
+    pub fn indirections(&self) -> &SmallVec<[FluffyDynamicDispatchIndirection; 2]> {
         &self.indirections
     }
 
@@ -43,28 +43,28 @@ impl FluffyFieldDisambiguation {
 
 impl FluffyTerm {
     /// returns None if no such field
-    pub fn field_disambiguation(
+    pub fn field_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-    ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
-        self.field_disambiguation_aux(engine, ident, available_traits, smallvec![])
+    ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
+        self.field_dispatch_aux(engine, ident, available_traits, smallvec![])
     }
 
-    fn field_disambiguation_aux(
+    fn field_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: SmallVec<[FluffyDotIndirection; 2]>,
-    ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
+        mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+    ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
         match self.nested() {
-            NestedFluffyTerm::Ethereal(term) => JustOk(
-                ethereal_ty_field_disambiguation(engine.db(), term, ident)?.merge(indirections),
-            ),
+            NestedFluffyTerm::Ethereal(term) => {
+                JustOk(ethereal_ty_field_dispatch(engine.db(), term, ident)?.merge(indirections))
+            }
             NestedFluffyTerm::Solid(term) => {
-                term.field_disambiguation_aux(engine, ident, available_traits, indirections)
+                term.field_dispatch_aux(engine, ident, available_traits, indirections)
             }
             NestedFluffyTerm::Hollow(term) => todo!(),
         }

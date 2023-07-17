@@ -9,18 +9,21 @@ pub use self::method::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct FluffyDotDisambiguation<S: MemberSignature> {
-    indirections: SmallVec<[FluffyDotIndirection; 2]>,
+pub struct FluffyDynamicDispatch<S: MemberSignature> {
+    indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
     signature: S,
 }
 
-type FluffyIndirections = SmallVec<[FluffyDotIndirection; 2]>;
+type FluffyIndirections = SmallVec<[FluffyDynamicDispatchIndirection; 2]>;
 
 pub trait MemberSignature {
-    fn expr_ty(&self, indirections: &[FluffyDotIndirection]) -> FluffyTermResult<FluffyTerm>;
+    fn expr_ty(
+        &self,
+        indirections: &[FluffyDynamicDispatchIndirection],
+    ) -> FluffyTermResult<FluffyTerm>;
 }
 
-impl<S: MemberSignature> FluffyDotDisambiguation<S> {
+impl<S: MemberSignature> FluffyDynamicDispatch<S> {
     pub fn new(signature: S) -> Self {
         Self {
             indirections: smallvec![],
@@ -28,7 +31,7 @@ impl<S: MemberSignature> FluffyDotDisambiguation<S> {
         }
     }
 
-    fn merge(&self, mut indirections: SmallVec<[FluffyDotIndirection; 2]>) -> Self
+    fn merge(&self, mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>) -> Self
     where
         S: Clone,
     {
@@ -39,7 +42,7 @@ impl<S: MemberSignature> FluffyDotDisambiguation<S> {
         }
     }
 
-    pub fn indirections(&self) -> &[FluffyDotIndirection] {
+    pub fn indirections(&self) -> &[FluffyDynamicDispatchIndirection] {
         &self.indirections
     }
 
@@ -53,7 +56,7 @@ impl<S: MemberSignature> FluffyDotDisambiguation<S> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FluffyDotIndirection {
+pub enum FluffyDynamicDispatchIndirection {
     Place(Place),
     Leash,
 }

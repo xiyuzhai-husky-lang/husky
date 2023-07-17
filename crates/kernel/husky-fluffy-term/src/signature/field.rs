@@ -16,7 +16,10 @@ impl FluffyFieldSignature {
 }
 
 impl MemberSignature for FluffyFieldSignature {
-    fn expr_ty(&self, indirections: &[FluffyDotIndirection]) -> FluffyTermResult<FluffyTerm> {
+    fn expr_ty(
+        &self,
+        indirections: &[FluffyDynamicDispatchIndirection],
+    ) -> FluffyTermResult<FluffyTerm> {
         todo!()
     }
 }

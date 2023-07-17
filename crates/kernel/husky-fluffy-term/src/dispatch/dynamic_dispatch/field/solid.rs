@@ -1,13 +1,13 @@
 use super::*;
 
 impl SolidTerm {
-    pub(super) fn field_disambiguation_aux(
+    pub(super) fn field_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,
         ident: Ident,
         available_traits: &[TraitPath],
-        mut indirections: SmallVec<[FluffyDotIndirection; 2]>,
-    ) -> FluffyTermMaybeResult<FluffyFieldDisambiguation> {
+        mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+    ) -> FluffyTermMaybeResult<FluffyFieldDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
                 path,
@@ -22,9 +22,9 @@ impl SolidTerm {
                 base_ty_term,
             } => match base_ty_term {
                 Some(base_ty_term) => {
-                    indirections.push(FluffyDotIndirection::Place(*place));
+                    indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
                     JustOk(
-                        ethereal_ty_field_disambiguation(engine.db(), *base_ty_term, ident)?
+                        ethereal_ty_field_dispatch(engine.db(), *base_ty_term, ident)?
                             .merge(indirections),
                     )
                 }

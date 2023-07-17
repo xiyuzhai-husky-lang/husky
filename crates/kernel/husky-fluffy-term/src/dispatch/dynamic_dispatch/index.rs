@@ -7,18 +7,18 @@ use self::hollow::*;
 use self::solid::*;
 use super::*;
 
-pub type FluffyIndexDisambiguation = FluffyDotDisambiguation<FluffyIndexSignature>;
+pub type FluffyIndexDispatch = FluffyDynamicDispatch<FluffyIndexSignature>;
 
 impl FluffyTerm {
-    pub fn disambiguate_index(
+    pub fn dispatch_index(
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: ExprIdx,
         index_ty: FluffyTerm,
-    ) -> FluffyTermMaybeResult<FluffyIndexDisambiguation> {
+    ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(owner_ty) => {
-                ethereal_owner_ty_index_disambiguation(engine, expr_idx, owner_ty, index_ty)
+                ethereal_owner_ty_index_dispatch(engine, expr_idx, owner_ty, index_ty)
             }
             NestedFluffyTerm::Solid(owner_ty) => {
                 owner_ty.disambiguate_index(engine, expr_idx, index_ty)
