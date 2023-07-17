@@ -319,6 +319,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Method,
             TokenInfo::None,
             TokenInfo::None,
