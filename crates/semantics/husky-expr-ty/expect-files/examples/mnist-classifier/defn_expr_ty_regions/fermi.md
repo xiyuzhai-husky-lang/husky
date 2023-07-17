@@ -297,8 +297,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
                                         MutableStackOwned {

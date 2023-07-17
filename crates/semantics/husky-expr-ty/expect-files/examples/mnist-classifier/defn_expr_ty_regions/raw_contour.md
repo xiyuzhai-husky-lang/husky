@@ -7259,7 +7259,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ScopeResolution(
+                        StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     explicit_parameters: [
@@ -7378,8 +7378,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
                                         MutableStackOwned {
@@ -7838,7 +7838,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ScopeResolution(
+                        StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     explicit_parameters: [
@@ -8412,7 +8412,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ScopeResolution(
+                        StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     explicit_parameters: [
@@ -8734,7 +8734,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ScopeResolution(
+                        StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     explicit_parameters: [
@@ -8853,8 +8853,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
                                         MutableStackOwned {
@@ -9612,8 +9612,8 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Method(
-                            FluffyDotDisambiguation {
+                        MethodDispatch(
+                            FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
                                         MutableStackOwned {
@@ -15220,7 +15220,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ScopeResolution(
+                        StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
                                     explicit_parameters: [

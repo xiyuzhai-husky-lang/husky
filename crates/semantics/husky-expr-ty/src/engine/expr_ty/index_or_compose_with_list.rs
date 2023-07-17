@@ -36,7 +36,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: ExprIdx,
         self_expr_ty: FluffyTerm,
         indices: &[CommaListItem],
-    ) -> ExprTypeResult<(FluffyIndexDisambiguation, ExprTypeResult<FluffyTerm>)> {
+    ) -> ExprTypeResult<(FluffyIndexDispatch, ExprTypeResult<FluffyTerm>)> {
         let index_tys: SmallVec<[FluffyTerm; 2]> = indices
             .iter()
             .map(|index| {
@@ -50,7 +50,7 @@ impl<'a> ExprTypeEngine<'a> {
             _ => todo!(),
         };
         let index_disambiguation = self_expr_ty
-            .disambiguate_index(self, expr_idx, index_ty)
+            .dispatch_index(self, expr_idx, index_ty)
             .into_result_or(OriginalExprTypeError::CannotIndexIntoType { self_expr_ty })?;
         let expr_ty_result: ExprTypeResult<FluffyTerm> =
             index_disambiguation.expr_ty_result().map_err(Into::into);

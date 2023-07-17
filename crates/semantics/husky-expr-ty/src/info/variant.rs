@@ -12,9 +12,9 @@ pub enum ExprDisambiguation {
     List(ListExprDisambiguation),
     ExplicitApplication(ExplicitApplicationDisambiguation),
     Tilde(TildeDisambiguation),
-    Field(FluffyFieldDisambiguation),
-    Method(FluffyMethodDisambiguation),
-    ScopeResolution(ScopeResolutionDisambiguation),
+    FieldDispatch(FluffyFieldDispatch),
+    MethodDispatch(FluffyMethodDispatch),
+    StaticDispatch(StaticDispatch),
 }
 
 impl ExprDisambiguation {
@@ -29,7 +29,7 @@ impl ExprDisambiguation {
 /// disambiguate between `unveil` and compose with `List`
 #[derive(Debug, PartialEq, Eq)]
 pub enum IndexOrComposeWithListExprDisambiguation {
-    Index(FluffyIndexDisambiguation),
+    Index(FluffyIndexDispatch),
     ComposeWithList,
 }
 

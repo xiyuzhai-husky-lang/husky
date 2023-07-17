@@ -11,18 +11,18 @@ use husky_ethereal_signature::{HasTypeItemTemplates, TypeItemEtherealSignatureTe
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
-pub enum ScopeResolutionDisambiguation {
+pub enum StaticDispatch {
     AssociatedFn(AssociatedFnFluffySignature),
 }
 
 impl FluffyTerm {
-    pub fn disambiguate_scope_resolution(
+    pub fn static_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: ExprIdx,
         ident: Ident,
         all_available_traits: &[()],
-    ) -> FluffyTermMaybeResult<ScopeResolutionDisambiguation> {
+    ) -> FluffyTermMaybeResult<StaticDispatch> {
         // todo: optimize for ethereal etc.
         let db = engine.db();
         match self.data(engine) {

@@ -11,12 +11,15 @@ pub struct FluffyIndexSignature {
 }
 
 impl MemberSignature for FluffyIndexSignature {
-    fn expr_ty(&self, indirections: &[FluffyDotIndirection]) -> FluffyTermResult<FluffyTerm> {
+    fn expr_ty(
+        &self,
+        indirections: &[FluffyDynamicDispatchIndirection],
+    ) -> FluffyTermResult<FluffyTerm> {
         let mut expr_ty = self.element_ty;
         for indirection in indirections {
             match indirection {
-                FluffyDotIndirection::Place(_) => todo!(),
-                FluffyDotIndirection::Leash => todo!(),
+                FluffyDynamicDispatchIndirection::Place(_) => todo!(),
+                FluffyDynamicDispatchIndirection::Leash => todo!(),
             }
         }
         Ok(expr_ty)

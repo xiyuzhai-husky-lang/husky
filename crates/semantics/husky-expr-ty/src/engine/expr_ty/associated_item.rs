@@ -13,14 +13,9 @@ impl<'a> ExprTypeEngine<'a> {
         let parent_term = self
             .infer_new_expr_term(parent_expr_idx)
             .ok_or(DerivedExprTypeError::UnableToInferAssociatedItemParentTerm)?;
-        match parent_term.disambiguate_scope_resolution(
-            self,
-            expr_idx,
-            ident_token.ident(),
-            /*ad hoc */ &[],
-        ) {
+        match parent_term.static_dispatch(self, expr_idx, ident_token.ident(), /*ad hoc */ &[]) {
             JustOk(disambiguation) => match disambiguation {
-                ScopeResolutionDisambiguation::AssociatedFn(ref signature) => {
+                StaticDispatch::AssociatedFn(ref signature) => {
                     let ty = signature.ty();
                     Ok((disambiguation.into(), Ok(ty)))
                 }

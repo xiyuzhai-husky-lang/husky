@@ -3052,7 +3052,7 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyDotDisambiguation {
+                                FluffyDynamicDispatch {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: Symbol(
@@ -3349,7 +3349,7 @@
                     (
                         IndexOrComposeWithList(
                             Index(
-                                FluffyDotDisambiguation {
+                                FluffyDynamicDispatch {
                                     indirections: [],
                                     signature: FluffyIndexSignature {
                                         element_ty: Symbol(
