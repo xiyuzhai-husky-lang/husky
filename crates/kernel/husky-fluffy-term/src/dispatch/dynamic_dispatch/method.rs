@@ -8,6 +8,7 @@ pub(crate) use self::solid::*;
 
 use super::*;
 use husky_coword::Ident;
+use husky_entity_tree::TraitInUseItemRecord;
 use husky_token::IdentToken;
 
 impl MemberSignature for MethodFluffySignature {
@@ -27,6 +28,16 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         engine: &mut impl FluffyTermEngine,
         expr_idx: ExprIdx,
         ident_token: IdentToken,
+    ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
+        todo!()
+    }
+
+    fn trai_method_dispatch_aux(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
+        ident_token: IdentToken,
+        trai_item_records: &[TraitInUseItemRecord],
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch>;
 }
 
@@ -40,10 +51,12 @@ pub trait HasFluffyTypeMethodDispatch: Copy {
 }
 
 /// dispatch orders are
-/// type methods
-/// indirected type methods
-/// trait methods
-/// indirected trait methods
+/// - builtin indirected type methods
+/// - type methods
+/// - custom indirected type methods
+/// - builtin indirected trait methods
+/// - trait methods
+/// - custom indirected trait methods
 pub trait HasFluffyMethodDispatch:
     HasFluffyTypeMethodDispatch + HasFluffyTraitMethodDispatch
 {
@@ -85,21 +98,22 @@ impl HasFluffyTypeMethodDispatch for FluffyTerm {
 }
 
 impl HasFluffyTraitMethodDispatch for FluffyTerm {
-    fn trai_method_dispatch(
+    fn trai_method_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: ExprIdx,
         ident_token: IdentToken,
+        trai_item_records: &[TraitInUseItemRecord],
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(ty_term) => {
-                ty_term.trai_method_dispatch(engine, expr_idx, ident_token)
+                ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
             }
             NestedFluffyTerm::Solid(ty_term) => {
-                ty_term.trai_method_dispatch(engine, expr_idx, ident_token)
+                ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
             }
             NestedFluffyTerm::Hollow(ty_term) => {
-                ty_term.trai_method_dispatch(engine, expr_idx, ident_token)
+                ty_term.trai_method_dispatch_aux(engine, expr_idx, ident_token, trai_item_records)
             }
         }
     }

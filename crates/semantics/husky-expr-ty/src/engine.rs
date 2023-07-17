@@ -37,6 +37,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     return_ty: Option<EtherealTerm>,
     unveiler: Unveiler,
     self_ty: Option<EtherealTerm>,
+    trai_in_use_items_table: EntityTreeResultRef<'a, TraitInUseItemsTable<'a>>,
 }
 
 impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
@@ -58,6 +59,10 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
     fn term_menu(&self) -> &'a EtherealTermMenu {
         self.term_menu
     }
+
+    fn trai_in_use_items_table(&self) -> EntityTreeResultRef<'a, TraitInUseItemsTable<'a>> {
+        self.trai_in_use_items_table
+    }
 }
 
 impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
@@ -73,6 +78,7 @@ impl<'a> ExprTypeEngine<'a> {
         let expr_region_data = expr_region.data(db);
         // todo: improve this
         let parent_expr_region = expr_region_data.parent();
+        let module_path = expr_region_data.path().module_path(db);
         let return_ty = parent_expr_region
             .map(|parent_expr_region| {
                 db.declarative_term_region(parent_expr_region)
@@ -129,6 +135,7 @@ impl<'a> ExprTypeEngine<'a> {
             unveiler: Unveiler::new(db, return_ty),
             self_ty,
             pattern_expr_contracts: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
+            trai_in_use_items_table: TraitInUseItemsTable::query(db, module_path),
         }
     }
 
