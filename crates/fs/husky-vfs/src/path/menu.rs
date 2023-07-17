@@ -7,7 +7,7 @@ pub struct VfsPathMenu {
     core_library: CratePath,
     std_library: CratePath,
     /// core
-    core: ModulePath,
+    core_root: ModulePath,
     std: ModulePath,
     core_array: ModulePath,
     core_basic: ModulePath,
@@ -67,7 +67,7 @@ impl VfsPathMenu {
             std_package,
             core_library,
             std_library,
-            core,
+            core_root: core,
             std,
             core_array,
             core_basic,
@@ -100,8 +100,8 @@ impl VfsPathMenu {
         self.core_library
     }
 
-    pub fn core(&self) -> ModulePath {
-        self.core
+    pub fn core_root(&self) -> ModulePath {
+        self.core_root
     }
 
     pub fn core_basic(&self) -> ModulePath {
@@ -185,7 +185,7 @@ fn vfs_path_menu_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let menu = db.vfs_path_menu(toolchain);
-    assert_eq!(menu.core().to_string_with_db(&db), "core");
+    assert_eq!(menu.core_root().to_string_with_db(&db), "core");
     assert_eq!(menu.std().to_string_with_db(&db), "std");
     assert_eq!(menu.core_basic().to_string_with_db(&db), "core::basic");
     assert_eq!(menu.core_default().to_string_with_db(&db), "core::default");

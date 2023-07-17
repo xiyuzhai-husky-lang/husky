@@ -48,7 +48,7 @@ impl<'a> CratePrelude<'a> {
 pub struct UniversalPrelude {}
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-fn none_core_crate_universal_prelude(
+pub(crate) fn none_core_crate_universal_prelude(
     db: &dyn EntityTreeDb,
     toolchain: Toolchain,
 ) -> PreludeResult<EntitySymbolTable> {
@@ -61,7 +61,7 @@ fn none_core_crate_universal_prelude(
         ident: coword_menu.core_ident(),
         visibility: Scope::Pub,
         symbol: EntitySymbol::UniversalPrelude {
-            entity_path: vfs_path_menu.core().into(),
+            entity_path: vfs_path_menu.core_root().into(),
         },
     });
     table.extend(

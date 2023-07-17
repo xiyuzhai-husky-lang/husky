@@ -65,7 +65,7 @@ fn module_ancestry_works() {
             ],
         }
     "#]]
-    .assert_debug_eq(&t(&db, menu.core()));
+    .assert_debug_eq(&t(&db, menu.core_root()));
     expect_test::expect![[r#"
         ModuleAncestry {
             crate_path: CratePath {

@@ -93,12 +93,12 @@ fn module_path_partial_ord_works() {
     let db = DB::default();
     let path_menu = db.dev_path_menu().unwrap();
 
-    assert!(path_menu.core().with_db(&db) > (path_menu.core_num()).with_db(&db));
-    assert!(!(path_menu.core().with_db(&db) == (path_menu.core_num()).with_db(&db)));
-    assert!(!(path_menu.core().with_db(&db) < (path_menu.core_num()).with_db(&db)));
-    assert!(!(path_menu.core().with_db(&db) <= (path_menu.core_num()).with_db(&db)));
-    assert!(path_menu.core().with_db(&db) >= (path_menu.core_num()).with_db(&db));
-    assert!(path_menu.core().with_db(&db) != (path_menu.core_num()).with_db(&db));
+    assert!(path_menu.core_root().with_db(&db) > (path_menu.core_num()).with_db(&db));
+    assert!(!(path_menu.core_root().with_db(&db) == (path_menu.core_num()).with_db(&db)));
+    assert!(!(path_menu.core_root().with_db(&db) < (path_menu.core_num()).with_db(&db)));
+    assert!(!(path_menu.core_root().with_db(&db) <= (path_menu.core_num()).with_db(&db)));
+    assert!(path_menu.core_root().with_db(&db) >= (path_menu.core_num()).with_db(&db));
+    assert!(path_menu.core_root().with_db(&db) != (path_menu.core_num()).with_db(&db));
 
     assert!(!(path_menu.core_prelude().with_db(&db) > path_menu.core_num().with_db(&db)));
     assert!(!(path_menu.core_prelude().with_db(&db) == path_menu.core_num().with_db(&db)));
@@ -195,7 +195,7 @@ fn module_path_debug_with_db_works() {
     );
     t(
         &db,
-        path_menu.core(),
+        path_menu.core_root(),
         salsa::DebugFormatLevel::root(),
         "`core`",
     );
@@ -208,7 +208,7 @@ fn module_path_debug_with_db_works() {
     expect_test::expect![[r#"
         `core`
     "#]]
-    .assert_debug_eq(&path_menu.core().debug(&db));
+    .assert_debug_eq(&path_menu.core_root().debug(&db));
     expect_test::expect![[r#"
         `core::num`
     "#]]

@@ -15,6 +15,12 @@ pub enum EntityTreeError {
     Derived(#[from] DerivedEntityTreeError),
 }
 
+impl From<&PreludeError> for EntityTreeError {
+    fn from(e: &PreludeError) -> Self {
+        todo!()
+    }
+}
+
 impl From<PreludeError> for EntityTreeError {
     fn from(e: PreludeError) -> Self {
         EntityTreeError::Derived(e.into())
