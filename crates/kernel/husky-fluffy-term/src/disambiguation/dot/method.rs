@@ -21,26 +21,32 @@ impl FluffyTerm {
     pub fn method_disambiguation(
         self,
         engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
         ident: Ident,
         available_traits: &[TraitPath],
     ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
-        self.method_disambiguation_aux(engine, ident, available_traits, smallvec![])
+        self.method_disambiguation_aux(engine, expr_idx, ident, available_traits, smallvec![])
     }
 
     fn method_disambiguation_aux(
         self,
         engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
         ident: Ident,
         available_traits: &[TraitPath],
         mut indirections: SmallVec<[FluffyDotIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyMethodDisambiguation> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => {
-                ethereal_ty_method_disambiguation(engine, term, ident)
+                ethereal_ty_method_disambiguation(engine, expr_idx, term, ident)
             }
-            NestedFluffyTerm::Solid(term) => {
-                term.method_disambiguation_aux(engine, ident, available_traits, indirections)
-            }
+            NestedFluffyTerm::Solid(term) => term.method_disambiguation_aux(
+                engine,
+                expr_idx,
+                ident,
+                available_traits,
+                indirections,
+            ),
             NestedFluffyTerm::Hollow(term) => todo!(),
         }
     }

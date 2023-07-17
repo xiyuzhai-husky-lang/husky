@@ -19,22 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no field named norm in Option Leash ConcaveComponent",
-                severity: Error,
-                range: [68:17, 68:48),
-            },
-            Diagnostic {
-                message: "Type Error: no field named rel_norm in Option Leash ConcaveComponent",
-                severity: Error,
-                range: [69:17, 69:52),
-            },
-            Diagnostic {
-                message: "Type Error: no field named angle_change in Option Leash ConcaveComponent",
-                severity: Error,
-                range: [70:17, 70:56),
-            },
-        ],
+        diagnostics: [],
     },
 }

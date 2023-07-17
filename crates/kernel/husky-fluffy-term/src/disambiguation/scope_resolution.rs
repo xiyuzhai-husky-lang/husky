@@ -19,6 +19,7 @@ impl FluffyTerm {
     pub fn disambiguate_scope_resolution(
         self,
         engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
         ident: Ident,
         all_available_traits: &[()],
     ) -> FluffyTermMaybeResult<ScopeResolutionDisambiguation> {
@@ -38,6 +39,7 @@ impl FluffyTerm {
                         for template in templates.iter().copied() {
                             if let JustOk(signature) = ty_associated_fn_fluffy_signature(
                                 engine,
+                                expr_idx,
                                 template,
                                 &arguments,
                                 /* ad hoc */ &[],

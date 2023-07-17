@@ -4,6 +4,7 @@ impl SolidTerm {
     pub(super) fn method_disambiguation_aux(
         self,
         engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
         ident: Ident,
         available_traits: &[TraitPath],
         mut indirections: SmallVec<[FluffyDotIndirection; 2]>,
@@ -24,7 +25,7 @@ impl SolidTerm {
                 Some(base_ty_term) => {
                     indirections.push(FluffyDotIndirection::Place(*place));
                     JustOk(
-                        ethereal_ty_method_disambiguation(engine, *base_ty_term, ident)?
+                        ethereal_ty_method_disambiguation(engine, expr_idx, *base_ty_term, ident)?
                             .merge(indirections),
                     )
                 }

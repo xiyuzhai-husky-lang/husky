@@ -30,6 +30,7 @@ pub struct MethodFunctionFluffySignature {}
 
 pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
+    expr_idx: ExprIdx,
     ty_path: TypePath,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
@@ -40,6 +41,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
             for template in templates.iter().copied() {
                 if let JustOk(signature) = ty_method_fn_fluffy_signature(
                     engine,
+                    expr_idx,
                     template,
                     ty_template_arguments,
                     method_template_arguments,
@@ -69,6 +71,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
 
 fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
+    expr_idx: ExprIdx,
     template: TypeMethodFnEtherealSignatureTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
@@ -93,11 +96,11 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         params: template
             .explicit_parameters(db)
             .iter()
-            .map(|param| param.instantiate(engine, &mut instantiation))
+            .map(|param| param.instantiate(engine, expr_idx, &mut instantiation))
             .collect(),
         return_ty: template
             .return_ty(db)
-            .instantiate(engine, &mut instantiation),
+            .instantiate(engine, expr_idx, &mut instantiation),
     })
 }
 

@@ -87,7 +87,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 46,
+                                                        value: 48,
                                                     },
                                                 ),
                                             ),
@@ -295,7 +295,7 @@
             TypeImplBlock(
                 TypeImplBlockPath(
                     Id {
-                        value: 33,
+                        value: 35,
                     },
                 ),
             ),

@@ -22,7 +22,7 @@ impl<'a> ExprTypeEngine<'a> {
                 return Err(DerivedExprTypeError::MethodOwnerTypeNotInferred.into())
             };
         let method_disambiguation = self_expr_ty
-            .method_disambiguation(self, ident_token.ident(), /* ad hoc */ &[])
+            .method_disambiguation(self, expr_idx, ident_token.ident(), /* ad hoc */ &[])
             .into_result_or(OriginalExprTypeError::NoMethodForType {
                 self_expr_ty,
                 ident_token,

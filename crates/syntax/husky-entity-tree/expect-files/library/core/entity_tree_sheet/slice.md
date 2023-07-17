@@ -15,7 +15,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 0,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `Slice`,
                                 token_idx: TokenIdx(
@@ -49,7 +49,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 1,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `CyclicSliceLeashed`,
                                 token_idx: TokenIdx(
@@ -92,7 +92,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 0,
+                            ast_idx: 3,
                             ident_token: IdentToken {
                                 ident: `Slice`,
                                 token_idx: TokenIdx(
@@ -119,7 +119,7 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 1,
+                            ast_idx: 4,
                             ident_token: IdentToken {
                                 ident: `CyclicSliceLeashed`,
                                 token_idx: TokenIdx(
@@ -131,7 +131,42 @@ Ok(
                 },
             ],
         ),
-        impl_block_node_table: [],
+        impl_block_node_table: [
+            (
+                ImplBlockNodePath::TypeImplBlock(
+                    TypeImplBlockNodePath {
+                        path: TypeImplBlockPath {
+                            module_path: `core::slice`,
+                            ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                            disambiguator: 0,
+                        },
+                    },
+                ),
+                ImplBlockNode::TypeImplBlock(
+                    TypeImplBlockNode {
+                        node_path: TypeImplBlockNodePath {
+                            path: TypeImplBlockPath {
+                                module_path: `core::slice`,
+                                ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
+                                disambiguator: 0,
+                            },
+                        },
+                        ast_idx: 5,
+                        impl_token: ImplToken {
+                            token_idx: TokenIdx(
+                                16,
+                            ),
+                        },
+                        ty_expr: 50,
+                        items: TypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                0..3,
+                            ),
+                        },
+                    },
+                ),
+            ),
+        ],
         once_use_rules: OnceUseRules(
             [],
         ),

@@ -44,7 +44,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 46,
+                                        value: 49,
                                     },
                                 ),
                             ),
@@ -86,7 +86,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 51,
                                     },
                                 ),
                             ),
@@ -217,7 +217,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 46,
+                                                                            value: 49,
                                                                         },
                                                                     ),
                                                                 ),
@@ -229,7 +229,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 48,
+                                                                            value: 51,
                                                                         },
                                                                     ),
                                                                 ),
@@ -250,7 +250,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 46,
+                                                value: 49,
                                             },
                                         ),
                                     ),
@@ -265,7 +265,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 46,
+                                            value: 49,
                                         },
                                     ),
                                 ),
@@ -320,7 +320,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 48,
+                                                value: 51,
                                             },
                                         ),
                                     ),
@@ -335,7 +335,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 51,
                                         },
                                     ),
                                 ),
@@ -460,7 +460,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 64,
+                                        value: 67,
                                     },
                                 ),
                             ),
@@ -502,7 +502,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 66,
+                                        value: 69,
                                     },
                                 ),
                             ),
@@ -544,7 +544,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 68,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -586,7 +586,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 70,
+                                        value: 73,
                                     },
                                 ),
                             ),
@@ -628,7 +628,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 71,
+                                        value: 74,
                                     },
                                 ),
                             ),
@@ -649,7 +649,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 71,
+                                        value: 74,
                                     },
                                 ),
                             ),
@@ -777,7 +777,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 71,
+                                        value: 74,
                                     },
                                 ),
                             ),
@@ -846,7 +846,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 40,
+                                                value: 43,
                                             },
                                         ),
                                     ),
@@ -857,7 +857,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 40,
+                                        value: 43,
                                     },
                                 ),
                             ),
@@ -896,7 +896,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 39,
+                                                    value: 42,
                                                 },
                                             ),
                                         ),
@@ -908,7 +908,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 39,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -950,7 +950,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 71,
+                                        value: 74,
                                     },
                                 ),
                             ),
@@ -1019,7 +1019,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 40,
+                                                value: 43,
                                             },
                                         ),
                                     ),
@@ -1030,7 +1030,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 40,
+                                        value: 43,
                                     },
                                 ),
                             ),
@@ -1069,7 +1069,7 @@
                                         element_ty: Application(
                                             EtherealTermApplication(
                                                 Id {
-                                                    value: 39,
+                                                    value: 42,
                                                 },
                                             ),
                                         ),
@@ -1081,7 +1081,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 39,
+                                        value: 42,
                                     },
                                 ),
                             ),
@@ -1165,7 +1165,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 50,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -1184,7 +1184,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 50,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -1298,7 +1298,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 63,
+                                                value: 66,
                                             },
                                         ),
                                     ),
@@ -1307,7 +1307,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 64,
+                                                value: 67,
                                             },
                                         ),
                                     ),
@@ -1335,7 +1335,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 65,
+                                                value: 68,
                                             },
                                         ),
                                     ),
@@ -1344,7 +1344,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 66,
+                                                value: 69,
                                             },
                                         ),
                                     ),
@@ -1372,7 +1372,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 67,
+                                                value: 70,
                                             },
                                         ),
                                     ),
@@ -1381,7 +1381,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 68,
+                                                value: 71,
                                             },
                                         ),
                                     ),
@@ -1409,7 +1409,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 69,
+                                                value: 72,
                                             },
                                         ),
                                     ),
@@ -1418,7 +1418,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 70,
+                                                value: 73,
                                             },
                                         ),
                                     ),
@@ -1444,7 +1444,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 33,
+                                                value: 36,
                                             },
                                         ),
                                     ),
@@ -1453,7 +1453,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 39,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -1479,7 +1479,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 33,
+                                                value: 36,
                                             },
                                         ),
                                     ),
@@ -1488,7 +1488,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 39,
+                                                value: 42,
                                             },
                                         ),
                                     ),
@@ -1564,7 +1564,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 64,
+                                            value: 67,
                                         },
                                     ),
                                 ),
@@ -1623,7 +1623,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 66,
+                                            value: 69,
                                         },
                                     ),
                                 ),
@@ -1682,7 +1682,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 68,
+                                            value: 71,
                                         },
                                     ),
                                 ),
@@ -1741,7 +1741,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 70,
+                                            value: 73,
                                         },
                                     ),
                                 ),
@@ -1800,7 +1800,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 71,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -1842,7 +1842,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 71,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -1923,7 +1923,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 71,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -1965,7 +1965,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 40,
+                                            value: 43,
                                         },
                                     ),
                                 ),
@@ -2032,7 +2032,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 39,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -2091,7 +2091,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 71,
+                                            value: 74,
                                         },
                                     ),
                                 ),
@@ -2133,7 +2133,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 40,
+                                            value: 43,
                                         },
                                     ),
                                 ),
@@ -2200,7 +2200,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 39,
+                                            value: 42,
                                         },
                                     ),
                                 ),
@@ -2331,7 +2331,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -2346,7 +2346,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 50,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -2366,7 +2366,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 50,
+                                                value: 53,
                                             },
                                         ),
                                     ),
@@ -2381,7 +2381,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 50,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -2611,7 +2611,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 73,
+                                                value: 76,
                                             },
                                         ),
                                     ),
@@ -2622,7 +2622,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 73,
+                                        value: 76,
                                     },
                                 ),
                             ),
@@ -2634,48 +2634,103 @@
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Original(
-                        NoMethodForType {
-                            self_expr_ty: Application(
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Method(
+                            FluffyDotDisambiguation {
+                                indirections: [],
+                                signature: MethodFn(
+                                    MethodFnFluffySignature {
+                                        params: [],
+                                        return_ty: Application(
+                                            EtherealTermApplication(
+                                                Id {
+                                                    value: 79,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
+                        Ok(
+                            Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 73,
+                                        value: 79,
                                     },
                                 ),
                             ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Coword(
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    7,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        UnwrapOrComposeWithNot(
+                            Unwrap,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 78,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    8,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 91,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 85,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
                                         Id {
-                                            value: 42,
+                                            value: 85,
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
-                                    115,
-                                ),
-                            },
-                        },
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        UnableToInferSuffixOperandType,
-                    ),
+                expectation_rule_idx: Some(
+                    9,
                 ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -2691,7 +2746,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    7,
+                    11,
                 ),
             },
             ExprTypeInfo {
@@ -2720,7 +2775,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 73,
+                                                value: 76,
                                             },
                                         ),
                                     ),
@@ -2731,7 +2786,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 73,
+                                        value: 76,
                                     },
                                 ),
                             ),
@@ -2739,68 +2794,189 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    8,
+                    12,
                 ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Original(
-                        NoMethodForType {
-                            self_expr_ty: Application(
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Method(
+                            FluffyDotDisambiguation {
+                                indirections: [],
+                                signature: MethodFn(
+                                    MethodFnFluffySignature {
+                                        params: [],
+                                        return_ty: Application(
+                                            EtherealTermApplication(
+                                                Id {
+                                                    value: 79,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            },
+                        ),
+                        Ok(
+                            Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 73,
+                                        value: 79,
                                     },
                                 ),
                             ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Coword(
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    13,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        UnwrapOrComposeWithNot(
+                            Unwrap,
+                        ),
+                        Ok(
+                            Application(
+                                EtherealTermApplication(
+                                    Id {
+                                        value: 78,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    14,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [
+                                    Leash,
+                                ],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 91,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 85,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
                                         Id {
-                                            value: 42,
+                                            value: 85,
                                         },
                                     ),
                                 ),
-                                token_idx: TokenIdx(
-                                    128,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: Some(
+                    15,
+                ),
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 85,
+                                    },
                                 ),
+                                signature: FluffyFieldSignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 60,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
                             },
-                        },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 60,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
+                expectation_rule_idx: Some(
+                    10,
+                ),
             },
             ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        UnableToInferSuffixOperandType,
+                disambiguation_and_ty_result: Ok(
+                    (
+                        Field(
+                            FluffyFieldDisambiguation {
+                                indirections: [],
+                                ty_path: TypePath(
+                                    Id {
+                                        value: 85,
+                                    },
+                                ),
+                                signature: FluffyFieldSignature {
+                                    ty: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 60,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            },
+                        ),
+                        Ok(
+                            EntityPath(
+                                TypeOntology(
+                                    TypePath(
+                                        Id {
+                                            value: 60,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     ),
                 ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
+                expectation_rule_idx: Some(
+                    16,
                 ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
@@ -2820,7 +2996,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    9,
+                    17,
                 ),
             },
             ExprTypeInfo {
@@ -2837,7 +3013,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    10,
+                    18,
                 ),
             },
             ExprTypeInfo {
@@ -2889,7 +3065,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    11,
+                    19,
                 ),
             },
             ExprTypeInfo {
@@ -2928,7 +3104,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    12,
+                    20,
                 ),
             },
             ExprTypeInfo {
@@ -2949,7 +3125,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    13,
+                    21,
                 ),
             },
         ],
@@ -3014,7 +3190,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 47,
+                                                value: 50,
                                             },
                                         ),
                                     ),
@@ -3209,7 +3385,29 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 73,
+                                            value: 76,
+                                        },
+                                    ),
+                                ),
+                                resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 7,
+                                src: ExpectationSource {
+                                    expr_idx: 7,
+                                    kind: Expr,
+                                },
+                                expectee: Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 79,
                                         },
                                     ),
                                 ),
@@ -3221,7 +3419,71 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 7,
+                                idx: 8,
+                                src: ExpectationSource {
+                                    expr_idx: 8,
+                                    kind: Expr,
+                                },
+                                expectee: Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 78,
+                                        },
+                                    ),
+                                ),
+                                resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 9,
+                                src: ExpectationSource {
+                                    expr_idx: 9,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 10,
+                                src: ExpectationSource {
+                                    expr_idx: 15,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 11,
                                 src: ExpectationSource {
                                     expr_idx: 10,
                                     kind: Expr,
@@ -3239,7 +3501,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 8,
+                                idx: 12,
                                 src: ExpectationSource {
                                     expr_idx: 11,
                                     kind: Expr,
@@ -3247,11 +3509,114 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 73,
+                                            value: 76,
                                         },
                                     ),
                                 ),
                                 resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: FinalDestination(
+                                ExpectFinalDestination {
+                                    final_destination: AnyOriginal,
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 13,
+                                src: ExpectationSource {
+                                    expr_idx: 12,
+                                    kind: Expr,
+                                },
+                                expectee: Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 79,
+                                        },
+                                    ),
+                                ),
+                                resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 14,
+                                src: ExpectationSource {
+                                    expr_idx: 13,
+                                    kind: Expr,
+                                },
+                                expectee: Application(
+                                    EtherealTermApplication(
+                                        Id {
+                                            value: 78,
+                                        },
+                                    ),
+                                ),
+                                resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: AnyOriginal(
+                                ExpectAnyOriginal,
+                            ),
+                            meta: ExpectationState {
+                                idx: 15,
+                                src: ExpectationSource {
+                                    expr_idx: 14,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Intact,
+                            },
+                        },
+                        ExpectationEntry {
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: None,
+                                    ty_expected: EntityPath(
+                                        TypeOntology(
+                                            TypePath(
+                                                Id {
+                                                    value: 60,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                },
+                            ),
+                            meta: ExpectationState {
+                                idx: 16,
+                                src: ExpectationSource {
+                                    expr_idx: 16,
+                                    kind: Expr,
+                                },
+                                expectee: EntityPath(
+                                    TypeOntology(
+                                        TypePath(
+                                            Id {
+                                                value: 60,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -3270,7 +3635,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 9,
+                                idx: 17,
                                 src: ExpectationSource {
                                     expr_idx: 17,
                                     kind: Expr,
@@ -3298,7 +3663,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 10,
+                                idx: 18,
                                 src: ExpectationSource {
                                     expr_idx: 18,
                                     kind: Expr,
@@ -3316,7 +3681,7 @@
                                 ExpectAnyOriginal,
                             ),
                             meta: ExpectationState {
-                                idx: 11,
+                                idx: 19,
                                 src: ExpectationSource {
                                     expr_idx: 19,
                                     kind: Expr,
@@ -3340,14 +3705,14 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 32,
+                                                value: 35,
                                             },
                                         ),
                                     ),
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 12,
+                                idx: 20,
                                 src: ExpectationSource {
                                     expr_idx: 20,
                                     kind: Expr,
@@ -3377,14 +3742,14 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 32,
+                                                value: 35,
                                             },
                                         ),
                                     ),
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 13,
+                                idx: 21,
                                 src: ExpectationSource {
                                     expr_idx: 21,
                                     kind: Expr,
