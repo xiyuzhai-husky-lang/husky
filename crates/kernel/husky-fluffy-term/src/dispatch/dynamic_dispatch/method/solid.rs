@@ -1,3 +1,9 @@
+mod trai_method;
+mod ty_method;
+
+pub(crate) use self::trai_method::*;
+pub(crate) use self::ty_method::*;
+
 use super::*;
 
 impl SolidTerm {
@@ -24,10 +30,11 @@ impl SolidTerm {
             } => match base_ty_term {
                 Some(base_ty_term) => {
                     indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
-                    JustOk(
-                        ethereal_ty_method_dispatch(engine, expr_idx, *base_ty_term, ident)?
-                            .merge(indirections),
-                    )
+                    todo!()
+                    // JustOk(
+                    //     ethereal_ty_method_dispatch(engine, expr_idx, *base_ty_term, ident)?
+                    //         .merge(indirections),
+                    // )
                 }
                 None => todo!(),
             },
