@@ -1,8 +1,23 @@
-use husky_ethereal_signature::*;
+mod trai_method;
+mod ty_method;
+
+pub(crate) use self::trai_method::*;
+pub(crate) use self::ty_method::*;
 
 use super::*;
+use husky_ethereal_signature::*;
 
 pub(super) fn ethereal_ty_method_dispatch(
+    engine: &mut impl FluffyTermEngine,
+    expr_idx: ExprIdx,
+    ty_term: EtherealTerm,
+    ident: Ident,
+    available_traits: (),
+) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
+    todo!()
+}
+
+pub(super) fn ethereal_ty_ty_method_dispatch(
     engine: &mut impl FluffyTermEngine,
     expr_idx: ExprIdx,
     ty_term: EtherealTerm,
@@ -67,10 +82,11 @@ fn ethereal_ty_method_dispatch_aux(
                     p!((&arguments).debug(engine.db()));
                     todo!()
                 }
-                return JustOk(
-                    ethereal_ty_method_dispatch(engine, expr_idx, arguments[0], ident)?
-                        .merge(indirections),
-                );
+                todo!()
+                // return JustOk(
+                //     ethereal_ty_method_dispatch(engine, expr_idx, arguments[0], ident)?
+                //         .merge(indirections),
+                // );
             }
         },
         _ => (),

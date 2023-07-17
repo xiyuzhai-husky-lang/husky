@@ -14,6 +14,8 @@ enum-class = { path = "../../abstraction/enum-class" }
 idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
 maybe-result = { path = "../../abstraction/maybe-result" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" } 
@@ -39,7 +41,6 @@ husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-manifest = { path = "../../semantics/husky-manifest" }
 husky-corgi-config = { path = "../../semantics/husky-corgi-config" }
 # lex
-husky-token = { path = "../../lex/husky-token" }
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
