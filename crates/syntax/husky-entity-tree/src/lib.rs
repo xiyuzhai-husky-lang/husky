@@ -7,6 +7,7 @@ mod context;
 mod db;
 mod error;
 mod expr;
+mod helpers;
 mod node;
 mod prelude;
 mod presheet;
@@ -18,12 +19,12 @@ mod symbol;
 mod table;
 #[cfg(test)]
 mod tests;
-mod utils;
 
 pub use self::bundle::*;
 pub use self::db::*;
 pub use self::error::*;
 pub use self::expr::*;
+pub use self::helpers::*;
 pub use self::node::*;
 pub use self::prelude::*;
 pub use self::presheet::*;
@@ -32,7 +33,6 @@ pub use self::sheet::*;
 pub use self::subentity::*;
 pub use self::symbol::*;
 pub use self::table::*;
-pub use self::utils::*;
 
 use self::collector::*;
 use self::context::*;
@@ -109,6 +109,8 @@ pub struct EntityTreeJar(
     // prelude
     crate_specific_prelude,
     none_core_crate_universal_prelude,
-    // utils
+    // helpers
     ty_side_trai_for_ty_impl_block_paths_map,
+    trai_item_table,
+    TraitOrderedSet,
 );

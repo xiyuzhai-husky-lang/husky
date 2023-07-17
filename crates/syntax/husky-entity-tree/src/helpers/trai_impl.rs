@@ -1,6 +1,4 @@
-use crate::*;
-use smallvec::{smallvec, SmallVec};
-use vec_like::SmallVecPairMap;
+use super::*;
 
 pub trait HasTypeSideTraitForTypeImplBlockPathsMap: Copy {
     fn ty_side_trai_for_ty_impl_block_paths_map<'a>(
