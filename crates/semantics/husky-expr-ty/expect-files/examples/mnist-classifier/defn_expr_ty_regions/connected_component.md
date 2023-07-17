@@ -300,7 +300,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -359,7 +359,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::option::Option) TypeOntology(core::num::f32)`),
+            EtherealTerm(`Option f32`),
         ),
         self_ty: None,
     },
@@ -1373,7 +1373,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1412,7 +1412,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1509,7 +1509,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1548,7 +1548,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1587,7 +1587,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1626,7 +1626,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1727,7 +1727,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1766,7 +1766,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1845,7 +1845,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1884,7 +1884,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1925,7 +1925,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::raw_bits::r32)`),
+            EtherealTerm(`r32`),
         ),
         self_ty: None,
     },
@@ -3695,8 +3695,8 @@
             Ok(
                 FluffyTerm::Application(
                     EtherealTermApplication {
-                        function: EtherealTerm(`TypeOntology(core::list::List)`),
-                        argument: EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+                        function: EtherealTerm(`List`),
+                        argument: EtherealTerm(`ConnectedComponent`),
                         shift: 0,
                     },
                 ),
@@ -3871,15 +3871,7 @@
                                 ),
                                 hole_kind: UnspecifiedIntegerType,
                                 fill: None,
-                                constraints: [
-                                    CoercibleFrom {
-                                        target: Hollow(
-                                            HollowTerm(
-                                                0,
-                                            ),
-                                        ),
-                                    },
-                                ],
+                                constraints: [],
                             },
                             resolve_progress: Unresolved,
                         },
@@ -4089,7 +4081,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 34,
@@ -4330,7 +4322,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -4391,7 +4383,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -4452,7 +4444,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -4657,7 +4649,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -4696,7 +4688,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -4757,7 +4749,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -4814,7 +4806,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -4983,7 +4975,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -5044,7 +5036,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -5083,7 +5075,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -5152,7 +5144,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: Hollow(
+                                    ty_expected: Hollow(
                                         HollowTerm(
                                             0,
                                         ),
@@ -5170,7 +5162,13 @@
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Holed,
+                                resolve_progress: Resolved(
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
+                                        ),
+                                    ),
+                                ),
                             },
                         },
                         ExpectationEntry {
@@ -5213,7 +5211,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -5328,7 +5326,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -5367,7 +5365,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -5406,7 +5404,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 34,
@@ -5439,7 +5437,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 34,
@@ -5478,7 +5476,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`List ConnectedComponent`),
         ),
         self_ty: None,
     },
@@ -5586,7 +5584,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::visual::Html)`),
+            EtherealTerm(`Html`),
         ),
         self_ty: None,
     },
@@ -5706,7 +5704,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            EtherealTerm(`List RawContour`),
         ),
         self_ty: None,
     },
@@ -6302,8 +6300,8 @@
             Ok(
                 FluffyTerm::Application(
                     EtherealTermApplication {
-                        function: EtherealTerm(`TypeOntology(core::mem::Leash)`),
-                        argument: EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+                        function: EtherealTerm(`Leash`),
+                        argument: EtherealTerm(`RawContour`),
                         shift: 0,
                     },
                 ),
@@ -6318,8 +6316,8 @@
             Ok(
                 FluffyTerm::Application(
                     EtherealTermApplication {
-                        function: EtherealTerm(`TypeOntology(core::mem::Leash)`),
-                        argument: EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+                        function: EtherealTerm(`Leash`),
+                        argument: EtherealTerm(`Leash RawContour`),
                         shift: 0,
                     },
                 ),
@@ -6327,8 +6325,8 @@
             Ok(
                 FluffyTerm::Application(
                     EtherealTermApplication {
-                        function: EtherealTerm(`TypeOntology(core::list::List)`),
-                        argument: EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+                        function: EtherealTerm(`List`),
+                        argument: EtherealTerm(`Leash Leash RawContour`),
                         shift: 0,
                     },
                 ),
@@ -6659,7 +6657,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 38,
@@ -6752,7 +6750,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -6829,7 +6827,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -6989,7 +6987,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Hollow(
+                                    ty_expected: Hollow(
                                         HollowTerm(
                                             0,
                                         ),
@@ -7014,7 +7012,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 40,
@@ -7058,7 +7056,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -7097,7 +7095,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -7138,7 +7136,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::EffHoles)`),
+            EtherealTerm(`EffHoles`),
         ),
         self_ty: None,
     },
@@ -7575,7 +7573,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -7614,7 +7612,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -7685,7 +7683,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -7724,7 +7722,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -7765,7 +7763,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -8211,7 +8209,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -8282,7 +8280,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -8321,7 +8319,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -8362,7 +8360,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -8787,7 +8785,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -8858,7 +8856,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -8897,7 +8895,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -8938,7 +8936,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -9782,7 +9780,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -9857,7 +9855,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -9914,7 +9912,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -10053,7 +10051,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -10092,7 +10090,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -10133,7 +10131,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponentDistribution)`),
+            EtherealTerm(`ConnectedComponentDistribution`),
         ),
         self_ty: None,
     },
@@ -10329,7 +10327,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -10368,7 +10366,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -10409,7 +10407,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -10605,7 +10603,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -10644,7 +10642,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -10685,7 +10683,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -11221,7 +11219,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -11260,7 +11258,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -11335,7 +11333,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -11406,7 +11404,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -11445,7 +11443,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -11486,7 +11484,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -12022,7 +12020,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -12061,7 +12059,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -12136,7 +12134,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -12207,7 +12205,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -12246,7 +12244,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -12287,7 +12285,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },

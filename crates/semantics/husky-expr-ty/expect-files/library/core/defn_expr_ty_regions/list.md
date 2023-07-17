@@ -81,7 +81,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i32)`),
+            EtherealTerm(`i32`),
         ),
         self_ty: None,
     },
@@ -276,7 +276,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::option::Option) t`),
+            EtherealTerm(`Option t`),
         ),
         self_ty: None,
     },
@@ -362,7 +362,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::option::Option) t`),
+            EtherealTerm(`Option t`),
         ),
         self_ty: None,
     },
@@ -448,7 +448,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::option::Option) t`),
+            EtherealTerm(`Option t`),
         ),
         self_ty: None,
     },

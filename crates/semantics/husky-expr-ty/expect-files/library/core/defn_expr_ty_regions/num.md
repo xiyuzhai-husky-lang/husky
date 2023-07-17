@@ -59,7 +59,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i8)`),
+            EtherealTerm(`i8`),
         ),
         self_ty: None,
     },
@@ -172,7 +172,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i8)`),
+            EtherealTerm(`i8`),
         ),
         self_ty: None,
     },
@@ -236,7 +236,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i16)`),
+            EtherealTerm(`i16`),
         ),
         self_ty: None,
     },
@@ -349,7 +349,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i16)`),
+            EtherealTerm(`i16`),
         ),
         self_ty: None,
     },
@@ -413,7 +413,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i32)`),
+            EtherealTerm(`i32`),
         ),
         self_ty: None,
     },
@@ -526,7 +526,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i32)`),
+            EtherealTerm(`i32`),
         ),
         self_ty: None,
     },
@@ -590,7 +590,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i64)`),
+            EtherealTerm(`i64`),
         ),
         self_ty: None,
     },
@@ -703,7 +703,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i64)`),
+            EtherealTerm(`i64`),
         ),
         self_ty: None,
     },
@@ -767,7 +767,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i128)`),
+            EtherealTerm(`i128`),
         ),
         self_ty: None,
     },
@@ -880,7 +880,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i128)`),
+            EtherealTerm(`i128`),
         ),
         self_ty: None,
     },
@@ -944,7 +944,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::isize)`),
+            EtherealTerm(`isize`),
         ),
         self_ty: None,
     },
@@ -1057,7 +1057,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::isize)`),
+            EtherealTerm(`isize`),
         ),
         self_ty: None,
     },
@@ -1121,7 +1121,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u8)`),
+            EtherealTerm(`u8`),
         ),
         self_ty: None,
     },
@@ -1234,7 +1234,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u8)`),
+            EtherealTerm(`u8`),
         ),
         self_ty: None,
     },
@@ -1298,7 +1298,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u16)`),
+            EtherealTerm(`u16`),
         ),
         self_ty: None,
     },
@@ -1411,7 +1411,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u16)`),
+            EtherealTerm(`u16`),
         ),
         self_ty: None,
     },
@@ -1475,7 +1475,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u32)`),
+            EtherealTerm(`u32`),
         ),
         self_ty: None,
     },
@@ -1588,7 +1588,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u32)`),
+            EtherealTerm(`u32`),
         ),
         self_ty: None,
     },
@@ -1652,7 +1652,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u64)`),
+            EtherealTerm(`u64`),
         ),
         self_ty: None,
     },
@@ -1765,7 +1765,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u64)`),
+            EtherealTerm(`u64`),
         ),
         self_ty: None,
     },
@@ -1829,7 +1829,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u128)`),
+            EtherealTerm(`u128`),
         ),
         self_ty: None,
     },
@@ -1942,7 +1942,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u128)`),
+            EtherealTerm(`u128`),
         ),
         self_ty: None,
     },
@@ -2006,7 +2006,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::usize)`),
+            EtherealTerm(`usize`),
         ),
         self_ty: None,
     },
@@ -2119,7 +2119,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::usize)`),
+            EtherealTerm(`usize`),
         ),
         self_ty: None,
     },
@@ -2183,7 +2183,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -2247,7 +2247,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -2360,7 +2360,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -2424,7 +2424,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f64)`),
+            EtherealTerm(`f64`),
         ),
         self_ty: None,
     },
@@ -2537,7 +2537,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f64)`),
+            EtherealTerm(`f64`),
         ),
         self_ty: None,
     },

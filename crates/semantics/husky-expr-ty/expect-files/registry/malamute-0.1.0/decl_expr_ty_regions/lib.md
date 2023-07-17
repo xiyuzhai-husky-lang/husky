@@ -795,7 +795,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -2098,7 +2098,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(malamute::OneVsAll) t a`),
+            EtherealTerm(`OneVsAll t a`),
         ),
     },
 ]

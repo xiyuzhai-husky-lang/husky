@@ -103,7 +103,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::visual::Html)`),
+            EtherealTerm(`Html`),
         ),
         self_ty: None,
     },

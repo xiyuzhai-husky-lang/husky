@@ -368,7 +368,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::result::Result) t s`),
+            EtherealTerm(`Result t s`),
         ),
         self_ty: None,
     },

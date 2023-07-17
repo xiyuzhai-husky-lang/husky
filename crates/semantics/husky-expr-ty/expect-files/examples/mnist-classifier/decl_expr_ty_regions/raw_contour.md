@@ -3621,7 +3621,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            EtherealTerm(`RawContour`),
         ),
     },
     ExprTypeRegion {
@@ -3850,7 +3850,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            EtherealTerm(`RawContour`),
         ),
     },
     ExprTypeRegion {
@@ -3969,7 +3969,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            EtherealTerm(`RawContour`),
         ),
     },
     ExprTypeRegion {
@@ -4088,7 +4088,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            EtherealTerm(`RawContour`),
         ),
     },
     ExprTypeRegion {
@@ -4207,7 +4207,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            EtherealTerm(`RawContour`),
         ),
     },
     ExprTypeRegion {
@@ -4521,7 +4521,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            EtherealTerm(`RawContour`),
         ),
     },
 ]

@@ -610,7 +610,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::convex_component::ConvexComponent)`),
+            EtherealTerm(`ConvexComponent`),
         ),
     },
 ]

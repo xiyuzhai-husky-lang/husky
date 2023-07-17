@@ -387,7 +387,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::line_segment::LineSegment)`),
+            EtherealTerm(`LineSegment`),
         ),
     },
     ExprTypeRegion {
@@ -607,7 +607,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::line_segment::LineSegment)`),
+            EtherealTerm(`LineSegment`),
         ),
     },
 ]

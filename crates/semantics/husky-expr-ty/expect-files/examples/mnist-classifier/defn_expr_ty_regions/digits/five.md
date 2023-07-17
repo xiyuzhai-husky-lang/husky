@@ -91,7 +91,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 74,
@@ -126,7 +126,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 74,
@@ -163,7 +163,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(malamute::OneVsAll) TypeOntology(mnist::MnistLabel) TypeVariant(mnist::MnistLabel::Five)`),
+            EtherealTerm(`OneVsAll MnistLabel Five`),
         ),
         self_ty: None,
     },

@@ -21,12 +21,7 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Term Error: expected coersion",
-                severity: Error,
-                range: [4:44, 4:57),
-            },
-            Diagnostic {
-                message: "Type Error: no method named `displacement` for type `FluffyTerm::Application(EtherealTermApplication { function: EtherealTerm(`TypeOntology(core::option::Option)`), argument: EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`), shift: 0 })`",
+                message: "Type Error: no method named `displacement` for type `FluffyTerm::Application(EtherealTermApplication { function: EtherealTerm(`Option`), argument: EtherealTerm(`Leash ConcaveComponent`), shift: 0 })`",
                 severity: Error,
                 range: [17:43, 17:55),
             },

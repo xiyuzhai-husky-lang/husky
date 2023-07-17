@@ -11,3 +11,4 @@ salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
+husky-coword = { path = "../../kernel/husky-coword" }

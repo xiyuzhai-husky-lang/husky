@@ -1392,7 +1392,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Point2d)`),
+            EtherealTerm(`Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -1511,7 +1511,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Point2d)`),
+            EtherealTerm(`Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -1731,7 +1731,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Point2d)`),
+            EtherealTerm(`Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -1850,7 +1850,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Point2d)`),
+            EtherealTerm(`Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -2070,7 +2070,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Point2d)`),
+            EtherealTerm(`Point2d`),
         ),
     },
     ExprTypeRegion {
@@ -2299,7 +2299,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Vector2d)`),
+            EtherealTerm(`Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2519,7 +2519,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Vector2d)`),
+            EtherealTerm(`Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2638,7 +2638,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Vector2d)`),
+            EtherealTerm(`Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -2858,7 +2858,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Vector2d)`),
+            EtherealTerm(`Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -3078,7 +3078,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Vector2d)`),
+            EtherealTerm(`Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -3294,7 +3294,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Vector2d)`),
+            EtherealTerm(`Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -3514,7 +3514,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Vector2d)`),
+            EtherealTerm(`Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -3828,7 +3828,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Vector2d)`),
+            EtherealTerm(`Vector2d`),
         ),
     },
     ExprTypeRegion {
@@ -4158,7 +4158,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::ClosedRange)`),
+            EtherealTerm(`ClosedRange`),
         ),
     },
     ExprTypeRegion {
@@ -4376,7 +4376,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::ClosedRange)`),
+            EtherealTerm(`ClosedRange`),
         ),
     },
     ExprTypeRegion {
@@ -4706,7 +4706,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::BoundingBox)`),
+            EtherealTerm(`BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -4926,7 +4926,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::BoundingBox)`),
+            EtherealTerm(`BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -5045,7 +5045,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::BoundingBox)`),
+            EtherealTerm(`BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -5164,7 +5164,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::BoundingBox)`),
+            EtherealTerm(`BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -5283,7 +5283,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::BoundingBox)`),
+            EtherealTerm(`BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -5402,7 +5402,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::BoundingBox)`),
+            EtherealTerm(`BoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -5631,7 +5631,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::RelativeBoundingBox)`),
+            EtherealTerm(`RelativeBoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -5750,7 +5750,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::RelativeBoundingBox)`),
+            EtherealTerm(`RelativeBoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -5869,7 +5869,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::RelativeBoundingBox)`),
+            EtherealTerm(`RelativeBoundingBox`),
         ),
     },
     ExprTypeRegion {
@@ -5988,7 +5988,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::RelativeBoundingBox)`),
+            EtherealTerm(`RelativeBoundingBox`),
         ),
     },
 ]

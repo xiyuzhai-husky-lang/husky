@@ -3094,7 +3094,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentStroke)`),
+            EtherealTerm(`LineSegmentStroke`),
         ),
     },
     ExprTypeRegion {
@@ -3669,7 +3669,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentStroke)`),
+            EtherealTerm(`LineSegmentStroke`),
         ),
     },
     ExprTypeRegion {
@@ -3788,7 +3788,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentStroke)`),
+            EtherealTerm(`LineSegmentStroke`),
         ),
     },
     ExprTypeRegion {
@@ -4064,7 +4064,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentSketch)`),
+            EtherealTerm(`LineSegmentSketch`),
         ),
     },
     ExprTypeRegion {
@@ -4416,7 +4416,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentSketch)`),
+            EtherealTerm(`LineSegmentSketch`),
         ),
     },
     ExprTypeRegion {
@@ -4535,7 +4535,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentSketch)`),
+            EtherealTerm(`LineSegmentSketch`),
         ),
     },
     ExprTypeRegion {
@@ -4904,7 +4904,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentSketch)`),
+            EtherealTerm(`LineSegmentSketch`),
         ),
     },
 ]

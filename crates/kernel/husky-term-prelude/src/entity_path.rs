@@ -1,3 +1,4 @@
+use husky_coword::Ident;
 use husky_entity_path::*;
 
 use husky_vfs::Toolchain;
@@ -43,6 +44,16 @@ impl TermEntityPath {
             TermEntityPath::TypeVariant(path) => path.toolchain(db),
         }
     }
+
+    pub fn ident(self, db: &dyn TermPreludeDb) -> Ident {
+        match self {
+            TermEntityPath::Fugitive(path) => path.ident(db),
+            TermEntityPath::Trait(path) => path.ident(db),
+            TermEntityPath::TypeOntology(path) => path.ident(db),
+            TermEntityPath::TypeInstance(path) => path.ident(db),
+            TermEntityPath::TypeVariant(path) => path.ident(db),
+        }
+    }
 }
 
 impl From<FugitivePath> for TermEntityPath {
@@ -63,7 +74,7 @@ impl TermEntityPath {
         f: &mut std::fmt::Formatter<'_>,
         db: &dyn TermPreludeDb,
     ) -> std::fmt::Result {
-        self.display_with_db_fmt(f, db, salsa::DisplayFormatLevel::root())
+        f.write_str(self.ident(db).data(db))
     }
 }
 

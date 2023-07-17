@@ -948,7 +948,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1177,7 +1177,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1296,7 +1296,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1415,7 +1415,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1534,7 +1534,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1653,7 +1653,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1772,7 +1772,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -1891,7 +1891,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2010,7 +2010,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2129,7 +2129,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2248,7 +2248,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2367,7 +2367,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2486,7 +2486,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`ConcaveComponent`),
         ),
     },
 ]

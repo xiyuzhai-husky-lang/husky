@@ -13,20 +13,23 @@ pub enum Coersion {
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct ExpectCoersion {
     contract: Contract,
-    ty: FluffyTerm,
+    ty_expected: FluffyTerm,
 }
 
 impl ExpectCoersion {
     #[inline(always)]
-    pub fn new(contract: Contract, ty: FluffyTerm) -> Self {
-        Self { contract, ty }
+    pub fn new(contract: Contract, ty_expected: FluffyTerm) -> Self {
+        Self {
+            contract,
+            ty_expected,
+        }
     }
 
     #[inline(always)]
     pub fn new_const(ty: FluffyTerm) -> Self {
         Self {
             contract: Contract::Const,
-            ty,
+            ty_expected: ty,
         }
     }
 
@@ -46,7 +49,7 @@ impl ExpectCoersion {
         };
         Self {
             contract: Contract::None,
-            ty,
+            ty_expected: ty,
         }
     }
 
@@ -54,7 +57,7 @@ impl ExpectCoersion {
     pub fn new_pure_unit(engine: &impl FluffyTermEngine) -> Self {
         Self {
             contract: Contract::None,
-            ty: engine.term_menu().unit_ty_ontology().into(),
+            ty_expected: engine.term_menu().unit_ty_ontology().into(),
         }
     }
 
@@ -62,7 +65,7 @@ impl ExpectCoersion {
     pub fn new_pure_bool(engine: &impl FluffyTermEngine) -> Self {
         Self {
             contract: Contract::None,
-            ty: engine.term_menu().bool_ty_ontology().into(),
+            ty_expected: engine.term_menu().bool_ty_ontology().into(),
         }
     }
 
@@ -70,7 +73,7 @@ impl ExpectCoersion {
     pub fn new_move(ty: FluffyTerm) -> Self {
         Self {
             contract: Contract::Move,
-            ty,
+            ty_expected: ty,
         }
     }
 
@@ -95,7 +98,7 @@ impl ExpectCoersion {
     }
 
     fn ty(self) -> FluffyTerm {
-        self.ty
+        self.ty_expected
     }
 }
 
@@ -128,67 +131,76 @@ impl ExpectFluffyTerm for ExpectCoersion {
         terms: &mut FluffyTerms,
         state: &mut ExpectationState,
     ) -> Option<ExpectationEffect> {
-        match self.ty().data_inner(db, terms) {
-            FluffyTermData::Literal(_) => todo!(),
-            FluffyTermData::TypeOntology {
-                ty_path: path,
-                refined_ty_path,
-                arguments,
-                ..
-            } => self.resolve_convertible_to_ty_ontology(
-                db,
-                state,
-                terms,
-                path,
-                refined_ty_path,
-                arguments,
-            ),
-            FluffyTermData::Curry { .. } => todo!(),
-            FluffyTermData::Hole(_, hole) => {
-                state.set_holed(hole, |meta| HoleConstraint::CoercibleFrom {
-                    target: meta.expectee(),
-                })
-            }
-            FluffyTermData::Category(_) => match self.contract() {
-                Contract::None => todo!(),
-                Contract::Move => todo!(),
-                Contract::BorrowMut => todo!(),
-                Contract::Const => {
-                    if state.expectee() == self.ty() {
-                        return state.set_ok(Coersion::Trivial, smallvec![]);
-                    }
-                    todo!()
+        if self.ty_expected == state.expectee() {
+            // ad hoc
+            // todo: contract
+            state.set_ok(Coersion::Trivial, smallvec![])
+        } else {
+            match self.ty().data_inner(db, terms) {
+                FluffyTermData::Literal(_) => todo!(),
+                FluffyTermData::TypeOntology {
+                    ty_path: path,
+                    refined_ty_path,
+                    arguments,
+                    ..
+                } => self.resolve_convertible_to_ty_ontology(
+                    db,
+                    state,
+                    terms,
+                    path,
+                    refined_ty_path,
+                    arguments,
+                ),
+                FluffyTermData::Curry { .. } => todo!(),
+                FluffyTermData::Hole(_, hole) => {
+                    state.set_holed(hole, |meta| HoleConstraint::CoercibleFrom {
+                        target: meta.expectee(),
+                    })
                 }
-            },
-            FluffyTermData::Ritchie { .. } => state.set_err(
-                OriginalFluffyTermExpectationError::ExpectedCoersion,
-                smallvec![],
-            ),
-            FluffyTermData::TypeOntologyAtPlace {
-                place,
-                ty_path: path,
-                refined_ty_path: refined_path,
-                arguments,
-                ..
-            } => self.resolve_convertible_to_place_ty_ontology(
-                db,
-                state,
-                terms,
-                place,
-                path,
-                refined_path,
-                arguments,
-            ),
-            FluffyTermData::HoleAtPlace {
-                place,
-                hole_kind,
-                hole,
-            } => None, // adhoc
-            // todo!(),
-            FluffyTermData::Symbol { .. } => todo!(),
-            FluffyTermData::SymbolAtPlace { .. } => todo!(),
-            FluffyTermData::Variable { ty } => todo!(),
-            FluffyTermData::TypeVariant { path } => todo!(),
+                FluffyTermData::Category(_) => match self.contract() {
+                    Contract::None => todo!(),
+                    Contract::Move => todo!(),
+                    Contract::BorrowMut => todo!(),
+                    Contract::Const => {
+                        if state.expectee() == self.ty() {
+                            return state.set_ok(Coersion::Trivial, smallvec![]);
+                        }
+                        todo!()
+                    }
+                },
+                FluffyTermData::Ritchie { .. } => state.set_err(
+                    OriginalFluffyTermExpectationError::ExpectedCoersion {
+                        expectee: state.expectee(),
+                        expected: self.ty_expected,
+                    },
+                    smallvec![],
+                ),
+                FluffyTermData::TypeOntologyAtPlace {
+                    place,
+                    ty_path: path,
+                    refined_ty_path: refined_path,
+                    arguments,
+                    ..
+                } => self.resolve_convertible_to_place_ty_ontology(
+                    db,
+                    state,
+                    terms,
+                    place,
+                    path,
+                    refined_path,
+                    arguments,
+                ),
+                FluffyTermData::HoleAtPlace {
+                    place,
+                    hole_kind,
+                    hole,
+                } => None, // adhoc
+                // todo!(),
+                FluffyTermData::Symbol { .. } => todo!(),
+                FluffyTermData::SymbolAtPlace { .. } => todo!(),
+                FluffyTermData::Variable { ty } => todo!(),
+                FluffyTermData::TypeVariant { path } => todo!(),
+            }
         }
     }
 }

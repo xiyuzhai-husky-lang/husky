@@ -1279,7 +1279,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Const,
-                                    ty: Category(
+                                    ty_expected: Category(
                                         TermCategory {
                                             universe: TermUniverse(
                                                 1,
@@ -1608,7 +1608,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::fermi::FermiMatchResult)`),
+            EtherealTerm(`FermiMatchResult`),
         ),
     },
     ExprTypeRegion {
@@ -1727,7 +1727,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::fermi::FermiMatchResult)`),
+            EtherealTerm(`FermiMatchResult`),
         ),
     },
     ExprTypeRegion {
@@ -1846,7 +1846,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::fermi::FermiMatchResult)`),
+            EtherealTerm(`FermiMatchResult`),
         ),
     },
 ]

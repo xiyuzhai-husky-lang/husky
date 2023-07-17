@@ -1145,7 +1145,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::result::Result) t s`),
+            EtherealTerm(`Result t s`),
         ),
     },
     ExprTypeRegion {
@@ -1945,7 +1945,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::result::Result) t s`),
+            EtherealTerm(`Result t s`),
         ),
     },
 ]

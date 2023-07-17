@@ -123,7 +123,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::geom2d::Vector2d)`),
+            EtherealTerm(`Vector2d`),
         ),
         self_ty: None,
     },
@@ -690,7 +690,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -765,7 +765,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -806,7 +806,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },

@@ -378,7 +378,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::raw_bits::r32)`),
+            EtherealTerm(`r32`),
         ),
     },
 ]

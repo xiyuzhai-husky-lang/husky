@@ -1936,7 +1936,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2288,7 +2288,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2407,7 +2407,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2526,7 +2526,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2645,7 +2645,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2764,7 +2764,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -2883,7 +2883,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -3002,7 +3002,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -3121,7 +3121,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -3339,7 +3339,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
     ExprTypeRegion {
@@ -3557,7 +3557,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`ConnectedComponent`),
         ),
     },
 ]

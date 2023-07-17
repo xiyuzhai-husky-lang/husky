@@ -20,6 +20,15 @@ impl Contract {
             None => Contract::None,
         }
     }
+
+    pub fn as_str(self) -> &'static str {
+        match self {
+            Contract::None => "",
+            Contract::Move => "move ",
+            Contract::BorrowMut => "borrow mut",
+            Contract::Const => "const",
+        }
+    }
 }
 
 impl From<SymbolModifier> for Contract {
