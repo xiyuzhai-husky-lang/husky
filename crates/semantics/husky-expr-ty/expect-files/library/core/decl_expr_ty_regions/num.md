@@ -981,7 +981,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i8)`),
+            EtherealTerm(`i8`),
         ),
     },
     ExprTypeRegion {
@@ -1485,7 +1485,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i8)`),
+            EtherealTerm(`i8`),
         ),
     },
     ExprTypeRegion {
@@ -1714,7 +1714,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i16)`),
+            EtherealTerm(`i16`),
         ),
     },
     ExprTypeRegion {
@@ -2218,7 +2218,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i16)`),
+            EtherealTerm(`i16`),
         ),
     },
     ExprTypeRegion {
@@ -2447,7 +2447,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i32)`),
+            EtherealTerm(`i32`),
         ),
     },
     ExprTypeRegion {
@@ -2951,7 +2951,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i32)`),
+            EtherealTerm(`i32`),
         ),
     },
     ExprTypeRegion {
@@ -3180,7 +3180,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i64)`),
+            EtherealTerm(`i64`),
         ),
     },
     ExprTypeRegion {
@@ -3684,7 +3684,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i64)`),
+            EtherealTerm(`i64`),
         ),
     },
     ExprTypeRegion {
@@ -3913,7 +3913,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i128)`),
+            EtherealTerm(`i128`),
         ),
     },
     ExprTypeRegion {
@@ -4417,7 +4417,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::i128)`),
+            EtherealTerm(`i128`),
         ),
     },
     ExprTypeRegion {
@@ -4646,7 +4646,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::isize)`),
+            EtherealTerm(`isize`),
         ),
     },
     ExprTypeRegion {
@@ -5150,7 +5150,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::isize)`),
+            EtherealTerm(`isize`),
         ),
     },
     ExprTypeRegion {
@@ -5379,7 +5379,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u8)`),
+            EtherealTerm(`u8`),
         ),
     },
     ExprTypeRegion {
@@ -5883,7 +5883,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u8)`),
+            EtherealTerm(`u8`),
         ),
     },
     ExprTypeRegion {
@@ -6112,7 +6112,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u16)`),
+            EtherealTerm(`u16`),
         ),
     },
     ExprTypeRegion {
@@ -6616,7 +6616,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u16)`),
+            EtherealTerm(`u16`),
         ),
     },
     ExprTypeRegion {
@@ -6845,7 +6845,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u32)`),
+            EtherealTerm(`u32`),
         ),
     },
     ExprTypeRegion {
@@ -7349,7 +7349,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u32)`),
+            EtherealTerm(`u32`),
         ),
     },
     ExprTypeRegion {
@@ -7578,7 +7578,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u64)`),
+            EtherealTerm(`u64`),
         ),
     },
     ExprTypeRegion {
@@ -8082,7 +8082,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u64)`),
+            EtherealTerm(`u64`),
         ),
     },
     ExprTypeRegion {
@@ -8311,7 +8311,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u128)`),
+            EtherealTerm(`u128`),
         ),
     },
     ExprTypeRegion {
@@ -8815,7 +8815,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::u128)`),
+            EtherealTerm(`u128`),
         ),
     },
     ExprTypeRegion {
@@ -9044,7 +9044,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::usize)`),
+            EtherealTerm(`usize`),
         ),
     },
     ExprTypeRegion {
@@ -9548,7 +9548,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::usize)`),
+            EtherealTerm(`usize`),
         ),
     },
     ExprTypeRegion {
@@ -9777,7 +9777,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
     },
     ExprTypeRegion {
@@ -9896,7 +9896,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
     },
     ExprTypeRegion {
@@ -10400,7 +10400,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
     },
     ExprTypeRegion {
@@ -10629,7 +10629,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f64)`),
+            EtherealTerm(`f64`),
         ),
     },
     ExprTypeRegion {
@@ -11133,7 +11133,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f64)`),
+            EtherealTerm(`f64`),
         ),
     },
 ]

@@ -10,7 +10,7 @@ impl<'a> ExprTypeEngine<'a> {
                 arguments,
                 ty_ethereal_term,
             } => match refined_ty_path {
-                Left(PreludeTypePath::Option | PreludeTypePath::Result) => todo!(),
+                Left(PreludeTypePath::Option | PreludeTypePath::Result) => Ok(arguments[0]),
                 _ => Err(OriginalExprTypeError::CannotUnwrap)?,
             },
             FluffyTermData::TypeOntologyAtPlace {

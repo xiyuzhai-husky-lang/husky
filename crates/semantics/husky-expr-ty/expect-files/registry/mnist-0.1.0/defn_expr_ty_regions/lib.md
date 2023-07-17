@@ -51,7 +51,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(mnist::BinaryImage28)`),
+            EtherealTerm(`BinaryImage28`),
         ),
         self_ty: None,
     },

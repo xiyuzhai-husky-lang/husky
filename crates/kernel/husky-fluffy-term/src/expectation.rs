@@ -221,7 +221,10 @@ pub enum OriginalFluffyTermExpectationError {
     #[error("expected function type")]
     ExpectedFunctionType,
     #[error("ExpectedCoersion")]
-    ExpectedCoersion,
+    ExpectedCoersion {
+        expectee: FluffyTerm,
+        expected: FluffyTerm,
+    },
     #[error("todo")]
     Todo,
 }

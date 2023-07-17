@@ -189,7 +189,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -237,7 +237,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 34,
@@ -272,7 +272,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 34,
@@ -309,7 +309,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::list::List) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`List ConnectedComponent`),
         ),
         self_ty: None,
     },
@@ -793,7 +793,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -832,7 +832,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -871,7 +871,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -930,7 +930,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 71,
@@ -969,7 +969,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::connected_component::ConnectedComponent)`),
+            EtherealTerm(`Leash ConnectedComponent`),
         ),
         self_ty: None,
     },
@@ -1344,7 +1344,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1425,7 +1425,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -1466,7 +1466,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::num::f32)`),
+            EtherealTerm(`f32`),
         ),
         self_ty: None,
     },
@@ -1621,7 +1621,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 112,
@@ -1667,7 +1667,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 112,
@@ -1715,7 +1715,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(core::list::List) TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            EtherealTerm(`Leash List RawContour`),
         ),
         self_ty: None,
     },
@@ -1985,7 +1985,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: None,
-                                    ty: EntityPath(
+                                    ty_expected: EntityPath(
                                         TypeOntology(
                                             TypePath(
                                                 Id {
@@ -2014,7 +2014,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 33,
@@ -2062,7 +2062,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 33,
@@ -2112,7 +2112,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::raw_contour::RawContour)`),
+            EtherealTerm(`Leash RawContour`),
         ),
         self_ty: None,
     },
@@ -2234,7 +2234,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(mnist_classifier::line_segment_sketch::LineSegmentSketch)`),
+            EtherealTerm(`Leash LineSegmentSketch`),
         ),
         self_ty: None,
     },
@@ -2389,7 +2389,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 46,
@@ -2435,7 +2435,7 @@
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
-                                    ty: Application(
+                                    ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
                                                 value: 46,
@@ -2483,7 +2483,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(core::mem::Leash) TypeOntology(core::list::List) TypeOntology(mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent)`),
+            EtherealTerm(`Leash List ConcaveComponent`),
         ),
         self_ty: None,
     },

@@ -466,7 +466,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::list::List) t`),
+            EtherealTerm(`List t`),
         ),
     },
     ExprTypeRegion {
@@ -632,7 +632,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::list::List) t`),
+            EtherealTerm(`List t`),
         ),
     },
     ExprTypeRegion {
@@ -894,7 +894,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::list::List) t`),
+            EtherealTerm(`List t`),
         ),
     },
     ExprTypeRegion {
@@ -1156,7 +1156,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::list::List) t`),
+            EtherealTerm(`List t`),
         ),
     },
     ExprTypeRegion {
@@ -1418,7 +1418,7 @@
         },
         return_ty: None,
         self_ty: Some(
-            EtherealTerm(`TypeOntology(core::list::List) t`),
+            EtherealTerm(`List t`),
         ),
     },
 ]

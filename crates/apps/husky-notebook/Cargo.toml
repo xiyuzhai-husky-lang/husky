@@ -10,6 +10,5 @@ eframe = "0.22.0"
 egui = "0.22.0"
 egui_dock = "0.6.1"
 # gui
-husky-code-edit = { path = "../../gui/husky-code-edit" }
 # utils
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }

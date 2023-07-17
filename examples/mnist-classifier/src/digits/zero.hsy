@@ -14,7 +14,7 @@ pub(super) val is_zero: OneVsAll MnistLabel MnistLabel::Zero =
         require n < 1.5
         require open_one_match.matches[0] be some
         require connected_components.ilen() == 1
-        let c = open_one_match.matches[0].displacement().norm()
+        let c = open_one_match.matches[0]!.displacement().norm()
         require c < 5.5
         return OneVsAll::Yes
     let simp_zero_match = fermi_match(major_concave_components, [])

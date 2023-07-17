@@ -31,6 +31,9 @@ impl EtherealTermRitchieRegularParameter {
         db: &dyn EtherealTermDb,
         ctx: &mut TermShowContext,
     ) -> std::fmt::Result {
+        // ad hoc
+        f.write_str(self.contract.as_str())?;
+        f.write_str(" ")?;
         self.ty.show_with_db_fmt(f, db, ctx)
     }
 }

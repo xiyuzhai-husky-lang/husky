@@ -36,7 +36,7 @@ pub(super) val is_seven: OneVsAll MnistLabel MnistLabel::Seven =
         require simple_seven_match.matches[0] be some
         let upper_excess = major_connected_component.upper_mass - major_connected_component.lower_mass
         if upper_excess < 10.:
-            let end_tangent = simple_seven_match.matches[0].end_tangent()
+            let end_tangent = simple_seven_match.matches[0]!.end_tangent()
             let a = end_tangent.y
             require a < -7.0
         return OneVsAll::Yes

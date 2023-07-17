@@ -42,8 +42,8 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
             skip = 12,
         )?
         narrow_down(
-            one_fermi_match.matches[0].rel_norm,
-            one_fermi_match.matches[0].angle_change.abs(),
+            one_fermi_match.matches[0]!.rel_norm,
+            one_fermi_match.matches[0]!.angle_change.abs(),
             skip = 2,
         )?
         if upmost be some:
@@ -65,9 +65,9 @@ pub val is_one: OneVsAll MnistLabel MnistLabel::One =
             )?
         if hat be some:
             narrow_down(
-                one_fermi_match.matches[2].norm,
-                one_fermi_match.matches[2].rel_norm,
-                one_fermi_match.matches[2].angle_change.abs(),
+                one_fermi_match.matches[2]!.norm,
+                one_fermi_match.matches[2]!.rel_norm,
+                one_fermi_match.matches[2]!.angle_change.abs(),
                 skip = 2,
             )?
         // ad hoc

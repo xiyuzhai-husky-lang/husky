@@ -238,8 +238,12 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
             OriginalFluffyTermExpectationError::ExpectedSubtype { expectee } => {
                 format!("Term Error: expected subtype",)
             }
-            OriginalFluffyTermExpectationError::ExpectedCoersion => {
-                format!("Term Error: expected coersion",)
+            OriginalFluffyTermExpectationError::ExpectedCoersion { expected, expectee } => {
+                format!(
+                    "Term Error: expected coersion from `{}` to `{}`",
+                    expected.show(ctx.db(), ctx.fluffy_term_region()),
+                    expectee.show(ctx.db(), ctx.fluffy_term_region()),
+                )
             }
         }
     }

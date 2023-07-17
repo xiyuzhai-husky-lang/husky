@@ -194,7 +194,7 @@
             },
         },
         return_ty: Some(
-            EtherealTerm(`TypeOntology(malamute::OneVsAllResult) t a`),
+            EtherealTerm(`OneVsAllResult t a`),
         ),
         self_ty: None,
     },

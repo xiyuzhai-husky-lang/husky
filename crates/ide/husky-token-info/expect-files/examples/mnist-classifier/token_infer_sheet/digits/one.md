@@ -585,6 +585,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
+            TokenInfo::None,
             TokenInfo::Field,
             TokenInfo::None,
             TokenInfo::Entity(
@@ -596,6 +597,7 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::Field,
+            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
