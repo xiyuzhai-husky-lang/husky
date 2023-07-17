@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `end_tangent` for type `FluffyTerm::Application(EtherealTermApplication { function: EtherealTerm(`Option`), argument: EtherealTerm(`Leash ConcaveComponent`), shift: 0 })`",
-                severity: Error,
-                range: [39:61, 39:72),
-            },
-        ],
+        diagnostics: [],
     },
 }
