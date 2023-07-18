@@ -8,6 +8,25 @@ impl HasFluffyTraitMethodDispatch for SolidTerm {
         ident_token: IdentToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
+        self.trai_method_dispatch_aux(
+            engine,
+            expr_idx,
+            ident_token,
+            trai_item_records,
+            smallvec![],
+        )
+    }
+}
+
+impl SolidTerm {
+    pub(super) fn trai_method_dispatch_aux(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
+        ident_token: IdentToken,
+        trai_item_records: TraitInUseItemsWithGivenIdent,
+        mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
+    ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.data(engine) {
             SolidTermData::TypeOntology {
                 path,
@@ -20,8 +39,20 @@ impl HasFluffyTraitMethodDispatch for SolidTerm {
                 arguments,
                 base_ty_term,
                 place,
-            } => match base_ty_term {
-                Some(_) => todo!(),
+            } => match base_ty_term.as_ref() {
+                Some(&base_ty_term) => {
+                    indirections.push(FluffyDynamicDispatchIndirection::Place(*place));
+                    JustOk(
+                        base_ty_term
+                            .trai_method_dispatch_aux(
+                                engine,
+                                expr_idx,
+                                ident_token,
+                                trai_item_records,
+                            )?
+                            .merge(indirections),
+                    )
+                }
                 None => todo!(),
             },
             SolidTermData::SymbolAtPlace { term, place } => todo!(),

@@ -4,7 +4,7 @@ use crate::{instantiation::*, *};
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::derive_debug_with_db(db = EtherealTermDb)]
 pub struct EtherealGenericParameters {
-    data: SmallVec<[EtherealGeneric; 2]>,
+    data: SmallVec<[EtherealGenericParameter; 2]>,
 }
 
 impl EtherealGenericParameters {
@@ -16,13 +16,15 @@ impl EtherealGenericParameters {
             data: generic_paramters
                 .data()
                 .iter()
-                .map(|generic_parameter| EtherealGeneric::from_declarative(db, generic_parameter))
+                .map(|generic_parameter| {
+                    EtherealGenericParameter::from_declarative(db, generic_parameter)
+                })
                 .collect::<EtherealTermResult<_>>()?,
         })
     }
 
     #[inline(always)]
-    pub fn data(&self) -> &[EtherealGeneric] {
+    pub fn data(&self) -> &[EtherealGenericParameter] {
         &self.data
     }
 
@@ -32,7 +34,7 @@ impl EtherealGenericParameters {
 }
 
 impl std::ops::Deref for EtherealGenericParameters {
-    type Target = [EtherealGeneric];
+    type Target = [EtherealGenericParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data
@@ -40,13 +42,13 @@ impl std::ops::Deref for EtherealGenericParameters {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct EtherealGeneric {
+pub struct EtherealGenericParameter {
     annotated_variance: Option<Variance>,
     symbol: EtherealTermSymbol,
     traits: Vec<EtherealTerm>,
 }
 
-impl EtherealGeneric {
+impl EtherealGenericParameter {
     fn from_declarative(
         db: &dyn EtherealTermDb,
         declarative_generic_paramter: &DeclarativeGenericParameter,

@@ -42,16 +42,16 @@ impl ExplicitParameterEtherealSignatureTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct ExplicitParameterEtherealSignatureTemplates {
+pub struct SpecificParameterEtherealSignatureTemplates {
     data: SmallVec<[ExplicitParameterEtherealSignatureTemplate; 4]>,
 }
 
-impl ExplicitParameterEtherealSignatureTemplates {
+impl SpecificParameterEtherealSignatureTemplates {
     pub(crate) fn from_declarative(
         db: &dyn EtherealSignatureDb,
         declarative_signature_templates: &DeclarativeSpecificParameters,
     ) -> EtherealSignatureResult<Self> {
-        Ok(ExplicitParameterEtherealSignatureTemplates {
+        Ok(SpecificParameterEtherealSignatureTemplates {
             data: declarative_signature_templates
                 .iter()
                 .map(|declarative_signature_template| {
@@ -65,7 +65,7 @@ impl ExplicitParameterEtherealSignatureTemplates {
     }
 }
 
-impl std::ops::Deref for ExplicitParameterEtherealSignatureTemplates {
+impl std::ops::Deref for SpecificParameterEtherealSignatureTemplates {
     type Target = [ExplicitParameterEtherealSignatureTemplate];
 
     fn deref(&self) -> &Self::Target {
