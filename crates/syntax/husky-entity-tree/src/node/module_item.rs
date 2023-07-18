@@ -86,6 +86,7 @@ pub struct ModuleItemNode {
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
+    pub block: DefnBlock,
 }
 
 impl ModuleItemNode {
@@ -96,6 +97,7 @@ impl ModuleItemNode {
         visibility: Scope,
         ast_idx: AstIdx,
         ident_token: IdentToken,
+        block: DefnBlock,
     ) -> Self {
         ModuleItemNode::new_inner(
             db,
@@ -103,6 +105,7 @@ impl ModuleItemNode {
             visibility,
             ast_idx,
             ident_token,
+            block,
         )
     }
 

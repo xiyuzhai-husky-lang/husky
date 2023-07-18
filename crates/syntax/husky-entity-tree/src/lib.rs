@@ -60,6 +60,7 @@ pub struct EntityTreeJar(
     // module items
     TraitNodePath,
     trai_node,
+    trai_item_paths,
     TypeNodePath,
     ty_node,
     FugitiveNodePath,
@@ -70,6 +71,7 @@ pub struct EntityTreeJar(
     TypeItemNodePath,
     TypeItemNode,
     ty_item_node,
+    trai_item_nodes,
     TraitItemNodePath,
     TraitItemNode,
     TraitForTypeItemNodePath,

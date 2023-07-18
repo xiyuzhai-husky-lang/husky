@@ -203,6 +203,7 @@ impl<'a> EntityTreePresheetBuilder<'a> {
                         ast_idx,
                         *ident_token,
                         entity_path,
+                        *block,
                     )
                 }
             }

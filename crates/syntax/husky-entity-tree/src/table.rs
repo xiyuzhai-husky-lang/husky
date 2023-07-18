@@ -208,10 +208,17 @@ impl MajorEntityNodeTable {
         ast_idx: AstIdx,
         ident_token: IdentToken,
         entity_path: EntityPath,
+        block: DefnBlock,
     ) {
-        if let Some(entry) =
-            EntityNodeEntry::new(db, registry, visibility, ast_idx, ident_token, entity_path)
-        {
+        if let Some(entry) = EntityNodeEntry::new(
+            db,
+            registry,
+            visibility,
+            ast_idx,
+            ident_token,
+            entity_path,
+            block,
+        ) {
             self.entries.push(entry)
         }
     }
@@ -257,9 +264,17 @@ impl EntityNodeEntry {
         ast_idx: AstIdx,
         ident_token: IdentToken,
         entity_path: EntityPath,
+        block: DefnBlock,
     ) -> Option<Self> {
-        let node =
-            EntityNode::try_new(db, registry, visibility, ast_idx, ident_token, entity_path)?;
+        let node = EntityNode::try_new(
+            db,
+            registry,
+            visibility,
+            ast_idx,
+            ident_token,
+            entity_path,
+            block,
+        )?;
         Some(Self {
             node_path: node.node_path(db),
             ident: ident_token.ident(),
