@@ -48,8 +48,14 @@ impl TypeImplBlockPath {
 pub struct TraitForTypeImplBlockPath {
     pub module_path: ModulePath,
     pub trai_path: TraitPath,
-    pub ty_path: TypePath,
+    pub ty_sketch: TypeSketch,
     pub disambiguator: u8,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub enum TypeSketch {
+    Derive { ty_kind: Option<TypeKind> },
+    Path(TypePath),
 }
 
 impl TraitForTypeImplBlockPath {
@@ -58,16 +64,19 @@ impl TraitForTypeImplBlockPath {
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
         trai_path: TraitPath,
-        ty_path: TypePath,
+        ty_sketch: TypeSketch,
     ) -> Self {
         TraitForTypeImplBlockPath::new_inner(
             db,
             module_path,
             trai_path,
-            ty_path,
+            ty_sketch,
             registry.issue_disambiguitor(
                 module_path,
-                ImplBlockKind::TraitForType { ty_path, trai_path },
+                ImplBlockKind::TraitForType {
+                    ty_sketch,
+                    trai_path,
+                },
             ),
         )
     }
@@ -110,7 +119,7 @@ pub enum ImplBlockKind {
         ty_path: TypePath,
     },
     TraitForType {
-        ty_path: TypePath,
+        ty_sketch: TypeSketch,
         trai_path: TraitPath,
     },
     Err,

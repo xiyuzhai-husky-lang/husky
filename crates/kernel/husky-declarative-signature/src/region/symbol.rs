@@ -133,7 +133,10 @@ impl SymbolDeclarativeTermRegion {
                         Some(self.ty_self_ty_term(db, node_path.ty_path(db)))
                     }
                     ImplBlockNodePath::TraitForTypeImplBlock(impl_block_path) => {
-                        Some(self.ty_self_ty_term(db, impl_block_path.ty_path(db)))
+                        match impl_block_path.ty_sketch(db) {
+                            TypeSketch::Derive { ty_kind } => todo!(),
+                            TypeSketch::Path(ty_path) => Some(self.ty_self_ty_term(db, ty_path)),
+                        }
                     }
                     ImplBlockNodePath::IllFormedImplBlock(_) => None,
                 },
@@ -160,17 +163,18 @@ impl SymbolDeclarativeTermRegion {
         db: &dyn DeclarativeSignatureDb,
         ty_path: TypePath,
     ) -> DeclarativeTerm {
-        let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
-        for current_symbol_signature in self.symbol_signatures.current_symbol_map().iter().copied()
-        {
-            self_ty = self_ty.apply(
-                db,
-                current_symbol_signature
-                    .term_symbol()
-                    .expect("should have term"),
-            )
-        }
-        self_ty
+        todo!()
+        // let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
+        // for current_symbol_signature in self.symbol_signatures.current_symbol_map().iter().copied()
+        // {
+        //     self_ty = self_ty.apply(
+        //         db,
+        //         current_symbol_signature
+        //             .term_symbol()
+        //             .expect("should have term"),
+        //     )
+        // }
+        // self_ty
     }
 
     pub fn self_ty_term(&self) -> Option<DeclarativeTerm> {

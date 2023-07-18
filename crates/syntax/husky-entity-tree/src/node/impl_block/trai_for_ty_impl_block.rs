@@ -40,8 +40,8 @@ impl TraitForTypeImplBlockNodePath {
         self.path.trai_path(db)
     }
 
-    pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
-        self.path.ty_path(db)
+    pub fn ty_sketch(self, db: &dyn EntityTreeDb) -> TypeSketch {
+        self.path.ty_sketch(db)
     }
 
     pub fn items(
@@ -103,13 +103,21 @@ impl TraitForTypeImplBlockNode {
         trai_path: TraitPath,
         for_token: TokenIdx,
         ty_expr: ModuleItemPathExprIdx,
-        ty_path: TypePath,
+        ty_sketch: TypeSketch,
         items: Option<ImplBlockItems>,
-    ) -> Self {
-        TraitForTypeImplBlockNode::new_inner(
+    ) -> Result<Self, ImplBlockIllForm> {
+        // todo: check trai_path and ty_sketch
+        // should check that if one of trai_path and ty_sketch must be always contained inside the crate
+        Ok(TraitForTypeImplBlockNode::new_inner(
             db,
             TraitForTypeImplBlockNodePath {
-                path: TraitForTypeImplBlockPath::new(db, registry, module_path, trai_path, ty_path),
+                path: TraitForTypeImplBlockPath::new(
+                    db,
+                    registry,
+                    module_path,
+                    trai_path,
+                    ty_sketch,
+                ),
             },
             ast_idx,
             impl_token,
@@ -117,15 +125,15 @@ impl TraitForTypeImplBlockNode {
             for_token,
             ty_expr,
             items,
-        )
+        ))
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.node_path(db).path.module_path(db)
     }
 
-    pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
-        self.node_path(db).path.ty_path(db)
+    pub fn ty_sketch(self, db: &dyn EntityTreeDb) -> TypeSketch {
+        self.node_path(db).path.ty_sketch(db)
     }
 
     pub fn trai_path(self, db: &dyn EntityTreeDb) -> TraitPath {
