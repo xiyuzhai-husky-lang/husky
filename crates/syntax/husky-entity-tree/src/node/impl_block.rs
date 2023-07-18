@@ -169,7 +169,7 @@ impl ImplBlockNode {
                             module_path,
                             ast_idx,
                             items,
-                            ImplBlockIllForm::MissingForKeyword,
+                            ImplBlockIllForm::MajorPath(e),
                         )
                         .into();
                     }

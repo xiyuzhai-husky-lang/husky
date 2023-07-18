@@ -16,7 +16,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        ast_idx: 1,
+                        ast_idx: 2,
                         implicit_parameter_decl_list: Ok(
                             None,
                         ),
@@ -73,6 +73,73 @@ Ok(
                                 },
                                 roots: [],
                             },
+                        },
+                    },
+                },
+            ),
+        ),
+        NodeDefn::ImplBlock(
+            ImplBlockNodeDecl::IllFormed(
+                IllFormedImplBlockNodeDecl {
+                    node_path: IllFormedImplBlockNodePath {
+                        path: IllFormedImplBlockPath {
+                            module_path: `core::clone`,
+                            disambiguator: 0,
+                        },
+                    },
+                    ast_idx: 3,
+                    expr_region: ExprRegion {
+                        data: ExprRegionData {
+                            parent: None,
+                            path: RegionPath::Decl(
+                                EntityNodePath::ImplBlock(
+                                    ImplBlockNodePath::IllFormedImplBlock(
+                                        IllFormedImplBlockNodePath {
+                                            path: IllFormedImplBlockPath {
+                                                module_path: `core::clone`,
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            ),
+                            expr_arena: Arena {
+                                data: [],
+                            },
+                            principal_entity_path_expr_arena: Arena {
+                                data: [],
+                            },
+                            stmt_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_region: PatternExprRegion {
+                                pattern_expr_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_contracts: ArenaMap {
+                                    data: [],
+                                },
+                                pattern_infos: [],
+                                pattern_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_symbol_maps: [],
+                                pattern_symbol_modifiers: ArenaMap {
+                                    data: [],
+                                },
+                            },
+                            symbol_region: SymbolRegion {
+                                inherited_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                current_symbol_arena: Arena {
+                                    data: [],
+                                },
+                                allow_self_type: True,
+                                allow_self_value: False,
+                                pattern_ty_constraints: [],
+                            },
+                            roots: [],
                         },
                     },
                 },
