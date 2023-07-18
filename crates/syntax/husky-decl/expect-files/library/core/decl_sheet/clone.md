@@ -12,7 +12,7 @@ Ok(
                     ModuleItemDecl::Trait(
                         TraitDecl {
                             path: TraitPath(`core::clone::Clone`),
-                            ast_idx: 1,
+                            ast_idx: 2,
                             generic_parameters: [],
                             expr_region: ExprRegion {
                                 data: ExprRegionData {

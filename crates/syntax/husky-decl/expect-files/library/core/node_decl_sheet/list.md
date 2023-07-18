@@ -188,7 +188,7 @@ Ok(
                                         8,
                                     ),
                                 },
-                                ty_expr: 0,
+                                ty_expr: 1,
                                 items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         0..5,

@@ -337,7 +337,7 @@ Ok(
                                         16,
                                     ),
                                 },
-                                ty_expr: 50,
+                                ty_expr: 51,
                                 items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
                                         0..3,
