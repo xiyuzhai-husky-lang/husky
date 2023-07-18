@@ -147,8 +147,8 @@ impl ImplBlockNode {
                     Ok(for_token) => for_token,
                     Err(_) => todo!(),
                 };
-                let (ty_expr, ty_path) = match parser.parse_major_path_expr() {
-                    Ok((expr, ModuleItemPath::Type(path))) => (expr, path),
+                let (ty_expr, ty_sketch) = match parser.parse_major_path_expr() {
+                    Ok((expr, ModuleItemPath::Type(path))) => (expr, TypeSketch::Path(path)),
                     Ok((expr, path)) => {
                         return IllFormedImplBlockNode::new(
                             db,
@@ -162,19 +162,20 @@ impl ImplBlockNode {
                         .into();
                     }
                     Err(e) => {
-                        return IllFormedImplBlockNode::new(
-                            db,
-                            registry,
-                            impl_token,
-                            module_path,
-                            ast_idx,
-                            items,
-                            ImplBlockIllForm::MajorPath(e),
-                        )
-                        .into();
+                        todo!()
+                        // return IllFormedImplBlockNode::new(
+                        //     db,
+                        //     registry,
+                        //     impl_token,
+                        //     module_path,
+                        //     ast_idx,
+                        //     items,
+                        //     ImplBlockIllForm::MajorPath(e),
+                        // )
+                        // .into();
                     }
                 };
-                TraitForTypeImplBlockNode::new(
+                match TraitForTypeImplBlockNode::new(
                     db,
                     registry,
                     module_path,
@@ -184,10 +185,12 @@ impl ImplBlockNode {
                     trai_path,
                     for_token,
                     ty_expr,
-                    ty_path,
+                    ty_sketch,
                     items,
-                )
-                .into()
+                ) {
+                    Ok(node) => node.into(),
+                    Err(_) => todo!(),
+                }
             }
             ModuleItemPath::Fugitive(_) => todo!(),
         }

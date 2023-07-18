@@ -93,7 +93,7 @@ impl EntityTreeCrateBundle {
             .iter()
             .map(|sheet| sheet.all_trai_for_ty_impl_block_paths(db))
             .flatten()
-            .filter(move |path| path.ty_path(db) == ty_path)
+            .filter(move |path| path.ty_sketch(db) == TypeSketch::Path(ty_path))
     }
 
     pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {
