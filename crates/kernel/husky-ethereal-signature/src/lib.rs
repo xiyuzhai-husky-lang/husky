@@ -1,6 +1,7 @@
 #![feature(trait_upcasting)]
 mod db;
 mod error;
+pub mod helpers;
 mod parameter;
 mod signature;
 
@@ -57,7 +58,7 @@ pub struct EtherealSignatureJar(
     TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
     trai_for_ty_impl_block_ethereal_signature_template,
     ty_impl_block_ethereal_signature_template,
-    ty_side_impl_block_signature_templates_map,
+    crate::helpers::ty_side_impl_block_signature_templates_map,
     trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signature_template,
     trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template,
 );
