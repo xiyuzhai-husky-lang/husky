@@ -29,8 +29,22 @@ impl<'a> TraitInUseItemsTable<'a> {
             } else {
                 non_core_crate_prelude_trait_items_table(db, toolchain).as_ref()?
             },
-            module_specific_trait_items_table: module_specific_trait_items_table(db, module_path),
+            module_specific_trait_items_table: module_specific_trait_items_table(db, module_path)
+                .as_ref()?,
         })
+    }
+
+    pub fn get(self, ident: Ident) -> TraitInUseItemsWithGivenIdent<'a> {
+        TraitInUseItemsWithGivenIdent {
+            prelude_trait_items: self
+                .prelude_trait_items_table
+                .get_entry(ident)
+                .map(|(_, records)| records as &[_]),
+            module_specific_trait_items: self
+                .module_specific_trait_items_table
+                .get_entry(ident)
+                .map(|(_, records)| records as &[_]),
+        }
     }
 }
 
@@ -51,8 +65,11 @@ fn non_core_crate_prelude_trait_items_table(
 fn module_specific_trait_items_table(
     db: &dyn EntityTreeDb,
     module_path: ModulePath,
-) -> TraitInUseItemsTableImpl {
-    trait_items_table_impl(db, todo!())
+) -> EntityTreeResult<TraitInUseItemsTableImpl> {
+    Ok(trait_items_table_impl(
+        db,
+        module_path.entity_tree_sheet(db).as_ref()?.module_symbols(),
+    ))
 }
 
 type TraitInUseItemsTableImpl = SmallVecPairMap<Ident, SmallVec<[TraitInUseItemRecord; 2]>, 16>;
@@ -67,8 +84,14 @@ fn trait_items_table_impl(
         let PrincipalEntityPath::ModuleItem(ModuleItemPath::Trait(trai_path)) = entry.symbol().path(db) else {
             continue
         };
-        p!(trai_path.debug(db));
-        todo!()
+        for (ident, trai_item_path) in trai_path.item_paths(db) {
+            let record = TraitInUseItemRecord {
+                trai_symbol: entry.symbol(),
+                trai_item_path: *trai_item_path,
+                scope: entry.visibility(),
+            };
+            table.update_value_or_insert(*ident, |records| records.push(record), smallvec![record])
+        }
     }
     table
 }
@@ -76,13 +99,14 @@ fn trait_items_table_impl(
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct TraitInUseItemRecord {
-    path: TraitItemPath,
+    trai_symbol: EntitySymbol,
+    trai_item_path: TraitItemPath,
     scope: Scope,
 }
 
 impl TraitInUseItemRecord {
     pub fn path(&self) -> TraitItemPath {
-        self.path
+        self.trai_item_path
     }
 }
 

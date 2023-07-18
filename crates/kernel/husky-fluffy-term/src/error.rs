@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_tree::EntityTreeError;
 use husky_ethereal_signature::EtherealSignatureError;
 use thiserror::Error;
 
@@ -18,6 +19,12 @@ impl From<EtherealSignatureError> for FluffyTermError {
 impl From<EtherealTermError> for FluffyTermError {
     fn from(e: EtherealTermError) -> Self {
         FluffyTermError::Todo
+    }
+}
+
+impl From<&EntityTreeError> for FluffyTermError {
+    fn from(value: &EntityTreeError) -> Self {
+        todo!()
     }
 }
 

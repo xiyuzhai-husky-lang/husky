@@ -137,6 +137,7 @@ impl EntityNode {
         ast_idx: AstIdx,
         ident_token: IdentToken,
         entity_path: EntityPath,
+        block: DefnBlock,
     ) -> Option<Self> {
         match entity_path {
             EntityPath::Module(submodule_path) => Some(
@@ -158,6 +159,7 @@ impl EntityNode {
                     visibility,
                     ast_idx,
                     ident_token,
+                    block,
                 )
                 .into(),
             ),
@@ -227,4 +229,10 @@ impl EntityNodePath {
             EntityNodePath::ImplBlock(path) => path.node(db).into(),
         }
     }
+}
+
+pub trait HasItemPaths: Copy {
+    type ItemPath;
+
+    fn item_paths(self, db: &dyn EntityTreeDb) -> &[(Ident, Self::ItemPath)];
 }

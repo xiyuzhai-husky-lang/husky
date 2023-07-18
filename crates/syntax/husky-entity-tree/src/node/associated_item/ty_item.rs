@@ -102,10 +102,10 @@ pub(crate) fn ty_item_node(db: &dyn EntityTreeDb, node_path: TypeItemNodePath) -
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_impl_block_items(
     db: &dyn EntityTreeDb,
-    impl_block_node_path: TypeImplBlockNodePath,
+    node_path: TypeImplBlockNodePath,
 ) -> Vec<(Ident, TypeItemNodePath, TypeItemNode)> {
-    let impl_block_node = impl_block_node_path.node(db);
-    let module_path = impl_block_node_path.module_path(db);
+    let impl_block_node = node_path.node(db);
+    let module_path = node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path).unwrap();
     let items = impl_block_node.items(db);
     let mut registry = EntityNodeRegistry::default();
@@ -131,7 +131,7 @@ pub(crate) fn ty_impl_block_items(
                     let (node_path, node) = TypeItemNode::new(
                         db,
                         &mut registry,
-                        impl_block_node_path,
+                        node_path,
                         ast_idx,
                         ident_token.ident(),
                         item_kind,

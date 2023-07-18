@@ -8,7 +8,7 @@ pub(crate) use self::solid::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_tree::TraitInUseItemRecord;
+use husky_entity_tree::{TraitInUseItemRecord, TraitInUseItemsWithGivenIdent};
 use husky_token::IdentToken;
 
 impl MemberSignature for MethodFluffySignature {
@@ -29,7 +29,12 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         expr_idx: ExprIdx,
         ident_token: IdentToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
-        todo!()
+        self.trai_method_dispatch_aux(
+            engine,
+            expr_idx,
+            ident_token,
+            engine.trai_in_use_items_table()?.get(ident_token.ident()),
+        )
     }
 
     fn trai_method_dispatch_aux(
@@ -37,7 +42,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
         engine: &mut impl FluffyTermEngine,
         expr_idx: ExprIdx,
         ident_token: IdentToken,
-        trai_item_records: &[TraitInUseItemRecord],
+        trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch>;
 }
 
@@ -103,7 +108,7 @@ impl HasFluffyTraitMethodDispatch for FluffyTerm {
         engine: &mut impl FluffyTermEngine,
         expr_idx: ExprIdx,
         ident_token: IdentToken,
-        trai_item_records: &[TraitInUseItemRecord],
+        trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.nested() {
             NestedFluffyTerm::Ethereal(ty_term) => {
