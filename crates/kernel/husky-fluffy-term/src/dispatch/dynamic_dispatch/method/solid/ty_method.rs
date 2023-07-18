@@ -39,10 +39,6 @@ impl SolidTerm {
                             .ty_method_dispatch(engine, expr_idx, ident_token)?
                             .merge(indirections),
                     )
-                    // JustOk(
-                    //     ethereal_ty_method_dispatch(engine, expr_idx, *base_ty_term, ident)?
-                    //         .merge(indirections),
-                    // )
                 }
                 None => todo!(),
             },

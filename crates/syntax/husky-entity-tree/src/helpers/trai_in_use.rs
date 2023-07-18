@@ -34,8 +34,11 @@ impl<'a> TraitInUseItemsTable<'a> {
         })
     }
 
-    pub fn get(self, ident: Ident) -> TraitInUseItemsWithGivenIdent<'a> {
-        TraitInUseItemsWithGivenIdent {
+    pub fn available_trait_items_with_given_ident(
+        self,
+        ident: Ident,
+    ) -> Option<TraitInUseItemsWithGivenIdent<'a>> {
+        let items = TraitInUseItemsWithGivenIdent {
             prelude_trait_items: self
                 .prelude_trait_items_table
                 .get_entry(ident)
@@ -44,7 +47,11 @@ impl<'a> TraitInUseItemsTable<'a> {
                 .module_specific_trait_items_table
                 .get_entry(ident)
                 .map(|(_, records)| records as &[_]),
+        };
+        if items.prelude_trait_items.is_none() && items.module_specific_trait_items.is_none() {
+            return None;
         }
+        Some(items)
     }
 }
 
@@ -87,6 +94,7 @@ fn trait_items_table_impl(
         for (ident, trai_item_path) in trai_path.item_paths(db) {
             let record = TraitInUseItemRecord {
                 trai_symbol: entry.symbol(),
+                trai_path,
                 trai_item_path: *trai_item_path,
                 scope: entry.visibility(),
             };
@@ -100,12 +108,17 @@ fn trait_items_table_impl(
 #[salsa::derive_debug_with_db(db = EntityTreeDb, jar = EntityTreeJar)]
 pub struct TraitInUseItemRecord {
     trai_symbol: EntitySymbol,
+    trai_path: TraitPath,
     trai_item_path: TraitItemPath,
     scope: Scope,
 }
 
 impl TraitInUseItemRecord {
-    pub fn path(&self) -> TraitItemPath {
+    pub fn trai_path(&self) -> TraitPath {
+        self.trai_path
+    }
+
+    pub fn trai_item_path(&self) -> TraitItemPath {
         self.trai_item_path
     }
 }
@@ -119,24 +132,6 @@ impl TraitInUseItemRecord {
 pub struct TraitInUseItemsWithGivenIdent<'a> {
     prelude_trait_items: Option<&'a [TraitInUseItemRecord]>,
     module_specific_trait_items: Option<&'a [TraitInUseItemRecord]>,
-}
-
-impl<'a> TraitInUseItemsTable<'a> {
-    fn available_trait_items_with_given_ident(
-        self,
-        ident: Ident,
-    ) -> TraitInUseItemsWithGivenIdent<'a> {
-        TraitInUseItemsWithGivenIdent {
-            prelude_trait_items: self
-                .prelude_trait_items_table
-                .get_entry(ident)
-                .map(|(_, records)| records as &[_]),
-            module_specific_trait_items: self
-                .module_specific_trait_items_table
-                .get_entry(ident)
-                .map(|(_, records)| records as &[_]),
-        }
-    }
 }
 
 impl<'a> TraitInUseItemsWithGivenIdent<'a> {
