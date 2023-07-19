@@ -163,9 +163,10 @@ fn unveil_impl_block_signature_templates_aux(
     SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2]>,
 > {
     let entity_path_menu = db.entity_path_menu(ty_path.toolchain(db));
-    let templates = ty_path.ty_side_trai_for_ty_impl_block_signature_templates(
+    let templates = ty_side_trai_for_ty_impl_block_signature_templates(
         db,
         entity_path_menu.core_ops_unveil_trai_path(),
+        ty_path,
     )?;
     JustOk(
         templates

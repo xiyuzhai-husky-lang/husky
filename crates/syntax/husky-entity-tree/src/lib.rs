@@ -115,6 +115,8 @@ pub struct EntityTreeJar(
     ty_side_trai_for_ty_impl_block_paths_map,
     trai_item_table,
     TraitOrderedSet,
-    self::helpers::non_core_crate_prelude_trait_items_table,
-    self::helpers::module_specific_trait_items_table,
+    crate::helpers::non_core_crate_prelude_trait_items_table,
+    crate::helpers::module_specific_trait_items_table,
+    crate::helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
+    crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
 );
