@@ -46,7 +46,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 270,
+                                                                value: 271,
                                                             },
                                                         ),
                                                     ),
@@ -69,7 +69,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 242,
+                                                                value: 243,
                                                             },
                                                         ),
                                                     ),
@@ -240,7 +240,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 270,
+                                                                    value: 271,
                                                                 },
                                                             ),
                                                         ),
@@ -257,7 +257,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 242,
+                                                                    value: 243,
                                                                 },
                                                             ),
                                                         ),
@@ -3453,7 +3453,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::raw_contour`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 82,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -3466,7 +3472,13 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::raw_contour`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    ty_sketch: Path(
+                                        TypePath(
+                                            Id {
+                                                value: 82,
+                                            },
+                                        ),
+                                    ),
                                     disambiguator: 0,
                                 },
                             },
@@ -3487,9 +3499,11 @@ Ok(
                                     40,
                                 ),
                             },
-                            ty_expr: TypeExpr {
-                                expr: 1,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 1,
+                                },
+                            ),
                             eol_colon: Ok(
                                 EolToken::Colon(
                                     EolColonToken {
@@ -3509,7 +3523,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `mnist_classifier::raw_contour`,
                                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 82,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3629,7 +3649,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `mnist_classifier::raw_contour`,
                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 82,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `visualize`,
@@ -3650,7 +3676,13 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `mnist_classifier::raw_contour`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                ty_sketch: Path(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 82,
+                                                        },
+                                                    ),
+                                                ),
                                                 disambiguator: 0,
                                             },
                                             ident: `visualize`,
@@ -3666,7 +3698,13 @@ Ok(
                                                 impl_block: TraitForTypeImplBlockPath {
                                                     module_path: `mnist_classifier::raw_contour`,
                                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                    ty_sketch: Path(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 82,
+                                                            },
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                                 ident: `visualize`,
@@ -3743,7 +3781,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `mnist_classifier::raw_contour`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 82,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3860,7 +3904,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `mnist_classifier::raw_contour`,
                                                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 82,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `visualize`,
@@ -4000,7 +4050,7 @@ Ok(
                             implicit_parameter_decl_list: Ok(
                                 None,
                             ),
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             eol_colon: Ok(

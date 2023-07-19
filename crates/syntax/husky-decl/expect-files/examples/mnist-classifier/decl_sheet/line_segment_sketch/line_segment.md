@@ -160,7 +160,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 291,
+                                                                    value: 292,
                                                                 },
                                                             ),
                                                         ),
@@ -177,7 +177,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 292,
+                                                                    value: 293,
                                                                 },
                                                             ),
                                                         ),
@@ -215,7 +215,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {

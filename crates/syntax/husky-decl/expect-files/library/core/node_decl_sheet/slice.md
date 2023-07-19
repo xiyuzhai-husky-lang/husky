@@ -384,7 +384,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 2,
                             },
                             eol_colon: Ok(

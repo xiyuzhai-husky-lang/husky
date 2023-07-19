@@ -1015,7 +1015,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -1336,7 +1336,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 17,
+                                value: 19,
                             },
                         ),
                     ),
@@ -1347,16 +1347,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -1367,7 +1375,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 14,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1514,7 +1528,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -1530,7 +1550,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 14,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -1570,7 +1596,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 14,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1716,7 +1748,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::i8`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 14,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -1901,7 +1939,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -2222,7 +2260,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 18,
+                                value: 20,
                             },
                         ),
                     ),
@@ -2233,16 +2271,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -2253,7 +2299,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 15,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2400,7 +2452,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -2416,7 +2474,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 15,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -2456,7 +2520,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 15,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2602,7 +2672,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::i16`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 15,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -2787,7 +2863,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -3108,7 +3184,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 19,
+                                value: 21,
                             },
                         ),
                     ),
@@ -3119,16 +3195,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -3139,7 +3223,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 16,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3286,7 +3376,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -3302,7 +3398,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 16,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -3342,7 +3444,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 16,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3488,7 +3596,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 16,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -3673,7 +3787,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -3994,7 +4108,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 20,
+                                value: 22,
                             },
                         ),
                     ),
@@ -4005,16 +4119,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -4025,7 +4147,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 17,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4172,7 +4300,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -4188,7 +4322,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 17,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -4228,7 +4368,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 17,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4374,7 +4520,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::i64`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 17,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -4559,7 +4711,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -4880,7 +5032,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 21,
+                                value: 23,
                             },
                         ),
                     ),
@@ -4891,16 +5043,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 18,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -4911,7 +5071,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 18,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -5058,7 +5224,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 18,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -5074,7 +5246,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 18,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -5114,7 +5292,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 18,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -5260,7 +5444,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::i128`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 18,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -5445,7 +5635,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -5766,7 +5956,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 22,
+                                value: 24,
                             },
                         ),
                     ),
@@ -5777,16 +5967,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -5797,7 +5995,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 19,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -5944,7 +6148,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -5960,7 +6170,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 19,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -6000,7 +6216,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 19,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -6146,7 +6368,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::isize`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 19,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -6331,7 +6559,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -6652,7 +6880,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 23,
+                                value: 25,
                             },
                         ),
                     ),
@@ -6663,16 +6891,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 20,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -6683,7 +6919,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 20,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -6830,7 +7072,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 20,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -6846,7 +7094,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 20,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -6886,7 +7140,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 20,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -7032,7 +7292,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::u8`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 20,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -7217,7 +7483,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -7538,7 +7804,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 24,
+                                value: 26,
                             },
                         ),
                     ),
@@ -7549,16 +7815,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 21,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -7569,7 +7843,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 21,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -7716,7 +7996,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 21,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -7732,7 +8018,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 21,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -7772,7 +8064,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 21,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -7918,7 +8216,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::u16`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 21,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -8103,7 +8407,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -8424,7 +8728,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 25,
+                                value: 27,
                             },
                         ),
                     ),
@@ -8435,16 +8739,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -8455,7 +8767,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 22,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -8602,7 +8920,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -8618,7 +8942,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 22,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -8658,7 +8988,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 22,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -8804,7 +9140,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::u32`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 22,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -8989,7 +9331,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -9310,7 +9652,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 26,
+                                value: 28,
                             },
                         ),
                     ),
@@ -9321,16 +9663,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 23,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -9341,7 +9691,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 23,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -9488,7 +9844,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 23,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -9504,7 +9866,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 23,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -9544,7 +9912,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 23,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -9690,7 +10064,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::u64`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 23,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -9875,7 +10255,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -10196,7 +10576,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 27,
+                                value: 29,
                             },
                         ),
                     ),
@@ -10207,16 +10587,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 24,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -10227,7 +10615,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 24,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -10374,7 +10768,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 24,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -10390,7 +10790,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 24,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -10430,7 +10836,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 24,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -10576,7 +10988,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::u128`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 24,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -10761,7 +11179,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -11082,7 +11500,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 28,
+                                value: 30,
                             },
                         ),
                     ),
@@ -11093,16 +11511,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -11113,7 +11539,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 25,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -11260,7 +11692,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -11276,7 +11714,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 25,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -11316,7 +11760,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 25,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -11462,7 +11912,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::usize`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 25,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -11647,7 +12103,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -12190,7 +12646,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 29,
+                                value: 31,
                             },
                         ),
                     ),
@@ -12201,16 +12657,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -12221,7 +12685,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 26,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -12368,7 +12838,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -12384,7 +12860,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 26,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -12424,7 +12906,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 26,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -12570,7 +13058,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 26,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,
@@ -12755,7 +13249,7 @@ Ok(
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             expr_region: ExprRegion {
@@ -13076,7 +13570,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 30,
+                                value: 32,
                             },
                         ),
                     ),
@@ -13087,16 +13581,24 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 27,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -13107,7 +13609,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 27,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -13254,7 +13762,13 @@ Ok(
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 27,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             ident: `add`,
@@ -13270,7 +13784,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::num`,
                                         trai_path: TraitPath(`core::ops::Add`),
-                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 27,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `add`,
@@ -13310,7 +13830,13 @@ Ok(
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
-                                                                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 27,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -13456,7 +13982,13 @@ Ok(
                                                                 impl_block: TraitForTypeImplBlockPath {
                                                                     module_path: `core::num`,
                                                                     trai_path: TraitPath(`core::ops::Add`),
-                                                                    ty_path: TypePath(`core::num::f64`, `Extern`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 27,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                                 ident: `add`,

@@ -306,7 +306,7 @@ Ok(
                             implicit_parameter_decl_list: Ok(
                                 None,
                             ),
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             eol_colon: Ok(

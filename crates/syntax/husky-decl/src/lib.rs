@@ -1,3 +1,4 @@
+#![feature(iter_advance_by)]
 #![feature(trait_upcasting)]
 #![feature(let_chains)]
 mod db;

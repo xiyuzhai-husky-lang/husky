@@ -28,8 +28,17 @@ impl EtherealGenericParameters {
         &self.data
     }
 
-    pub fn instantiation(&self) -> EtherealTermPartialInstantiation {
-        unsafe { EtherealTermPartialInstantiation::new(self.iter().map(|param| param.symbol())) }
+    pub fn instantiation(
+        &self,
+        self_ty_parameter: Option<EtherealTermSymbol>,
+    ) -> EtherealTermPartialInstantiation {
+        unsafe {
+            EtherealTermPartialInstantiation::new(
+                self.iter()
+                    .map(|param| param.symbol())
+                    .chain(self_ty_parameter),
+            )
+        }
     }
 }
 

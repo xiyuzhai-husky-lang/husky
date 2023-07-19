@@ -46,7 +46,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 226,
+                                                                value: 227,
                                                             },
                                                         ),
                                                     ),
@@ -267,7 +267,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 226,
+                                                                    value: 227,
                                                                 },
                                                             ),
                                                         ),
@@ -807,7 +807,7 @@ Ok(
                             implicit_parameter_decl_list: Ok(
                                 None,
                             ),
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             eol_colon: Ok(
