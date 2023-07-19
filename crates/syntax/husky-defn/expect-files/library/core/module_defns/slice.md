@@ -251,7 +251,7 @@ Ok(
                             },
                         },
                     ],
-                    ty_expr: TypeExpr {
+                    self_ty_expr: SelfTypeExpr {
                         expr: 2,
                     },
                     expr_region: ExprRegion {

@@ -186,7 +186,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::result`,
                             trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 31,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -294,9 +300,11 @@ Ok(
                             41,
                         ),
                     },
-                    ty_expr: TypeExpr {
-                        expr: 11,
-                    },
+                    self_ty_decl: PathLeadingExpr(
+                        SelfTypeExpr {
+                            expr: 11,
+                        },
+                    ),
                     eol_colon: Ok(
                         EolToken::Colon(
                             EolColonToken {
@@ -316,7 +324,13 @@ Ok(
                                             path: TraitForTypeImplBlockPath {
                                                 module_path: `core::result`,
                                                 trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                ty_sketch: Path(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 31,
+                                                        },
+                                                    ),
+                                                ),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -684,7 +698,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::result`,
                                         trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `Continue`,
@@ -700,7 +720,13 @@ Ok(
                                         impl_block: TraitForTypeImplBlockPath {
                                             module_path: `core::result`,
                                             trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                                            ty_sketch: Path(
+                                                TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                         ident: `Continue`,
@@ -716,7 +742,13 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::result`,
                                                 trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                ty_sketch: Path(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 31,
+                                                        },
+                                                    ),
+                                                ),
                                                 disambiguator: 0,
                                             },
                                             ident: `Continue`,
@@ -758,7 +790,13 @@ Ok(
                                                                 path: TraitForTypeImplBlockPath {
                                                                     module_path: `core::result`,
                                                                     trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                             },
@@ -1123,7 +1161,13 @@ Ok(
                                                             impl_block: TraitForTypeImplBlockPath {
                                                                 module_path: `core::result`,
                                                                 trai_path: TraitPath(`core::ops::Unveil`),
-                                                                ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                ty_sketch: Path(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                ),
                                                                 disambiguator: 0,
                                                             },
                                                             ident: `Continue`,
@@ -1255,7 +1299,13 @@ Ok(
                                                                         path: TraitForTypeImplBlockPath {
                                                                             module_path: `core::result`,
                                                                             trai_path: TraitPath(`core::ops::Unveil`),
-                                                                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                            ty_sketch: Path(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
                                                                             disambiguator: 0,
                                                                         },
                                                                     },
@@ -1620,7 +1670,13 @@ Ok(
                                                                     impl_block: TraitForTypeImplBlockPath {
                                                                         module_path: `core::result`,
                                                                         trai_path: TraitPath(`core::ops::Unveil`),
-                                                                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                     ident: `Continue`,
@@ -1744,7 +1800,13 @@ Ok(
                                                         impl_block: TraitForTypeImplBlockPath {
                                                             module_path: `core::result`,
                                                             trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                            ty_sketch: Path(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            ),
                                                             disambiguator: 0,
                                                         },
                                                         ident: `Continue`,
@@ -1854,7 +1916,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::result`,
                                         trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 31,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `branch`,
@@ -1870,7 +1938,13 @@ Ok(
                                         impl_block: TraitForTypeImplBlockPath {
                                             module_path: `core::result`,
                                             trai_path: TraitPath(`core::ops::Unveil`),
-                                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                                            ty_sketch: Path(
+                                                TypePath(
+                                                    Id {
+                                                        value: 31,
+                                                    },
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                         ident: `branch`,
@@ -1886,7 +1960,13 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `core::result`,
                                                 trai_path: TraitPath(`core::ops::Unveil`),
-                                                ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                ty_sketch: Path(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 31,
+                                                        },
+                                                    ),
+                                                ),
                                                 disambiguator: 0,
                                             },
                                             ident: `branch`,
@@ -1976,7 +2056,13 @@ Ok(
                                                                 path: TraitForTypeImplBlockPath {
                                                                     module_path: `core::result`,
                                                                     trai_path: TraitPath(`core::ops::Unveil`),
-                                                                    ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 31,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                             },
@@ -2341,7 +2427,13 @@ Ok(
                                                             impl_block: TraitForTypeImplBlockPath {
                                                                 module_path: `core::result`,
                                                                 trai_path: TraitPath(`core::ops::Unveil`),
-                                                                ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                ty_sketch: Path(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 31,
+                                                                        },
+                                                                    ),
+                                                                ),
                                                                 disambiguator: 0,
                                                             },
                                                             ident: `branch`,
@@ -2631,7 +2723,13 @@ Ok(
                                                                         path: TraitForTypeImplBlockPath {
                                                                             module_path: `core::result`,
                                                                             trai_path: TraitPath(`core::ops::Unveil`),
-                                                                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                            ty_sketch: Path(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 31,
+                                                                                    },
+                                                                                ),
+                                                                            ),
                                                                             disambiguator: 0,
                                                                         },
                                                                     },
@@ -2996,7 +3094,13 @@ Ok(
                                                                     impl_block: TraitForTypeImplBlockPath {
                                                                         module_path: `core::result`,
                                                                         trai_path: TraitPath(`core::ops::Unveil`),
-                                                                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 31,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                     ident: `branch`,
@@ -3276,7 +3380,13 @@ Ok(
                                                         impl_block: TraitForTypeImplBlockPath {
                                                             module_path: `core::result`,
                                                             trai_path: TraitPath(`core::ops::Unveil`),
-                                                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                                                            ty_sketch: Path(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 31,
+                                                                    },
+                                                                ),
+                                                            ),
                                                             disambiguator: 0,
                                                         },
                                                         ident: `branch`,

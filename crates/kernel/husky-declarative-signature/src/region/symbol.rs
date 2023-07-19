@@ -116,7 +116,7 @@ impl SymbolDeclarativeTermRegion {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty_term.is_none() {
             self.self_ty_term = match region_path {
                 RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Trait(_))) => {
-                    Some(self.trai_self_ty_term(db))
+                    Some(self.new_self_ty_term_parameter_symbol(db))
                 }
                 RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Type(
                     ty_node_path,
@@ -134,7 +134,9 @@ impl SymbolDeclarativeTermRegion {
                     }
                     ImplBlockNodePath::TraitForTypeImplBlock(impl_block_path) => {
                         match impl_block_path.ty_sketch(db) {
-                            TypeSketch::DeriveAny => Some(todo!()),
+                            TypeSketch::DeriveAny => {
+                                Some(self.new_self_ty_term_parameter_symbol(db))
+                            }
                             TypeSketch::Path(ty_path) => None, // reserved for later stage
                         }
                     }
@@ -151,7 +153,10 @@ impl SymbolDeclarativeTermRegion {
             )
         }
     }
-    fn trai_self_ty_term(&mut self, db: &dyn DeclarativeSignatureDb) -> DeclarativeTerm {
+    fn new_self_ty_term_parameter_symbol(
+        &mut self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeTerm {
         // todo: general universe
         self.registry
             .new_symbol(db, Ok(DeclarativeTerm::TYPE))

@@ -18,7 +18,7 @@
                                         ),
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 6,
+                                                value: 7,
                                             },
                                         ),
                                         traits: [],
@@ -61,7 +61,7 @@
                                         ),
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 6,
+                                                value: 7,
                                             },
                                         ),
                                         traits: [],
@@ -122,7 +122,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 16,
+                        value: 18,
                     },
                 ),
             ),
@@ -145,7 +145,15 @@
                             ],
                         },
                         trai: DeclarativeTerm(`core::marker::Copy`),
-                        ty: DeclarativeTerm(`core::mem::Leash t`),
+                        self_ty: Path(
+                            ExplicitApplication(
+                                DeclarativeTermExplicitApplication(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),

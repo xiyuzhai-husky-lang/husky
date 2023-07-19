@@ -40,7 +40,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 221,
+                                                            value: 222,
                                                         },
                                                     ),
                                                 ),
@@ -63,7 +63,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 222,
+                                                            value: 223,
                                                         },
                                                     ),
                                                 ),
@@ -86,7 +86,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 223,
+                                                            value: 224,
                                                         },
                                                     ),
                                                 ),
@@ -109,7 +109,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 224,
+                                                            value: 225,
                                                         },
                                                     ),
                                                 ),
@@ -320,7 +320,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 221,
+                                                                value: 222,
                                                             },
                                                         ),
                                                     ),
@@ -337,7 +337,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 222,
+                                                                value: 223,
                                                             },
                                                         ),
                                                     ),
@@ -354,7 +354,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 223,
+                                                                value: 224,
                                                             },
                                                         ),
                                                     ),
@@ -371,7 +371,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 224,
+                                                                value: 225,
                                                             },
                                                         ),
                                                     ),
@@ -430,7 +430,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 226,
+                                                            value: 227,
                                                         },
                                                     ),
                                                 ),
@@ -578,7 +578,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 226,
+                                                                value: 227,
                                                             },
                                                         ),
                                                     ),
@@ -1328,7 +1328,7 @@ Ok(
                                                 ident: Ident(
                                                     Coword(
                                                         Id {
-                                                            value: 232,
+                                                            value: 233,
                                                         },
                                                     ),
                                                 ),
@@ -1443,7 +1443,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 232,
+                                                                value: 233,
                                                             },
                                                         ),
                                                     ),
@@ -5987,7 +5987,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::connected_component`,
                             trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 81,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -6008,9 +6014,11 @@ Ok(
                             79,
                         ),
                     },
-                    ty_expr: TypeExpr {
-                        expr: 1,
-                    },
+                    self_ty_decl: PathLeadingExpr(
+                        SelfTypeExpr {
+                            expr: 1,
+                        },
+                    ),
                     eol_colon: Ok(
                         EolToken::Colon(
                             EolColonToken {
@@ -6030,7 +6038,13 @@ Ok(
                                             path: TraitForTypeImplBlockPath {
                                                 module_path: `mnist_classifier::connected_component`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ty_sketch: Path(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 81,
+                                                        },
+                                                    ),
+                                                ),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -6150,7 +6164,13 @@ Ok(
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `mnist_classifier::connected_component`,
                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 81,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                     ident: `visualize`,
@@ -6166,7 +6186,13 @@ Ok(
                                         impl_block: TraitForTypeImplBlockPath {
                                             module_path: `mnist_classifier::connected_component`,
                                             trai_path: TraitPath(`core::visual::Visualize`),
-                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                            ty_sketch: Path(
+                                                TypePath(
+                                                    Id {
+                                                        value: 81,
+                                                    },
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                         ident: `visualize`,
@@ -6182,7 +6208,13 @@ Ok(
                                             impl_block: TraitForTypeImplBlockPath {
                                                 module_path: `mnist_classifier::connected_component`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                ty_sketch: Path(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 81,
+                                                        },
+                                                    ),
+                                                ),
                                                 disambiguator: 0,
                                             },
                                             ident: `visualize`,
@@ -6259,7 +6291,13 @@ Ok(
                                                                 path: TraitForTypeImplBlockPath {
                                                                     module_path: `mnist_classifier::connected_component`,
                                                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    ty_sketch: Path(
+                                                                        TypePath(
+                                                                            Id {
+                                                                                value: 81,
+                                                                            },
+                                                                        ),
+                                                                    ),
                                                                     disambiguator: 0,
                                                                 },
                                                             },
@@ -6376,7 +6414,13 @@ Ok(
                                                             impl_block: TraitForTypeImplBlockPath {
                                                                 module_path: `mnist_classifier::connected_component`,
                                                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                                                ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                ty_sketch: Path(
+                                                                    TypePath(
+                                                                        Id {
+                                                                            value: 81,
+                                                                        },
+                                                                    ),
+                                                                ),
                                                                 disambiguator: 0,
                                                             },
                                                             ident: `visualize`,
@@ -6479,7 +6523,13 @@ Ok(
                                                                         path: TraitForTypeImplBlockPath {
                                                                             module_path: `mnist_classifier::connected_component`,
                                                                             trai_path: TraitPath(`core::visual::Visualize`),
-                                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                            ty_sketch: Path(
+                                                                                TypePath(
+                                                                                    Id {
+                                                                                        value: 81,
+                                                                                    },
+                                                                                ),
+                                                                            ),
                                                                             disambiguator: 0,
                                                                         },
                                                                     },
@@ -6596,7 +6646,13 @@ Ok(
                                                                     impl_block: TraitForTypeImplBlockPath {
                                                                         module_path: `mnist_classifier::connected_component`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
-                                                                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                        ty_sketch: Path(
+                                                                            TypePath(
+                                                                                Id {
+                                                                                    value: 81,
+                                                                                },
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                     ident: `visualize`,
@@ -6689,7 +6745,13 @@ Ok(
                                                         impl_block: TraitForTypeImplBlockPath {
                                                             module_path: `mnist_classifier::connected_component`,
                                                             trai_path: TraitPath(`core::visual::Visualize`),
-                                                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                            ty_sketch: Path(
+                                                                TypePath(
+                                                                    Id {
+                                                                        value: 81,
+                                                                    },
+                                                                ),
+                                                            ),
                                                             disambiguator: 0,
                                                         },
                                                         ident: `visualize`,
@@ -6840,7 +6902,7 @@ Ok(
                     implicit_parameter_decl_list: Ok(
                         None,
                     ),
-                    ty_expr: TypeExpr {
+                    self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
                     eol_colon: Ok(

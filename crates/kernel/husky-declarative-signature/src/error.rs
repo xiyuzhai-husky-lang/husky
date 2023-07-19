@@ -22,6 +22,8 @@ pub enum DeclarativeSignatureError {
     NodeDeclError,
     #[error("todo")]
     ExprError,
+    #[error("todo")]
+    SelfTypeNotInferred,
 }
 
 impl From<DeclError> for DeclarativeSignatureError {

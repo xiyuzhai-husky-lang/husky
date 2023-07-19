@@ -358,7 +358,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 17,
+                        value: 19,
                     },
                 ),
             ),
@@ -371,7 +371,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i8`),
-                        ty: DeclarativeTerm(`core::num::i8`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -384,7 +394,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::i8`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -516,7 +532,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 18,
+                        value: 20,
                     },
                 ),
             ),
@@ -529,7 +545,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i32`),
-                        ty: DeclarativeTerm(`core::num::i16`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -542,7 +568,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::i16`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -674,7 +706,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 19,
+                        value: 21,
                     },
                 ),
             ),
@@ -687,7 +719,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i32`),
-                        ty: DeclarativeTerm(`core::num::i32`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -700,7 +742,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::i32`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -832,7 +880,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 20,
+                        value: 22,
                     },
                 ),
             ),
@@ -845,7 +893,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i64`),
-                        ty: DeclarativeTerm(`core::num::i64`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -858,7 +916,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::i64`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -990,7 +1054,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 21,
+                        value: 23,
                     },
                 ),
             ),
@@ -1003,7 +1067,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::i128`),
-                        ty: DeclarativeTerm(`core::num::i128`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 18,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -1016,7 +1090,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::i128`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -1148,7 +1228,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 22,
+                        value: 24,
                     },
                 ),
             ),
@@ -1161,7 +1241,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::isize`),
-                        ty: DeclarativeTerm(`core::num::isize`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -1174,7 +1264,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::isize`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -1306,7 +1402,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 23,
+                        value: 25,
                     },
                 ),
             ),
@@ -1319,7 +1415,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u8`),
-                        ty: DeclarativeTerm(`core::num::u8`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 20,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -1332,7 +1438,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::u8`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -1464,7 +1576,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 24,
+                        value: 26,
                     },
                 ),
             ),
@@ -1477,7 +1589,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u16`),
-                        ty: DeclarativeTerm(`core::num::u16`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 21,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -1490,7 +1612,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::u16`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 21,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -1622,7 +1750,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 25,
+                        value: 27,
                     },
                 ),
             ),
@@ -1635,7 +1763,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u32`),
-                        ty: DeclarativeTerm(`core::num::u32`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -1648,7 +1786,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::u32`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -1780,7 +1924,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 26,
+                        value: 28,
                     },
                 ),
             ),
@@ -1793,7 +1937,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u64`),
-                        ty: DeclarativeTerm(`core::num::u64`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 23,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -1806,7 +1960,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::u64`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -1938,7 +2098,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 27,
+                        value: 29,
                     },
                 ),
             ),
@@ -1951,7 +2111,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::u128`),
-                        ty: DeclarativeTerm(`core::num::u128`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 24,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -1964,7 +2134,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::u128`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -2096,7 +2272,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 28,
+                        value: 30,
                     },
                 ),
             ),
@@ -2109,7 +2285,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::usize`),
-                        ty: DeclarativeTerm(`core::num::usize`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -2122,7 +2308,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::usize`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 25,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -2305,7 +2497,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 29,
+                        value: 31,
                     },
                 ),
             ),
@@ -2318,7 +2510,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::f32`),
-                        ty: DeclarativeTerm(`core::num::f32`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -2331,7 +2533,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::f32`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 26,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,
@@ -2463,7 +2671,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 30,
+                        value: 32,
                     },
                 ),
             ),
@@ -2476,7 +2684,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::ops::Add core::num::f64`),
-                        ty: DeclarativeTerm(`core::num::f64`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 27,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -2489,7 +2707,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
-                        ty_path: TypePath(`core::num::f64`, `Extern`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `add`,

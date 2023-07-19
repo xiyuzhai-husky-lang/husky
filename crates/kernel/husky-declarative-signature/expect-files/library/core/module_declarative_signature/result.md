@@ -25,7 +25,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                         traits: [],
@@ -44,7 +44,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 31,
+                        value: 33,
                     },
                 ),
             ),
@@ -68,16 +68,7 @@
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
-                                            value: 4,
-                                        },
-                                    ),
-                                    traits: [],
-                                },
-                                DeclarativeGenericParameter {
-                                    annotated_variance: None,
-                                    symbol: DeclarativeTermSymbol(
-                                        Id {
-                                            value: 25,
+                                            value: 5,
                                         },
                                     ),
                                     traits: [],
@@ -91,10 +82,27 @@
                                     ),
                                     traits: [],
                                 },
+                                DeclarativeGenericParameter {
+                                    annotated_variance: None,
+                                    symbol: DeclarativeTermSymbol(
+                                        Id {
+                                            value: 27,
+                                        },
+                                    ),
+                                    traits: [],
+                                },
                             ],
                         },
                         trai: DeclarativeTerm(`core::ops::Unveil core::result::Result t s`),
-                        ty: DeclarativeTerm(`core::result::Result t s`),
+                        self_ty: Path(
+                            ExplicitApplication(
+                                DeclarativeTermExplicitApplication(
+                                    Id {
+                                        value: 38,
+                                    },
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -107,7 +115,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::result`,
                         trai_path: TraitPath(`core::ops::Unveil`),
-                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `Continue`,
@@ -137,7 +151,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `core::result`,
                         trai_path: TraitPath(`core::ops::Unveil`),
-                        ty_path: TypePath(`core::result::Result`, `Enum`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 31,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `branch`,
@@ -158,7 +178,7 @@
                                 ty: ExplicitApplication(
                                     DeclarativeTermExplicitApplication(
                                         Id {
-                                            value: 40,
+                                            value: 38,
                                         },
                                     ),
                                 ),
@@ -171,7 +191,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 42,
+                                                        value: 40,
                                                     },
                                                 ),
                                             ),
