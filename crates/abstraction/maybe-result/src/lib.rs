@@ -15,6 +15,15 @@ pub enum MaybeResult<T, E> {
     Nothing,
 }
 
+impl<T, E> From<Result<T, E>> for MaybeResult<T, E> {
+    fn from(result: Result<T, E>) -> Self {
+        match result {
+            Ok(t) => JustOk(t),
+            Err(e) => JustErr(e),
+        }
+    }
+}
+
 type MaybeResultResidual<E> = MaybeResult<Infallible, E>;
 
 impl<T, E> std::ops::Try for MaybeResult<T, E> {

@@ -1,6 +1,7 @@
 use super::*;
 use husky_print_utils::p;
 use husky_token::*;
+use maybe_result::*;
 use original_error::*;
 use parsec::*;
 use thiserror::Error;
@@ -62,6 +63,7 @@ pub enum DerivedMajorPathExprError {
 }
 
 pub type ModuleItemPathExprResult<T> = Result<T, MajorPathExprError>;
+pub type ModuleItemPathExprMaybeResult<T> = MaybeResult<T, MajorPathExprError>;
 
 pub(crate) struct ModuleItemPathExprParser<'a, 'b> {
     db: &'b dyn EntityTreeDb,
@@ -69,6 +71,12 @@ pub(crate) struct ModuleItemPathExprParser<'a, 'b> {
     token_stream: TokenStream<'a>,
     major_path_expr_arena: &'b mut MajorPathExprArena,
     entity_tree_symbol_context: EntityTreeSymbolContext<'a, 'b>,
+}
+
+impl<'a, 'b> HasTokenDb for ModuleItemPathExprParser<'a, 'b> {
+    fn token_db(&self) -> &dyn TokenDb {
+        self.db
+    }
 }
 
 impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
@@ -90,7 +98,25 @@ impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
 }
 
 impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
+    // todo: rollback
     pub(crate) fn parse_major_path_expr(
+        &mut self,
+    ) -> ModuleItemPathExprMaybeResult<(ModuleItemPathExprIdx, ModuleItemPath)> {
+        let name_token: PathNameToken = self.try_parse_option()??;
+        let path = match name_token {
+            PathNameToken::Ident(ident_token) => self
+                .entity_tree_symbol_context
+                .resolve_root_ident(ident_token)?
+                .path(self.db)
+                .major()?,
+            PathNameToken::CrateRoot(_) => self.crate_root_path.into(),
+            PathNameToken::SelfMod(_) => todo!(),
+            PathNameToken::Super(_) => todo!(),
+        };
+        self.parse_major_path_expr_aux(path, name_token).into()
+    }
+
+    pub(crate) fn parse_major_path_expr_expected(
         &mut self,
     ) -> ModuleItemPathExprResult<(ModuleItemPathExprIdx, ModuleItemPath)> {
         let name_token: PathNameToken =

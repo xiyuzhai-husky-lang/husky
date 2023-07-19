@@ -15,7 +15,7 @@ pub enum PathNameToken {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct CrateToken {
-    pub(super) token_idx: TokenIdx,
+    pub(in crate::helpers) token_idx: TokenIdx,
 }
 
 impl CrateToken {

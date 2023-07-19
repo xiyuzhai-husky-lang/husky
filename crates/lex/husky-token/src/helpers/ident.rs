@@ -3,8 +3,8 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = TokenDb)]
 pub struct IdentToken {
-    pub(super) ident: Ident,
-    pub(super) token_idx: TokenIdx,
+    pub(in crate::helpers) ident: Ident,
+    pub(in crate::helpers) token_idx: TokenIdx,
 }
 
 impl IdentToken {
@@ -56,17 +56,6 @@ fn ident_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
-pub enum DecrIdentToken {
-    Derive(DeriveToken),
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct DeriveToken {
-    token_idx: TokenIdx,
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct UnderscoreToken {
     token_idx: TokenIdx,
 }
@@ -101,5 +90,49 @@ where
 
 #[test]
 fn underscore_token_works() {
+    // todo
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = TokenDb)]
+pub enum DecrIdentToken {
+    Derive(DeriveToken),
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct DeriveToken {
+    token_idx: TokenIdx,
+}
+
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for DeriveToken
+where
+    Context: TokenStreamParser<'a> + HasTokenDb,
+{
+    type Error = TokenError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        ctx: &mut Context,
+    ) -> TokenResult<Option<Self>> {
+        if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
+            match token {
+                Token::Ident(ident) => match ident.data(ctx.token_db()) {
+                    "derive" => Ok(Some(Self { token_idx })),
+                    _ => Ok(None),
+                },
+                Token::Error(error) => Err(error),
+                Token::Label(_)
+                | Token::Punctuation(_)
+                | Token::WordOpr(_)
+                | Token::Literal(_)
+                | Token::Keyword(_) => Ok(None),
+            }
+        } else {
+            Ok(None)
+        }
+    }
+}
+
+#[test]
+fn derive_token_works() {
     // todo
 }

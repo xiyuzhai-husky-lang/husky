@@ -15,7 +15,7 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
         decl.path(db)
             .impl_block(db)
             .declarative_signature_template(db)?
-            .ty(db),
+            .self_ty(db),
     );
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);

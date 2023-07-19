@@ -19,6 +19,7 @@ idx-arena = { path = "../../abstraction/idx-arena" }
 vec-like = { path = "../../abstraction/vec-like" }
 original-error = { path = "../../abstraction/original-error" }
 parsec = { path = "../../abstraction/parsec" }
+maybe-result = { path = "../../abstraction/maybe-result" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # lex

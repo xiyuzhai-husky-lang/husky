@@ -88,8 +88,18 @@ pub struct TraitForTypeImplBlockNode {
     pub impl_token: ImplToken,
     pub trai_expr: ModuleItemPathExprIdx,
     pub for_token: TokenIdx,
-    pub ty_expr: ModuleItemPathExprIdx,
+    pub ty_sketch_expr: SelfTypeSketchExpr,
     pub items: Option<ImplBlockItems>,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum SelfTypeSketchExpr {
+    Path(ModuleItemPathExprIdx),
+    DeriveAny {
+        at_token: AtToken,
+        derive_token: DeriveToken,
+        underscore_token: UnderscoreToken,
+    },
 }
 
 impl TraitForTypeImplBlockNode {
@@ -102,7 +112,7 @@ impl TraitForTypeImplBlockNode {
         trai_expr: ModuleItemPathExprIdx,
         trai_path: TraitPath,
         for_token: TokenIdx,
-        ty_expr: ModuleItemPathExprIdx,
+        ty_sketch_expr: SelfTypeSketchExpr,
         ty_sketch: TypeSketch,
         items: Option<ImplBlockItems>,
     ) -> Result<Self, ImplBlockIllForm> {
@@ -123,7 +133,7 @@ impl TraitForTypeImplBlockNode {
             impl_token,
             trai_expr,
             for_token,
-            ty_expr,
+            ty_sketch_expr,
             items,
         ))
     }

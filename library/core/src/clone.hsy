@@ -24,12 +24,12 @@ pub trait Clone:
 // ```
 // or
 // ```husky
-// impl Clone for derive Clone or Copy when
+// impl Clone for @derive _ when
 //     <condition>
 //     <condition>
 //     ...
 // where
 //    fn clone() -> T;
 // ```
-impl<T> Clone for T:
-    fn clone() -> T;
+impl Clone for @derive _:
+    fn clone() -> Self;

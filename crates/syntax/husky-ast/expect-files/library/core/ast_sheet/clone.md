@@ -60,13 +60,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `clone`,
                         token_idx: TokenIdx(
-                            20,
+                            19,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            21,
+                            20,
                         ),
                         drained: false,
                     },

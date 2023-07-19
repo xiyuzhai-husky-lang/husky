@@ -93,6 +93,7 @@ impl Diagnose for IllFormedImplBlockNode {
             ImplBlockIllForm::ExpectTypePathAfterForKeyword => {
                 format!("expect type path after `for` keyword")
             }
+            ImplBlockIllForm::ExpectedDeriveIdent(_) => todo!(),
         }
     }
 
@@ -121,6 +122,7 @@ impl Diagnose for IllFormedImplBlockNode {
             },
             ImplBlockIllForm::MissingForKeyword => todo!(),
             ImplBlockIllForm::ExpectTypePathAfterForKeyword => todo!(),
+            ImplBlockIllForm::ExpectedDeriveIdent(_) => todo!(),
         }
     }
 }

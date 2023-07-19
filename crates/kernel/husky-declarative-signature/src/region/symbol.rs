@@ -134,7 +134,7 @@ impl SymbolDeclarativeTermRegion {
                     }
                     ImplBlockNodePath::TraitForTypeImplBlock(impl_block_path) => {
                         match impl_block_path.ty_sketch(db) {
-                            TypeSketch::Derive { ty_kind } => todo!(),
+                            TypeSketch::DeriveAny => todo!(),
                             TypeSketch::Path(ty_path) => None, // reserved for later stage
                         }
                     }
@@ -188,6 +188,11 @@ impl SymbolDeclarativeTermRegion {
 
     pub fn self_ty_term(&self) -> Option<DeclarativeTerm> {
         self.self_ty_term
+    }
+
+    pub(crate) fn set_self_ty_term(&mut self, self_ty_term: Option<DeclarativeTerm>) {
+        debug_assert!(self.self_ty_term.is_none());
+        self.self_ty_term = self_ty_term
     }
 
     pub fn self_value_term(&self) -> Option<DeclarativeTermSymbol> {
