@@ -8,11 +8,10 @@ mod context;
 mod conversion;
 mod db;
 mod error;
+mod generic_parameter;
 pub mod instantiation;
 mod menu;
 mod rewrite;
-// mod template;
-mod generic_parameter;
 mod term;
 #[cfg(test)]
 mod tests;

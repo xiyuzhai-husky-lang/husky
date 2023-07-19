@@ -21,19 +21,29 @@ pub fn trai_for_ty_impl_block_ethereal_signature_templates<'a>(
     db: &'a dyn EtherealSignatureDb,
     trai_path: TraitPath,
     ty_path: TypePath,
-) -> TraitForTypeImplBlockEtherealSignatureTemplates<'a> {
-    let derive_decrs = ty_path.derive_decr_ethereal_signature_templates(db);
-    TraitForTypeImplBlockEtherealSignatureTemplates {
-        trai_side_derive_any: trai_side_derive_any_ethereal_signature_templates(db),
+) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplates<'a>> {
+    let ty_path_derives_trai_path = ty_path
+        .derive_decr_ethereal_signature_templates(db, trai_path)?
+        .is_some();
+    Ok(TraitForTypeImplBlockEtherealSignatureTemplates {
+        trai_side_derive_any: if ty_path_derives_trai_path {
+            trai_side_derive_any_ethereal_signature_templates(db, trai_path)
+        } else {
+            &[]
+        },
         // todo: ty_kind
         trai_side_path_leading: todo!(),
-        ty_side: todo!(),
-    }
+        ty_side: ty_path
+            .ty_side_trai_for_ty_impl_block_signature_templates(db, trai_path)
+            .into_result_option()?
+            .unwrap_or(&[]),
+    })
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
 fn trai_side_derive_any_ethereal_signature_templates(
     db: &dyn EtherealSignatureDb,
+    trai_path: TraitPath,
 ) -> SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplate; 2]> {
     todo!()
 }
