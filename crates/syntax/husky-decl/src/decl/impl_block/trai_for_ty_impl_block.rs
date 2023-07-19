@@ -12,7 +12,7 @@ pub struct TraitForTypeImplBlockNodeDecl {
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     pub trai_expr: TraitExpr,
     pub for_token: ConnectionForToken,
-    pub ty_expr: TypeExpr,
+    pub self_ty_expr: SelfTypeExpr,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
     pub expr_region: ExprRegion,
@@ -118,7 +118,7 @@ pub struct TraitForTypeImplBlockDecl {
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub trai_expr: TraitExpr,
-    pub ty_expr: TypeExpr,
+    pub ty_expr: SelfTypeExpr,
     pub expr_region: ExprRegion,
 }
 
@@ -152,7 +152,7 @@ impl TraitForTypeImplBlockDecl {
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let trai_expr = node_decl.trai_expr(db);
-        let ty_expr = node_decl.ty_expr(db);
+        let self_ty_expr = node_decl.self_ty_expr(db);
         let expr_region = node_decl.expr_region(db);
         node_decl.eol_colon(db).as_ref()?;
         Ok(Self::new(
@@ -160,7 +160,7 @@ impl TraitForTypeImplBlockDecl {
             path,
             generic_parameters,
             trai_expr,
-            ty_expr,
+            self_ty_expr,
             expr_region,
         ))
     }

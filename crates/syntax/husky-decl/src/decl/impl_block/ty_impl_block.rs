@@ -10,7 +10,7 @@ pub struct TypeImplBlockNodeDecl {
     pub impl_token: ImplToken,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    pub ty_expr: TypeExpr,
+    pub self_ty_expr: SelfTypeExpr,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
     pub expr_region: ExprRegion,
@@ -105,7 +105,7 @@ pub struct TypeImplBlockDecl {
     pub path: TypeImplBlockPath,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub ty_expr: TypeExpr,
+    pub self_ty_expr: SelfTypeExpr,
     pub expr_region: ExprRegion,
 }
 
@@ -127,14 +127,14 @@ impl TypeImplBlockDecl {
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let ty_expr = node_decl.ty_expr(db);
+        let self_ty_expr = node_decl.self_ty_expr(db);
         let expr_region = node_decl.expr_region(db);
         node_decl.eol_colon(db).as_ref()?;
         Ok(Self::new(
             db,
             path,
             generic_parameters,
-            ty_expr,
+            self_ty_expr,
             expr_region,
         ))
     }

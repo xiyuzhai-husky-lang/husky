@@ -64,11 +64,12 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn infer_all(mut self) -> DeclarativeTermRegion {
         self.init_current_symbol_terms();
-        self.symbol_declarative_term_region.init_self_ty_and_value(
-            self.db,
-            self.expr_region_data.path(),
-            self.expr_region_data.symbol_region(),
-        );
+        self.symbol_declarative_term_region
+            .init_self_ty_parameter_and_self_value_parameter(
+                self.db,
+                self.expr_region_data.path(),
+                self.expr_region_data.symbol_region(),
+            );
         self.init_expr_roots();
         self.finish()
     }

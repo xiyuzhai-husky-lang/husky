@@ -107,7 +107,7 @@ impl SymbolDeclarativeTermRegion {
         }
     }
 
-    pub(crate) fn init_self_ty_and_value(
+    pub(crate) fn init_self_ty_parameter_and_self_value_parameter(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
         region_path: RegionPath,
@@ -121,7 +121,7 @@ impl SymbolDeclarativeTermRegion {
                 RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Type(
                     ty_node_path,
                 ))) => Some(
-                    self.ty_self_ty_term(
+                    self.ty_defn_self_ty_term(
                         db,
                         ty_node_path
                             .path(db)
@@ -130,12 +130,12 @@ impl SymbolDeclarativeTermRegion {
                 ),
                 RegionPath::Decl(EntityNodePath::ImplBlock(node_path)) => match node_path {
                     ImplBlockNodePath::TypeImplBlock(node_path) => {
-                        Some(self.ty_self_ty_term(db, node_path.ty_path(db)))
+                        None // reserved for later stage
                     }
                     ImplBlockNodePath::TraitForTypeImplBlock(impl_block_path) => {
                         match impl_block_path.ty_sketch(db) {
                             TypeSketch::Derive { ty_kind } => todo!(),
-                            TypeSketch::Path(ty_path) => Some(self.ty_self_ty_term(db, ty_path)),
+                            TypeSketch::Path(ty_path) => None, // reserved for later stage
                         }
                     }
                     ImplBlockNodePath::IllFormedImplBlock(_) => None,
@@ -158,23 +158,32 @@ impl SymbolDeclarativeTermRegion {
             .into()
     }
 
-    fn ty_self_ty_term(
+    /// this only works on type definitions
+    ///
+    /// example:
+    /// ```husky
+    /// enum Animal<T> where
+    /// | Dog
+    /// | Cat
+    /// ```
+    ///
+    /// then self type term is `Animal T`
+    fn ty_defn_self_ty_term(
         &self,
         db: &dyn DeclarativeSignatureDb,
         ty_path: TypePath,
     ) -> DeclarativeTerm {
-        todo!()
-        // let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
-        // for current_symbol_signature in self.symbol_signatures.current_symbol_map().iter().copied()
-        // {
-        //     self_ty = self_ty.apply(
-        //         db,
-        //         current_symbol_signature
-        //             .term_symbol()
-        //             .expect("should have term"),
-        //     )
-        // }
-        // self_ty
+        let mut self_ty: DeclarativeTerm = DeclarativeTermEntityPath::Type(ty_path.into()).into();
+        for current_symbol_signature in self.symbol_signatures.current_symbol_map().iter().copied()
+        {
+            self_ty = self_ty.apply(
+                db,
+                current_symbol_signature
+                    .term_symbol()
+                    .expect("should have term"),
+            )
+        }
+        self_ty
     }
 
     pub fn self_ty_term(&self) -> Option<DeclarativeTerm> {
