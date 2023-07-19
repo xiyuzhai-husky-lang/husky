@@ -34,8 +34,8 @@ pub(crate) fn ty_impl_block_declarative_signature_template(
         &declarative_term_region,
         declarative_term_menu,
     );
-    let ty_expr = decl.ty_expr(db);
-    let ty = match declarative_term_region.expr_term(ty_expr.expr()) {
+    let self_ty_expr = decl.self_ty_expr(db);
+    let ty = match declarative_term_region.expr_term(self_ty_expr.expr()) {
         Ok(ty) => ty,
         Err(_) => todo!(),
     };
