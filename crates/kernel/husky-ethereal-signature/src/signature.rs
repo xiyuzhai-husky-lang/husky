@@ -1,11 +1,11 @@
 mod associated_item;
-mod derive_decr;
+mod decr;
 mod impl_block;
 mod module_item;
 mod ty_variant;
 
 pub use self::associated_item::*;
-pub use self::derive_decr::*;
+pub use self::decr::*;
 pub use self::impl_block::*;
 pub use self::module_item::*;
 pub use self::ty_variant::*;

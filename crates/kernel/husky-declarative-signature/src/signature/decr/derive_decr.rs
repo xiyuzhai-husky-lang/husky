@@ -33,3 +33,27 @@ pub fn derive_decr_declarative_signature_template(
         .collect::<DeclarativeTermResultBorrowed2<Vec<_>>>()?;
     Ok(DeriveDecrDeclarativeSignatureTemplate::new(db, traits))
 }
+
+pub trait HasDeriveDecrDeclarativeSignatureTemplates: Copy {
+    fn derive_decr_declarative_signature_templates(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<&[DeriveDecrDeclarativeSignatureTemplate]>;
+}
+
+impl HasDeriveDecrDeclarativeSignatureTemplates for TypePath {
+    fn derive_decr_declarative_signature_templates(
+        self,
+        db: &dyn DeclarativeSignatureDb,
+    ) -> DeclarativeSignatureResult<&[DeriveDecrDeclarativeSignatureTemplate]> {
+        Ok(ty_path_derive_decr_declarative_signature_templates(db, self).as_ref()?)
+    }
+}
+
+#[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
+fn ty_path_derive_decr_declarative_signature_templates(
+    db: &dyn DeclarativeSignatureDb,
+    ty_path: TypePath,
+) -> DeclarativeSignatureResult<SmallVec<[DeriveDecrDeclarativeSignatureTemplate; 8]>> {
+    todo!()
+}

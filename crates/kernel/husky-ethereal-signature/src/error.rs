@@ -13,6 +13,12 @@ pub enum EtherealSignatureError {
     NoSuchItem,
 }
 
+impl From<&EtherealSignatureError> for EtherealSignatureError {
+    fn from(e: &EtherealSignatureError) -> Self {
+        *e
+    }
+}
+
 impl From<DeclarativeSignatureError> for EtherealSignatureError {
     fn from(e: DeclarativeSignatureError) -> Self {
         EtherealSignatureError::DerivedFromDeclarative
