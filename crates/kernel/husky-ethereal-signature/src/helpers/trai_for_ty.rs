@@ -22,6 +22,7 @@ pub fn trai_for_ty_impl_block_ethereal_signature_templates<'a>(
     trai_path: TraitPath,
     ty_path: TypePath,
 ) -> TraitForTypeImplBlockEtherealSignatureTemplates<'a> {
+    let derive_decrs = ty_path.derive_decr_ethereal_signature_templates(db);
     TraitForTypeImplBlockEtherealSignatureTemplates {
         trai_side_derive_any: trai_side_derive_any_ethereal_signature_templates(db),
         // todo: ty_kind

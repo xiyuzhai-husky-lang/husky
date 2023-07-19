@@ -104,4 +104,5 @@ pub struct DeclarativeSignatureJar(
     // decr
     DeriveDecrDeclarativeSignatureTemplate,
     derive_decr_declarative_signature_template,
+    ty_path_derive_decr_declarative_signature_templates,
 );

@@ -26,6 +26,12 @@ pub enum DeclarativeSignatureError {
     SelfTypeNotInferred,
 }
 
+impl From<&DeclarativeSignatureError> for DeclarativeSignatureError {
+    fn from(e: &DeclarativeSignatureError) -> Self {
+        *e
+    }
+}
+
 impl From<DeclError> for DeclarativeSignatureError {
     fn from(_: DeclError) -> Self {
         DeclarativeSignatureError::DeclError
