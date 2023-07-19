@@ -12,10 +12,16 @@ pub struct TraitForTypeImplBlockNodeDecl {
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     pub trai_expr: TraitExpr,
     pub for_token: ConnectionForToken,
-    pub self_ty_expr: SelfTypeExpr,
+    pub self_ty_decl: SelfTypeDecl,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
     pub expr_region: ExprRegion,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum SelfTypeDecl {
+    Expr(SelfTypeExpr),
+    DeriveAny {},
 }
 
 impl TraitForTypeImplBlockNodeDecl {
@@ -94,7 +100,18 @@ impl<'a> DeclParser<'a> {
             .try_parse_option()
             .expect("guaranteed by parsing")
             .expect("guaranteed by parsing");
-        let ty = ctx.try_parse_option().unwrap().unwrap();
+        let ty = match node.ty_sketch_expr(db) {
+            SelfTypeSketchExpr::Path(_) => SelfTypeDecl::Expr(
+                ctx.try_parse_option()
+                    .expect("guaranteed")
+                    .expect("guaranteed"),
+            ),
+            SelfTypeSketchExpr::DeriveAny {
+                at_token,
+                derive_token,
+                underscore_token,
+            } => todo!(),
+        };
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TraitForTypeImplBlockNodeDecl::new(
             db,
@@ -118,7 +135,7 @@ pub struct TraitForTypeImplBlockDecl {
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub trai_expr: TraitExpr,
-    pub ty_expr: SelfTypeExpr,
+    pub self_ty_decl: SelfTypeDecl,
     pub expr_region: ExprRegion,
 }
 
@@ -152,7 +169,7 @@ impl TraitForTypeImplBlockDecl {
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let trai_expr = node_decl.trai_expr(db);
-        let self_ty_expr = node_decl.self_ty_expr(db);
+        let self_ty_decl = node_decl.self_ty_decl(db);
         let expr_region = node_decl.expr_region(db);
         node_decl.eol_colon(db).as_ref()?;
         Ok(Self::new(
@@ -160,7 +177,7 @@ impl TraitForTypeImplBlockDecl {
             path,
             generic_parameters,
             trai_expr,
-            self_ty_expr,
+            self_ty_decl,
             expr_region,
         ))
     }

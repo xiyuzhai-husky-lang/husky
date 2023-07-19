@@ -1,3 +1,5 @@
+use original_error::IntoError;
+
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -101,6 +103,12 @@ pub enum ImplBlockIllForm {
     MissingForKeyword,
     #[error("ExpectTypePathAfterFor")]
     ExpectTypePathAfterForKeyword,
+    #[error("expected `derive` identifier")]
+    ExpectedDeriveIdent(TokenStreamState),
+}
+
+impl IntoError for ImplBlockIllForm {
+    type Error = Self;
 }
 
 #[salsa::tracked(jar = EntityTreeJar)]

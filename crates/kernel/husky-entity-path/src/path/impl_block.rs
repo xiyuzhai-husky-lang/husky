@@ -54,7 +54,8 @@ pub struct TraitForTypeImplBlockPath {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeSketch {
-    Derive { ty_kind: Option<TypeKind> },
+    DeriveAny,
+    // { ty_kind: Option<TypeKind> }
     Path(TypePath),
 }
 

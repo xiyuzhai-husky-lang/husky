@@ -186,13 +186,18 @@ impl<'a> DeclarativeTermEngine<'a> {
         for expr_root in self.expr_region_data.roots() {
             match expr_root.kind() {
                 ExprRootKind::PropsStructFieldType { .. }
-                | ExprRootKind::SelfType
                 | ExprRootKind::Trait
                 | ExprRootKind::ReturnType
                 | ExprRootKind::TupleStructFieldType
                 | ExprRootKind::ReturnType
                 | ExprRootKind::ExplicitParameterDefaultValue { .. }
                 | ExprRootKind::AssociatedTypeTerm => (),
+                ExprRootKind::SelfType => {
+                    let self_ty_term = self.infer_new_expr_term(expr_root.expr_idx()).ok();
+                    self.symbol_declarative_term_region
+                        .set_self_ty_term(self_ty_term);
+                    continue;
+                }
                 ExprRootKind::BlockExpr
                 | ExprRootKind::LetStmtType
                 | ExprRootKind::LetStmtInitialValue

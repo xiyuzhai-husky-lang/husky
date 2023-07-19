@@ -11,6 +11,7 @@ use husky_coword::IdentPairMap;
 use husky_entity_taxonomy::TypeItemKind;
 use husky_print_utils::p;
 use husky_token::*;
+use maybe_result::*;
 use parsec::{HasStreamState, StreamParser};
 use smallvec::SmallVec;
 use thiserror::Error;
@@ -99,32 +100,52 @@ impl ImplBlockNode {
             princiapl_entity_path_expr_arena,
             entity_tree_context,
         );
-        let impl_token = parser.try_parse_option::<ImplToken>().unwrap().unwrap();
+        let impl_token = parser
+            .try_parse_option::<ImplToken>()
+            .expect("okay guaranteed by `husky-ast`")
+            .expect("some guaranteed by `husky-ast`");
+        match Self::parse_from_token_group_aux(
+            db,
+            crate_root_path,
+            registry,
+            module_path,
+            ast_idx,
+            items,
+            parser,
+            impl_token,
+        ) {
+            Ok(node) => node,
+            Err(ill_form) => IllFormedImplBlockNode::new(
+                db,
+                registry,
+                impl_token,
+                module_path,
+                ast_idx,
+                items,
+                ill_form,
+            )
+            .into(),
+        }
+    }
+
+    pub(crate) fn parse_from_token_group_aux<'a, 'b>(
+        db: &dyn EntityTreeDb,
+        crate_root_path: ModulePath,
+        registry: &mut ImplBlockRegistry,
+        module_path: ModulePath,
+        ast_idx: AstIdx,
+        items: Option<ImplBlockItems>, // there could be no items for trait impl block
+        mut parser: ModuleItemPathExprParser,
+        impl_token: ImplToken,
+    ) -> Result<Self, ImplBlockIllForm> {
         if let Some(_) = parser.try_parse_err_as_none::<LeftAngleBracketOrLessThanToken>() {
             match ignore_generic_parameters(&mut parser) {
                 Ok(_) => (),
                 Err(_e) => todo!(),
             }
         }
-        let (expr, path) = match parser.parse_major_path_expr() {
-            Ok((expr, path)) => (expr, path),
-            Err(e) => {
-                if module_path.ident(db).data(db) == "list" {
-                    todo!()
-                }
-                return IllFormedImplBlockNode::new(
-                    db,
-                    registry,
-                    impl_token,
-                    module_path,
-                    ast_idx,
-                    items,
-                    ImplBlockIllForm::MajorPath(e),
-                )
-                .into();
-            }
-        };
-        match path {
+        let (expr, path) = parser.parse_major_path_expr_expected()?;
+        Ok(match path {
             ModuleItemPath::Type(ty) => {
                 let Some(ImplBlockItems::Type(items)) = items else {
                     unreachable!("it should be guaranteed in `husky-ast` that items are not none")
@@ -147,34 +168,35 @@ impl ImplBlockNode {
                     Ok(for_token) => for_token,
                     Err(_) => todo!(),
                 };
-                let (ty_expr, ty_sketch) = match parser.parse_major_path_expr() {
-                    Ok((expr, ModuleItemPath::Type(path))) => (expr, TypeSketch::Path(path)),
-                    Ok((expr, path)) => {
-                        return IllFormedImplBlockNode::new(
-                            db,
-                            registry,
-                            impl_token,
-                            module_path,
-                            ast_idx,
-                            items,
-                            ImplBlockIllForm::ExpectTypePathAfterForKeyword,
-                        )
-                        .into();
-                    }
-                    Err(e) => {
-                        todo!()
-                        // return IllFormedImplBlockNode::new(
-                        //     db,
-                        //     registry,
-                        //     impl_token,
-                        //     module_path,
-                        //     ast_idx,
-                        //     items,
-                        //     ImplBlockIllForm::MajorPath(e),
-                        // )
-                        // .into();
-                    }
-                };
+                let (ty_path_expr, ty_sketch) =
+                    match parser.parse_major_path_expr().into_result_option()? {
+                        Some((expr, ModuleItemPath::Type(path))) => {
+                            (SelfTypeSketchExpr::Path(expr), TypeSketch::Path(path))
+                        }
+                        Some(_) => Err(ImplBlockIllForm::ExpectTypePathAfterForKeyword)?,
+                        None => {
+                            if let Some(at_token) = parser.try_parse_option::<AtToken>()? {
+                                let derive_token: DeriveToken = parser
+                                    .try_parse_expected(ImplBlockIllForm::ExpectedDeriveIdent)?;
+                                if let Some(underscore_token) =
+                                    parser.try_parse_option::<UnderscoreToken>()?
+                                {
+                                    (
+                                        SelfTypeSketchExpr::DeriveAny {
+                                            at_token,
+                                            derive_token,
+                                            underscore_token,
+                                        },
+                                        TypeSketch::DeriveAny,
+                                    )
+                                } else {
+                                    todo!()
+                                }
+                            } else {
+                                todo!()
+                            }
+                        }
+                    };
                 match TraitForTypeImplBlockNode::new(
                     db,
                     registry,
@@ -184,7 +206,7 @@ impl ImplBlockNode {
                     trai_expr,
                     trai_path,
                     for_token,
-                    ty_expr,
+                    ty_path_expr,
                     ty_sketch,
                     items,
                 ) {
@@ -193,7 +215,7 @@ impl ImplBlockNode {
                 }
             }
             ModuleItemPath::Fugitive(_) => todo!(),
-        }
+        })
     }
 
     pub fn module_path(&self, _db: &dyn EntityTreeDb) -> ModulePath {
