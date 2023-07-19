@@ -103,6 +103,6 @@ pub struct DeclarativeSignatureJar(
     trai_for_ty_associated_val_declarative_signature_template,
     // decr
     DeriveDecrDeclarativeSignatureTemplate,
-    derive_decr_declarative_signature_template,
-    ty_path_derive_decr_declarative_signature_templates,
+    // derive_decr_declarative_signature_template,
+    ty_path_derive_decr_declarative_signature_templates_map,
 );
