@@ -225,7 +225,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 48,
+                                                        value: 46,
                                                     },
                                                 ),
                                             ),
@@ -290,7 +290,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 48,
+                                                        value: 46,
                                                     },
                                                 ),
                                             ),
@@ -369,7 +369,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 48,
+                                                        value: 46,
                                                     },
                                                 ),
                                             ),
@@ -403,7 +403,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 35,
+                        value: 37,
                     },
                 ),
             ),
@@ -416,7 +416,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
-                        ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -429,7 +439,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 91,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `visualize`,
@@ -521,7 +537,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 48,
+                                                        value: 46,
                                                     },
                                                 ),
                                             ),
@@ -620,7 +636,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 36,
+                        value: 38,
                     },
                 ),
             ),
@@ -633,7 +649,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
-                        ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 92,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -646,7 +672,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 92,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `visualize`,
@@ -802,7 +834,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 48,
+                                                        value: 46,
                                                     },
                                                 ),
                                             ),

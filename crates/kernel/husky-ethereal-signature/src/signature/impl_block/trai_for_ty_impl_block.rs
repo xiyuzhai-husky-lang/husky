@@ -22,6 +22,23 @@ pub enum EtherealSelfType {
 }
 
 impl EtherealSelfType {
+    fn from_declarative(
+        db: &dyn EtherealSignatureDb,
+        declarative_self_ty: DeclarativeSelfType,
+    ) -> EtherealTermResult<Self> {
+        Ok(match declarative_self_ty {
+            DeclarativeSelfType::Path(declarative_term) => {
+                EtherealSelfType::Path(EtherealTerm::ty_from_declarative(db, declarative_term)?)
+            }
+            DeclarativeSelfType::DerivedAny(declarative_term_symbol) => {
+                EtherealSelfType::DeriveAny(EtherealTermSymbol::from_declarative(
+                    db,
+                    declarative_term_symbol,
+                )?)
+            }
+        })
+    }
+
     pub fn parameter_symbol(self) -> Option<EtherealTermSymbol> {
         match self {
             EtherealSelfType::Path(_) => None,
@@ -64,9 +81,9 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
             declarative_signature_template.generic_parameters(db),
         )?;
         let trai = EtherealTerm::ty_from_declarative(db, declarative_signature_template.trai(db))?;
-        todo!()
-        // let ty = EtherealTerm::ty_from_declarative(db, declarative_signature_template.self_ty(db))?;
-        // Ok(Self::new(db, path, generic_parameters, trai, ty))
+        let self_ty =
+            EtherealSelfType::from_declarative(db, declarative_signature_template.self_ty(db))?;
+        Ok(Self::new(db, path, generic_parameters, trai, self_ty))
     }
 }
 

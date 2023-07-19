@@ -25,7 +25,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 49,
+                                                value: 3,
                                             },
                                         ),
                                         traits: [],
@@ -65,7 +65,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 49,
+                                                value: 3,
                                             },
                                         ),
                                         traits: [],
@@ -105,7 +105,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 49,
+                                                value: 3,
                                             },
                                         ),
                                         traits: [],
@@ -172,7 +172,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 39,
+                        value: 41,
                     },
                 ),
             ),
@@ -196,7 +196,7 @@
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
-                                            value: 49,
+                                            value: 3,
                                         },
                                     ),
                                     traits: [],
@@ -204,7 +204,15 @@
                             ],
                         },
                         trai: DeclarativeTerm(`core::ops::Unveil malamute::OneVsAllResult t a`),
-                        ty: DeclarativeTerm(`malamute::OneVsAll t a`),
+                        self_ty: Path(
+                            ExplicitApplication(
+                                DeclarativeTermExplicitApplication(
+                                    Id {
+                                        value: 88,
+                                    },
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -217,7 +225,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `malamute`,
                         trai_path: TraitPath(`core::ops::Unveil`),
-                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 104,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `Output`,

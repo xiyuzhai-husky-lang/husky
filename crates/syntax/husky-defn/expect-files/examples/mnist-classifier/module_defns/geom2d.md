@@ -154,7 +154,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 259,
+                                                                value: 260,
                                                             },
                                                         ),
                                                     ),
@@ -171,7 +171,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 260,
+                                                                value: 261,
                                                             },
                                                         ),
                                                     ),
@@ -344,7 +344,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 259,
+                                                                value: 260,
                                                             },
                                                         ),
                                                     ),
@@ -361,7 +361,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 260,
+                                                                value: 261,
                                                             },
                                                         ),
                                                     ),
@@ -534,7 +534,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 259,
+                                                                value: 260,
                                                             },
                                                         ),
                                                     ),
@@ -551,7 +551,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 260,
+                                                                value: 261,
                                                             },
                                                         ),
                                                     ),
@@ -724,7 +724,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 283,
+                                                                value: 284,
                                                             },
                                                         ),
                                                     ),
@@ -741,7 +741,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 245,
+                                                                value: 246,
                                                             },
                                                         ),
                                                     ),
@@ -1153,7 +1153,7 @@ Ok(
                         disambiguator: 0,
                     },
                     generic_parameters: [],
-                    ty_expr: TypeExpr {
+                    self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
                     expr_region: ExprRegion {
@@ -4990,7 +4990,7 @@ Ok(
                         disambiguator: 0,
                     },
                     generic_parameters: [],
-                    ty_expr: TypeExpr {
+                    self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
                     expr_region: ExprRegion {
@@ -12279,7 +12279,7 @@ Ok(
                         disambiguator: 0,
                     },
                     generic_parameters: [],
-                    ty_expr: TypeExpr {
+                    self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
                     expr_region: ExprRegion {
@@ -14439,7 +14439,7 @@ Ok(
                         disambiguator: 0,
                     },
                     generic_parameters: [],
-                    ty_expr: TypeExpr {
+                    self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
                     expr_region: ExprRegion {
@@ -18289,7 +18289,7 @@ Ok(
                         disambiguator: 0,
                     },
                     generic_parameters: [],
-                    ty_expr: TypeExpr {
+                    self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
                     expr_region: ExprRegion {

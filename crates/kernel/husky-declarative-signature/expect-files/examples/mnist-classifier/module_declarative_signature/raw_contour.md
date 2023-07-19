@@ -464,7 +464,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 87,
+                                                        value: 85,
                                                     },
                                                 ),
                                             ),
@@ -501,7 +501,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 85,
+                                                        value: 83,
                                                     },
                                                 ),
                                             ),
@@ -521,7 +521,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 34,
+                        value: 36,
                     },
                 ),
             ),
@@ -534,7 +534,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
-                        ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 82,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -547,7 +557,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::raw_contour`,
                         trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 82,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `visualize`,

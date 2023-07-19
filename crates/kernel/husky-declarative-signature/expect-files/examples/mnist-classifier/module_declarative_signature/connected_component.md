@@ -87,7 +87,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 48,
+                                                        value: 46,
                                                     },
                                                 ),
                                             ),
@@ -226,7 +226,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 33,
+                        value: 35,
                     },
                 ),
             ),
@@ -239,7 +239,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
-                        ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 81,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -252,7 +262,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::connected_component`,
                         trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 81,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `visualize`,

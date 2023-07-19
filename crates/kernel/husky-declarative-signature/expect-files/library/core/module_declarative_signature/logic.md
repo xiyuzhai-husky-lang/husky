@@ -45,7 +45,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                         traits: [],
@@ -84,7 +84,7 @@
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
-                                                value: 4,
+                                                value: 5,
                                             },
                                         ),
                                         traits: [],

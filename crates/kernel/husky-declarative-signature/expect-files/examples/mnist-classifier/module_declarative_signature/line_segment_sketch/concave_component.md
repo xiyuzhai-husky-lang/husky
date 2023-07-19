@@ -52,7 +52,7 @@
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
                                                     Id {
-                                                        value: 73,
+                                                        value: 71,
                                                     },
                                                 ),
                                             ),
@@ -72,7 +72,7 @@
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
-                        value: 37,
+                        value: 39,
                     },
                 ),
             ),
@@ -85,7 +85,17 @@
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
-                        ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
+                        self_ty: Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        Id {
+                                            value: 93,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
                     },
                 ),
             ),
@@ -98,7 +108,13 @@
                     impl_block: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         trai_path: TraitPath(`core::visual::Visualize`),
-                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                        ty_sketch: Path(
+                            TypePath(
+                                Id {
+                                    value: 93,
+                                },
+                            ),
+                        ),
                         disambiguator: 0,
                     },
                     ident: `visualize`,

@@ -12,14 +12,14 @@ pub struct TraitForTypeImplBlockDeclarativeSignatureTemplate {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DeclarativeSelfType {
     Path(DeclarativeTerm),
-    Parameter(DeclarativeTermSymbol),
+    DerivedAny(DeclarativeTermSymbol),
 }
 
 impl DeclarativeSelfType {
     pub fn term(self) -> DeclarativeTerm {
         match self {
             DeclarativeSelfType::Path(term) => term,
-            DeclarativeSelfType::Parameter(term) => term.into(),
+            DeclarativeSelfType::DerivedAny(term) => term.into(),
         }
     }
 }
@@ -54,11 +54,26 @@ pub(crate) fn trai_for_ty_impl_block_declarative_signature_template(
         Ok(trai) => trai,
         Err(_) => todo!(),
     };
+    let self_ty_term = declarative_term_region
+        .term_symbol_region()
+        .self_ty_term()
+        .ok_or(DeclarativeSignatureError::SelfTypeNotInferred)?;
     let self_ty = match decl.self_ty_decl(db) {
         SelfTypeDecl::PathLeadingExpr(ty_expr) => {
-            DeclarativeSelfType::Path(declarative_term_region.expr_term(ty_expr.expr())?)
+            debug_assert_eq!(
+                self_ty_term,
+                declarative_term_region
+                    .expr_term(ty_expr.expr())
+                    .expect("ok")
+            );
+            DeclarativeSelfType::Path(self_ty_term)
         }
-        SelfTypeDecl::DeriveAny { .. } => todo!(),
+        SelfTypeDecl::DeriveAny { .. } => {
+            let DeclarativeTerm::Symbol(self_ty_symbol) = self_ty_term else {
+                unreachable!()
+            };
+            DeclarativeSelfType::DerivedAny(self_ty_symbol)
+        }
     };
     Ok(TraitForTypeImplBlockDeclarativeSignatureTemplate::new(
         db,

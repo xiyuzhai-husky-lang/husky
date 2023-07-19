@@ -540,7 +540,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::mem`,
                             trai_path: TraitPath(`core::marker::Copy`),
-                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -593,9 +599,11 @@ Ok(
                             35,
                         ),
                     },
-                    ty_expr: TypeExpr {
-                        expr: 3,
-                    },
+                    self_ty_decl: PathLeadingExpr(
+                        SelfTypeExpr {
+                            expr: 3,
+                        },
+                    ),
                     eol_colon: Ok(
                         EolToken::Semicolon(
                             EolSemicolonToken {
@@ -615,7 +623,13 @@ Ok(
                                             path: TraitForTypeImplBlockPath {
                                                 module_path: `core::mem`,
                                                 trai_path: TraitPath(`core::marker::Copy`),
-                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                ty_sketch: Path(
+                                                    TypePath(
+                                                        Id {
+                                                            value: 13,
+                                                        },
+                                                    ),
+                                                ),
                                                 disambiguator: 0,
                                             },
                                         },
