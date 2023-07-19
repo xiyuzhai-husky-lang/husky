@@ -1,6 +1,7 @@
 use husky_ethereal_signature::{
-    helpers::*, EtherealSignatureError, EtherealSignatureMaybeResult, EtherealSignatureResult,
-    TraitForTypeImplBlockEtherealSignature, TraitForTypeImplBlockEtherealSignatureTemplate,
+    helpers::trai_for_ty::*, EtherealSignatureError, EtherealSignatureMaybeResult,
+    EtherealSignatureResult, TraitForTypeImplBlockEtherealSignature,
+    TraitForTypeImplBlockEtherealSignatureTemplate,
     TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
 };
 use maybe_result::*;
