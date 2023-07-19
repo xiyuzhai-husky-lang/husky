@@ -46,7 +46,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 289,
+                                                                value: 290,
                                                             },
                                                         ),
                                                     ),
@@ -69,7 +69,7 @@ Ok(
                                                     ident: Ident(
                                                         Coword(
                                                             Id {
-                                                                value: 290,
+                                                                value: 291,
                                                             },
                                                         ),
                                                     ),
@@ -220,7 +220,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 289,
+                                                                    value: 290,
                                                                 },
                                                             ),
                                                         ),
@@ -237,7 +237,7 @@ Ok(
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 290,
+                                                                    value: 291,
                                                                 },
                                                             ),
                                                         ),
@@ -308,7 +308,7 @@ Ok(
                             implicit_parameter_decl_list: Ok(
                                 None,
                             ),
-                            ty_expr: TypeExpr {
+                            self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
                             eol_colon: Ok(

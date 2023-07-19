@@ -5,14 +5,29 @@ use husky_entity_tree::{
 use smallvec::SmallVec;
 use vec_like::{SmallVecPairMap, VecMapGetEntry};
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
+#[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
 pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,
     pub trai: EtherealTerm,
-    pub ty: EtherealTerm,
+    pub self_ty: EtherealSelfType,
     // todo: where clause
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum EtherealSelfType {
+    Path(EtherealTerm),
+    DeriveAny(EtherealTermSymbol),
+}
+
+impl EtherealSelfType {
+    pub fn parameter_symbol(self) -> Option<EtherealTermSymbol> {
+        match self {
+            EtherealSelfType::Path(_) => None,
+            EtherealSelfType::DeriveAny(symbol) => Some(symbol),
+        }
+    }
 }
 
 impl HasEtherealSignatureTemplate for TraitForTypeImplBlockPath {
@@ -49,8 +64,9 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
             declarative_signature_template.generic_parameters(db),
         )?;
         let trai = EtherealTerm::ty_from_declarative(db, declarative_signature_template.trai(db))?;
-        let ty = EtherealTerm::ty_from_declarative(db, declarative_signature_template.ty(db))?;
-        Ok(Self::new(db, path, generic_parameters, trai, ty))
+        todo!()
+        // let ty = EtherealTerm::ty_from_declarative(db, declarative_signature_template.self_ty(db))?;
+        // Ok(Self::new(db, path, generic_parameters, trai, ty))
     }
 }
 
@@ -72,18 +88,21 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         ty_target: EtherealTerm,
     ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated>
     {
-        let mut instantiation = self.generic_parameters(db).instantiation();
-        match instantiation.try_add_rules_from_application(db, self.ty(db), arguments) {
-            JustOk(_) => Ok(
-                TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
-                    db,
-                    self,
-                    instantiation,
-                ),
-            ),
-            JustErr(_) => todo!(),
-            Nothing => todo!(),
-        }
+        let mut instantiation = self
+            .generic_parameters(db)
+            .instantiation(self.self_ty(db).parameter_symbol());
+        todo!()
+        // match instantiation.try_add_rules_from_application(db, self.ty(db), arguments) {
+        //     JustOk(_) => Ok(
+        //         TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
+        //             db,
+        //             self,
+        //             instantiation,
+        //         ),
+        //     ),
+        //     JustErr(_) => todo!(),
+        //     Nothing => todo!(),
+        // }
     }
 }
 
@@ -94,11 +113,12 @@ impl TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated {
     ) -> Option<TraitForTypeImplBlockEtherealSignature> {
         let instantiation = self.partial_instantiation(db).try_into_instantiation()?;
         let template = self.template(db);
-        Some(TraitForTypeImplBlockEtherealSignature {
-            path: template.path(db),
-            trai: template.trai(db).instantiate(db, &instantiation),
-            ty: template.ty(db).instantiate(db, &instantiation),
-        })
+        todo!()
+        // Some(TraitForTypeImplBlockEtherealSignature {
+        //     path: template.path(db),
+        //     trai: template.trai(db).instantiate(db, &instantiation),
+        //     ty: template.ty(db).instantiate(db, &instantiation),
+        // })
     }
 
     /// for better caching, many common traits use "Output" as an associated

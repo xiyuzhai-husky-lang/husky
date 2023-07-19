@@ -447,7 +447,7 @@ Ok(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
-                                value: 16,
+                                value: 18,
                             },
                         ),
                     ),
@@ -458,7 +458,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::mem`,
                                 trai_path: TraitPath(`core::marker::Copy`),
-                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 13,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                             generic_parameters: [
@@ -479,9 +485,11 @@ Ok(
                             trai_expr: TraitExpr {
                                 expr: 0,
                             },
-                            ty_expr: TypeExpr {
-                                expr: 3,
-                            },
+                            self_ty_decl: PathLeadingExpr(
+                                SelfTypeExpr {
+                                    expr: 3,
+                                },
+                            ),
                             expr_region: ExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
@@ -492,7 +500,13 @@ Ok(
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::mem`,
                                                         trai_path: TraitPath(`core::marker::Copy`),
-                                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                        ty_sketch: Path(
+                                                            TypePath(
+                                                                Id {
+                                                                    value: 13,
+                                                                },
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },

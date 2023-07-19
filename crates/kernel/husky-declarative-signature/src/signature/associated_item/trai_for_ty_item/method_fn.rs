@@ -2,6 +2,17 @@ use husky_entity_tree::ImplBlockNode;
 
 use crate::*;
 
+#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
+    #[return_ref]
+    pub generic_parameters: DeclarativeGenericParameters,
+    #[return_ref]
+    pub self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate,
+    #[return_ref]
+    pub explicit_parameters: DeclarativeSpecificParameters,
+    pub return_ty: DeclarativeTerm,
+}
+
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
@@ -15,7 +26,8 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
         decl.path(db)
             .impl_block(db)
             .declarative_signature_template(db)?
-            .self_ty(db),
+            .self_ty(db)
+            .term(),
     );
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);
@@ -42,15 +54,4 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
         explicit_parameters,
         return_ty,
     ))
-}
-
-#[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
-pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
-    #[return_ref]
-    pub generic_parameters: DeclarativeGenericParameters,
-    #[return_ref]
-    pub self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate,
-    #[return_ref]
-    pub explicit_parameters: DeclarativeSpecificParameters,
-    pub return_ty: DeclarativeTerm,
 }

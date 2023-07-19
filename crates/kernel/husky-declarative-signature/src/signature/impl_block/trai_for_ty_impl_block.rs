@@ -15,6 +15,15 @@ pub enum DeclarativeSelfType {
     Parameter(DeclarativeTermSymbol),
 }
 
+impl DeclarativeSelfType {
+    pub fn term(self) -> DeclarativeTerm {
+        match self {
+            DeclarativeSelfType::Path(term) => term,
+            DeclarativeSelfType::Parameter(term) => term.into(),
+        }
+    }
+}
+
 impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockPath {
     type DeclarativeSignatureTemplate = TraitForTypeImplBlockDeclarativeSignatureTemplate;
 
@@ -45,19 +54,16 @@ pub(crate) fn trai_for_ty_impl_block_declarative_signature_template(
         Ok(trai) => trai,
         Err(_) => todo!(),
     };
-    // let ty_expr =
-    match decl.self_ty_decl(db) {
-        SelfTypeDecl::Expr(_) => todo!(),
-        SelfTypeDecl::DeriveAny {} => todo!(),
+    let self_ty = match decl.self_ty_decl(db) {
+        SelfTypeDecl::PathLeadingExpr(ty_expr) => {
+            DeclarativeSelfType::Path(declarative_term_region.expr_term(ty_expr.expr())?)
+        }
+        SelfTypeDecl::DeriveAny { .. } => todo!(),
     };
-    // let ty = match declarative_term_region.expr_term(ty_expr.expr()) {
-    //     Ok(ty) => ty,
-    //     Err(_) => todo!(),
-    // };
-    // Ok(TraitForTypeImplBlockDeclarativeSignatureTemplate::new(
-    //     db,
-    //     generic_parameters,
-    //     trai,
-    //     ty,
-    // ))
+    Ok(TraitForTypeImplBlockDeclarativeSignatureTemplate::new(
+        db,
+        generic_parameters,
+        trai,
+        self_ty,
+    ))
 }

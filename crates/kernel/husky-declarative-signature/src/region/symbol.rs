@@ -134,7 +134,7 @@ impl SymbolDeclarativeTermRegion {
                     }
                     ImplBlockNodePath::TraitForTypeImplBlock(impl_block_path) => {
                         match impl_block_path.ty_sketch(db) {
-                            TypeSketch::DeriveAny => todo!(),
+                            TypeSketch::DeriveAny => Some(todo!()),
                             TypeSketch::Path(ty_path) => None, // reserved for later stage
                         }
                     }

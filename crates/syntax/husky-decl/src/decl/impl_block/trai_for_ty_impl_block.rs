@@ -20,8 +20,12 @@ pub struct TraitForTypeImplBlockNodeDecl {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SelfTypeDecl {
-    Expr(SelfTypeExpr),
-    DeriveAny {},
+    PathLeadingExpr(SelfTypeExpr),
+    DeriveAny {
+        at_token: AtToken,
+        derive_token: DeriveToken,
+        underscore_token: UnderscoreToken,
+    },
 }
 
 impl TraitForTypeImplBlockNodeDecl {
@@ -101,7 +105,7 @@ impl<'a> DeclParser<'a> {
             .expect("guaranteed by parsing")
             .expect("guaranteed by parsing");
         let ty = match node.ty_sketch_expr(db) {
-            SelfTypeSketchExpr::Path(_) => SelfTypeDecl::Expr(
+            SelfTypeSketchExpr::Path(_) => SelfTypeDecl::PathLeadingExpr(
                 ctx.try_parse_option()
                     .expect("guaranteed")
                     .expect("guaranteed"),
@@ -110,7 +114,14 @@ impl<'a> DeclParser<'a> {
                 at_token,
                 derive_token,
                 underscore_token,
-            } => todo!(),
+            } => {
+                ctx.advance_by(3);
+                SelfTypeDecl::DeriveAny {
+                    at_token,
+                    derive_token,
+                    underscore_token,
+                }
+            }
         };
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TraitForTypeImplBlockNodeDecl::new(
