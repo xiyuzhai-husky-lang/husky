@@ -113,8 +113,9 @@ where
                 new,
             })
         } else {
-            self.data.push(new);
-            Ok(())
+            todo!("maintain order")
+            // self.data.push(new);
+            // Ok(())
         }
     }
 
@@ -147,18 +148,8 @@ where
         if self.has(value) {
             ()
         } else {
-            self.data.push(value)
-        }
-    }
-
-    pub fn insert_move(&mut self, value: K)
-    where
-        K: Copy + PartialEq + Eq,
-    {
-        if self.contains(&value) {
-            ()
-        } else {
-            self.data.push(value)
+            todo!("maintain order")
+            // self.data.push(value)
         }
     }
 
@@ -166,9 +157,10 @@ where
     where
         K: Copy + PartialEq + Eq,
     {
-        for entry in &other.data {
-            self.insert(*entry)
-        }
+        todo!("maintain order")
+        // for entry in &other.data {
+        //     self.insert(*entry)
+        // }
     }
 
     pub fn data(&self) -> &[K] {
