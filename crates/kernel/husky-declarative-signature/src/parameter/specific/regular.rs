@@ -1,12 +1,12 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct SpecificRegularParameterDeclarativeSignatureTemplate {
+pub struct SpecificRegularDeclarativeParameterTemplate {
     contract: Contract,
     ty: DeclarativeTerm,
 }
 
-impl SpecificRegularParameterDeclarativeSignatureTemplate {
+impl SpecificRegularDeclarativeParameterTemplate {
     pub(crate) fn new(contract: Contract, ty: DeclarativeTerm) -> Self {
         Self { contract, ty }
     }

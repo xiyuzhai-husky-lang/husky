@@ -1,15 +1,15 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitRegularParameterEtherealSignatureTemplate {
+pub struct RegularSpecificParameter {
     contract: Contract,
     ty: EtherealTerm,
 }
 
-impl ExplicitRegularParameterEtherealSignatureTemplate {
-    pub(crate) fn from_declarative_signature_template(
+impl RegularSpecificParameter {
+    pub(crate) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signature: &SpecificRegularParameterDeclarativeSignatureTemplate,
+        declarative_signature: SpecificRegularDeclarativeParameterTemplate,
     ) -> EtherealSignatureResult<Self> {
         Ok(Self {
             contract: declarative_signature.contract(),
@@ -26,7 +26,7 @@ impl ExplicitRegularParameterEtherealSignatureTemplate {
     }
 }
 
-impl EtherealTermInstantiateRef for ExplicitRegularParameterEtherealSignatureTemplate {
+impl EtherealTermInstantiateRef for RegularSpecificParameter {
     type Target = Self;
 
     fn instantiate(

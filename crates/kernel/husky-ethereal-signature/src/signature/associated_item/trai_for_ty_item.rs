@@ -27,17 +27,13 @@ impl TraitForTypeItemEtherealSignatureTemplate {
     ) -> TraitForTypeItemEtherealSignatureTemplatePartiallyInstantiated {
         match self {
             TraitForTypeItemEtherealSignatureTemplate::AssociatedType(item_template) => {
-                let partial_instantiation = impl_block_template_partially_instantiated
-                    .partial_instantiation(db)
-                    .merge_with_item_generic_parameters(item_template.generic_parameters(db));
-                TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated::new(
-                    db,
-                    item_template,
-                    partial_instantiation,
-                )
-                .into()
+                item_template
+                    .inherit_partial_instantiation(db, impl_block_template_partially_instantiated)
+                    .into()
             }
-            TraitForTypeItemEtherealSignatureTemplate::MethodFn(_) => todo!(),
+            TraitForTypeItemEtherealSignatureTemplate::MethodFn(item_template) => item_template
+                .inherit_partial_instantiation(db, impl_block_template_partially_instantiated)
+                .into(),
         }
     }
 }

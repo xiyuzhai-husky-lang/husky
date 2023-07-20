@@ -2,14 +2,14 @@ use super::*;
 use husky_declarative_signature::SpecificKeyedParameterDeclarativeSignatureTemplate;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitKeyedParameterEtherealSignatureTemplate {
+pub struct SpecificKeyedParameterEtherealSignatureTemplate {
     key: Ident,
     contract: Contract,
     ty: EtherealTerm,
     default: Option<EtherealTerm>,
 }
 
-impl ExplicitKeyedParameterEtherealSignatureTemplate {
+impl SpecificKeyedParameterEtherealSignatureTemplate {
     pub(super) fn from_declarative_signature_template(
         db: &dyn EtherealSignatureDb,
         declarative_signature: &SpecificKeyedParameterDeclarativeSignatureTemplate,
