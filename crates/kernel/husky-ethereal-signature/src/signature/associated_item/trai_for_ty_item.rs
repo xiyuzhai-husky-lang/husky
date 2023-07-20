@@ -44,6 +44,7 @@ impl TraitForTypeItemEtherealSignatureTemplate {
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEtherealSignatureTemplatePartiallyInstantiated {
     AssociatedType(TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated),
+    Method(TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated),
 }
 
 impl HasEtherealSignatureTemplate for TraitForTypeItemPath {

@@ -171,7 +171,11 @@ fn unveil_impl_block_signature_templates_aux(
     JustOk(
         templates
             .iter()
-            .map(|template| template.instantiate_ty(db, arguments, ty_target))
+            .filter_map(|template| {
+                template
+                    .instantiate_ty(db, arguments, ty_target)
+                    .into_option_result()
+            })
             .collect::<EtherealSignatureResult<_>>()?,
     )
 }
