@@ -1,4 +1,4 @@
-use crate::utils::DeclarativeTermFamily;
+use crate::helpers::DeclarativeTermFamily;
 
 use super::*;
 use husky_entity_path::TypePath;

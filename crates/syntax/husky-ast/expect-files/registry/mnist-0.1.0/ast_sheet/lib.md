@@ -310,16 +310,22 @@ Ok(
                         ),
                     },
                 },
-                Ast::Defn {
+                Ast::Decr {
                     token_group_idx: TokenGroupIdx(
                         11,
+                    ),
+                    ident: `derive`,
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
+                        12,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    23,
+                                    30,
                                 ),
                             },
                         },
@@ -333,13 +339,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `BinaryImage28`,
                         token_idx: TokenIdx(
-                            25,
+                            32,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            26,
+                            33,
                         ),
                         drained: false,
                     },
@@ -354,14 +360,14 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
-                        12,
+                        13,
                     ),
                     visibility_expr: VisibilityExpr {
                         visibility: Pub,
                         variant: Pub {
                             pub_token: PubToken {
                                 token_idx: TokenIdx(
-                                    32,
+                                    39,
                                 ),
                             },
                         },
@@ -375,13 +381,13 @@ Ok(
                     ident_token: IdentToken {
                         ident: `input`,
                         token_idx: TokenIdx(
-                            34,
+                            41,
                         ),
                     },
                     is_generic: false,
                     saved_stream_state: TokenStreamState {
                         next_token_idx: TokenIdx(
-                            35,
+                            42,
                         ),
                         drained: false,
                     },
@@ -397,14 +403,14 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            10..13,
+            10..14,
         ),
         siblings: [
             ArenaIdxRange(
                 10..10,
             ),
             ArenaIdxRange(
-                10..13,
+                10..14,
             ),
         ],
     },

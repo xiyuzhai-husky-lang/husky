@@ -10,6 +10,7 @@ pub enum MnistLabel
 | Eight
 | Nine
 
+@derive(Debug, Clone)
 pub struct BinaryImage28([30]r32)
 
 pub val input: BinaryImage28;
