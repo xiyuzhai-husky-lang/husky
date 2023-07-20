@@ -13,11 +13,10 @@ pub struct TypeMethodFnDeclarativeSignatureTemplate {
     pub self_ty: DeclarativeTerm,
     // todo: formal method, method that is not a function pointer
     #[return_ref]
-    pub generic_parameters: DeclarativeGenericParameters,
+    pub generic_parameters: DeclarativeGenericParameterTemplates,
+    pub self_parameter: SpecificRegularDeclarativeParameterTemplate,
     #[return_ref]
-    pub self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate,
-    #[return_ref]
-    pub explicit_parameters: DeclarativeSpecificParameters,
+    pub explicit_parameters: DeclarativeParenicParameters,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -53,15 +52,14 @@ pub fn ty_method_fn_declarative_signature_template(
         },
         None => Contract::None,
     };
-    let self_parameter =
-        SpecificRegularParameterDeclarativeSignatureTemplate::new(contract, self_ty);
+    let self_parameter = SpecificRegularDeclarativeParameterTemplate::new(contract, self_ty);
     let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
-    let generic_parameters = DeclarativeGenericParameters::from_decl(
+    let generic_parameters = DeclarativeGenericParameterTemplates::from_decl(
         decl.generic_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
-    let explicit_parameters = DeclarativeSpecificParameters::from_decl(
+    let explicit_parameters = DeclarativeParenicParameters::from_decl(
         decl.explicit_parameters(db),
         expr_region_data,
         declarative_term_region,

@@ -35,15 +35,15 @@ impl TypeAssociatedFnEtherealSignatureTemplate {
                 .iter()
                 .copied()
                 .map(|parameter| match parameter {
-                    ExplicitParameterEtherealSignatureTemplate::Regular(parameter) => {
+                    SpecificEtherealParameter::Regular(parameter) => {
                         EtherealTermRitchieRegularParameter::new(
                             parameter.contract(),
                             parameter.ty(),
                         )
                         .into()
                     }
-                    ExplicitParameterEtherealSignatureTemplate::Variadic(_) => todo!(),
-                    ExplicitParameterEtherealSignatureTemplate::Keyed(_) => todo!(),
+                    SpecificEtherealParameter::Variadic(_) => todo!(),
+                    SpecificEtherealParameter::Keyed(_) => todo!(),
                 }),
             return_ty,
         )?

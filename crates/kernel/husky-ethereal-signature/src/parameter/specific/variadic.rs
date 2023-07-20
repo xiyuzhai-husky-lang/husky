@@ -2,12 +2,12 @@ use super::*;
 use husky_declarative_signature::SpecificVariadicParameterDeclarativeSignatureTemplate;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub struct ExplicitVariadicParameterEtherealSignatureTemplate {
+pub struct SpecificVariadicParameterEtherealSignatureTemplate {
     contract: Contract,
     ty: EtherealTerm,
 }
 
-impl ExplicitVariadicParameterEtherealSignatureTemplate {
+impl SpecificVariadicParameterEtherealSignatureTemplate {
     pub(super) fn from_declarative_signature_template(
         db: &dyn EtherealSignatureDb,
         declarative_signature: &SpecificVariadicParameterDeclarativeSignatureTemplate,

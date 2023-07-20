@@ -8,57 +8,52 @@ pub use self::variadic::*;
 
 use super::*;
 use husky_declarative_signature::{
-    DeclarativeSpecificParameter, DeclarativeSpecificParameters,
-    SpecificRegularParameterDeclarativeSignatureTemplate,
+    DeclarativeParenicParameters, SpecificDeclarativeParameter,
+    SpecificRegularDeclarativeParameterTemplate,
 };
 use husky_term_prelude::Contract;
 
 // todo: use variable for dependent type
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-pub enum ExplicitParameterEtherealSignatureTemplate {
-    Regular(ExplicitRegularParameterEtherealSignatureTemplate),
-    Variadic(ExplicitVariadicParameterEtherealSignatureTemplate),
-    Keyed(ExplicitKeyedParameterEtherealSignatureTemplate),
+pub enum SpecificEtherealParameter {
+    Regular(RegularSpecificParameter),
+    Variadic(SpecificVariadicParameterEtherealSignatureTemplate),
+    Keyed(SpecificKeyedParameterEtherealSignatureTemplate),
 }
 
-impl ExplicitParameterEtherealSignatureTemplate {
-    pub fn from_declarative_signature(
+impl SpecificEtherealParameter {
+    pub fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signature: &DeclarativeSpecificParameter,
+        param: SpecificDeclarativeParameter,
     ) -> EtherealSignatureResult<Self> {
-        Ok(match declarative_signature {
-            DeclarativeSpecificParameter::Regular(declarative_signature_template) => {
-                ExplicitRegularParameterEtherealSignatureTemplate::from_declarative_signature_template(
-                    db,
-                    declarative_signature_template,
-                )?
-                .into()
+        Ok(match param {
+            SpecificDeclarativeParameter::Regular(declarative_signature_template) => {
+                RegularSpecificParameter::from_declarative(db, declarative_signature_template)?
+                    .into()
             }
-            DeclarativeSpecificParameter::Variadic(_) => todo!(),
-            DeclarativeSpecificParameter::Keyed(_) => todo!(),
+            SpecificDeclarativeParameter::Variadic(_) => todo!(),
+            SpecificDeclarativeParameter::Keyed(_) => todo!(),
         })
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct SpecificParameterEtherealSignatureTemplates {
-    data: SmallVec<[ExplicitParameterEtherealSignatureTemplate; 4]>,
+    data: SmallVec<[SpecificEtherealParameter; 4]>,
 }
 
 impl SpecificParameterEtherealSignatureTemplates {
     pub(crate) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signature_templates: &DeclarativeSpecificParameters,
+        declarative_signature_templates: &DeclarativeParenicParameters,
     ) -> EtherealSignatureResult<Self> {
         Ok(SpecificParameterEtherealSignatureTemplates {
             data: declarative_signature_templates
                 .iter()
+                .copied()
                 .map(|declarative_signature_template| {
-                    ExplicitParameterEtherealSignatureTemplate::from_declarative_signature(
-                        db,
-                        declarative_signature_template,
-                    )
+                    SpecificEtherealParameter::from_declarative(db, declarative_signature_template)
                 })
                 .collect::<EtherealSignatureResult<_>>()?,
         })
@@ -66,14 +61,14 @@ impl SpecificParameterEtherealSignatureTemplates {
 }
 
 impl std::ops::Deref for SpecificParameterEtherealSignatureTemplates {
-    type Target = [ExplicitParameterEtherealSignatureTemplate];
+    type Target = [SpecificEtherealParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data
     }
 }
 
-impl EtherealTermInstantiateRef for ExplicitParameterEtherealSignatureTemplate {
+impl EtherealTermInstantiateRef for SpecificEtherealParameter {
     type Target = Option<Self>;
 
     fn instantiate(

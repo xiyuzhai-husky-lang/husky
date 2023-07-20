@@ -36,7 +36,7 @@ pub(crate) fn fn_path_declarative_ty(
         .explicit_parameters(db)
         .iter()
         .copied()
-        .map(DeclarativeSpecificParameter::into_ritchie_parameter_contracted_ty)
+        .map(SpecificDeclarativeParameter::into_ritchie_parameter_contracted_ty)
         .collect();
     let return_declarative_ty = signature.return_ty(db);
     curry_from_generic_parameters(
@@ -62,7 +62,7 @@ pub(crate) fn gn_path_declarative_ty(
         .explicit_parameters(db)
         .iter()
         .copied()
-        .map(DeclarativeSpecificParameter::into_ritchie_parameter_contracted_ty)
+        .map(SpecificDeclarativeParameter::into_ritchie_parameter_contracted_ty)
         .collect();
     let return_declarative_ty = signature.return_ty(db);
     curry_from_generic_parameters(

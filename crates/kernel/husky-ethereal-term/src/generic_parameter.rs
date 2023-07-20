@@ -10,7 +10,7 @@ pub struct EtherealGenericParameters {
 impl EtherealGenericParameters {
     pub fn from_declarative(
         db: &dyn EtherealTermDb,
-        generic_paramters: &DeclarativeGenericParameters,
+        generic_paramters: &DeclarativeGenericParameterTemplates,
     ) -> EtherealTermResult<EtherealGenericParameters> {
         Ok(EtherealGenericParameters {
             data: generic_paramters

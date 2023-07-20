@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -41,7 +41,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativePoint2d`),
@@ -72,7 +72,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -103,7 +103,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
@@ -134,7 +134,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
@@ -165,7 +165,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
@@ -199,7 +199,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -228,13 +228,13 @@
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -248,7 +248,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -290,16 +290,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -311,7 +311,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -341,16 +341,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -362,10 +362,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -407,16 +407,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -428,7 +428,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -458,16 +458,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -479,10 +479,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -518,7 +518,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -547,16 +547,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -568,7 +568,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -598,16 +598,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -619,10 +619,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -664,16 +664,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -685,7 +685,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -715,16 +715,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -736,10 +736,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -781,16 +781,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -802,10 +802,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -847,16 +847,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -868,10 +868,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -913,16 +913,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -934,10 +934,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -979,16 +979,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1000,10 +1000,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -1017,7 +1017,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -1053,7 +1053,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
@@ -1082,16 +1082,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1103,10 +1103,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -1148,16 +1148,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1169,10 +1169,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -1208,7 +1208,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
@@ -1237,16 +1237,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1258,10 +1258,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -1303,16 +1303,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1324,10 +1324,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -1369,16 +1369,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1390,7 +1390,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1420,16 +1420,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1441,7 +1441,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1471,16 +1471,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1492,7 +1492,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1522,16 +1522,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1543,7 +1543,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1567,7 +1567,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
@@ -1596,16 +1596,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1617,7 +1617,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1647,16 +1647,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1668,7 +1668,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1698,16 +1698,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1719,7 +1719,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1749,16 +1749,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -1770,7 +1770,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),

@@ -9,8 +9,8 @@ pub enum MethodFluffySignature {
     MethodFunction(MethodFunctionFluffySignature),
 }
 
-impl From<TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
-    fn from(value: TraitForTypeMethodFnEtherealSignature) -> Self {
+impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
+    fn from(value: &TraitForTypeMethodFnEtherealSignature) -> Self {
         todo!()
     }
 }

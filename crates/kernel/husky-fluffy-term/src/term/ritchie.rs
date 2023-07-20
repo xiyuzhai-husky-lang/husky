@@ -8,7 +8,7 @@ pub use self::variadic::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_ethereal_signature::ExplicitParameterEtherealSignatureTemplate;
+use husky_ethereal_signature::SpecificEtherealParameter;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
@@ -35,7 +35,7 @@ impl From<EtherealTermRitchieParameter> for FluffyTermRitchieParameter {
     }
 }
 
-impl InstantiateRef for ExplicitParameterEtherealSignatureTemplate {
+impl InstantiateRef for SpecificEtherealParameter {
     type Target = FluffyTermRitchieParameter;
 
     fn instantiate(
@@ -45,7 +45,7 @@ impl InstantiateRef for ExplicitParameterEtherealSignatureTemplate {
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
         match self {
-            ExplicitParameterEtherealSignatureTemplate::Regular(signature_template) => {
+            SpecificEtherealParameter::Regular(signature_template) => {
                 FluffyTermRitchieRegularParameter::new(
                     signature_template.contract(),
                     signature_template
@@ -54,8 +54,8 @@ impl InstantiateRef for ExplicitParameterEtherealSignatureTemplate {
                 )
                 .into()
             }
-            ExplicitParameterEtherealSignatureTemplate::Variadic(_) => todo!(),
-            ExplicitParameterEtherealSignatureTemplate::Keyed(_) => todo!(),
+            SpecificEtherealParameter::Variadic(_) => todo!(),
+            SpecificEtherealParameter::Keyed(_) => todo!(),
         }
     }
 }

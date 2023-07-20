@@ -1,9 +1,11 @@
-mod explicit;
-mod implicit;
+mod generic;
+mod specific;
 
-pub use self::explicit::*;
-pub use self::implicit::*;
+pub use self::generic::*;
+pub use self::specific::*;
 
 use crate::*;
-use husky_declarative_signature::{DeclarativeGenericParameter, DeclarativeGenericParameters};
+use husky_declarative_signature::{
+    DeclarativeGenericParameter, DeclarativeGenericParameterTemplates,
+};
 use husky_term_prelude::Variance;

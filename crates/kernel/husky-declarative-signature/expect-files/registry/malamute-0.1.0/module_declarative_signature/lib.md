@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: None,
@@ -50,7 +50,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: None,
@@ -90,7 +90,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Gn(
                         GnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: None,
@@ -112,7 +112,7 @@
                                     },
                                 ],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Variadic(
                                         SpecificVariadicParameterDeclarativeSignatureTemplate {
@@ -181,7 +181,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [
                                 DeclarativeGenericParameter {
                                     annotated_variance: None,
@@ -244,7 +244,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
                         TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                             ty_term: DeclarativeTerm(`core::basic::unit`),

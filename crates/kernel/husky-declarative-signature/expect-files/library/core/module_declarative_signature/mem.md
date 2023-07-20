@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: Some(
@@ -53,7 +53,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: Some(
@@ -96,7 +96,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: Some(
@@ -131,7 +131,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [
                                 DeclarativeGenericParameter {
                                     annotated_variance: None,

@@ -42,7 +42,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
@@ -77,7 +77,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
@@ -108,13 +108,13 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -128,7 +128,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -161,13 +161,13 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -181,7 +181,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -214,13 +214,13 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
@@ -232,7 +232,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -246,7 +246,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -279,13 +279,13 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
@@ -297,7 +297,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -311,7 +311,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -325,7 +325,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -358,13 +358,13 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
@@ -376,7 +376,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -412,7 +412,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
@@ -458,10 +458,10 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -473,7 +473,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::basic::unit`),
@@ -497,7 +497,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
@@ -526,13 +526,13 @@
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
@@ -544,7 +544,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -558,7 +558,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -600,16 +600,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -621,7 +621,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -645,7 +645,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
@@ -691,10 +691,10 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -706,7 +706,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::visual::Html`),
@@ -730,7 +730,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
@@ -759,7 +759,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
@@ -791,7 +791,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
@@ -823,13 +823,13 @@
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
@@ -841,7 +841,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(

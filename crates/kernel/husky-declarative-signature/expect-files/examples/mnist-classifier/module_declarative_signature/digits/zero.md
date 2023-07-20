@@ -28,13 +28,13 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(

@@ -11,30 +11,30 @@ use either::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
-pub enum DeclarativeSpecificParameter {
-    Regular(SpecificRegularParameterDeclarativeSignatureTemplate),
+pub enum SpecificDeclarativeParameter {
+    Regular(SpecificRegularDeclarativeParameterTemplate),
     Variadic(SpecificVariadicParameterDeclarativeSignatureTemplate),
     Keyed(SpecificKeyedParameterDeclarativeSignatureTemplate),
 }
 
-impl DeclarativeSpecificParameter {
+impl SpecificDeclarativeParameter {
     pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeTermRitchieParameter {
         match self {
-            DeclarativeSpecificParameter::Regular(signature_template) => {
+            SpecificDeclarativeParameter::Regular(signature_template) => {
                 DeclarativeTermRitchieRegularParameter::new(
                     signature_template.contract(),
                     signature_template.ty(),
                 )
                 .into()
             }
-            DeclarativeSpecificParameter::Variadic(signature_template) => {
+            SpecificDeclarativeParameter::Variadic(signature_template) => {
                 DeclarativeTermRitchieVariadicParameter::new(
                     signature_template.contract(),
                     signature_template.ty(),
                 )
                 .into()
             }
-            DeclarativeSpecificParameter::Keyed(signature_template) => {
+            SpecificDeclarativeParameter::Keyed(signature_template) => {
                 DeclarativeTermRitchieKeyedParameter::new(
                     signature_template.key(),
                     signature_template.contract(),
@@ -48,19 +48,19 @@ impl DeclarativeSpecificParameter {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct DeclarativeSpecificParameters {
-    data: SmallVec<[DeclarativeSpecificParameter; 4]>,
+pub struct DeclarativeParenicParameters {
+    data: SmallVec<[SpecificDeclarativeParameter; 4]>,
 }
 
-impl std::ops::Deref for DeclarativeSpecificParameters {
-    type Target = [DeclarativeSpecificParameter];
+impl std::ops::Deref for DeclarativeParenicParameters {
+    type Target = [SpecificDeclarativeParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data
     }
 }
 
-impl DeclarativeSpecificParameters {
+impl DeclarativeParenicParameters {
     pub(crate) fn from_decl(
         parameters: &[SpecificParameterDecl],
         expr_region_data: &ExprRegionData,
@@ -77,7 +77,7 @@ impl DeclarativeSpecificParameters {
                             variables,
                             colon,
                             ty,
-                        } => SpecificRegularParameterDeclarativeSignatureTemplate::new(
+                        } => SpecificRegularDeclarativeParameterTemplate::new(
                             expr_region_data.pattern_contract(*pattern),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
@@ -115,11 +115,13 @@ impl DeclarativeSpecificParameters {
                             })?,
                             match *default {
                                 Left(_) => todo!(),
-                                Right(default_expr_idx) => Some(signature_region.expr_term(default_expr_idx).map_err(|_| {
-                                    DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
-                                        i.try_into().unwrap(),
-                                    )
-                                })?),
+                                Right(default_expr_idx) => Some(
+                                    signature_region.expr_term(default_expr_idx).map_err(|_| {
+                                        DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
+                                            i.try_into().unwrap(),
+                                        )
+                                    })?,
+                                ),
                             },
                         )
                         .into(),

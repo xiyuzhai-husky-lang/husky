@@ -9,7 +9,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Trait(
                     TraitDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                     },
@@ -31,7 +31,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::clone::Clone`),
@@ -67,10 +67,10 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: Symbol(
                                     DeclarativeTermSymbol(
@@ -80,7 +80,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`t`),

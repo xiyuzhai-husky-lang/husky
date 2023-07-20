@@ -34,8 +34,10 @@ pub struct EtherealSignatureJar(
     TraitForTypeAssociatedTypeEtherealSignatureTemplate,
     TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated,
     trai_for_ty_item_ethereal_signature_template,
+    trai_for_ty_associated_ty_ethereal_signature_template_partially_instantiated_try_into_signature,
     TraitForTypeMethodFnEtherealSignatureTemplate,
     TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated,
+    trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_into_signature,
     // ty
     EnumEtherealSignatureTemplate,
     ExternEtherealSignatureTemplate,

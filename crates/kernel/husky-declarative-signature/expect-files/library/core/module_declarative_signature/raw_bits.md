@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
                         },
@@ -33,7 +33,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameters {
+                        generic_parameters: DeclarativeGenericParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`core::raw_bits::r32`),
@@ -62,16 +62,16 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameters {
+                                generic_parameters: DeclarativeGenericParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
                             self_ty: DeclarativeTerm(`core::raw_bits::r32`),
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularParameterDeclarativeSignatureTemplate {
+                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
                                 contract: None,
                                 ty: EntityPath(
                                     Type(
@@ -83,10 +83,10 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(

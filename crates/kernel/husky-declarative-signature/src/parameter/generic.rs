@@ -81,11 +81,11 @@ impl DeclarativeGenericParameter {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct DeclarativeGenericParameters {
+pub struct DeclarativeGenericParameterTemplates {
     data: SmallVec<[DeclarativeGenericParameter; 4]>,
 }
 
-impl DeclarativeGenericParameters {
+impl DeclarativeGenericParameterTemplates {
     pub(crate) fn from_decl(
         generic_parameters: &[GenericParameterDecl],
         declarative_term_region: &DeclarativeTermRegion,
@@ -110,7 +110,7 @@ impl DeclarativeGenericParameters {
     }
 }
 
-impl std::ops::Deref for DeclarativeGenericParameters {
+impl std::ops::Deref for DeclarativeGenericParameterTemplates {
     type Target = [DeclarativeGenericParameter];
 
     fn deref(&self) -> &Self::Target {

@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: None,
@@ -23,10 +23,10 @@
                                     },
                                 ],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: Move,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
@@ -57,7 +57,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: None,
@@ -70,10 +70,10 @@
                                     },
                                 ],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: Move,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
@@ -85,7 +85,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -99,7 +99,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -132,7 +132,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameters {
+                            generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [
                                     DeclarativeGenericParameter {
                                         annotated_variance: None,
@@ -145,10 +145,10 @@
                                     },
                                 ],
                             },
-                            explicit_parameters: DeclarativeSpecificParameters {
+                            explicit_parameters: DeclarativeParenicParameters {
                                 data: [
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: Move,
                                             ty: ExplicitApplication(
                                                 DeclarativeTermExplicitApplication(
@@ -160,7 +160,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
@@ -174,7 +174,7 @@
                                         },
                                     ),
                                     Regular(
-                                        SpecificRegularParameterDeclarativeSignatureTemplate {
+                                        SpecificRegularDeclarativeParameterTemplate {
                                             contract: None,
                                             ty: EntityPath(
                                                 Type(
