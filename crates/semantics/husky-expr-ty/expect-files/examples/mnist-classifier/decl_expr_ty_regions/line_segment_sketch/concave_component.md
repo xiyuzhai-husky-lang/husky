@@ -683,7 +683,13 @@
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                             trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 93,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -841,7 +847,13 @@
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                    ty_sketch: Path(
+                                        TypePath(
+                                            Id {
+                                                value: 93,
+                                            },
+                                        ),
+                                    ),
                                     disambiguator: 0,
                                 },
                                 ident: `visualize`,

@@ -24,6 +24,14 @@ Ok(
                                     7,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 48,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(

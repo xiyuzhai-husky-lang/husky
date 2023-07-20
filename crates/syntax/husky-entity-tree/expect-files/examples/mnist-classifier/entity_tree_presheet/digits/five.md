@@ -24,6 +24,20 @@ Ok(
                                     9,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(

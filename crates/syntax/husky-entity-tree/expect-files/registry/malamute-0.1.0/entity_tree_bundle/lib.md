@@ -24,6 +24,20 @@ Ok(
                                             2,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 104,
+                                            },
+                                        ),
+                                        variants: Some(
+                                            TypeVariants {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             ),
                             node_path: EntityNodePath::ModuleItem(
@@ -56,6 +70,20 @@ Ok(
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
                                             17,
+                                        ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 105,
+                                            },
+                                        ),
+                                        variants: Some(
+                                            TypeVariants {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    2..5,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },
@@ -91,6 +119,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             61,
                                         ),
+                                    },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 79,
+                                            },
+                                        ),
+                                        body: None,
                                     },
                                 },
                             ),
@@ -135,6 +171,20 @@ Ok(
                                             2,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 104,
+                                            },
+                                        ),
+                                        variants: Some(
+                                            TypeVariants {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             },
                         },
@@ -160,6 +210,20 @@ Ok(
                                         ident: `OneVsAllResult`,
                                         token_idx: TokenIdx(
                                             17,
+                                        ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 105,
+                                            },
+                                        ),
+                                        variants: Some(
+                                            TypeVariants {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    2..5,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },
@@ -189,6 +253,14 @@ Ok(
                                             61,
                                         ),
                                     },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 79,
+                                            },
+                                        ),
+                                        body: None,
+                                    },
                                 },
                             },
                         },
@@ -201,7 +273,13 @@ Ok(
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `malamute`,
                                     trai_path: TraitPath(`core::ops::Unveil`),
-                                    ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                    ty_sketch: Path(
+                                        TypePath(
+                                            Id {
+                                                value: 104,
+                                            },
+                                        ),
+                                    ),
                                     disambiguator: 0,
                                 },
                             },
@@ -212,7 +290,13 @@ Ok(
                                     path: TraitForTypeImplBlockPath {
                                         module_path: `malamute`,
                                         trai_path: TraitPath(`core::ops::Unveil`),
-                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                        ty_sketch: Path(
+                                            TypePath(
+                                                Id {
+                                                    value: 104,
+                                                },
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -226,7 +310,9 @@ Ok(
                                 for_token: TokenIdx(
                                     49,
                                 ),
-                                ty_expr: 3,
+                                ty_sketch_expr: Path(
+                                    3,
+                                ),
                                 items: Some(
                                     TraitForType(
                                         TraitForTypeItems {

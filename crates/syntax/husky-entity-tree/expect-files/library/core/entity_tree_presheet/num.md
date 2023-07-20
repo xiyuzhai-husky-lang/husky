@@ -22,6 +22,14 @@ Ok(
                                     28,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -55,6 +63,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     80,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -90,6 +106,14 @@ Ok(
                                     132,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -123,6 +147,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     183,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -158,6 +190,14 @@ Ok(
                                     235,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -191,6 +231,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     287,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -226,6 +274,14 @@ Ok(
                                     339,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -259,6 +315,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     391,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -294,6 +358,14 @@ Ok(
                                     443,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -327,6 +399,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     495,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 23,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -362,6 +442,14 @@ Ok(
                                     547,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -395,6 +483,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     599,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 25,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -430,6 +526,14 @@ Ok(
                                     651,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -463,6 +567,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     710,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),

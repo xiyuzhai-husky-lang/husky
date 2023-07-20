@@ -22,6 +22,14 @@ Ok(
                                     28,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -55,6 +63,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     80,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -90,6 +106,14 @@ Ok(
                                     132,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -123,6 +147,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     183,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -158,6 +190,14 @@ Ok(
                                     235,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -191,6 +231,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     287,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -226,6 +274,14 @@ Ok(
                                     339,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -259,6 +315,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     391,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -294,6 +358,14 @@ Ok(
                                     443,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -327,6 +399,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     495,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 23,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -362,6 +442,14 @@ Ok(
                                     547,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -395,6 +483,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     599,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 25,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -430,6 +526,14 @@ Ok(
                                     651,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -463,6 +567,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     710,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -507,6 +619,14 @@ Ok(
                                     28,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -533,6 +653,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     80,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -561,6 +689,14 @@ Ok(
                                     132,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -587,6 +723,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     183,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -615,6 +759,14 @@ Ok(
                                     235,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -641,6 +793,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     287,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -669,6 +829,14 @@ Ok(
                                     339,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -695,6 +863,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     391,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -723,6 +899,14 @@ Ok(
                                     443,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -749,6 +933,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     495,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 23,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -777,6 +969,14 @@ Ok(
                                     547,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -803,6 +1003,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     599,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 25,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -831,6 +1039,14 @@ Ok(
                                     651,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -857,6 +1073,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     710,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -887,6 +1111,20 @@ Ok(
                                         ident: `Add`,
                                         token_idx: TokenIdx(
                                             9,
+                                        ),
+                                    },
+                                    block: Trait {
+                                        path: TraitPath(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                        items: Some(
+                                            TraitItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },
@@ -932,7 +1170,7 @@ Ok(
                                 30,
                             ),
                         },
-                        ty_expr: 3,
+                        ty_expr: 4,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 0..1,
@@ -947,7 +1185,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::i8`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 14,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -958,7 +1202,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i8`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 14,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -968,11 +1218,13 @@ Ok(
                                 41,
                             ),
                         },
-                        trai_expr: 4,
+                        trai_expr: 5,
                         for_token: TokenIdx(
                             44,
                         ),
-                        ty_expr: 5,
+                        ty_sketch_expr: Path(
+                            6,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1010,7 +1262,7 @@ Ok(
                                 82,
                             ),
                         },
-                        ty_expr: 6,
+                        ty_expr: 7,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 2..3,
@@ -1025,7 +1277,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::i16`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 15,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1036,7 +1294,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i16`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 15,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1046,11 +1310,13 @@ Ok(
                                 93,
                             ),
                         },
-                        trai_expr: 7,
+                        trai_expr: 8,
                         for_token: TokenIdx(
                             96,
                         ),
-                        ty_expr: 8,
+                        ty_sketch_expr: Path(
+                            9,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1088,7 +1354,7 @@ Ok(
                                 134,
                             ),
                         },
-                        ty_expr: 9,
+                        ty_expr: 10,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 4..5,
@@ -1103,7 +1369,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::i32`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 16,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1114,7 +1386,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 16,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1124,11 +1402,13 @@ Ok(
                                 145,
                             ),
                         },
-                        trai_expr: 10,
+                        trai_expr: 11,
                         for_token: TokenIdx(
                             148,
                         ),
-                        ty_expr: 11,
+                        ty_sketch_expr: Path(
+                            12,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1166,7 +1446,7 @@ Ok(
                                 185,
                             ),
                         },
-                        ty_expr: 12,
+                        ty_expr: 13,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 6..7,
@@ -1181,7 +1461,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::i64`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1192,7 +1478,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i64`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1202,11 +1494,13 @@ Ok(
                                 196,
                             ),
                         },
-                        trai_expr: 13,
+                        trai_expr: 14,
                         for_token: TokenIdx(
                             199,
                         ),
-                        ty_expr: 14,
+                        ty_sketch_expr: Path(
+                            15,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1244,7 +1538,7 @@ Ok(
                                 237,
                             ),
                         },
-                        ty_expr: 15,
+                        ty_expr: 16,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 8..9,
@@ -1259,7 +1553,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::i128`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1270,7 +1570,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::i128`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 18,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1280,11 +1586,13 @@ Ok(
                                 248,
                             ),
                         },
-                        trai_expr: 16,
+                        trai_expr: 17,
                         for_token: TokenIdx(
                             251,
                         ),
-                        ty_expr: 17,
+                        ty_sketch_expr: Path(
+                            18,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1322,7 +1630,7 @@ Ok(
                                 289,
                             ),
                         },
-                        ty_expr: 18,
+                        ty_expr: 19,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 10..11,
@@ -1337,7 +1645,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1348,7 +1662,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::isize`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1358,11 +1678,13 @@ Ok(
                                 300,
                             ),
                         },
-                        trai_expr: 19,
+                        trai_expr: 20,
                         for_token: TokenIdx(
                             303,
                         ),
-                        ty_expr: 20,
+                        ty_sketch_expr: Path(
+                            21,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1400,7 +1722,7 @@ Ok(
                                 341,
                             ),
                         },
-                        ty_expr: 21,
+                        ty_expr: 22,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 12..13,
@@ -1415,7 +1737,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::u8`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1426,7 +1754,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u8`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 20,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1436,11 +1770,13 @@ Ok(
                                 352,
                             ),
                         },
-                        trai_expr: 22,
+                        trai_expr: 23,
                         for_token: TokenIdx(
                             355,
                         ),
-                        ty_expr: 23,
+                        ty_sketch_expr: Path(
+                            24,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1478,7 +1814,7 @@ Ok(
                                 393,
                             ),
                         },
-                        ty_expr: 24,
+                        ty_expr: 25,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 14..15,
@@ -1493,7 +1829,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::u16`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1504,7 +1846,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u16`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 21,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1514,11 +1862,13 @@ Ok(
                                 404,
                             ),
                         },
-                        trai_expr: 25,
+                        trai_expr: 26,
                         for_token: TokenIdx(
                             407,
                         ),
-                        ty_expr: 26,
+                        ty_sketch_expr: Path(
+                            27,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1556,7 +1906,7 @@ Ok(
                                 445,
                             ),
                         },
-                        ty_expr: 27,
+                        ty_expr: 28,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 16..17,
@@ -1571,7 +1921,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::u32`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 22,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1582,7 +1938,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u32`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 22,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1592,11 +1954,13 @@ Ok(
                                 456,
                             ),
                         },
-                        trai_expr: 28,
+                        trai_expr: 29,
                         for_token: TokenIdx(
                             459,
                         ),
-                        ty_expr: 29,
+                        ty_sketch_expr: Path(
+                            30,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1634,7 +1998,7 @@ Ok(
                                 497,
                             ),
                         },
-                        ty_expr: 30,
+                        ty_expr: 31,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 18..19,
@@ -1649,7 +2013,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::u64`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 23,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1660,7 +2030,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u64`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 23,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1670,11 +2046,13 @@ Ok(
                                 508,
                             ),
                         },
-                        trai_expr: 31,
+                        trai_expr: 32,
                         for_token: TokenIdx(
                             511,
                         ),
-                        ty_expr: 32,
+                        ty_sketch_expr: Path(
+                            33,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1712,7 +2090,7 @@ Ok(
                                 549,
                             ),
                         },
-                        ty_expr: 33,
+                        ty_expr: 34,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 20..21,
@@ -1727,7 +2105,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::u128`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 24,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1738,7 +2122,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::u128`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 24,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1748,11 +2138,13 @@ Ok(
                                 560,
                             ),
                         },
-                        trai_expr: 34,
+                        trai_expr: 35,
                         for_token: TokenIdx(
                             563,
                         ),
-                        ty_expr: 35,
+                        ty_sketch_expr: Path(
+                            36,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1790,7 +2182,7 @@ Ok(
                                 601,
                             ),
                         },
-                        ty_expr: 36,
+                        ty_expr: 37,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 22..23,
@@ -1805,7 +2197,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::usize`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 25,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1816,7 +2214,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::usize`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1826,11 +2230,13 @@ Ok(
                                 612,
                             ),
                         },
-                        trai_expr: 37,
+                        trai_expr: 38,
                         for_token: TokenIdx(
                             615,
                         ),
-                        ty_expr: 38,
+                        ty_sketch_expr: Path(
+                            39,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1868,7 +2274,7 @@ Ok(
                                 653,
                             ),
                         },
-                        ty_expr: 39,
+                        ty_expr: 40,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 24..26,
@@ -1883,7 +2289,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1894,7 +2306,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 26,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1904,11 +2322,13 @@ Ok(
                                 672,
                             ),
                         },
-                        trai_expr: 40,
+                        trai_expr: 41,
                         for_token: TokenIdx(
                             675,
                         ),
-                        ty_expr: 41,
+                        ty_sketch_expr: Path(
+                            42,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1946,7 +2366,7 @@ Ok(
                                 712,
                             ),
                         },
-                        ty_expr: 42,
+                        ty_expr: 43,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 27..28,
@@ -1961,7 +2381,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
-                            ty_path: TypePath(`core::num::f64`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 27,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1972,7 +2398,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
                                 trai_path: TraitPath(`core::ops::Add`),
-                                ty_path: TypePath(`core::num::f64`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 27,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1982,11 +2414,13 @@ Ok(
                                 723,
                             ),
                         },
-                        trai_expr: 43,
+                        trai_expr: 44,
                         for_token: TokenIdx(
                             726,
                         ),
-                        ty_expr: 44,
+                        ty_sketch_expr: Path(
+                            45,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -2117,6 +2551,20 @@ Ok(
                                         ident: `Add`,
                                         token_idx: TokenIdx(
                                             9,
+                                        ),
+                                    },
+                                    block: Trait {
+                                        path: TraitPath(
+                                            Id {
+                                                value: 9,
+                                            },
+                                        ),
+                                        items: Some(
+                                            TraitItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },

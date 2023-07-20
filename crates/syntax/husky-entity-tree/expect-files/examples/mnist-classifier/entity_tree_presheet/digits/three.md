@@ -24,6 +24,20 @@ Ok(
                                     5,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 41,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -60,6 +74,20 @@ Ok(
                                 ident: `is_three`,
                                 token_idx: TokenIdx(
                                     26,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 42,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            1..18,
+                                        ),
+                                    },
                                 ),
                             },
                         },
@@ -100,6 +128,20 @@ Ok(
                                     159,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 43,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            18..21,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -138,6 +180,20 @@ Ok(
                                     196,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 44,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            21..24,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -174,6 +230,20 @@ Ok(
                                 ident: `back`,
                                 token_idx: TokenIdx(
                                     233,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 45,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            24..27,
+                                        ),
+                                    },
                                 ),
                             },
                         },

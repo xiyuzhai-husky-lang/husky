@@ -22,6 +22,14 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 8,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -56,6 +64,14 @@ Ok(
                                     6,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 9,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -88,6 +104,20 @@ Ok(
                                 ident: `LogicOr`,
                                 token_idx: TokenIdx(
                                     28,
+                                ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 10,
+                                    },
+                                ),
+                                variants: Some(
+                                    TypeVariants {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..2,
+                                        ),
+                                    },
                                 ),
                             },
                         },

@@ -24,6 +24,20 @@ Ok(
                                     9,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 50,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -71,6 +85,20 @@ Ok(
                                 ident: `is_five`,
                                 token_idx: TokenIdx(
                                     9,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 50,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    },
                                 ),
                             },
                         },
@@ -496,6 +524,20 @@ Ok(
                                                     23,
                                                 ),
                                             },
+                                            block: Fugitive {
+                                                path: FugitivePath(
+                                                    Id {
+                                                        value: 29,
+                                                    },
+                                                ),
+                                                body: Some(
+                                                    FugitiveBody {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            48..51,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         },
                                     },
                                     path: PrincipalEntityPath::ModuleItem(
@@ -910,6 +952,20 @@ Ok(
                                                             2,
                                                         ),
                                                     },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 97,
+                                                            },
+                                                        ),
+                                                        variants: Some(
+                                                            TypeVariants {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    0..2,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -979,6 +1035,20 @@ Ok(
                                                         ident: `OneVsAllResult`,
                                                         token_idx: TokenIdx(
                                                             17,
+                                                        ),
+                                                    },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 98,
+                                                            },
+                                                        ),
+                                                        variants: Some(
+                                                            TypeVariants {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    2..5,
+                                                                ),
+                                                            },
                                                         ),
                                                     },
                                                 },
@@ -1052,6 +1122,14 @@ Ok(
                                                             61,
                                                         ),
                                                     },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 77,
+                                                            },
+                                                        ),
+                                                        body: None,
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -1121,6 +1199,20 @@ Ok(
                                                         ident: `MnistLabel`,
                                                         token_idx: TokenIdx(
                                                             2,
+                                                        ),
+                                                    },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 99,
+                                                            },
+                                                        ),
+                                                        variants: Some(
+                                                            TypeVariants {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    0..10,
+                                                                ),
+                                                            },
                                                         ),
                                                     },
                                                 },
@@ -1194,6 +1286,14 @@ Ok(
                                                             25,
                                                         ),
                                                     },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 100,
+                                                            },
+                                                        ),
+                                                        variants: None,
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -1264,6 +1364,14 @@ Ok(
                                                         token_idx: TokenIdx(
                                                             34,
                                                         ),
+                                                    },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 78,
+                                                            },
+                                                        ),
+                                                        body: None,
                                                     },
                                                 },
                                             },
@@ -1336,6 +1444,20 @@ Ok(
                                                     37,
                                                 ),
                                             },
+                                            block: Fugitive {
+                                                path: FugitivePath(
+                                                    Id {
+                                                        value: 35,
+                                                    },
+                                                ),
+                                                body: Some(
+                                                    FugitiveBody {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            26..38,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         },
                                     },
                                     path: PrincipalEntityPath::ModuleItem(
@@ -1393,6 +1515,20 @@ Ok(
                                                 ident: `is_zero`,
                                                 token_idx: TokenIdx(
                                                     49,
+                                                ),
+                                            },
+                                            block: Fugitive {
+                                                path: FugitivePath(
+                                                    Id {
+                                                        value: 27,
+                                                    },
+                                                ),
+                                                body: Some(
+                                                    FugitiveBody {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            11..25,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         },
@@ -1454,6 +1590,20 @@ Ok(
                                                     113,
                                                 ),
                                             },
+                                            block: Fugitive {
+                                                path: FugitivePath(
+                                                    Id {
+                                                        value: 69,
+                                                    },
+                                                ),
+                                                body: Some(
+                                                    FugitiveBody {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            31..49,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         },
                                     },
                                     path: PrincipalEntityPath::ModuleItem(
@@ -1511,6 +1661,20 @@ Ok(
                                                 ident: `is_three`,
                                                 token_idx: TokenIdx(
                                                     26,
+                                                ),
+                                            },
+                                            block: Fugitive {
+                                                path: FugitivePath(
+                                                    Id {
+                                                        value: 39,
+                                                    },
+                                                ),
+                                                body: Some(
+                                                    FugitiveBody {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            1..18,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         },
@@ -1572,6 +1736,20 @@ Ok(
                                                     9,
                                                 ),
                                             },
+                                            block: Fugitive {
+                                                path: FugitivePath(
+                                                    Id {
+                                                        value: 50,
+                                                    },
+                                                ),
+                                                body: Some(
+                                                    FugitiveBody {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            0..1,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         },
                                     },
                                     path: PrincipalEntityPath::ModuleItem(
@@ -1629,6 +1807,20 @@ Ok(
                                                 ident: `is_seven`,
                                                 token_idx: TokenIdx(
                                                     164,
+                                                ),
+                                            },
+                                            block: Fugitive {
+                                                path: FugitivePath(
+                                                    Id {
+                                                        value: 56,
+                                                    },
+                                                ),
+                                                body: Some(
+                                                    FugitiveBody {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            28..38,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         },
@@ -1690,6 +1882,20 @@ Ok(
                                                     22,
                                                 ),
                                             },
+                                            block: Fugitive {
+                                                path: FugitivePath(
+                                                    Id {
+                                                        value: 58,
+                                                    },
+                                                ),
+                                                body: Some(
+                                                    FugitiveBody {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            6..13,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         },
                                     },
                                     path: PrincipalEntityPath::ModuleItem(
@@ -1749,6 +1955,20 @@ Ok(
                                                     35,
                                                 ),
                                             },
+                                            block: Fugitive {
+                                                path: FugitivePath(
+                                                    Id {
+                                                        value: 62,
+                                                    },
+                                                ),
+                                                body: Some(
+                                                    FugitiveBody {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            17..28,
+                                                        ),
+                                                    },
+                                                ),
+                                            },
                                         },
                                     },
                                     path: PrincipalEntityPath::ModuleItem(
@@ -1806,6 +2026,20 @@ Ok(
                                                         ident: `connected_components`,
                                                         token_idx: TokenIdx(
                                                             6,
+                                                        ),
+                                                    },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 70,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    0..1,
+                                                                ),
+                                                            },
                                                         ),
                                                     },
                                                 },
@@ -1879,6 +2113,20 @@ Ok(
                                                             18,
                                                         ),
                                                     },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 71,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    6..10,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -1948,6 +2196,20 @@ Ok(
                                                         ident: `ignored_connected_components_row_span_sum_sum`,
                                                         token_idx: TokenIdx(
                                                             69,
+                                                        ),
+                                                    },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 72,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    11..14,
+                                                                ),
+                                                            },
                                                         ),
                                                     },
                                                 },
@@ -2021,6 +2283,20 @@ Ok(
                                                             103,
                                                         ),
                                                     },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 73,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    14..15,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -2090,6 +2366,20 @@ Ok(
                                                         ident: `major_raw_contour`,
                                                         token_idx: TokenIdx(
                                                             115,
+                                                        ),
+                                                    },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 74,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    15..16,
+                                                                ),
+                                                            },
                                                         ),
                                                     },
                                                 },
@@ -2163,6 +2453,20 @@ Ok(
                                                             128,
                                                         ),
                                                     },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 75,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    16..17,
+                                                                ),
+                                                            },
+                                                        ),
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -2232,6 +2536,20 @@ Ok(
                                                         ident: `major_concave_components`,
                                                         token_idx: TokenIdx(
                                                             138,
+                                                        ),
+                                                    },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 76,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    17..18,
+                                                                ),
+                                                            },
                                                         ),
                                                     },
                                                 },
@@ -2305,6 +2623,20 @@ Ok(
                                                                 ident: `is_one`,
                                                                 token_idx: TokenIdx(
                                                                     23,
+                                                                ),
+                                                            },
+                                                            block: Fugitive {
+                                                                path: FugitivePath(
+                                                                    Id {
+                                                                        value: 29,
+                                                                    },
+                                                                ),
+                                                                body: Some(
+                                                                    FugitiveBody {
+                                                                        ast_idx_range: ArenaIdxRange(
+                                                                            48..51,
+                                                                        ),
+                                                                    },
                                                                 ),
                                                             },
                                                         },
@@ -2388,6 +2720,14 @@ Ok(
                                                             6,
                                                         ),
                                                     },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 96,
+                                                            },
+                                                        ),
+                                                        variants: None,
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -2457,6 +2797,20 @@ Ok(
                                                         ident: `fermi_match`,
                                                         token_idx: TokenIdx(
                                                             147,
+                                                        ),
+                                                    },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 24,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    17..21,
+                                                                ),
+                                                            },
                                                         ),
                                                     },
                                                 },
@@ -2530,6 +2884,14 @@ Ok(
                                                             24,
                                                         ),
                                                     },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 82,
+                                                            },
+                                                        ),
+                                                        variants: None,
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -2599,6 +2961,20 @@ Ok(
                                                         ident: `find_raw_contours`,
                                                         token_idx: TokenIdx(
                                                             954,
+                                                        ),
+                                                    },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 16,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    194..199,
+                                                                ),
+                                                            },
                                                         ),
                                                     },
                                                 },
@@ -2672,6 +3048,14 @@ Ok(
                                                             41,
                                                         ),
                                                     },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 91,
+                                                            },
+                                                        ),
+                                                        variants: None,
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -2742,6 +3126,14 @@ Ok(
                                                         token_idx: TokenIdx(
                                                             171,
                                                         ),
+                                                    },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 92,
+                                                            },
+                                                        ),
+                                                        variants: None,
                                                     },
                                                 },
                                             },
@@ -2815,6 +3207,14 @@ Ok(
                                                                 token_idx: TokenIdx(
                                                                     34,
                                                                 ),
+                                                            },
+                                                            block: Type {
+                                                                path: TypePath(
+                                                                    Id {
+                                                                        value: 93,
+                                                                    },
+                                                                ),
+                                                                variants: None,
                                                             },
                                                         },
                                                     },
@@ -2897,6 +3297,20 @@ Ok(
                                                                 ident: `find_concave_components`,
                                                                 token_idx: TokenIdx(
                                                                     538,
+                                                                ),
+                                                            },
+                                                            block: Fugitive {
+                                                                path: FugitivePath(
+                                                                    Id {
+                                                                        value: 22,
+                                                                    },
+                                                                ),
+                                                                body: Some(
+                                                                    FugitiveBody {
+                                                                        ast_idx_range: ArenaIdxRange(
+                                                                            61..69,
+                                                                        ),
+                                                                    },
                                                                 ),
                                                             },
                                                         },
@@ -2982,6 +3396,14 @@ Ok(
                                                                     8,
                                                                 ),
                                                             },
+                                                            block: Type {
+                                                                path: TypePath(
+                                                                    Id {
+                                                                        value: 95,
+                                                                    },
+                                                                ),
+                                                                variants: None,
+                                                            },
                                                         },
                                                     },
                                                     path: PrincipalEntityPath::ModuleItem(
@@ -3063,6 +3485,14 @@ Ok(
                                                             12,
                                                         ),
                                                     },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 79,
+                                                            },
+                                                        ),
+                                                        variants: None,
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -3133,6 +3563,14 @@ Ok(
                                                         token_idx: TokenIdx(
                                                             33,
                                                         ),
+                                                    },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 80,
+                                                            },
+                                                        ),
+                                                        variants: None,
                                                     },
                                                 },
                                             },
@@ -3205,6 +3643,14 @@ Ok(
                                                             71,
                                                         ),
                                                     },
+                                                    block: Type {
+                                                        path: TypePath(
+                                                            Id {
+                                                                value: 81,
+                                                            },
+                                                        ),
+                                                        variants: None,
+                                                    },
                                                 },
                                             },
                                             path: PrincipalEntityPath::ModuleItem(
@@ -3274,6 +3720,20 @@ Ok(
                                                         ident: `find_connected_components`,
                                                         token_idx: TokenIdx(
                                                             657,
+                                                        ),
+                                                    },
+                                                    block: Fugitive {
+                                                        path: FugitivePath(
+                                                            Id {
+                                                                value: 8,
+                                                            },
+                                                        ),
+                                                        body: Some(
+                                                            FugitiveBody {
+                                                                ast_idx_range: ArenaIdxRange(
+                                                                    114..118,
+                                                                ),
+                                                            },
                                                         ),
                                                     },
                                                 },

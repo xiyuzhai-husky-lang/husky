@@ -22,6 +22,14 @@ Ok(
                                     34,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 47,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -54,6 +62,20 @@ Ok(
                                 ident: `find_concave_components`,
                                 token_idx: TokenIdx(
                                     538,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 55,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            61..69,
+                                        ),
+                                    },
                                 ),
                             },
                         },

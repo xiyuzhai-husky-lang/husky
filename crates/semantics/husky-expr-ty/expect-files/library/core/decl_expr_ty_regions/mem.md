@@ -319,7 +319,13 @@
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::mem`,
                             trai_path: TraitPath(`core::marker::Copy`),
-                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },

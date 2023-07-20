@@ -22,6 +22,14 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 34,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -55,6 +63,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     6,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 35,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -99,6 +115,14 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 34,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -125,6 +149,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     6,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 35,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },

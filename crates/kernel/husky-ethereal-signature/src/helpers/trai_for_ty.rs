@@ -13,7 +13,7 @@ pub struct TraitForTypeImplBlockEtherealSignatureTemplates<'a> {
 }
 
 impl<'a> TraitForTypeImplBlockEtherealSignatureTemplates<'a> {
-    fn iter(self) -> impl Iterator<Item = TraitForTypeImplBlockEtherealSignatureTemplate> + 'a {
+    pub fn iter(self) -> impl Iterator<Item = TraitForTypeImplBlockEtherealSignatureTemplate> + 'a {
         (self
             .trai_side_derive_any
             .iter()

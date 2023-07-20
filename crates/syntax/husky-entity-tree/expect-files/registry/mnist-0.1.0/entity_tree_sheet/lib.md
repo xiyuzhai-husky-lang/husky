@@ -22,6 +22,20 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 106,
+                                    },
+                                ),
+                                variants: Some(
+                                    TypeVariants {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..10,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -56,6 +70,14 @@ Ok(
                                     25,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 107,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -89,6 +111,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     34,
                                 ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 80,
+                                    },
+                                ),
+                                body: None,
                             },
                         },
                     ),
@@ -133,6 +163,20 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 106,
+                                    },
+                                ),
+                                variants: Some(
+                                    TypeVariants {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..10,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     },
                 },
@@ -160,6 +204,14 @@ Ok(
                                     25,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 107,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -186,6 +238,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     34,
                                 ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 80,
+                                    },
+                                ),
+                                body: None,
                             },
                         },
                     },

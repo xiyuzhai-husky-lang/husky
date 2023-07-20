@@ -24,6 +24,20 @@ Ok(
                                     7,
                                 ),
                             },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 52,
+                                    },
+                                ),
+                                items: Some(
+                                    TraitItems {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..2,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -71,6 +85,20 @@ Ok(
                                 ident: `Add`,
                                 token_idx: TokenIdx(
                                     7,
+                                ),
+                            },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 52,
+                                    },
+                                ),
+                                items: Some(
+                                    TraitItems {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..2,
+                                        ),
+                                    },
                                 ),
                             },
                         },

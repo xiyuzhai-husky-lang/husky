@@ -19,15 +19,18 @@ impl HasFluffyTraitMethodDispatch for EtherealTerm {
                 for record in trai_item_records.records() {
                     // todo: check scope
                     let trai_path = record.trai_path();
-                    trai_for_ty_impl_block_ethereal_signature_templates(db, trai_path, ty_path);
-                    todo!("search for trai impls or decrs")
+                    for _ in
+                        trai_for_ty_impl_block_ethereal_signature_templates(db, trai_path, ty_path)?
+                            .iter()
+                    {
+                        todo!()
+                    }
                 }
             }
             TermFunctionReduced::Trait(_) => todo!(),
             TermFunctionReduced::Other(_) => todo!(),
         }
-        p!(self.display(engine.db()), ident_token.debug(engine.db()));
-        todo!()
+        Nothing
     }
 }
 

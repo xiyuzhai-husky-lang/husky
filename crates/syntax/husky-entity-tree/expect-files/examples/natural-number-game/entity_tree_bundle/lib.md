@@ -26,6 +26,20 @@ Ok(
                                             1,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 101,
+                                            },
+                                        ),
+                                        variants: Some(
+                                            TypeVariants {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             ),
                             node_path: EntityNodePath::ModuleItem(
@@ -64,6 +78,14 @@ Ok(
                                             83,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 102,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             ),
                             node_path: EntityNodePath::ModuleItem(
@@ -101,6 +123,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             112,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 103,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             ),
@@ -151,6 +181,20 @@ Ok(
                                             1,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 101,
+                                            },
+                                        ),
+                                        variants: Some(
+                                            TypeVariants {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             },
                         },
@@ -182,6 +226,14 @@ Ok(
                                             83,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 102,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             },
                         },
@@ -212,6 +264,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             112,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 103,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },
