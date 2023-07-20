@@ -110,19 +110,21 @@ pub struct TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated {
 }
 
 impl TraitForTypeImplBlockEtherealSignatureTemplate {
+    /// `Nothing` means template matching failed
     #[inline(always)]
     pub fn instantiate_ty(
         self,
         db: &dyn EtherealSignatureDb,
         arguments: &[EtherealTerm],
         ty_target: EtherealTerm,
-    ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated>
-    {
+    ) -> EtherealSignatureMaybeResult<
+        TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
+    > {
         let mut instantiation = self.generic_parameters(db).instantiation();
         match self.self_ty(db) {
             EtherealSelfType::PathLeading(self_ty_term) => {
                 match instantiation.try_add_rules_from_application(db, self_ty_term, arguments) {
-                    JustOk(_) => Ok(
+                    JustOk(_) => JustOk(
                         TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
                             db,
                             self,
@@ -133,7 +135,18 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
                     Nothing => todo!(),
                 }
             }
-            EtherealSelfType::DeriveAny(_) => todo!(),
+            EtherealSelfType::DeriveAny(symbol) => {
+                unsafe {
+                    instantiation.add_self_ty_parameter(symbol, ty_target);
+                }
+                JustOk(
+                    TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
+                        db,
+                        self,
+                        instantiation,
+                    ),
+                )
+            }
         }
     }
 }
@@ -196,7 +209,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_associated_output_ethereal_signat
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+#[salsa::tracked(jar = EtherealSignatureJar,)]
 fn trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template(
     db: &dyn EtherealSignatureDb,
     template_partially_instantiated: TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,

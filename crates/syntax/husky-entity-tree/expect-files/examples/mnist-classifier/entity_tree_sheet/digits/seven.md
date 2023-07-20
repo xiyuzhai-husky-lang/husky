@@ -1764,11 +1764,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 11,
+                                                    ast_idx: 12,
                                                     ident_token: IdentToken {
                                                         ident: `BinaryImage28`,
                                                         token_idx: TokenIdx(
-                                                            25,
+                                                            32,
                                                         ),
                                                     },
                                                     block: Type {
@@ -1843,11 +1843,11 @@ Ok(
                                                         },
                                                     ),
                                                     visibility: Scope::Pub,
-                                                    ast_idx: 12,
+                                                    ast_idx: 13,
                                                     ident_token: IdentToken {
                                                         ident: `input`,
                                                         token_idx: TokenIdx(
-                                                            34,
+                                                            41,
                                                         ),
                                                     },
                                                     block: Fugitive {

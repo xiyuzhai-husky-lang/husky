@@ -92,6 +92,39 @@ Ok(
             Token::Ident(
                 `Nine`,
             ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::At,
+                ),
+            ),
+            Token::Ident(
+                `derive`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Bra(
+                        Par,
+                    ),
+                ),
+            ),
+            Token::Ident(
+                `Debug`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Comma,
+                ),
+            ),
+            Token::Ident(
+                `Clone`,
+            ),
+            Token::Punctuation(
+                Punctuation(
+                    PunctuationMapped::Ket(
+                        Par,
+                    ),
+                ),
+            ),
             Token::Keyword(
                 Keyword::Pub,
             ),
@@ -179,9 +212,11 @@ Ok(
             19,
             21,
             23,
-            32,
+            30,
+            39,
         ],
         indents: [
+            0,
             0,
             0,
             0,

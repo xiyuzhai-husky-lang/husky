@@ -136,6 +136,15 @@ impl<T, E> MaybeResult<T, E> {
             Nothing => Ok(None),
         }
     }
+
+    pub fn into_option_result(self) -> Option<Result<T, E>> {
+        match self {
+            JustOk(t) => Some(Ok(t)),
+            JustErr(e) => Some(Err(e)),
+            Nothing => None,
+        }
+    }
+
     pub fn into_result(self) -> Result<T, Option<E>> {
         match self {
             JustOk(t) => Ok(t),
