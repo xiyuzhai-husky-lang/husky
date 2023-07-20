@@ -16,6 +16,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEtherealSignatureTemplate {
     AssociatedType(TraitForTypeAssociatedTypeEtherealSignatureTemplate),
+    MethodFn(TraitForTypeMethodFnEtherealSignatureTemplate),
 }
 
 impl TraitForTypeItemEtherealSignatureTemplate {
@@ -36,6 +37,7 @@ impl TraitForTypeItemEtherealSignatureTemplate {
                 )
                 .into()
             }
+            TraitForTypeItemEtherealSignatureTemplate::MethodFn(_) => todo!(),
         }
     }
 }
@@ -65,7 +67,14 @@ fn trai_for_ty_item_ethereal_signature_template(
 ) -> EtherealSignatureResult<TraitForTypeItemEtherealSignatureTemplate> {
     Ok(match path.declarative_signature_template(db)? {
         TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
-        TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),
+        TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(declarative_signature_template) => {
+            TraitForTypeMethodFnEtherealSignatureTemplate::from_declarative(
+                db,
+                path,
+                declarative_signature_template,
+            )?
+            .into()
+        }
         TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
             declarative_signature_template,
         ) => TraitForTypeAssociatedTypeEtherealSignatureTemplate::from_declarative(
