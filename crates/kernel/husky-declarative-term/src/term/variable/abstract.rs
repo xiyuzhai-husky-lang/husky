@@ -1,6 +1,6 @@
 use husky_entity_path::TypePath;
 
-use crate::utils::DeclarativeTermFamily;
+use crate::helpers::DeclarativeTermFamily;
 
 use super::*;
 

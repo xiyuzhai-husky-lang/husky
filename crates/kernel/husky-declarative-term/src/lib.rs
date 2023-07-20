@@ -3,10 +3,10 @@
 mod context;
 mod db;
 mod error;
+pub mod helpers;
 mod menu;
 mod rewrite;
 mod term;
-mod utils;
 
 pub use self::context::*;
 pub use self::db::*;

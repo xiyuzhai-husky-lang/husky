@@ -97,13 +97,13 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 11,
+                            ast_idx: 12,
                             implicit_parameter_decl_list: Ok(
                                 None,
                             ),
                             lpar: LeftParenthesisToken(
                                 TokenIdx(
-                                    26,
+                                    33,
                                 ),
                             ),
                             field_comma_list: Ok(
@@ -123,7 +123,7 @@ Ok(
                                 TupleStructRightParenthesisToken(
                                     RightParenthesisToken(
                                         TokenIdx(
-                                            31,
+                                            38,
                                         ),
                                     ),
                                 ),
@@ -147,7 +147,7 @@ Ok(
                                         data: [
                                             Expr::Literal(
                                                 TokenIdx(
-                                                    28,
+                                                    35,
                                                 ),
                                                 Literal::Integer(
                                                     UnspecifiedRegular(
@@ -157,7 +157,7 @@ Ok(
                                             ),
                                             Expr::List {
                                                 lbox_token_idx: TokenIdx(
-                                                    27,
+                                                    34,
                                                 ),
                                                 items: [
                                                     CommaListItem {
@@ -166,7 +166,7 @@ Ok(
                                                     },
                                                 ],
                                                 rbox_token_idx: TokenIdx(
-                                                    29,
+                                                    36,
                                                 ),
                                             },
                                             Expr::PrincipalEntityPath {
@@ -192,7 +192,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `r32`,
                                                         token_idx: TokenIdx(
-                                                            30,
+                                                            37,
                                                         ),
                                                     },
                                                 ),
@@ -264,12 +264,12 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            ast_idx: 12,
+                            ast_idx: 13,
                             colon_token: Ok(
                                 Some(
                                     ColonToken(
                                         TokenIdx(
-                                            35,
+                                            42,
                                         ),
                                     ),
                                 ),
@@ -286,7 +286,7 @@ Ok(
                                     OriginalNodeDeclError::ExpectEqTokenForVariable(
                                         TokenStreamState {
                                             next_token_idx: TokenIdx(
-                                                37,
+                                                44,
                                             ),
                                             drained: false,
                                         },
@@ -330,7 +330,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `BinaryImage28`,
                                                         token_idx: TokenIdx(
-                                                            36,
+                                                            43,
                                                         ),
                                                     },
                                                 ),
@@ -421,7 +421,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `BinaryImage28`,
                                                                 token_idx: TokenIdx(
-                                                                    36,
+                                                                    43,
                                                                 ),
                                                             },
                                                         ),

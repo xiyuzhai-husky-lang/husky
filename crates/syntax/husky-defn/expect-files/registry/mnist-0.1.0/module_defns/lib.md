@@ -101,7 +101,7 @@ Ok(
                                         data: [
                                             Expr::Literal(
                                                 TokenIdx(
-                                                    28,
+                                                    35,
                                                 ),
                                                 Literal::Integer(
                                                     UnspecifiedRegular(
@@ -111,7 +111,7 @@ Ok(
                                             ),
                                             Expr::List {
                                                 lbox_token_idx: TokenIdx(
-                                                    27,
+                                                    34,
                                                 ),
                                                 items: [
                                                     CommaListItem {
@@ -120,7 +120,7 @@ Ok(
                                                     },
                                                 ],
                                                 rbox_token_idx: TokenIdx(
-                                                    29,
+                                                    36,
                                                 ),
                                             },
                                             Expr::PrincipalEntityPath {
@@ -146,7 +146,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `r32`,
                                                         token_idx: TokenIdx(
-                                                            30,
+                                                            37,
                                                         ),
                                                     },
                                                 ),
@@ -250,7 +250,7 @@ Ok(
                                                     IdentToken {
                                                         ident: `BinaryImage28`,
                                                         token_idx: TokenIdx(
-                                                            36,
+                                                            43,
                                                         ),
                                                     },
                                                 ),
@@ -341,7 +341,7 @@ Ok(
                                                             IdentToken {
                                                                 ident: `BinaryImage28`,
                                                                 token_idx: TokenIdx(
-                                                                    36,
+                                                                    43,
                                                                 ),
                                                             },
                                                         ),
