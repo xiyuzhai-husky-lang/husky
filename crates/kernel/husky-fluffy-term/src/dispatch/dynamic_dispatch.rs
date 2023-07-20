@@ -16,6 +16,7 @@ pub struct FluffyDynamicDispatch<S: MemberSignature> {
 
 type FluffyIndirections = SmallVec<[FluffyDynamicDispatchIndirection; 2]>;
 
+/// members means dynamic associated items, i.e. those accessed through an instance
 pub trait MemberSignature {
     fn expr_ty(
         &self,

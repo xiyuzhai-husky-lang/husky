@@ -89,7 +89,7 @@ fn ethereal_term_trai_method_dispatch_aux(
                     match method_template_partially_instantiated.try_into_signature(db) {
                         Some(signature) => JustOk(FluffyDynamicDispatch {
                             indirections,
-                            signature,
+                            signature: signature.into(),
                         }),
                         None => todo!(),
                     }

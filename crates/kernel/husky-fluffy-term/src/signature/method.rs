@@ -9,6 +9,12 @@ pub enum MethodFluffySignature {
     MethodFunction(MethodFunctionFluffySignature),
 }
 
+impl From<TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
+    fn from(value: TraitForTypeMethodFnEtherealSignature) -> Self {
+        todo!()
+    }
+}
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MethodFnFluffySignature {
     // todo: self_parameter_contracted_ty
