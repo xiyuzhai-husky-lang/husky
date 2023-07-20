@@ -13,6 +13,7 @@ use husky_declarative_signature::{
 };
 use husky_term_prelude::Contract;
 
+// todo: merge this with EtherealTermRitchieParameter
 // todo: use variable for dependent type
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
@@ -20,6 +21,16 @@ pub enum SpecificEtherealParameter {
     Regular(RegularSpecificParameter),
     Variadic(SpecificVariadicParameterEtherealSignatureTemplate),
     Keyed(SpecificKeyedParameterEtherealSignatureTemplate),
+}
+
+impl Into<EtherealTermRitchieParameter> for SpecificEtherealParameter {
+    fn into(self) -> EtherealTermRitchieParameter {
+        match self {
+            SpecificEtherealParameter::Regular(_) => todo!(),
+            SpecificEtherealParameter::Variadic(_) => todo!(),
+            SpecificEtherealParameter::Keyed(_) => todo!(),
+        }
+    }
 }
 
 impl SpecificEtherealParameter {
@@ -39,16 +50,16 @@ impl SpecificEtherealParameter {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct SpecificParameterEtherealSignatureTemplates {
+pub struct ParenicEtherealParameters {
     data: SmallVec<[SpecificEtherealParameter; 4]>,
 }
 
-impl SpecificParameterEtherealSignatureTemplates {
+impl ParenicEtherealParameters {
     pub(crate) fn from_declarative(
         db: &dyn EtherealSignatureDb,
         declarative_signature_templates: &DeclarativeParenicParameters,
     ) -> EtherealSignatureResult<Self> {
-        Ok(SpecificParameterEtherealSignatureTemplates {
+        Ok(ParenicEtherealParameters {
             data: declarative_signature_templates
                 .iter()
                 .copied()
@@ -60,7 +71,7 @@ impl SpecificParameterEtherealSignatureTemplates {
     }
 }
 
-impl std::ops::Deref for SpecificParameterEtherealSignatureTemplates {
+impl std::ops::Deref for ParenicEtherealParameters {
     type Target = [SpecificEtherealParameter];
 
     fn deref(&self) -> &Self::Target {
@@ -68,11 +79,11 @@ impl std::ops::Deref for SpecificParameterEtherealSignatureTemplates {
     }
 }
 
-impl EtherealTermInstantiateRef for SpecificEtherealParameter {
-    type Target = Option<Self>;
+impl EtherealTermInstantiate for SpecificEtherealParameter {
+    type Target = Self;
 
     fn instantiate(
-        &self,
+        self,
         db: &dyn EtherealTermDb,
         instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {

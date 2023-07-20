@@ -10,21 +10,28 @@ pub enum MethodFluffySignature {
 }
 
 impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
-    fn from(value: &TraitForTypeMethodFnEtherealSignature) -> Self {
-        todo!()
+    fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
+        MethodFluffySignature::MethodFn(MethodFnFluffySignature {
+            parenic_parameters: sig
+                .parenic_parameters()
+                .iter()
+                .map(|&param| param.into())
+                .collect(),
+            return_ty: sig.return_ty().into(),
+        })
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct MethodFnFluffySignature {
     // todo: self_parameter_contracted_ty
-    params: SmallVec<[FluffyTermRitchieParameter; 4]>,
+    parenic_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,
     return_ty: FluffyTerm,
 }
 
 impl MethodFnFluffySignature {
     pub fn nonself_parameter_contracted_tys(&self) -> &[FluffyTermRitchieParameter] {
-        &self.params
+        &self.parenic_parameters
     }
 
     pub fn return_ty(&self) -> FluffyTerm {
@@ -101,7 +108,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
         todo!()
     }
     JustOk(MethodFnFluffySignature {
-        params: template
+        parenic_parameters: template
             .explicit_parameters(db)
             .iter()
             .map(|param| param.instantiate(engine, expr_idx, &mut instantiation))
