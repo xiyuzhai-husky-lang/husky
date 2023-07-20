@@ -22,6 +22,14 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 32,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -55,6 +63,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     10,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 33,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -99,6 +115,14 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 32,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -125,6 +149,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     10,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 33,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -157,7 +189,7 @@ Ok(
                                 16,
                             ),
                         },
-                        ty_expr: 50,
+                        ty_expr: 51,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 0..3,

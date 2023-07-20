@@ -16,6 +16,14 @@ impl EtherealTermPartialInstantiation {
         }
     }
 
+    pub unsafe fn add_self_ty_parameter(
+        &mut self,
+        symbol: EtherealTermSymbol,
+        mapped: EtherealTerm,
+    ) {
+        self.symbol_map.insert_new_unchecked((symbol, Some(mapped)))
+    }
+
     /// JustOk(()) means rule is added and everything is compatible
     /// Nothing means something is incompatible
     /// JustErr(_) means something is wrong

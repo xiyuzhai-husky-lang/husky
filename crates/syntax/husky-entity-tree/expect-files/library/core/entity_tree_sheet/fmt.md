@@ -22,6 +22,14 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                                items: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -64,6 +72,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     2,
                                 ),
+                            },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 6,
+                                    },
+                                ),
+                                items: None,
                             },
                         },
                     },

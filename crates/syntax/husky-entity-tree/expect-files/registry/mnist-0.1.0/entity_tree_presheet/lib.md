@@ -22,6 +22,20 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 60,
+                                    },
+                                ),
+                                variants: Some(
+                                    TypeVariants {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..10,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -56,6 +70,14 @@ Ok(
                                     25,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 61,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -89,6 +111,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     34,
                                 ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 78,
+                                    },
+                                ),
+                                body: None,
                             },
                         },
                     ),

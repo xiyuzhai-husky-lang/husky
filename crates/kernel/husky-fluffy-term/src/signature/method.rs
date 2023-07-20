@@ -1,5 +1,6 @@
 use super::*;
 use husky_coword::Ident;
+use husky_token::IdentToken;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[enum_class::from_variants]
@@ -34,8 +35,9 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     ty_path: TypePath,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
-    ident: Ident,
+    ident_token: IdentToken,
 ) -> FluffyTermMaybeResult<MethodFluffySignature> {
+    let ident = ident_token.ident();
     match ty_path.ty_item_ethereal_signature_templates(engine.db(), ident)? {
         TypeItemEtherealSignatureTemplates::MethodFn(templates) => {
             for template in templates.iter().copied() {

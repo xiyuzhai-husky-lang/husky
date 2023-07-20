@@ -22,6 +22,14 @@ Ok(
                                     22,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 30,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -65,6 +73,14 @@ Ok(
                                     22,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 30,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -96,7 +112,7 @@ Ok(
                                 24,
                             ),
                         },
-                        ty_expr: 45,
+                        ty_expr: 46,
                         items: TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 0..1,

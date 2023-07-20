@@ -24,6 +24,20 @@ Ok(
                                     7,
                                 ),
                             },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 26,
+                                    },
+                                ),
+                                items: Some(
+                                    TraitItems {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..2,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(

@@ -22,6 +22,14 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -56,6 +64,14 @@ Ok(
                                     13,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -89,6 +105,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     24,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -133,6 +157,14 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 11,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -159,6 +191,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     13,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 12,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -187,6 +227,14 @@ Ok(
                                     24,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -199,7 +247,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::mem`,
                             trai_path: TraitPath(`core::marker::Copy`),
-                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 13,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -210,7 +264,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::mem`,
                                 trai_path: TraitPath(`core::marker::Copy`),
-                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 13,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -220,11 +280,13 @@ Ok(
                                 30,
                             ),
                         },
-                        trai_expr: 1,
+                        trai_expr: 2,
                         for_token: TokenIdx(
                             35,
                         ),
-                        ty_expr: 2,
+                        ty_sketch_expr: Path(
+                            3,
+                        ),
                         items: None,
                     },
                 ),

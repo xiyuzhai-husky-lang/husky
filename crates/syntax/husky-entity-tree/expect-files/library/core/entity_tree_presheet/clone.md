@@ -15,11 +15,25 @@ Ok(
                                 },
                             ),
                             visibility: Scope::Pub,
-                            ast_idx: 1,
+                            ast_idx: 2,
                             ident_token: IdentToken {
                                 ident: `Clone`,
                                 token_idx: TokenIdx(
                                     2,
+                                ),
+                            },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 1,
+                                    },
+                                ),
+                                items: Some(
+                                    TraitItems {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    },
                                 ),
                             },
                         },

@@ -22,6 +22,14 @@ Ok(
                                     6,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 40,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -54,6 +62,20 @@ Ok(
                                 ident: `fermi_match`,
                                 token_idx: TokenIdx(
                                     147,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 54,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            17..21,
+                                        ),
+                                    },
                                 ),
                             },
                         },

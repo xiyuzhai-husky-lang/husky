@@ -22,6 +22,14 @@ Ok(
                                     8,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -65,6 +73,14 @@ Ok(
                                     8,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 95,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -95,6 +111,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             2,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },
@@ -139,6 +163,14 @@ Ok(
                                             144,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 86,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             },
                             path: PrincipalEntityPath::ModuleItem(
@@ -181,6 +213,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             157,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 87,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },
@@ -225,6 +265,14 @@ Ok(
                                             488,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 88,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             },
                             path: PrincipalEntityPath::ModuleItem(
@@ -268,6 +316,14 @@ Ok(
                                             596,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 89,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             },
                             path: PrincipalEntityPath::ModuleItem(
@@ -310,6 +366,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             732,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 90,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },

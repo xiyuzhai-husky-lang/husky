@@ -22,6 +22,20 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 58,
+                                    },
+                                ),
+                                variants: Some(
+                                    TypeVariants {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..2,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -54,6 +68,20 @@ Ok(
                                 ident: `OneVsAllResult`,
                                 token_idx: TokenIdx(
                                     17,
+                                ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 59,
+                                    },
+                                ),
+                                variants: Some(
+                                    TypeVariants {
+                                        ast_idx_range: ArenaIdxRange(
+                                            2..5,
+                                        ),
+                                    },
                                 ),
                             },
                         },
@@ -89,6 +117,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     61,
                                 ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 77,
+                                    },
+                                ),
+                                body: None,
                             },
                         },
                     ),

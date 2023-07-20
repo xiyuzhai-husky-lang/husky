@@ -1671,7 +1671,13 @@
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::connected_component`,
                             trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 81,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1829,7 +1835,13 @@
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
-                                    ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                    ty_sketch: Path(
+                                        TypePath(
+                                            Id {
+                                                value: 81,
+                                            },
+                                        ),
+                                    ),
                                     disambiguator: 0,
                                 },
                                 ident: `visualize`,

@@ -22,6 +22,20 @@ Ok(
                                     7,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 31,
+                                    },
+                                ),
+                                variants: Some(
+                                    TypeVariants {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..2,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -63,6 +77,20 @@ Ok(
                                 ident: `Result`,
                                 token_idx: TokenIdx(
                                     7,
+                                ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 31,
+                                    },
+                                ),
+                                variants: Some(
+                                    TypeVariants {
+                                        ast_idx_range: ArenaIdxRange(
+                                            0..2,
+                                        ),
+                                    },
                                 ),
                             },
                         },
@@ -123,7 +151,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::result`,
                             trai_path: TraitPath(`core::ops::Unveil`),
-                            ty_path: TypePath(`core::result::Result`, `Enum`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 31,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -134,7 +168,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::result`,
                                 trai_path: TraitPath(`core::ops::Unveil`),
-                                ty_path: TypePath(`core::result::Result`, `Enum`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 31,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -144,11 +184,13 @@ Ok(
                                 23,
                             ),
                         },
-                        trai_expr: 48,
+                        trai_expr: 49,
                         for_token: TokenIdx(
                             41,
                         ),
-                        ty_expr: 49,
+                        ty_sketch_expr: Path(
+                            50,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -203,6 +245,20 @@ Ok(
                                         ident: `Result`,
                                         token_idx: TokenIdx(
                                             7,
+                                        ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 31,
+                                            },
+                                        ),
+                                        variants: Some(
+                                            TypeVariants {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },

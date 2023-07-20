@@ -24,6 +24,20 @@ Ok(
                                             2,
                                         ),
                                     },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             ),
                             node_path: EntityNodePath::ModuleItem(
@@ -58,6 +72,20 @@ Ok(
                                         ident: `quick_sort_aux`,
                                         token_idx: TokenIdx(
                                             41,
+                                        ),
+                                    },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    6..7,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },
@@ -98,6 +126,20 @@ Ok(
                                             102,
                                         ),
                                     },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    18..24,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             ),
                             node_path: EntityNodePath::ModuleItem(
@@ -136,6 +178,20 @@ Ok(
                                             227,
                                         ),
                                     },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    24..27,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             ),
                             node_path: EntityNodePath::ModuleItem(
@@ -172,6 +228,20 @@ Ok(
                                         ident: `quick_sort_works_for_strs`,
                                         token_idx: TokenIdx(
                                             287,
+                                        ),
+                                    },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    27..30,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },
@@ -219,6 +289,20 @@ Ok(
                                             2,
                                         ),
                                     },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 1,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             },
                         },
@@ -248,6 +332,20 @@ Ok(
                                         ident: `quick_sort_aux`,
                                         token_idx: TokenIdx(
                                             41,
+                                        ),
+                                    },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 2,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    6..7,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },
@@ -281,6 +379,20 @@ Ok(
                                             102,
                                         ),
                                     },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 3,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    18..24,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             },
                         },
@@ -312,6 +424,20 @@ Ok(
                                             227,
                                         ),
                                     },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 4,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    24..27,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             },
                         },
@@ -341,6 +467,20 @@ Ok(
                                         ident: `quick_sort_works_for_strs`,
                                         token_idx: TokenIdx(
                                             287,
+                                        ),
+                                    },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 5,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    27..30,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },

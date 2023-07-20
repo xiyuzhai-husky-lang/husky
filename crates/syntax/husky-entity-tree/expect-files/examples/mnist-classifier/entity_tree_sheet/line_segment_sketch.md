@@ -158,6 +158,14 @@ Ok(
                                     41,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 91,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -191,6 +199,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     171,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 92,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     ),
@@ -226,6 +242,20 @@ Ok(
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
                                     370,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            26..32,
+                                        ),
+                                    },
                                 ),
                             },
                         },
@@ -266,6 +296,20 @@ Ok(
                                     467,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            32..38,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -302,6 +346,20 @@ Ok(
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
                                     564,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            60..72,
+                                        ),
+                                    },
                                 ),
                             },
                         },
@@ -342,6 +400,20 @@ Ok(
                                     797,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            105..115,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -378,6 +450,20 @@ Ok(
                                 ident: `find_line_segments`,
                                 token_idx: TokenIdx(
                                     1063,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            149..159,
+                                        ),
+                                    },
                                 ),
                             },
                         },
@@ -533,6 +619,14 @@ Ok(
                                     41,
                                 ),
                             },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 91,
+                                    },
+                                ),
+                                variants: None,
+                            },
                         },
                     },
                 },
@@ -559,6 +653,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     171,
                                 ),
+                            },
+                            block: Type {
+                                path: TypePath(
+                                    Id {
+                                        value: 92,
+                                    },
+                                ),
+                                variants: None,
                             },
                         },
                     },
@@ -589,6 +691,20 @@ Ok(
                                 ident: `go_right`,
                                 token_idx: TokenIdx(
                                     370,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 17,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            26..32,
+                                        ),
+                                    },
                                 ),
                             },
                         },
@@ -622,6 +738,20 @@ Ok(
                                     467,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            32..38,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     },
                 },
@@ -651,6 +781,20 @@ Ok(
                                 ident: `extend_end`,
                                 token_idx: TokenIdx(
                                     564,
+                                ),
+                            },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 19,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            60..72,
+                                        ),
+                                    },
                                 ),
                             },
                         },
@@ -684,6 +828,20 @@ Ok(
                                     797,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            105..115,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     },
                 },
@@ -715,6 +873,20 @@ Ok(
                                     1063,
                                 ),
                             },
+                            block: Fugitive {
+                                path: FugitivePath(
+                                    Id {
+                                        value: 21,
+                                    },
+                                ),
+                                body: Some(
+                                    FugitiveBody {
+                                        ast_idx_range: ArenaIdxRange(
+                                            149..159,
+                                        ),
+                                    },
+                                ),
+                            },
                         },
                     },
                 },
@@ -743,6 +915,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             34,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 93,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },
@@ -781,6 +961,20 @@ Ok(
                                         ident: `find_concave_components`,
                                         token_idx: TokenIdx(
                                             538,
+                                        ),
+                                    },
+                                    block: Fugitive {
+                                        path: FugitivePath(
+                                            Id {
+                                                value: 22,
+                                            },
+                                        ),
+                                        body: Some(
+                                            FugitiveBody {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    61..69,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },
@@ -822,6 +1016,14 @@ Ok(
                                             8,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             },
                             path: PrincipalEntityPath::ModuleItem(
@@ -862,6 +1064,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             8,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 95,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },
@@ -906,6 +1116,14 @@ Ok(
                                             24,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 82,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             },
                             path: PrincipalEntityPath::ModuleItem(
@@ -948,6 +1166,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             2,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 85,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },
@@ -992,6 +1218,14 @@ Ok(
                                             144,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 86,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             },
                             path: PrincipalEntityPath::ModuleItem(
@@ -1034,6 +1268,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             157,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 87,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },
@@ -1078,6 +1320,14 @@ Ok(
                                             488,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 88,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             },
                             path: PrincipalEntityPath::ModuleItem(
@@ -1120,6 +1370,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             596,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 89,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },
@@ -1164,6 +1422,14 @@ Ok(
                                             732,
                                         ),
                                     },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 90,
+                                            },
+                                        ),
+                                        variants: None,
+                                    },
                                 },
                             },
                             path: PrincipalEntityPath::ModuleItem(
@@ -1188,7 +1454,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch`,
                             trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 91,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1199,7 +1471,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 91,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1213,7 +1491,9 @@ Ok(
                         for_token: TokenIdx(
                             85,
                         ),
-                        ty_expr: 12,
+                        ty_sketch_expr: Path(
+                            12,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1266,7 +1546,13 @@ Ok(
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch`,
                             trai_path: TraitPath(`core::visual::Visualize`),
-                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                            ty_sketch: Path(
+                                TypePath(
+                                    Id {
+                                        value: 92,
+                                    },
+                                ),
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -1277,7 +1563,13 @@ Ok(
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
-                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
+                                ty_sketch: Path(
+                                    TypePath(
+                                        Id {
+                                            value: 92,
+                                        },
+                                    ),
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -1291,7 +1583,9 @@ Ok(
                         for_token: TokenIdx(
                             187,
                         ),
-                        ty_expr: 15,
+                        ty_sketch_expr: Path(
+                            15,
+                        ),
                         items: Some(
                             TraitForType(
                                 TraitForTypeItems {
@@ -1714,6 +2008,14 @@ Ok(
                                         token_idx: TokenIdx(
                                             24,
                                         ),
+                                    },
+                                    block: Type {
+                                        path: TypePath(
+                                            Id {
+                                                value: 82,
+                                            },
+                                        ),
+                                        variants: None,
                                     },
                                 },
                             },

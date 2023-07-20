@@ -253,6 +253,14 @@ Ok(
                                                     2,
                                                 ),
                                             },
+                                            block: Type {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 74,
+                                                    },
+                                                ),
+                                                variants: None,
+                                            },
                                         },
                                     },
                                     path: PrincipalEntityPath::ModuleItem(
@@ -292,6 +300,14 @@ Ok(
                                                     6,
                                                 ),
                                             },
+                                            block: Type {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 75,
+                                                    },
+                                                ),
+                                                variants: None,
+                                            },
                                         },
                                     },
                                     path: PrincipalEntityPath::ModuleItem(
@@ -329,6 +345,20 @@ Ok(
                                                 ident: `LogicOr`,
                                                 token_idx: TokenIdx(
                                                     28,
+                                                ),
+                                            },
+                                            block: Type {
+                                                path: TypePath(
+                                                    Id {
+                                                        value: 76,
+                                                    },
+                                                ),
+                                                variants: Some(
+                                                    TypeVariants {
+                                                        ast_idx_range: ArenaIdxRange(
+                                                            0..2,
+                                                        ),
+                                                    },
                                                 ),
                                             },
                                         },
@@ -452,6 +482,20 @@ Ok(
                                             7,
                                         ),
                                     },
+                                    block: Trait {
+                                        path: TraitPath(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                        items: Some(
+                                            TraitItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
+                                        ),
+                                    },
                                 },
                             ),
                             node_path: EntityNodePath::ModuleItem(
@@ -499,6 +543,20 @@ Ok(
                                         ident: `Add`,
                                         token_idx: TokenIdx(
                                             7,
+                                        ),
+                                    },
+                                    block: Trait {
+                                        path: TraitPath(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                        items: Some(
+                                            TraitItems {
+                                                ast_idx_range: ArenaIdxRange(
+                                                    0..2,
+                                                ),
+                                            },
                                         ),
                                     },
                                 },

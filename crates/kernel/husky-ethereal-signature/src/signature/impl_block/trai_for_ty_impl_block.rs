@@ -15,8 +15,23 @@ pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum EtherealSelfType {
-    Path(EtherealTerm),
+    PathLeading(EtherealTerm),
     DeriveAny(EtherealTermSymbol),
+}
+
+impl EtherealTermInstantiate for EtherealSelfType {
+    type Target = EtherealTerm;
+
+    fn instantiate(
+        self,
+        db: &dyn EtherealTermDb,
+        instantiation: &EtherealTermInstantiation,
+    ) -> Self::Target {
+        match self {
+            EtherealSelfType::PathLeading(term) => term.instantiate(db, instantiation),
+            EtherealSelfType::DeriveAny(term_symbol) => term_symbol.instantiate(db, instantiation),
+        }
+    }
 }
 
 impl EtherealSelfType {
@@ -25,9 +40,9 @@ impl EtherealSelfType {
         declarative_self_ty: DeclarativeSelfType,
     ) -> EtherealTermResult<Self> {
         Ok(match declarative_self_ty {
-            DeclarativeSelfType::Path(declarative_term) => {
-                EtherealSelfType::Path(EtherealTerm::ty_from_declarative(db, declarative_term)?)
-            }
+            DeclarativeSelfType::Path(declarative_term) => EtherealSelfType::PathLeading(
+                EtherealTerm::ty_from_declarative(db, declarative_term)?,
+            ),
             DeclarativeSelfType::DerivedAny(declarative_term_symbol) => {
                 EtherealSelfType::DeriveAny(EtherealTermSymbol::from_declarative(
                     db,
@@ -39,7 +54,7 @@ impl EtherealSelfType {
 
     pub fn parameter_symbol(self) -> Option<EtherealTermSymbol> {
         match self {
-            EtherealSelfType::Path(_) => None,
+            EtherealSelfType::PathLeading(_) => None,
             EtherealSelfType::DeriveAny(symbol) => Some(symbol),
         }
     }
@@ -103,21 +118,23 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         ty_target: EtherealTerm,
     ) -> EtherealSignatureResult<TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated>
     {
-        let mut instantiation = self
-            .generic_parameters(db)
-            .instantiation(self.self_ty(db).parameter_symbol());
-        todo!()
-        // match instantiation.try_add_rules_from_application(db, self.ty(db), arguments) {
-        //     JustOk(_) => Ok(
-        //         TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
-        //             db,
-        //             self,
-        //             instantiation,
-        //         ),
-        //     ),
-        //     JustErr(_) => todo!(),
-        //     Nothing => todo!(),
-        // }
+        let mut instantiation = self.generic_parameters(db).instantiation();
+        match self.self_ty(db) {
+            EtherealSelfType::PathLeading(self_ty_term) => {
+                match instantiation.try_add_rules_from_application(db, self_ty_term, arguments) {
+                    JustOk(_) => Ok(
+                        TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated::new(
+                            db,
+                            self,
+                            instantiation,
+                        ),
+                    ),
+                    JustErr(_) => todo!(),
+                    Nothing => todo!(),
+                }
+            }
+            EtherealSelfType::DeriveAny(_) => todo!(),
+        }
     }
 }
 
@@ -128,12 +145,11 @@ impl TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated {
     ) -> Option<TraitForTypeImplBlockEtherealSignature> {
         let instantiation = self.partial_instantiation(db).try_into_instantiation()?;
         let template = self.template(db);
-        todo!()
-        // Some(TraitForTypeImplBlockEtherealSignature {
-        //     path: template.path(db),
-        //     trai: template.trai(db).instantiate(db, &instantiation),
-        //     ty: template.ty(db).instantiate(db, &instantiation),
-        // })
+        Some(TraitForTypeImplBlockEtherealSignature {
+            path: template.path(db),
+            trai: template.trai(db).instantiate(db, &instantiation),
+            self_ty: template.self_ty(db).instantiate(db, &instantiation),
+        })
     }
 
     /// for better caching, many common traits use "Output" as an associated
@@ -202,7 +218,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_item_ethereal_signature_template(
 pub struct TraitForTypeImplBlockEtherealSignature {
     path: TraitForTypeImplBlockPath,
     trai: EtherealTerm,
-    ty: EtherealTerm,
+    self_ty: EtherealTerm,
 }
 
 impl TraitForTypeImplBlockEtherealSignature {
@@ -215,6 +231,6 @@ impl TraitForTypeImplBlockEtherealSignature {
     }
 
     pub fn ty(&self) -> EtherealTerm {
-        self.ty
+        self.self_ty
     }
 }

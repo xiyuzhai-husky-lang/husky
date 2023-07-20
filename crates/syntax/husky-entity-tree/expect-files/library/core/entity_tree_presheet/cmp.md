@@ -22,6 +22,14 @@ Ok(
                                     2,
                                 ),
                             },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 2,
+                                    },
+                                ),
+                                items: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -55,6 +63,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     6,
                                 ),
+                            },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 3,
+                                    },
+                                ),
+                                items: None,
                             },
                         },
                     ),
@@ -90,6 +106,14 @@ Ok(
                                     10,
                                 ),
                             },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 4,
+                                    },
+                                ),
+                                items: None,
+                            },
                         },
                     ),
                     node_path: EntityNodePath::ModuleItem(
@@ -123,6 +147,14 @@ Ok(
                                 token_idx: TokenIdx(
                                     14,
                                 ),
+                            },
+                            block: Trait {
+                                path: TraitPath(
+                                    Id {
+                                        value: 5,
+                                    },
+                                ),
+                                items: None,
                             },
                         },
                     ),
