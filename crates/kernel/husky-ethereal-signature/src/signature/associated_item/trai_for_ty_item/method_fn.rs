@@ -5,6 +5,8 @@ pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,
     pub self_parameter: RegularSpecificParameter,
+    #[return_ref]
+    pub parenic_parameters: ParenicEtherealParameters,
     pub return_ty: EtherealTerm,
 }
 
@@ -22,12 +24,17 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
             db,
             declarative_signature_template.self_parameter(db),
         )?;
+        let parenic_parameters = ParenicEtherealParameters::from_declarative(
+            db,
+            declarative_signature_template.parenic_parameters(db),
+        )?;
         let return_ty =
             EtherealTerm::ty_from_declarative(db, declarative_signature_template.return_ty(db))?;
         Ok(TraitForTypeMethodFnEtherealSignatureTemplate::new(
             db,
             generic_parameters,
             self_parameter,
+            parenic_parameters,
             return_ty,
         ))
     }
@@ -78,8 +85,17 @@ fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_
         .try_into_instantiation()?;
     let template = template_partially_instantiated.template(db);
     Some(TraitForTypeMethodFnEtherealSignature {
-        self_parameter: template.self_parameter(db).instantiate(db, &instantiation),
-        call_parameters: todo!(),
+        self_parameter: template
+            .self_parameter(db)
+            .instantiate(db, &instantiation)
+            .into(),
+        parenic_parameters: template
+            .parenic_parameters(db)
+            .iter()
+            .map(|param| -> EtherealTermRitchieParameter {
+                param.instantiate(db, &instantiation).into()
+            })
+            .collect(),
         return_ty: template.return_ty(db).instantiate(db, &instantiation),
     })
 }
@@ -87,13 +103,13 @@ fn trai_for_ty_method_fn_ethereal_signature_template_partially_instantiated_try_
 #[derive(Debug, PartialEq, Eq)]
 pub struct TraitForTypeMethodFnEtherealSignature {
     self_parameter: EtherealTermRitchieParameter,
-    call_parameters: SmallVec<[EtherealTermRitchieParameter; 4]>,
+    parenic_parameters: SmallVec<[EtherealTermRitchieParameter; 4]>,
     return_ty: EtherealTerm,
 }
 
 impl TraitForTypeMethodFnEtherealSignature {
-    pub fn call_parameters(&self) -> &[EtherealTermRitchieParameter] {
-        &self.call_parameters
+    pub fn parenic_parameters(&self) -> &[EtherealTermRitchieParameter] {
+        &self.parenic_parameters
     }
 
     pub fn return_ty(&self) -> EtherealTerm {

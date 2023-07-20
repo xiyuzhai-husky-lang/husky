@@ -312,7 +312,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        params: [
+                                        parenic_params: [
                                             Regular(
                                                 FluffyTermRitchieRegularParameter {
                                                     contract: None,

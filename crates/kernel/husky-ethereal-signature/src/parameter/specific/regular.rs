@@ -1,9 +1,23 @@
 use super::*;
 
+// todo: redundant
+// replace this with ethereal term ritchie parameter
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct RegularSpecificParameter {
     contract: Contract,
     ty: EtherealTerm,
+}
+
+impl Into<EtherealTermRitchieRegularParameter> for RegularSpecificParameter {
+    fn into(self) -> EtherealTermRitchieRegularParameter {
+        EtherealTermRitchieRegularParameter::new(self.contract, self.ty)
+    }
+}
+
+impl Into<EtherealTermRitchieParameter> for RegularSpecificParameter {
+    fn into(self) -> EtherealTermRitchieParameter {
+        EtherealTermRitchieParameter::Regular(self.into())
+    }
 }
 
 impl RegularSpecificParameter {
@@ -26,15 +40,18 @@ impl RegularSpecificParameter {
     }
 }
 
-impl EtherealTermInstantiateRef for RegularSpecificParameter {
+impl EtherealTermInstantiate for RegularSpecificParameter {
     type Target = Self;
 
     fn instantiate(
-        &self,
+        self,
         db: &dyn EtherealTermDb,
         instantiation: &EtherealTermInstantiation,
     ) -> Self::Target {
-        todo!()
+        RegularSpecificParameter {
+            contract: self.contract,
+            ty: self.ty.instantiate(db, instantiation),
+        }
     }
 }
 
