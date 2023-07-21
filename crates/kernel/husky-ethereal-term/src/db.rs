@@ -2,8 +2,8 @@ use std::sync::Arc;
 
 use crate::*;
 use husky_declarative_ty::DeclarativeTypeDb;
-use husky_decr::DecrDb;
 use husky_entity_path::EntityPathDb;
+use husky_syn_decr::DecrDb;
 use salsa::DbWithJar;
 
 pub trait EtherealTermDb: DbWithJar<EtherealTermJar> + DeclarativeTypeDb + DecrDb {

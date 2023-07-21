@@ -31,8 +31,8 @@ husky-scope = { path = "../../kernel/husky-scope" }
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-decl = { path = "../../syntax/husky-decl" }
-husky-decr = { path = "../../syntax/husky-decr" }
+husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
+husky-syn-decr = { path = "../../syntax/husky-syn-decr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-unicode-symbols = { path = "../../utils/husky-unicode-symbols" }

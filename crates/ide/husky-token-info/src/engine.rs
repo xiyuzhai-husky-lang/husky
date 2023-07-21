@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet};
-use husky_defn::*;
+use husky_syn_defn::*;
 
 use husky_entity_taxonomy::EntityKind;
 use husky_entity_tree::ParentUseExpr;

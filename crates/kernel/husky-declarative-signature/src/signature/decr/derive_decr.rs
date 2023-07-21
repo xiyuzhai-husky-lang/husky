@@ -1,5 +1,5 @@
 use super::*;
-use husky_decr::{Decr, DeriveDecr, HasDecrs};
+use husky_syn_decr::{Decr, DeriveDecr, HasDecrs};
 use vec_like::{SmallVecPairMap, SmallVecSet, VecMapGetEntry};
 
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]

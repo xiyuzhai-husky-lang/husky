@@ -29,7 +29,7 @@ husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
-husky-defn = { path = "../../syntax/husky-defn" }
+husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 # vm
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
 # comptime

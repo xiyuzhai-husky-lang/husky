@@ -1,5 +1,5 @@
 use super::*;
-use husky_defn::Defn;
+use husky_syn_defn::Defn;
 
 impl<'a> LinkageCollector<'a> {
     pub(crate) fn collect_from_entity_defn(&mut self, _defn: &Defn) {
