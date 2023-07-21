@@ -2,8 +2,8 @@ use crate::*;
 use husky_declarative_signature::{
     HasDeclarativeSignatureTemplate, TypeDeclarativeSignatureTemplate,
 };
-use husky_decr::{Decr, HasDecrs};
 use husky_entity_tree::TraitForTypeImplBlockNode;
+use husky_syn_decr::{Decr, HasDecrs};
 use smallvec::SmallVec;
 
 impl EtherealTerm {

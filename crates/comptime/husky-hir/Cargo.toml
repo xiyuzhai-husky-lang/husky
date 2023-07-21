@@ -23,7 +23,7 @@ husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
-husky-defn = { path = "../../syntax/husky-defn" }
+husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
@@ -36,4 +36,4 @@ husky-manifest = { path = "../../semantics/husky-manifest" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-decl = { path = "../../syntax/husky-decl" }
+husky-syn-decl = { path = "../../syntax/husky-syn-decl" }

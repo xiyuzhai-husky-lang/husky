@@ -1,5 +1,5 @@
 use crate::*;
-use husky_decl::HasDecl;
+use husky_syn_decl::HasDecl;
 
 #[salsa::tracked(jar = DeclarativeTypeJar,  )]
 pub fn ty_path_field_declarative_ty(

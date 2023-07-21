@@ -112,9 +112,9 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-ast/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-ast/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-corgi-config-ast/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-decl/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-decr/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-defn/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-syn-decl/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-syn-decr/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-syn-defn/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-entity-path-expr/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-entity-tree/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-expr/src" isTestSource="false" />

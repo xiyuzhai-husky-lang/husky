@@ -1,0 +1,27 @@
+[package]
+name = "husky-syn-decr"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+thiserror.workspace = true
+either = "1.8.1"
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+original-error = { path = "../../abstraction/original-error" }
+parsec = { path = "../../abstraction/parsec" }
+# fs
+husky-vfs = { path = "../../fs/husky-vfs" }
+# lex
+husky-token = { path = "../../lex/husky-token" }
+# kernel
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-scope = { path = "../../kernel/husky-scope" }
+# syntax
+husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
+# utils
+husky-print-utils = { path = "../../utils/husky-print-utils" }

@@ -1,5 +1,5 @@
 use crate::*;
-use husky_decl::DeclError;
+use husky_syn_decl::DeclError;
 use thiserror::Error;
 
 pub type DeclarativeTypeResult<T> = Result<T, DeclarativeTypeError>;

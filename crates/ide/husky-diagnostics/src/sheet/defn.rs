@@ -1,5 +1,5 @@
 use super::*;
-use husky_defn::*;
+use husky_syn_defn::*;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct DefnDiagnosticSheet {

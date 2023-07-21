@@ -21,10 +21,10 @@ pub use self::term::*;
 use self::tests::*;
 use self::variance::*;
 use husky_coword::*;
-use husky_decl::HasDecl;
 use husky_declarative_signature::*;
 use husky_declarative_term::*;
 use husky_entity_path::*;
+use husky_syn_decl::HasDecl;
 use husky_term_prelude::*;
 use map_collect::*;
 

@@ -1,4 +1,4 @@
-use husky_decr::DecrDb;
+use husky_syn_decr::DecrDb;
 use husky_syn_expr::ExprRegion;
 
 use crate::*;

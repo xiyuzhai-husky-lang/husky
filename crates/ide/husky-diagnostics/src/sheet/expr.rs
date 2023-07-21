@@ -1,5 +1,5 @@
 use super::*;
-use husky_defn::HasDefns;
+use husky_syn_defn::HasDefns;
 use husky_syn_expr::{
     ExprError, ExprRegion, OriginalExprError, OriginalPrincipalEntityPathExprError,
     PrincipalEntityPathExpr, PrincipalEntityPathExprError, Stmt, StmtError, SynExpr,

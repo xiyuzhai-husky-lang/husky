@@ -1,7 +1,7 @@
 use super::*;
-use husky_defn::HasDefns;
 use husky_expr_ty::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
 use husky_fluffy_term::*;
+use husky_syn_defn::HasDefns;
 use husky_syn_expr::{ExprIdx, ExprRegion};
 use salsa::{DebugWithDb, DisplayWithDb};
 
