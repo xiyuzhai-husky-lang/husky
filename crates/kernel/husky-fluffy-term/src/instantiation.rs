@@ -1,4 +1,3 @@
-use husky_ethereal_signature::SpecificEtherealParameter;
 use vec_like::VecPairMap;
 
 use super::*;

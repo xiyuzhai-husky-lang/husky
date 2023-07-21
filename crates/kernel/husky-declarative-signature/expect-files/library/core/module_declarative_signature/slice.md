@@ -135,15 +135,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: ExplicitApplication(
-                                    DeclarativeTermExplicitApplication(
-                                        Id {
-                                            value: 42,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -194,15 +188,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: ExplicitApplication(
-                                    DeclarativeTermExplicitApplication(
-                                        Id {
-                                            value: 42,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -253,15 +241,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: ExplicitApplication(
-                                    DeclarativeTermExplicitApplication(
-                                        Id {
-                                            value: 42,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::slice::CyclicSliceLeashed t`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],

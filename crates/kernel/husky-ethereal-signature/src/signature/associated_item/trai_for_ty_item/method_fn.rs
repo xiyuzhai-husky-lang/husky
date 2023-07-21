@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,
-    pub self_parameter: RegularSpecificParameter,
+    pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
     pub parenic_parameters: ParenicEtherealParameters,
     pub return_ty: EtherealTerm,
@@ -20,7 +20,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
             db,
             declarative_signature_template.generic_parameters(db),
         )?;
-        let self_parameter = RegularSpecificParameter::from_declarative(
+        let self_parameter = EtherealTermRitchieRegularParameter::from_declarative(
             db,
             declarative_signature_template.self_parameter(db),
         )?;

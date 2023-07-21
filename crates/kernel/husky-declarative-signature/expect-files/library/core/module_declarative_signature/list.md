@@ -103,15 +103,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: ExplicitApplication(
-                                    DeclarativeTermExplicitApplication(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::list::List t`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -162,15 +156,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: BorrowMut,
-                                ty: ExplicitApplication(
-                                    DeclarativeTermExplicitApplication(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::list::List t`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -228,15 +216,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: ExplicitApplication(
-                                    DeclarativeTermExplicitApplication(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::list::List t`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -287,15 +269,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: ExplicitApplication(
-                                    DeclarativeTermExplicitApplication(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::list::List t`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -346,15 +322,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: BorrowMut,
-                                ty: ExplicitApplication(
-                                    DeclarativeTermExplicitApplication(
-                                        Id {
-                                            value: 6,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::list::List t`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],

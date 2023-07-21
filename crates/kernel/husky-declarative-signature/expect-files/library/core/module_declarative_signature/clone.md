@@ -70,15 +70,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: Symbol(
-                                    DeclarativeTermSymbol(
-                                        Id {
-                                            value: 2,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`t`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],

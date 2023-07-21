@@ -93,17 +93,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 94,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
