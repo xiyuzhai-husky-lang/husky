@@ -2060,7 +2060,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_params: [],
+                                        parenic_parameters: [],
                                         return_ty: EntityPath(
                                             TypeOntology(
                                                 TypePath(
@@ -3614,7 +3614,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_params: [
+                                        parenic_parameters: [
                                             Regular(
                                                 FluffyTermRitchieRegularParameter {
                                                     contract: None,
@@ -6051,7 +6051,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_params: [
+                                        parenic_parameters: [
                                             Regular(
                                                 FluffyTermRitchieRegularParameter {
                                                     contract: None,
@@ -6172,7 +6172,7 @@
                                 ],
                                 signature: MethodFn(
                                     MethodFnFluffySignature {
-                                        parenic_params: [
+                                        parenic_parameters: [
                                             Regular(
                                                 FluffyTermRitchieRegularParameter {
                                                     contract: None,
