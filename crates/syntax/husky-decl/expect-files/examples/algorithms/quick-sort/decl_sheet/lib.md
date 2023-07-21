@@ -37,7 +37,7 @@ Ok(
                                         },
                                     },
                                 ],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -295,7 +295,7 @@ Ok(
                                         },
                                     },
                                 ],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -717,7 +717,7 @@ Ok(
                                         },
                                     },
                                 ],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(

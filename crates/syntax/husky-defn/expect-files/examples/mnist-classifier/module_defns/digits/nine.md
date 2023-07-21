@@ -3468,7 +3468,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
@@ -4123,7 +4123,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(

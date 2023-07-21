@@ -712,7 +712,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -994,7 +994,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -1276,7 +1276,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -1647,7 +1647,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -2100,7 +2100,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -2594,7 +2594,7 @@ Ok(
                                 },
                                 generic_parameters: [],
                                 self_parameter: None,
-                                explicit_parameters: [],
+                                parenic_parameters: [],
                                 return_ty: None,
                                 expr_region: ExprRegion {
                                     data: ExprRegionData {
@@ -2935,7 +2935,7 @@ Ok(
                                     item_kind: AssociatedFn,
                                 },
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -3419,7 +3419,7 @@ Ok(
                                 },
                                 generic_parameters: [],
                                 self_parameter: None,
-                                explicit_parameters: [],
+                                parenic_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExprBeforeColon {
                                         expr: 0,
@@ -3816,7 +3816,7 @@ Ok(
                                 },
                                 generic_parameters: [],
                                 self_parameter: None,
-                                explicit_parameters: [],
+                                parenic_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExprBeforeColon {
                                         expr: 0,
@@ -4646,7 +4646,7 @@ Ok(
                                     item_kind: AssociatedFn,
                                 },
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(

@@ -1737,7 +1737,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(

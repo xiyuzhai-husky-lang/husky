@@ -9,7 +9,7 @@ pub struct GnNodeDecl {
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
+    parenic_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<false>>,
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
@@ -25,7 +25,7 @@ impl GnNodeDecl {
                 .err()
                 .into_iter()
                 .chain(
-                    self.explicit_parameter_decl_list(db)
+                    self.parenic_parameter_decl_list(db)
                         .as_ref()
                         .err()
                         .into_iter(),
@@ -80,7 +80,7 @@ pub struct GnDecl {
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
-    pub explicit_parameters: ExplicitParameterDeclPatterns,
+    pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub expr_region: ExprRegion,
 }
@@ -97,9 +97,9 @@ impl GnDecl {
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
-        let explicit_parameters: ExplicitParameterDeclPatterns = explicit_parameter_decl_list
-            .explicit_parameters()
+        let parenic_parameter_decl_list = node_decl.parenic_parameter_decl_list(db).as_ref()?;
+        let parenic_parameters: ExplicitParameterDeclPatterns = parenic_parameter_decl_list
+            .parenic_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
@@ -109,7 +109,7 @@ impl GnDecl {
             db,
             path,
             generic_parameters,
-            explicit_parameters,
+            parenic_parameters,
             return_ty,
             expr_region,
         ))

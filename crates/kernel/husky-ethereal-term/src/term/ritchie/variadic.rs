@@ -10,7 +10,7 @@ pub struct EtherealTermRitchieVariadicParameter {
 impl EtherealTermRitchieVariadicParameter {
     pub(super) fn from_declarative(
         db: &dyn EtherealTermDb,
-        param: &DeclarativeTermRitchieVariadicParameter,
+        param: DeclarativeTermRitchieVariadicParameter,
     ) -> EtherealTermResult<Self> {
         Ok(EtherealTermRitchieVariadicParameter {
             contract: param.contract(),

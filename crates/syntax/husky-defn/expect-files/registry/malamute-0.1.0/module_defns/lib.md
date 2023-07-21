@@ -397,7 +397,7 @@ Ok(
                                     },
                                 },
                             ],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Variadic {
                                     dot_dot_dot_token: DotDotDotToken(
                                         TokenIdx(

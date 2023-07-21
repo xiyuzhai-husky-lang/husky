@@ -231,34 +231,18 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
@@ -311,7 +295,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -362,20 +346,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 85,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                                         },
                                     ),
                                 ],
@@ -428,7 +404,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -479,20 +455,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 85,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                                         },
                                     ),
                                 ],
@@ -568,7 +536,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
@@ -619,20 +587,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 87,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                                         },
                                     ),
                                 ],
@@ -685,7 +645,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -736,20 +696,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 87,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                                         },
                                     ),
                                 ],
@@ -802,20 +754,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 87,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                                         },
                                     ),
                                 ],
@@ -868,20 +812,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 41,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::basic::bool`),
                                         },
                                     ),
                                 ],
@@ -934,20 +870,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 87,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                                         },
                                     ),
                                 ],
@@ -1000,34 +928,18 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 87,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 41,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::basic::bool`),
                                         },
                                     ),
                                 ],
@@ -1103,20 +1015,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 88,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                                         },
                                     ),
                                 ],
@@ -1169,20 +1073,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 60,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],
@@ -1258,20 +1154,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 89,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                                         },
                                     ),
                                 ],
@@ -1324,20 +1212,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 85,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                                         },
                                     ),
                                 ],
@@ -1390,7 +1270,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1441,7 +1321,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1492,7 +1372,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1543,7 +1423,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1617,7 +1497,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1668,7 +1548,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1719,7 +1599,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),
@@ -1770,7 +1650,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::f32`),

@@ -122,7 +122,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -444,7 +444,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -658,7 +658,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(

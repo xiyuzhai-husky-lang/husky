@@ -112,49 +112,21 @@
                                     },
                                 ],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Variadic(
-                                        SpecificVariadicParameterDeclarativeSignatureTemplate {
+                                    DeclarativeTermRitchieParameter::Variadic(
+                                        DeclarativeTermRitchieVariadicParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 60,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
-                                    Keyed(
-                                        SpecificKeyedParameterDeclarativeSignatureTemplate {
-                                            key: Ident(
-                                                Coword(
-                                                    Id {
-                                                        value: 447,
-                                                    },
-                                                ),
-                                            ),
+                                    DeclarativeTermRitchieParameter::Keyed(
+                                        DeclarativeTermRitchieKeyedParameter {
+                                            key: `skip`,
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                             default: Some(
-                                                Literal(
-                                                    Unresolved(
-                                                        RegularInteger(
-                                                            5,
-                                                        ),
-                                                    ),
-                                                ),
+                                                DeclarativeTerm(`DeclarativeTermLiteralTodo`),
                                             ),
                                         },
                                     ),

@@ -3,6 +3,7 @@
 #![feature(let_chains)]
 mod db;
 mod error;
+mod helpers;
 mod html;
 mod list_item;
 mod parser;
@@ -16,10 +17,10 @@ mod stmt;
 mod symbol;
 #[cfg(test)]
 mod tests;
-mod utils;
 
 pub use self::db::*;
 pub use self::error::*;
+pub use self::helpers::*;
 pub use self::html::*;
 pub use self::list_item::*;
 pub use self::parser::*;
@@ -29,7 +30,6 @@ pub use self::range::*;
 pub use self::region::*;
 pub use self::stmt::*;
 pub use self::symbol::*;
-pub use self::utils::*;
 
 use husky_coword::*;
 use husky_entity_path::{EntityPath, PrincipalEntityPath};

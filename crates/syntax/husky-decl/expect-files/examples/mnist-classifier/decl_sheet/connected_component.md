@@ -488,7 +488,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -837,7 +837,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -1119,7 +1119,7 @@ Ok(
                             FnDecl {
                                 path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                 generic_parameters: [],
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -1524,7 +1524,7 @@ Ok(
                                 },
                                 generic_parameters: [],
                                 self_parameter: None,
-                                explicit_parameters: [],
+                                parenic_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExprBeforeColon {
                                         expr: 0,
@@ -3675,7 +3675,7 @@ Ok(
                                 },
                                 generic_parameters: [],
                                 self_parameter: None,
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(
@@ -3988,7 +3988,7 @@ Ok(
                                 },
                                 generic_parameters: [],
                                 self_parameter: None,
-                                explicit_parameters: [
+                                parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
                                         variables: ArenaIdxRange(

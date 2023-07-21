@@ -113,7 +113,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 PatternTypeConstraint::ExplicitRegularParameter {
                     pattern_expr_idx: pattern_expr,
                     ty_expr_idx: ty,
-                } => self.init_current_symbol_signatures_in_explicit_parameter(
+                } => self.init_current_symbol_signatures_in_parenic_parameter(
                     *pattern_expr,
                     *ty,
                     *symbols,
@@ -135,7 +135,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// explicit parameters are infered in this crate;
     ///
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
-    fn init_current_symbol_signatures_in_explicit_parameter(
+    fn init_current_symbol_signatures_in_parenic_parameter(
         &mut self,
         pattern_expr: PatternExprIdx,
         ty: ExprIdx,
@@ -144,7 +144,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
                 let modifier = self.expr_region_data[symbol].modifier();
-                self.symbol_declarative_term_region.add_new_explicit_parameter_symbol_signature(
+                self.symbol_declarative_term_region.add_new_parenic_parameter_symbol_signature(
                     self.db,
                     symbol,
                     modifier,
@@ -153,13 +153,13 @@ impl<'a> DeclarativeTermEngine<'a> {
             }
             return
         };
-        self.infer_pattern_tys_in_explicit_parameter(pattern_expr, ty);
+        self.infer_pattern_tys_in_parenic_parameter(pattern_expr, ty);
         for symbol in symbols {
-            self.infer_current_symbol_signature_in_explicit_parameter(symbol)
+            self.infer_current_symbol_signature_in_parenic_parameter(symbol)
         }
     }
 
-    fn infer_current_symbol_signature_in_explicit_parameter(
+    fn infer_current_symbol_signature_in_parenic_parameter(
         &mut self,
         current_symbol_idx: CurrentSymbolIdx,
     ) {
@@ -171,7 +171,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             } => {
                 let base_ty = self.pattern_symbol_ty_infos[pattern_symbol_idx].base_ty();
                 self.symbol_declarative_term_region
-                    .add_new_explicit_parameter_symbol_signature(
+                    .add_new_parenic_parameter_symbol_signature(
                         self.db,
                         current_symbol_idx,
                         current_symbol.modifier(),

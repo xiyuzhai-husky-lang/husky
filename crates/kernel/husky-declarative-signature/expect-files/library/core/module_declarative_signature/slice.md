@@ -145,7 +145,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i32`),
@@ -204,7 +204,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::option::Option ~ t`),
@@ -263,7 +263,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::option::Option ~ t`),

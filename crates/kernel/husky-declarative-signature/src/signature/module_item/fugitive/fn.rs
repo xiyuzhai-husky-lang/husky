@@ -5,7 +5,7 @@ pub struct FnDeclarativeSignatureTemplate {
     #[return_ref]
     pub generic_parameters: DeclarativeGenericParameterTemplates,
     #[return_ref]
-    pub explicit_parameters: DeclarativeParenicParameters,
+    pub parenic_parameters: DeclarativeParenicParameters,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -34,8 +34,8 @@ pub fn fn_declarative_signature_template(
         declarative_term_region,
         declarative_term_menu,
     );
-    let explicit_parameters = DeclarativeParenicParameters::from_decl(
-        decl.explicit_parameters(db),
+    let parenic_parameters = DeclarativeParenicParameters::from_decl(
+        decl.parenic_parameters(db),
         expr_region_data,
         declarative_term_region,
     )?;
@@ -46,7 +46,7 @@ pub fn fn_declarative_signature_template(
     Ok(FnDeclarativeSignatureTemplate::new(
         db,
         generic_parameters,
-        explicit_parameters,
+        parenic_parameters,
         return_ty,
     ))
 }

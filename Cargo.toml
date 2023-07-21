@@ -36,3 +36,4 @@ lto = false
 
 [workspace.dependencies]
 thiserror = "1.0.37"
+smallvec = "1.10.0"

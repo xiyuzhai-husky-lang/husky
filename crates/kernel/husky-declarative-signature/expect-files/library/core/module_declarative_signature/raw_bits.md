@@ -83,20 +83,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],

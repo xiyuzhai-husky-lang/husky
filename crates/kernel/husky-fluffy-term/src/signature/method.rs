@@ -111,7 +111,7 @@ fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     }
     JustOk(MethodFnFluffySignature {
         parenic_parameters: template
-            .explicit_parameters(db)
+            .parenic_parameters(db)
             .iter()
             .map(|param| param.instantiate(engine, expr_idx, &mut instantiation))
             .collect(),

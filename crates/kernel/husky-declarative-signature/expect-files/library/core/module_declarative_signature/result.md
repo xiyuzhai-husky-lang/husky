@@ -185,16 +185,10 @@
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 40,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::result::Result t s`),
                                         },
                                     ),
                                 ],

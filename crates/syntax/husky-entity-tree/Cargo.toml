@@ -7,8 +7,8 @@ license = "MIT OR Apache-2.0"
 description = "Generic LSP server scaffold."
 
 [dependencies]
-thiserror = "1.0.37"
-smallvec = "1.10.0"
+thiserror.workspace = true
+smallvec.workspace = true
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
 # abstraction

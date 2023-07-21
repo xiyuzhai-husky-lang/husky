@@ -48,12 +48,13 @@ impl SpecificDeclarativeParameter {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
 pub struct DeclarativeParenicParameters {
-    data: SmallVec<[SpecificDeclarativeParameter; 4]>,
+    data: SmallVec<[DeclarativeTermRitchieParameter; 4]>,
 }
 
 impl std::ops::Deref for DeclarativeParenicParameters {
-    type Target = [SpecificDeclarativeParameter];
+    type Target = [DeclarativeTermRitchieParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data
@@ -77,7 +78,7 @@ impl DeclarativeParenicParameters {
                             variables,
                             colon,
                             ty,
-                        } => SpecificRegularDeclarativeParameterTemplate::new(
+                        } => DeclarativeTermRitchieRegularParameter::new(
                             expr_region_data.pattern_contract(*pattern),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
@@ -90,7 +91,7 @@ impl DeclarativeParenicParameters {
                             symbol_modifier_keyword_group,
                             ty,
                             ..
-                        } => SpecificVariadicParameterDeclarativeSignatureTemplate::new(
+                        } => DeclarativeTermRitchieVariadicParameter::new(
                             Contract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DeclarativeSignatureError::ParameterTypeDeclarativeTermError(
@@ -105,7 +106,7 @@ impl DeclarativeParenicParameters {
                             ty,
                             default,
                             ..
-                        } => SpecificKeyedParameterDeclarativeSignatureTemplate::new(
+                        } => DeclarativeTermRitchieKeyedParameter::new(
                             ident_token.ident(),
                             Contract::new(*symbol_modifier_keyword_group),
                             signature_region.expr_term(*ty).map_err(|_| {
@@ -129,5 +130,9 @@ impl DeclarativeParenicParameters {
                 })
                 .collect::<DeclarativeSignatureResult<_>>()?,
         })
+    }
+
+    pub fn data(&self) -> &[DeclarativeTermRitchieParameter] {
+        &self.data
     }
 }

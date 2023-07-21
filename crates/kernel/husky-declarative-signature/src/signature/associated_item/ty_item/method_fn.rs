@@ -16,7 +16,7 @@ pub struct TypeMethodFnDeclarativeSignatureTemplate {
     pub generic_parameters: DeclarativeGenericParameterTemplates,
     pub self_parameter: SpecificRegularDeclarativeParameterTemplate,
     #[return_ref]
-    pub explicit_parameters: DeclarativeParenicParameters,
+    pub parenic_parameters: DeclarativeParenicParameters,
     pub return_ty: DeclarativeTerm,
 }
 
@@ -59,8 +59,8 @@ pub fn ty_method_fn_declarative_signature_template(
         declarative_term_region,
         declarative_term_menu,
     );
-    let explicit_parameters = DeclarativeParenicParameters::from_decl(
-        decl.explicit_parameters(db),
+    let parenic_parameters = DeclarativeParenicParameters::from_decl(
+        decl.parenic_parameters(db),
         expr_region_data,
         declarative_term_region,
     )?;
@@ -74,7 +74,7 @@ pub fn ty_method_fn_declarative_signature_template(
         self_ty,
         generic_parameters,
         self_parameter,
-        explicit_parameters,
+        parenic_parameters,
         return_ty,
     ))
 }

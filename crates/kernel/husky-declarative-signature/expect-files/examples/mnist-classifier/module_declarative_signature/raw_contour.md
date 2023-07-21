@@ -65,34 +65,18 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 56,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
@@ -118,34 +102,18 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 56,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
@@ -171,34 +139,18 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 56,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
@@ -224,48 +176,24 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 56,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 56,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
@@ -291,34 +219,18 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 83,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 83,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
                                         },
                                     ),
                                 ],
@@ -344,62 +256,30 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 56,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 56,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::raw_bits::r32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 83,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::raw_contour::Direction`),
                                         },
                                     ),
                                 ],
@@ -456,18 +336,12 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 85,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`[] mnist_classifier::geom2d::Point2d`),
                                         },
                                     ),
                                 ],
@@ -493,18 +367,12 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 83,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::mem::Ref mnist_classifier::connected_component::ConnectedComponent`),
                                         },
                                     ),
                                 ],
@@ -793,34 +661,18 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],

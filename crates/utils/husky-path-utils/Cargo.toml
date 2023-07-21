@@ -7,7 +7,7 @@ edition = "2021"
 doctest = false
 
 [dependencies]
-thiserror = "1.0.37"
+thiserror.workspace = true
 relative-path = "1.7.2"
 pathdiff = "0.2.1"
 # abstraction

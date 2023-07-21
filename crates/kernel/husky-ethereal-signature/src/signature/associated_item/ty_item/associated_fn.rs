@@ -7,7 +7,7 @@ pub struct TypeAssociatedFnEtherealSignatureTemplate {
     pub path: TypeItemPath,
     pub self_ty: EtherealTerm,
     pub generic_parameters: EtherealGenericParameters,
-    pub explicit_parameters: ParenicEtherealParameters,
+    pub parenic_parameters: ParenicEtherealParameters,
     pub return_ty: EtherealTerm,
     pub ty: EtherealTerm,
 }
@@ -23,28 +23,15 @@ impl TypeAssociatedFnEtherealSignatureTemplate {
             db,
             declarative_signature.generic_parameters(db),
         )?;
-        let explicit_parameters = ParenicEtherealParameters::from_declarative(
+        let parenic_parameters = ParenicEtherealParameters::from_declarative(
             db,
-            declarative_signature.explicit_parameters(db),
+            declarative_signature.parenic_parameters(db),
         )?;
         let return_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.return_ty(db))?;
         let ty = EtherealTermRitchie::new(
             db,
             RitchieKind::FnType,
-            explicit_parameters
-                .iter()
-                .copied()
-                .map(|parameter| match parameter {
-                    SpecificEtherealParameter::Regular(parameter) => {
-                        EtherealTermRitchieRegularParameter::new(
-                            parameter.contract(),
-                            parameter.ty(),
-                        )
-                        .into()
-                    }
-                    SpecificEtherealParameter::Variadic(_) => todo!(),
-                    SpecificEtherealParameter::Keyed(_) => todo!(),
-                }),
+            parenic_parameters.iter().copied(),
             return_ty,
         )?
         .into();
@@ -53,7 +40,7 @@ impl TypeAssociatedFnEtherealSignatureTemplate {
             path,
             self_ty,
             generic_parameters,
-            explicit_parameters,
+            parenic_parameters,
             return_ty,
             ty,
         ))

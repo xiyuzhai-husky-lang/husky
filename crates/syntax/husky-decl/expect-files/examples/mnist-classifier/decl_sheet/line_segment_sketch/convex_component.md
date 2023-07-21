@@ -436,7 +436,7 @@ Ok(
                                 },
                                 generic_parameters: [],
                                 self_parameter: None,
-                                explicit_parameters: [],
+                                parenic_parameters: [],
                                 return_ty: Some(
                                     ReturnTypeExprBeforeColon {
                                         expr: 0,

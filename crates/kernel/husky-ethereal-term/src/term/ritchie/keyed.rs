@@ -26,7 +26,7 @@ impl EtherealTermRitchieKeyedParameter {
 
     pub(super) fn from_declarative(
         db: &dyn EtherealTermDb,
-        param: &DeclarativeTermRitchieKeyedParameter,
+        param: DeclarativeTermRitchieKeyedParameter,
     ) -> EtherealTermResult<Self> {
         let ty = EtherealTerm::ty_from_declarative(db, param.ty())?;
         let default = match param.default() {

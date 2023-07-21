@@ -10,7 +10,7 @@ pub struct SelfParameterAndExplicitParameters<const ALLOW_SELF_PARAMETER: bool> 
     lpar: LeftParenthesisToken,
     self_parameter: Option<SelfParameterDeclPattern>,
     comma_after_self_parameter: Option<CommaToken>,
-    explicit_parameters: ExplicitParameterDeclPatterns,
+    parenic_parameters: ExplicitParameterDeclPatterns,
     commas: CommaTokens,
     rpar: RightParenthesisToken,
 }
@@ -32,7 +32,7 @@ impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprPars
         } else {
             None
         };
-        let (explicit_parameters, commas) =
+        let (parenic_parameters, commas) =
             if self_parameter.is_none() || comma_after_self_parameter.is_some() {
                 parse_separated_small_list2(ctx, |e| e)?
             } else {
@@ -44,7 +44,7 @@ impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprPars
             lpar,
             self_parameter,
             comma_after_self_parameter,
-            explicit_parameters,
+            parenic_parameters,
             commas,
             rpar,
         }))
