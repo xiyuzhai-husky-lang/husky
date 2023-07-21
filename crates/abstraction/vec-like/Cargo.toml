@@ -9,7 +9,7 @@ edition = "2021"
 doctest = false
 
 [dependencies]
-thiserror = "1.0.37"
+thiserror.workspace = true
 smallvec = { version = "1.10.0", features = ["serde"] }
 serde = { version = "1.0.106", features = ["derive"] }
 wild-utils = { path = "../../utils/husky-wild-utils" }

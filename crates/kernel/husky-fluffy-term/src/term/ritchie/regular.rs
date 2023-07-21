@@ -15,6 +15,22 @@ impl From<EtherealTermRitchieRegularParameter> for FluffyTermRitchieRegularParam
     }
 }
 
+impl FluffyTermInstantiate for EtherealTermRitchieRegularParameter {
+    type Target = FluffyTermRitchieRegularParameter;
+
+    fn instantiate(
+        self,
+        engine: &mut impl FluffyTermEngine,
+        expr_idx: ExprIdx,
+        instantiation: &mut FluffyTermInstantiation,
+    ) -> Self::Target {
+        FluffyTermRitchieRegularParameter {
+            contract: self.contract(),
+            ty: self.ty().instantiate(engine, expr_idx, instantiation),
+        }
+    }
+}
+
 impl FluffyTermRitchieRegularParameter {
     pub fn new(contract: Contract, ty: FluffyTerm) -> Self {
         Self { contract, ty }

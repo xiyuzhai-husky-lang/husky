@@ -113,7 +113,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::num::i32`),
@@ -172,18 +172,12 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: Symbol(
-                                                DeclarativeTermSymbol(
-                                                    Id {
-                                                        value: 2,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`t`),
                                         },
                                     ),
                                 ],
@@ -244,7 +238,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::option::Option t`),
@@ -303,7 +297,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::option::Option t`),
@@ -362,7 +356,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`core::option::Option t`),

@@ -111,34 +111,18 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 87,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 60,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],
@@ -164,34 +148,18 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 87,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 60,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],
@@ -217,46 +185,24 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 60,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],
@@ -282,60 +228,30 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 60,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],
@@ -361,32 +277,18 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 60,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],
@@ -529,46 +431,24 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 44,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::i32`),
                                         },
                                     ),
                                 ],
@@ -621,7 +501,7 @@
                                     ),
                                 ),
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
                             },
                             return_ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
@@ -826,32 +706,18 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 46,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::raw_contour::RawContour`),
                                         },
                                     ),
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        Id {
-                                                            value: 60,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`core::num::f32`),
                                         },
                                     ),
                                 ],

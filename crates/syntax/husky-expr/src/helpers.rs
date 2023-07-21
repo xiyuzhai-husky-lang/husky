@@ -1,7 +1,7 @@
 mod be_variables;
-mod explicit_parameter;
-mod implicit_parameter;
+mod generic_parameter;
 mod let_variables;
+mod parenic_parameter;
 mod props_field;
 mod return_ty_expr;
 mod self_parameter;
@@ -10,9 +10,9 @@ mod trai_expr;
 mod tuple_field;
 
 pub use self::be_variables::*;
-pub use self::explicit_parameter::*;
-pub use self::implicit_parameter::*;
+pub use self::generic_parameter::*;
 pub use self::let_variables::*;
+pub use self::parenic_parameter::*;
 pub use self::props_field::*;
 pub use self::return_ty_expr::*;
 pub use self::self_parameter::*;

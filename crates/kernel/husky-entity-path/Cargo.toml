@@ -6,7 +6,7 @@ description = "husky entity path"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
-thiserror = "1.0.37"
+thiserror.workspace = true
 expect-test = "1.4.0"
 url = "2.3.1"
 optional = "0.5.0"

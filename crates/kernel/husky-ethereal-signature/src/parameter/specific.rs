@@ -50,29 +50,32 @@ impl SpecificEtherealParameter {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
+#[salsa::derive_debug_with_db(db = EtherealSignatureDb)]
 pub struct ParenicEtherealParameters {
-    data: SmallVec<[SpecificEtherealParameter; 4]>,
+    data: SmallVec<[EtherealTermRitchieParameter; 4]>,
 }
 
 impl ParenicEtherealParameters {
     pub(crate) fn from_declarative(
         db: &dyn EtherealSignatureDb,
-        declarative_signature_templates: &DeclarativeParenicParameters,
+        params: &DeclarativeParenicParameters,
     ) -> EtherealSignatureResult<Self> {
         Ok(ParenicEtherealParameters {
-            data: declarative_signature_templates
+            data: params
                 .iter()
                 .copied()
-                .map(|declarative_signature_template| {
-                    SpecificEtherealParameter::from_declarative(db, declarative_signature_template)
-                })
-                .collect::<EtherealSignatureResult<_>>()?,
+                .map(|param| EtherealTermRitchieParameter::from_declarative(db, param))
+                .collect::<EtherealTermResult<_>>()?,
         })
+    }
+
+    pub fn data(&self) -> &[EtherealTermRitchieParameter] {
+        &self.data
     }
 }
 
 impl std::ops::Deref for ParenicEtherealParameters {
-    type Target = [SpecificEtherealParameter];
+    type Target = [EtherealTermRitchieParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data

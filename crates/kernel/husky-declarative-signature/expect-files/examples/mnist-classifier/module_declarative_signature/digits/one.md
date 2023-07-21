@@ -49,18 +49,12 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 54,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                         },
                                     ),
                                 ],
@@ -86,18 +80,12 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 54,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                         },
                                     ),
                                 ],
@@ -123,18 +111,12 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            explicit_parameters: DeclarativeParenicParameters {
+                            parenic_parameters: DeclarativeParenicParameters {
                                 data: [
-                                    Regular(
-                                        SpecificRegularDeclarativeParameterTemplate {
+                                    DeclarativeTermRitchieParameter::Regular(
+                                        DeclarativeTermRitchieRegularParameter {
                                             contract: None,
-                                            ty: ExplicitApplication(
-                                                DeclarativeTermExplicitApplication(
-                                                    Id {
-                                                        value: 54,
-                                                    },
-                                                ),
-                                            ),
+                                            ty: DeclarativeTerm(`~ mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                                         },
                                     ),
                                 ],

@@ -35,27 +35,21 @@ impl From<EtherealTermRitchieParameter> for FluffyTermRitchieParameter {
     }
 }
 
-impl InstantiateRef for SpecificEtherealParameter {
+impl FluffyTermInstantiate for EtherealTermRitchieParameter {
     type Target = FluffyTermRitchieParameter;
 
     fn instantiate(
-        &self,
+        self,
         engine: &mut impl FluffyTermEngine,
         expr_idx: ExprIdx,
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
         match self {
-            SpecificEtherealParameter::Regular(signature_template) => {
-                FluffyTermRitchieRegularParameter::new(
-                    signature_template.contract(),
-                    signature_template
-                        .ty()
-                        .instantiate(engine, expr_idx, instantiation),
-                )
-                .into()
+            EtherealTermRitchieParameter::Regular(param) => {
+                param.instantiate(engine, expr_idx, instantiation).into()
             }
-            SpecificEtherealParameter::Variadic(_) => todo!(),
-            SpecificEtherealParameter::Keyed(_) => todo!(),
+            EtherealTermRitchieParameter::Variadic(_) => todo!(),
+            EtherealTermRitchieParameter::Keyed(_) => todo!(),
         }
     }
 }

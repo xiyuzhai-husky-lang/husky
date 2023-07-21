@@ -7,7 +7,7 @@ edition = "2021"
 [dependencies]
 colored = "2.0.0"
 textwrap = "0.16.0"
-thiserror = "1.0.37"
+thiserror.workspace = true
 const_format = "0.2.30"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }

@@ -132,21 +132,42 @@ pub(crate) fn ethereal_term_ritchie_from_declarative_term_ritchie(
         declarative_term_ritchie
             .params(db)
             .iter()
-            .map(|param| -> EtherealTermResult<_> {
-                Ok(match param {
-                    DeclarativeTermRitchieParameter::Regular(param) => {
-                        EtherealTermRitchieRegularParameter::from_declarative(db, param)?.into()
-                    }
-                    DeclarativeTermRitchieParameter::Variadic(param) => {
-                        EtherealTermRitchieVariadicParameter::from_declarative(db, param)?.into()
-                    }
-                    DeclarativeTermRitchieParameter::Keyed(param) => {
-                        EtherealTermRitchieKeyedParameter::from_declarative(db, param)?.into()
-                    }
-                })
+            .map(|&param| -> EtherealTermResult<_> {
+                EtherealTermRitchieParameter::from_declarative(db, param)
             }),
         EtherealTerm::ty_from_declarative(db, declarative_term_ritchie.return_ty(db))?,
     )
+}
+
+impl EtherealTermRitchieParameter {
+    pub fn from_declarative(
+        db: &dyn EtherealTermDb,
+        param: DeclarativeTermRitchieParameter,
+    ) -> EtherealTermResult<Self> {
+        Ok(match param {
+            DeclarativeTermRitchieParameter::Regular(param) => {
+                EtherealTermRitchieRegularParameter::from_declarative(db, param)?.into()
+            }
+            DeclarativeTermRitchieParameter::Variadic(param) => {
+                EtherealTermRitchieVariadicParameter::from_declarative(db, param)?.into()
+            }
+            DeclarativeTermRitchieParameter::Keyed(param) => {
+                EtherealTermRitchieKeyedParameter::from_declarative(db, param)?.into()
+            }
+        })
+    }
+}
+
+impl EtherealTermInstantiate for EtherealTermRitchieParameter {
+    type Target = Self;
+
+    fn instantiate(
+        self,
+        db: &dyn EtherealTermDb,
+        instantiation: &EtherealTermInstantiation,
+    ) -> Self::Target {
+        todo!()
+    }
 }
 
 impl<Db> salsa::DisplayWithDb<Db> for EtherealTermRitchie

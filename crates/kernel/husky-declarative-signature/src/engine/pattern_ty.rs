@@ -8,7 +8,7 @@ use super::*;
 
 impl<'a> DeclarativeTermEngine<'a> {
     /// only use this for explicit parameters
-    pub(super) fn infer_pattern_tys_in_explicit_parameter(
+    pub(super) fn infer_pattern_tys_in_parenic_parameter(
         &mut self,
         pattern_expr: PatternExprIdx,
         ty: DeclarativeTerm,

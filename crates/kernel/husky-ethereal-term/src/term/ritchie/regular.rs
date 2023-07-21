@@ -10,7 +10,7 @@ pub struct EtherealTermRitchieRegularParameter {
 impl EtherealTermRitchieRegularParameter {
     pub(super) fn from_declarative(
         db: &dyn EtherealTermDb,
-        param: &DeclarativeTermRitchieRegularParameter,
+        param: DeclarativeTermRitchieRegularParameter,
     ) -> EtherealTermResult<Self> {
         Ok(EtherealTermRitchieRegularParameter {
             contract: param.contract(),

@@ -1,3 +1,5 @@
+use smallvec::ToSmallVec;
+
 use super::*;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
@@ -32,12 +34,7 @@ pub(crate) fn fn_path_declarative_ty(
     variances: &[Variance],
     signature: FnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let param_declarative_tys = signature
-        .explicit_parameters(db)
-        .iter()
-        .copied()
-        .map(SpecificDeclarativeParameter::into_ritchie_parameter_contracted_ty)
-        .collect();
+    let parenic_parameters = signature.parenic_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);
     curry_from_generic_parameters(
         db,
@@ -47,7 +44,7 @@ pub(crate) fn fn_path_declarative_ty(
         DeclarativeTermRitchie::new(
             db,
             RitchieKind::FnType,
-            param_declarative_tys,
+            parenic_parameters,
             return_declarative_ty,
         ),
     )
@@ -58,12 +55,8 @@ pub(crate) fn gn_path_declarative_ty(
     variances: &[Variance],
     signature: GnDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let param_declarative_tys = signature
-        .explicit_parameters(db)
-        .iter()
-        .copied()
-        .map(SpecificDeclarativeParameter::into_ritchie_parameter_contracted_ty)
-        .collect();
+    use smallvec::ToSmallVec;
+    let param_declarative_tys = signature.parenic_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);
     curry_from_generic_parameters(
         db,

@@ -9,7 +9,7 @@ pub struct TraitForTypeMethodFnNodeDecl {
     #[return_ref]
     pub implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
-    pub explicit_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<true>>,
+    pub parenic_parameter_decl_list: NodeDeclResult<SelfParameterAndExplicitParameters<true>>,
     #[return_ref]
     pub curry_token: TokenResult<Option<CurryToken>>,
     #[return_ref]
@@ -27,7 +27,7 @@ impl TraitForTypeMethodFnNodeDecl {
                 .err()
                 .into_iter()
                 .chain(
-                    self.explicit_parameter_decl_list(db)
+                    self.parenic_parameter_decl_list(db)
                         .as_ref()
                         .err()
                         .into_iter(),
@@ -90,7 +90,7 @@ pub struct TraitForTypeMethodFnDecl {
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
-    pub explicit_parameters: ExplicitParameterDeclPatterns,
+    pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
     pub expr_region: ExprRegion,
 }
@@ -107,10 +107,10 @@ impl TraitForTypeMethodFnDecl {
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let explicit_parameter_decl_list = node_decl.explicit_parameter_decl_list(db).as_ref()?;
-        let self_parameter = *explicit_parameter_decl_list.self_parameter();
-        let explicit_parameters: ExplicitParameterDeclPatterns = explicit_parameter_decl_list
-            .explicit_parameters()
+        let parenic_parameter_decl_list = node_decl.parenic_parameter_decl_list(db).as_ref()?;
+        let self_parameter = *parenic_parameter_decl_list.self_parameter();
+        let parenic_parameters: ExplicitParameterDeclPatterns = parenic_parameter_decl_list
+            .parenic_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
@@ -121,7 +121,7 @@ impl TraitForTypeMethodFnDecl {
             path,
             generic_parameters,
             self_parameter,
-            explicit_parameters,
+            parenic_parameters,
             return_ty,
             expr_region,
         ))

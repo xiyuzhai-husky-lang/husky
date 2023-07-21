@@ -285,7 +285,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
@@ -981,7 +981,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
@@ -1648,7 +1648,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
@@ -2344,7 +2344,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
@@ -3397,7 +3397,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
@@ -4282,7 +4282,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
@@ -5686,7 +5686,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
@@ -6729,7 +6729,7 @@ Ok(
                         decl: FnDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                             generic_parameters: [],
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(
@@ -12920,7 +12920,7 @@ Ok(
                             },
                             generic_parameters: [],
                             self_parameter: None,
-                            explicit_parameters: [],
+                            parenic_parameters: [],
                             return_ty: Some(
                                 ReturnTypeExprBeforeColon {
                                     expr: 0,
@@ -18232,7 +18232,7 @@ Ok(
                             },
                             generic_parameters: [],
                             self_parameter: None,
-                            explicit_parameters: [
+                            parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
                                     variables: ArenaIdxRange(

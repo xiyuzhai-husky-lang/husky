@@ -7262,7 +7262,7 @@
                         StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    explicit_parameters: [
+                                    parenic_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,
@@ -7841,7 +7841,7 @@
                         StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    explicit_parameters: [
+                                    parenic_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,
@@ -8415,7 +8415,7 @@
                         StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    explicit_parameters: [
+                                    parenic_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,
@@ -8737,7 +8737,7 @@
                         StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    explicit_parameters: [
+                                    parenic_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,
@@ -15229,7 +15229,7 @@
                         StaticDispatch(
                             AssociatedFn(
                                 AssociatedFnFluffySignature {
-                                    explicit_parameters: [
+                                    parenic_parameters: [
                                         Regular(
                                             FluffyTermRitchieRegularParameter {
                                                 contract: None,
