@@ -1,8 +1,5 @@
 use super::*;
-use husky_declarative_signature::{
-    DeclarativeParenicParameters, SpecificDeclarativeParameter,
-    SpecificRegularDeclarativeParameterTemplate,
-};
+use husky_declarative_signature::DeclarativeParenicParameters;
 use husky_term_prelude::Contract;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

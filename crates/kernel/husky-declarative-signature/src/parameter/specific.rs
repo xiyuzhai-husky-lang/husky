@@ -1,51 +1,5 @@
-mod keyed;
-mod regular;
-mod variadic;
-
-pub use self::keyed::*;
-pub use self::regular::*;
-pub use self::variadic::*;
-
 use super::*;
 use either::*;
-
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[enum_class::from_variants]
-pub enum SpecificDeclarativeParameter {
-    Regular(SpecificRegularDeclarativeParameterTemplate),
-    Variadic(SpecificVariadicParameterDeclarativeSignatureTemplate),
-    Keyed(SpecificKeyedParameterDeclarativeSignatureTemplate),
-}
-
-impl SpecificDeclarativeParameter {
-    pub fn into_ritchie_parameter_contracted_ty(self) -> DeclarativeTermRitchieParameter {
-        match self {
-            SpecificDeclarativeParameter::Regular(signature_template) => {
-                DeclarativeTermRitchieRegularParameter::new(
-                    signature_template.contract(),
-                    signature_template.ty(),
-                )
-                .into()
-            }
-            SpecificDeclarativeParameter::Variadic(signature_template) => {
-                DeclarativeTermRitchieVariadicParameter::new(
-                    signature_template.contract(),
-                    signature_template.ty(),
-                )
-                .into()
-            }
-            SpecificDeclarativeParameter::Keyed(signature_template) => {
-                DeclarativeTermRitchieKeyedParameter::new(
-                    signature_template.key(),
-                    signature_template.contract(),
-                    signature_template.ty(),
-                    signature_template.default(),
-                )
-                .into()
-            }
-        }
-    }
-}
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
