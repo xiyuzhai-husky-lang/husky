@@ -32,17 +32,17 @@ DiagnosticSheet {
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
         diagnostics: [
             Diagnostic {
-                message: "Type Error: no method named `len` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                message: "Type Error: no method named `len` for type `Slice t at MutableStackOwned { location: StackLocationIdx(LocalSymbolIdx(1)) }`",
                 severity: Error,
                 range: [2:19, 2:22),
             },
             Diagnostic {
-                message: "Type Error: no method named `swap` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                message: "Type Error: no method named `swap` for type `Slice t at MutableStackOwned { location: StackLocationIdx(LocalSymbolIdx(1)) }`",
                 severity: Error,
                 range: [26:17, 26:21),
             },
             Diagnostic {
-                message: "Type Error: no method named `swap` for type `FluffyTerm::Solid(SolidTerm(0))`",
+                message: "Type Error: no method named `swap` for type `Slice t at MutableStackOwned { location: StackLocationIdx(LocalSymbolIdx(1)) }`",
                 severity: Error,
                 range: [27:9, 27:13),
             },

@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "type path mismatch: expect core::list::List, but got core::option::Option instead",
-                severity: Error,
-                range: [40:25, 40:38),
-            },
-        ],
+        diagnostics: [],
     },
 }

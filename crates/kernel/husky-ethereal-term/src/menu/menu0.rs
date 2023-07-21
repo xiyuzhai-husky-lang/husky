@@ -38,10 +38,10 @@ pub struct TermMenu0 {
     core_ops_neg: EtherealTerm,
     // Not	The unary logical negation operator !.
     core_ops_not: EtherealTerm,
-    option_ty_path: EtherealTerm,
-    slice_ty_path: EtherealTerm,
+    option_ty_ontology: EtherealTerm,
+    slice_ty_ontology: EtherealTerm,
     str_ty_ontology: EtherealTerm,
-    ref_ty_path: EtherealTerm,
+    ref_ty_ontology: EtherealTerm,
     list_ty_ontology: EtherealTerm,
     array_ty_ontology: EtherealTerm,
     leash_ty_ontology: EtherealTerm,
@@ -134,10 +134,12 @@ impl TermMenu0 {
             core_ops_not: EtherealTerm::EntityPath(
                 entity_path_menu.core_ops_not_trai_path().into(),
             ),
-            option_ty_path: TermEntityPath::TypeOntology(entity_path_menu.option_ty_path()).into(),
-            slice_ty_path: TermEntityPath::TypeOntology(entity_path_menu.slice_ty_path()).into(),
+            option_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.option_ty_path())
+                .into(),
+            slice_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.slice_ty_path())
+                .into(),
             str_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.str_ty_path()).into(),
-            ref_ty_path: TermEntityPath::TypeOntology(entity_path_menu.ref_ty_path()).into(),
+            ref_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.ref_ty_path()).into(),
             list_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.list_ty_path()).into(),
             array_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.array_ty_path())
                 .into(),
@@ -276,16 +278,16 @@ impl TermMenu0 {
         self.core_ops_not
     }
 
-    pub fn option_ty_path(&self) -> EtherealTerm {
-        self.option_ty_path
+    pub fn option_ty_ontology(&self) -> EtherealTerm {
+        self.option_ty_ontology
     }
 
     pub fn slice_ty_path(&self) -> EtherealTerm {
-        self.slice_ty_path
+        self.slice_ty_ontology
     }
 
     pub fn ref_ty_path(&self) -> EtherealTerm {
-        self.ref_ty_path
+        self.ref_ty_ontology
     }
 
     pub fn list_ty_ontology(&self) -> EtherealTerm {

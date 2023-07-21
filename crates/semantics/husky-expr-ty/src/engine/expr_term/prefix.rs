@@ -37,7 +37,7 @@ impl<'a> ExprTypeEngine<'a> {
             PrefixOpr::Option => Ok(FluffyTerm::new_application(
                 self,
                 expr_idx,
-                self.term_menu.leash_ty_ontology(),
+                self.term_menu.option_ty_ontology(),
                 opd_term,
             )
             .map_err(|e| DerivedExprTermError::OptionApplicationTerm(e))?

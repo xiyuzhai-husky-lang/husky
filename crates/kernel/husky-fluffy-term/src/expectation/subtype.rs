@@ -64,7 +64,9 @@ impl ExpectFluffyTerm for ExpectSubtype {
                         todo!()
                     } else {
                         state.set_err(
-                            OriginalFluffyTermExpectationError::TypePathMismatch {
+                            OriginalFluffyTermExpectationError::TypePathMismatchForSubtyping {
+                                expected: self.expected,
+                                expectee: state.expectee(),
                                 expected_path,
                                 expectee_path,
                             },

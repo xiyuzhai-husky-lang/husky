@@ -564,15 +564,6 @@ Ok(
                 ),
             ),
             TokenInfo::None,
-            TokenInfo::Entity(
-                EntityPath::TypeVariant(
-                    TypeVariantPath {
-                        parent_ty_path: TypePath(`core::option::Option`, `Enum`),
-                        ident: `Some`,
-                    },
-                ),
-            ),
-            TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
@@ -580,7 +571,6 @@ Ok(
                 },
                 expr_region: ExprRegionLeash(_),
             },
-            TokenInfo::None,
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(

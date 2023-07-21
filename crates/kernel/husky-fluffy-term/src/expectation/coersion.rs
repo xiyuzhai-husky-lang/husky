@@ -209,28 +209,28 @@ impl ExpectCoersion {
     fn resolve_convertible_to_ty_ontology(
         &self,
         db: &dyn FluffyTermDb,
-        meta: &mut ExpectationState,
+        state: &mut ExpectationState,
         terms: &FluffyTerms,
         dst_path: TypePath,
         dst_refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
         dst_ty_arguments: &[FluffyTerm],
     ) -> Option<ExpectationEffect> {
-        if let Left(PreludeTypePath::Option) = dst_refined_ty_path && dst_ty_arguments[0] == meta.expectee() {
+        if let Left(PreludeTypePath::Option) = dst_refined_ty_path && dst_ty_arguments[0] == state.expectee() {
             debug_assert_eq!(dst_ty_arguments.len() ,1);
-            meta.set_ok(Coersion::WrapInSome, smallvec![])
+            state.set_ok(Coersion::WrapInSome, smallvec![])
         } else {
-            match meta.expectee().data_inner(db, terms) {
+            match state.expectee().data_inner(db, terms) {
                 FluffyTermData::TypeOntology {
                     refined_ty_path: Left(PreludeTypePath::NEVER),
                     ..
-                } => meta.set_ok(Coersion::Never, smallvec![]),
+                } => state.set_ok(Coersion::Never, smallvec![]),
                 FluffyTermData::TypeOntology {
                     refined_ty_path: src_path,
                     arguments: src_argument_tys,
                     ..
                 } if dst_refined_ty_path == src_path => {
                     if dst_ty_arguments.len() != src_argument_tys.len() {
-                        p!(meta.expectee().debug(db), self.ty().debug(db));
+                        p!(state.expectee().debug(db), self.ty().debug(db));
                         todo!()
                     }
                     let mut actions = smallvec![];
@@ -240,15 +240,15 @@ impl ExpectCoersion {
                     ) {
                         if src_argument_ty != dst_argument_ty {
                             actions.push(FluffyTermResolveAction::AddExpectation {
-                                src: meta.child_src(),
+                                src: state.child_src(),
                                 expectee: src_argument_ty,
                                 expectation: ExpectSubtype::new(dst_argument_ty).into(),
                             })
                         }
                     }
                     match self.contract() {
-                        Contract::None => meta.set_ok(Coersion::Trivial, actions),
-                        Contract::Move => meta.set_ok(Coersion::Trivial, actions),
+                        Contract::None => state.set_ok(Coersion::Trivial, actions),
+                        Contract::Move => state.set_ok(Coersion::Trivial, actions),
                         Contract::BorrowMut => todo!(),
                         Contract::Const => todo!(),
                     }
@@ -258,8 +258,11 @@ impl ExpectCoersion {
                     refined_ty_path: src_refined_path,
                     arguments: src_arguments,
                     ..
-                } => meta.set_err(
-                    OriginalFluffyTermExpectationError::TypePathMismatch {
+                } => state.set_err(
+                    OriginalFluffyTermExpectationError::TypePathMismatchForCoersion  {
+                        contract:self.contract,
+                        ty_expected: self.ty_expected,
+                        expectee:state.expectee(),
                         expected_path: dst_path,
                         expectee_path: src_path,
                     },
@@ -272,7 +275,7 @@ impl ExpectCoersion {
                     ..
                 } if dst_refined_ty_path == src_path => {
                     if dst_ty_arguments.len() != src_argument_tys.len() {
-                        p!(meta.expectee().debug(db), self.ty().debug(db));
+                        p!(state.expectee().debug(db), self.ty().debug(db));
                         todo!()
                     }
                     let mut actions = smallvec![];
@@ -282,15 +285,15 @@ impl ExpectCoersion {
                     ) {
                         if src_argument_ty != dst_argument_ty {
                             actions.push(FluffyTermResolveAction::AddExpectation {
-                                src: meta.child_src(),
+                                src: state.child_src(),
                                 expectee: src_argument_ty,
                                 expectation: ExpectSubtype::new(dst_argument_ty).into(),
                             })
                         }
                     }
                     match self.contract() {
-                        Contract::None => meta.set_ok(Coersion::Trivial, actions),
-                        Contract::Move => meta.set_ok(Coersion::Trivial, actions),
+                        Contract::None => state.set_ok(Coersion::Trivial, actions),
+                        Contract::Move => state.set_ok(Coersion::Trivial, actions),
                         Contract::BorrowMut => todo!(),
                         Contract::Const => todo!(),
                     }
@@ -302,8 +305,11 @@ impl ExpectCoersion {
                     ..
                 } => {
                     // todo: consider `Deref` and `DerefMut`
-                    meta.set_err(
-                        OriginalFluffyTermExpectationError::TypePathMismatch {
+                    state.set_err(
+                        OriginalFluffyTermExpectationError::TypePathMismatchForCoersion {
+                            contract: todo!(),
+                            ty_expected: todo!(),
+                            expectee: todo!(),
                             expected_path: dst_path,
                             expectee_path: src_path,
                         },
@@ -311,13 +317,13 @@ impl ExpectCoersion {
                     )
                 }
                 FluffyTermData::Hole(_, hole) => {
-                    meta.set_holed(hole, |meta| HoleConstraint::CoercibleTo {
+                    state.set_holed(hole, |meta| HoleConstraint::CoercibleTo {
                         target: meta.expectee(),
                     })
                 }
                 _ => {
                     p!(
-                        meta.expectee().data_inner(db, terms).debug(db),
+                        state.expectee().data_inner(db, terms).debug(db),
                         self.ty().data_inner(db, terms).debug(db)
                     );
                     // Some(FluffyTermExpectationEffect {

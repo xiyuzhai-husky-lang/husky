@@ -150,9 +150,9 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
                 ident_token,
             } => {
                 format!(
-                    "Type Error: no method named `{}` for type `{:?}`",
+                    "Type Error: no method named `{}` for type `{}`",
                     ident_token.ident().data(ctx.db()),
-                    self_expr_ty.debug(ctx.db()) // ad hoc
+                    self_expr_ty.show(ctx.db(), ctx.fluffy_term_region()) // ad hoc
                 )
             }
             OriginalExprTypeError::ExpectedCurryButGotRitchieInstead => {
@@ -221,11 +221,15 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
             OriginalFluffyTermExpectationError::Todo => {
                 format!("OriginalFluffyTermExpectationError::Todo")
             }
-            OriginalFluffyTermExpectationError::TypePathMismatch {
+            OriginalFluffyTermExpectationError::TypePathMismatchForSubtyping {
+                expected,
+                expectee,
                 expected_path,
                 expectee_path,
             } => format!(
-                "type path mismatch: expect {}, but got {} instead",
+                "Type Error: type path mismatch in seeing `{}` as a subtype of `{}`, expected `{}`, but got `{}` instead",
+                expectee.show(ctx.db(), ctx.fluffy_term_region()),
+                expected.show(ctx.db(), ctx.fluffy_term_region()),
                 expected_path.display(ctx.db()),
                 expectee_path.display(ctx.db())
             ),
@@ -245,6 +249,14 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFluffyTermExpectationError) {
                     expectee.show(ctx.db(), ctx.fluffy_term_region()),
                 )
             }
+            OriginalFluffyTermExpectationError::TypePathMismatchForCoersion { contract, ty_expected, expectee, expected_path, expectee_path } => format!(
+                "Type Error: type path mismatch in coersing `{}` into `{}` of contract `{}`, expected `{}`, but got `{}` instead",
+                expectee.show(ctx.db(), ctx.fluffy_term_region()),
+                ty_expected.show(ctx.db(), ctx.fluffy_term_region()),
+                contract.as_str(),
+                expected_path.display(ctx.db()),
+                expectee_path.display(ctx.db())
+            ),
         }
     }
 
