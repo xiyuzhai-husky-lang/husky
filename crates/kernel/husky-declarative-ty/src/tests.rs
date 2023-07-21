@@ -5,15 +5,15 @@ use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
-use husky_decl::DeclJar;
+use husky_decl::SynDeclJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
-use husky_decr::DecrJar;
+use husky_decr::SynDecrJar;
 use husky_entity_path::EntityPathJar;
 use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
-use husky_expr::ExprJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
+use husky_syn_expr::SynExprJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
@@ -32,9 +32,9 @@ use husky_toml_token::TomlTokenJar;
     CorgiConfigJar,
     CorgiConfigAstJar,
     ManifestJar,
-    ExprJar,
-    DeclJar,
-    DecrJar,
+    SynExprJar,
+    SynDeclJar,
+    SynDecrJar,
     TermPreludeJar,
     DeclarativeTermJar,
     DeclarativeSignatureJar,

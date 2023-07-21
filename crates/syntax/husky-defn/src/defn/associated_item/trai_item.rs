@@ -60,7 +60,7 @@ impl HasDefn for TraitItemPath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn trai_item_defn(db: &dyn DefnDb, path: TraitItemPath) -> DefnResult<TraitItemDefn> {
     let decl = path.decl(db)?;
     Ok(match decl {

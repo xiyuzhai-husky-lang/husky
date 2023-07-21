@@ -29,7 +29,7 @@ husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
+husky-syn-fmt = { path = "../../syntax/husky-syn-fmt" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # infer
 # comptime

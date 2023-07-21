@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeAliasNodeDecl {
     #[id]
     pub node_path: FugitiveNodePath,
@@ -10,7 +10,7 @@ pub struct TypeAliasNodeDecl {
 
 impl<'a> DeclParser<'a> {}
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeAliasDecl {
     #[id]
     pub path: FugitivePath,

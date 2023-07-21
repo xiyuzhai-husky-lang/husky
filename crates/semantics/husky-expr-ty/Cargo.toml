@@ -33,7 +33,7 @@ husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
-husky-expr = { path = "../../syntax/husky-expr" }
+husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-defn = { path = "../../syntax/husky-defn" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

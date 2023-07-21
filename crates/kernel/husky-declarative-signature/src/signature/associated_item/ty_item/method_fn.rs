@@ -1,5 +1,5 @@
 use husky_entity_tree::ImplBlockNode;
-use husky_expr::SelfParameterDeclPattern;
+use husky_syn_expr::SelfParameterDeclPattern;
 
 use crate::*;
 

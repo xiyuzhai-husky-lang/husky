@@ -23,23 +23,23 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> ExprTermResult<FluffyTerm> {
         match self.expr_region_data[expr_idx] {
-            Expr::Literal(_, _) => todo!(),
-            Expr::PrincipalEntityPath {
+            SynExpr::Literal(_, _) => todo!(),
+            SynExpr::PrincipalEntityPath {
                 entity_path_expr,
                 opt_path,
             } => self.calc_entity_path_term(expr_idx, opt_path),
-            Expr::ScopeResolution {
+            SynExpr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,
                 ident_token,
             } => todo!(),
-            Expr::InheritedSymbol {
+            SynExpr::InheritedSymbol {
                 ident,
                 token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
             } => todo!(),
-            Expr::CurrentSymbol {
+            SynExpr::CurrentSymbol {
                 ident,
                 token_idx,
                 current_symbol_idx,
@@ -58,57 +58,57 @@ impl<'a> ExprTypeEngine<'a> {
                 },
                 None => todo!(),
             },
-            Expr::FrameVarDecl {
+            SynExpr::FrameVarDecl {
                 token_idx,
                 ident,
                 frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
             } => todo!(),
-            Expr::SelfType(_) => todo!(),
-            Expr::SelfValue(_) => todo!(),
-            Expr::Binary {
+            SynExpr::SelfType(_) => todo!(),
+            SynExpr::SelfValue(_) => todo!(),
+            SynExpr::Binary {
                 lopd,
                 opr,
                 opr_token_idx,
                 ropd,
             } => todo!(),
-            Expr::Be { .. } => todo!(),
-            Expr::Prefix {
+            SynExpr::Be { .. } => todo!(),
+            SynExpr::Prefix {
                 opr,
                 opr_token_idx,
                 opd,
             } => self.calc_prefix_expr_term(expr_idx, opr, opd),
-            Expr::Suffix {
+            SynExpr::Suffix {
                 opd,
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
             } => todo!(),
-            Expr::FunctionApplicationOrCall { .. } => todo!(),
-            Expr::FunctionCall { .. } => todo!(),
-            Expr::Field {
+            SynExpr::FunctionApplicationOrCall { .. } => todo!(),
+            SynExpr::FunctionCall { .. } => todo!(),
+            SynExpr::Field {
                 owner,
                 dot_token_idx,
                 ident_token,
             } => todo!(),
-            Expr::MethodApplicationOrCall { .. } => todo!(),
-            Expr::TemplateInstantiation { .. } => todo!(),
-            Expr::ExplicitApplication {
+            SynExpr::MethodApplicationOrCall { .. } => todo!(),
+            SynExpr::TemplateInstantiation { .. } => todo!(),
+            SynExpr::ExplicitApplication {
                 function_expr_idx: function,
                 argument_expr_idx: argument,
             } => {
                 // todo: implicit arguments
                 self.calc_explicit_application_expr_term(expr_idx, function, argument)
             }
-            Expr::Bracketed {
+            SynExpr::Bracketed {
                 lpar_token_idx,
                 item,
                 rpar_token_idx,
             } => Err(todo!()),
-            Expr::NewTuple { .. } => todo!(),
-            Expr::List { ref items, .. } => self.calc_list_expr_term(expr_idx, items),
-            Expr::BoxColonList { .. } => todo!(),
-            Expr::Block { stmts } => todo!(),
-            Expr::IndexOrCompositionWithList {
+            SynExpr::NewTuple { .. } => todo!(),
+            SynExpr::List { ref items, .. } => self.calc_list_expr_term(expr_idx, items),
+            SynExpr::BoxColonList { .. } => todo!(),
+            SynExpr::Block { stmts } => todo!(),
+            SynExpr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
                 ref items,
@@ -118,18 +118,18 @@ impl<'a> ExprTypeEngine<'a> {
                 Err(e) => Err(DerivedExprTermError::ExprTypeError.into()),
                 Ok(_) => unreachable!(),
             },
-            Expr::EmptyHtmlTag {
+            SynExpr::EmptyHtmlTag {
                 empty_html_bra_idx: langle_token_idx,
                 function_ident,
                 ref arguments,
                 empty_html_ket,
             } => todo!(),
-            Expr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
-            Expr::Unit {
+            SynExpr::Err(_) => Err(DerivedExprTermError::ExprError.into()),
+            SynExpr::Unit {
                 lpar_token_idx,
                 rpar_token_idx,
             } => todo!(),
-            Expr::Ritchie { .. } => todo!(),
+            SynExpr::Ritchie { .. } => todo!(),
         }
     }
 

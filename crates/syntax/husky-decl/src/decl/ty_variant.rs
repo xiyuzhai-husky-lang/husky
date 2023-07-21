@@ -51,7 +51,7 @@ impl HasNodeDecl for TypeVariantNodePath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_variant_node_decl(
     db: &dyn DeclDb,
     node_path: TypeVariantNodePath,
@@ -157,7 +157,7 @@ impl HasDecl for TypeVariantPath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_variant_decl(
     db: &dyn DeclDb,
     path: TypeVariantPath,

@@ -101,7 +101,7 @@ impl HasNodeDecl for TypeItemNode {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_item_node_decl(db: &dyn DeclDb, node_path: TypeItemNodePath) -> TypeItemNodeDecl {
     let module_path = node_path.module_path(db);
     let ctx = DeclParser::new(db, module_path);
@@ -239,7 +239,7 @@ impl HasDecl for TypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemDecl> {
     match path.node_path(db).node_decl(db) {
         TypeItemNodeDecl::AssociatedFn(node_decl) => {
@@ -306,7 +306,7 @@ pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<Ty
 //     }
 // }
 
-// #[salsa::tracked(jar = DeclJar, return_ref)]
+// #[salsa::tracked(jar = SynDeclJar, return_ref)]
 // pub(crate) fn ty_item_decls_map(
 //     db: &dyn DeclDb,
 //     path: TypePath,

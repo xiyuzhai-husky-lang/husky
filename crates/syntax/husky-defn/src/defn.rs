@@ -80,7 +80,7 @@ impl HasNodeDefns for ModulePath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar, return_ref)]
+#[salsa::tracked(jar = SynDefnJar, return_ref)]
 pub(crate) fn module_node_defns(
     db: &dyn DefnDb,
     module_path: ModulePath,
@@ -189,7 +189,7 @@ impl HasDefns for ModulePath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar, return_ref)]
+#[salsa::tracked(jar = SynDefnJar, return_ref)]
 pub(crate) fn module_defns(
     db: &dyn DefnDb,
     module_path: ModulePath,

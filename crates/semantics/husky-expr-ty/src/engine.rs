@@ -66,7 +66,7 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
 }
 
 impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
-    type Output = Expr;
+    type Output = SynExpr;
 
     fn index(&self, index: ExprIdx) -> &Self::Output {
         &self.expr_region_data[index]

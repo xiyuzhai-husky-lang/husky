@@ -1,7 +1,7 @@
 use crate::*;
 use husky_vfs::{ModulePath, Toolchain};
 
-#[salsa::tracked(db = ExprDb, jar = ExprJar)]
+#[salsa::tracked(db = ExprDb, jar = SynExprJar)]
 pub struct ExprRegion {
     #[return_ref]
     pub data: ExprRegionData,
@@ -97,7 +97,7 @@ impl ExprRegionData {
 }
 
 impl std::ops::Index<ExprIdx> for ExprRegionData {
-    type Output = Expr;
+    type Output = SynExpr;
 
     fn index(&self, index: ExprIdx) -> &Self::Output {
         &self.expr_arena[index]

@@ -2,7 +2,7 @@ use super::*;
 use husky_token::{CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken};
 use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct PropsStructTypeNodeDecl {
     #[id]
     pub node_path: TypeNodePath,
@@ -63,7 +63,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructRightCu
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct PropsStructTypeDecl {
     #[id]
     pub path: TypePath,

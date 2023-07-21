@@ -62,7 +62,7 @@ impl HasNodeDecl for FugitiveNodePath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn fugitive_node_decl(db: &dyn DeclDb, node_path: FugitiveNodePath) -> FugitiveNodeDecl {
     let parser = DeclParser::new(db, node_path.module_path(db));
     parser.parse_fugitive_node_decl(node_path)
@@ -171,7 +171,7 @@ impl HasDecl for FugitivePath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn fugitive_decl(db: &dyn DeclDb, path: FugitivePath) -> DeclResult<FugitiveDecl> {
     let node_decl = path.node_path(db).node_decl(db);
     FugitiveDecl::from_node_decl(db, path, node_decl)

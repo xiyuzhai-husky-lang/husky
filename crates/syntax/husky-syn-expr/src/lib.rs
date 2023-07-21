@@ -46,7 +46,7 @@ use snippet::*;
 use tests::*;
 
 #[salsa::jar(db = ExprDb)]
-pub struct ExprJar(ExprRegion, parse_expr_from_snippet, expr_range_region);
+pub struct SynExprJar(ExprRegion, parse_expr_from_snippet, expr_range_region);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseEntityPath {
@@ -80,7 +80,7 @@ impl BaseEntityPathInclination {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
-pub enum Expr {
+pub enum SynExpr {
     Literal(TokenIdx, Literal),
     PrincipalEntityPath {
         entity_path_expr: PrincipalEntityPathExprIdx,
@@ -289,9 +289,9 @@ impl ImplicitArgumentList {
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use vec_like::SmallVecMap;
 
-pub type ExprArena = Arena<Expr>;
-pub type ExprIdx = ArenaIdx<Expr>;
-pub type ExprIdxRange = ArenaIdxRange<Expr>;
-pub type ExprMap<V> = ArenaMap<Expr, V>;
+pub type ExprArena = Arena<SynExpr>;
+pub type ExprIdx = ArenaIdx<SynExpr>;
+pub type ExprIdxRange = ArenaIdxRange<SynExpr>;
+pub type ExprMap<V> = ArenaMap<SynExpr, V>;
 
 type Commas = SmallVec<[TokenIdx; 2]>;

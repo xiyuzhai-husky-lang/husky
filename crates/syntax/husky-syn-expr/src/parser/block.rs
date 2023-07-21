@@ -80,7 +80,7 @@ impl<'a> BlockExprParser<'a> {
         let stmts = self
             .parse_block_stmts(body)
             .expect("husky-ast should guarantee that this not empty");
-        let expr = self.alloc_expr(Expr::Block { stmts });
+        let expr = self.alloc_expr(SynExpr::Block { stmts });
         self.expr_parser
             .add_expr_root(ExprRootKind::BlockExpr, expr);
         expr
@@ -256,7 +256,7 @@ impl<'a> BlockExprParser<'a> {
         body: FugitiveBody,
     ) -> StmtResult<Stmt> {
         match self.expr_arena[expr] {
-            Expr::Binary {
+            SynExpr::Binary {
                 lopd,
                 opr: BinaryOpr::Comparison(comparison_opr),
                 opr_token_idx,
@@ -287,7 +287,7 @@ impl<'a> BlockExprParser<'a> {
                     .start();
                 self.expr_arena.set(
                     particulars.frame_var_expr_idx,
-                    Expr::FrameVarDecl {
+                    SynExpr::FrameVarDecl {
                         token_idx: particulars.frame_var_token_idx,
                         ident: particulars.frame_var_ident,
                         frame_var_symbol_idx,
@@ -302,7 +302,7 @@ impl<'a> BlockExprParser<'a> {
                     block: self.parse_block_stmts_expected(body, token_group_idx),
                 })
             }
-            Expr::Binary {
+            SynExpr::Binary {
                 lopd,
                 opr: BinaryOpr::In,
                 opr_token_idx,
@@ -327,14 +327,15 @@ impl<'a> BlockExprParser<'a> {
         let lopd_expr = &self.expr_arena[lopd];
         let ropd_expr = &self.expr_arena[ropd];
         // todo: parse with
-        if let Expr::Err(ExprError::Original(UnrecognizedIdent { token_idx, ident })) = lopd_expr {
+        if let SynExpr::Err(ExprError::Original(UnrecognizedIdent { token_idx, ident })) = lopd_expr
+        {
             Ok(ForBetweenParticulars {
                 frame_var_token_idx: *token_idx,
                 frame_var_expr_idx: lopd,
                 frame_var_ident: *ident,
                 range: ForBetweenRange::new_with_default_initial(comparison_opr, ropd)?,
             })
-        } else if let Expr::Err(ExprError::Original(UnrecognizedIdent { token_idx, ident })) =
+        } else if let SynExpr::Err(ExprError::Original(UnrecognizedIdent { token_idx, ident })) =
             ropd_expr
         {
             Ok(ForBetweenParticulars {
@@ -346,7 +347,7 @@ impl<'a> BlockExprParser<'a> {
         } else {
             let final_comparison = comparison_opr;
             match lopd_expr {
-                Expr::Binary {
+                SynExpr::Binary {
                     lopd: llopd,
                     opr: BinaryOpr::Comparison(initial_comparison),
                     opr_token_idx,
@@ -354,19 +355,20 @@ impl<'a> BlockExprParser<'a> {
                 } => {
                     let lropd_expr = &self.expr_arena[lropd];
                     match lropd_expr {
-                        Expr::Err(ExprError::Original(UnrecognizedIdent { token_idx, ident })) => {
-                            Ok(ForBetweenParticulars {
-                                frame_var_token_idx: *token_idx,
-                                frame_var_expr_idx: *lropd,
-                                frame_var_ident: *ident,
-                                range: ForBetweenRange::new_without_defaults(
-                                    *llopd,
-                                    *initial_comparison,
-                                    final_comparison,
-                                    ropd,
-                                )?,
-                            })
-                        }
+                        SynExpr::Err(ExprError::Original(UnrecognizedIdent {
+                            token_idx,
+                            ident,
+                        })) => Ok(ForBetweenParticulars {
+                            frame_var_token_idx: *token_idx,
+                            frame_var_expr_idx: *lropd,
+                            frame_var_ident: *ident,
+                            range: ForBetweenRange::new_without_defaults(
+                                *llopd,
+                                *initial_comparison,
+                                final_comparison,
+                                ropd,
+                            )?,
+                        }),
                         _ => todo!(),
                     }
                 }

@@ -1,7 +1,7 @@
 use crate::*;
 use vec_like::VecPairMap;
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
 pub struct NodeDeclSheet {
     #[return_ref]
     pub decls: Vec<(EntityNodePath, NodeDecl)>,
@@ -18,7 +18,7 @@ impl HasNodeDeclSheet for ModulePath {
 }
 
 // useful for diagnostics and testing
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<NodeDeclSheet> {
     let entity_tree_sheet = db.entity_tree_sheet(path)?;
     let mut decls: Vec<(EntityNodePath, NodeDecl)> = Default::default();
@@ -61,14 +61,14 @@ fn node_decl_sheet_works() {
     DB::default().ast_expect_test_debug_with_db("node_decl_sheet", DeclDb::node_decl_sheet);
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
 pub struct DeclSheet {
     #[return_ref]
     pub decls: Vec<(EntityPath, Decl)>,
 }
 
 // only useful for testing purposes
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub fn decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclSheet> {
     // get decls through entity paths
     let entity_tree_sheet = db.entity_tree_sheet(path)?;

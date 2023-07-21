@@ -3,7 +3,7 @@ use parsec::{parse_separated_list, parse_separated_list2, StreamParser};
 
 use super::*;
 
-#[salsa::tracked(db = DecrDb, jar = DecrJar, constructor = new_inner)]
+#[salsa::tracked(db = DecrDb, jar = SynDecrJar, constructor = new_inner)]
 pub struct DeriveDecr {
     #[id]
     pub decr_id: DecrId,

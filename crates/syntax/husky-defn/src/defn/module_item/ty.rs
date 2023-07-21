@@ -74,7 +74,7 @@ impl HasNodeDefn for TypeNodePath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_node_defn(db: &dyn DefnDb, node_path: TypeNodePath) -> TypeNodeDefn {
     match node_path.node_decl(db) {
         TypeNodeDecl::Enum(node_decl) => EnumTypeNodeDefn::new(db, node_path, node_decl).into(),
@@ -153,7 +153,7 @@ impl HasDefn for TypePath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_defn(db: &dyn DefnDb, path: TypePath) -> DefnResult<TypeDefn> {
     Ok(match path.decl(db)? {
         TypeDecl::Enum(decl) => EnumTypeDefn::new(db, path, decl).into(),

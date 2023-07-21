@@ -30,9 +30,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     PronounKeyword::SelfType => match self.allow_self_ty() {
                         AllowSelfType::True => {
-                            DisambiguatedToken::AtomicExpr(Expr::SelfType(token_idx))
+                            DisambiguatedToken::AtomicExpr(SynExpr::SelfType(token_idx))
                         }
-                        AllowSelfType::False => DisambiguatedToken::AtomicExpr(Expr::Err(
+                        AllowSelfType::False => DisambiguatedToken::AtomicExpr(SynExpr::Err(
                             OriginalExprError::SelfTypeNotAllowed(token_idx).into(),
                         )),
                     },
@@ -42,9 +42,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         }
                         _ => match self.allow_self_value() {
                             AllowSelfValue::True => {
-                                DisambiguatedToken::AtomicExpr(Expr::SelfValue(token_idx))
+                                DisambiguatedToken::AtomicExpr(SynExpr::SelfValue(token_idx))
                             }
-                            AllowSelfValue::False => DisambiguatedToken::AtomicExpr(Expr::Err(
+                            AllowSelfValue::False => DisambiguatedToken::AtomicExpr(SynExpr::Err(
                                 OriginalExprError::SelfValueNotAllowed(token_idx).into(),
                             )),
                         },
@@ -54,7 +54,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Keyword::Fugitive(FugitiveKeyword::Fn) => {
                     DisambiguatedToken::Ritchie(token_idx, RitchieKind::FnType)
                 }
-                _ => DisambiguatedToken::AtomicExpr(Expr::Err(
+                _ => DisambiguatedToken::AtomicExpr(SynExpr::Err(
                     OriginalExprError::UnexpectedKeyword(token_idx).into(),
                 )),
             },
@@ -151,7 +151,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         BinaryComparisonOpr::Greater.into(),
                     ),
                 },
-                PunctuationMapped::Sheba => DisambiguatedToken::AtomicExpr(Expr::Err(
+                PunctuationMapped::Sheba => DisambiguatedToken::AtomicExpr(SynExpr::Err(
                     OriginalExprError::UnexpectedSheba(token_idx).into(),
                 )),
                 PunctuationMapped::Shr => {
@@ -272,10 +272,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 WordOpr::Be => DisambiguatedToken::Be(token_idx),
             },
             Token::Literal(literal) => {
-                DisambiguatedToken::AtomicExpr(Expr::Literal(token_idx, literal))
+                DisambiguatedToken::AtomicExpr(SynExpr::Literal(token_idx, literal))
             }
             Token::Error(error) => {
-                DisambiguatedToken::AtomicExpr(Expr::Err(DerivedExprError::Token(error).into()))
+                DisambiguatedToken::AtomicExpr(SynExpr::Err(DerivedExprError::Token(error).into()))
             }
         })
     }
@@ -287,7 +287,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         other: DisambiguatedToken,
     ) -> DisambiguatedToken {
         match self.complete_expr() {
-            Some(Expr::List { .. }) | Some(Expr::BoxColonList { .. }) | None => {
+            Some(SynExpr::List { .. }) | Some(SynExpr::BoxColonList { .. }) | None => {
                 DisambiguatedToken::PrefixOpr(token_idx, prefix_opr)
             }
             Some(_) => other,
@@ -307,65 +307,65 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     BaseEntityPath::None => {
                         p!(token_idx, self.parser.path.debug(self.db()));
                         match lopd {
-                            Expr::Literal(_, _) => todo!(),
-                            Expr::PrincipalEntityPath {
+                            SynExpr::Literal(_, _) => todo!(),
+                            SynExpr::PrincipalEntityPath {
                                 entity_path_expr,
                                 opt_path,
                             } => todo!(),
-                            Expr::ScopeResolution {
+                            SynExpr::ScopeResolution {
                                 parent_expr_idx,
                                 scope_resolution_token,
                                 ident_token,
                             } => todo!(),
-                            Expr::InheritedSymbol {
+                            SynExpr::InheritedSymbol {
                                 ident,
                                 token_idx,
                                 inherited_symbol_idx,
                                 inherited_symbol_kind,
                             } => todo!(),
-                            Expr::CurrentSymbol {
+                            SynExpr::CurrentSymbol {
                                 ident,
                                 token_idx,
                                 current_symbol_idx,
                                 current_symbol_kind,
                             } => todo!(),
-                            Expr::FrameVarDecl {
+                            SynExpr::FrameVarDecl {
                                 token_idx,
                                 ident,
                                 frame_var_symbol_idx,
                                 current_symbol_kind,
                             } => todo!(),
-                            Expr::SelfType(_) => todo!(),
-                            Expr::SelfValue(_) => todo!(),
-                            Expr::Binary {
+                            SynExpr::SelfType(_) => todo!(),
+                            SynExpr::SelfValue(_) => todo!(),
+                            SynExpr::Binary {
                                 lopd,
                                 opr,
                                 opr_token_idx,
                                 ropd,
                             } => todo!(),
-                            Expr::Be {
+                            SynExpr::Be {
                                 src,
                                 be_token_idx,
                                 target,
                             } => todo!(),
-                            Expr::Prefix {
+                            SynExpr::Prefix {
                                 opr,
                                 opr_token_idx,
                                 opd,
                             } => todo!(),
-                            Expr::Suffix {
+                            SynExpr::Suffix {
                                 opd,
                                 opr,
                                 opr_token_idx,
                             } => todo!(),
-                            Expr::FunctionApplicationOrCall {
+                            SynExpr::FunctionApplicationOrCall {
                                 function,
                                 implicit_arguments,
                                 lpar_token_idx,
                                 items,
                                 rpar_token_idx,
                             } => todo!(),
-                            Expr::Ritchie {
+                            SynExpr::Ritchie {
                                 ritchie_kind_token_idx,
                                 ritchie_kind,
                                 lpar_token,
@@ -374,19 +374,19 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 light_arrow_token,
                                 return_ty_expr,
                             } => todo!(),
-                            Expr::FunctionCall {
+                            SynExpr::FunctionCall {
                                 function,
                                 implicit_arguments,
                                 lpar_token_idx,
                                 items,
                                 rpar_token_idx,
                             } => todo!(),
-                            Expr::Field {
+                            SynExpr::Field {
                                 owner,
                                 dot_token_idx,
                                 ident_token,
                             } => todo!(),
-                            Expr::MethodApplicationOrCall {
+                            SynExpr::MethodApplicationOrCall {
                                 self_argument,
                                 dot_token_idx,
                                 ident_token,
@@ -395,53 +395,53 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 items,
                                 rpar_token_idx,
                             } => todo!(),
-                            Expr::TemplateInstantiation {
+                            SynExpr::TemplateInstantiation {
                                 template,
                                 implicit_arguments,
                             } => todo!(),
-                            Expr::ExplicitApplication {
+                            SynExpr::ExplicitApplication {
                                 function_expr_idx,
                                 argument_expr_idx,
                             } => todo!(),
-                            Expr::Unit {
+                            SynExpr::Unit {
                                 lpar_token_idx,
                                 rpar_token_idx,
                             } => todo!(),
-                            Expr::Bracketed {
+                            SynExpr::Bracketed {
                                 lpar_token_idx,
                                 item,
                                 rpar_token_idx,
                             } => todo!(),
-                            Expr::NewTuple {
+                            SynExpr::NewTuple {
                                 lpar_token_idx,
                                 items,
                                 rpar_token_idx,
                             } => todo!(),
-                            Expr::IndexOrCompositionWithList {
+                            SynExpr::IndexOrCompositionWithList {
                                 owner,
                                 lbox_token_idx,
                                 items,
                                 rbox_token_idx,
                             } => todo!(),
-                            Expr::List {
+                            SynExpr::List {
                                 lbox_token_idx,
                                 items,
                                 rbox_token_idx,
                             } => todo!(),
-                            Expr::BoxColonList {
+                            SynExpr::BoxColonList {
                                 lbox_token_idx,
                                 colon_token_idx,
                                 items,
                                 rbox_token_idx,
                             } => todo!(),
-                            Expr::Block { stmts } => todo!(),
-                            Expr::EmptyHtmlTag {
+                            SynExpr::Block { stmts } => todo!(),
+                            SynExpr::EmptyHtmlTag {
                                 empty_html_bra_idx,
                                 function_ident,
                                 arguments,
                                 empty_html_ket,
                             } => todo!(),
-                            Expr::Err(_) => todo!(),
+                            SynExpr::Err(_) => todo!(),
                         }
                         todo!()
                     }
@@ -455,7 +455,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         todo!()
                     }
                     BaseEntityPath::Uncertain { .. } => {
-                        return DisambiguatedToken::AtomicExpr(Expr::Err(
+                        return DisambiguatedToken::AtomicExpr(SynExpr::Err(
                             OriginalExprError::UnresolvedSubentity { token_idx, ident }.into(),
                         ))
                     }
@@ -481,22 +481,26 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         entity_path,
                     ),
                     Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
-                        Expr::InheritedSymbol {
+                        SynExpr::InheritedSymbol {
                             ident,
                             token_idx,
                             inherited_symbol_idx,
                             inherited_symbol_kind,
                         }
                     }
-                    Symbol::Local(current_symbol_idx, current_symbol_kind) => Expr::CurrentSymbol {
-                        ident,
-                        token_idx,
-                        current_symbol_idx,
-                        current_symbol_kind,
-                    },
+                    Symbol::Local(current_symbol_idx, current_symbol_kind) => {
+                        SynExpr::CurrentSymbol {
+                            ident,
+                            token_idx,
+                            current_symbol_idx,
+                            current_symbol_kind,
+                        }
+                    }
                     //  Expr::EntityPath(entity_path),
                 },
-                None => Expr::Err(OriginalExprError::UnrecognizedIdent { token_idx, ident }.into()),
+                None => {
+                    SynExpr::Err(OriginalExprError::UnrecognizedIdent { token_idx, ident }.into())
+                }
             },
         )
     }
@@ -504,7 +508,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
 #[derive(Debug)]
 pub(crate) enum DisambiguatedToken {
-    AtomicExpr(Expr),
+    AtomicExpr(SynExpr),
     BinaryOpr(TokenIdx, BinaryOpr),
     PrefixOpr(TokenIdx, PrefixOpr),
     SuffixOpr(TokenIdx, SuffixOpr),

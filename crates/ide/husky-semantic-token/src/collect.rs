@@ -1,6 +1,6 @@
 use husky_entity_taxonomy::{EntityKind, ModuleItemConnectionKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::OnceUseRuleState;
-use husky_expr::{CurrentSymbolKind, InheritedSymbolKind};
+use husky_syn_expr::{CurrentSymbolKind, InheritedSymbolKind};
 
 use crate::*;
 

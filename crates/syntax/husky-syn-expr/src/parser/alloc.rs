@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> ExprParser<'a> {
-    pub(crate) fn alloc_expr(&mut self, expr: Expr) -> ExprIdx {
+    pub(crate) fn alloc_expr(&mut self, expr: SynExpr) -> ExprIdx {
         self.expr_arena.alloc_one(expr)
     }
 
@@ -13,12 +13,12 @@ impl<'a> ExprParser<'a> {
 impl<'a, 'b> ExprParseContext<'a, 'b> {
     pub(crate) fn alloc_expr_batch(
         &mut self,
-        exprs: impl IntoIterator<Item = Expr>,
+        exprs: impl IntoIterator<Item = SynExpr>,
     ) -> ExprIdxRange {
         self.parser.expr_arena.alloc_batch(exprs)
     }
 
-    pub(crate) fn alloc_expr(&mut self, expr: Expr) -> ExprIdx {
+    pub(crate) fn alloc_expr(&mut self, expr: SynExpr) -> ExprIdx {
         self.parser.alloc_expr(expr)
     }
 

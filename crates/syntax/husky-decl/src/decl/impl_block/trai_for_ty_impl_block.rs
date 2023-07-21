@@ -2,7 +2,7 @@ use super::*;
 use husky_print_utils::p;
 use salsa::DebugWithDb;
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeImplBlockNodeDecl {
     #[id]
     pub node_path: TraitForTypeImplBlockNodePath,
@@ -48,7 +48,7 @@ impl HasNodeDecl for TraitForTypeImplBlockNodePath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_impl_block_node_decl(
     db: &dyn DeclDb,
     node_path: TraitForTypeImplBlockNodePath,
@@ -139,7 +139,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
 pub struct TraitForTypeImplBlockDecl {
     #[id]
     pub path: TraitForTypeImplBlockPath,
@@ -158,7 +158,7 @@ impl HasDecl for TraitForTypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_impl_block_decl(
     db: &dyn DeclDb,
     path: TraitForTypeImplBlockPath,

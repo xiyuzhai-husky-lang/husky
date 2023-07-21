@@ -1,8 +1,8 @@
 use super::*;
 use husky_defn::HasDefns;
-use husky_expr::{
-    Expr, ExprError, ExprRegion, OriginalExprError, OriginalPrincipalEntityPathExprError,
-    PrincipalEntityPathExpr, PrincipalEntityPathExprError, Stmt, StmtError,
+use husky_syn_expr::{
+    ExprError, ExprRegion, OriginalExprError, OriginalPrincipalEntityPathExprError,
+    PrincipalEntityPathExpr, PrincipalEntityPathExprError, Stmt, StmtError, SynExpr,
 };
 use salsa::DebugWithDb;
 
@@ -40,7 +40,7 @@ impl<'a> ModuleDiagnosticsCollector<'a> {
         let expr_region_data = expr_region.data(self.db());
         for expr in expr_region_data.expr_arena().data() {
             match expr {
-                Expr::Err(ExprError::Original(e)) => self.visit_atom(e),
+                SynExpr::Err(ExprError::Original(e)) => self.visit_atom(e),
                 _ => (),
             }
         }

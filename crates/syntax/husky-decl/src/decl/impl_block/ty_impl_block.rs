@@ -1,7 +1,7 @@
 use super::*;
 use husky_token::EolToken;
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeImplBlockNodeDecl {
     #[id]
     pub node_path: TypeImplBlockNodePath,
@@ -36,7 +36,7 @@ impl HasNodeDecl for TypeImplBlockNode {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_impl_block_node_decl(
     db: &dyn DeclDb,
     node_path: TypeImplBlockNodePath,
@@ -99,7 +99,7 @@ impl HasNodeDecl for TypeImplBlockNodePath {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
 pub struct TypeImplBlockDecl {
     #[id]
     pub path: TypeImplBlockPath,
@@ -148,7 +148,7 @@ impl HasDecl for TypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_impl_block_decl(
     db: &dyn DeclDb,
     // here use path instead of node_path because salsa doesn't support use wrapper type by default

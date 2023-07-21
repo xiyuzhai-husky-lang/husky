@@ -1,7 +1,7 @@
 use super::*;
 use husky_print_utils::p;
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct ValNodeDecl {
     #[id]
     pub node_path: FugitiveNodePath,
@@ -60,7 +60,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct ValDecl {
     #[id]
     pub path: FugitivePath,

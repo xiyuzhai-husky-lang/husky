@@ -1,8 +1,8 @@
 use crate::*;
 use husky_ast::{AstIdx, AstTokenIdxRangeSheet};
-use husky_expr::{ExprIdx, ExprRangeRegion, ExprRegion, ExprRegionData};
 use husky_expr_ty::*;
 use husky_fluffy_term::FluffyTermRegion;
+use husky_syn_expr::{ExprIdx, ExprRangeRegion, ExprRegion, ExprRegionData};
 use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
 
 pub(crate) struct SheetDiagnosticsContext<'a> {

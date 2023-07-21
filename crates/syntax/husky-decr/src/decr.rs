@@ -49,7 +49,7 @@ impl HasDecrs for TypePath {
     }
 }
 
-#[salsa::tracked(jar = DecrJar, return_ref)]
+#[salsa::tracked(jar = SynDecrJar, return_ref)]
 pub(crate) fn ty_path_decrs(db: &dyn DecrDb, path: TypePath) -> DecrResult<Vec<Decr>> {
     let module_path = path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path)?;

@@ -29,9 +29,9 @@ use salsa::Database;
     CorgiConfigJar,
     CorgiConfigAstJar,
     ManifestJar,
-    DeclJar,
-    ExprJar,
-    DefnJar
+    SynDeclJar,
+    SynExprJar,
+    SynDefnJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {

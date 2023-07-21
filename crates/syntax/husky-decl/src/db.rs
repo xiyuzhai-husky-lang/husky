@@ -6,7 +6,7 @@ use husky_vfs::ModulePath;
 use salsa::DbWithJar;
 use vec_like::VecMapGetEntry;
 
-pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
+pub trait DeclDb: DbWithJar<SynDeclJar> + ExprDb {
     fn node_decl_sheet(&self, module_path: ModulePath) -> EntityTreeResult<NodeDeclSheet>;
 
     fn decl_sheet(&self, module_path: ModulePath) -> EntityTreeResult<DeclSheet>;
@@ -14,7 +14,7 @@ pub trait DeclDb: DbWithJar<DeclJar> + ExprDb {
 
 impl<Db> DeclDb for Db
 where
-    Db: DbWithJar<DeclJar> + ExprDb,
+    Db: DbWithJar<SynDeclJar> + ExprDb,
 {
     fn node_decl_sheet(&self, module_path: ModulePath) -> EntityTreeResult<NodeDeclSheet> {
         node_decl_sheet(self, module_path)

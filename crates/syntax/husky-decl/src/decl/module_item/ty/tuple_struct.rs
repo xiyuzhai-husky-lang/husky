@@ -1,8 +1,8 @@
 use super::*;
-use husky_expr::ExprIdx;
+use husky_syn_expr::ExprIdx;
 use parsec::{SeparatedSmallList, TryParseFromStream};
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TupleStructTypeNodeDecl {
     #[id]
     pub node_path: TypeNodePath,
@@ -46,7 +46,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleStructRightPa
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TupleStructTypeDecl {
     #[id]
     pub path: TypePath,

@@ -4,7 +4,7 @@ use husky_token::{HasTokenIdxRange, RangedTokenSheet, TokenIdxRange, TokenSheetD
 use husky_vfs::ModulePath;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb, jar = ExprJar)]
+#[salsa::derive_debug_with_db(db = ExprDb, jar = SynExprJar)]
 pub struct ExprRangeRegion {
     entity_path_expr_ranges: Vec<TokenIdxRange>,
     pattern_expr_ranges: Vec<TokenIdxRange>,
@@ -12,9 +12,9 @@ pub struct ExprRangeRegion {
     stmt_ranges: StmtMap<TokenIdxRange>,
 }
 
-#[salsa::tracked(jar = ExprJar, return_ref)]
+#[salsa::tracked(jar = SynExprJar, return_ref)]
 pub(crate) fn expr_range_region(db: &dyn ExprDb, expr_region: ExprRegion) -> ExprRangeRegion {
-    ExprRangeCalculator::new(db, expr_region).calc_all()
+    SynExprRangeCalculator::new(db, expr_region).calc_all()
 }
 
 // #[test]
@@ -47,7 +47,7 @@ impl std::ops::Index<ExprIdx> for ExprRangeRegion {
     }
 }
 
-struct ExprRangeCalculator<'a> {
+struct SynExprRangeCalculator<'a> {
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a ExprRegionData,
     entity_path_expr_ranges: Vec<TokenIdxRange>,
@@ -56,7 +56,7 @@ struct ExprRangeCalculator<'a> {
     stmt_ranges: StmtMap<TokenIdxRange>,
 }
 
-impl<'a> std::ops::Index<PrincipalEntityPathExprIdx> for ExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<PrincipalEntityPathExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: PrincipalEntityPathExprIdx) -> &Self::Output {
@@ -64,7 +64,7 @@ impl<'a> std::ops::Index<PrincipalEntityPathExprIdx> for ExprRangeCalculator<'a>
     }
 }
 
-impl<'a> std::ops::Index<&PrincipalEntityPathExprIdx> for ExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&PrincipalEntityPathExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: &PrincipalEntityPathExprIdx) -> &Self::Output {
@@ -72,7 +72,7 @@ impl<'a> std::ops::Index<&PrincipalEntityPathExprIdx> for ExprRangeCalculator<'a
     }
 }
 
-impl<'a> std::ops::Index<PatternExprIdx> for ExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<PatternExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: PatternExprIdx) -> &Self::Output {
@@ -80,7 +80,7 @@ impl<'a> std::ops::Index<PatternExprIdx> for ExprRangeCalculator<'a> {
     }
 }
 
-impl<'a> std::ops::Index<ExprIdx> for ExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<ExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: ExprIdx) -> &Self::Output {
@@ -88,7 +88,7 @@ impl<'a> std::ops::Index<ExprIdx> for ExprRangeCalculator<'a> {
     }
 }
 
-impl<'a> std::ops::Index<&ExprIdx> for ExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&ExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: &ExprIdx) -> &Self::Output {
@@ -96,7 +96,7 @@ impl<'a> std::ops::Index<&ExprIdx> for ExprRangeCalculator<'a> {
     }
 }
 
-impl<'a> std::ops::Index<StmtIdx> for ExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<StmtIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: StmtIdx) -> &Self::Output {
@@ -104,7 +104,7 @@ impl<'a> std::ops::Index<StmtIdx> for ExprRangeCalculator<'a> {
     }
 }
 
-impl<'a> std::ops::Index<&StmtIdx> for ExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&StmtIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
     fn index(&self, index: &StmtIdx) -> &Self::Output {
@@ -112,12 +112,12 @@ impl<'a> std::ops::Index<&StmtIdx> for ExprRangeCalculator<'a> {
     }
 }
 
-impl<'a> ExprRangeCalculator<'a> {
+impl<'a> SynExprRangeCalculator<'a> {
     fn new(db: &'a dyn ExprDb, expr_region: ExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
         let region_path = expr_region_data.path();
         let token_sheet_data = region_path.token_sheet_data(db).expect("todo");
-        ExprRangeCalculator {
+        SynExprRangeCalculator {
             token_sheet_data,
             expr_region_data,
             entity_path_expr_ranges: Default::default(),
@@ -220,20 +220,20 @@ impl<'a> ExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_expr_range(&mut self, expr: &Expr) -> TokenIdxRange {
+    fn calc_expr_range(&mut self, expr: &SynExpr) -> TokenIdxRange {
         match expr {
-            Expr::Literal(token_idx, _)
-            | Expr::InheritedSymbol { token_idx, .. }
-            | Expr::CurrentSymbol { token_idx, .. }
-            | Expr::FrameVarDecl { token_idx, .. }
-            | Expr::SelfType(token_idx)
-            | Expr::SelfValue(token_idx) => TokenIdxRange::new_single(*token_idx),
-            Expr::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
-            Expr::PrincipalEntityPath {
+            SynExpr::Literal(token_idx, _)
+            | SynExpr::InheritedSymbol { token_idx, .. }
+            | SynExpr::CurrentSymbol { token_idx, .. }
+            | SynExpr::FrameVarDecl { token_idx, .. }
+            | SynExpr::SelfType(token_idx)
+            | SynExpr::SelfValue(token_idx) => TokenIdxRange::new_single(*token_idx),
+            SynExpr::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
+            SynExpr::PrincipalEntityPath {
                 entity_path_expr,
                 opt_path: entity_path,
             } => self[*entity_path_expr],
-            Expr::ScopeResolution {
+            SynExpr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,
                 ident_token,
@@ -241,7 +241,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 // todo: consider implicit(angular) arguments
                 self[parent_expr_idx].to(TokenIdxRangeEnd::new_after(ident_token.token_idx()))
             }
-            Expr::Be {
+            SynExpr::Be {
                 src,
                 be_token_idx,
                 target,
@@ -254,53 +254,53 @@ impl<'a> ExprRangeCalculator<'a> {
                 };
                 TokenIdxRange::new(start, end)
             }
-            Expr::Prefix {
+            SynExpr::Prefix {
                 opr,
                 opr_token_idx,
                 opd,
             } => TokenIdxRange::new(*opr_token_idx, self[opd].end()),
-            Expr::Suffix {
+            SynExpr::Suffix {
                 opd,
                 opr,
                 opr_token_idx,
             } => self[opd].to(TokenIdxRangeEnd::new_after(*opr_token_idx)),
-            Expr::FunctionApplicationOrCall {
+            SynExpr::FunctionApplicationOrCall {
                 function: first_expr,
                 rpar_token_idx,
                 ..
             }
-            | Expr::FunctionCall {
+            | SynExpr::FunctionCall {
                 function: first_expr,
                 rpar_token_idx,
                 ..
             }
-            | Expr::MethodApplicationOrCall {
+            | SynExpr::MethodApplicationOrCall {
                 self_argument: first_expr,
                 rpar_token_idx,
                 ..
             } => self[first_expr].to(TokenIdxRangeEnd::new_after(*rpar_token_idx)),
-            Expr::Field {
+            SynExpr::Field {
                 owner, ident_token, ..
             } => self[owner].to(TokenIdxRangeEnd::new_after(ident_token.token_idx())),
-            Expr::TemplateInstantiation {
+            SynExpr::TemplateInstantiation {
                 template,
                 implicit_arguments,
             } => todo!(),
-            Expr::ExplicitApplication {
+            SynExpr::ExplicitApplication {
                 function_expr_idx: function,
                 argument_expr_idx: argument,
             } => self[function].join(self[argument]),
-            Expr::Unit {
+            SynExpr::Unit {
                 lpar_token_idx,
                 rpar_token_idx,
                 ..
             }
-            | Expr::Bracketed {
+            | SynExpr::Bracketed {
                 lpar_token_idx,
                 rpar_token_idx,
                 ..
             }
-            | Expr::NewTuple {
+            | SynExpr::NewTuple {
                 lpar_token_idx,
                 rpar_token_idx,
                 ..
@@ -308,13 +308,13 @@ impl<'a> ExprRangeCalculator<'a> {
                 *lpar_token_idx,
                 TokenIdxRangeEnd::new_after(*rpar_token_idx),
             ),
-            Expr::IndexOrCompositionWithList {
+            SynExpr::IndexOrCompositionWithList {
                 owner,
                 lbox_token_idx,
                 rbox_token_idx,
                 ..
             } => self[owner].to(TokenIdxRangeEnd::new_after(*rbox_token_idx)),
-            Expr::List {
+            SynExpr::List {
                 lbox_token_idx,
                 rbox_token_idx,
                 ..
@@ -322,7 +322,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 *lbox_token_idx,
                 TokenIdxRangeEnd::new_after(*rbox_token_idx),
             ),
-            Expr::BoxColonList {
+            SynExpr::BoxColonList {
                 lbox_token_idx,
                 rbox_token_idx,
                 ..
@@ -330,13 +330,13 @@ impl<'a> ExprRangeCalculator<'a> {
                 *lbox_token_idx,
                 TokenIdxRangeEnd::new_after(*rbox_token_idx),
             ),
-            Expr::Block { stmts } => self.calc_block_range(*stmts),
-            Expr::EmptyHtmlTag {
+            SynExpr::Block { stmts } => self.calc_block_range(*stmts),
+            SynExpr::EmptyHtmlTag {
                 empty_html_bra_idx,
                 empty_html_ket,
                 ..
             } => TokenIdxRange::new_closed(*empty_html_bra_idx, empty_html_ket.token_idx()),
-            Expr::Ritchie {
+            SynExpr::Ritchie {
                 ritchie_kind_token_idx,
                 rpar_token_idx,
                 return_ty_expr,
@@ -347,7 +347,7 @@ impl<'a> ExprRangeCalculator<'a> {
                 }
                 None => TokenIdxRange::new_closed(*ritchie_kind_token_idx, *rpar_token_idx),
             },
-            Expr::Err(error) => match error {
+            SynExpr::Err(error) => match error {
                 ExprError::Original(error) => error.token_idx_range(),
                 ExprError::Derived(_) => todo!(),
             },

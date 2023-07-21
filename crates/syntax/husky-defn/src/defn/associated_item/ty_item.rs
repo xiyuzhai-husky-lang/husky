@@ -64,7 +64,7 @@ impl HasNodeDefn for TypeItemNodePath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_item_node_defn(db: &dyn DefnDb, node_path: TypeItemNodePath) -> TypeItemNodeDefn {
     match node_path.node_decl(db) {
         TypeItemNodeDecl::AssociatedFn(node_decl) => {
@@ -126,7 +126,7 @@ impl HasDefn for TypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_item_defn(db: &dyn DefnDb, path: TypeItemPath) -> DefnResult<TypeItemDefn> {
     let decl = path.decl(db)?;
     Ok(match decl {

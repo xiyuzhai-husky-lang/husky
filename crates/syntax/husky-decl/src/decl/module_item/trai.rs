@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitNodeDecl {
     #[id]
     pub node_path: TraitNodePath,
@@ -29,7 +29,7 @@ impl HasNodeDecl for TraitNodePath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_node_decl(db: &dyn DeclDb, node_path: TraitNodePath) -> TraitNodeDecl {
     let parser = DeclParser::new(db, node_path.module_path(db));
     parser.parse_trai_node_decl(node_path)
@@ -64,7 +64,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar, constructor = new)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
 pub struct TraitDecl {
     #[id]
     pub path: TraitPath,
@@ -106,7 +106,7 @@ impl HasDecl for TraitPath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
     let node_decl = path.node_path(db).node_decl(db);
     TraitDecl::from_node_decl(db, path, node_decl)
