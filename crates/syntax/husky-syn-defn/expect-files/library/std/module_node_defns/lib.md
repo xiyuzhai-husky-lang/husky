@@ -3,7 +3,7 @@ Ok(
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleSynNodePath {
+                    syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::prelude`,
                             disambiguator: 0,
@@ -16,7 +16,7 @@ Ok(
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleSynNodePath {
+                    syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::logic`,
                             disambiguator: 0,
@@ -29,7 +29,7 @@ Ok(
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleSynNodePath {
+                    syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::ops`,
                             disambiguator: 0,

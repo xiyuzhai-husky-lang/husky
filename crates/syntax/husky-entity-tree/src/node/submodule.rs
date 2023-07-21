@@ -1,13 +1,13 @@
 use super::*;
 
-#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+#[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct SubmoduleSynNodePath {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<ModulePath>,
 }
 
 impl SubmoduleSynNodePath {
     pub(super) fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
         path: ModulePath,
     ) -> Self {
@@ -15,18 +15,18 @@ impl SubmoduleSynNodePath {
     }
 
     // gives the parent
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         self.maybe_ambiguous_path(db)
             .path
             .parent(db)
             .expect("non root")
     }
 
-    pub fn path(self, db: &dyn EntityTreeDb) -> Option<ModulePath> {
+    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<ModulePath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> SubmoduleSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> SubmoduleSynNode {
         submodule_node(db, self)
     }
 }
@@ -34,15 +34,15 @@ impl SubmoduleSynNodePath {
 impl HasSynNodePath for ModulePath {
     type SynNodePath = SubmoduleSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         SubmoduleSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct SubmoduleSynNode {
     #[id]
-    pub node_path: SubmoduleSynNodePath,
+    pub syn_node_path: SubmoduleSynNodePath,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
@@ -50,7 +50,7 @@ pub struct SubmoduleSynNode {
 
 impl SubmoduleSynNode {
     pub(super) fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
         submodule_path: ModulePath,
         visibility: Scope,
@@ -66,19 +66,21 @@ impl SubmoduleSynNode {
         )
     }
 
-    pub fn unambiguous_path(self, db: &dyn EntityTreeDb) -> Option<ModulePath> {
-        self.node_path(db).path(db)
+    pub fn unambiguous_path(self, db: &dyn EntitySynTreeDb) -> Option<ModulePath> {
+        self.syn_node_path(db).path(db)
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn submodule_node(
-    db: &dyn EntityTreeDb,
-    node_path: SubmoduleSynNodePath,
+    db: &dyn EntitySynTreeDb,
+    syn_node_path: SubmoduleSynNodePath,
 ) -> SubmoduleSynNode {
-    let module_path = node_path.module_path(db);
-    let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("should be valid");
-    match entity_tree_sheet.major_entity_node(node_path.into()) {
+    let module_path = syn_node_path.module_path(db);
+    let entity_tree_sheet = db
+        .entity_syn_tree_sheet(module_path)
+        .expect("should be valid");
+    match entity_tree_sheet.major_entity_node(syn_node_path.into()) {
         Some(EntitySynNode::Submodule(node)) => node,
         _ => unreachable!(),
     }

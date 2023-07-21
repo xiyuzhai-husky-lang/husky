@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct StructureTypeNodeDecl {
     #[id]
-    pub node_path: TypeSynNodePath,
+    pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
@@ -24,18 +24,22 @@ impl StructureTypeNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_structure_ty_node_decl(
         &self,
-        node_path: TypeSynNodePath,
+        syn_node_path: TypeSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TypeNodeDecl {
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
+        let mut parser = self.expr_parser(
+            syn_node_path,
+            None,
+            AllowSelfType::True,
+            AllowSelfValue::True,
+        );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let generic_parameters = ctx.try_parse_option();
         StructureTypeNodeDecl::new(
             self.db(),
-            node_path,
+            syn_node_path,
             ast_idx,
             generic_parameters,
             parser.finish(),

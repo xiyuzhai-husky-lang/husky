@@ -3,7 +3,7 @@ use parsec::HasStreamState;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct GenericParameterDecl {
     annotated_variance_token: Option<VarianceToken>,
     symbol: CurrentSymbolIdx,
@@ -25,7 +25,7 @@ impl GenericParameterDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum GenericParameterDeclPatternVariant {
     Type {
         ident_token: IdentToken,

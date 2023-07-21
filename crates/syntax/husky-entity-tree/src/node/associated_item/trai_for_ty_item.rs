@@ -1,39 +1,39 @@
 use super::*;
 
-#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+#[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct TraitForTypeItemSynNodePath {
     maybe_ambiguous_path: MaybeAmbiguousPath<TraitForTypeItemPath>,
 }
 
 impl TraitForTypeItemSynNodePath {
     fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
         path: TraitForTypeItemPath,
     ) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
 
-    pub fn path(self, db: &dyn EntityTreeDb) -> Option<TraitForTypeItemPath> {
+    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<TraitForTypeItemPath> {
         self.maybe_ambiguous_path(db).unambiguous_path()
     }
 
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         self.maybe_ambiguous_path(db).path.module_path(db)
     }
 
-    pub fn impl_block(self, db: &dyn EntityTreeDb) -> TraitForTypeImplBlockSynNodePath {
+    pub fn impl_block(self, db: &dyn EntitySynTreeDb) -> TraitForTypeImplBlockSynNodePath {
         self.maybe_ambiguous_path(db)
             .path
             .impl_block(db)
             .syn_node_path(db)
     }
 
-    pub fn item_kind(self, db: &dyn EntityTreeDb) -> TraitItemKind {
+    pub fn item_kind(self, db: &dyn EntitySynTreeDb) -> TraitItemKind {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> TraitForTypeItemNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeItemNode {
         trai_for_ty_item_node(db, self)
     }
 }
@@ -47,15 +47,15 @@ impl From<TraitForTypeItemSynNodePath> for EntitySynNodePath {
 impl HasSynNodePath for TraitForTypeItemPath {
     type SynNodePath = TraitForTypeItemSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         TraitForTypeItemSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct TraitForTypeItemNode {
     #[id]
-    pub node_path: TraitForTypeItemSynNodePath,
+    pub syn_node_path: TraitForTypeItemSynNodePath,
     pub ast_idx: AstIdx,
     pub ident: Ident,
     pub item_kind: TraitItemKind,
@@ -66,7 +66,7 @@ pub struct TraitForTypeItemNode {
 impl TraitForTypeItemNode {
     #[inline(always)]
     fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
         impl_block_node_path: TraitForTypeImplBlockSynNodePath,
         ast_idx: AstIdx,
@@ -76,33 +76,39 @@ impl TraitForTypeItemNode {
         is_generic: bool,
     ) -> (TraitForTypeItemSynNodePath, Self) {
         let path = TraitForTypeItemPath::new(db, impl_block_node_path.path(), ident, item_kind);
-        let node_path = TraitForTypeItemSynNodePath::new(db, registry, path);
+        let syn_node_path = TraitForTypeItemSynNodePath::new(db, registry, path);
         (
-            node_path,
+            syn_node_path,
             Self::new_inner(
-                db, node_path, ast_idx, ident, item_kind, visibility, is_generic,
+                db,
+                syn_node_path,
+                ast_idx,
+                ident,
+                item_kind,
+                visibility,
+                is_generic,
             ),
         )
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn trai_for_ty_item_node(
-    db: &dyn EntityTreeDb,
-    node_path: TraitForTypeItemSynNodePath,
+    db: &dyn EntitySynTreeDb,
+    syn_node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemNode {
-    node_path
+    syn_node_path
         .impl_block(db)
         .items(db)
         .iter()
         .copied()
-        .find_map(|(_, node_path1, node)| (node_path1 == node_path).then_some(node))
+        .find_map(|(_, node_path1, node)| (node_path1 == syn_node_path).then_some(node))
         .expect("some")
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn trai_for_ty_impl_block_items(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     impl_block_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> Vec<(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemNode)> {
     let impl_block_node = impl_block_node_path.node(db);
@@ -131,7 +137,7 @@ pub(crate) fn trai_for_ty_impl_block_items(
                         } => *ty_item_kind,
                         _ => unreachable!(),
                     };
-                    let (node_path, node) = TraitForTypeItemNode::new(
+                    let (syn_node_path, node) = TraitForTypeItemNode::new(
                         db,
                         &mut registry,
                         impl_block_node_path,
@@ -141,7 +147,7 @@ pub(crate) fn trai_for_ty_impl_block_items(
                         visibility_expr.visibility(),
                         *is_generic,
                     );
-                    Some((ident_token.ident(), node_path, node))
+                    Some((ident_token.ident(), syn_node_path, node))
                 }
                 Ast::Err { .. } => None,
                 _ => unreachable!(),

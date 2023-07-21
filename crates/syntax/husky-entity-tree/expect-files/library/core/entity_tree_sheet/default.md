@@ -1,5 +1,5 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `core::default`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [],

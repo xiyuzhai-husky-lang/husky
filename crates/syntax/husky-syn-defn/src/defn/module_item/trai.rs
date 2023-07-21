@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
 pub struct TraitSynNodeDefn {
     #[id]
-    pub node_path: TraitSynNodePath,
+    pub syn_node_path: TraitSynNodePath,
     pub node_decl: TraitNodeDecl,
 }
 
@@ -16,9 +16,12 @@ impl HasSynNodeDefn for TraitSynNodePath {
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn trai_node_defn(db: &dyn SynDefnDb, node_path: TraitSynNodePath) -> TraitSynNodeDefn {
-    let node_decl = node_path.node_decl(db);
-    TraitSynNodeDefn::new(db, node_path, node_decl)
+pub(crate) fn trai_node_defn(
+    db: &dyn SynDefnDb,
+    syn_node_path: TraitSynNodePath,
+) -> TraitSynNodeDefn {
+    let node_decl = syn_node_path.node_decl(db);
+    TraitSynNodeDefn::new(db, syn_node_path, node_decl)
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]

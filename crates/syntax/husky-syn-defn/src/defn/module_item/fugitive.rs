@@ -30,7 +30,7 @@ impl FugitiveSynNodeDefn {
         }
     }
 
-    pub fn node_path(self, db: &dyn SynDefnDb) -> FugitiveSynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDefnDb) -> FugitiveSynNodePath {
         todo!()
         // match self {
         //     FugitiveDefn::Fn(defn) => defn.path(db),
@@ -59,12 +59,12 @@ impl HasSynNodeDefn for FugitiveSynNodePath {
 #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn fugitive_node_defn(
     db: &dyn SynDefnDb,
-    node_path: FugitiveSynNodePath,
+    syn_node_path: FugitiveSynNodePath,
 ) -> FugitiveSynNodeDefn {
-    match node_path.node_decl(db) {
-        FugitiveNodeDecl::Fn(node_decl) => FnNodeDefn::new(db, node_path, node_decl).into(),
-        FugitiveNodeDecl::Val(node_decl) => ValNodeDefn::new(db, node_path, node_decl).into(),
-        FugitiveNodeDecl::Gn(node_decl) => GnNodeDefn::new(db, node_path, node_decl).into(),
+    match syn_node_path.node_decl(db) {
+        FugitiveNodeDecl::Fn(node_decl) => FnNodeDefn::new(db, syn_node_path, node_decl).into(),
+        FugitiveNodeDecl::Val(node_decl) => ValNodeDefn::new(db, syn_node_path, node_decl).into(),
+        FugitiveNodeDecl::Gn(node_decl) => GnNodeDefn::new(db, syn_node_path, node_decl).into(),
     }
 }
 

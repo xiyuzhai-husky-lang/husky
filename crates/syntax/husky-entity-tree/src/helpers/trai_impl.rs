@@ -2,13 +2,15 @@ use super::*;
 
 // trait side
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn trai_side_derive_any_trai_for_ty_impl_block_paths_map(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     trai_path: TraitPath,
 ) -> SmallVec<[TraitForTypeImplBlockPath; 2]> {
     let crate_path = trai_path.crate_path(db);
-    let bundle = db.entity_tree_bundle(crate_path).expect("should be valid");
+    let bundle = db
+        .entity_syn_tree_bundle(crate_path)
+        .expect("should be valid");
     let mut paths: SmallVec<[TraitForTypeImplBlockPath; 2]> = smallvec![];
     for path in bundle.trai_for_ty_impl_block_paths_filtered_by_trai_path(db, trai_path) {
         match path.ty_sketch(db) {
@@ -19,13 +21,15 @@ pub fn trai_side_derive_any_trai_for_ty_impl_block_paths_map(
     paths
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn trai_side_path_leading_trai_for_ty_impl_block_paths_map(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     trai_path: TraitPath,
 ) -> SmallVecPairMap<TypePath, SmallVec<[TraitForTypeImplBlockPath; 2]>, 8> {
     let crate_path = trai_path.crate_path(db);
-    let bundle = db.entity_tree_bundle(crate_path).expect("should be valid");
+    let bundle = db
+        .entity_syn_tree_bundle(crate_path)
+        .expect("should be valid");
     let mut map: SmallVecPairMap<TypePath, SmallVec<[TraitForTypeImplBlockPath; 2]>, 8> =
         Default::default();
     for path in bundle.trai_for_ty_impl_block_paths_filtered_by_trai_path(db, trai_path) {
@@ -43,13 +47,15 @@ pub fn trai_side_path_leading_trai_for_ty_impl_block_paths_map(
 
 // type side
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub fn ty_side_trai_for_ty_impl_block_paths_map(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     ty_path: TypePath,
 ) -> SmallVecPairMap<TraitPath, SmallVec<[TraitForTypeImplBlockPath; 2]>, 2> {
     let crate_path = ty_path.crate_path(db);
-    let bundle = db.entity_tree_bundle(crate_path).expect("should be valid");
+    let bundle = db
+        .entity_syn_tree_bundle(crate_path)
+        .expect("should be valid");
     let mut map: SmallVecPairMap<TraitPath, SmallVec<[TraitForTypeImplBlockPath; 2]>, 2> =
         Default::default();
     for path in bundle.trai_for_ty_impl_block_paths_filtered_by_ty_path(db, ty_path) {

@@ -110,7 +110,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::major`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::major`,
                                         disambiguator: 0,
@@ -158,7 +158,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits`,
                                         disambiguator: 0,
@@ -206,7 +206,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::fermi`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::fermi`,
                                         disambiguator: 0,
@@ -255,7 +255,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::raw_contour`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::raw_contour`,
                                         disambiguator: 0,
@@ -303,7 +303,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::line_segment_sketch`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::line_segment_sketch`,
                                         disambiguator: 0,
@@ -351,7 +351,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::connected_component`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::connected_component`,
                                         disambiguator: 0,

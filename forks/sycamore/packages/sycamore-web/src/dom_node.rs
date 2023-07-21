@@ -21,7 +21,7 @@ extern "C" {
     #[wasm_bindgen(extends = Node)]
     pub(super) type NodeWithId;
     #[wasm_bindgen(method, getter, js_name = "$$$nodeId")]
-    pub fn node_path(this: &NodeWithId) -> Option<usize>;
+    pub fn syn_node_path(this: &NodeWithId) -> Option<usize>;
     #[wasm_bindgen(method, setter, js_name = "$$$nodeId")]
     pub fn set_node_path(this: &NodeWithId, id: usize);
 
@@ -78,7 +78,7 @@ impl DomNode {
     pub(super) fn get_node_path(&self) -> NodePath {
         if self.id.get() == NodePath(0) {
             // self.id not yet initialized.
-            if let Some(id) = self.node.unchecked_ref::<NodeWithId>().node_path() {
+            if let Some(id) = self.node.unchecked_ref::<NodeWithId>().syn_node_path() {
                 self.id.set(NodePath(id));
             } else {
                 self.id.set(NodePath::new_with_node(&self.node));

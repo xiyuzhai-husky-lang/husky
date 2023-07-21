@@ -1,12 +1,12 @@
 Ok(
-    EntityTreePresheet {
+    EntitySynTreePresheet {
         module_path: `math`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `math::algebra`,
                                     disambiguator: 0,
@@ -24,7 +24,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebra`,
@@ -40,7 +40,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `math::algebraic_geometry`,
                                     disambiguator: 0,
@@ -58,7 +58,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebraic_geometry`,
@@ -74,7 +74,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `math::algebraic_topology`,
                                     disambiguator: 0,
@@ -92,7 +92,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebraic_topology`,
@@ -108,7 +108,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `math::category_theory`,
                                     disambiguator: 0,
@@ -126,7 +126,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::category_theory`,
@@ -142,7 +142,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `math::probability`,
                                     disambiguator: 0,
@@ -160,7 +160,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::probability`,

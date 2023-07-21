@@ -22,13 +22,13 @@ pub enum TraitForTypeItemSynNodeDefn {
 }
 
 impl TraitForTypeItemSynNodeDefn {
-    pub fn node_path(self, db: &dyn SynDefnDb) -> TraitForTypeItemSynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDefnDb) -> TraitForTypeItemSynNodePath {
         match self {
-            TraitForTypeItemSynNodeDefn::AssociatedFn(node_defn) => node_defn.node_path(db),
-            TraitForTypeItemSynNodeDefn::MethodFn(node_defn) => node_defn.node_path(db),
-            TraitForTypeItemSynNodeDefn::AssociatedType(node_defn) => node_defn.node_path(db),
-            TraitForTypeItemSynNodeDefn::AssociatedVal(node_defn) => node_defn.node_path(db),
-            // TraitForTypeItemNodeDefn::MemoizedField(node_defn) => node_defn.node_path(db),
+            TraitForTypeItemSynNodeDefn::AssociatedFn(node_defn) => node_defn.syn_node_path(db),
+            TraitForTypeItemSynNodeDefn::MethodFn(node_defn) => node_defn.syn_node_path(db),
+            TraitForTypeItemSynNodeDefn::AssociatedType(node_defn) => node_defn.syn_node_path(db),
+            TraitForTypeItemSynNodeDefn::AssociatedVal(node_defn) => node_defn.syn_node_path(db),
+            // TraitForTypeItemNodeDefn::MemoizedField(node_defn) => node_defn.syn_node_path(db),
         }
     }
 
@@ -65,15 +65,15 @@ impl HasSynNodeDefn for TraitForTypeItemSynNodePath {
 #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn trai_for_ty_item_node_defn(
     db: &dyn SynDefnDb,
-    node_path: TraitForTypeItemSynNodePath,
+    syn_node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemSynNodeDefn {
-    match node_path.node_decl(db) {
+    match syn_node_path.node_decl(db) {
         TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
         TraitForTypeItemNodeDecl::MethodFn(node_decl) => {
-            TraitForTypeMethodFnNodeDefn::new(db, node_path, node_decl).into()
+            TraitForTypeMethodFnNodeDefn::new(db, syn_node_path, node_decl).into()
         }
         TraitForTypeItemNodeDecl::AssociatedType(node_decl) => {
-            TraitForTypeAssociatedTypeNodeDefn::new(db, node_path, node_decl).into()
+            TraitForTypeAssociatedTypeNodeDefn::new(db, syn_node_path, node_decl).into()
         }
         TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
         // TraitForTypeItemNodeDecl::MemoizedField(_) => todo!(),

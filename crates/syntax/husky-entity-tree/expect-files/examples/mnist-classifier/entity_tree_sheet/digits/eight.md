@@ -1,12 +1,12 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `mnist_classifier::digits::eight`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
@@ -40,7 +40,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -58,7 +58,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
@@ -92,7 +92,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -110,7 +110,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
@@ -144,7 +144,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -173,7 +173,7 @@ Ok(
                             FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
@@ -218,7 +218,7 @@ Ok(
                             FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
@@ -263,7 +263,7 @@ Ok(
                             FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
@@ -308,7 +308,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::zero`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::zero`,
                                             disambiguator: 0,
@@ -347,7 +347,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::one`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::one`,
                                             disambiguator: 0,
@@ -386,7 +386,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::six`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::six`,
                                             disambiguator: 0,
@@ -425,7 +425,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::three`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::three`,
                                             disambiguator: 0,
@@ -464,7 +464,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::four`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::four`,
                                             disambiguator: 0,
@@ -503,7 +503,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::five`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::five`,
                                             disambiguator: 0,
@@ -542,7 +542,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::seven`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::seven`,
                                             disambiguator: 0,
@@ -581,7 +581,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::eight`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::eight`,
                                             disambiguator: 0,
@@ -620,7 +620,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::nine`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::nine`,
                                             disambiguator: 0,
@@ -659,7 +659,7 @@ Ok(
                             original_symbol: EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::digits::two`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::digits::two`,
                                             disambiguator: 0,
@@ -702,7 +702,7 @@ Ok(
                                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -769,7 +769,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule {
                                         submodule_path: `mnist_classifier::connected_component`,
                                         node: SubmoduleSynNode {
-                                            node_path: SubmoduleSynNodePath {
+                                            syn_node_path: SubmoduleSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: `mnist_classifier::connected_component`,
                                                     disambiguator: 0,
@@ -820,7 +820,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule {
                                         submodule_path: `mnist_classifier::raw_contour`,
                                         node: SubmoduleSynNode {
-                                            node_path: SubmoduleSynNodePath {
+                                            syn_node_path: SubmoduleSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: `mnist_classifier::raw_contour`,
                                                     disambiguator: 0,
@@ -871,7 +871,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule {
                                         submodule_path: `mnist_classifier::geom2d`,
                                         node: SubmoduleSynNode {
-                                            node_path: SubmoduleSynNodePath {
+                                            syn_node_path: SubmoduleSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: `mnist_classifier::geom2d`,
                                                     disambiguator: 0,
@@ -922,7 +922,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule {
                                         submodule_path: `mnist_classifier::line_segment_sketch`,
                                         node: SubmoduleSynNode {
-                                            node_path: SubmoduleSynNodePath {
+                                            syn_node_path: SubmoduleSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: `mnist_classifier::line_segment_sketch`,
                                                     disambiguator: 0,
@@ -973,7 +973,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule {
                                         submodule_path: `mnist_classifier::fermi`,
                                         node: SubmoduleSynNode {
-                                            node_path: SubmoduleSynNodePath {
+                                            syn_node_path: SubmoduleSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: `mnist_classifier::fermi`,
                                                     disambiguator: 0,
@@ -1024,7 +1024,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule {
                                         submodule_path: `mnist_classifier::digits`,
                                         node: SubmoduleSynNode {
-                                            node_path: SubmoduleSynNodePath {
+                                            syn_node_path: SubmoduleSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: `mnist_classifier::digits`,
                                                     disambiguator: 0,
@@ -1075,7 +1075,7 @@ Ok(
                                     original_symbol: EntitySymbol::Submodule {
                                         submodule_path: `mnist_classifier::major`,
                                         node: SubmoduleSynNode {
-                                            node_path: SubmoduleSynNodePath {
+                                            syn_node_path: SubmoduleSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: `mnist_classifier::major`,
                                                     disambiguator: 0,
@@ -1130,7 +1130,7 @@ Ok(
                                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -1215,7 +1215,7 @@ Ok(
                                                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -1300,7 +1300,7 @@ Ok(
                                                     FugitivePath(`malamute::narrow_down`, `Gn`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
@@ -1379,7 +1379,7 @@ Ok(
                                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`mnist::MnistLabel`, `Enum`),
@@ -1464,7 +1464,7 @@ Ok(
                                                     TypePath(`mnist::BinaryImage28`, `Struct`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
@@ -1543,7 +1543,7 @@ Ok(
                                                     FugitivePath(`mnist::input`, `Val`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist::input`, `Val`),
@@ -1620,7 +1620,7 @@ Ok(
                                             FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -1693,7 +1693,7 @@ Ok(
                                             FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -1766,7 +1766,7 @@ Ok(
                                             FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
@@ -1839,7 +1839,7 @@ Ok(
                                             FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
@@ -1912,7 +1912,7 @@ Ok(
                                             FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
@@ -1985,7 +1985,7 @@ Ok(
                                             FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
@@ -2058,7 +2058,7 @@ Ok(
                                             FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
@@ -2131,7 +2131,7 @@ Ok(
                                             FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                 FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
@@ -2206,7 +2206,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -2291,7 +2291,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -2376,7 +2376,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -2461,7 +2461,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -2546,7 +2546,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -2631,7 +2631,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -2716,7 +2716,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
@@ -2803,7 +2803,7 @@ Ok(
                                                             FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                         ),
                                                         node: ModuleItemSynNode {
-                                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -2898,7 +2898,7 @@ Ok(
                                                     TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -2977,7 +2977,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
@@ -3062,7 +3062,7 @@ Ok(
                                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -3141,7 +3141,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
@@ -3226,7 +3226,7 @@ Ok(
                                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -3305,7 +3305,7 @@ Ok(
                                                     TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -3386,7 +3386,7 @@ Ok(
                                                             TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                                         ),
                                                         node: ModuleItemSynNode {
-                                                            node_path: ModuleItemSynNodePath::Type(
+                                                            syn_node_path: ModuleItemSynNodePath::Type(
                                                                 TypeSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -3477,7 +3477,7 @@ Ok(
                                                             FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                                         ),
                                                         node: ModuleItemSynNode {
-                                                            node_path: ModuleItemSynNodePath::Fugitive(
+                                                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                                 FugitiveSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
@@ -3574,7 +3574,7 @@ Ok(
                                                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                                         ),
                                                         node: ModuleItemSynNode {
-                                                            node_path: ModuleItemSynNodePath::Type(
+                                                            syn_node_path: ModuleItemSynNodePath::Type(
                                                                 TypeSynNodePath {
                                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                         path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -3663,7 +3663,7 @@ Ok(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -3742,7 +3742,7 @@ Ok(
                                                     TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -3821,7 +3821,7 @@ Ok(
                                                     TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Type(
+                                                    syn_node_path: ModuleItemSynNodePath::Type(
                                                         TypeSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -3900,7 +3900,7 @@ Ok(
                                                     FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                                                 ),
                                                 node: ModuleItemSynNode {
-                                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                                         FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),

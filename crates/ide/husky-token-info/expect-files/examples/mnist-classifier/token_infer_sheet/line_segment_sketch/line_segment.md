@@ -26,7 +26,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::geom2d`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::geom2d`,
                                         disambiguator: 0,

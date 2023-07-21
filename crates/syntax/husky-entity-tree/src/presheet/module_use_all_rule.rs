@@ -3,7 +3,7 @@ use vec_like::VecMapGetEntry;
 
 /// it's separated because it has to be updated indefinitely
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct UseAllModuleSymbolsRule {
     /// parent is of type `RelativeModulePath`
     ///
@@ -21,7 +21,7 @@ pub struct UseAllModuleSymbolsRule {
 
 impl UseAllModuleSymbolsRule {
     pub(crate) fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         sheet: &EntityTreePresheetMut,
         parent_module_path: ModulePath,
         ast_idx: AstIdx,
@@ -62,9 +62,9 @@ impl UseAllModuleSymbolsRule {
 
     pub(crate) fn parent_module_specific_symbols<'a>(
         &self,
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySynTreeDb,
         presheets: &'a [EntityTreePresheetMut],
-    ) -> EntityTreeResult<EntitySymbolTableRef<'a>> {
+    ) -> EntitySynTreeResult<EntitySymbolTableRef<'a>> {
         if self.is_same_crate {
             // avoids cyclic dependency
             Ok(presheets
@@ -73,7 +73,7 @@ impl UseAllModuleSymbolsRule {
                 .module_specific_symbols())
         } else {
             Ok(db
-                .entity_tree_sheet(self.parent_module_path)?
+                .entity_syn_tree_sheet(self.parent_module_path)?
                 .module_symbols())
         }
     }
@@ -100,7 +100,7 @@ impl UseAllModuleSymbolsRule {
 }
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub(crate) struct UseAllModuleSymbolsRules(Vec<UseAllModuleSymbolsRule>);
 
 #[derive(Debug, Default, PartialEq, Eq, Clone, Copy)]

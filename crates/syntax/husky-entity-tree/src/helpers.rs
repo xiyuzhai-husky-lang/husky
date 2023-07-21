@@ -10,7 +10,7 @@ use crate::*;
 use smallvec::{smallvec, SmallVec};
 use vec_like::{OrderedSmallVecSet, SmallVecMap, SmallVecPairMap, SmallVecSet};
 
-#[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct TraitOrderedSet {
     data: OrderedSmallVecSet<TraitPath, 8>,
 }

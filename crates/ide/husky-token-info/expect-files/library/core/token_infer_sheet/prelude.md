@@ -27,7 +27,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::basic`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::basic`,
                                         disambiguator: 0,
@@ -74,7 +74,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::num`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::num`,
                                         disambiguator: 0,
@@ -121,7 +121,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::raw_bits`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::raw_bits`,
                                         disambiguator: 0,
@@ -168,7 +168,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::fmt`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::fmt`,
                                         disambiguator: 0,
@@ -215,7 +215,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::visual`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::visual`,
                                         disambiguator: 0,
@@ -262,7 +262,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::marker`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::marker`,
                                         disambiguator: 0,
@@ -309,7 +309,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::clone`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::clone`,
                                         disambiguator: 0,
@@ -356,7 +356,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::option`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::option`,
                                         disambiguator: 0,
@@ -403,7 +403,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::cmp`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::cmp`,
                                         disambiguator: 0,
@@ -450,7 +450,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::slice`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::slice`,
                                         disambiguator: 0,

@@ -5,11 +5,11 @@ mod error;
 
 pub use self::error::*;
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn entity_tree_crate_bundle(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     crate_path: CratePath,
-) -> EntityTreeBundleResult<EntityTreeCrateBundle> {
+) -> EntitySynTreeBundleResult<EntitySynTreeCrateBundle> {
     Ok(EntityTreeCollector::new(db, crate_path)?.collect_all())
 }
 
@@ -17,7 +17,7 @@ pub(crate) fn entity_tree_crate_bundle(
 fn entity_tree_crate_bundle_works() {
     DB::default().ast_expect_test_debug_with_db(
         "entity_tree_bundle",
-        |db, crate_path| -> EntityTreeBundleResult<_> {
+        |db, crate_path| -> EntitySynTreeBundleResult<_> {
             Ok(entity_tree_crate_bundle(db, crate_path)
                 .as_ref()
                 .map_err(|e| e.clone())?)
@@ -26,15 +26,15 @@ fn entity_tree_crate_bundle_works() {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct EntityTreeCrateBundle {
-    sheets: VecMap<EntityTreeSheet>,
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+pub struct EntitySynTreeCrateBundle {
+    sheets: VecMap<EntitySynTreeSheet>,
     principal_entity_path_expr_arena: MajorPathExprArena,
 }
 
-impl EntityTreeCrateBundle {
+impl EntitySynTreeCrateBundle {
     pub(crate) fn new(
-        sheets: VecMap<EntityTreeSheet>,
+        sheets: VecMap<EntitySynTreeSheet>,
         principal_entity_path_expr_arena: MajorPathExprArena,
     ) -> Self {
         Self {
@@ -43,7 +43,7 @@ impl EntityTreeCrateBundle {
         }
     }
 
-    pub fn sheets(&self) -> &[EntityTreeSheet] {
+    pub fn sheets(&self) -> &[EntitySynTreeSheet] {
         &self.sheets
     }
 
@@ -76,7 +76,7 @@ impl EntityTreeCrateBundle {
 
     pub(crate) fn trai_for_ty_impl_block_paths_filtered_by_trai_path<'a>(
         &'a self,
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySynTreeDb,
         trai_path: TraitPath,
     ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.sheets
@@ -88,7 +88,7 @@ impl EntityTreeCrateBundle {
 
     pub(crate) fn trai_for_ty_impl_block_paths_filtered_by_ty_path<'a>(
         &'a self,
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySynTreeDb,
         ty_path: TypePath,
     ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.sheets
@@ -98,7 +98,7 @@ impl EntityTreeCrateBundle {
             .filter(move |path| path.ty_sketch(db) == TypeSketch::Path(ty_path))
     }
 
-    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntityTreeSheet> {
+    pub(crate) fn get_sheet(&self, module_path: ModulePath) -> Option<&EntitySynTreeSheet> {
         self.sheets.get_entry(module_path)
     }
 }

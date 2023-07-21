@@ -17,7 +17,7 @@ Ok(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Val(
                             ValNodeDecl {
-                                node_path: FugitiveSynNodePath {
+                                syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                         disambiguator: 0,
@@ -154,7 +154,7 @@ Ok(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveSynNodePath {
+                                syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                         disambiguator: 0,
@@ -418,7 +418,7 @@ Ok(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveSynNodePath {
+                                syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                         disambiguator: 0,
@@ -682,7 +682,7 @@ Ok(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveSynNodePath {
+                                syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                         disambiguator: 0,
@@ -946,7 +946,7 @@ Ok(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Val(
                             ValNodeDecl {
-                                node_path: FugitiveSynNodePath {
+                                syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                         disambiguator: 0,

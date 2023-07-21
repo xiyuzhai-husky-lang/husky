@@ -9,7 +9,7 @@ use thiserror::Error;
 /// major path expr is bottom-up
 /// only module item path is allowed
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum ModuleItemPathExpr {
     Root {
         name_token: PathNameToken,
@@ -26,7 +26,7 @@ pub type ModuleItemPathExprIdx = ArenaIdx<ModuleItemPathExpr>;
 pub type MajorPathExprIdxRange = ArenaIdxRange<ModuleItemPathExpr>;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum MajorPathExprError {
     #[error("{0}")]
     Original(#[from] OriginalMajorPathExprError),
@@ -35,7 +35,7 @@ pub enum MajorPathExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum OriginalMajorPathExprError {
     #[error("unrecognized identifier")]
     UnrecognizedIdent(IdentToken),
@@ -56,7 +56,7 @@ impl From<TokenError> for MajorPathExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum DerivedMajorPathExprError {
     #[error("token error")]
     Token(#[from] TokenError),
@@ -66,7 +66,7 @@ pub type ModuleItemPathExprResult<T> = Result<T, MajorPathExprError>;
 pub type ModuleItemPathExprMaybeResult<T> = MaybeResult<T, MajorPathExprError>;
 
 pub(crate) struct ModuleItemPathExprParser<'a, 'b> {
-    db: &'b dyn EntityTreeDb,
+    db: &'b dyn EntitySynTreeDb,
     crate_root_path: ModulePath,
     token_stream: TokenStream<'a>,
     major_path_expr_arena: &'b mut MajorPathExprArena,
@@ -81,7 +81,7 @@ impl<'a, 'b> HasTokenDb for ModuleItemPathExprParser<'a, 'b> {
 
 impl<'a, 'b> ModuleItemPathExprParser<'a, 'b> {
     pub(crate) fn new(
-        db: &'b dyn EntityTreeDb,
+        db: &'b dyn EntitySynTreeDb,
         crate_root_path: ModulePath,
         token_stream: TokenStream<'a>,
         major_path_expr_arena: &'b mut MajorPathExprArena,

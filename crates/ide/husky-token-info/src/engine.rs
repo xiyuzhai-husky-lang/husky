@@ -12,34 +12,37 @@ pub(crate) struct InferEngine<'a> {
     module_path: ModulePath,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    entity_tree_presheet: &'a EntityTreePresheet,
-    entity_tree_sheet: &'a EntityTreeSheet,
+    entity_tree_presheet: &'a EntitySynTreePresheet,
+    entity_tree_sheet: &'a EntitySynTreeSheet,
     module_symbol_context: ModuleSymbolContext<'a>,
     sheet: TokenInfoSheet,
 }
 
 impl<'a> InferEngine<'a> {
-    pub(crate) fn new(db: &'a dyn TokenInfoDb, module_path: ModulePath) -> EntityTreeResult<Self> {
+    pub(crate) fn new(
+        db: &'a dyn TokenInfoDb,
+        module_path: ModulePath,
+    ) -> EntitySynTreeResult<Self> {
         let token_sheet_data = &db.token_sheet_data(module_path)?;
         Ok(Self {
             db,
             module_path,
             token_sheet_data,
             ast_sheet: db.ast_sheet(module_path)?,
-            entity_tree_presheet: db.entity_tree_presheet(module_path)?,
-            entity_tree_sheet: db.entity_tree_sheet(module_path)?,
+            entity_tree_presheet: db.entity_syn_tree_presheet(module_path)?,
+            entity_tree_sheet: db.entity_syn_tree_sheet(module_path)?,
             sheet: TokenInfoSheet::new(token_sheet_data),
             module_symbol_context: db.module_symbol_context(module_path)?,
         })
     }
 
-    pub(crate) fn visit_all(mut self) -> EntityTreeResult<TokenInfoSheet> {
+    pub(crate) fn visit_all(mut self) -> EntitySynTreeResult<TokenInfoSheet> {
         self.visit_nodes()?;
         self.visit_once_use_rules();
         Ok(self.sheet)
     }
 
-    fn visit_nodes(&mut self) -> EntityTreeResult<()> {
+    fn visit_nodes(&mut self) -> EntitySynTreeResult<()> {
         for node_defn in self.module_path.node_defns(self.db)?.iter().copied() {
             self.visit_node(node_defn)
         }
@@ -98,7 +101,7 @@ impl<'a> InferEngine<'a> {
                 ..
             } => self.sheet.add(
                 ident_token.token_idx(),
-                TokenInfo::EntityNode(node_decl.node_path(self.db), entity_kind),
+                TokenInfo::EntityNode(node_decl.syn_node_path(self.db), entity_kind),
             ),
             Ast::ImplBlock { .. } => (),
             _ => unreachable!(),

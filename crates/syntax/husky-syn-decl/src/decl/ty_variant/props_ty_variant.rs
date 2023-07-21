@@ -6,7 +6,7 @@ use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct PropsTypeVariantNodeDecl {
     #[id]
-    pub node_path: TypeVariantSynNodePath,
+    pub syn_node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     lcurl: NodeDeclResult<PropsTypeVariantLeftCurlyBrace>,

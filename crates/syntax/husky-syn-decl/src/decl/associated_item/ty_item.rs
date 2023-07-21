@@ -34,13 +34,13 @@ impl From<TypeItemNodeDecl> for SynNodeDecl {
 }
 
 impl TypeItemNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemSynNodePath {
+    pub fn syn_node_path(self, db: &dyn DeclDb) -> TypeItemSynNodePath {
         match self {
-            TypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.node_path(db),
-            TypeItemNodeDecl::MethodFn(node_decl) => node_decl.node_path(db),
+            TypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.syn_node_path(db),
+            TypeItemNodeDecl::MethodFn(node_decl) => node_decl.syn_node_path(db),
             TypeItemNodeDecl::AssociatedType(_) => todo!(),
             TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-            TypeItemNodeDecl::MemoizedField(node_decl) => node_decl.node_path(db),
+            TypeItemNodeDecl::MemoizedField(node_decl) => node_decl.syn_node_path(db),
         }
     }
 
@@ -104,17 +104,17 @@ impl HasNodeDecl for TypeItemNode {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_item_node_decl(
     db: &dyn DeclDb,
-    node_path: TypeItemSynNodePath,
+    syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemNodeDecl {
-    let module_path = node_path.module_path(db);
+    let module_path = syn_node_path.module_path(db);
     let ctx = DeclParser::new(db, module_path);
-    ctx.parse_ty_item_node_decl(node_path)
+    ctx.parse_ty_item_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_item_node_decl(&self, node_path: TypeItemSynNodePath) -> TypeItemNodeDecl {
+    fn parse_ty_item_node_decl(&self, syn_node_path: TypeItemSynNodePath) -> TypeItemNodeDecl {
         let db = self.db();
-        let node = node_path.node(db);
+        let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
@@ -126,7 +126,7 @@ impl<'a> DeclParser<'a> {
                 saved_stream_state,
                 ..
             } => self.parse_ty_item_node_decl_aux(
-                node_path,
+                syn_node_path,
                 node,
                 ast_idx,
                 token_group_idx,
@@ -139,7 +139,7 @@ impl<'a> DeclParser<'a> {
 
     fn parse_ty_item_node_decl_aux(
         &self,
-        node_path: TypeItemSynNodePath,
+        syn_node_path: TypeItemSynNodePath,
         node: TypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -149,7 +149,7 @@ impl<'a> DeclParser<'a> {
         match ty_item_kind {
             TypeItemKind::MethodFn => self
                 .parse_ty_method_node_decl(
-                    node_path,
+                    syn_node_path,
                     node,
                     ast_idx,
                     token_group_idx,
@@ -158,7 +158,7 @@ impl<'a> DeclParser<'a> {
                 .into(),
             TypeItemKind::AssociatedFn => self
                 .parse_ty_associated_fn_node_decl(
-                    node_path,
+                    syn_node_path,
                     ast_idx,
                     token_group_idx,
                     saved_stream_state,

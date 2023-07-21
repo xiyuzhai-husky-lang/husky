@@ -1,5 +1,5 @@
 Ok(
-    EntityTreePresheet {
+    EntitySynTreePresheet {
         module_path: `core::prelude`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [],

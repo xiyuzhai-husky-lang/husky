@@ -13,7 +13,7 @@ Ok(
                 ),
                 SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleSynNodePath {
+                        syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebra`,
                                 disambiguator: 0,
@@ -34,7 +34,7 @@ Ok(
                 ),
                 SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleSynNodePath {
+                        syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebraic_geometry`,
                                 disambiguator: 0,
@@ -55,7 +55,7 @@ Ok(
                 ),
                 SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleSynNodePath {
+                        syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebraic_topology`,
                                 disambiguator: 0,
@@ -76,7 +76,7 @@ Ok(
                 ),
                 SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleSynNodePath {
+                        syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::category_theory`,
                                 disambiguator: 0,
@@ -97,7 +97,7 @@ Ok(
                 ),
                 SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleSynNodePath {
+                        syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::probability`,
                                 disambiguator: 0,

@@ -10,7 +10,7 @@ use super::*;
 use husky_entity_path::ModuleItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum ModuleItemSynNodePath {
     Trait(TraitSynNodePath),
@@ -20,7 +20,7 @@ pub enum ModuleItemSynNodePath {
 
 impl ModuleItemSynNodePath {
     pub(super) fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
         path: ModuleItemPath,
     ) -> Self {
@@ -31,29 +31,29 @@ impl ModuleItemSynNodePath {
         }
     }
 
-    pub fn path(self, db: &dyn EntityTreeDb) -> Option<ModuleItemPath> {
+    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<ModuleItemPath> {
         match self {
-            ModuleItemSynNodePath::Trait(node_path) => node_path
+            ModuleItemSynNodePath::Trait(syn_node_path) => syn_node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
-            ModuleItemSynNodePath::Type(node_path) => node_path
+            ModuleItemSynNodePath::Type(syn_node_path) => syn_node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
-            ModuleItemSynNodePath::Fugitive(node_path) => node_path
+            ModuleItemSynNodePath::Fugitive(syn_node_path) => syn_node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
         }
     }
 
-    pub fn ident(self, db: &dyn EntityTreeDb) -> Ident {
+    pub fn ident(self, db: &dyn EntitySynTreeDb) -> Ident {
         todo!("")
         // self.path(db).ident(db)
     }
 
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         match self {
             ModuleItemSynNodePath::Trait(node) => node.module_path(db),
             ModuleItemSynNodePath::Type(node) => node.module_path(db),
@@ -61,7 +61,7 @@ impl ModuleItemSynNodePath {
         }
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> ModuleItemSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> ModuleItemSynNode {
         todo!()
     }
 }
@@ -69,7 +69,7 @@ impl ModuleItemSynNodePath {
 impl HasSynNodePath for ModuleItemPath {
     type SynNodePath = ModuleItemSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         match self {
             ModuleItemPath::Type(path) => path.syn_node_path(db).into(),
             ModuleItemPath::Trait(path) => path.syn_node_path(db).into(),
@@ -79,10 +79,10 @@ impl HasSynNodePath for ModuleItemPath {
 }
 
 // todo: change this to enum and create FugitiveNode etc.
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct ModuleItemSynNode {
     #[id]
-    pub node_path: ModuleItemSynNodePath,
+    pub syn_node_path: ModuleItemSynNodePath,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
@@ -91,7 +91,7 @@ pub struct ModuleItemSynNode {
 
 impl ModuleItemSynNode {
     pub(super) fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
         module_item_path: ModuleItemPath,
         visibility: Scope,
@@ -110,7 +110,7 @@ impl ModuleItemSynNode {
     }
 
     /// only gives a path when valid
-    pub fn unambiguous_path(self, db: &dyn EntityTreeDb) -> Option<ModuleItemPath> {
-        self.node_path(db).path(db)
+    pub fn unambiguous_path(self, db: &dyn EntitySynTreeDb) -> Option<ModuleItemPath> {
+        self.syn_node_path(db).path(db)
     }
 }

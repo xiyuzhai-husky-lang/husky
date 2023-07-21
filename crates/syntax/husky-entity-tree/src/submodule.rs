@@ -4,9 +4,9 @@ use husky_entity_path::EntityPath;
 use husky_vfs::*;
 use vec_like::VecSet;
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn submodules(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     module_path: ModulePath,
 ) -> VfsResult<Vec<ModulePath>> {
     let ast_sheet = db.ast_sheet(module_path)?;
@@ -23,9 +23,9 @@ pub(crate) fn submodules(
 }
 
 /// all modules, must be included in module tree
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn all_modules_within_crate(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     crate_path: CratePath,
 ) -> VecSet<ModulePath> {
     let root = ModulePath::new_root(db, crate_path);
@@ -36,7 +36,7 @@ pub(crate) fn all_modules_within_crate(
 }
 
 fn collect_all_modules(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     root: ModulePath,
     all_modules: &mut VecSet<ModulePath>,
 ) {
@@ -57,6 +57,6 @@ fn submodules_works() {
 fn all_modules_works() {
     DB::default().ast_expect_test_debug_with_db(
         "all_modules_within_crate",
-        EntityTreeDb::all_modules_within_crate,
+        EntitySynTreeDb::all_modules_within_crate,
     )
 }

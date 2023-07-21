@@ -1,14 +1,14 @@
 Ok(
-    EntityTreeCrateBundle {
+    EntitySynTreeCrateBundle {
         sheets: [
-            EntityTreeSheet {
+            EntitySynTreeSheet {
                 module_path: `quick_sort`,
                 major_entity_node_table: MajorEntityNodeTable {
                     entries: [
                         EntityNodeEntry {
                             node: EntitySynNode::ModuleItem(
                                 ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
@@ -40,7 +40,7 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntitySynNodePath::ModuleItem(
+                            syn_node_path: EntitySynNodePath::ModuleItem(
                                 ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -56,7 +56,7 @@ Ok(
                         EntityNodeEntry {
                             node: EntitySynNode::ModuleItem(
                                 ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
@@ -90,7 +90,7 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntitySynNodePath::ModuleItem(
+                            syn_node_path: EntitySynNodePath::ModuleItem(
                                 ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -108,7 +108,7 @@ Ok(
                         EntityNodeEntry {
                             node: EntitySynNode::ModuleItem(
                                 ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
@@ -142,7 +142,7 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntitySynNodePath::ModuleItem(
+                            syn_node_path: EntitySynNodePath::ModuleItem(
                                 ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -160,7 +160,7 @@ Ok(
                         EntityNodeEntry {
                             node: EntitySynNode::ModuleItem(
                                 ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
@@ -194,7 +194,7 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntitySynNodePath::ModuleItem(
+                            syn_node_path: EntitySynNodePath::ModuleItem(
                                 ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -212,7 +212,7 @@ Ok(
                         EntityNodeEntry {
                             node: EntitySynNode::ModuleItem(
                                 ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
@@ -246,7 +246,7 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntitySynNodePath::ModuleItem(
+                            syn_node_path: EntitySynNodePath::ModuleItem(
                                 ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -273,7 +273,7 @@ Ok(
                                     FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
@@ -316,7 +316,7 @@ Ok(
                                     FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
@@ -361,7 +361,7 @@ Ok(
                                     FugitivePath(`quick_sort::partition`, `Fn`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
@@ -406,7 +406,7 @@ Ok(
                                     FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
@@ -451,7 +451,7 @@ Ok(
                                     FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),

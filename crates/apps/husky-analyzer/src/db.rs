@@ -10,7 +10,7 @@ use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
 use husky_diagnostics::DiagnosticsJar;
 use husky_entity_path::EntityPathJar;
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_tree::EntitySynTreeJar;
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_expr_ty::ExprTypeJar;
@@ -37,7 +37,7 @@ use husky_vfs::*;
 #[salsa::db(
     TokenJar,
     VfsJar,
-    EntityTreeJar,
+    EntitySynTreeJar,
     AstJar,
     CowordJar,
     EntityPathJar,

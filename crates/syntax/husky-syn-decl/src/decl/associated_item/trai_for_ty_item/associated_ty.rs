@@ -5,7 +5,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeAssociatedTypeNodeDecl {
     #[id]
-    pub node_path: TraitForTypeItemSynNodePath,
+    pub syn_node_path: TraitForTypeItemSynNodePath,
     pub node: TraitForTypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -27,16 +27,16 @@ impl TraitForTypeAssociatedTypeNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_for_ty_associated_ty_node_decl(
         &self,
-        node_path: TraitForTypeItemSynNodePath,
+        syn_node_path: TraitForTypeItemSynNodePath,
         node: TraitForTypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TraitForTypeAssociatedTypeNodeDecl {
         let db = self.db();
-        let impl_block_node_decl = node_path.impl_block(db).node_decl(db);
+        let impl_block_node_decl = syn_node_path.impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
-            node.node_path(db),
+            node.syn_node_path(db),
             Some(impl_block_node_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -51,7 +51,7 @@ impl<'a> DeclParser<'a> {
         let generics = ctx.try_parse_option();
         TraitForTypeAssociatedTypeNodeDecl::new(
             db,
-            node.node_path(db),
+            node.syn_node_path(db),
             node,
             ast_idx,
             generics,

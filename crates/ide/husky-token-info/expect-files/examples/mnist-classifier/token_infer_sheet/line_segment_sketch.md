@@ -61,7 +61,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::line_segment_sketch::concave_component`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::line_segment_sketch::concave_component`,
                                         disambiguator: 0,
@@ -96,7 +96,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::line_segment_sketch::convex_component`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::line_segment_sketch::convex_component`,
                                         disambiguator: 0,
@@ -131,7 +131,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::line_segment_sketch::line_segment`,
                                         disambiguator: 0,
@@ -179,7 +179,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::geom2d`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::geom2d`,
                                         disambiguator: 0,
@@ -227,7 +227,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::raw_contour`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::raw_contour`,
                                         disambiguator: 0,
@@ -261,7 +261,7 @@ Ok(
                                 TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Type(
+                                syn_node_path: ModuleItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -301,7 +301,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::line_segment_sketch::line_segment`,
                                         disambiguator: 0,

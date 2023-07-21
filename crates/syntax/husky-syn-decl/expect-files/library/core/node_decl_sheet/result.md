@@ -17,7 +17,7 @@ Ok(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Enum(
                             EnumTypeNodeDecl {
-                                node_path: TypeSynNodePath {
+                                syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::result::Result`, `Enum`),
                                         disambiguator: 0,
@@ -207,7 +207,7 @@ Ok(
                 SynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::TraitForType(
                         TraitForTypeImplBlockNodeDecl {
-                            node_path: TraitForTypeImplBlockSynNodePath {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::result`,
                                     trai_path: TraitPath(`core::ops::Unveil`),
@@ -744,7 +744,7 @@ Ok(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
                         TraitForTypeItemNodeDecl::AssociatedType(
                             TraitForTypeAssociatedTypeNodeDecl {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -766,7 +766,7 @@ Ok(
                                     },
                                 },
                                 node: TraitForTypeItemNode {
-                                    node_path: TraitForTypeItemSynNodePath {
+                                    syn_node_path: TraitForTypeItemSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath {
                                                 impl_block: TraitForTypeImplBlockPath {
@@ -1346,7 +1346,7 @@ Ok(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
                         TraitForTypeItemNodeDecl::MethodFn(
                             TraitForTypeMethodFnNodeDecl {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -1368,7 +1368,7 @@ Ok(
                                     },
                                 },
                                 node: TraitForTypeItemNode {
-                                    node_path: TraitForTypeItemSynNodePath {
+                                    syn_node_path: TraitForTypeItemSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath {
                                                 impl_block: TraitForTypeImplBlockPath {

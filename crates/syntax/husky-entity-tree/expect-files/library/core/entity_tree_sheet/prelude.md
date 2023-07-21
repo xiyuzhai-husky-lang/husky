@@ -1,5 +1,5 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `core::prelude`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [],
@@ -16,7 +16,7 @@ Ok(
                                     TypePath(`core::basic::bool`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::basic::bool`, `Extern`),
@@ -63,7 +63,7 @@ Ok(
                                     TypePath(`core::basic::never`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::basic::never`, `Extern`),
@@ -110,7 +110,7 @@ Ok(
                                     TypePath(`core::basic::unit`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::basic::unit`, `Extern`),
@@ -157,7 +157,7 @@ Ok(
                                     TypePath(`core::basic::Trait`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::basic::Trait`, `Extern`),
@@ -204,7 +204,7 @@ Ok(
                                     TypePath(`core::basic::Module`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::basic::Module`, `Extern`),
@@ -251,7 +251,7 @@ Ok(
                                     TypePath(`core::num::i8`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::i8`, `Extern`),
@@ -298,7 +298,7 @@ Ok(
                                     TypePath(`core::num::i16`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::i16`, `Extern`),
@@ -345,7 +345,7 @@ Ok(
                                     TypePath(`core::num::i32`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::i32`, `Extern`),
@@ -392,7 +392,7 @@ Ok(
                                     TypePath(`core::num::i64`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::i64`, `Extern`),
@@ -439,7 +439,7 @@ Ok(
                                     TypePath(`core::num::i128`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::i128`, `Extern`),
@@ -486,7 +486,7 @@ Ok(
                                     TypePath(`core::num::isize`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::isize`, `Extern`),
@@ -533,7 +533,7 @@ Ok(
                                     TypePath(`core::num::u8`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::u8`, `Extern`),
@@ -580,7 +580,7 @@ Ok(
                                     TypePath(`core::num::u16`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::u16`, `Extern`),
@@ -627,7 +627,7 @@ Ok(
                                     TypePath(`core::num::u32`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::u32`, `Extern`),
@@ -674,7 +674,7 @@ Ok(
                                     TypePath(`core::num::u64`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::u64`, `Extern`),
@@ -721,7 +721,7 @@ Ok(
                                     TypePath(`core::num::u128`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::u128`, `Extern`),
@@ -768,7 +768,7 @@ Ok(
                                     TypePath(`core::num::usize`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::usize`, `Extern`),
@@ -815,7 +815,7 @@ Ok(
                                     TypePath(`core::num::f32`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::f32`, `Extern`),
@@ -862,7 +862,7 @@ Ok(
                                     TypePath(`core::num::f64`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::num::f64`, `Extern`),
@@ -909,7 +909,7 @@ Ok(
                                     TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -956,7 +956,7 @@ Ok(
                                     TraitPath(`core::fmt::Debug`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::fmt::Debug`),
@@ -1003,7 +1003,7 @@ Ok(
                                     TraitPath(`core::visual::Visualize`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::visual::Visualize`),
@@ -1056,7 +1056,7 @@ Ok(
                                     TypePath(`core::visual::Html`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::visual::Html`, `Extern`),
@@ -1103,7 +1103,7 @@ Ok(
                                     TraitPath(`core::marker::Copy`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::marker::Copy`),
@@ -1150,7 +1150,7 @@ Ok(
                                     TraitPath(`core::marker::Sized`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::marker::Sized`),
@@ -1197,7 +1197,7 @@ Ok(
                                     TraitPath(`core::clone::Clone`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::clone::Clone`),
@@ -1250,7 +1250,7 @@ Ok(
                                     TypePath(`core::option::Option`, `Enum`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::option::Option`, `Enum`),
@@ -1375,7 +1375,7 @@ Ok(
                                     TraitPath(`core::cmp::PartialEq`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::cmp::PartialEq`),
@@ -1422,7 +1422,7 @@ Ok(
                                     TraitPath(`core::cmp::Eq`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::cmp::Eq`),
@@ -1469,7 +1469,7 @@ Ok(
                                     TraitPath(`core::cmp::PartialOrd`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::cmp::PartialOrd`),
@@ -1516,7 +1516,7 @@ Ok(
                                     TraitPath(`core::cmp::Ord`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`core::cmp::Ord`),
@@ -1563,7 +1563,7 @@ Ok(
                                     TypePath(`core::slice::Slice`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::slice::Slice`, `Extern`),
@@ -1610,7 +1610,7 @@ Ok(
                                     TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
@@ -1929,7 +1929,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::basic`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::basic`,
                                             disambiguator: 0,
@@ -1975,7 +1975,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::num`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::num`,
                                             disambiguator: 0,
@@ -2021,7 +2021,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::raw_bits`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::raw_bits`,
                                             disambiguator: 0,
@@ -2067,7 +2067,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::fmt`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::fmt`,
                                             disambiguator: 0,
@@ -2113,7 +2113,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::visual`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::visual`,
                                             disambiguator: 0,
@@ -2159,7 +2159,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::marker`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::marker`,
                                             disambiguator: 0,
@@ -2205,7 +2205,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::clone`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::clone`,
                                             disambiguator: 0,
@@ -2251,7 +2251,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::option`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::option`,
                                             disambiguator: 0,
@@ -2297,7 +2297,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::cmp`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::cmp`,
                                             disambiguator: 0,
@@ -2343,7 +2343,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `core::slice`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `core::slice`,
                                             disambiguator: 0,

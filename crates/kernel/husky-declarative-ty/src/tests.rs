@@ -8,7 +8,7 @@ use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_entity_path::EntityPathJar;
-use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
+use husky_entity_tree::{EntitySynTreeDb, EntitySynTreeJar};
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_syn_decl::SynDeclJar;
@@ -25,7 +25,7 @@ use husky_toml_token::TomlTokenJar;
     EntityPathJar,
     TokenJar,
     AstJar,
-    EntityTreeJar,
+    EntitySynTreeJar,
     TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,
@@ -51,7 +51,7 @@ fn major_entity_declarative_tys(
     db: &DB,
     module_path: ModulePath,
 ) -> Vec<(EntityPath, DeclarativeTypeResult<DeclarativeTerm>)> {
-    let Ok(entity_tree_sheet) = db.entity_tree_sheet(module_path) else {
+    let Ok(entity_tree_sheet) = db.entity_syn_tree_sheet(module_path) else {
         return vec![];
     };
     entity_tree_sheet

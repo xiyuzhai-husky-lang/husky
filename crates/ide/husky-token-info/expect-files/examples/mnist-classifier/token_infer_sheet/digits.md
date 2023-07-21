@@ -133,7 +133,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits::one`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits::one`,
                                         disambiguator: 0,
@@ -167,7 +167,7 @@ Ok(
                                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Fugitive(
+                                syn_node_path: ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -227,7 +227,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits::six`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits::six`,
                                         disambiguator: 0,
@@ -261,7 +261,7 @@ Ok(
                                 FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Fugitive(
+                                syn_node_path: ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -323,7 +323,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits::zero`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits::zero`,
                                         disambiguator: 0,
@@ -357,7 +357,7 @@ Ok(
                                 FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Fugitive(
+                                syn_node_path: ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -419,7 +419,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits::two`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits::two`,
                                         disambiguator: 0,
@@ -453,7 +453,7 @@ Ok(
                                 FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Fugitive(
+                                syn_node_path: ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
@@ -515,7 +515,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits::three`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits::three`,
                                         disambiguator: 0,
@@ -549,7 +549,7 @@ Ok(
                                 FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Fugitive(
+                                syn_node_path: ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
@@ -611,7 +611,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits::five`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits::five`,
                                         disambiguator: 0,
@@ -645,7 +645,7 @@ Ok(
                                 FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Fugitive(
+                                syn_node_path: ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
@@ -707,7 +707,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits::seven`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits::seven`,
                                         disambiguator: 0,
@@ -741,7 +741,7 @@ Ok(
                                 FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Fugitive(
+                                syn_node_path: ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
@@ -803,7 +803,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits::eight`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits::eight`,
                                         disambiguator: 0,
@@ -837,7 +837,7 @@ Ok(
                                 FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Fugitive(
+                                syn_node_path: ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
@@ -899,7 +899,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::digits::nine`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::digits::nine`,
                                         disambiguator: 0,
@@ -933,7 +933,7 @@ Ok(
                                 FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Fugitive(
+                                syn_node_path: ModuleItemSynNodePath::Fugitive(
                                     FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),

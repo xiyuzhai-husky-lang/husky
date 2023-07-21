@@ -50,8 +50,8 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use salsa::DebugWithDb;
 use vec_like::AsVecMapEntry;
 
-#[salsa::jar(db = EntityTreeDb)]
-pub struct EntityTreeJar(
+#[salsa::jar(db = EntitySynTreeDb)]
+pub struct EntitySynTreeJar(
     SubmoduleSynNodePath,
     SubmoduleSynNode,
     submodule_node,
@@ -80,14 +80,14 @@ pub struct EntityTreeJar(
     IllFormedItemSynNodePath,
     IllFormedItemNode,
     TypeVariantSynNode,
-    ty_variant_node,
+    ty_variant_syn_node,
     // ty_impl_blocks,
     ty_item_node_paths,
     ty_item_paths_map,
     trai_for_ty_impl_block_items,
     trai_for_ty_impl_block_item_paths,
     // variants
-    ty_variant_nodes,
+    ty_variant_syn_nodes,
     ty_variant_paths,
     // impl blocks
     // - type impl block

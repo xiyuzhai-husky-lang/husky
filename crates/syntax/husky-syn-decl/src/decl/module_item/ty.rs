@@ -38,17 +38,17 @@ pub enum TypeNodeDecl {
 }
 
 impl TypeNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeSynNodePath {
+    pub fn syn_node_path(self, db: &dyn DeclDb) -> TypeSynNodePath {
         match self {
-            TypeNodeDecl::Enum(node_decl) => node_decl.node_path(db),
-            TypeNodeDecl::Inductive(node_decl) => node_decl.node_path(db),
-            TypeNodeDecl::Record(node_decl) => node_decl.node_path(db),
-            TypeNodeDecl::UnitStruct(node_decl) => node_decl.node_path(db),
-            TypeNodeDecl::PropsStruct(node_decl) => node_decl.node_path(db),
-            TypeNodeDecl::TupleStruct(node_decl) => node_decl.node_path(db),
-            TypeNodeDecl::Structure(node_decl) => node_decl.node_path(db),
-            TypeNodeDecl::Extern(node_decl) => node_decl.node_path(db),
-            TypeNodeDecl::Union(node_decl) => node_decl.node_path(db),
+            TypeNodeDecl::Enum(node_decl) => node_decl.syn_node_path(db),
+            TypeNodeDecl::Inductive(node_decl) => node_decl.syn_node_path(db),
+            TypeNodeDecl::Record(node_decl) => node_decl.syn_node_path(db),
+            TypeNodeDecl::UnitStruct(node_decl) => node_decl.syn_node_path(db),
+            TypeNodeDecl::PropsStruct(node_decl) => node_decl.syn_node_path(db),
+            TypeNodeDecl::TupleStruct(node_decl) => node_decl.syn_node_path(db),
+            TypeNodeDecl::Structure(node_decl) => node_decl.syn_node_path(db),
+            TypeNodeDecl::Extern(node_decl) => node_decl.syn_node_path(db),
+            TypeNodeDecl::Union(node_decl) => node_decl.syn_node_path(db),
         }
     }
 
@@ -104,15 +104,15 @@ impl HasNodeDecl for TypeSynNodePath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_node_decl(db: &dyn DeclDb, node_path: TypeSynNodePath) -> TypeNodeDecl {
-    let ctx = DeclParser::new(db, node_path.module_path(db));
-    ctx.parse_ty_node_decl(node_path)
+pub(crate) fn ty_node_decl(db: &dyn DeclDb, syn_node_path: TypeSynNodePath) -> TypeNodeDecl {
+    let ctx = DeclParser::new(db, syn_node_path.module_path(db));
+    ctx.parse_ty_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_node_decl(&self, node_path: TypeSynNodePath) -> TypeNodeDecl {
+    fn parse_ty_node_decl(&self, syn_node_path: TypeSynNodePath) -> TypeNodeDecl {
         let db = self.db();
-        let node = node_path.node(db);
+        let node = syn_node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
@@ -122,7 +122,7 @@ impl<'a> DeclParser<'a> {
                 saved_stream_state,
                 ..
             } => self.parse_ty_node_decl_aux(
-                node_path,
+                syn_node_path,
                 ast_idx,
                 path.ty_kind(self.db()),
                 entity_kind,
@@ -136,7 +136,7 @@ impl<'a> DeclParser<'a> {
 
     fn parse_ty_node_decl_aux(
         &self,
-        node_path: TypeSynNodePath,
+        syn_node_path: TypeSynNodePath,
         ast_idx: AstIdx,
         type_kind: TypeKind,
         _entity_kind: EntityKind,
@@ -147,7 +147,7 @@ impl<'a> DeclParser<'a> {
         match type_kind {
             TypeKind::Enum => self
                 .parse_enum_ty_node_decl(
-                    node_path,
+                    syn_node_path,
                     ast_idx,
                     token_group_idx,
                     variants.expect("guaranteed by `husky-ast`"),
@@ -157,7 +157,7 @@ impl<'a> DeclParser<'a> {
             TypeKind::Inductive => self
                 .parse_inductive_ty_node_decl(
                     ast_idx,
-                    node_path,
+                    syn_node_path,
                     token_group_idx,
                     variants.expect("guaranteed by `husky-ast`"),
                     saved_stream_state,
@@ -167,7 +167,7 @@ impl<'a> DeclParser<'a> {
             TypeKind::Struct => {
                 debug_assert!(variants.is_none());
                 self.parse_struct_ty_node_decl(
-                    node_path,
+                    syn_node_path,
                     ast_idx,
                     token_group_idx,
                     saved_stream_state,
@@ -176,7 +176,7 @@ impl<'a> DeclParser<'a> {
             TypeKind::Structure => {
                 debug_assert!(variants.is_none());
                 self.parse_structure_ty_node_decl(
-                    node_path,
+                    syn_node_path,
                     ast_idx,
                     token_group_idx,
                     saved_stream_state,
@@ -185,7 +185,7 @@ impl<'a> DeclParser<'a> {
             TypeKind::Extern => {
                 debug_assert!(variants.is_none());
                 self.parse_extern_ty_node_decl(
-                    node_path,
+                    syn_node_path,
                     ast_idx,
                     token_group_idx,
                     saved_stream_state,
@@ -199,14 +199,18 @@ impl<'a> DeclParser<'a> {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_struct_ty_node_decl(
         &self,
-        node_path: TypeSynNodePath,
+        syn_node_path: TypeSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TypeNodeDecl {
         let db = self.db();
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::True);
+        let mut parser = self.expr_parser(
+            syn_node_path,
+            None,
+            AllowSelfType::True,
+            AllowSelfValue::True,
+        );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let generic_parameters = ctx.try_parse_option();
         if let Some(lpar) = ctx.try_parse_err_as_none::<LeftParenthesisToken>() {
@@ -214,7 +218,7 @@ impl<'a> DeclParser<'a> {
             let rpar = ctx.try_parse();
             TupleStructTypeNodeDecl::new(
                 db,
-                node_path,
+                syn_node_path,
                 ast_idx,
                 generic_parameters,
                 lpar,
@@ -232,7 +236,7 @@ impl<'a> DeclParser<'a> {
             let rcurl = ctx.try_parse();
             PropsStructTypeNodeDecl::new(
                 db,
-                node_path,
+                syn_node_path,
                 ast_idx,
                 generic_parameters,
                 lcurl,

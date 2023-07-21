@@ -5,7 +5,7 @@ use salsa::DebugWithDb;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeImplBlockNodeDecl {
     #[id]
-    pub node_path: TraitForTypeImplBlockSynNodePath,
+    pub syn_node_path: TraitForTypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     #[return_ref]
@@ -51,19 +51,19 @@ impl HasNodeDecl for TraitForTypeImplBlockSynNodePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_impl_block_node_decl(
     db: &dyn DeclDb,
-    node_path: TraitForTypeImplBlockSynNodePath,
+    syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockNodeDecl {
-    let parser = DeclParser::new(db, node_path.module_path(db));
-    parser.parse_trai_for_ty_impl_block_node_decl(node_path)
+    let parser = DeclParser::new(db, syn_node_path.module_path(db));
+    parser.parse_trai_for_ty_impl_block_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
     fn parse_trai_for_ty_impl_block_node_decl(
         &self,
-        node_path: TraitForTypeImplBlockSynNodePath,
+        syn_node_path: TraitForTypeImplBlockSynNodePath,
     ) -> TraitForTypeImplBlockNodeDecl {
         let db = self.db();
-        let node = node_path.node(db);
+        let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::ImplBlock {
@@ -71,7 +71,7 @@ impl<'a> DeclParser<'a> {
                 items: _,
             } => self
                 .parse_trai_for_ty_impl_block_node_decl_aux(
-                    node_path,
+                    syn_node_path,
                     node,
                     ast_idx,
                     token_group_idx,
@@ -83,14 +83,14 @@ impl<'a> DeclParser<'a> {
 
     fn parse_trai_for_ty_impl_block_node_decl_aux(
         &self,
-        node_path: TraitForTypeImplBlockSynNodePath,
+        syn_node_path: TraitForTypeImplBlockSynNodePath,
         node: TraitForTypeImplBlockSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
     ) -> TraitForTypeImplBlockNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
-            node.node_path(db),
+            node.syn_node_path(db),
             None,
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -126,7 +126,7 @@ impl<'a> DeclParser<'a> {
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TraitForTypeImplBlockNodeDecl::new(
             db,
-            node_path,
+            syn_node_path,
             ast_idx,
             impl_token,
             implicit_parameter_decl_list,

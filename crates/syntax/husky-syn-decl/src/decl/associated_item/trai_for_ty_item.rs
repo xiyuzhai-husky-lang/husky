@@ -30,11 +30,11 @@ impl From<TraitForTypeItemNodeDecl> for SynNodeDecl {
 }
 
 impl TraitForTypeItemNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TraitForTypeItemSynNodePath {
+    pub fn syn_node_path(self, db: &dyn DeclDb) -> TraitForTypeItemSynNodePath {
         match self {
             TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.node_path(db),
-            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.node_path(db),
+            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.syn_node_path(db),
+            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.syn_node_path(db),
             TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
@@ -87,19 +87,19 @@ impl HasNodeDecl for TraitForTypeItemSynNodePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_item_node_decl(
     db: &dyn DeclDb,
-    node_path: TraitForTypeItemSynNodePath,
+    syn_node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemNodeDecl {
-    let parser = DeclParser::new(db, node_path.module_path(db));
-    parser.parse_trai_for_ty_item_node_decl(node_path)
+    let parser = DeclParser::new(db, syn_node_path.module_path(db));
+    parser.parse_trai_for_ty_item_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
     fn parse_trai_for_ty_item_node_decl(
         &self,
-        node_path: TraitForTypeItemSynNodePath,
+        syn_node_path: TraitForTypeItemSynNodePath,
     ) -> TraitForTypeItemNodeDecl {
         let db = self.db();
-        let node = node_path.node(db);
+        let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
@@ -111,7 +111,7 @@ impl<'a> DeclParser<'a> {
                 saved_stream_state,
                 ..
             } => self.parse_trai_for_ty_item_node_decl_aux(
-                node_path,
+                syn_node_path,
                 node,
                 ast_idx,
                 token_group_idx,
@@ -124,7 +124,7 @@ impl<'a> DeclParser<'a> {
 
     pub(super) fn parse_trai_for_ty_item_node_decl_aux(
         &self,
-        node_path: TraitForTypeItemSynNodePath,
+        syn_node_path: TraitForTypeItemSynNodePath,
         node: TraitForTypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -134,7 +134,7 @@ impl<'a> DeclParser<'a> {
         match trai_item_kind {
             TraitItemKind::MethodFn => self
                 .parse_trai_for_ty_method_fn_node_decl(
-                    node_path,
+                    syn_node_path,
                     node,
                     ast_idx,
                     token_group_idx,
@@ -143,7 +143,7 @@ impl<'a> DeclParser<'a> {
                 .into(),
             TraitItemKind::AssociatedType => self
                 .parse_trai_for_ty_associated_ty_node_decl(
-                    node_path,
+                    syn_node_path,
                     node,
                     ast_idx,
                     token_group_idx,

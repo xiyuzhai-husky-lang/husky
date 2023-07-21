@@ -19,11 +19,11 @@ pub enum ImplBlockSynNodeDecl {
 }
 
 impl ImplBlockSynNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> ImplBlockSynNodePath {
+    pub fn syn_node_path(self, db: &dyn DeclDb) -> ImplBlockSynNodePath {
         match self {
-            ImplBlockSynNodeDecl::Type(decl) => decl.node_path(db).into(),
-            ImplBlockSynNodeDecl::TraitForType(decl) => decl.node_path(db).into(),
-            ImplBlockSynNodeDecl::IllFormed(decl) => decl.node_path(db).into(),
+            ImplBlockSynNodeDecl::Type(decl) => decl.syn_node_path(db).into(),
+            ImplBlockSynNodeDecl::TraitForType(decl) => decl.syn_node_path(db).into(),
+            ImplBlockSynNodeDecl::IllFormed(decl) => decl.syn_node_path(db).into(),
         }
     }
 
@@ -61,11 +61,15 @@ impl HasNodeDecl for ImplBlockSynNodePath {
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            ImplBlockSynNodePath::TypeImplBlock(node_path) => node_path.node_decl(db).into(),
-            ImplBlockSynNodePath::TraitForTypeImplBlock(node_path) => {
-                node_path.node_decl(db).into()
+            ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
+                syn_node_path.node_decl(db).into()
             }
-            ImplBlockSynNodePath::IllFormedImplBlock(node_path) => node_path.node_decl(db).into(),
+            ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
+                syn_node_path.node_decl(db).into()
+            }
+            ImplBlockSynNodePath::IllFormedImplBlock(syn_node_path) => {
+                syn_node_path.node_decl(db).into()
+            }
         }
     }
 }

@@ -71,11 +71,11 @@ impl HasSynNodeDefn for EntitySynNodePath {
 }
 
 pub trait HasNodeDefns: Copy {
-    fn node_defns(self, db: &dyn SynDefnDb) -> EntityTreeResult<&[SynNodeDefn]>;
+    fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]>;
 }
 
 impl HasNodeDefns for ModulePath {
-    fn node_defns(self, db: &dyn SynDefnDb) -> EntityTreeResult<&[SynNodeDefn]> {
+    fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]> {
         Ok(module_node_defns(db, self).as_ref()?)
     }
 }
@@ -84,12 +84,12 @@ impl HasNodeDefns for ModulePath {
 pub(crate) fn module_node_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
-) -> EntityTreeResult<Vec<SynNodeDefn>> {
+) -> EntitySynTreeResult<Vec<SynNodeDefn>> {
     Ok(module_entity_node_paths(db, module_path)
         .as_ref()?
         .iter()
         .copied()
-        .map(|node_path| node_path.node_defn(db))
+        .map(|syn_node_path| syn_node_path.node_defn(db))
         .collect())
 }
 
@@ -180,11 +180,11 @@ impl HasDefn for EntityPath {
 }
 
 pub trait HasDefns: Copy {
-    fn defns(self, db: &dyn SynDefnDb) -> EntityTreeResult<&[Defn]>;
+    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[Defn]>;
 }
 
 impl HasDefns for ModulePath {
-    fn defns(self, db: &dyn SynDefnDb) -> EntityTreeResult<&[Defn]> {
+    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[Defn]> {
         Ok(module_defns(db, self).as_ref()?)
     }
 }
@@ -193,7 +193,7 @@ impl HasDefns for ModulePath {
 pub(crate) fn module_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
-) -> EntityTreeResult<Vec<Defn>> {
+) -> EntitySynTreeResult<Vec<Defn>> {
     Ok(module_entity_paths(db, module_path)
         .as_ref()?
         .iter()

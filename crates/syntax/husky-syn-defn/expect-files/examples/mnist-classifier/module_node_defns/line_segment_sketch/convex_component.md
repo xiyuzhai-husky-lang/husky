@@ -4,14 +4,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::PropsStruct(
                     PropsStructTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: PropsStructTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                     disambiguator: 0,
@@ -289,7 +289,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                             trai_path: TraitPath(`core::visual::Visualize`),
@@ -464,7 +464,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -486,7 +486,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -508,7 +508,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {

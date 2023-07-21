@@ -34,11 +34,11 @@ impl ModuleItemSynNodeDecl {
         }
     }
 
-    pub fn node_path(self, db: &dyn DeclDb) -> EntitySynNodePath {
+    pub fn syn_node_path(self, db: &dyn DeclDb) -> EntitySynNodePath {
         match self {
-            ModuleItemSynNodeDecl::Type(node_decl) => node_decl.node_path(db).into(),
-            ModuleItemSynNodeDecl::Fugitive(node_decl) => node_decl.node_path(db).into(),
-            ModuleItemSynNodeDecl::Trait(node_decl) => node_decl.node_path(db).into(),
+            ModuleItemSynNodeDecl::Type(node_decl) => node_decl.syn_node_path(db).into(),
+            ModuleItemSynNodeDecl::Fugitive(node_decl) => node_decl.syn_node_path(db).into(),
+            ModuleItemSynNodeDecl::Trait(node_decl) => node_decl.syn_node_path(db).into(),
         }
     }
 
@@ -56,9 +56,9 @@ impl HasNodeDecl for ModuleItemSynNodePath {
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            ModuleItemSynNodePath::Trait(node_path) => node_path.node_decl(db).into(),
-            ModuleItemSynNodePath::Type(node_path) => node_path.node_decl(db).into(),
-            ModuleItemSynNodePath::Fugitive(node_path) => node_path.node_decl(db).into(),
+            ModuleItemSynNodePath::Trait(syn_node_path) => syn_node_path.node_decl(db).into(),
+            ModuleItemSynNodePath::Type(syn_node_path) => syn_node_path.node_decl(db).into(),
+            ModuleItemSynNodePath::Fugitive(syn_node_path) => syn_node_path.node_decl(db).into(),
         }
     }
 }

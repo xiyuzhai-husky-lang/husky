@@ -23,7 +23,7 @@ pub enum TraitItemNodeDecl {
 }
 
 impl TraitItemNodeDecl {
-    pub fn node_path(self, _db: &dyn DeclDb) -> TraitItemSynNodePath {
+    pub fn syn_node_path(self, _db: &dyn DeclDb) -> TraitItemSynNodePath {
         match self {
             TraitItemNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemNodeDecl::MethodFn(_) => todo!(),

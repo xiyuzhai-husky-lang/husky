@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeMethodFnNodeDecl {
     #[id]
-    pub node_path: TypeItemSynNodePath,
+    pub syn_node_path: TypeItemSynNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -40,16 +40,16 @@ impl TypeMethodFnNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_ty_method_node_decl(
         &self,
-        node_path: TypeItemSynNodePath,
+        syn_node_path: TypeItemSynNodePath,
         node: TypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TypeMethodFnNodeDecl {
         let db = self.db();
-        let impl_block_node_decl = node_path.impl_block(db).node_decl(db);
+        let impl_block_node_decl = syn_node_path.impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
-            node.node_path(db),
+            node.syn_node_path(db),
             Some(impl_block_node_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -68,7 +68,7 @@ impl<'a> DeclParser<'a> {
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TypeMethodFnNodeDecl::new(
             db,
-            node_path,
+            syn_node_path,
             node,
             ast_idx,
             implicit_parameter_decl_list,

@@ -1,7 +1,7 @@
 use crate::*;
 use husky_token::{IdentToken, TokenIdx};
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar)]
 pub struct UseSymbol {
     #[id]
     pub original_symbol: EntitySymbol,
@@ -12,13 +12,13 @@ pub struct UseSymbol {
 }
 
 impl ModuleItemSynNode {
-    pub fn ident(&self, db: &dyn EntityTreeDb) -> Ident {
-        self.node_path(db).ident(db)
+    pub fn ident(&self, db: &dyn EntitySynTreeDb) -> Ident {
+        self.syn_node_path(db).ident(db)
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum EntitySymbol {
     CrateRoot {
@@ -52,7 +52,7 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub(crate) fn from_node(db: &dyn EntityTreeDb, node: EntitySynNode) -> Option<Self> {
+    pub(crate) fn from_node(db: &dyn EntitySynTreeDb, node: EntitySynNode) -> Option<Self> {
         match node {
             EntitySynNode::Submodule(node) => Some(EntitySymbol::Submodule {
                 submodule_path: node.unambiguous_path(db)?,
@@ -72,7 +72,7 @@ impl EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub fn path(self, db: &dyn EntityTreeDb) -> PrincipalEntityPath {
+    pub fn path(self, db: &dyn EntitySynTreeDb) -> PrincipalEntityPath {
         match self {
             EntitySymbol::CrateRoot { root_module_path } => root_module_path.into(),
             EntitySymbol::SelfModule { module_path } => module_path.into(),
@@ -114,7 +114,7 @@ impl<'a> ModuleSymbolContext<'a> {
         }
     }
 
-    pub fn new_default(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
+    pub fn new_default(db: &'a dyn EntitySynTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
         Ok(Self {
             crate_prelude: CratePrelude::new(db, crate_path)?,
             module_symbols: Default::default(),
@@ -123,7 +123,7 @@ impl<'a> ModuleSymbolContext<'a> {
 
     pub fn resolve_ident(
         &self,
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySynTreeDb,
         reference_module_path: ModulePath,
         _token_idx: TokenIdx,
         ident: Ident,
@@ -138,10 +138,10 @@ impl<'a> ModuleSymbolContext<'a> {
 }
 
 pub(crate) fn module_symbol_context<'a>(
-    db: &'a dyn EntityTreeDb,
+    db: &'a dyn EntitySynTreeDb,
     module_path: ModulePath,
-) -> EntityTreeResult<ModuleSymbolContext<'a>> {
-    let entity_tree_sheet = db.entity_tree_sheet(module_path)?;
+) -> EntitySynTreeResult<ModuleSymbolContext<'a>> {
+    let entity_tree_sheet = db.entity_syn_tree_sheet(module_path)?;
     Ok(ModuleSymbolContext {
         crate_prelude: CratePrelude::new(db, module_path.crate_path(db))?,
         module_symbols: entity_tree_sheet.module_symbols().into(),

@@ -18,11 +18,11 @@ pub enum TypeVariantNodeDecl {
 }
 
 impl TypeVariantNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeVariantSynNodePath {
+    pub fn syn_node_path(self, db: &dyn DeclDb) -> TypeVariantSynNodePath {
         match self {
-            TypeVariantNodeDecl::Props(node_decl) => node_decl.node_path(db),
-            TypeVariantNodeDecl::Unit(node_decl) => node_decl.node_path(db),
-            TypeVariantNodeDecl::Tuple(node_decl) => node_decl.node_path(db),
+            TypeVariantNodeDecl::Props(node_decl) => node_decl.syn_node_path(db),
+            TypeVariantNodeDecl::Unit(node_decl) => node_decl.syn_node_path(db),
+            TypeVariantNodeDecl::Tuple(node_decl) => node_decl.syn_node_path(db),
         }
     }
 
@@ -54,15 +54,18 @@ impl HasNodeDecl for TypeVariantSynNodePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_variant_node_decl(
     db: &dyn DeclDb,
-    node_path: TypeVariantSynNodePath,
+    syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantNodeDecl {
-    DeclParser::new(db, node_path.module_path(db)).parse_ty_variant_node_decl(node_path)
+    DeclParser::new(db, syn_node_path.module_path(db)).parse_ty_variant_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_variant_node_decl(&self, node_path: TypeVariantSynNodePath) -> TypeVariantNodeDecl {
+    fn parse_ty_variant_node_decl(
+        &self,
+        syn_node_path: TypeVariantSynNodePath,
+    ) -> TypeVariantNodeDecl {
         let db = self.db();
-        let node = node_path.node(db);
+        let node = syn_node_path.syn_node(db);
         let ast_idx = node.ast_idx(db);
         let Ast::TypeVariant {
             token_group_idx,
@@ -74,9 +77,9 @@ impl<'a> DeclParser<'a> {
             unreachable!()
         };
         let mut parser = self.expr_parser(
-            node_path,
+            syn_node_path,
             Some(
-                node_path
+                syn_node_path
                     .parent_ty_node_path(db)
                     .node_decl(db)
                     .expr_region(db),
@@ -92,7 +95,7 @@ impl<'a> DeclParser<'a> {
                 let rpar = ctx.try_parse();
                 TupleTypeVariantNodeDecl::new(
                     db,
-                    node_path,
+                    syn_node_path,
                     ast_idx,
                     state.next_token_idx(),
                     field_comma_list,
@@ -102,7 +105,9 @@ impl<'a> DeclParser<'a> {
                 .into()
             }
             Some(Token::Punctuation(Punctuation::LCURL)) => todo!(),
-            None => UnitTypeVariantNodeDecl::new(db, node_path, ast_idx, parser.finish()).into(),
+            None => {
+                UnitTypeVariantNodeDecl::new(db, syn_node_path, ast_idx, parser.finish()).into()
+            }
             _ => todo!(),
         }
     }

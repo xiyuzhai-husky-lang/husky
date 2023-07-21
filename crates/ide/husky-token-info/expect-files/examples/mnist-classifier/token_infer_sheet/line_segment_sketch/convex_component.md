@@ -26,7 +26,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::line_segment_sketch`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::line_segment_sketch`,
                                         disambiguator: 0,

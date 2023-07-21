@@ -2,14 +2,14 @@ use super::*;
 use husky_manifest::HasPackageManifest;
 
 #[derive(Debug, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct CratePrelude<'a> {
     universal_prelude: Option<EntitySymbolTableRef<'a>>,
     crate_specific_symbol_context: EntitySymbolTableRef<'a>,
 }
 
 impl<'a> CratePrelude<'a> {
-    pub(crate) fn new(db: &'a dyn EntityTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
+    pub(crate) fn new(db: &'a dyn EntitySynTreeDb, crate_path: CratePath) -> PreludeResult<Self> {
         let crate_specific_symbol_context = crate_specific_prelude(db, crate_path)
             .as_ref()
             .map(|table| table.as_ref())
@@ -32,7 +32,7 @@ impl<'a> CratePrelude<'a> {
 
     pub(crate) fn resolve_ident(
         &self,
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         reference_module_path: ModulePath,
         ident: Ident,
     ) -> Option<EntitySymbol> {
@@ -47,9 +47,9 @@ impl<'a> CratePrelude<'a> {
 
 pub struct UniversalPrelude {}
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn none_core_crate_universal_prelude(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     toolchain: Toolchain,
 ) -> PreludeResult<EntitySymbolTable> {
     let vfs_path_menu = db.vfs_path_menu(toolchain);
@@ -81,9 +81,9 @@ pub(crate) fn none_core_crate_universal_prelude(
     Ok(table)
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 fn crate_specific_prelude(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     crate_path: CratePath,
 ) -> PreludeResult<EntitySymbolTable> {
     let package_path = crate_path.package_path(db);

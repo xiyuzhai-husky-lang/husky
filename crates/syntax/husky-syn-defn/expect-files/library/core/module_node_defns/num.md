@@ -4,14 +4,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i8`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i8`, `Extern`),
                                     disambiguator: 0,
@@ -84,14 +84,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i16`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i16`, `Extern`),
                                     disambiguator: 0,
@@ -164,14 +164,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i32`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i32`, `Extern`),
                                     disambiguator: 0,
@@ -244,14 +244,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i64`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i64`, `Extern`),
                                     disambiguator: 0,
@@ -324,14 +324,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::i128`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::i128`, `Extern`),
                                     disambiguator: 0,
@@ -404,14 +404,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::isize`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::isize`, `Extern`),
                                     disambiguator: 0,
@@ -484,14 +484,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u8`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u8`, `Extern`),
                                     disambiguator: 0,
@@ -564,14 +564,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u16`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u16`, `Extern`),
                                     disambiguator: 0,
@@ -644,14 +644,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u32`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u32`, `Extern`),
                                     disambiguator: 0,
@@ -724,14 +724,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u64`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u64`, `Extern`),
                                     disambiguator: 0,
@@ -804,14 +804,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::u128`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::u128`, `Extern`),
                                     disambiguator: 0,
@@ -884,14 +884,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::usize`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::usize`, `Extern`),
                                     disambiguator: 0,
@@ -964,14 +964,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::f32`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::f32`, `Extern`),
                                     disambiguator: 0,
@@ -1044,14 +1044,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::num::f64`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::num::f64`, `Extern`),
                                     disambiguator: 0,
@@ -1123,7 +1123,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::i8`, `Extern`),
@@ -1132,7 +1132,7 @@ Ok(
                     },
                     ast_idx: 33,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i8`, `Extern`),
@@ -1266,7 +1266,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -1281,7 +1281,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -1296,7 +1296,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -1799,7 +1799,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -2003,7 +2003,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -2025,7 +2025,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -2047,7 +2047,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -2887,7 +2887,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::i16`, `Extern`),
@@ -2896,7 +2896,7 @@ Ok(
                     },
                     ast_idx: 38,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i16`, `Extern`),
@@ -3030,7 +3030,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -3045,7 +3045,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -3060,7 +3060,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -3563,7 +3563,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -3767,7 +3767,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -3789,7 +3789,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -3811,7 +3811,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -4651,7 +4651,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -4660,7 +4660,7 @@ Ok(
                     },
                     ast_idx: 43,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -4794,7 +4794,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -4809,7 +4809,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -4824,7 +4824,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -5327,7 +5327,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -5531,7 +5531,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -5553,7 +5553,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -5575,7 +5575,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -6417,7 +6417,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::i64`, `Extern`),
@@ -6426,7 +6426,7 @@ Ok(
                     },
                     ast_idx: 48,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i64`, `Extern`),
@@ -6560,7 +6560,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -6575,7 +6575,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -6590,7 +6590,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -7093,7 +7093,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -7297,7 +7297,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -7319,7 +7319,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -7341,7 +7341,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -8181,7 +8181,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::i128`, `Extern`),
@@ -8190,7 +8190,7 @@ Ok(
                     },
                     ast_idx: 53,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::i128`, `Extern`),
@@ -8324,7 +8324,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -8339,7 +8339,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -8354,7 +8354,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -8857,7 +8857,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -9061,7 +9061,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -9083,7 +9083,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -9105,7 +9105,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -9945,7 +9945,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::isize`, `Extern`),
@@ -9954,7 +9954,7 @@ Ok(
                     },
                     ast_idx: 58,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::isize`, `Extern`),
@@ -10088,7 +10088,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -10103,7 +10103,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -10118,7 +10118,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -10621,7 +10621,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -10825,7 +10825,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -10847,7 +10847,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -10869,7 +10869,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -11709,7 +11709,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::u8`, `Extern`),
@@ -11718,7 +11718,7 @@ Ok(
                     },
                     ast_idx: 63,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u8`, `Extern`),
@@ -11852,7 +11852,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -11867,7 +11867,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -11882,7 +11882,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -12385,7 +12385,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -12589,7 +12589,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -12611,7 +12611,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -12633,7 +12633,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -13473,7 +13473,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::u16`, `Extern`),
@@ -13482,7 +13482,7 @@ Ok(
                     },
                     ast_idx: 68,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u16`, `Extern`),
@@ -13616,7 +13616,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -13631,7 +13631,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -13646,7 +13646,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -14149,7 +14149,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -14353,7 +14353,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -14375,7 +14375,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -14397,7 +14397,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -15237,7 +15237,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::u32`, `Extern`),
@@ -15246,7 +15246,7 @@ Ok(
                     },
                     ast_idx: 73,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u32`, `Extern`),
@@ -15380,7 +15380,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -15395,7 +15395,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -15410,7 +15410,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -15913,7 +15913,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -16117,7 +16117,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -16139,7 +16139,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -16161,7 +16161,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -17001,7 +17001,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::u64`, `Extern`),
@@ -17010,7 +17010,7 @@ Ok(
                     },
                     ast_idx: 78,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u64`, `Extern`),
@@ -17144,7 +17144,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -17159,7 +17159,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -17174,7 +17174,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -17677,7 +17677,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -17881,7 +17881,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -17903,7 +17903,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -17925,7 +17925,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -18765,7 +18765,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::u128`, `Extern`),
@@ -18774,7 +18774,7 @@ Ok(
                     },
                     ast_idx: 83,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::u128`, `Extern`),
@@ -18908,7 +18908,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -18923,7 +18923,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -18938,7 +18938,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -19441,7 +19441,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -19645,7 +19645,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -19667,7 +19667,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -19689,7 +19689,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -20529,7 +20529,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -20538,7 +20538,7 @@ Ok(
                     },
                     ast_idx: 88,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -20672,7 +20672,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -20687,7 +20687,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -20702,7 +20702,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -21205,7 +21205,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -21409,7 +21409,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -21431,7 +21431,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -21453,7 +21453,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -22293,7 +22293,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -22302,7 +22302,7 @@ Ok(
                     },
                     ast_idx: 93,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -22436,7 +22436,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -22451,7 +22451,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -22466,7 +22466,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -22970,7 +22970,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -22985,7 +22985,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -23000,7 +23000,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -23503,7 +23503,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -23707,7 +23707,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -23729,7 +23729,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -23751,7 +23751,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -24593,7 +24593,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::num`,
                             ty_path: TypePath(`core::num::f64`, `Extern`),
@@ -24602,7 +24602,7 @@ Ok(
                     },
                     ast_idx: 98,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
                                 ty_path: TypePath(`core::num::f64`, `Extern`),
@@ -24736,7 +24736,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -24751,7 +24751,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -24766,7 +24766,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemSynNodePath {
+                                syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -25269,7 +25269,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockSynNodePath {
+                    syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::num`,
                             trai_path: TraitPath(`core::ops::Add`),
@@ -25473,7 +25473,7 @@ Ok(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemSynNodePath {
+                        syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -25495,7 +25495,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemSynNodePath {
+                            syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -25517,7 +25517,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {

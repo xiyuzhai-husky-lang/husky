@@ -16,7 +16,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Trait(
                         TraitNodeDecl {
-                            node_path: TraitSynNodePath {
+                            syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::fmt::Debug`),
                                     disambiguator: 0,

@@ -26,7 +26,7 @@ Ok(
                         EntitySymbol::Submodule {
                             submodule_path: `core::ops`,
                             node: SubmoduleSynNode {
-                                node_path: SubmoduleSynNodePath {
+                                syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `core::ops`,
                                         disambiguator: 0,
@@ -58,7 +58,7 @@ Ok(
                                 TraitPath(`core::ops::Add`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Trait(
+                                syn_node_path: ModuleItemSynNodePath::Trait(
                                     TraitSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitPath(`core::ops::Add`),

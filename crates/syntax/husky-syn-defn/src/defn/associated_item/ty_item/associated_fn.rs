@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeAssociatedFnNodeDefn {
     #[id]
-    pub node_path: TypeItemSynNodePath,
+    pub syn_node_path: TypeItemSynNodePath,
     pub node_decl: TypeAssociatedFnNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
@@ -12,12 +12,12 @@ pub struct TypeAssociatedFnNodeDefn {
 impl TypeAssociatedFnNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
-        node_path: TypeItemSynNodePath,
+        syn_node_path: TypeItemSynNodePath,
         node_decl: TypeAssociatedFnNodeDecl,
     ) -> Self {
         let mut parser = expr_parser(
             db,
-            node_path,
+            syn_node_path,
             node_decl.expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::False,
@@ -30,7 +30,7 @@ impl TypeAssociatedFnNodeDefn {
             } => body.map(|body| parser.parse_block_expr(body)),
             _ => unreachable!(),
         };
-        TypeAssociatedFnNodeDefn::new_inner(db, node_path, node_decl, body, parser.finish())
+        TypeAssociatedFnNodeDefn::new_inner(db, syn_node_path, node_decl, body, parser.finish())
     }
 }
 

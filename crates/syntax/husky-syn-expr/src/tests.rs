@@ -22,7 +22,7 @@ use husky_vfs::*;
     TermPreludeJar,
     TokenJar,
     AstJar,
-    EntityTreeJar,
+    EntitySynTreeJar,
     TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,

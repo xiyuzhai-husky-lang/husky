@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct InductiveTypeNodeDecl {
     #[id]
-    pub node_path: TypeSynNodePath,
+    pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
@@ -33,18 +33,22 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_inductive_ty_node_decl(
         &self,
         ast_idx: AstIdx,
-        node_path: TypeSynNodePath,
+        syn_node_path: TypeSynNodePath,
         token_group_idx: TokenGroupIdx,
         variants: TypeVariants,
         saved_stream_state: TokenStreamState,
     ) -> InductiveTypeNodeDecl {
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
+        let mut parser = self.expr_parser(
+            syn_node_path,
+            None,
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameter_decl_list = ctx.try_parse_option();
         InductiveTypeNodeDecl::new(
             self.db(),
-            node_path,
+            syn_node_path,
             ast_idx,
             implicit_parameter_decl_list,
             parser.finish(),

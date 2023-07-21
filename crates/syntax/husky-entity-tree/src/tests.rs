@@ -20,7 +20,7 @@ use husky_toml_token::TomlTokenJar;
     TermPreludeJar,
     TokenJar,
     AstJar,
-    EntityTreeJar,
+    EntitySynTreeJar,
     TomlTokenJar,
     TomlAstJar,
     ManifestAstJar,

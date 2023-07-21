@@ -39,9 +39,9 @@ impl HasSynNodeDefn for ModuleItemSynNodePath {
 
     fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         match self {
-            ModuleItemSynNodePath::Trait(node_path) => node_path.node_defn(db).into(),
-            ModuleItemSynNodePath::Type(node_path) => node_path.node_defn(db).into(),
-            ModuleItemSynNodePath::Fugitive(node_path) => node_path.node_defn(db).into(),
+            ModuleItemSynNodePath::Trait(syn_node_path) => syn_node_path.node_defn(db).into(),
+            ModuleItemSynNodePath::Type(syn_node_path) => syn_node_path.node_defn(db).into(),
+            ModuleItemSynNodePath::Fugitive(syn_node_path) => syn_node_path.node_defn(db).into(),
         }
     }
 }

@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
 pub struct TraitAssociatedFnNodeDefn {
     #[id]
-    pub node_path: TraitItemSynNodePath,
+    pub syn_node_path: TraitItemSynNodePath,
     pub node_decl: TraitAssociatedFnNodeDecl,
     pub expr_region: SynExprRegion,
 }
@@ -11,7 +11,7 @@ pub struct TraitAssociatedFnNodeDefn {
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitAssociatedFnDefn {
     #[id]
-    pub node_path: TraitItemSynNodePath,
+    pub syn_node_path: TraitItemSynNodePath,
     pub decl: TraitAssociatedFnDecl,
     pub expr_region: SynExprRegion,
 }
@@ -23,10 +23,10 @@ impl TraitAssociatedFnDefn {
         decl: TraitAssociatedFnDecl,
     ) -> DeclResult<TraitAssociatedFnDefn> {
         todo!()
-        // let node_path = decl.node_path(db);
+        // let syn_node_path = decl.syn_node_path(db);
         // let mut parser = expr_parser(
         //     db,
-        //     node_path,
+        //     syn_node_path,
         //     Some(decl.expr_region(db)),
         //     AllowSelfType::True,
         //     AllowSelfValue::True,
@@ -39,6 +39,6 @@ impl TraitAssociatedFnDefn {
         //     } => body.map(|body| parser.parse_block_expr(body)),
         //     _ => unreachable!(),
         // };
-        // TraitForTypeMethodFnDefn::new(db, node_path, decl, body, parser.finish())
+        // TraitForTypeMethodFnDefn::new(db, syn_node_path, decl, body, parser.finish())
     }
 }

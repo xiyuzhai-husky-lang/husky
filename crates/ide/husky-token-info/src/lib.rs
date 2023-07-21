@@ -22,6 +22,6 @@ pub struct TokenInfoJar(token_info_sheet);
 fn token_info_sheet(
     db: &dyn TokenInfoDb,
     module_path: ModulePath,
-) -> EntityTreeResult<TokenInfoSheet> {
+) -> EntitySynTreeResult<TokenInfoSheet> {
     InferEngine::new(db, module_path)?.visit_all()
 }
