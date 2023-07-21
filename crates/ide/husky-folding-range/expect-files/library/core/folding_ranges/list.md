@@ -1,13 +1,13 @@
 Ok(
     [
         FoldingRange {
-            start_line: 2,
+            start_line: 3,
             start_character: Some(
                 0,
             ),
-            end_line: 11,
+            end_line: 14,
             end_character: Some(
-                37,
+                42,
             ),
             kind: Some(
                 Region,

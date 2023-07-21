@@ -32,26 +32,10 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Original(
-                        NoMethodForType {
-                            self_expr_ty: Solid(
-                                SolidTerm(
-                                    0,
-                                ),
-                            ),
-                            ident_token: IdentToken {
-                                ident: Ident(
-                                    Coword(
-                                        Id {
-                                            value: 238,
-                                        },
-                                    ),
-                                ),
-                                token_idx: TokenIdx(
-                                    180,
-                                ),
-                            },
-                        },
+                    Derived(
+                        FluffyTermError(
+                            Todo,
+                        ),
                     ),
                 ),
                 expectation_rule_idx: None,

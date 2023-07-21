@@ -19,12 +19,6 @@ DiagnosticSheet {
         diagnostics: [],
     },
     expr_ty_diagnostic_sheet: ExprTypeDiagnosticSheet {
-        diagnostics: [
-            Diagnostic {
-                message: "Type Error: no method named `collect_refs` for type `Leash List ConcaveComponent at StackPure { location: StackLocationIdx(LocalSymbolIdx(0)) }`",
-                severity: Error,
-                range: [32:41, 32:53),
-            },
-        ],
+        diagnostics: [],
     },
 }
