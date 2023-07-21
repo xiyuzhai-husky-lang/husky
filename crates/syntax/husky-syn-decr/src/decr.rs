@@ -53,7 +53,7 @@ impl HasDecrs for TypePath {
 pub(crate) fn ty_path_decrs(db: &dyn DecrDb, path: TypePath) -> DecrResult<Vec<Decr>> {
     let module_path = path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path)?;
-    let ast_idx = path.node_path(db).node(db).ast_idx(db);
+    let ast_idx = path.syn_node_path(db).node(db).ast_idx(db);
     ast_sheet.decrs(
         ast_idx,
         |ast_idx, token_group_idx, decr_id| {

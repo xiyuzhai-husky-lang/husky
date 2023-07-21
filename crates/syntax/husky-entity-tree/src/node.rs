@@ -54,13 +54,13 @@ impl EntitySynNodePath {
 pub trait HasSynNodePath: Copy {
     type SynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath;
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath;
 }
 
 impl HasSynNodePath for EntityPath {
     type SynNodePath = EntitySynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         match self {
             EntityPath::Module(path) => todo!(),
             EntityPath::ModuleItem(_) => todo!(),

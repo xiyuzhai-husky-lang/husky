@@ -47,10 +47,10 @@ impl TypeSynNodePath {
 impl HasSynNodePath for TypeVariantPath {
     type SynNodePath = TypeVariantSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         TypeVariantSynNodePath::new_inner(
             db,
-            self.parent_ty_path(db).node_path(db),
+            self.parent_ty_path(db).syn_node_path(db),
             MaybeAmbiguousPath::from_path(self),
         )
     }
@@ -157,7 +157,7 @@ pub(crate) fn ty_variant_paths(
     db: &dyn EntityTreeDb,
     path: TypePath,
 ) -> Vec<(Ident, TypeVariantPath)> {
-    path.node_path(db)
+    path.syn_node_path(db)
         .ty_variant_nodes(db)
         .iter()
         .copied()

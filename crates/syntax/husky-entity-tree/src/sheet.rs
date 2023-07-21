@@ -294,14 +294,14 @@ pub fn module_entity_paths(
             paths.push(path.into());
             match path {
                 ImplBlockPath::TypeImplBlock(path) => {
-                    for node_path in path.node_path(db).item_node_paths(db) {
+                    for node_path in path.syn_node_path(db).item_node_paths(db) {
                         if let Some(path) = node_path.path(db) {
                             paths.push(path.into())
                         }
                     }
                 }
                 ImplBlockPath::TraitForTypeImplBlock(path) => {
-                    for node_path in path.node_path(db).item_node_paths(db) {
+                    for node_path in path.syn_node_path(db).item_node_paths(db) {
                         if let Some(path) = node_path.path(db) {
                             paths.push(path.into())
                         }

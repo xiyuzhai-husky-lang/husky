@@ -51,7 +51,7 @@ impl TypeMethodFnDefn {
         path: TypeItemPath,
         decl: TypeMethodFnDecl,
     ) -> DefnResult<Self> {
-        let TypeItemSynNodeDefn::MethodFn(node_defn) = path.node_path(db).node_defn(db) else {
+        let TypeItemSynNodeDefn::MethodFn(node_defn) = path.syn_node_path(db).node_defn(db) else {
             unreachable!()
         };
         Ok(TypeMethodFnDefn::new_inner(

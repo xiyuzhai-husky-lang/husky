@@ -34,7 +34,7 @@ impl SubmoduleSynNodePath {
 impl HasSynNodePath for ModulePath {
     type SynNodePath = SubmoduleSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         SubmoduleSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }

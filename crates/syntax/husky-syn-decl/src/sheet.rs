@@ -84,14 +84,14 @@ pub fn decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<DeclShe
             decls.push((path.into(), decl.into()));
             match path {
                 ImplBlockPath::TypeImplBlock(path) => {
-                    for node_path in path.node_path(db).item_node_paths(db) {
+                    for node_path in path.syn_node_path(db).item_node_paths(db) {
                         if let Some(path) = node_path.path(db) && let Ok(decl) = path.decl(db) {
                             decls.push((path.into(), decl.into()))
                         }
                     }
                 }
                 ImplBlockPath::TraitForTypeImplBlock(path) => {
-                    for node_path in path.node_path(db).item_node_paths(db) { 
+                    for node_path in path.syn_node_path(db).item_node_paths(db) { 
                         if let Some(path) = node_path.path(db) && let Ok(decl) = path.decl(db) {
                             decls.push((path.into(), decl.into()))
                         }

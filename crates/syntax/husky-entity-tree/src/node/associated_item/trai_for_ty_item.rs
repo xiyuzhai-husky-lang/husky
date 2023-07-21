@@ -26,7 +26,7 @@ impl TraitForTypeItemSynNodePath {
         self.maybe_ambiguous_path(db)
             .path
             .impl_block(db)
-            .node_path(db)
+            .syn_node_path(db)
     }
 
     pub fn item_kind(self, db: &dyn EntityTreeDb) -> TraitItemKind {
@@ -47,7 +47,7 @@ impl From<TraitForTypeItemSynNodePath> for EntitySynNodePath {
 impl HasSynNodePath for TraitForTypeItemPath {
     type SynNodePath = TraitForTypeItemSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         TraitForTypeItemSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
