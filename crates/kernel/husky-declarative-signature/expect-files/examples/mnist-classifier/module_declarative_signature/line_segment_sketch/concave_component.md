@@ -124,17 +124,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 93,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -390,17 +382,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 93,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -441,17 +425,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 93,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -492,17 +468,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 93,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -543,17 +511,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 93,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -594,17 +554,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 93,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -645,17 +597,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 93,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],

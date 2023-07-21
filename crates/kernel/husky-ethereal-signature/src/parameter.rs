@@ -1,8 +1,8 @@
 mod generic;
-mod specific;
+mod parenic;
 
 pub use self::generic::*;
-pub use self::specific::*;
+pub use self::parenic::*;
 
 use crate::*;
 use husky_declarative_signature::{

@@ -8,7 +8,7 @@ pub struct EtherealTermRitchieRegularParameter {
 }
 
 impl EtherealTermRitchieRegularParameter {
-    pub(super) fn from_declarative(
+    pub fn from_declarative(
         db: &dyn EtherealTermDb,
         param: DeclarativeTermRitchieRegularParameter,
     ) -> EtherealTermResult<Self> {
@@ -35,6 +35,21 @@ impl EtherealTermRitchieRegularParameter {
         f.write_str(self.contract.as_str())?;
         f.write_str(" ")?;
         self.ty.show_with_db_fmt(f, db, ctx)
+    }
+}
+
+impl EtherealTermInstantiate for EtherealTermRitchieRegularParameter {
+    type Target = Self;
+
+    fn instantiate(
+        self,
+        db: &dyn EtherealTermDb,
+        instantiation: &EtherealTermInstantiation,
+    ) -> Self {
+        Self {
+            contract: self.contract,
+            ty: self.ty.instantiate(db, instantiation),
+        }
     }
 }
 

@@ -447,17 +447,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 82,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -649,17 +641,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 82,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::raw_contour::RawContour`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [

@@ -173,15 +173,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: ExplicitApplication(
-                                    DeclarativeTermExplicitApplication(
-                                        Id {
-                                            value: 38,
-                                        },
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::result::Result t s`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [

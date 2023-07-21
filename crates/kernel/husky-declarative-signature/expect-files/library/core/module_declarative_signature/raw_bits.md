@@ -71,17 +71,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 30,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [

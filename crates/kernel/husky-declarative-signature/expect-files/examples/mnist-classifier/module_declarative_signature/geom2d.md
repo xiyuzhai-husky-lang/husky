@@ -283,17 +283,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 85,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -334,17 +326,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 85,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -392,17 +376,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 85,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -443,17 +419,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 85,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Point2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -524,17 +492,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -575,17 +535,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -633,17 +585,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -684,17 +628,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -742,17 +678,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -800,17 +728,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -858,17 +778,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -916,17 +828,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::Vector2d`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -1003,17 +907,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 88,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -1061,17 +957,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 88,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::ClosedRange`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -1142,17 +1030,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -1200,17 +1080,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [
@@ -1258,17 +1130,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -1309,17 +1173,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -1360,17 +1216,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -1411,17 +1259,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::BoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -1485,17 +1325,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 90,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -1536,17 +1368,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 90,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -1587,17 +1411,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 90,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
@@ -1638,17 +1454,9 @@
                             generic_parameters: DeclarativeGenericParameterTemplates {
                                 data: [],
                             },
-                            self_parameter: SpecificRegularDeclarativeParameterTemplate {
+                            self_parameter: DeclarativeTermRitchieRegularParameter {
                                 contract: None,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            Id {
-                                                value: 90,
-                                            },
-                                        ),
-                                    ),
-                                ),
+                                ty: DeclarativeTerm(`mnist_classifier::geom2d::RelativeBoundingBox`),
                             },
                             parenic_parameters: DeclarativeParenicParameters {
                                 data: [],
