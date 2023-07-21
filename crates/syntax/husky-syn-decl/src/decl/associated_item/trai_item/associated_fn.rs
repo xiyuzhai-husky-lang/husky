@@ -14,7 +14,7 @@ pub struct TraitAssociatedFnNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitAssociatedFnNodeDecl {
@@ -42,7 +42,7 @@ pub struct TraitAssociatedFnDecl {
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl<'a> DeclParser<'a> {}

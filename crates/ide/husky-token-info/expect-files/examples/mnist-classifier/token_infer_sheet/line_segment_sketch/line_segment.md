@@ -25,8 +25,8 @@ Ok(
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::geom2d`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
+                            node: SubmoduleSynNode {
+                                node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::geom2d`,
                                         disambiguator: 0,
@@ -52,9 +52,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 disambiguator: 0,
@@ -102,9 +102,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -149,9 +149,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {

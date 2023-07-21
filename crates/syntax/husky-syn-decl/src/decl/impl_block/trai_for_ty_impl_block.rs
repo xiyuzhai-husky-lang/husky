@@ -5,7 +5,7 @@ use salsa::DebugWithDb;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeImplBlockNodeDecl {
     #[id]
-    pub node_path: TraitForTypeImplBlockNodePath,
+    pub node_path: TraitForTypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     #[return_ref]
@@ -15,7 +15,7 @@ pub struct TraitForTypeImplBlockNodeDecl {
     pub self_ty_decl: SelfTypeDecl,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -40,7 +40,7 @@ impl TraitForTypeImplBlockNodeDecl {
     }
 }
 
-impl HasNodeDecl for TraitForTypeImplBlockNodePath {
+impl HasNodeDecl for TraitForTypeImplBlockSynNodePath {
     type NodeDecl = TraitForTypeImplBlockNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -51,7 +51,7 @@ impl HasNodeDecl for TraitForTypeImplBlockNodePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_impl_block_node_decl(
     db: &dyn DeclDb,
-    node_path: TraitForTypeImplBlockNodePath,
+    node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockNodeDecl {
     let parser = DeclParser::new(db, node_path.module_path(db));
     parser.parse_trai_for_ty_impl_block_node_decl(node_path)
@@ -60,7 +60,7 @@ pub(crate) fn trai_for_ty_impl_block_node_decl(
 impl<'a> DeclParser<'a> {
     fn parse_trai_for_ty_impl_block_node_decl(
         &self,
-        node_path: TraitForTypeImplBlockNodePath,
+        node_path: TraitForTypeImplBlockSynNodePath,
     ) -> TraitForTypeImplBlockNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
@@ -83,8 +83,8 @@ impl<'a> DeclParser<'a> {
 
     fn parse_trai_for_ty_impl_block_node_decl_aux(
         &self,
-        node_path: TraitForTypeImplBlockNodePath,
-        node: TraitForTypeImplBlockNode,
+        node_path: TraitForTypeImplBlockSynNodePath,
+        node: TraitForTypeImplBlockSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
     ) -> TraitForTypeImplBlockNodeDecl {
@@ -147,7 +147,7 @@ pub struct TraitForTypeImplBlockDecl {
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub trai_expr: TraitExpr,
     pub self_ty_decl: SelfTypeDecl,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl HasDecl for TraitForTypeImplBlockPath {

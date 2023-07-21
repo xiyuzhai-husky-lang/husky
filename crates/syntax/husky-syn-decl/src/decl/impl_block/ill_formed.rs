@@ -5,9 +5,9 @@ use salsa::DebugWithDb;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct IllFormedImplBlockNodeDecl {
     #[id]
-    pub node_path: IllFormedImplBlockNodePath,
+    pub node_path: IllFormedImplBlockSynNodePath,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
     // ad hoc
 }
 
@@ -18,7 +18,7 @@ impl IllFormedImplBlockNodeDecl {
     }
 }
 
-impl HasNodeDecl for IllFormedImplBlockNodePath {
+impl HasNodeDecl for IllFormedImplBlockSynNodePath {
     type NodeDecl = IllFormedImplBlockNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -29,7 +29,7 @@ impl HasNodeDecl for IllFormedImplBlockNodePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ill_formed_impl_block_node_decl(
     db: &dyn DeclDb,
-    node_path: IllFormedImplBlockNodePath,
+    node_path: IllFormedImplBlockSynNodePath,
 ) -> IllFormedImplBlockNodeDecl {
     let parser = DeclParser::new(db, node_path.module_path(db));
     parser.parse_ill_formed_impl_block_node_decl(node_path)
@@ -38,7 +38,7 @@ pub(crate) fn ill_formed_impl_block_node_decl(
 impl<'a> DeclParser<'a> {
     fn parse_ill_formed_impl_block_node_decl(
         &self,
-        node_path: IllFormedImplBlockNodePath,
+        node_path: IllFormedImplBlockSynNodePath,
     ) -> IllFormedImplBlockNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
@@ -59,8 +59,8 @@ impl<'a> DeclParser<'a> {
 
     fn parse_ill_formed_impl_block_node_decl_aux(
         &self,
-        node_path: IllFormedImplBlockNodePath,
-        node: IllFormedImplBlockNode,
+        node_path: IllFormedImplBlockSynNodePath,
+        node: IllFormedImplBlockSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
     ) -> IllFormedImplBlockNodeDecl {

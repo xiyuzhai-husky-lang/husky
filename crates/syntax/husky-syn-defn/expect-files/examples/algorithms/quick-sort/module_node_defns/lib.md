@@ -1,17 +1,17 @@
 Ok(
     [
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Fugitive(
-                FugitiveNodeDefn::Fn(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Fugitive(
+                FugitiveSynNodeDefn::Fn(
                     FnNodeDefn {
-                        node_path: FugitiveNodePath {
+                        node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: FnNodeDecl {
-                            node_path: FugitiveNodePath {
+                            node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                     disambiguator: 0,
@@ -108,13 +108,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                                         disambiguator: 0,
@@ -315,16 +315,16 @@ Ok(
                         body: Some(
                             12,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                                                 disambiguator: 0,
@@ -523,9 +523,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                                     disambiguator: 0,
@@ -873,18 +873,18 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Fugitive(
-                FugitiveNodeDefn::Fn(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Fugitive(
+                FugitiveSynNodeDefn::Fn(
                     FnNodeDefn {
-                        node_path: FugitiveNodePath {
+                        node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: FnNodeDecl {
-                            node_path: FugitiveNodePath {
+                            node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                     disambiguator: 0,
@@ -1016,13 +1016,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                                         disambiguator: 0,
@@ -1363,16 +1363,16 @@ Ok(
                         body: Some(
                             22,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                                                 disambiguator: 0,
@@ -1711,9 +1711,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                                     disambiguator: 0,
@@ -2266,18 +2266,18 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Fugitive(
-                FugitiveNodeDefn::Fn(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Fugitive(
+                FugitiveSynNodeDefn::Fn(
                     FnNodeDefn {
-                        node_path: FugitiveNodePath {
+                        node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: FnNodeDecl {
-                            node_path: FugitiveNodePath {
+                            node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::partition`, `Fn`),
                                     disambiguator: 0,
@@ -2419,13 +2419,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`quick_sort::partition`, `Fn`),
                                                         disambiguator: 0,
@@ -2795,16 +2795,16 @@ Ok(
                         body: Some(
                             62,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
                                                                 disambiguator: 0,
@@ -3172,9 +3172,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`quick_sort::partition`, `Fn`),
                                                     disambiguator: 0,
@@ -4461,18 +4461,18 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Fugitive(
-                FugitiveNodeDefn::Fn(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Fugitive(
+                FugitiveSynNodeDefn::Fn(
                     FnNodeDefn {
-                        node_path: FugitiveNodePath {
+                        node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: FnNodeDecl {
-                            node_path: FugitiveNodePath {
+                            node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                     disambiguator: 0,
@@ -4509,13 +4509,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                                         disambiguator: 0,
@@ -4567,16 +4567,16 @@ Ok(
                         body: Some(
                             29,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                                                 disambiguator: 0,
@@ -4626,9 +4626,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                                     disambiguator: 0,
@@ -5253,18 +5253,18 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Fugitive(
-                FugitiveNodeDefn::Fn(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Fugitive(
+                FugitiveSynNodeDefn::Fn(
                     FnNodeDefn {
-                        node_path: FugitiveNodePath {
+                        node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: FnNodeDecl {
-                            node_path: FugitiveNodePath {
+                            node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                     disambiguator: 0,
@@ -5301,13 +5301,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                                         disambiguator: 0,
@@ -5359,16 +5359,16 @@ Ok(
                         body: Some(
                             19,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                                                 disambiguator: 0,
@@ -5418,9 +5418,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                                     disambiguator: 0,

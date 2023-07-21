@@ -3,9 +3,9 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 disambiguator: 0,
@@ -108,9 +108,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                 disambiguator: 0,
@@ -154,9 +154,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                 disambiguator: 0,

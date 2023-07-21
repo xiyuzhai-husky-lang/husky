@@ -3,9 +3,9 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct GnNodeDecl {
     #[id]
-    pub node_path: FugitiveNodePath,
+    pub node_path: FugitiveSynNodePath,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
@@ -39,7 +39,7 @@ impl GnNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_gn_node_decl(
         &self,
-        node_path: FugitiveNodePath,
+        node_path: FugitiveSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
@@ -82,7 +82,7 @@ pub struct GnDecl {
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl GnDecl {

@@ -480,7 +480,7 @@ impl<'a> BlockExprParser<'a> {
         }
     }
 
-    pub fn finish(self) -> ExprRegion {
+    pub fn finish(self) -> SynExprRegion {
         self.expr_parser.finish()
     }
 }

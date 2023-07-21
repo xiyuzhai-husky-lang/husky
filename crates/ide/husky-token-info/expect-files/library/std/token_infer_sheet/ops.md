@@ -9,9 +9,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Trait(
-                        TraitNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Trait(
+                        TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`std::ops::Add`),
                                 disambiguator: 0,

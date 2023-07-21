@@ -1,9 +1,9 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`malamute::narrow_down`, `Gn`),
                             disambiguator: 0,
@@ -200,9 +200,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TraitForTypeItem(
-                    TraitForTypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
+                    TraitForTypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {

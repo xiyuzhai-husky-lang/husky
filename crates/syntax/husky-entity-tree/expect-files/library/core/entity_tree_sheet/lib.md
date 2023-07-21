@@ -4,9 +4,9 @@ Ok(
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::array`,
                                     disambiguator: 0,
@@ -22,8 +22,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::array`,
                                 disambiguator: 0,
@@ -34,9 +34,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::basic`,
                                     disambiguator: 0,
@@ -52,8 +52,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::basic`,
                                 disambiguator: 0,
@@ -64,9 +64,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::clone`,
                                     disambiguator: 0,
@@ -82,8 +82,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::clone`,
                                 disambiguator: 0,
@@ -94,9 +94,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::cmp`,
                                     disambiguator: 0,
@@ -112,8 +112,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::cmp`,
                                 disambiguator: 0,
@@ -124,9 +124,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::default`,
                                     disambiguator: 0,
@@ -142,8 +142,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::default`,
                                 disambiguator: 0,
@@ -154,9 +154,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::fmt`,
                                     disambiguator: 0,
@@ -172,8 +172,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::fmt`,
                                 disambiguator: 0,
@@ -184,9 +184,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::list`,
                                     disambiguator: 0,
@@ -202,8 +202,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::list`,
                                 disambiguator: 0,
@@ -214,9 +214,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::logic`,
                                     disambiguator: 0,
@@ -232,8 +232,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::logic`,
                                 disambiguator: 0,
@@ -244,9 +244,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::marker`,
                                     disambiguator: 0,
@@ -262,8 +262,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::marker`,
                                 disambiguator: 0,
@@ -274,9 +274,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::mem`,
                                     disambiguator: 0,
@@ -292,8 +292,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::mem`,
                                 disambiguator: 0,
@@ -304,9 +304,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::num`,
                                     disambiguator: 0,
@@ -322,8 +322,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::num`,
                                 disambiguator: 0,
@@ -334,9 +334,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::ops`,
                                     disambiguator: 0,
@@ -352,8 +352,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::ops`,
                                 disambiguator: 0,
@@ -364,9 +364,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::option`,
                                     disambiguator: 0,
@@ -382,8 +382,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::option`,
                                 disambiguator: 0,
@@ -394,9 +394,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::prelude`,
                                     disambiguator: 0,
@@ -412,8 +412,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::prelude`,
                                 disambiguator: 0,
@@ -424,9 +424,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::raw_bits`,
                                     disambiguator: 0,
@@ -442,8 +442,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::raw_bits`,
                                 disambiguator: 0,
@@ -454,9 +454,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::result`,
                                     disambiguator: 0,
@@ -472,8 +472,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::result`,
                                 disambiguator: 0,
@@ -484,9 +484,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::slice`,
                                     disambiguator: 0,
@@ -502,8 +502,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::slice`,
                                 disambiguator: 0,
@@ -514,9 +514,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::str`,
                                     disambiguator: 0,
@@ -532,8 +532,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::str`,
                                 disambiguator: 0,
@@ -544,9 +544,9 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::Submodule(
-                        SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                    node: EntitySynNode::Submodule(
+                        SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::visual`,
                                     disambiguator: 0,
@@ -562,8 +562,8 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::Submodule(
-                        SubmoduleNodePath {
+                    node_path: EntitySynNodePath::Submodule(
+                        SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `core::visual`,
                                 disambiguator: 0,
@@ -582,8 +582,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::array`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::array`,
                                     disambiguator: 0,
@@ -605,8 +605,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::basic`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::basic`,
                                     disambiguator: 0,
@@ -628,8 +628,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::clone`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::clone`,
                                     disambiguator: 0,
@@ -651,8 +651,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::cmp`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::cmp`,
                                     disambiguator: 0,
@@ -674,8 +674,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::default`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::default`,
                                     disambiguator: 0,
@@ -697,8 +697,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::fmt`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::fmt`,
                                     disambiguator: 0,
@@ -720,8 +720,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::list`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::list`,
                                     disambiguator: 0,
@@ -743,8 +743,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::logic`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::logic`,
                                     disambiguator: 0,
@@ -766,8 +766,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::marker`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::marker`,
                                     disambiguator: 0,
@@ -789,8 +789,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::mem`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::mem`,
                                     disambiguator: 0,
@@ -812,8 +812,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::num`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::num`,
                                     disambiguator: 0,
@@ -835,8 +835,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::ops`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::ops`,
                                     disambiguator: 0,
@@ -858,8 +858,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::option`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::option`,
                                     disambiguator: 0,
@@ -881,8 +881,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::prelude`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::prelude`,
                                     disambiguator: 0,
@@ -904,8 +904,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::raw_bits`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::raw_bits`,
                                     disambiguator: 0,
@@ -927,8 +927,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::result`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::result`,
                                     disambiguator: 0,
@@ -950,8 +950,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::slice`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::slice`,
                                     disambiguator: 0,
@@ -973,8 +973,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::str`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::str`,
                                     disambiguator: 0,
@@ -996,8 +996,8 @@ Ok(
                     visibility: Scope::Pub,
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `core::visual`,
-                        node: SubmoduleNode {
-                            node_path: SubmoduleNodePath {
+                        node: SubmoduleSynNode {
+                            node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `core::visual`,
                                     disambiguator: 0,

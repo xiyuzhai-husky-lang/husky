@@ -3,9 +3,9 @@ Ok(
         [salsa id]: 46,
         decls: [
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 disambiguator: 0,
@@ -13,11 +13,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::PropsStruct(
                             PropsStructTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                         disambiguator: 0,
@@ -110,13 +110,13 @@ Ok(
                                         ),
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                                             disambiguator: 0,
@@ -277,9 +277,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 disambiguator: 0,
@@ -287,11 +287,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Enum(
                             EnumTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                         disambiguator: 0,
@@ -301,13 +301,13 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                                             disambiguator: 0,
@@ -361,9 +361,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                 disambiguator: 0,
@@ -371,11 +371,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                         disambiguator: 0,
@@ -459,13 +459,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                                             disambiguator: 0,
@@ -699,9 +699,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                 disambiguator: 0,
@@ -709,11 +709,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                         disambiguator: 0,
@@ -797,13 +797,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                                             disambiguator: 0,
@@ -1037,9 +1037,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                 disambiguator: 0,
@@ -1047,11 +1047,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                         disambiguator: 0,
@@ -1135,13 +1135,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                                             disambiguator: 0,
@@ -1375,9 +1375,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                 disambiguator: 0,
@@ -1385,11 +1385,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                         disambiguator: 0,
@@ -1495,13 +1495,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                                             disambiguator: 0,
@@ -1805,9 +1805,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                 disambiguator: 0,
@@ -1815,11 +1815,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                         disambiguator: 0,
@@ -1903,13 +1903,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                                             disambiguator: 0,
@@ -2143,9 +2143,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                 disambiguator: 0,
@@ -2153,11 +2153,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                         disambiguator: 0,
@@ -2280,13 +2280,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                                             disambiguator: 0,
@@ -2660,9 +2660,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                 disambiguator: 0,
@@ -2670,11 +2670,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::PropsStruct(
                             PropsStructTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                         disambiguator: 0,
@@ -2767,13 +2767,13 @@ Ok(
                                         ),
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                                             disambiguator: 0,
@@ -2914,9 +2914,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                 disambiguator: 0,
@@ -2924,11 +2924,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                         disambiguator: 0,
@@ -2994,13 +2994,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                                             disambiguator: 0,
@@ -3177,9 +3177,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 disambiguator: 0,
@@ -3187,11 +3187,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                         disambiguator: 0,
@@ -3257,13 +3257,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                                             disambiguator: 0,
@@ -3447,9 +3447,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ImplBlock(
-                    ImplBlockNodePath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockNodePath {
+                EntitySynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::raw_contour`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
@@ -3465,10 +3465,10 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ImplBlock(
-                    ImplBlockNodeDecl::TraitForType(
+                SynNodeDecl::ImplBlock(
+                    ImplBlockSynNodeDecl::TraitForType(
                         TraitForTypeImplBlockNodeDecl {
-                            node_path: TraitForTypeImplBlockNodePath {
+                            node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::raw_contour`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
@@ -3513,13 +3513,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `mnist_classifier::raw_contour`,
                                                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -3641,9 +3641,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TraitForTypeItem(
-                        TraitForTypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -3666,11 +3666,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TraitForTypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TraitForTypeItem(
                         TraitForTypeItemNodeDecl::MethodFn(
                             TraitForTypeMethodFnNodeDecl {
-                                node_path: TraitForTypeItemNodePath {
+                                node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -3692,7 +3692,7 @@ Ok(
                                     },
                                 },
                                 node: TraitForTypeItemNode {
-                                    node_path: TraitForTypeItemNodePath {
+                                    node_path: TraitForTypeItemSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath {
                                                 impl_block: TraitForTypeImplBlockPath {
@@ -3768,16 +3768,16 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `mnist_classifier::raw_contour`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -3896,9 +3896,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -3999,9 +3999,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ImplBlock(
-                    ImplBlockNodePath::TypeImplBlock(
-                        TypeImplBlockNodePath {
+                EntitySynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TypeImplBlock(
+                        TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::raw_contour`,
                                 ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -4010,10 +4010,10 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ImplBlock(
-                    ImplBlockNodeDecl::Type(
+                SynNodeDecl::ImplBlock(
+                    ImplBlockSynNodeDecl::Type(
                         TypeImplBlockNodeDecl {
-                            node_path: TypeImplBlockNodePath {
+                            node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath {
                                     module_path: `mnist_classifier::raw_contour`,
                                     ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -4021,8 +4021,8 @@ Ok(
                                 },
                             },
                             ast_idx: 205,
-                            impl_block: TypeImplBlockNode {
-                                node_path: TypeImplBlockNodePath {
+                            impl_block: TypeImplBlockSynNode {
+                                node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
                                         module_path: `mnist_classifier::raw_contour`,
                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -4062,13 +4062,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `mnist_classifier::raw_contour`,
                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -4154,9 +4154,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -4172,11 +4172,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MemoizedField(
                             TypeMemoizedFieldNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -4215,16 +4215,16 @@ Ok(
                                     ),
                                 ),
                                 expr: None,
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::raw_contour`,
                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -4307,9 +4307,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -4403,9 +4403,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -4421,11 +4421,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MemoizedField(
                             TypeMemoizedFieldNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -4464,16 +4464,16 @@ Ok(
                                     ),
                                 ),
                                 expr: None,
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::raw_contour`,
                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -4556,9 +4556,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -4652,9 +4652,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -4670,11 +4670,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MemoizedField(
                             TypeMemoizedFieldNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -4713,16 +4713,16 @@ Ok(
                                     ),
                                 ),
                                 expr: None,
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::raw_contour`,
                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -4805,9 +4805,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -4901,9 +4901,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -4919,11 +4919,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MemoizedField(
                             TypeMemoizedFieldNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -4962,16 +4962,16 @@ Ok(
                                     ),
                                 ),
                                 expr: None,
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::raw_contour`,
                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -5054,9 +5054,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -5150,9 +5150,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -5168,11 +5168,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MethodFn(
                             TypeMethodFnNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -5187,7 +5187,7 @@ Ok(
                                     },
                                 },
                                 node: TypeItemNode {
-                                    node_path: TypeItemNodePath {
+                                    node_path: TypeItemSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath {
                                                 impl_block: TypeImplBlockPath {
@@ -5285,16 +5285,16 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::raw_contour`,
                                                                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -5377,9 +5377,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {

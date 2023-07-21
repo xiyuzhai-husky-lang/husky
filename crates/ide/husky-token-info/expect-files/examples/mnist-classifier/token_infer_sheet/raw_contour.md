@@ -25,8 +25,8 @@ Ok(
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::geom2d`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
+                            node: SubmoduleSynNode {
+                                node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::geom2d`,
                                         disambiguator: 0,
@@ -73,8 +73,8 @@ Ok(
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::connected_component`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
+                            node: SubmoduleSynNode {
+                                node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::connected_component`,
                                         disambiguator: 0,
@@ -121,8 +121,8 @@ Ok(
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::line_segment_sketch`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
+                            node: SubmoduleSynNode {
+                                node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::line_segment_sketch`,
                                         disambiguator: 0,
@@ -164,9 +164,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 disambiguator: 0,
@@ -225,9 +225,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TraitForTypeItem(
-                        TraitForTypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -288,9 +288,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -337,9 +337,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -673,9 +673,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -725,9 +725,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -999,9 +999,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -1159,9 +1159,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 disambiguator: 0,
@@ -1186,9 +1186,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                 disambiguator: 0,
@@ -1270,9 +1270,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                 disambiguator: 0,
@@ -1350,9 +1350,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                 disambiguator: 0,
@@ -1434,9 +1434,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                 disambiguator: 0,
@@ -1672,9 +1672,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                 disambiguator: 0,
@@ -1816,9 +1816,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                 disambiguator: 0,
@@ -2137,9 +2137,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                 disambiguator: 0,
@@ -2178,9 +2178,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                 disambiguator: 0,
@@ -2357,9 +2357,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 disambiguator: 0,

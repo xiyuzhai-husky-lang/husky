@@ -45,13 +45,13 @@ Ok(
                                     },
                                 },
                             ],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`malamute::OneVsAll`, `Enum`),
                                                         disambiguator: 0,
@@ -221,13 +221,13 @@ Ok(
                                     },
                                 },
                             ],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                         disambiguator: 0,
@@ -462,13 +462,13 @@ Ok(
                                     expr: 8,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                                         disambiguator: 0,
@@ -807,16 +807,16 @@ Ok(
                             },
                         },
                         body: None,
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                                                 disambiguator: 0,
@@ -1155,9 +1155,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                                     disambiguator: 0,
@@ -1251,7 +1251,7 @@ Ok(
             ),
         ),
         Defn::ImplBlock(
-            ImplBlockDecl::TraitForType(
+            ImplBlockSynDecl::TraitForType(
                 TraitForTypeImplBlockDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `malamute`,
@@ -1311,13 +1311,13 @@ Ok(
                             expr: 12,
                         },
                     ),
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePath {
                                             path: TraitForTypeImplBlockPath {
                                                 module_path: `malamute`,
                                                 trai_path: TraitPath(`core::ops::Unveil`),
@@ -1663,8 +1663,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TraitForTypeItem(
-                TraitForTypeItemDefn::AssociatedType(
+            AssociatedItemSynDefn::TraitForTypeItem(
+                TraitForTypeItemSynDefn::AssociatedType(
                     TraitForTypeAssociatedTypeDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
@@ -1701,16 +1701,16 @@ Ok(
                             },
                             generic_parameters: [],
                             ty_term_expr_idx: 0,
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePath {
                                                                 path: TraitForTypeImplBlockPath {
                                                                     module_path: `malamute`,
                                                                     trai_path: TraitPath(`core::ops::Unveil`),
@@ -2054,9 +2054,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TraitForTypeItem(
-                                                TraitForTypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath {
                                                             impl_block: TraitForTypeImplBlockPath {
@@ -2157,19 +2157,19 @@ Ok(
                                 },
                             },
                         },
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                    TraitForTypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                    TraitForTypeImplBlockSynNodePath {
                                                                         path: TraitForTypeImplBlockPath {
                                                                             module_path: `malamute`,
                                                                             trai_path: TraitPath(`core::ops::Unveil`),
@@ -2513,9 +2513,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TraitForTypeItem(
-                                                        TraitForTypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TraitForTypeItem(
+                                                        TraitForTypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TraitForTypeItemPath {
                                                                     impl_block: TraitForTypeImplBlockPath {
@@ -2617,9 +2617,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TraitForTypeItem(
-                                            TraitForTypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath {
                                                         impl_block: TraitForTypeImplBlockPath {

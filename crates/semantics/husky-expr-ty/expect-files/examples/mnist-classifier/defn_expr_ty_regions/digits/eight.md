@@ -1,9 +1,9 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             disambiguator: 0,
@@ -438,9 +438,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             disambiguator: 0,
@@ -2406,9 +2406,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                             disambiguator: 0,

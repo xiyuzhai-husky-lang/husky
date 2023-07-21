@@ -6,10 +6,10 @@ Ok(
                 major_entity_node_table: MajorEntityNodeTable {
                     entries: [
                         EntityNodeEntry {
-                            node: EntityNode::ModuleItem(
-                                ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Type(
-                                        TypeNodePath {
+                            node: EntitySynNode::ModuleItem(
+                                ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Type(
+                                        TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 disambiguator: 0,
@@ -40,9 +40,9 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::ModuleItem(
-                                ModuleItemNodePath::Type(
-                                    TypeNodePath {
+                            node_path: EntitySynNodePath::ModuleItem(
+                                ModuleItemSynNodePath::Type(
+                                    TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypePath(`mnist::MnistLabel`, `Enum`),
                                             disambiguator: 0,
@@ -54,10 +54,10 @@ Ok(
                             visibility: Scope::Pub,
                         },
                         EntityNodeEntry {
-                            node: EntityNode::ModuleItem(
-                                ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Type(
-                                        TypeNodePath {
+                            node: EntitySynNode::ModuleItem(
+                                ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Type(
+                                        TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                                 disambiguator: 0,
@@ -82,9 +82,9 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::ModuleItem(
-                                ModuleItemNodePath::Type(
-                                    TypeNodePath {
+                            node_path: EntitySynNodePath::ModuleItem(
+                                ModuleItemSynNodePath::Type(
+                                    TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                             disambiguator: 0,
@@ -96,10 +96,10 @@ Ok(
                             visibility: Scope::Pub,
                         },
                         EntityNodeEntry {
-                            node: EntityNode::ModuleItem(
-                                ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Fugitive(
-                                        FugitiveNodePath {
+                            node: EntitySynNode::ModuleItem(
+                                ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                        FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`mnist::input`, `Val`),
                                                 disambiguator: 0,
@@ -124,9 +124,9 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::ModuleItem(
-                                ModuleItemNodePath::Fugitive(
-                                    FugitiveNodePath {
+                            node_path: EntitySynNodePath::ModuleItem(
+                                ModuleItemSynNodePath::Fugitive(
+                                    FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`mnist::input`, `Val`),
                                             disambiguator: 0,
@@ -148,9 +148,9 @@ Ok(
                                 module_item_path: ModuleItemPath::Type(
                                     TypePath(`mnist::MnistLabel`, `Enum`),
                                 ),
-                                node: ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Type(
-                                        TypeNodePath {
+                                node: ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Type(
+                                        TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 disambiguator: 0,
@@ -189,9 +189,9 @@ Ok(
                                 module_item_path: ModuleItemPath::Type(
                                     TypePath(`mnist::BinaryImage28`, `Struct`),
                                 ),
-                                node: ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Type(
-                                        TypeNodePath {
+                                node: ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Type(
+                                        TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                                 disambiguator: 0,
@@ -224,9 +224,9 @@ Ok(
                                 module_item_path: ModuleItemPath::Fugitive(
                                     FugitivePath(`mnist::input`, `Val`),
                                 ),
-                                node: ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Fugitive(
-                                        FugitiveNodePath {
+                                node: ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                        FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`mnist::input`, `Val`),
                                                 disambiguator: 0,

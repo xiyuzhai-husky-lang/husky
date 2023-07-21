@@ -1,18 +1,18 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitForTypeAssociatedTypeNodeDefn {
     #[id]
-    pub node_path: TraitForTypeItemNodePath,
+    pub node_path: TraitForTypeItemSynNodePath,
     pub node_decl: TraitForTypeAssociatedTypeNodeDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitForTypeAssociatedTypeNodeDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
-        node_path: TraitForTypeItemNodePath,
+        db: &dyn SynDefnDb,
+        node_path: TraitForTypeItemSynNodePath,
         node_decl: TraitForTypeAssociatedTypeNodeDecl,
     ) -> Self {
         let node_path = node_decl.node_path(db);
@@ -41,21 +41,21 @@ impl TraitForTypeAssociatedTypeNodeDefn {
     }
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitForTypeAssociatedTypeDefn {
     #[id]
     pub path: TraitForTypeItemPath,
     pub decl: TraitForTypeAssociatedTypeDecl,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitForTypeAssociatedTypeDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
+        db: &dyn SynDefnDb,
         path: TraitForTypeItemPath,
         decl: TraitForTypeAssociatedTypeDecl,
     ) -> Self {
-        let TraitForTypeItemNodeDefn::AssociatedType(node_defn) = path.node_path(db).node_defn(db) else {
+        let TraitForTypeItemSynNodeDefn::AssociatedType(node_defn) = path.node_path(db).node_defn(db) else {
             unreachable!()
         };
         TraitForTypeAssociatedTypeDefn::new_inner(db, path, decl, node_defn.expr_region(db))

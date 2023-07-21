@@ -1,9 +1,9 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Trait(
-                    TraitNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Trait(
+                    TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::clone::Clone`),
                             disambiguator: 0,
@@ -55,9 +55,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ImplBlock(
-                ImplBlockNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockNodePath {
+            EntitySynNodePath::ImplBlock(
+                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::clone`,
                             trai_path: TraitPath(`core::clone::Clone`),
@@ -158,9 +158,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TraitForTypeItem(
-                    TraitForTypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
+                    TraitForTypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {

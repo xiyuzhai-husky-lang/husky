@@ -13,13 +13,13 @@ Ok(
                                 },
                             ),
                             expr: None,
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                         disambiguator: 0,
@@ -103,16 +103,16 @@ Ok(
                         body: Some(
                             7,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                                 disambiguator: 0,
@@ -194,9 +194,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                                     disambiguator: 0,
@@ -460,13 +460,13 @@ Ok(
                                 },
                             ),
                             expr: None,
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                         disambiguator: 0,
@@ -633,16 +633,16 @@ Ok(
                         body: Some(
                             235,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                                 disambiguator: 0,
@@ -807,9 +807,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                     disambiguator: 0,
@@ -6055,13 +6055,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
                                                         disambiguator: 0,
@@ -6237,16 +6237,16 @@ Ok(
                         body: Some(
                             8,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
                                                                 disambiguator: 0,
@@ -6420,9 +6420,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
                                                     disambiguator: 0,
@@ -6710,13 +6710,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
                                                         disambiguator: 0,
@@ -6892,16 +6892,16 @@ Ok(
                         body: Some(
                             10,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
                                                                 disambiguator: 0,
@@ -7075,9 +7075,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
                                                     disambiguator: 0,
@@ -7392,13 +7392,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
                                                         disambiguator: 0,
@@ -7574,16 +7574,16 @@ Ok(
                         body: Some(
                             16,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
                                                                 disambiguator: 0,
@@ -7757,9 +7757,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
                                                     disambiguator: 0,

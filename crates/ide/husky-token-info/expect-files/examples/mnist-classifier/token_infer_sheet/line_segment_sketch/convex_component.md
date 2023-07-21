@@ -25,8 +25,8 @@ Ok(
                     original_symbol: Some(
                         EntitySymbol::Submodule {
                             submodule_path: `mnist_classifier::line_segment_sketch`,
-                            node: SubmoduleNode {
-                                node_path: SubmoduleNodePath {
+                            node: SubmoduleSynNode {
+                                node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `mnist_classifier::line_segment_sketch`,
                                         disambiguator: 0,
@@ -51,9 +51,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 disambiguator: 0,
@@ -117,9 +117,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TraitForTypeItem(
-                        TraitForTypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {

@@ -11,8 +11,8 @@ use crate::*;
 
 use husky_entity_tree::RegionPath;
 use husky_syn_expr::{
-    AllowSelfType, CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion, InheritedSymbolIdx,
-    ParentSymbolIdx, PatternExprIdx, PatternExprMap, PatternSymbolMap, SymbolRegion,
+    AllowSelfType, CurrentSymbolIdx, ExprIdx, ExprMap, InheritedSymbolIdx, ParentSymbolIdx,
+    PatternExprIdx, PatternExprMap, PatternSymbolMap, SymbolRegion, SynExprRegion,
 };
 
 /// preparation for generating signature

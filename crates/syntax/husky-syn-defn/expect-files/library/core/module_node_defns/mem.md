@@ -1,17 +1,17 @@
 Ok(
     [
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::Extern(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::mem::Ref`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::mem::Ref`, `Extern`),
                                     disambiguator: 0,
@@ -87,13 +87,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::mem::Ref`, `Extern`),
                                                         disambiguator: 0,
@@ -194,18 +194,18 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::Extern(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::mem::RefMut`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::mem::RefMut`, `Extern`),
                                     disambiguator: 0,
@@ -281,13 +281,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::mem::RefMut`, `Extern`),
                                                         disambiguator: 0,
@@ -388,18 +388,18 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::Extern(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::mem::Leash`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::mem::Leash`, `Extern`),
                                     disambiguator: 0,
@@ -449,13 +449,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::mem::Leash`, `Extern`),
                                                         disambiguator: 0,
@@ -533,10 +533,10 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ImplBlock(
-            ImplBlockNodeDecl::TraitForType(
+        SynNodeDefn::ImplBlock(
+            ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockNodePath {
+                    node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::mem`,
                             trai_path: TraitPath(`core::marker::Copy`),
@@ -613,13 +613,13 @@ Ok(
                             },
                         ),
                     ),
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePath {
                                             path: TraitForTypeImplBlockPath {
                                                 module_path: `core::mem`,
                                                 trai_path: TraitPath(`core::marker::Copy`),

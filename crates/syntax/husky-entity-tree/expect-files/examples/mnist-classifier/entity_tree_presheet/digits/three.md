@@ -4,10 +4,10 @@ Ok(
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Fugitive(
-                                FugitiveNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                         disambiguator: 0,
@@ -40,9 +40,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Fugitive(
-                            FugitiveNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Fugitive(
+                            FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                     disambiguator: 0,
@@ -56,10 +56,10 @@ Ok(
                     ),
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Fugitive(
-                                FugitiveNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                         disambiguator: 0,
@@ -92,9 +92,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Fugitive(
-                            FugitiveNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Fugitive(
+                            FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                     disambiguator: 0,
@@ -108,10 +108,10 @@ Ok(
                     ),
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Fugitive(
-                                FugitiveNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                         disambiguator: 0,
@@ -144,9 +144,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Fugitive(
-                            FugitiveNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Fugitive(
+                            FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                     disambiguator: 0,
@@ -160,10 +160,10 @@ Ok(
                     ),
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Fugitive(
-                                FugitiveNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                         disambiguator: 0,
@@ -196,9 +196,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Fugitive(
-                            FugitiveNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Fugitive(
+                            FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                     disambiguator: 0,
@@ -212,10 +212,10 @@ Ok(
                     ),
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Fugitive(
-                                FugitiveNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Fugitive(
+                                FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                         disambiguator: 0,
@@ -248,9 +248,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Fugitive(
-                            FugitiveNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Fugitive(
+                            FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                     disambiguator: 0,

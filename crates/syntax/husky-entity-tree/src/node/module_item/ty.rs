@@ -3,11 +3,11 @@ use husky_print_utils::p;
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TypeNodePath {
+pub struct TypeSynNodePath {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TypePath>,
 }
 
-impl TypeNodePath {
+impl TypeSynNodePath {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -28,27 +28,27 @@ impl TypeNodePath {
         self.maybe_ambiguous_path(db).path.ty_kind(db)
     }
 
-    pub fn node<'a>(self, db: &'a dyn EntityTreeDb) -> ModuleItemNode {
+    pub fn node<'a>(self, db: &'a dyn EntityTreeDb) -> ModuleItemSynNode {
         ty_node(db, self)
     }
 }
 
-impl HasNodePath for TypePath {
-    type NodePath = TypeNodePath;
+impl HasSynNodePath for TypePath {
+    type SynNodePath = TypeSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TypeNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+        TypeSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
-impl From<TypeNodePath> for EntityNodePath {
-    fn from(id: TypeNodePath) -> Self {
-        EntityNodePath::ModuleItem(id.into())
+impl From<TypeSynNodePath> for EntitySynNodePath {
+    fn from(id: TypeSynNodePath) -> Self {
+        EntitySynNodePath::ModuleItem(id.into())
     }
 }
 
 #[salsa::tracked(jar = EntityTreeJar)]
-pub(crate) fn ty_node(db: &dyn EntityTreeDb, node_path: TypeNodePath) -> ModuleItemNode {
+pub(crate) fn ty_node(db: &dyn EntityTreeDb, node_path: TypeSynNodePath) -> ModuleItemSynNode {
     let module_path = node_path.module_path(db);
     // it's important to use presheet instead of sheet
     // otherwise cyclic when use all type variant paths
@@ -62,7 +62,7 @@ pub(crate) fn ty_node(db: &dyn EntityTreeDb, node_path: TypeNodePath) -> ModuleI
     };
     match major_entity_node
     {
-        EntityNode::ModuleItem(node) => node,
+        EntitySynNode::ModuleItem(node) => node,
         _ => unreachable!(),
     }
 }

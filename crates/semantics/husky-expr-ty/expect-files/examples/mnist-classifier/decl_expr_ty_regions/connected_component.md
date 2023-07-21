@@ -1,9 +1,9 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Type(
-                    TypeNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Type(
+                    TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                             disambiguator: 0,
@@ -269,9 +269,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Type(
-                    TypeNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Type(
+                    TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                             disambiguator: 0,
@@ -603,9 +603,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                             disambiguator: 0,
@@ -919,9 +919,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Type(
-                    TypeNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Type(
+                    TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             disambiguator: 0,
@@ -1028,9 +1028,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                             disambiguator: 0,
@@ -1332,9 +1332,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                             disambiguator: 0,
@@ -1665,9 +1665,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ImplBlock(
-                ImplBlockNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockNodePath {
+            EntitySynNodePath::ImplBlock(
+                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::connected_component`,
                             trai_path: TraitPath(`core::visual::Visualize`),
@@ -1827,9 +1827,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TraitForTypeItem(
-                    TraitForTypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
+                    TraitForTypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
@@ -1953,9 +1953,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ImplBlock(
-                ImplBlockNodePath::TypeImplBlock(
-                    TypeImplBlockNodePath {
+            EntitySynNodePath::ImplBlock(
+                ImplBlockSynNodePath::TypeImplBlock(
+                    TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::connected_component`,
                             ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -2063,9 +2063,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -2305,9 +2305,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -2424,9 +2424,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -2543,9 +2543,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -2662,9 +2662,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -2781,9 +2781,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -2900,9 +2900,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -3019,9 +3019,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -3138,9 +3138,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -3356,9 +3356,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {

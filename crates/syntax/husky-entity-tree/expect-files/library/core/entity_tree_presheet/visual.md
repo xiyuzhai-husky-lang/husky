@@ -4,10 +4,10 @@ Ok(
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::visual::Visualize`),
                                         disambiguator: 0,
@@ -38,9 +38,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::visual::Visualize`),
                                     disambiguator: 0,
@@ -52,10 +52,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Type(
-                                TypeNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Type(
+                                TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::visual::Html`, `Extern`),
                                         disambiguator: 0,
@@ -80,9 +80,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Type(
-                            TypeNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Type(
+                            TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::visual::Html`, `Extern`),
                                     disambiguator: 0,

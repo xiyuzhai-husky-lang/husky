@@ -3,9 +3,9 @@ Ok(
         [salsa id]: 1,
         decls: [
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::array::Array`, `Extern`),
                                 disambiguator: 0,
@@ -13,11 +13,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
                             ExternTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::array::Array`, `Extern`),
                                         disambiguator: 0,
@@ -96,13 +96,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::array::Array`, `Extern`),
                                                             disambiguator: 0,

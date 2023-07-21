@@ -1,4 +1,4 @@
-use husky_entity_tree::{TypeImplBlockNode, TypeImplBlockNodePath};
+use husky_entity_tree::{TypeImplBlockSynNode, TypeImplBlockSynNodePath};
 
 use super::*;
 

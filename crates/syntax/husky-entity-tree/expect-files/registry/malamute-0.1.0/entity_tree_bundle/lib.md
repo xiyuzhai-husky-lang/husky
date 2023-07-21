@@ -6,10 +6,10 @@ Ok(
                 major_entity_node_table: MajorEntityNodeTable {
                     entries: [
                         EntityNodeEntry {
-                            node: EntityNode::ModuleItem(
-                                ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Type(
-                                        TypeNodePath {
+                            node: EntitySynNode::ModuleItem(
+                                ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Type(
+                                        TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`malamute::OneVsAll`, `Enum`),
                                                 disambiguator: 0,
@@ -40,9 +40,9 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::ModuleItem(
-                                ModuleItemNodePath::Type(
-                                    TypeNodePath {
+                            node_path: EntitySynNodePath::ModuleItem(
+                                ModuleItemSynNodePath::Type(
+                                    TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypePath(`malamute::OneVsAll`, `Enum`),
                                             disambiguator: 0,
@@ -54,10 +54,10 @@ Ok(
                             visibility: Scope::Pub,
                         },
                         EntityNodeEntry {
-                            node: EntityNode::ModuleItem(
-                                ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Type(
-                                        TypeNodePath {
+                            node: EntitySynNode::ModuleItem(
+                                ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Type(
+                                        TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                 disambiguator: 0,
@@ -88,9 +88,9 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::ModuleItem(
-                                ModuleItemNodePath::Type(
-                                    TypeNodePath {
+                            node_path: EntitySynNodePath::ModuleItem(
+                                ModuleItemSynNodePath::Type(
+                                    TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                             disambiguator: 0,
@@ -102,10 +102,10 @@ Ok(
                             visibility: Scope::Pub,
                         },
                         EntityNodeEntry {
-                            node: EntityNode::ModuleItem(
-                                ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Fugitive(
-                                        FugitiveNodePath {
+                            node: EntitySynNode::ModuleItem(
+                                ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                        FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                                 disambiguator: 0,
@@ -130,9 +130,9 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::ModuleItem(
-                                ModuleItemNodePath::Fugitive(
-                                    FugitiveNodePath {
+                            node_path: EntitySynNodePath::ModuleItem(
+                                ModuleItemSynNodePath::Fugitive(
+                                    FugitiveSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                             disambiguator: 0,
@@ -154,9 +154,9 @@ Ok(
                                 module_item_path: ModuleItemPath::Type(
                                     TypePath(`malamute::OneVsAll`, `Enum`),
                                 ),
-                                node: ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Type(
-                                        TypeNodePath {
+                                node: ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Type(
+                                        TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`malamute::OneVsAll`, `Enum`),
                                                 disambiguator: 0,
@@ -195,9 +195,9 @@ Ok(
                                 module_item_path: ModuleItemPath::Type(
                                     TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 ),
-                                node: ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Type(
-                                        TypeNodePath {
+                                node: ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Type(
+                                        TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                 disambiguator: 0,
@@ -236,9 +236,9 @@ Ok(
                                 module_item_path: ModuleItemPath::Fugitive(
                                     FugitivePath(`malamute::narrow_down`, `Gn`),
                                 ),
-                                node: ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Fugitive(
-                                        FugitiveNodePath {
+                                node: ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                        FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                                 disambiguator: 0,
@@ -268,8 +268,8 @@ Ok(
                 ),
                 impl_block_node_table: [
                     (
-                        ImplBlockNodePath::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockNodePath {
+                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `malamute`,
                                     trai_path: TraitPath(`core::ops::Unveil`),
@@ -284,9 +284,9 @@ Ok(
                                 },
                             },
                         ),
-                        ImplBlockNode::TraitForTypeImplBlock(
-                            TraitForTypeImplBlockNode {
-                                node_path: TraitForTypeImplBlockNodePath {
+                        ImplBlockSynNode::TraitForTypeImplBlock(
+                            TraitForTypeImplBlockSynNode {
+                                node_path: TraitForTypeImplBlockSynNodePath {
                                     path: TraitForTypeImplBlockPath {
                                         module_path: `malamute`,
                                         trai_path: TraitPath(`core::ops::Unveil`),

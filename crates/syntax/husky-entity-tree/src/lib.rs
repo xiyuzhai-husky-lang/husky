@@ -52,34 +52,34 @@ use vec_like::AsVecMapEntry;
 
 #[salsa::jar(db = EntityTreeDb)]
 pub struct EntityTreeJar(
-    SubmoduleNodePath,
-    SubmoduleNode,
+    SubmoduleSynNodePath,
+    SubmoduleSynNode,
     submodule_node,
-    ModuleItemNode,
+    ModuleItemSynNode,
     UseSymbol,
     // module items
-    TraitNodePath,
+    TraitSynNodePath,
     trai_node,
     trai_item_paths,
-    TypeNodePath,
+    TypeSynNodePath,
     ty_node,
-    FugitiveNodePath,
+    FugitiveSynNodePath,
     fugitive_node,
     // ty variant
-    TypeVariantNodePath,
+    TypeVariantSynNodePath,
     // associated items
-    TypeItemNodePath,
+    TypeItemSynNodePath,
     TypeItemNode,
     ty_item_node,
     trai_item_nodes,
-    TraitItemNodePath,
+    TraitItemSynNodePath,
     TraitItemNode,
-    TraitForTypeItemNodePath,
+    TraitForTypeItemSynNodePath,
     TraitForTypeItemNode,
     trai_for_ty_item_node,
-    IllFormedItemNodePath,
+    IllFormedItemSynNodePath,
     IllFormedItemNode,
-    TypeVariantNode,
+    TypeVariantSynNode,
     ty_variant_node,
     // ty_impl_blocks,
     ty_item_node_paths,
@@ -91,14 +91,14 @@ pub struct EntityTreeJar(
     ty_variant_paths,
     // impl blocks
     // - type impl block
-    TypeImplBlockNode,
+    TypeImplBlockSynNode,
     ty_impl_block_node,
     ty_impl_block_items,
     // - trait for type impl block
-    TraitForTypeImplBlockNode,
+    TraitForTypeImplBlockSynNode,
     trai_for_ty_impl_block_node,
     // - ill formed impl block
-    IllFormedImplBlockNode,
+    IllFormedImplBlockSynNode,
     ill_formed_impl_block_node,
     // other
     entity_tree_presheet,

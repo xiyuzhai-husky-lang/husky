@@ -2,11 +2,11 @@ use super::*;
 use smallvec::SmallVec;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TraitItemNodePath {
+pub struct TraitItemSynNodePath {
     maybe_ambiguous_path: MaybeAmbiguousPath<TraitItemPath>,
 }
 
-impl TraitItemNodePath {
+impl TraitItemSynNodePath {
     fn new(db: &dyn EntityTreeDb, registry: &mut EntityNodeRegistry, path: TraitItemPath) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
@@ -28,18 +28,18 @@ impl TraitItemNodePath {
     }
 }
 
-impl HasNodePath for TraitItemPath {
-    type NodePath = TraitItemNodePath;
+impl HasSynNodePath for TraitItemPath {
+    type SynNodePath = TraitItemSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TraitItemNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+        TraitItemSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct TraitItemNode {
     #[id]
-    pub node_path: TraitItemNodePath,
+    pub node_path: TraitItemSynNodePath,
     pub ast_idx: AstIdx,
     pub ident: Ident,
     pub item_kind: TraitItemKind,
@@ -52,15 +52,15 @@ impl TraitItemNode {
     fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
-        trai_node_path: TraitNodePath,
+        trai_node_path: TraitSynNodePath,
         ast_idx: AstIdx,
         ident: Ident,
         item_kind: TraitItemKind,
         visibility: Scope,
         is_generic: bool,
-    ) -> (TraitItemNodePath, Self) {
+    ) -> (TraitItemSynNodePath, Self) {
         let trai_item_path = TraitItemPath::new(db, trai_node_path.path(db), ident, item_kind);
-        let node_path = TraitItemNodePath::new(db, registry, trai_item_path);
+        let node_path = TraitItemSynNodePath::new(db, registry, trai_item_path);
         (
             node_path,
             Self::new_inner(
@@ -77,9 +77,10 @@ impl TraitItemNode {
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn trai_item_nodes(
     db: &dyn EntityTreeDb,
-    trai_node_path: TraitNodePath,
+    trai_node_path: TraitSynNodePath,
 ) -> SmallVec<
-    [(Ident, TraitItemNodePath, TraitItemNode); APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS],
+    [(Ident, TraitItemSynNodePath, TraitItemNode);
+        APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS],
 > {
     let trai_node = trai_node_path.node(db);
     let module_path = trai_node_path.module_path(db);

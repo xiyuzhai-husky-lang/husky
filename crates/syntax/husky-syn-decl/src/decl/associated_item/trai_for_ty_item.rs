@@ -23,14 +23,14 @@ pub enum TraitForTypeItemNodeDecl {
     AssociatedVal(TraitForTypeAssociatedValNodeDecl),
 }
 
-impl From<TraitForTypeItemNodeDecl> for NodeDecl {
+impl From<TraitForTypeItemNodeDecl> for SynNodeDecl {
     fn from(decl: TraitForTypeItemNodeDecl) -> Self {
-        NodeDecl::AssociatedItem(decl.into())
+        SynNodeDecl::AssociatedItem(decl.into())
     }
 }
 
 impl TraitForTypeItemNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TraitForTypeItemNodePath {
+    pub fn node_path(self, db: &dyn DeclDb) -> TraitForTypeItemSynNodePath {
         match self {
             TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
             TraitForTypeItemNodeDecl::MethodFn(decl) => decl.node_path(db),
@@ -57,7 +57,7 @@ impl TraitForTypeItemNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             TraitForTypeItemNodeDecl::AssociatedFn(decl) => decl.expr_region(db),
             TraitForTypeItemNodeDecl::MethodFn(decl) => decl.expr_region(db),
@@ -76,7 +76,7 @@ impl TraitForTypeItemNodeDecl {
     }
 }
 
-impl HasNodeDecl for TraitForTypeItemNodePath {
+impl HasNodeDecl for TraitForTypeItemSynNodePath {
     type NodeDecl = TraitForTypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -87,7 +87,7 @@ impl HasNodeDecl for TraitForTypeItemNodePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_item_node_decl(
     db: &dyn DeclDb,
-    node_path: TraitForTypeItemNodePath,
+    node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemNodeDecl {
     let parser = DeclParser::new(db, node_path.module_path(db));
     parser.parse_trai_for_ty_item_node_decl(node_path)
@@ -96,7 +96,7 @@ pub(crate) fn trai_for_ty_item_node_decl(
 impl<'a> DeclParser<'a> {
     fn parse_trai_for_ty_item_node_decl(
         &self,
-        node_path: TraitForTypeItemNodePath,
+        node_path: TraitForTypeItemSynNodePath,
     ) -> TraitForTypeItemNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
@@ -124,7 +124,7 @@ impl<'a> DeclParser<'a> {
 
     pub(super) fn parse_trai_for_ty_item_node_decl_aux(
         &self,
-        node_path: TraitForTypeItemNodePath,
+        node_path: TraitForTypeItemSynNodePath,
         node: TraitForTypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -208,7 +208,7 @@ impl TraitForTypeItemDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             TraitForTypeItemDecl::AssociatedFn(decl) => decl.expr_region(db),
             TraitForTypeItemDecl::MethodFn(decl) => decl.expr_region(db),

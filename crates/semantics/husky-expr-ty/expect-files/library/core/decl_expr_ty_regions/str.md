@@ -1,9 +1,9 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Type(
-                    TypeNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Type(
+                    TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypePath(`core::str::str`, `Extern`),
                             disambiguator: 0,
@@ -55,9 +55,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Type(
-                    TypeNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Type(
+                    TypeSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypePath(`core::str::StringLiteral`, `Extern`),
                             disambiguator: 0,

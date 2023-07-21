@@ -4,10 +4,10 @@ Ok(
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::clone::Clone`),
                                         disambiguator: 0,
@@ -38,9 +38,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::clone::Clone`),
                                     disambiguator: 0,

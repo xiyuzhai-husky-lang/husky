@@ -1,30 +1,30 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
 pub struct TraitMethodFnNodeDefn {
     #[id]
-    pub node_path: TraitItemNodePath,
+    pub node_path: TraitItemSynNodePath,
     pub node_decl: TraitMethodFnNodeDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitMethodFnDefn {
     #[id]
     pub path: TraitItemPath,
     pub decl: TraitMethodFnDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitMethodFnDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
+        db: &dyn SynDefnDb,
         path: TraitItemPath,
         decl: TraitMethodFnDecl,
     ) -> DefnResult<Self> {
-        let TraitItemNodeDefn::MethodFn(node_defn) = path.node_path(db).node_defn(db) else {
+        let TraitItemSynNodeDefn::MethodFn(node_defn) = path.node_path(db).node_defn(db) else {
             unreachable!()
         };
         Ok(TraitMethodFnDefn::new_inner(

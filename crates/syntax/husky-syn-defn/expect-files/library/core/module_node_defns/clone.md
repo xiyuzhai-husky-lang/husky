@@ -1,16 +1,16 @@
 Ok(
     [
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::clone::Clone`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::clone::Clone`),
                                 disambiguator: 0,
@@ -20,13 +20,13 @@ Ok(
                         implicit_parameter_decl_list: Ok(
                             None,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::clone::Clone`),
                                                     disambiguator: 0,
@@ -78,10 +78,10 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ImplBlock(
-            ImplBlockNodeDecl::TraitForType(
+        SynNodeDefn::ImplBlock(
+            ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockNodePath {
+                    node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::clone`,
                             trai_path: TraitPath(`core::clone::Clone`),
@@ -132,13 +132,13 @@ Ok(
                             },
                         ),
                     ),
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePath {
                                             path: TraitForTypeImplBlockPath {
                                                 module_path: `core::clone`,
                                                 trai_path: TraitPath(`core::clone::Clone`),
@@ -223,11 +223,11 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TraitForTypeItem(
-                TraitForTypeItemNodeDefn::MethodFn(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TraitForTypeItem(
+                TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemNodePath {
+                        node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -243,7 +243,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemNodePath {
+                            node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -259,7 +259,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemNodePath {
+                                node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -329,16 +329,16 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePath {
                                                                 path: TraitForTypeImplBlockPath {
                                                                     module_path: `core::clone`,
                                                                     trai_path: TraitPath(`core::clone::Clone`),
@@ -422,9 +422,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TraitForTypeItem(
-                                                TraitForTypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath {
                                                             impl_block: TraitForTypeImplBlockPath {
@@ -494,19 +494,19 @@ Ok(
                             },
                         },
                         body: None,
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                    TraitForTypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                    TraitForTypeImplBlockSynNodePath {
                                                                         path: TraitForTypeImplBlockPath {
                                                                             module_path: `core::clone`,
                                                                             trai_path: TraitPath(`core::clone::Clone`),
@@ -590,9 +590,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TraitForTypeItem(
-                                                        TraitForTypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TraitForTypeItem(
+                                                        TraitForTypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TraitForTypeItemPath {
                                                                     impl_block: TraitForTypeImplBlockPath {
@@ -662,9 +662,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TraitForTypeItem(
-                                            TraitForTypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath {
                                                         impl_block: TraitForTypeImplBlockPath {

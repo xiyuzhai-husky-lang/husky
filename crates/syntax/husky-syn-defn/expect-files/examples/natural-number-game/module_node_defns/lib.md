@@ -1,17 +1,17 @@
 Ok(
     [
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::Inductive(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::Inductive(
                     InductiveTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: InductiveTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                     disambiguator: 0,
@@ -21,13 +21,13 @@ Ok(
                             implicit_parameter_decl_list: Ok(
                                 None,
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                                         disambiguator: 0,
@@ -80,18 +80,18 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::Structure(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::Structure(
                     StructureTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: StructureTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                     disambiguator: 0,
@@ -101,13 +101,13 @@ Ok(
                             implicit_parameter_decl_list: Ok(
                                 None,
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                                         disambiguator: 0,
@@ -160,18 +160,18 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::Structure(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::Structure(
                     StructureTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: StructureTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                     disambiguator: 0,
@@ -181,13 +181,13 @@ Ok(
                             implicit_parameter_decl_list: Ok(
                                 None,
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                                         disambiguator: 0,
@@ -240,10 +240,10 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ImplBlock(
-            ImplBlockNodeDecl::Type(
+        SynNodeDefn::ImplBlock(
+            ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockNodePath {
+                    node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `natural_number_game`,
                             ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -251,8 +251,8 @@ Ok(
                         },
                     },
                     ast_idx: 6,
-                    impl_block: TypeImplBlockNode {
-                        node_path: TypeImplBlockNodePath {
+                    impl_block: TypeImplBlockSynNode {
+                        node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `natural_number_game`,
                                 ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -292,13 +292,13 @@ Ok(
                             },
                         ),
                     ),
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TypeImplBlock(
-                                        TypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath {
                                             path: TypeImplBlockPath {
                                                 module_path: `natural_number_game`,
                                                 ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),

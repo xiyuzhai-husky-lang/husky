@@ -44,13 +44,13 @@ Ok(
                                     initialization: None,
                                 },
                             ],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
@@ -234,13 +234,13 @@ Ok(
                                     initialization: None,
                                 },
                             ],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                         disambiguator: 0,
@@ -424,13 +424,13 @@ Ok(
                                     initialization: None,
                                 },
                             ],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
@@ -614,13 +614,13 @@ Ok(
                                     initialization: None,
                                 },
                             ],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         disambiguator: 0,
@@ -808,13 +808,13 @@ Ok(
                                     initialization: None,
                                 },
                             ],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
@@ -998,13 +998,13 @@ Ok(
                                     initialization: None,
                                 },
                             ],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
@@ -1145,7 +1145,7 @@ Ok(
             ),
         ),
         Defn::ImplBlock(
-            ImplBlockDecl::Type(
+            ImplBlockSynDecl::Type(
                 TypeImplBlockDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
@@ -1156,13 +1156,13 @@ Ok(
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TypeImplBlock(
-                                        TypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath {
                                             path: TypeImplBlockPath {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1247,8 +1247,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::AssociatedFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::AssociatedFn(
                     TypeAssociatedFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -1301,16 +1301,16 @@ Ok(
                                     expr: 2,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1393,9 +1393,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -1635,19 +1635,19 @@ Ok(
                         body: Some(
                             14,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1730,9 +1730,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -1970,9 +1970,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -2265,8 +2265,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -2295,16 +2295,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2387,9 +2387,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -2481,19 +2481,19 @@ Ok(
                         body: Some(
                             6,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2576,9 +2576,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -2668,9 +2668,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -2834,8 +2834,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -2877,16 +2877,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -2969,9 +2969,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -3141,19 +3141,19 @@ Ok(
                         body: Some(
                             12,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3236,9 +3236,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -3406,9 +3406,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -3646,8 +3646,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -3676,16 +3676,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3768,9 +3768,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -3862,19 +3862,19 @@ Ok(
                         body: Some(
                             13,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -3957,9 +3957,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -4049,9 +4049,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -4258,8 +4258,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -4301,16 +4301,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -4393,9 +4393,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -4565,19 +4565,19 @@ Ok(
                         body: Some(
                             4,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -4660,9 +4660,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -4830,9 +4830,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -4982,7 +4982,7 @@ Ok(
             ),
         ),
         Defn::ImplBlock(
-            ImplBlockDecl::Type(
+            ImplBlockSynDecl::Type(
                 TypeImplBlockDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
@@ -4993,13 +4993,13 @@ Ok(
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TypeImplBlock(
-                                        TypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath {
                                             path: TypeImplBlockPath {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -5084,8 +5084,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -5114,16 +5114,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -5206,9 +5206,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -5300,19 +5300,19 @@ Ok(
                         body: Some(
                             6,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -5395,9 +5395,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -5487,9 +5487,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -5653,8 +5653,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -5696,16 +5696,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -5788,9 +5788,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -5960,19 +5960,19 @@ Ok(
                         body: Some(
                             12,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -6055,9 +6055,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -6225,9 +6225,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -6465,8 +6465,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -6495,16 +6495,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -6587,9 +6587,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -6681,19 +6681,19 @@ Ok(
                         body: Some(
                             13,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -6776,9 +6776,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -6868,9 +6868,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -7077,8 +7077,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -7120,16 +7120,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -7212,9 +7212,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -7384,19 +7384,19 @@ Ok(
                         body: Some(
                             11,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -7479,9 +7479,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -7649,9 +7649,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -7849,8 +7849,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -7892,16 +7892,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -7984,9 +7984,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -8156,19 +8156,19 @@ Ok(
                         body: Some(
                             11,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -8251,9 +8251,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -8421,9 +8421,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -8621,8 +8621,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -8664,16 +8664,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -8756,9 +8756,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -8928,19 +8928,19 @@ Ok(
                         body: Some(
                             31,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -9023,9 +9023,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -9193,9 +9193,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -9811,8 +9811,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -9854,16 +9854,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -9946,9 +9946,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -10118,19 +10118,19 @@ Ok(
                         body: Some(
                             4,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -10213,9 +10213,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -10383,9 +10383,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -10535,8 +10535,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -10590,16 +10590,16 @@ Ok(
                                     expr: 2,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -10682,9 +10682,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -10924,19 +10924,19 @@ Ok(
                         body: Some(
                             44,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -11019,9 +11019,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -11259,9 +11259,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -12271,7 +12271,7 @@ Ok(
             ),
         ),
         Defn::ImplBlock(
-            ImplBlockDecl::Type(
+            ImplBlockSynDecl::Type(
                 TypeImplBlockDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
@@ -12282,13 +12282,13 @@ Ok(
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TypeImplBlock(
-                                        TypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath {
                                             path: TypeImplBlockPath {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -12373,8 +12373,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -12416,16 +12416,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -12508,9 +12508,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -12680,19 +12680,19 @@ Ok(
                         body: Some(
                             30,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -12775,9 +12775,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -12945,9 +12945,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -13581,8 +13581,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -13624,16 +13624,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -13716,9 +13716,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -13888,19 +13888,19 @@ Ok(
                         body: Some(
                             12,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -13983,9 +13983,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -14153,9 +14153,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -14431,7 +14431,7 @@ Ok(
             ),
         ),
         Defn::ImplBlock(
-            ImplBlockDecl::Type(
+            ImplBlockSynDecl::Type(
                 TypeImplBlockDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
@@ -14442,13 +14442,13 @@ Ok(
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TypeImplBlock(
-                                        TypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath {
                                             path: TypeImplBlockPath {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -14533,8 +14533,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -14576,16 +14576,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -14668,9 +14668,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -14840,19 +14840,19 @@ Ok(
                         body: Some(
                             12,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -14935,9 +14935,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -15105,9 +15105,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -15379,8 +15379,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -15422,16 +15422,16 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -15514,9 +15514,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -15686,19 +15686,19 @@ Ok(
                         body: Some(
                             12,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -15781,9 +15781,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -15951,9 +15951,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -16225,8 +16225,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -16255,16 +16255,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -16347,9 +16347,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -16441,19 +16441,19 @@ Ok(
                         body: Some(
                             3,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -16536,9 +16536,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -16628,9 +16628,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -16739,8 +16739,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -16769,16 +16769,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -16861,9 +16861,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -16955,19 +16955,19 @@ Ok(
                         body: Some(
                             3,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -17050,9 +17050,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -17142,9 +17142,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -17253,8 +17253,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -17283,16 +17283,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -17375,9 +17375,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -17469,19 +17469,19 @@ Ok(
                         body: Some(
                             3,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -17564,9 +17564,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -17656,9 +17656,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -17767,8 +17767,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -17797,16 +17797,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -17889,9 +17889,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -17983,19 +17983,19 @@ Ok(
                         body: Some(
                             3,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -18078,9 +18078,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -18170,9 +18170,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -18281,7 +18281,7 @@ Ok(
             ),
         ),
         Defn::ImplBlock(
-            ImplBlockDecl::Type(
+            ImplBlockSynDecl::Type(
                 TypeImplBlockDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
@@ -18292,13 +18292,13 @@ Ok(
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TypeImplBlock(
-                                        TypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath {
                                             path: TypeImplBlockPath {
                                                 module_path: `mnist_classifier::geom2d`,
                                                 ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -18383,8 +18383,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -18413,16 +18413,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -18505,9 +18505,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -18599,19 +18599,19 @@ Ok(
                         body: Some(
                             3,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -18694,9 +18694,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -18786,9 +18786,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -18897,8 +18897,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -18927,16 +18927,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -19019,9 +19019,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -19113,19 +19113,19 @@ Ok(
                         body: Some(
                             3,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -19208,9 +19208,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -19300,9 +19300,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -19411,8 +19411,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -19441,16 +19441,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -19533,9 +19533,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -19627,19 +19627,19 @@ Ok(
                         body: Some(
                             3,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -19722,9 +19722,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -19814,9 +19814,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -19925,8 +19925,8 @@ Ok(
             ),
         ),
         Defn::AssociatedItem(
-            AssociatedItemDefn::TypeItem(
-                TypeItemDefn::MethodFn(
+            AssociatedItemSynDefn::TypeItem(
+                TypeItemSynDefn::MethodFn(
                     TypeMethodFnDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
@@ -19955,16 +19955,16 @@ Ok(
                                     expr: 0,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::geom2d`,
                                                                     ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -20047,9 +20047,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -20141,19 +20141,19 @@ Ok(
                         body: Some(
                             3,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::geom2d`,
                                                                             ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -20236,9 +20236,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -20328,9 +20328,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {

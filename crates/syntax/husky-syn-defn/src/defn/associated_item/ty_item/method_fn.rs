@@ -2,19 +2,19 @@ use super::*;
 use husky_ast::Ast;
 use salsa::DebugWithDb;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeMethodFnNodeDefn {
     #[id]
-    pub node_path: TypeItemNodePath,
+    pub node_path: TypeItemSynNodePath,
     pub node_decl: TypeMethodFnNodeDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeMethodFnNodeDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
-        node_path: TypeItemNodePath,
+        db: &dyn SynDefnDb,
+        node_path: TypeItemSynNodePath,
         node_decl: TypeMethodFnNodeDecl,
     ) -> Self {
         let mut parser = expr_parser(
@@ -36,22 +36,22 @@ impl TypeMethodFnNodeDefn {
     }
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeMethodFnDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeMethodFnDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeMethodFnDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
+        db: &dyn SynDefnDb,
         path: TypeItemPath,
         decl: TypeMethodFnDecl,
     ) -> DefnResult<Self> {
-        let TypeItemNodeDefn::MethodFn(node_defn) = path.node_path(db).node_defn(db) else {
+        let TypeItemSynNodeDefn::MethodFn(node_defn) = path.node_path(db).node_defn(db) else {
             unreachable!()
         };
         Ok(TypeMethodFnDefn::new_inner(

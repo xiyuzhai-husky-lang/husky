@@ -21,7 +21,7 @@ pub enum FugitiveNodeDecl {
 }
 
 impl FugitiveNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> FugitiveNodePath {
+    pub fn node_path(self, db: &dyn DeclDb) -> FugitiveSynNodePath {
         match self {
             FugitiveNodeDecl::Fn(decl) => decl.node_path(db),
             FugitiveNodeDecl::Val(decl) => decl.node_path(db),
@@ -37,7 +37,7 @@ impl FugitiveNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             FugitiveNodeDecl::Fn(decl) => decl.expr_region(db),
             FugitiveNodeDecl::Val(decl) => decl.expr_region(db),
@@ -54,7 +54,7 @@ impl FugitiveNodeDecl {
     }
 }
 
-impl HasNodeDecl for FugitiveNodePath {
+impl HasNodeDecl for FugitiveSynNodePath {
     type NodeDecl = FugitiveNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -63,13 +63,16 @@ impl HasNodeDecl for FugitiveNodePath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn fugitive_node_decl(db: &dyn DeclDb, node_path: FugitiveNodePath) -> FugitiveNodeDecl {
+pub(crate) fn fugitive_node_decl(
+    db: &dyn DeclDb,
+    node_path: FugitiveSynNodePath,
+) -> FugitiveNodeDecl {
     let parser = DeclParser::new(db, node_path.module_path(db));
     parser.parse_fugitive_node_decl(node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_fugitive_node_decl(&self, node_path: FugitiveNodePath) -> FugitiveNodeDecl {
+    fn parse_fugitive_node_decl(&self, node_path: FugitiveSynNodePath) -> FugitiveNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
@@ -90,7 +93,7 @@ impl<'a> DeclParser<'a> {
 
     fn parse_fugitive_node_decl_aux(
         &self,
-        node_path: FugitiveNodePath,
+        node_path: FugitiveSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
@@ -146,7 +149,7 @@ impl FugitiveDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             FugitiveDecl::Fn(decl) => decl.expr_region(db),
             FugitiveDecl::Val(decl) => decl.expr_region(db),

@@ -20,32 +20,32 @@ use vec_like::VecPairMap;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum ImplBlockNodePath {
-    TypeImplBlock(TypeImplBlockNodePath),
-    TraitForTypeImplBlock(TraitForTypeImplBlockNodePath),
-    IllFormedImplBlock(IllFormedImplBlockNodePath),
+pub enum ImplBlockSynNodePath {
+    TypeImplBlock(TypeImplBlockSynNodePath),
+    TraitForTypeImplBlock(TraitForTypeImplBlockSynNodePath),
+    IllFormedImplBlock(IllFormedImplBlockSynNodePath),
 }
 
 pub(crate) struct ImplBlockNodePathRegistry {}
 
-impl ImplBlockNodePath {
+impl ImplBlockSynNodePath {
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<ImplBlockPath> {
         match self {
-            ImplBlockNodePath::TypeImplBlock(node_path) => Some(node_path.path().into()),
-            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => Some(node_path.path().into()),
-            ImplBlockNodePath::IllFormedImplBlock(_) => None,
+            ImplBlockSynNodePath::TypeImplBlock(node_path) => Some(node_path.path().into()),
+            ImplBlockSynNodePath::TraitForTypeImplBlock(node_path) => Some(node_path.path().into()),
+            ImplBlockSynNodePath::IllFormedImplBlock(_) => None,
         }
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            ImplBlockNodePath::TypeImplBlock(node_path) => node_path.module_path(db),
-            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => node_path.module_path(db),
-            ImplBlockNodePath::IllFormedImplBlock(node_path) => node_path.module_path(db),
+            ImplBlockSynNodePath::TypeImplBlock(node_path) => node_path.module_path(db),
+            ImplBlockSynNodePath::TraitForTypeImplBlock(node_path) => node_path.module_path(db),
+            ImplBlockSynNodePath::IllFormedImplBlock(node_path) => node_path.module_path(db),
         }
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> ImplBlockNode {
+    pub fn node(self, db: &dyn EntityTreeDb) -> ImplBlockSynNode {
         todo!()
     }
 
@@ -57,18 +57,18 @@ impl ImplBlockNodePath {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum ImplBlockNode {
-    TypeImplBlock(TypeImplBlockNode),
-    TraitForTypeImplBlock(TraitForTypeImplBlockNode),
-    IllFormedImplBlock(IllFormedImplBlockNode),
+pub enum ImplBlockSynNode {
+    TypeImplBlock(TypeImplBlockSynNode),
+    TraitForTypeImplBlock(TraitForTypeImplBlockSynNode),
+    IllFormedImplBlock(IllFormedImplBlockSynNode),
 }
 
-impl ImplBlockNode {
-    pub fn node_path(self, db: &dyn EntityTreeDb) -> ImplBlockNodePath {
+impl ImplBlockSynNode {
+    pub fn node_path(self, db: &dyn EntityTreeDb) -> ImplBlockSynNodePath {
         match self {
-            ImplBlockNode::TypeImplBlock(impl_block) => impl_block.node_path(db).into(),
-            ImplBlockNode::TraitForTypeImplBlock(impl_block) => impl_block.node_path(db).into(),
-            ImplBlockNode::IllFormedImplBlock(impl_block) => impl_block.node_path(db).into(),
+            ImplBlockSynNode::TypeImplBlock(impl_block) => impl_block.node_path(db).into(),
+            ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => impl_block.node_path(db).into(),
+            ImplBlockSynNode::IllFormedImplBlock(impl_block) => impl_block.node_path(db).into(),
         }
     }
 
@@ -76,12 +76,12 @@ impl ImplBlockNode {
         self,
         db: &dyn EntityTreeDb,
         f: impl FnMut(),
-    ) -> &[AssociatedItemNodePath] {
+    ) -> &[AssociatedItemSynNodePath] {
         todo!()
     }
 }
 
-impl ImplBlockNode {
+impl ImplBlockSynNode {
     pub(crate) fn parse_from_token_group<'a, 'b>(
         db: &dyn EntityTreeDb,
         crate_root_path: ModulePath,
@@ -115,7 +115,7 @@ impl ImplBlockNode {
             impl_token,
         ) {
             Ok(node) => node,
-            Err(ill_form) => IllFormedImplBlockNode::new(
+            Err(ill_form) => IllFormedImplBlockSynNode::new(
                 db,
                 registry,
                 impl_token,
@@ -150,7 +150,7 @@ impl ImplBlockNode {
                 let Some(ImplBlockItems::Type(items)) = items else {
                     unreachable!("it should be guaranteed in `husky-ast` that items are not none")
                 };
-                TypeImplBlockNode::new(
+                TypeImplBlockSynNode::new(
                     db,
                     impl_token,
                     registry,
@@ -197,7 +197,7 @@ impl ImplBlockNode {
                             }
                         }
                     };
-                match TraitForTypeImplBlockNode::new(
+                match TraitForTypeImplBlockSynNode::new(
                     db,
                     registry,
                     module_path,
@@ -223,7 +223,7 @@ impl ImplBlockNode {
         // self.id(db).module_path
     }
 
-    pub fn items(self, db: &dyn EntityTreeDb) -> &[(Ident, AssociatedItemNode)] {
+    pub fn items(self, db: &dyn EntityTreeDb) -> &[(Ident, AssociatedItemSynNode)] {
         todo!()
         // match self {
         //     ImplBlockNode::TypeImplBlock(impl_block) => ty_impl_block_items(db, impl_block),

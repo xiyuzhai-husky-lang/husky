@@ -3,17 +3,17 @@ Ok(
         [salsa id]: 44,
         decls: [
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch::concave_component`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::line_segment_sketch::concave_component`,
                                 disambiguator: 0,
@@ -24,17 +24,17 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch::convex_component`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::line_segment_sketch::convex_component`,
                                 disambiguator: 0,
@@ -45,17 +45,17 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch::convexity`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::line_segment_sketch::convexity`,
                                 disambiguator: 0,
@@ -66,17 +66,17 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch::line_segment`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::line_segment_sketch::line_segment`,
                                 disambiguator: 0,
@@ -87,9 +87,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 disambiguator: 0,
@@ -97,11 +97,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::PropsStruct(
                             PropsStructTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                         disambiguator: 0,
@@ -240,13 +240,13 @@ Ok(
                                         ),
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                             disambiguator: 0,
@@ -598,9 +598,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 disambiguator: 0,
@@ -608,11 +608,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::PropsStruct(
                             PropsStructTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                         disambiguator: 0,
@@ -705,13 +705,13 @@ Ok(
                                         ),
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                             disambiguator: 0,
@@ -872,9 +872,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                 disambiguator: 0,
@@ -882,11 +882,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                         disambiguator: 0,
@@ -970,13 +970,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                                                             disambiguator: 0,
@@ -1210,9 +1210,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                 disambiguator: 0,
@@ -1220,11 +1220,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                         disambiguator: 0,
@@ -1308,13 +1308,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                                                             disambiguator: 0,
@@ -1548,9 +1548,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                 disambiguator: 0,
@@ -1558,11 +1558,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                         disambiguator: 0,
@@ -1663,13 +1663,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                                                             disambiguator: 0,
@@ -1980,9 +1980,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                 disambiguator: 0,
@@ -1990,11 +1990,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                         disambiguator: 0,
@@ -2112,13 +2112,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                                                             disambiguator: 0,
@@ -2499,9 +2499,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                 disambiguator: 0,
@@ -2509,11 +2509,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                         disambiguator: 0,
@@ -2597,13 +2597,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                                                             disambiguator: 0,
@@ -2857,9 +2857,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ImplBlock(
-                    ImplBlockNodePath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockNodePath {
+                EntitySynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
@@ -2875,10 +2875,10 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ImplBlock(
-                    ImplBlockNodeDecl::TraitForType(
+                SynNodeDecl::ImplBlock(
+                    ImplBlockSynNodeDecl::TraitForType(
                         TraitForTypeImplBlockNodeDecl {
-                            node_path: TraitForTypeImplBlockNodePath {
+                            node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
@@ -2923,13 +2923,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -3051,9 +3051,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TraitForTypeItem(
-                        TraitForTypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -3076,11 +3076,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TraitForTypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TraitForTypeItem(
                         TraitForTypeItemNodeDecl::MethodFn(
                             TraitForTypeMethodFnNodeDecl {
-                                node_path: TraitForTypeItemNodePath {
+                                node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -3102,7 +3102,7 @@ Ok(
                                     },
                                 },
                                 node: TraitForTypeItemNode {
-                                    node_path: TraitForTypeItemNodePath {
+                                    node_path: TraitForTypeItemSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath {
                                                 impl_block: TraitForTypeImplBlockPath {
@@ -3168,16 +3168,16 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -3296,9 +3296,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -3367,9 +3367,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ImplBlock(
-                    ImplBlockNodePath::TypeImplBlock(
-                        TypeImplBlockNodePath {
+                EntitySynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TypeImplBlock(
+                        TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -3378,10 +3378,10 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ImplBlock(
-                    ImplBlockNodeDecl::Type(
+                SynNodeDecl::ImplBlock(
+                    ImplBlockSynNodeDecl::Type(
                         TypeImplBlockNodeDecl {
-                            node_path: TypeImplBlockNodePath {
+                            node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -3389,8 +3389,8 @@ Ok(
                                 },
                             },
                             ast_idx: 171,
-                            impl_block: TypeImplBlockNode {
-                                node_path: TypeImplBlockNodePath {
+                            impl_block: TypeImplBlockSynNode {
+                                node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch`,
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -3430,13 +3430,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -3522,9 +3522,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -3540,11 +3540,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::AssociatedFn(
                             TypeAssociatedFnNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -3653,16 +3653,16 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -3745,9 +3745,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -4066,9 +4066,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -4084,11 +4084,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MethodFn(
                             TypeMethodFnNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -4103,7 +4103,7 @@ Ok(
                                     },
                                 },
                                 node: TypeItemNode {
-                                    node_path: TypeItemNodePath {
+                                    node_path: TypeItemSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath {
                                                 impl_block: TypeImplBlockPath {
@@ -4172,16 +4172,16 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -4264,9 +4264,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -4360,9 +4360,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ImplBlock(
-                    ImplBlockNodePath::TraitForTypeImplBlock(
-                        TraitForTypeImplBlockNodePath {
+                EntitySynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                        TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
@@ -4378,10 +4378,10 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ImplBlock(
-                    ImplBlockNodeDecl::TraitForType(
+                SynNodeDecl::ImplBlock(
+                    ImplBlockSynNodeDecl::TraitForType(
                         TraitForTypeImplBlockNodeDecl {
-                            node_path: TraitForTypeImplBlockNodePath {
+                            node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
                                     trai_path: TraitPath(`core::visual::Visualize`),
@@ -4426,13 +4426,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -4554,9 +4554,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TraitForTypeItem(
-                        TraitForTypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TraitForTypeItem(
+                        TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -4579,11 +4579,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TraitForTypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TraitForTypeItem(
                         TraitForTypeItemNodeDecl::MethodFn(
                             TraitForTypeMethodFnNodeDecl {
-                                node_path: TraitForTypeItemNodePath {
+                                node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -4605,7 +4605,7 @@ Ok(
                                     },
                                 },
                                 node: TraitForTypeItemNode {
-                                    node_path: TraitForTypeItemNodePath {
+                                    node_path: TraitForTypeItemSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath {
                                                 impl_block: TraitForTypeImplBlockPath {
@@ -4681,16 +4681,16 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -4809,9 +4809,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -4912,9 +4912,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ImplBlock(
-                    ImplBlockNodePath::TypeImplBlock(
-                        TypeImplBlockNodePath {
+                EntitySynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TypeImplBlock(
+                        TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -4923,10 +4923,10 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ImplBlock(
-                    ImplBlockNodeDecl::Type(
+                SynNodeDecl::ImplBlock(
+                    ImplBlockSynNodeDecl::Type(
                         TypeImplBlockNodeDecl {
-                            node_path: TypeImplBlockNodePath {
+                            node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
                                     ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -4934,8 +4934,8 @@ Ok(
                                 },
                             },
                             ast_idx: 174,
-                            impl_block: TypeImplBlockNode {
-                                node_path: TypeImplBlockNodePath {
+                            impl_block: TypeImplBlockSynNode {
+                                node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch`,
                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -4975,13 +4975,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -5067,9 +5067,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -5085,11 +5085,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MemoizedField(
                             TypeMemoizedFieldNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -5128,16 +5128,16 @@ Ok(
                                     ),
                                 ),
                                 expr: None,
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -5220,9 +5220,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -5329,9 +5329,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -5347,11 +5347,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MemoizedField(
                             TypeMemoizedFieldNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -5390,16 +5390,16 @@ Ok(
                                     ),
                                 ),
                                 expr: None,
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -5482,9 +5482,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -5578,9 +5578,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -5596,11 +5596,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::AssociatedFn(
                             TypeAssociatedFnNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -5692,16 +5692,16 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `mnist_classifier::line_segment_sketch`,
                                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -5784,9 +5784,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {

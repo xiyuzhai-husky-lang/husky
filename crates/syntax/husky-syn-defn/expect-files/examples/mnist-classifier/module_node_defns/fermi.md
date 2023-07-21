@@ -1,17 +1,17 @@
 Ok(
     [
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::PropsStruct(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::PropsStruct(
                     PropsStructTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: PropsStructTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     disambiguator: 0,
@@ -104,13 +104,13 @@ Ok(
                                     ),
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                         disambiguator: 0,
@@ -297,18 +297,18 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Fugitive(
-                FugitiveNodeDefn::Fn(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Fugitive(
+                FugitiveSynNodeDefn::Fn(
                     FnNodeDefn {
-                        node_path: FugitiveNodePath {
+                        node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: FnNodeDecl {
-                            node_path: FugitiveNodePath {
+                            node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                     disambiguator: 0,
@@ -392,13 +392,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Fugitive(
-                                                FugitiveNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Fugitive(
+                                                FugitiveSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                         disambiguator: 0,
@@ -744,16 +744,16 @@ Ok(
                         body: Some(
                             24,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
-                                                EntityNodePath::ModuleItem(
-                                                    ModuleItemNodePath::Fugitive(
-                                                        FugitiveNodePath {
+                                                EntitySynNodePath::ModuleItem(
+                                                    ModuleItemSynNodePath::Fugitive(
+                                                        FugitiveSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                                 disambiguator: 0,
@@ -1097,9 +1097,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Fugitive(
-                                            FugitiveNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Fugitive(
+                                            FugitiveSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                                     disambiguator: 0,
@@ -1846,10 +1846,10 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ImplBlock(
-            ImplBlockNodeDecl::Type(
+        SynNodeDefn::ImplBlock(
+            ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockNodePath {
+                    node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::fermi`,
                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1857,8 +1857,8 @@ Ok(
                         },
                     },
                     ast_idx: 23,
-                    impl_block: TypeImplBlockNode {
-                        node_path: TypeImplBlockNodePath {
+                    impl_block: TypeImplBlockSynNode {
+                        node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::fermi`,
                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1898,13 +1898,13 @@ Ok(
                             },
                         ),
                     ),
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TypeImplBlock(
-                                        TypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath {
                                             path: TypeImplBlockPath {
                                                 module_path: `mnist_classifier::fermi`,
                                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1988,11 +1988,11 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TypeItem(
-                TypeItemNodeDefn::MemoizedField(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TypeItem(
+                TypeItemSynNodeDefn::MemoizedField(
                     TypeMemoizedFieldNodeDefn {
-                        node_path: TypeItemNodePath {
+                        node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -2007,7 +2007,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMemoizedFieldNodeDecl {
-                            node_path: TypeItemNodePath {
+                            node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -2046,16 +2046,16 @@ Ok(
                                 ),
                             ),
                             expr: None,
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::fermi`,
                                                                     ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -2138,9 +2138,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -2232,19 +2232,19 @@ Ok(
                         body: Some(
                             16,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::fermi`,
                                                                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -2327,9 +2327,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -2419,9 +2419,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -2846,11 +2846,11 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TypeItem(
-                TypeItemNodeDefn::MemoizedField(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TypeItem(
+                TypeItemSynNodeDefn::MemoizedField(
                     TypeMemoizedFieldNodeDefn {
-                        node_path: TypeItemNodePath {
+                        node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -2865,7 +2865,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMemoizedFieldNodeDecl {
-                            node_path: TypeItemNodePath {
+                            node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -2904,16 +2904,16 @@ Ok(
                                 ),
                             ),
                             expr: None,
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::fermi`,
                                                                     ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -2996,9 +2996,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -3090,19 +3090,19 @@ Ok(
                         body: Some(
                             16,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::fermi`,
                                                                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -3185,9 +3185,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -3277,9 +3277,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -3704,11 +3704,11 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TypeItem(
-                TypeItemNodeDefn::MemoizedField(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TypeItem(
+                TypeItemSynNodeDefn::MemoizedField(
                     TypeMemoizedFieldNodeDefn {
-                        node_path: TypeItemNodePath {
+                        node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -3723,7 +3723,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMemoizedFieldNodeDecl {
-                            node_path: TypeItemNodePath {
+                            node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -3762,16 +3762,16 @@ Ok(
                                 ),
                             ),
                             expr: None,
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `mnist_classifier::fermi`,
                                                                     ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -3854,9 +3854,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -3948,19 +3948,19 @@ Ok(
                         body: Some(
                             17,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `mnist_classifier::fermi`,
                                                                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -4043,9 +4043,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -4135,9 +4135,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {

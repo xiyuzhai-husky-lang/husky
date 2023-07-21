@@ -1,17 +1,17 @@
 Ok(
     [
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::PropsStruct(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::PropsStruct(
                     PropsStructTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: PropsStructTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                     disambiguator: 0,
@@ -104,13 +104,13 @@ Ok(
                                     ),
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                                         disambiguator: 0,
@@ -286,10 +286,10 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ImplBlock(
-            ImplBlockNodeDecl::TraitForType(
+        SynNodeDefn::ImplBlock(
+            ImplBlockSynNodeDecl::TraitForType(
                 TraitForTypeImplBlockNodeDecl {
-                    node_path: TraitForTypeImplBlockNodePath {
+                    node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                             trai_path: TraitPath(`core::visual::Visualize`),
@@ -334,13 +334,13 @@ Ok(
                             },
                         ),
                     ),
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TraitForTypeImplBlock(
-                                        TraitForTypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                        TraitForTypeImplBlockSynNodePath {
                                             path: TraitForTypeImplBlockPath {
                                                 module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                                                 trai_path: TraitPath(`core::visual::Visualize`),
@@ -460,11 +460,11 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TraitForTypeItem(
-                TraitForTypeItemNodeDefn::MethodFn(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TraitForTypeItem(
+                TraitForTypeItemSynNodeDefn::MethodFn(
                     TraitForTypeMethodFnNodeDefn {
-                        node_path: TraitForTypeItemNodePath {
+                        node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -486,7 +486,7 @@ Ok(
                             },
                         },
                         node_decl: TraitForTypeMethodFnNodeDecl {
-                            node_path: TraitForTypeItemNodePath {
+                            node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
                                         impl_block: TraitForTypeImplBlockPath {
@@ -508,7 +508,7 @@ Ok(
                                 },
                             },
                             node: TraitForTypeItemNode {
-                                node_path: TraitForTypeItemNodePath {
+                                node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -584,16 +584,16 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TraitForTypeImplBlock(
-                                                            TraitForTypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                            TraitForTypeImplBlockSynNodePath {
                                                                 path: TraitForTypeImplBlockPath {
                                                                     module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                                                                     trai_path: TraitPath(`core::visual::Visualize`),
@@ -712,9 +712,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TraitForTypeItem(
-                                                TraitForTypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TraitForTypeItem(
+                                                TraitForTypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitForTypeItemPath {
                                                             impl_block: TraitForTypeImplBlockPath {
@@ -813,19 +813,19 @@ Ok(
                         body: Some(
                             3,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                    TraitForTypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                    TraitForTypeImplBlockSynNodePath {
                                                                         path: TraitForTypeImplBlockPath {
                                                                             module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                                                                             trai_path: TraitPath(`core::visual::Visualize`),
@@ -944,9 +944,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TraitForTypeItem(
-                                                        TraitForTypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TraitForTypeItem(
+                                                        TraitForTypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TraitForTypeItemPath {
                                                                     impl_block: TraitForTypeImplBlockPath {
@@ -1043,9 +1043,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TraitForTypeItem(
-                                            TraitForTypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TraitForTypeItem(
+                                            TraitForTypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitForTypeItemPath {
                                                         impl_block: TraitForTypeImplBlockPath {

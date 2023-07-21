@@ -2,7 +2,7 @@ use crate::*;
 use husky_vfs::{ModulePath, Toolchain};
 
 #[salsa::tracked(db = ExprDb, jar = SynExprJar)]
-pub struct ExprRegion {
+pub struct SynExprRegion {
     #[return_ref]
     pub data: ExprRegionData,
 }
@@ -10,7 +10,7 @@ pub struct ExprRegion {
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = ExprDb)]
 pub struct ExprRegionData {
-    parent: Option<ExprRegion>,
+    parent: Option<SynExprRegion>,
     path: RegionPath,
     expr_arena: ExprArena,
     principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
@@ -22,7 +22,7 @@ pub struct ExprRegionData {
 
 impl ExprRegionData {
     pub fn new(
-        parent: Option<ExprRegion>,
+        parent: Option<SynExprRegion>,
         path: RegionPath,
         expr_arena: ExprArena,
         entity_path_expr_arena: PrincipalEntityPathExprArena,
@@ -43,7 +43,7 @@ impl ExprRegionData {
         }
     }
 
-    pub fn parent(&self) -> Option<ExprRegion> {
+    pub fn parent(&self) -> Option<SynExprRegion> {
         self.parent
     }
 
@@ -133,7 +133,7 @@ impl std::ops::Index<PatternExprIdx> for ExprRegionData {
     }
 }
 
-impl ExprRegion {
+impl SynExprRegion {
     pub fn toolchain(self, db: &dyn ExprDb) -> Toolchain {
         // ad hoc
         match self.data(db).path {

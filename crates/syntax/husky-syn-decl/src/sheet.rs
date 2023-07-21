@@ -4,7 +4,7 @@ use vec_like::VecPairMap;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
 pub struct NodeDeclSheet {
     #[return_ref]
-    pub decls: Vec<(EntityNodePath, NodeDecl)>,
+    pub decls: Vec<(EntitySynNodePath, SynNodeDecl)>,
 }
 
 pub trait HasNodeDeclSheet: Copy {
@@ -21,7 +21,7 @@ impl HasNodeDeclSheet for ModulePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<NodeDeclSheet> {
     let entity_tree_sheet = db.entity_tree_sheet(path)?;
-    let mut decls: Vec<(EntityNodePath, NodeDecl)> = Default::default();
+    let mut decls: Vec<(EntitySynNodePath, SynNodeDecl)> = Default::default();
     for node_path in entity_tree_sheet.major_entity_node_paths() {
         decls.push((node_path, node_path.node_decl(db)))
     }
@@ -29,17 +29,17 @@ pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntityTreeResult<No
     for impl_block_node_path in entity_tree_sheet.impl_block_node_paths() {
         decls.push((impl_block_node_path.into(), impl_block_node_path.node_decl(db).into()));
         match impl_block_node_path {
-            ImplBlockNodePath::TypeImplBlock(impl_block_node_path) => {
+            ImplBlockSynNodePath::TypeImplBlock(impl_block_node_path) => {
                 for item_node_path in impl_block_node_path.item_node_paths(db) {
                     decls.push((item_node_path.into(), item_node_path.node_decl(db).into()))
                 }
             }
-            ImplBlockNodePath::TraitForTypeImplBlock(impl_block_node_path) => {
+            ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_node_path) => {
                 for item_node_path in impl_block_node_path.item_node_paths(db) {
                     decls.push((item_node_path.into(), item_node_path.node_decl(db).into()))
                 }
             }
-            ImplBlockNodePath::IllFormedImplBlock(impl_block_node_path) => { 
+            ImplBlockSynNodePath::IllFormedImplBlock(impl_block_node_path) => { 
                 for item_node_path in
                     impl_block_node_path.item_node_paths(db).iter().copied()
                 {

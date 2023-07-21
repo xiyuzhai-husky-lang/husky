@@ -3,9 +3,9 @@ Ok(
         [salsa id]: 32,
         decls: [
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                 disambiguator: 0,
@@ -13,11 +13,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Val(
                             ValNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                         disambiguator: 0,
@@ -48,13 +48,13 @@ Ok(
                                     ),
                                 ),
                                 expr: None,
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                                             disambiguator: 0,
@@ -140,9 +140,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 disambiguator: 0,
@@ -150,11 +150,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                         disambiguator: 0,
@@ -220,13 +220,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                                             disambiguator: 0,
@@ -404,9 +404,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                 disambiguator: 0,
@@ -414,11 +414,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Val(
                             ValNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                         disambiguator: 0,
@@ -449,13 +449,13 @@ Ok(
                                     ),
                                 ),
                                 expr: None,
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                                             disambiguator: 0,
@@ -541,9 +541,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 disambiguator: 0,
@@ -551,11 +551,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                         disambiguator: 0,
@@ -621,13 +621,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                                             disambiguator: 0,
@@ -805,9 +805,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 disambiguator: 0,
@@ -815,11 +815,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                         disambiguator: 0,
@@ -885,13 +885,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                                             disambiguator: 0,
@@ -1069,9 +1069,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Fugitive(
-                        FugitiveNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Fugitive(
+                        FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                 disambiguator: 0,
@@ -1079,11 +1079,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Fugitive(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Val(
                             ValNodeDecl {
-                                node_path: FugitiveNodePath {
+                                node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                         disambiguator: 0,
@@ -1114,13 +1114,13 @@ Ok(
                                     ),
                                 ),
                                 expr: None,
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Fugitive(
-                                                    FugitiveNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Fugitive(
+                                                    FugitiveSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                             disambiguator: 0,

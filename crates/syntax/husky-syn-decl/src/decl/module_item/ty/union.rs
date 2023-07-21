@@ -3,11 +3,11 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct UnionTypeNodeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl UnionTypeNodeDecl {
@@ -27,7 +27,7 @@ pub struct UnionTypeDecl {
     pub path: TypePath,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl UnionTypeDecl {

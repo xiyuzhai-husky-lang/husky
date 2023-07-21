@@ -3,9 +3,9 @@ Ok(
         [salsa id]: 8,
         decls: [
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::logic::Prop`, `Extern`),
                                 disambiguator: 0,
@@ -13,11 +13,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
                             ExternTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::logic::Prop`, `Extern`),
                                         disambiguator: 0,
@@ -27,13 +27,13 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::logic::Prop`, `Extern`),
                                                             disambiguator: 0,
@@ -87,9 +87,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                 disambiguator: 0,
@@ -97,11 +97,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Structure(
                             StructureTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                         disambiguator: 0,
@@ -180,13 +180,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                                             disambiguator: 0,
@@ -349,9 +349,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                 disambiguator: 0,
@@ -359,11 +359,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Inductive(
                             InductiveTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                         disambiguator: 0,
@@ -442,13 +442,13 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                                             disambiguator: 0,

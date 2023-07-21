@@ -4,10 +4,10 @@ Ok(
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Type(
-                                TypeNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Type(
+                                TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::str::str`, `Extern`),
                                         disambiguator: 0,
@@ -32,9 +32,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Type(
-                            TypeNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Type(
+                            TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::str::str`, `Extern`),
                                     disambiguator: 0,
@@ -46,10 +46,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Type(
-                                TypeNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Type(
+                                TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::str::StringLiteral`, `Extern`),
                                         disambiguator: 0,
@@ -74,9 +74,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Type(
-                            TypeNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Type(
+                            TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::str::StringLiteral`, `Extern`),
                                     disambiguator: 0,
@@ -98,9 +98,9 @@ Ok(
                         module_item_path: ModuleItemPath::Type(
                             TypePath(`core::str::str`, `Extern`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Type(
-                                TypeNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Type(
+                                TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::str::str`, `Extern`),
                                         disambiguator: 0,
@@ -133,9 +133,9 @@ Ok(
                         module_item_path: ModuleItemPath::Type(
                             TypePath(`core::str::StringLiteral`, `Extern`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Type(
-                                TypeNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Type(
+                                TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::str::StringLiteral`, `Extern`),
                                         disambiguator: 0,

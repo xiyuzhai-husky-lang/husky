@@ -1,15 +1,15 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
 pub struct TypeAliasNodeDefn {
     #[id]
-    pub node_path: FugitiveNodePath,
-    pub expr_region: ExprRegion,
+    pub node_path: FugitiveSynNodePath,
+    pub expr_region: SynExprRegion,
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
 pub struct TypeAliasDefn {
     #[id]
     pub path: FugitivePath,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }

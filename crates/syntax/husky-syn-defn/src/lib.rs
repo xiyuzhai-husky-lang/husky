@@ -19,7 +19,7 @@ use husky_syn_expr::*;
 use husky_vfs::ModulePath;
 use salsa::DbWithJar;
 
-#[salsa::jar(db = DefnDb)]
+#[salsa::jar(db = SynDefnDb)]
 pub struct SynDefnJar(
     // type
     ty_node_defn,
@@ -56,16 +56,16 @@ pub struct SynDefnJar(
     TypeAliasDefn,
     // type_alias_defn,
     // trait
-    TraitNodeDefn,
+    TraitSynNodeDefn,
     trai_node_defn,
     TraitDefn,
     trai_defn,
     // enum variant,
-    UnitVariantNodeDefn,
+    UnitVariantSynNodeDefn,
     UnitVariantDefn,
-    TupleVariantNodeDefn,
+    TupleVariantSynNodeDefn,
     TupleVariantDefn,
-    PropsVariantNodeDefn,
+    PropsVariantSynNodeDefn,
     PropsVariantDefn,
     // type item
     ty_item_node_defn,

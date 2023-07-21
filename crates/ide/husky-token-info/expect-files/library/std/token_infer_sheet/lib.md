@@ -3,8 +3,8 @@ Ok(
         token_infos: [
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::prelude`,
                             disambiguator: 0,
@@ -15,8 +15,8 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::logic`,
                             disambiguator: 0,
@@ -27,8 +27,8 @@ Ok(
             ),
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::ops`,
                             disambiguator: 0,

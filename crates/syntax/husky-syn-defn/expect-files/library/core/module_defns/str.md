@@ -8,13 +8,13 @@ Ok(
                         decl: ExternTypeDecl {
                             path: TypePath(`core::str::str`, `Extern`),
                             generic_parameters: [],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::str::str`, `Extern`),
                                                         disambiguator: 0,
@@ -75,13 +75,13 @@ Ok(
                         decl: ExternTypeDecl {
                             path: TypePath(`core::str::StringLiteral`, `Extern`),
                             generic_parameters: [],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::str::StringLiteral`, `Extern`),
                                                         disambiguator: 0,

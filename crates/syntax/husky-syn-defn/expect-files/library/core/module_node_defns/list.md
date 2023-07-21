@@ -1,17 +1,17 @@
 Ok(
     [
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::Extern(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::list::List`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::list::List`, `Extern`),
                                     disambiguator: 0,
@@ -61,13 +61,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::list::List`, `Extern`),
                                                         disambiguator: 0,
@@ -145,10 +145,10 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::ImplBlock(
-            ImplBlockNodeDecl::Type(
+        SynNodeDefn::ImplBlock(
+            ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockNodePath {
+                    node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::list`,
                             ty_path: TypePath(`core::list::List`, `Extern`),
@@ -156,8 +156,8 @@ Ok(
                         },
                     },
                     ast_idx: 7,
-                    impl_block: TypeImplBlockNode {
-                        node_path: TypeImplBlockNodePath {
+                    impl_block: TypeImplBlockSynNode {
+                        node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::list`,
                                 ty_path: TypePath(`core::list::List`, `Extern`),
@@ -229,13 +229,13 @@ Ok(
                             },
                         ),
                     ),
-                    expr_region: ExprRegion {
+                    expr_region: SynExprRegion {
                         data: ExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
-                                EntityNodePath::ImplBlock(
-                                    ImplBlockNodePath::TypeImplBlock(
-                                        TypeImplBlockNodePath {
+                                EntitySynNodePath::ImplBlock(
+                                    ImplBlockSynNodePath::TypeImplBlock(
+                                        TypeImplBlockSynNodePath {
                                             path: TypeImplBlockPath {
                                                 module_path: `core::list`,
                                                 ty_path: TypePath(`core::list::List`, `Extern`),
@@ -365,11 +365,11 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TypeItem(
-                TypeItemNodeDefn::MethodFn(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TypeItem(
+                TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemNodePath {
+                        node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -384,7 +384,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemNodePath {
+                            node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -399,7 +399,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -466,16 +466,16 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `core::list`,
                                                                     ty_path: TypePath(`core::list::List`, `Extern`),
@@ -604,9 +604,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -708,19 +708,19 @@ Ok(
                             },
                         },
                         body: None,
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `core::list`,
                                                                             ty_path: TypePath(`core::list::List`, `Extern`),
@@ -849,9 +849,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -953,9 +953,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -1027,11 +1027,11 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TypeItem(
-                TypeItemNodeDefn::MethodFn(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TypeItem(
+                TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemNodePath {
+                        node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -1046,7 +1046,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemNodePath {
+                            node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -1061,7 +1061,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -1150,16 +1150,16 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `core::list`,
                                                                     ty_path: TypePath(`core::list::List`, `Extern`),
@@ -1288,9 +1288,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -1427,19 +1427,19 @@ Ok(
                             },
                         },
                         body: None,
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `core::list`,
                                                                             ty_path: TypePath(`core::list::List`, `Extern`),
@@ -1568,9 +1568,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -1707,9 +1707,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -1790,11 +1790,11 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TypeItem(
-                TypeItemNodeDefn::MethodFn(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TypeItem(
+                TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemNodePath {
+                        node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -1809,7 +1809,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemNodePath {
+                            node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -1824,7 +1824,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -1891,16 +1891,16 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `core::list`,
                                                                     ty_path: TypePath(`core::list::List`, `Extern`),
@@ -2029,9 +2029,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -2149,19 +2149,19 @@ Ok(
                             },
                         },
                         body: None,
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `core::list`,
                                                                             ty_path: TypePath(`core::list::List`, `Extern`),
@@ -2290,9 +2290,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -2410,9 +2410,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -2484,11 +2484,11 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TypeItem(
-                TypeItemNodeDefn::MethodFn(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TypeItem(
+                TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemNodePath {
+                        node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -2503,7 +2503,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemNodePath {
+                            node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -2518,7 +2518,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -2585,16 +2585,16 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `core::list`,
                                                                     ty_path: TypePath(`core::list::List`, `Extern`),
@@ -2723,9 +2723,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -2843,19 +2843,19 @@ Ok(
                             },
                         },
                         body: None,
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `core::list`,
                                                                             ty_path: TypePath(`core::list::List`, `Extern`),
@@ -2984,9 +2984,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -3104,9 +3104,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -3178,11 +3178,11 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TypeItem(
-                TypeItemNodeDefn::MethodFn(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TypeItem(
+                TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemNodePath {
+                        node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -3197,7 +3197,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemNodePath {
+                            node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -3212,7 +3212,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -3292,16 +3292,16 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `core::list`,
                                                                     ty_path: TypePath(`core::list::List`, `Extern`),
@@ -3430,9 +3430,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -3550,19 +3550,19 @@ Ok(
                             },
                         },
                         body: None,
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `core::list`,
                                                                             ty_path: TypePath(`core::list::List`, `Extern`),
@@ -3691,9 +3691,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -3811,9 +3811,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {
@@ -3885,11 +3885,11 @@ Ok(
                 ),
             ),
         ),
-        NodeDefn::AssociatedItem(
-            AssociatedItemNodeDefn::TypeItem(
-                TypeItemNodeDefn::MethodFn(
+        SynNodeDefn::AssociatedItem(
+            AssociatedItemSynNodeDefn::TypeItem(
+                TypeItemSynNodeDefn::MethodFn(
                     TypeMethodFnNodeDefn {
-                        node_path: TypeItemNodePath {
+                        node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -3904,7 +3904,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMethodFnNodeDecl {
-                            node_path: TypeItemNodePath {
+                            node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -3919,7 +3919,7 @@ Ok(
                                 },
                             },
                             node: TypeItemNode {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -3973,16 +3973,16 @@ Ok(
                                     ),
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: Some(
-                                        ExprRegion {
+                                        SynExprRegion {
                                             data: ExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
-                                                    EntityNodePath::ImplBlock(
-                                                        ImplBlockNodePath::TypeImplBlock(
-                                                            TypeImplBlockNodePath {
+                                                    EntitySynNodePath::ImplBlock(
+                                                        ImplBlockSynNodePath::TypeImplBlock(
+                                                            TypeImplBlockSynNodePath {
                                                                 path: TypeImplBlockPath {
                                                                     module_path: `core::list`,
                                                                     ty_path: TypePath(`core::list::List`, `Extern`),
@@ -4111,9 +4111,9 @@ Ok(
                                         },
                                     ),
                                     path: RegionPath::Decl(
-                                        EntityNodePath::AssociatedItem(
-                                            AssociatedItemNodePath::TypeItem(
-                                                TypeItemNodePath {
+                                        EntitySynNodePath::AssociatedItem(
+                                            AssociatedItemSynNodePath::TypeItem(
+                                                TypeItemSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypeItemPath {
                                                             impl_block: TypeImplBlockPath {
@@ -4183,19 +4183,19 @@ Ok(
                             },
                         },
                         body: None,
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: Some(
-                                    ExprRegion {
+                                    SynExprRegion {
                                         data: ExprRegionData {
                                             parent: Some(
-                                                ExprRegion {
+                                                SynExprRegion {
                                                     data: ExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
-                                                            EntityNodePath::ImplBlock(
-                                                                ImplBlockNodePath::TypeImplBlock(
-                                                                    TypeImplBlockNodePath {
+                                                            EntitySynNodePath::ImplBlock(
+                                                                ImplBlockSynNodePath::TypeImplBlock(
+                                                                    TypeImplBlockSynNodePath {
                                                                         path: TypeImplBlockPath {
                                                                             module_path: `core::list`,
                                                                             ty_path: TypePath(`core::list::List`, `Extern`),
@@ -4324,9 +4324,9 @@ Ok(
                                                 },
                                             ),
                                             path: RegionPath::Decl(
-                                                EntityNodePath::AssociatedItem(
-                                                    AssociatedItemNodePath::TypeItem(
-                                                        TypeItemNodePath {
+                                                EntitySynNodePath::AssociatedItem(
+                                                    AssociatedItemSynNodePath::TypeItem(
+                                                        TypeItemSynNodePath {
                                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                                 path: TypeItemPath {
                                                                     impl_block: TypeImplBlockPath {
@@ -4396,9 +4396,9 @@ Ok(
                                     },
                                 ),
                                 path: RegionPath::Defn(
-                                    EntityNodePath::AssociatedItem(
-                                        AssociatedItemNodePath::TypeItem(
-                                            TypeItemNodePath {
+                                    EntitySynNodePath::AssociatedItem(
+                                        AssociatedItemSynNodePath::TypeItem(
+                                            TypeItemSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TypeItemPath {
                                                         impl_block: TypeImplBlockPath {

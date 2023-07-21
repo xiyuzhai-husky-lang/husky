@@ -6,9 +6,9 @@ use vec_like::VecPairMap;
 
 #[inline(always)]
 pub(crate) fn expr_parser<'a>(
-    db: &'a dyn DefnDb,
-    node_path: impl Into<EntityNodePath>,
-    decl_expr_region: ExprRegion,
+    db: &'a dyn SynDefnDb,
+    node_path: impl Into<EntitySynNodePath>,
+    decl_expr_region: SynExprRegion,
     allow_self_type: AllowSelfType,
     allow_self_value: AllowSelfValue,
 ) -> BlockExprParser<'a> {

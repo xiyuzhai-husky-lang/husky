@@ -1,13 +1,13 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar)]
-pub struct TupleVariantNodeDefn {
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
+pub struct TupleVariantSynNodeDefn {
     #[id]
-    pub node_path: TypeVariantNodePath,
+    pub node_path: TypeVariantSynNodePath,
     pub node_decl: TupleTypeVariantNodeDecl,
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
 pub struct TupleVariantDefn {
     #[id]
     pub path: TypeVariantPath,

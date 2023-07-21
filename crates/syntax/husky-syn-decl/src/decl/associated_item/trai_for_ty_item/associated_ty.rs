@@ -5,7 +5,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeAssociatedTypeNodeDecl {
     #[id]
-    pub node_path: TraitForTypeItemNodePath,
+    pub node_path: TraitForTypeItemSynNodePath,
     pub node: TraitForTypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -14,7 +14,7 @@ pub struct TraitForTypeAssociatedTypeNodeDecl {
     pub eq_token: NodeDeclResult<EqToken>,
     // todo: change this to NodeDeclResult??
     pub ty_term_expr_idx: ExprIdx,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitForTypeAssociatedTypeNodeDecl {
@@ -27,7 +27,7 @@ impl TraitForTypeAssociatedTypeNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_for_ty_associated_ty_node_decl(
         &self,
-        node_path: TraitForTypeItemNodePath,
+        node_path: TraitForTypeItemSynNodePath,
         node: TraitForTypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -69,7 +69,7 @@ pub struct TraitForTypeAssociatedTypeDecl {
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub ty_term_expr_idx: ExprIdx,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitForTypeAssociatedTypeDecl {

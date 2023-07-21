@@ -4,10 +4,10 @@ Ok(
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::marker::Copy`),
                                         disambiguator: 0,
@@ -32,9 +32,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::marker::Copy`),
                                     disambiguator: 0,
@@ -46,10 +46,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::marker::Sized`),
                                         disambiguator: 0,
@@ -74,9 +74,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::marker::Sized`),
                                     disambiguator: 0,
@@ -98,9 +98,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::marker::Copy`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::marker::Copy`),
                                         disambiguator: 0,
@@ -133,9 +133,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::marker::Sized`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::marker::Sized`),
                                         disambiguator: 0,

@@ -3,9 +3,9 @@ Ok(
         [salsa id]: 22,
         decls: [
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Trait(
-                        TraitNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Trait(
+                        TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`std::ops::Add`),
                                 disambiguator: 0,
@@ -13,10 +13,10 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Trait(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Trait(
                         TraitNodeDecl {
-                            node_path: TraitNodePath {
+                            node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`std::ops::Add`),
                                     disambiguator: 0,
@@ -58,13 +58,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Trait(
-                                                TraitNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Trait(
+                                                TraitSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TraitPath(`std::ops::Add`),
                                                         disambiguator: 0,

@@ -2,7 +2,7 @@ use super::*;
 use husky_expr_ty::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
 use husky_fluffy_term::*;
 use husky_syn_defn::HasDefns;
-use husky_syn_expr::{ExprIdx, ExprRegion};
+use husky_syn_expr::{ExprIdx, SynExprRegion};
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
@@ -37,7 +37,7 @@ pub(crate) fn expr_ty_diagnostic_sheet(
 
 fn collect_expr_ty_diagnostics(
     db: &dyn DiagnosticsDb,
-    expr_region: ExprRegion,
+    expr_region: SynExprRegion,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
     let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, expr_region);

@@ -5,7 +5,7 @@ pub struct TraitForTypeAssociatedValNodeDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitForTypeAssociatedValNodeDecl {
@@ -23,5 +23,5 @@ pub struct TraitForTypeAssociatedValDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }

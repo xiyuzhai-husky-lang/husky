@@ -4,10 +4,10 @@ Ok(
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Add`),
                                         disambiguator: 0,
@@ -38,9 +38,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::Add`),
                                     disambiguator: 0,
@@ -52,10 +52,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::AddAssign`),
                                         disambiguator: 0,
@@ -86,9 +86,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::AddAssign`),
                                     disambiguator: 0,
@@ -100,10 +100,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitAnd`),
                                         disambiguator: 0,
@@ -134,9 +134,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::BitAnd`),
                                     disambiguator: 0,
@@ -148,10 +148,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitAndAssign`),
                                         disambiguator: 0,
@@ -182,9 +182,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::BitAndAssign`),
                                     disambiguator: 0,
@@ -196,10 +196,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitOr`),
                                         disambiguator: 0,
@@ -230,9 +230,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::BitOr`),
                                     disambiguator: 0,
@@ -244,10 +244,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitOrAssign`),
                                         disambiguator: 0,
@@ -278,9 +278,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::BitOrAssign`),
                                     disambiguator: 0,
@@ -292,10 +292,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitXor`),
                                         disambiguator: 0,
@@ -326,9 +326,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::BitXor`),
                                     disambiguator: 0,
@@ -340,10 +340,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitXorAssign`),
                                         disambiguator: 0,
@@ -374,9 +374,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::BitXorAssign`),
                                     disambiguator: 0,
@@ -388,10 +388,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Div`),
                                         disambiguator: 0,
@@ -422,9 +422,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::Div`),
                                     disambiguator: 0,
@@ -436,10 +436,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::DivAssign`),
                                         disambiguator: 0,
@@ -470,9 +470,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::DivAssign`),
                                     disambiguator: 0,
@@ -484,10 +484,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Mul`),
                                         disambiguator: 0,
@@ -518,9 +518,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::Mul`),
                                     disambiguator: 0,
@@ -532,10 +532,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::MulAssign`),
                                         disambiguator: 0,
@@ -566,9 +566,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::MulAssign`),
                                     disambiguator: 0,
@@ -580,10 +580,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Neg`),
                                         disambiguator: 0,
@@ -614,9 +614,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::Neg`),
                                     disambiguator: 0,
@@ -628,10 +628,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Not`),
                                         disambiguator: 0,
@@ -662,9 +662,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::Not`),
                                     disambiguator: 0,
@@ -676,10 +676,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Sub`),
                                         disambiguator: 0,
@@ -710,9 +710,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::Sub`),
                                     disambiguator: 0,
@@ -724,10 +724,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Unveil`),
                                         disambiguator: 0,
@@ -758,9 +758,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::ops::Unveil`),
                                     disambiguator: 0,
@@ -772,10 +772,10 @@ Ok(
                     visibility: Scope::Pub,
                 },
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Type(
-                                TypeNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Type(
+                                TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                         disambiguator: 0,
@@ -806,9 +806,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Type(
-                            TypeNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Type(
+                            TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                     disambiguator: 0,
@@ -830,9 +830,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::Add`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Add`),
                                         disambiguator: 0,
@@ -871,9 +871,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::AddAssign`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::AddAssign`),
                                         disambiguator: 0,
@@ -912,9 +912,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::BitAnd`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitAnd`),
                                         disambiguator: 0,
@@ -953,9 +953,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::BitAndAssign`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitAndAssign`),
                                         disambiguator: 0,
@@ -994,9 +994,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::BitOr`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitOr`),
                                         disambiguator: 0,
@@ -1035,9 +1035,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::BitOrAssign`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitOrAssign`),
                                         disambiguator: 0,
@@ -1076,9 +1076,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::BitXor`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitXor`),
                                         disambiguator: 0,
@@ -1117,9 +1117,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::BitXorAssign`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::BitXorAssign`),
                                         disambiguator: 0,
@@ -1158,9 +1158,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::Div`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Div`),
                                         disambiguator: 0,
@@ -1199,9 +1199,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::DivAssign`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::DivAssign`),
                                         disambiguator: 0,
@@ -1240,9 +1240,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::Mul`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Mul`),
                                         disambiguator: 0,
@@ -1281,9 +1281,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::MulAssign`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::MulAssign`),
                                         disambiguator: 0,
@@ -1322,9 +1322,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::Neg`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Neg`),
                                         disambiguator: 0,
@@ -1363,9 +1363,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::Not`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Not`),
                                         disambiguator: 0,
@@ -1404,9 +1404,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::Sub`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Sub`),
                                         disambiguator: 0,
@@ -1445,9 +1445,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::ops::Unveil`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::ops::Unveil`),
                                         disambiguator: 0,
@@ -1486,9 +1486,9 @@ Ok(
                         module_item_path: ModuleItemPath::Type(
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Type(
-                                TypeNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Type(
+                                TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                         disambiguator: 0,

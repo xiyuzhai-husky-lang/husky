@@ -1,16 +1,16 @@
 Ok(
     [
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Add`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Add`),
                                 disambiguator: 0,
@@ -52,13 +52,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::Add`),
                                                     disambiguator: 0,
@@ -135,17 +135,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::AddAssign`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::AddAssign`),
                                 disambiguator: 0,
@@ -187,13 +187,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::AddAssign`),
                                                     disambiguator: 0,
@@ -270,17 +270,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitAnd`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitAnd`),
                                 disambiguator: 0,
@@ -322,13 +322,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::BitAnd`),
                                                     disambiguator: 0,
@@ -405,17 +405,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitAndAssign`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitAndAssign`),
                                 disambiguator: 0,
@@ -457,13 +457,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::BitAndAssign`),
                                                     disambiguator: 0,
@@ -540,17 +540,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitOr`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitOr`),
                                 disambiguator: 0,
@@ -592,13 +592,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::BitOr`),
                                                     disambiguator: 0,
@@ -675,17 +675,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitOrAssign`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitOrAssign`),
                                 disambiguator: 0,
@@ -727,13 +727,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::BitOrAssign`),
                                                     disambiguator: 0,
@@ -810,17 +810,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitXor`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitXor`),
                                 disambiguator: 0,
@@ -862,13 +862,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::BitXor`),
                                                     disambiguator: 0,
@@ -945,17 +945,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::BitXorAssign`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitXorAssign`),
                                 disambiguator: 0,
@@ -997,13 +997,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::BitXorAssign`),
                                                     disambiguator: 0,
@@ -1080,17 +1080,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Div`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Div`),
                                 disambiguator: 0,
@@ -1132,13 +1132,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::Div`),
                                                     disambiguator: 0,
@@ -1215,17 +1215,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::DivAssign`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::DivAssign`),
                                 disambiguator: 0,
@@ -1267,13 +1267,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::DivAssign`),
                                                     disambiguator: 0,
@@ -1350,17 +1350,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Mul`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Mul`),
                                 disambiguator: 0,
@@ -1402,13 +1402,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::Mul`),
                                                     disambiguator: 0,
@@ -1485,17 +1485,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::MulAssign`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::MulAssign`),
                                 disambiguator: 0,
@@ -1537,13 +1537,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::MulAssign`),
                                                     disambiguator: 0,
@@ -1620,17 +1620,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Neg`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Neg`),
                                 disambiguator: 0,
@@ -1640,13 +1640,13 @@ Ok(
                         implicit_parameter_decl_list: Ok(
                             None,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::Neg`),
                                                     disambiguator: 0,
@@ -1698,17 +1698,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Not`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Not`),
                                 disambiguator: 0,
@@ -1718,13 +1718,13 @@ Ok(
                         implicit_parameter_decl_list: Ok(
                             None,
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::Not`),
                                                     disambiguator: 0,
@@ -1776,17 +1776,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Sub`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Sub`),
                                 disambiguator: 0,
@@ -1828,13 +1828,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::Sub`),
                                                     disambiguator: 0,
@@ -1911,17 +1911,17 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Trait(
-                TraitNodeDefn {
-                    node_path: TraitNodePath {
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Trait(
+                TraitSynNodeDefn {
+                    node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::ops::Unveil`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitNodePath {
+                        node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Unveil`),
                                 disambiguator: 0,
@@ -1963,13 +1963,13 @@ Ok(
                                 },
                             ),
                         ),
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::ops::Unveil`),
                                                     disambiguator: 0,
@@ -2046,18 +2046,18 @@ Ok(
                 },
             ),
         ),
-        NodeDefn::ModuleItem(
-            ModuleItemNodeDefn::Type(
-                TypeNodeDefn::Enum(
+        SynNodeDefn::ModuleItem(
+            ModuleItemSynNodeDefn::Type(
+                TypeSynNodeDefn::Enum(
                     EnumTypeNodeDefn {
-                        node_path: TypeNodePath {
+                        node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: EnumTypeNodeDecl {
-                            node_path: TypeNodePath {
+                            node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                     disambiguator: 0,
@@ -2118,13 +2118,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                                         disambiguator: 0,

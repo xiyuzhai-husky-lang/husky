@@ -1,15 +1,15 @@
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct IllFormedItemNodePath {}
+pub struct IllFormedItemSynNodePath {}
 
-impl From<IllFormedItemNodePath> for EntityNodePath {
-    fn from(path: IllFormedItemNodePath) -> Self {
-        EntityNodePath::AssociatedItem(path.into())
+impl From<IllFormedItemSynNodePath> for EntitySynNodePath {
+    fn from(path: IllFormedItemSynNodePath) -> Self {
+        EntitySynNodePath::AssociatedItem(path.into())
     }
 }
 
-impl IllFormedItemNodePath {
+impl IllFormedItemSynNodePath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         todo!()
     }
@@ -18,5 +18,5 @@ impl IllFormedItemNodePath {
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct IllFormedItemNode {
     #[id]
-    pub node_path: IllFormedItemNodePath,
+    pub node_path: IllFormedItemSynNodePath,
 }

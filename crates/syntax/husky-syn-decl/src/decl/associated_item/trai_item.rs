@@ -23,7 +23,7 @@ pub enum TraitItemNodeDecl {
 }
 
 impl TraitItemNodeDecl {
-    pub fn node_path(self, _db: &dyn DeclDb) -> TraitItemNodePath {
+    pub fn node_path(self, _db: &dyn DeclDb) -> TraitItemSynNodePath {
         match self {
             TraitItemNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemNodeDecl::MethodFn(_) => todo!(),
@@ -50,7 +50,7 @@ impl TraitItemNodeDecl {
         }
     }
 
-    pub fn expr_region(self, _db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, _db: &dyn DeclDb) -> SynExprRegion {
         match self {
             TraitItemNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemNodeDecl::MethodFn(_) => todo!(),
@@ -69,7 +69,7 @@ impl TraitItemNodeDecl {
     }
 }
 
-impl HasNodeDecl for TraitItemNodePath {
+impl HasNodeDecl for TraitItemSynNodePath {
     type NodeDecl = TraitItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -106,7 +106,7 @@ impl TraitItemDecl {
         }
     }
 
-    pub fn expr_region(self, _db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, _db: &dyn DeclDb) -> SynExprRegion {
         match self {
             TraitItemDecl::AssociatedFn(_) => todo!(),
             TraitItemDecl::MethodFn(_) => todo!(),

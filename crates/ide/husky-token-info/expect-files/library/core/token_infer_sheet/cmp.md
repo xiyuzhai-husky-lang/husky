@@ -4,9 +4,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Trait(
-                        TraitNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Trait(
+                        TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::PartialEq`),
                                 disambiguator: 0,
@@ -23,9 +23,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Trait(
-                        TraitNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Trait(
+                        TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::Eq`),
                                 disambiguator: 0,
@@ -42,9 +42,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Trait(
-                        TraitNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Trait(
+                        TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::PartialOrd`),
                                 disambiguator: 0,
@@ -61,9 +61,9 @@ Ok(
             TokenInfo::None,
             TokenInfo::None,
             TokenInfo::EntityNode(
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Trait(
-                        TraitNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Trait(
+                        TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::Ord`),
                                 disambiguator: 0,

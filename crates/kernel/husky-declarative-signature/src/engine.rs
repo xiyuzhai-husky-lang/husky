@@ -23,7 +23,7 @@ pub(super) struct DeclarativeTermEngine<'a> {
 #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
 pub(crate) fn declarative_term_region(
     db: &dyn DeclarativeSignatureDb,
-    expr_region: ExprRegion,
+    expr_region: SynExprRegion,
 ) -> DeclarativeTermRegion {
     let expr_region_data = expr_region.data(db);
     let parent_expr_region = expr_region_data.parent();
@@ -36,7 +36,7 @@ pub(crate) fn declarative_term_region(
 impl<'a> DeclarativeTermEngine<'a> {
     fn new(
         db: &'a dyn DeclarativeSignatureDb,
-        expr_region: ExprRegion,
+        expr_region: SynExprRegion,
         parent_term_symbol_region: Option<&'a SymbolDeclarativeTermRegion>,
     ) -> Self {
         let toolchain = expr_region.toolchain(db);

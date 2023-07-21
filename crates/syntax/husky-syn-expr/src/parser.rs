@@ -45,7 +45,7 @@ pub struct ExprParser<'a> {
     module_path: ModulePath,
     crate_root_path: ModulePath,
     token_sheet_data: &'a TokenSheetData,
-    parent_expr_region: Option<ExprRegion>,
+    parent_expr_region: Option<SynExprRegion>,
     symbol_context: SymbolContextMut<'a>,
     expr_arena: ExprArena,
     principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
@@ -60,7 +60,7 @@ impl<'a> ExprParser<'a> {
         path: RegionPath,
         token_sheet_data: &'a TokenSheetData,
         module_symbol_context: ModuleSymbolContext<'a>,
-        parent_expr_region: Option<ExprRegion>,
+        parent_expr_region: Option<SynExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
@@ -86,7 +86,7 @@ impl<'a> ExprParser<'a> {
         }
     }
 
-    pub fn finish(self) -> ExprRegion {
+    pub fn finish(self) -> SynExprRegion {
         self.symbol_context.into_expr_region(
             self.db,
             self.parent_expr_region,

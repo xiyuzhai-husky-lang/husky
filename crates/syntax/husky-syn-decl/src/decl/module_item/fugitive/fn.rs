@@ -4,7 +4,7 @@ use husky_token::{CurryToken, EolToken};
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct FnNodeDecl {
     #[id]
-    pub node_path: FugitiveNodePath,
+    pub node_path: FugitiveSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
@@ -16,7 +16,7 @@ pub struct FnNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl FnNodeDecl {
@@ -41,7 +41,7 @@ impl FnNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_fn_node_decl(
         &self,
-        node_path: FugitiveNodePath,
+        node_path: FugitiveSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
@@ -83,7 +83,7 @@ pub struct FnDecl {
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl FnDecl {

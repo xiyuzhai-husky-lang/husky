@@ -1,18 +1,18 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct ValNodeDefn {
     #[id]
-    pub node_path: FugitiveNodePath,
+    pub node_path: FugitiveSynNodePath,
     pub node_decl: ValNodeDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl ValNodeDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
-        node_path: FugitiveNodePath,
+        db: &dyn SynDefnDb,
+        node_path: FugitiveSynNodePath,
         node_decl: ValNodeDecl,
     ) -> Self {
         let mut parser = expr_parser(
@@ -34,18 +34,18 @@ impl ValNodeDefn {
     }
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct ValDefn {
     #[id]
     pub path: FugitivePath,
     pub decl: ValDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl ValDefn {
-    pub(super) fn new(db: &dyn DefnDb, path: FugitivePath, decl: ValDecl) -> Self {
-        let FugitiveNodeDefn::Val(node_defn) = path.node_path(db).node_defn(db) else {
+    pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: ValDecl) -> Self {
+        let FugitiveSynNodeDefn::Val(node_defn) = path.node_path(db).node_defn(db) else {
             unreachable!()
         };
         Self::new_inner(

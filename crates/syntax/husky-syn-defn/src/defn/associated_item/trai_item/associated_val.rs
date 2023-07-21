@@ -1,17 +1,17 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
 pub struct TraitAssociatedValNodeDefn {
     #[id]
-    pub node_path: TraitItemNodePath,
+    pub node_path: TraitItemSynNodePath,
     pub node_decl: TraitAssociatedValDecl,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitAssociatedValDefn {
     #[id]
     pub node_path: TraitItemPath,
     pub decl: TraitAssociatedValDecl,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }

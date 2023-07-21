@@ -3,17 +3,17 @@ Ok(
         [salsa id]: 20,
         decls: [
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::prelude`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `std::prelude`,
                                 disambiguator: 0,
@@ -24,17 +24,17 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::logic`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `std::logic`,
                                 disambiguator: 0,
@@ -45,17 +45,17 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::ops`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `std::ops`,
                                 disambiguator: 0,

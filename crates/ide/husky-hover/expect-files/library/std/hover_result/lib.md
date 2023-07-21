@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `prelude`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `std::prelude`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 1;\n\ntoken_line_group_idx = 0\n\ntoken = Token::Ident(\n    `prelude`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntitySynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `std::prelude`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `logic`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `std::logic`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `logic`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntitySynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `std::logic`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `ops`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntityNodePath::Submodule(\n        SubmoduleNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `std::ops`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 5;\n\ntoken_line_group_idx = 2\n\ntoken = Token::Ident(\n    `ops`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntitySynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `std::ops`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(

@@ -8,13 +8,13 @@ Ok(
                         path: TraitPath(`core::cmp::PartialEq`),
                         ast_idx: 0,
                         generic_parameters: [],
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::cmp::PartialEq`),
                                                     disambiguator: 0,
@@ -74,13 +74,13 @@ Ok(
                         path: TraitPath(`core::cmp::Eq`),
                         ast_idx: 1,
                         generic_parameters: [],
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::cmp::Eq`),
                                                     disambiguator: 0,
@@ -140,13 +140,13 @@ Ok(
                         path: TraitPath(`core::cmp::PartialOrd`),
                         ast_idx: 2,
                         generic_parameters: [],
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::cmp::PartialOrd`),
                                                     disambiguator: 0,
@@ -206,13 +206,13 @@ Ok(
                         path: TraitPath(`core::cmp::Ord`),
                         ast_idx: 3,
                         generic_parameters: [],
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::cmp::Ord`),
                                                     disambiguator: 0,
