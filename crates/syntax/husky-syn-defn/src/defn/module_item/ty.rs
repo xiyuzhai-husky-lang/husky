@@ -21,9 +21,9 @@ pub use self::unit_struct::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = DefnDb)]
+#[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
-pub enum TypeNodeDefn {
+pub enum TypeSynNodeDefn {
     Enum(EnumTypeNodeDefn),
     Inductive(InductiveTypeNodeDefn),
     Record(RecordTypeNodeDefn),
@@ -35,22 +35,22 @@ pub enum TypeNodeDefn {
     Union(UnionTypeNodeDefn),
 }
 
-impl TypeNodeDefn {
-    pub fn node_decl(self, db: &dyn DefnDb) -> TypeNodeDecl {
+impl TypeSynNodeDefn {
+    pub fn node_decl(self, db: &dyn SynDefnDb) -> TypeNodeDecl {
         match self {
-            TypeNodeDefn::Enum(node_defn) => node_defn.node_decl(db).into(),
-            TypeNodeDefn::Inductive(node_defn) => node_defn.node_decl(db).into(),
-            TypeNodeDefn::Record(node_defn) => node_defn.node_decl(db).into(),
-            TypeNodeDefn::UnitStruct(node_defn) => node_defn.node_decl(db).into(),
-            TypeNodeDefn::TupleStruct(node_defn) => node_defn.node_decl(db).into(),
-            TypeNodeDefn::PropsStruct(node_defn) => node_defn.node_decl(db).into(),
-            TypeNodeDefn::Structure(node_defn) => node_defn.node_decl(db).into(),
-            TypeNodeDefn::Extern(node_defn) => node_defn.node_decl(db).into(),
-            TypeNodeDefn::Union(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::Enum(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::Inductive(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::Record(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::UnitStruct(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::TupleStruct(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::PropsStruct(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::Structure(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::Extern(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::Union(node_defn) => node_defn.node_decl(db).into(),
         }
     }
 
-    pub fn path(self, db: &dyn DefnDb) -> TypePath {
+    pub fn path(self, db: &dyn SynDefnDb) -> TypePath {
         todo!()
         // match self {
         //     TypeDefn::Enum(defn) => defn.path(db),
@@ -66,16 +66,16 @@ impl TypeNodeDefn {
     }
 }
 
-impl HasNodeDefn for TypeNodePath {
-    type NodeDefn = TypeNodeDefn;
+impl HasSynNodeDefn for TypeSynNodePath {
+    type NodeDefn = TypeSynNodeDefn;
 
-    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         ty_node_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn ty_node_defn(db: &dyn DefnDb, node_path: TypeNodePath) -> TypeNodeDefn {
+pub(crate) fn ty_node_defn(db: &dyn SynDefnDb, node_path: TypeSynNodePath) -> TypeSynNodeDefn {
     match node_path.node_decl(db) {
         TypeNodeDecl::Enum(node_decl) => EnumTypeNodeDefn::new(db, node_path, node_decl).into(),
         TypeNodeDecl::PropsStruct(node_decl) => {
@@ -100,7 +100,7 @@ pub(crate) fn ty_node_defn(db: &dyn DefnDb, node_path: TypeNodePath) -> TypeNode
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = DefnDb)]
+#[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeDefn {
     Enum(EnumTypeDefn),
@@ -115,7 +115,7 @@ pub enum TypeDefn {
 }
 
 impl TypeDefn {
-    pub fn decl(self, db: &dyn DefnDb) -> TypeDecl {
+    pub fn decl(self, db: &dyn SynDefnDb) -> TypeDecl {
         match self {
             TypeDefn::Enum(defn) => defn.decl(db).into(),
             TypeDefn::Inductive(defn) => defn.decl(db).into(),
@@ -129,7 +129,7 @@ impl TypeDefn {
         }
     }
 
-    pub fn path(self, db: &dyn DefnDb) -> TypePath {
+    pub fn path(self, db: &dyn SynDefnDb) -> TypePath {
         todo!()
         // match self {
         //     TypeDefn::Enum(defn) => defn.path(db),
@@ -148,13 +148,13 @@ impl TypeDefn {
 impl HasDefn for TypePath {
     type Defn = TypeDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
         ty_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn ty_defn(db: &dyn DefnDb, path: TypePath) -> DefnResult<TypeDefn> {
+pub(crate) fn ty_defn(db: &dyn SynDefnDb, path: TypePath) -> DefnResult<TypeDefn> {
     Ok(match path.decl(db)? {
         TypeDecl::Enum(decl) => EnumTypeDefn::new(db, path, decl).into(),
         TypeDecl::PropsStruct(decl) => PropsStructTypeDefn::new(db, path, decl).into(),

@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeMethodFnNodeDecl {
     #[id]
-    pub node_path: TraitForTypeItemNodePath,
+    pub node_path: TraitForTypeItemSynNodePath,
     pub node: TraitForTypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -16,7 +16,7 @@ pub struct TraitForTypeMethodFnNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitForTypeMethodFnNodeDecl {
@@ -41,7 +41,7 @@ impl TraitForTypeMethodFnNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_for_ty_method_fn_node_decl(
         &self,
-        node_path: TraitForTypeItemNodePath,
+        node_path: TraitForTypeItemSynNodePath,
         node: TraitForTypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -92,7 +92,7 @@ pub struct TraitForTypeMethodFnDecl {
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitForTypeMethodFnDecl {

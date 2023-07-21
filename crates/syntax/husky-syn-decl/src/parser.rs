@@ -35,8 +35,8 @@ impl<'a> DeclParser<'a> {
     #[inline(always)]
     pub(crate) fn expr_parser(
         &self,
-        node_path: impl Into<EntityNodePath>,
-        parent_expr_region: Option<ExprRegion>,
+        node_path: impl Into<EntitySynNodePath>,
+        parent_expr_region: Option<SynExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> ExprParser<'a> {

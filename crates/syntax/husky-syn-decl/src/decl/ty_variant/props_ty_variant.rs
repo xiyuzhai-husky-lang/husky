@@ -6,7 +6,7 @@ use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct PropsTypeVariantNodeDecl {
     #[id]
-    pub node_path: TypeVariantNodePath,
+    pub node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     lcurl: NodeDeclResult<PropsTypeVariantLeftCurlyBrace>,
@@ -14,7 +14,7 @@ pub struct PropsTypeVariantNodeDecl {
     fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
     rcurl: NodeDeclResult<PropsTypeVariantRightCurlyBraceToken>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 /// we delegate a struct for this for better error message
@@ -52,7 +52,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantRi
 pub struct PropsTypeVariantDecl {
     #[id]
     pub path: TypeVariantPath,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl PropsTypeVariantDecl {

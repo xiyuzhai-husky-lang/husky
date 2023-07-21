@@ -27,14 +27,14 @@ pub enum TypeItemNodeDecl {
     MemoizedField(TypeMemoizedFieldNodeDecl),
 }
 
-impl From<TypeItemNodeDecl> for NodeDecl {
+impl From<TypeItemNodeDecl> for SynNodeDecl {
     fn from(decl: TypeItemNodeDecl) -> Self {
-        NodeDecl::AssociatedItem(decl.into())
+        SynNodeDecl::AssociatedItem(decl.into())
     }
 }
 
 impl TypeItemNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemNodePath {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeItemSynNodePath {
         match self {
             TypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.node_path(db),
             TypeItemNodeDecl::MethodFn(node_decl) => node_decl.node_path(db),
@@ -64,7 +64,7 @@ impl TypeItemNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             TypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.expr_region(db),
             TypeItemNodeDecl::MethodFn(node_decl) => node_decl.expr_region(db),
@@ -85,7 +85,7 @@ impl TypeItemNodeDecl {
     }
 }
 
-impl HasNodeDecl for TypeItemNodePath {
+impl HasNodeDecl for TypeItemSynNodePath {
     type NodeDecl = TypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -102,14 +102,17 @@ impl HasNodeDecl for TypeItemNode {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_item_node_decl(db: &dyn DeclDb, node_path: TypeItemNodePath) -> TypeItemNodeDecl {
+pub(crate) fn ty_item_node_decl(
+    db: &dyn DeclDb,
+    node_path: TypeItemSynNodePath,
+) -> TypeItemNodeDecl {
     let module_path = node_path.module_path(db);
     let ctx = DeclParser::new(db, module_path);
     ctx.parse_ty_item_node_decl(node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_item_node_decl(&self, node_path: TypeItemNodePath) -> TypeItemNodeDecl {
+    fn parse_ty_item_node_decl(&self, node_path: TypeItemSynNodePath) -> TypeItemNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
         let ast_idx = node.ast_idx(db);
@@ -136,7 +139,7 @@ impl<'a> DeclParser<'a> {
 
     fn parse_ty_item_node_decl_aux(
         &self,
-        node_path: TypeItemNodePath,
+        node_path: TypeItemSynNodePath,
         node: TypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -208,7 +211,7 @@ impl TypeItemDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             TypeItemDecl::AssociatedFn(decl) => decl.expr_region(db),
             TypeItemDecl::MethodFn(decl) => decl.expr_region(db),

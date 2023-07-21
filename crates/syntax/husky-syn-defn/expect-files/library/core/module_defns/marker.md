@@ -8,13 +8,13 @@ Ok(
                         path: TraitPath(`core::marker::Copy`),
                         ast_idx: 0,
                         generic_parameters: [],
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::marker::Copy`),
                                                     disambiguator: 0,
@@ -74,13 +74,13 @@ Ok(
                         path: TraitPath(`core::marker::Sized`),
                         ast_idx: 1,
                         generic_parameters: [],
-                        expr_region: ExprRegion {
+                        expr_region: SynExprRegion {
                             data: ExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
-                                    EntityNodePath::ModuleItem(
-                                        ModuleItemNodePath::Trait(
-                                            TraitNodePath {
+                                    EntitySynNodePath::ModuleItem(
+                                        ModuleItemSynNodePath::Trait(
+                                            TraitSynNodePath {
                                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                                     path: TraitPath(`core::marker::Sized`),
                                                     disambiguator: 0,

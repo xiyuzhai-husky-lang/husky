@@ -3,7 +3,7 @@ use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::EntityKind;
 use husky_entity_tree::{OnceUseRuleIdx, OnceUseRuleState, UseExprIdx};
 use husky_syn_expr::{
-    CurrentSymbolIdx, CurrentSymbolKind, ExprRegion, InheritedSymbolIdx, InheritedSymbolKind,
+    CurrentSymbolIdx, CurrentSymbolKind, InheritedSymbolIdx, InheritedSymbolKind, SynExprRegion,
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -11,7 +11,7 @@ use husky_syn_expr::{
 pub enum TokenInfo {
     None,
     Entity(EntityPath),
-    EntityNode(EntityNodePath, EntityKind),
+    EntityNode(EntitySynNodePath, EntityKind),
     InheritedSymbol {
         inherited_symbol_idx: InheritedSymbolIdx,
         inherited_symbol_kind: InheritedSymbolKind,
@@ -43,21 +43,21 @@ pub enum TokenInfo {
 
 /// the purpose is to avoid extra debug with db in expr region
 #[derive(Clone, Copy, PartialEq, Eq, Hash)]
-pub struct ExprRegionLeash(ExprRegion);
+pub struct ExprRegionLeash(SynExprRegion);
 
-impl From<ExprRegion> for ExprRegionLeash {
-    fn from(value: ExprRegion) -> Self {
+impl From<SynExprRegion> for ExprRegionLeash {
+    fn from(value: SynExprRegion) -> Self {
         ExprRegionLeash(value)
     }
 }
-impl From<ExprRegionLeash> for ExprRegion {
+impl From<ExprRegionLeash> for SynExprRegion {
     fn from(value: ExprRegionLeash) -> Self {
         value.0
     }
 }
 
 impl std::ops::Deref for ExprRegionLeash {
-    type Target = ExprRegion;
+    type Target = SynExprRegion;
 
     fn deref(&self) -> &Self::Target {
         &self.0

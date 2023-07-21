@@ -1,9 +1,9 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {

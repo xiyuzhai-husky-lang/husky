@@ -1,9 +1,9 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                             disambiguator: 0,
@@ -550,9 +550,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                             disambiguator: 0,
@@ -933,9 +933,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                             disambiguator: 0,
@@ -1316,9 +1316,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                             disambiguator: 0,
@@ -1699,9 +1699,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                             disambiguator: 0,

@@ -9,30 +9,30 @@ pub use self::unit::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DefnDb)]
+#[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
-pub enum TypeVariantNodeDefn {
-    Unit(UnitVariantNodeDefn),
-    Tuple(TupleVariantNodeDefn),
-    Props(PropsVariantNodeDefn),
+pub enum TypeVariantSynNodeDefn {
+    Unit(UnitVariantSynNodeDefn),
+    Tuple(TupleVariantSynNodeDefn),
+    Props(PropsVariantSynNodeDefn),
 }
 
-impl TypeVariantNodeDefn {
-    pub fn node_decl(self, db: &dyn DefnDb) -> TypeVariantNodeDecl {
+impl TypeVariantSynNodeDefn {
+    pub fn node_decl(self, db: &dyn SynDefnDb) -> TypeVariantNodeDecl {
         todo!()
     }
 }
 
-impl HasNodeDefn for TypeVariantNodePath {
-    type NodeDefn = TypeVariantNodeDefn;
+impl HasSynNodeDefn for TypeVariantSynNodePath {
+    type NodeDefn = TypeVariantSynNodeDefn;
 
-    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         todo!()
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DefnDb)]
+#[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantDefn {
     Unit(UnitVariantDefn),
@@ -41,11 +41,11 @@ pub enum TypeVariantDefn {
 }
 
 impl TypeVariantDefn {
-    pub fn decl(self, _db: &dyn DefnDb) -> Decl {
+    pub fn decl(self, _db: &dyn SynDefnDb) -> Decl {
         todo!()
     }
 
-    pub fn path(self, _db: &dyn DefnDb) -> TypeVariantPath {
+    pub fn path(self, _db: &dyn SynDefnDb) -> TypeVariantPath {
         todo!()
     }
 }

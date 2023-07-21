@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeMethodFnNodeDecl {
     #[id]
-    pub node_path: TypeItemNodePath,
+    pub node_path: TypeItemSynNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     #[return_ref]
@@ -15,7 +15,7 @@ pub struct TypeMethodFnNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeMethodFnNodeDecl {
@@ -40,7 +40,7 @@ impl TypeMethodFnNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_ty_method_node_decl(
         &self,
-        node_path: TypeItemNodePath,
+        node_path: TypeItemSynNodePath,
         node: TypeItemNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
@@ -91,7 +91,7 @@ pub struct TypeMethodFnDecl {
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeMethodFnDecl {

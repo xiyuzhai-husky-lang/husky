@@ -14,13 +14,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::i8`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i8`, `Extern`),
                                                             disambiguator: 0,
@@ -85,13 +85,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::i16`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i16`, `Extern`),
                                                             disambiguator: 0,
@@ -156,13 +156,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::i32`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i32`, `Extern`),
                                                             disambiguator: 0,
@@ -227,13 +227,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::i64`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i64`, `Extern`),
                                                             disambiguator: 0,
@@ -298,13 +298,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::i128`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::i128`, `Extern`),
                                                             disambiguator: 0,
@@ -369,13 +369,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::isize`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::isize`, `Extern`),
                                                             disambiguator: 0,
@@ -440,13 +440,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::u8`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u8`, `Extern`),
                                                             disambiguator: 0,
@@ -511,13 +511,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::u16`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u16`, `Extern`),
                                                             disambiguator: 0,
@@ -582,13 +582,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::u32`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u32`, `Extern`),
                                                             disambiguator: 0,
@@ -653,13 +653,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::u64`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u64`, `Extern`),
                                                             disambiguator: 0,
@@ -724,13 +724,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::u128`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::u128`, `Extern`),
                                                             disambiguator: 0,
@@ -795,13 +795,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::usize`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::usize`, `Extern`),
                                                             disambiguator: 0,
@@ -866,13 +866,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::f32`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::f32`, `Extern`),
                                                             disambiguator: 0,
@@ -937,13 +937,13 @@ Ok(
                             ExternTypeDecl {
                                 path: TypePath(`core::num::f64`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::num::f64`, `Extern`),
                                                             disambiguator: 0,
@@ -1007,7 +1007,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -1018,13 +1018,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::i8`, `Extern`),
@@ -1124,7 +1124,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -1144,16 +1144,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::i8`, `Extern`),
@@ -1236,9 +1236,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -1342,7 +1342,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -1365,13 +1365,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -1543,7 +1543,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -1583,16 +1583,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -1740,9 +1740,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -1931,7 +1931,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -1942,13 +1942,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::i16`, `Extern`),
@@ -2048,7 +2048,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -2068,16 +2068,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::i16`, `Extern`),
@@ -2160,9 +2160,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -2266,7 +2266,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -2289,13 +2289,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -2467,7 +2467,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -2507,16 +2507,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -2664,9 +2664,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -2855,7 +2855,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -2866,13 +2866,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -2972,7 +2972,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -2992,16 +2992,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -3084,9 +3084,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -3190,7 +3190,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -3213,13 +3213,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -3391,7 +3391,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -3431,16 +3431,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -3588,9 +3588,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -3779,7 +3779,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -3790,13 +3790,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::i64`, `Extern`),
@@ -3896,7 +3896,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -3916,16 +3916,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::i64`, `Extern`),
@@ -4008,9 +4008,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -4114,7 +4114,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -4137,13 +4137,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -4315,7 +4315,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -4355,16 +4355,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -4512,9 +4512,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -4703,7 +4703,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -4714,13 +4714,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::i128`, `Extern`),
@@ -4820,7 +4820,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -4840,16 +4840,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::i128`, `Extern`),
@@ -4932,9 +4932,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -5038,7 +5038,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -5061,13 +5061,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -5239,7 +5239,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -5279,16 +5279,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -5436,9 +5436,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -5627,7 +5627,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -5638,13 +5638,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::isize`, `Extern`),
@@ -5744,7 +5744,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -5764,16 +5764,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::isize`, `Extern`),
@@ -5856,9 +5856,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -5962,7 +5962,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -5985,13 +5985,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -6163,7 +6163,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -6203,16 +6203,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -6360,9 +6360,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -6551,7 +6551,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -6562,13 +6562,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::u8`, `Extern`),
@@ -6668,7 +6668,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -6688,16 +6688,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::u8`, `Extern`),
@@ -6780,9 +6780,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -6886,7 +6886,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -6909,13 +6909,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -7087,7 +7087,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -7127,16 +7127,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -7284,9 +7284,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -7475,7 +7475,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -7486,13 +7486,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::u16`, `Extern`),
@@ -7592,7 +7592,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -7612,16 +7612,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::u16`, `Extern`),
@@ -7704,9 +7704,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -7810,7 +7810,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -7833,13 +7833,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -8011,7 +8011,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -8051,16 +8051,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -8208,9 +8208,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -8399,7 +8399,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -8410,13 +8410,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::u32`, `Extern`),
@@ -8516,7 +8516,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -8536,16 +8536,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::u32`, `Extern`),
@@ -8628,9 +8628,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -8734,7 +8734,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -8757,13 +8757,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -8935,7 +8935,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -8975,16 +8975,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -9132,9 +9132,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -9323,7 +9323,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -9334,13 +9334,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::u64`, `Extern`),
@@ -9440,7 +9440,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -9460,16 +9460,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::u64`, `Extern`),
@@ -9552,9 +9552,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -9658,7 +9658,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -9681,13 +9681,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -9859,7 +9859,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -9899,16 +9899,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -10056,9 +10056,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -10247,7 +10247,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -10258,13 +10258,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::u128`, `Extern`),
@@ -10364,7 +10364,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -10384,16 +10384,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::u128`, `Extern`),
@@ -10476,9 +10476,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -10582,7 +10582,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -10605,13 +10605,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -10783,7 +10783,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -10823,16 +10823,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -10980,9 +10980,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -11171,7 +11171,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -11182,13 +11182,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -11288,7 +11288,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -11308,16 +11308,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -11400,9 +11400,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -11506,7 +11506,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -11529,13 +11529,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -11707,7 +11707,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -11747,16 +11747,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -11904,9 +11904,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -12095,7 +12095,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -12106,13 +12106,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -12212,7 +12212,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -12232,16 +12232,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -12324,9 +12324,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -12434,7 +12434,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -12454,16 +12454,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -12546,9 +12546,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -12652,7 +12652,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -12675,13 +12675,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -12853,7 +12853,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -12893,16 +12893,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -13050,9 +13050,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {
@@ -13241,7 +13241,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::Type(
+                    ImplBlockSynDecl::Type(
                         TypeImplBlockDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::num`,
@@ -13252,13 +13252,13 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         ty_path: TypePath(`core::num::f64`, `Extern`),
@@ -13358,7 +13358,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TypeItem(
+                    AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
                             TypeMethodFnDecl {
                                 path: TypeItemPath {
@@ -13378,16 +13378,16 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         ty_path: TypePath(`core::num::f64`, `Extern`),
@@ -13470,9 +13470,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {
@@ -13576,7 +13576,7 @@ Ok(
                     ),
                 ),
                 Decl::ImplBlock(
-                    ImplBlockDecl::TraitForType(
+                    ImplBlockSynDecl::TraitForType(
                         TraitForTypeImplBlockDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::num`,
@@ -13599,13 +13599,13 @@ Ok(
                                     expr: 3,
                                 },
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                TraitForTypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                TraitForTypeImplBlockSynNodePath {
                                                     path: TraitForTypeImplBlockPath {
                                                         module_path: `core::num`,
                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -13777,7 +13777,7 @@ Ok(
                     ),
                 ),
                 Decl::AssociatedItem(
-                    AssociatedItemDecl::TraitForTypeItem(
+                    AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
                             TraitForTypeMethodFnDecl {
                                 path: TraitForTypeItemPath {
@@ -13817,16 +13817,16 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TraitForTypeImplBlock(
-                                                                TraitForTypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TraitForTypeImplBlock(
+                                                                TraitForTypeImplBlockSynNodePath {
                                                                     path: TraitForTypeImplBlockPath {
                                                                         module_path: `core::num`,
                                                                         trai_path: TraitPath(`core::ops::Add`),
@@ -13974,9 +13974,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TraitForTypeItem(
-                                                    TraitForTypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TraitForTypeItem(
+                                                    TraitForTypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TraitForTypeItemPath {
                                                                 impl_block: TraitForTypeImplBlockPath {

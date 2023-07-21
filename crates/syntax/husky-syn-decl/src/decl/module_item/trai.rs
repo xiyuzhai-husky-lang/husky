@@ -3,11 +3,11 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitNodeDecl {
     #[id]
-    pub node_path: TraitNodePath,
+    pub node_path: TraitSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitNodeDecl {
@@ -21,7 +21,7 @@ impl TraitNodeDecl {
     }
 }
 
-impl HasNodeDecl for TraitNodePath {
+impl HasNodeDecl for TraitSynNodePath {
     type NodeDecl = TraitNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -30,13 +30,13 @@ impl HasNodeDecl for TraitNodePath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_node_decl(db: &dyn DeclDb, node_path: TraitNodePath) -> TraitNodeDecl {
+pub(crate) fn trai_node_decl(db: &dyn DeclDb, node_path: TraitSynNodePath) -> TraitNodeDecl {
     let parser = DeclParser::new(db, node_path.module_path(db));
     parser.parse_trai_node_decl(node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_trai_node_decl(&self, node_path: TraitNodePath) -> TraitNodeDecl {
+    fn parse_trai_node_decl(&self, node_path: TraitSynNodePath) -> TraitNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
@@ -53,7 +53,7 @@ impl<'a> DeclParser<'a> {
     fn parse_trai_decl_aux(
         &self,
         ast_idx: AstIdx,
-        id: TraitNodePath,
+        id: TraitSynNodePath,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TraitNodeDecl {
@@ -71,7 +71,7 @@ pub struct TraitDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitDecl {

@@ -1,14 +1,14 @@
 use crate::*;
 
-pub trait ExprTypeDb: salsa::DbWithJar<ExprTypeJar> + FluffyTermDb + DefnDb {
-    fn expr_ty_region(&self, expr_region: ExprRegion) -> &ExprTypeRegion;
+pub trait ExprTypeDb: salsa::DbWithJar<ExprTypeJar> + FluffyTermDb + SynDefnDb {
+    fn expr_ty_region(&self, expr_region: SynExprRegion) -> &ExprTypeRegion;
 }
 
 impl<Db> ExprTypeDb for Db
 where
-    Db: salsa::DbWithJar<ExprTypeJar> + FluffyTermDb + DefnDb,
+    Db: salsa::DbWithJar<ExprTypeJar> + FluffyTermDb + SynDefnDb,
 {
-    fn expr_ty_region(&self, expr_region: ExprRegion) -> &ExprTypeRegion {
+    fn expr_ty_region(&self, expr_region: SynExprRegion) -> &ExprTypeRegion {
         expr_ty_region(self, expr_region)
     }
 }

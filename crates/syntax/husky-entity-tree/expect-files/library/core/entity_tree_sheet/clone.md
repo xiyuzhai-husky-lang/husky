@@ -4,10 +4,10 @@ Ok(
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::clone::Clone`),
                                         disambiguator: 0,
@@ -38,9 +38,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Trait(
-                            TraitNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Trait(
+                            TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::clone::Clone`),
                                     disambiguator: 0,
@@ -62,9 +62,9 @@ Ok(
                         module_item_path: ModuleItemPath::Trait(
                             TraitPath(`core::clone::Clone`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Trait(
-                                TraitNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Trait(
+                                TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::clone::Clone`),
                                         disambiguator: 0,
@@ -100,8 +100,8 @@ Ok(
         ),
         impl_block_node_table: [
             (
-                ImplBlockNodePath::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockNodePath {
+                ImplBlockSynNodePath::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::clone`,
                             trai_path: TraitPath(`core::clone::Clone`),
@@ -110,9 +110,9 @@ Ok(
                         },
                     },
                 ),
-                ImplBlockNode::TraitForTypeImplBlock(
-                    TraitForTypeImplBlockNode {
-                        node_path: TraitForTypeImplBlockNodePath {
+                ImplBlockSynNode::TraitForTypeImplBlock(
+                    TraitForTypeImplBlockSynNode {
+                        node_path: TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::clone`,
                                 trai_path: TraitPath(`core::clone::Clone`),

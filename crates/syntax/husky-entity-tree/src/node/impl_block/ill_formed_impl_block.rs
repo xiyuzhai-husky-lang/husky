@@ -4,62 +4,62 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct IllFormedImplBlockNodePath {
+pub struct IllFormedImplBlockSynNodePath {
     path: IllFormedImplBlockPath,
 }
 
-impl salsa::AsId for IllFormedImplBlockNodePath {
+impl salsa::AsId for IllFormedImplBlockSynNodePath {
     fn as_id(self) -> salsa::Id {
         self.path.as_id()
     }
 
     fn from_id(id: salsa::Id) -> Self {
-        IllFormedImplBlockNodePath {
+        IllFormedImplBlockSynNodePath {
             path: IllFormedImplBlockPath::from_id(id),
         }
     }
 }
 
-impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for IllFormedImplBlockNodePath
+impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for IllFormedImplBlockSynNodePath
 where
     DB: ?Sized + salsa::DbWithJar<EntityPathJar>,
 {
     fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
 }
 
-impl IllFormedImplBlockNodePath {
+impl IllFormedImplBlockSynNodePath {
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         self.path.module_path(db)
     }
 
-    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[IllFormedItemNodePath] {
+    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[IllFormedItemSynNodePath] {
         // ad hoc
         &[]
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> IllFormedImplBlockNode {
+    pub fn node(self, db: &dyn EntityTreeDb) -> IllFormedImplBlockSynNode {
         ill_formed_impl_block_node(db, self)
     }
 }
 
-impl From<IllFormedImplBlockNodePath> for EntityNodePath {
-    fn from(id: IllFormedImplBlockNodePath) -> Self {
-        EntityNodePath::ImplBlock(id.into())
+impl From<IllFormedImplBlockSynNodePath> for EntitySynNodePath {
+    fn from(id: IllFormedImplBlockSynNodePath) -> Self {
+        EntitySynNodePath::ImplBlock(id.into())
     }
 }
 
-impl HasNodePath for IllFormedImplBlockPath {
-    type NodePath = IllFormedImplBlockNodePath;
+impl HasSynNodePath for IllFormedImplBlockPath {
+    type SynNodePath = IllFormedImplBlockSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        IllFormedImplBlockNodePath { path: self }
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+        IllFormedImplBlockSynNodePath { path: self }
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct IllFormedImplBlockNode {
+pub struct IllFormedImplBlockSynNode {
     #[id]
-    pub node_path: IllFormedImplBlockNodePath,
+    pub node_path: IllFormedImplBlockSynNodePath,
     pub impl_token: ImplToken,
     pub ast_idx: AstIdx,
     pub items: Option<ImplBlockItems>,
@@ -67,7 +67,7 @@ pub struct IllFormedImplBlockNode {
     pub ill_form: ImplBlockIllForm,
 }
 
-impl IllFormedImplBlockNode {
+impl IllFormedImplBlockSynNode {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut ImplBlockRegistry,
@@ -77,9 +77,9 @@ impl IllFormedImplBlockNode {
         items: Option<ImplBlockItems>,
         ill_form: ImplBlockIllForm,
     ) -> Self {
-        IllFormedImplBlockNode::new_inner(
+        IllFormedImplBlockSynNode::new_inner(
             db,
-            IllFormedImplBlockNodePath {
+            IllFormedImplBlockSynNodePath {
                 path: IllFormedImplBlockPath::new(db, registry, module),
             },
             impl_token,
@@ -114,8 +114,8 @@ impl IntoError for ImplBlockIllForm {
 #[salsa::tracked(jar = EntityTreeJar)]
 pub(crate) fn ill_formed_impl_block_node(
     db: &dyn EntityTreeDb,
-    node_path: IllFormedImplBlockNodePath,
-) -> IllFormedImplBlockNode {
+    node_path: IllFormedImplBlockSynNodePath,
+) -> IllFormedImplBlockSynNode {
     let module_path = node_path.module_path(db);
     let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
     entity_tree_sheet.ill_formed_impl_block_node(db, node_path)

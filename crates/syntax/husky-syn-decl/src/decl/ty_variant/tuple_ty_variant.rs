@@ -6,7 +6,7 @@ use parsec::{SeparatedSmallList, TryParseFromStream};
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TupleTypeVariantNodeDecl {
     #[id]
-    pub node_path: TypeVariantNodePath,
+    pub node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,
     lpar_token_idx: TokenIdx,
     #[return_ref]
@@ -14,7 +14,7 @@ pub struct TupleTypeVariantNodeDecl {
         NodeDeclResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
     rpar: NodeDeclResult<TupleTypeVariantRightParenthesisToken>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -41,7 +41,7 @@ pub struct TupleTypeVariantDecl {
     #[id]
     pub path: TypeVariantPath,
     pub fields: SmallVec<[TupleFieldDeclPattern; 4]>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TupleTypeVariantDecl {

@@ -38,7 +38,7 @@ pub enum TypeNodeDecl {
 }
 
 impl TypeNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeNodePath {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeSynNodePath {
         match self {
             TypeNodeDecl::Enum(node_decl) => node_decl.node_path(db),
             TypeNodeDecl::Inductive(node_decl) => node_decl.node_path(db),
@@ -66,7 +66,7 @@ impl TypeNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             TypeNodeDecl::Enum(node_decl) => node_decl.expr_region(db),
             TypeNodeDecl::UnitStruct(node_decl) => node_decl.expr_region(db),
@@ -95,7 +95,7 @@ impl TypeNodeDecl {
     }
 }
 
-impl HasNodeDecl for TypeNodePath {
+impl HasNodeDecl for TypeSynNodePath {
     type NodeDecl = TypeNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -104,13 +104,13 @@ impl HasNodeDecl for TypeNodePath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_node_decl(db: &dyn DeclDb, node_path: TypeNodePath) -> TypeNodeDecl {
+pub(crate) fn ty_node_decl(db: &dyn DeclDb, node_path: TypeSynNodePath) -> TypeNodeDecl {
     let ctx = DeclParser::new(db, node_path.module_path(db));
     ctx.parse_ty_node_decl(node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_node_decl(&self, node_path: TypeNodePath) -> TypeNodeDecl {
+    fn parse_ty_node_decl(&self, node_path: TypeSynNodePath) -> TypeNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
@@ -136,7 +136,7 @@ impl<'a> DeclParser<'a> {
 
     fn parse_ty_node_decl_aux(
         &self,
-        node_path: TypeNodePath,
+        node_path: TypeSynNodePath,
         ast_idx: AstIdx,
         type_kind: TypeKind,
         _entity_kind: EntityKind,
@@ -199,7 +199,7 @@ impl<'a> DeclParser<'a> {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_struct_ty_node_decl(
         &self,
-        node_path: TypeNodePath,
+        node_path: TypeSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
@@ -289,7 +289,7 @@ impl TypeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             TypeDecl::Enum(decl) => decl.expr_region(db),
             TypeDecl::UnitStruct(decl) => decl.expr_region(db),

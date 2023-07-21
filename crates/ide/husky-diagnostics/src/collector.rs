@@ -1,5 +1,5 @@
 use crate::*;
-use husky_syn_expr::ExprRegion;
+use husky_syn_expr::SynExprRegion;
 
 pub(crate) struct ModuleDiagnosticsCollector<'a> {
     context: SheetDiagnosticsContext<'a>,
@@ -43,7 +43,7 @@ pub(crate) struct RegionDiagnosticsCollector<'a, 'b> {
 impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     pub(crate) fn new(
         db: &'a dyn DiagnosticsDb,
-        expr_region: ExprRegion,
+        expr_region: SynExprRegion,
         sheet_collector: &'b mut ModuleDiagnosticsCollector<'a>,
     ) -> Self {
         Self {

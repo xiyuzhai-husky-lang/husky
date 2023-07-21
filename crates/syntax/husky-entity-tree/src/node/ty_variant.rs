@@ -3,16 +3,16 @@ use husky_coword::IdentPairMap;
 use husky_entity_taxonomy::TypeKind;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TypeVariantNodePath {
-    pub parent_ty_node_path: TypeNodePath,
+pub struct TypeVariantSynNodePath {
+    pub parent_ty_node_path: TypeSynNodePath,
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TypeVariantPath>,
 }
 
-impl TypeVariantNodePath {
+impl TypeVariantSynNodePath {
     fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
-        ty_node_path: TypeNodePath,
+        ty_node_path: TypeSynNodePath,
         ty_variant_path: TypeVariantPath,
     ) -> Self {
         Self::new_inner(
@@ -26,7 +26,7 @@ impl TypeVariantNodePath {
         self.maybe_ambiguous_path(db).path.module_path(db)
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> TypeVariantNode {
+    pub fn node(self, db: &dyn EntityTreeDb) -> TypeVariantSynNode {
         ty_variant_node(db, self)
     }
 
@@ -35,20 +35,20 @@ impl TypeVariantNodePath {
     }
 }
 
-impl TypeNodePath {
+impl TypeSynNodePath {
     fn ty_variant_nodes<'a>(
         self,
         db: &'a dyn EntityTreeDb,
-    ) -> &'a [(Ident, TypeVariantNodePath, TypeVariantNode)] {
+    ) -> &'a [(Ident, TypeVariantSynNodePath, TypeVariantSynNode)] {
         ty_variant_nodes(db, self)
     }
 }
 
-impl HasNodePath for TypeVariantPath {
-    type NodePath = TypeVariantNodePath;
+impl HasSynNodePath for TypeVariantPath {
+    type SynNodePath = TypeVariantSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TypeVariantNodePath::new_inner(
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+        TypeVariantSynNodePath::new_inner(
             db,
             self.parent_ty_path(db).node_path(db),
             MaybeAmbiguousPath::from_path(self),
@@ -57,23 +57,23 @@ impl HasNodePath for TypeVariantPath {
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TypeVariantNode {
+pub struct TypeVariantSynNode {
     #[id]
-    pub node_path: TypeVariantNodePath,
+    pub node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
 }
 
-impl TypeVariantNode {
+impl TypeVariantSynNode {
     fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
-        ty_node_path: TypeNodePath,
+        ty_node_path: TypeSynNodePath,
         ty_variant_path: TypeVariantPath,
         ast_idx: AstIdx,
         ident_token: IdentToken,
-    ) -> (TypeVariantNodePath, Self) {
-        let node_path = TypeVariantNodePath::new(db, registry, ty_node_path, ty_variant_path);
+    ) -> (TypeVariantSynNodePath, Self) {
+        let node_path = TypeVariantSynNodePath::new(db, registry, ty_node_path, ty_variant_path);
         (
             node_path,
             Self::new_inner(db, node_path, ast_idx, ident_token),
@@ -84,8 +84,8 @@ impl TypeVariantNode {
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_variant_nodes(
     db: &dyn EntityTreeDb,
-    ty_node_path: TypeNodePath,
-) -> Vec<(Ident, TypeVariantNodePath, TypeVariantNode)> {
+    ty_node_path: TypeSynNodePath,
+) -> Vec<(Ident, TypeVariantSynNodePath, TypeVariantSynNode)> {
     let module_path = ty_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path).expect("valid module");
     match ty_node_path.ty_kind(db) {
@@ -113,7 +113,7 @@ pub(crate) fn ty_variant_nodes(
                 ..
             } => {
                 let ident = ident_token.ident();
-                let (node_path, node) = TypeVariantNode::new(
+                let (node_path, node) = TypeVariantSynNode::new(
                     db,
                     &mut registry,
                     ty_node_path,
@@ -131,8 +131,8 @@ pub(crate) fn ty_variant_nodes(
 #[salsa::tracked(jar = EntityTreeJar)]
 pub(crate) fn ty_variant_node(
     db: &dyn EntityTreeDb,
-    node_path: TypeVariantNodePath,
-) -> TypeVariantNode {
+    node_path: TypeVariantSynNodePath,
+) -> TypeVariantSynNode {
     node_path
         .parent_ty_node_path(db)
         .ty_variant_nodes(db)

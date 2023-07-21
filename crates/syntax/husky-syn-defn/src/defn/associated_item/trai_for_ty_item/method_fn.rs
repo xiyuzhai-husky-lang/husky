@@ -1,18 +1,18 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitForTypeMethodFnNodeDefn {
     #[id]
-    pub node_path: TraitForTypeItemNodePath,
+    pub node_path: TraitForTypeItemSynNodePath,
     pub node_decl: TraitForTypeMethodFnNodeDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitForTypeMethodFnNodeDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
-        node_path: TraitForTypeItemNodePath,
+        db: &dyn SynDefnDb,
+        node_path: TraitForTypeItemSynNodePath,
         node_decl: TraitForTypeMethodFnNodeDecl,
     ) -> Self {
         let mut parser = expr_parser(
@@ -34,22 +34,22 @@ impl TraitForTypeMethodFnNodeDefn {
     }
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitForTypeMethodFnDefn {
     #[id]
     pub path: TraitForTypeItemPath,
     pub decl: TraitForTypeMethodFnDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitForTypeMethodFnDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
+        db: &dyn SynDefnDb,
         path: TraitForTypeItemPath,
         decl: TraitForTypeMethodFnDecl,
     ) -> TraitForTypeMethodFnDefn {
-        let TraitForTypeItemNodeDefn::MethodFn(node_defn) = path.node_path(db).node_defn(db) else {
+        let TraitForTypeItemSynNodeDefn::MethodFn(node_defn) = path.node_path(db).node_defn(db) else {
             unreachable!()
         };
         TraitForTypeMethodFnDefn::new_inner(

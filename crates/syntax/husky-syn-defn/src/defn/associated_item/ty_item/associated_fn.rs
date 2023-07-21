@@ -1,18 +1,18 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeAssociatedFnNodeDefn {
     #[id]
-    pub node_path: TypeItemNodePath,
+    pub node_path: TypeItemSynNodePath,
     pub node_decl: TypeAssociatedFnNodeDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeAssociatedFnNodeDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
-        node_path: TypeItemNodePath,
+        db: &dyn SynDefnDb,
+        node_path: TypeItemSynNodePath,
         node_decl: TypeAssociatedFnNodeDecl,
     ) -> Self {
         let mut parser = expr_parser(
@@ -34,22 +34,22 @@ impl TypeAssociatedFnNodeDefn {
     }
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeAssociatedFnDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeAssociatedFnDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeAssociatedFnDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
+        db: &dyn SynDefnDb,
         path: TypeItemPath,
         decl: TypeAssociatedFnDecl,
     ) -> DeclResult<TypeAssociatedFnDefn> {
-        let TypeItemNodeDefn::AssociatedFn(node_defn) = path.node_path(db).node_defn(db) else {
+        let TypeItemSynNodeDefn::AssociatedFn(node_defn) = path.node_path(db).node_defn(db) else {
             unreachable!()
         };
         Ok(TypeAssociatedFnDefn::new_inner(

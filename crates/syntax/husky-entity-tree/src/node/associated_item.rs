@@ -15,42 +15,42 @@ use husky_entity_taxonomy::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum AssociatedItemNodePath {
-    TypeItem(TypeItemNodePath),
-    TraitItem(TraitItemNodePath),
-    TraitForTypeItem(TraitForTypeItemNodePath),
-    IllFormedItem(IllFormedItemNodePath),
+pub enum AssociatedItemSynNodePath {
+    TypeItem(TypeItemSynNodePath),
+    TraitItem(TraitItemSynNodePath),
+    TraitForTypeItem(TraitForTypeItemSynNodePath),
+    IllFormedItem(IllFormedItemSynNodePath),
 }
 
-impl AssociatedItemNodePath {
+impl AssociatedItemSynNodePath {
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<AssociatedItemPath> {
         todo!()
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            AssociatedItemNodePath::TypeItem(node_path) => node_path.module_path(db),
-            AssociatedItemNodePath::TraitItem(node_path) => node_path.module_path(db),
-            AssociatedItemNodePath::TraitForTypeItem(node_path) => node_path.module_path(db),
-            AssociatedItemNodePath::IllFormedItem(node_path) => node_path.module_path(db),
+            AssociatedItemSynNodePath::TypeItem(node_path) => node_path.module_path(db),
+            AssociatedItemSynNodePath::TraitItem(node_path) => node_path.module_path(db),
+            AssociatedItemSynNodePath::TraitForTypeItem(node_path) => node_path.module_path(db),
+            AssociatedItemSynNodePath::IllFormedItem(node_path) => node_path.module_path(db),
         }
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> AssociatedItemNode {
+    pub fn node(self, db: &dyn EntityTreeDb) -> AssociatedItemSynNode {
         todo!()
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub enum AssociatedItemNode {
+pub enum AssociatedItemSynNode {
     TypeItem(TypeItemNode),
 }
 
-impl AssociatedItemNode {
+impl AssociatedItemSynNode {
     pub fn new_impl_associated_item(
         db: &dyn EntityTreeDb,
-        impl_block: ImplBlockNode,
+        impl_block: ImplBlockSynNode,
         ast_idx: AstIdx,
         ident: Ident,
         associated_item_kind: AssociatedItemKind,
@@ -99,20 +99,20 @@ impl AssociatedItemNode {
         // )
     }
 
-    pub fn node_path(self, db: &dyn EntityTreeDb) -> AssociatedItemNodePath {
+    pub fn node_path(self, db: &dyn EntityTreeDb) -> AssociatedItemSynNodePath {
         match self {
-            AssociatedItemNode::TypeItem(node) => node.node_path(db).into(),
+            AssociatedItemSynNode::TypeItem(node) => node.node_path(db).into(),
         }
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            AssociatedItemNode::TypeItem(node) => node.module_path(db),
+            AssociatedItemSynNode::TypeItem(node) => node.module_path(db),
         }
     }
 }
 
-impl AsVecMapEntry for AssociatedItemNode {
+impl AsVecMapEntry for AssociatedItemSynNode {
     type K = AssociatedItemPath;
 
     fn key(&self) -> Self::K
@@ -129,10 +129,10 @@ impl AsVecMapEntry for AssociatedItemNode {
 
 pub(crate) fn calc_impl_block_items(
     db: &dyn EntityTreeDb,
-    impl_block: ImplBlockNode,
+    impl_block: ImplBlockSynNode,
     module_path: ModulePath,
     body: ImplBlockItems,
-) -> Vec<(Ident, AssociatedItemNode)> {
+) -> Vec<(Ident, AssociatedItemSynNode)> {
     let ast_sheet = db.ast_sheet(module_path).unwrap();
     body.ast_idx_range()
         .into_iter()
@@ -154,7 +154,7 @@ pub(crate) fn calc_impl_block_items(
                     };
                     Some((
                         ident_token.ident(),
-                        AssociatedItemNode::new_impl_associated_item(
+                        AssociatedItemSynNode::new_impl_associated_item(
                             db,
                             impl_block,
                             ast_idx,

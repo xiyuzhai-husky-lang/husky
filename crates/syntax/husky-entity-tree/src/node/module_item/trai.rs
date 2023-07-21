@@ -3,17 +3,17 @@ use smallvec::SmallVec;
 use vec_like::{SmallVecMap, SmallVecPairMap};
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TraitNodePath {
+pub struct TraitSynNodePath {
     pub maybe_ambiguous_path: MaybeAmbiguousPath<TraitPath>,
 }
 
-impl From<TraitNodePath> for EntityNodePath {
-    fn from(id: TraitNodePath) -> Self {
-        EntityNodePath::ModuleItem(id.into())
+impl From<TraitSynNodePath> for EntitySynNodePath {
+    fn from(id: TraitSynNodePath) -> Self {
+        EntitySynNodePath::ModuleItem(id.into())
     }
 }
 
-impl TraitNodePath {
+impl TraitSynNodePath {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -26,7 +26,7 @@ impl TraitNodePath {
         self.maybe_ambiguous_path(db).path.module_path(db)
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> ModuleItemNode {
+    pub fn node(self, db: &dyn EntityTreeDb) -> ModuleItemSynNode {
         trai_node(db, self)
     }
 
@@ -38,28 +38,28 @@ impl TraitNodePath {
     pub fn item_nodes<'a>(
         self,
         db: &'a dyn EntityTreeDb,
-    ) -> &'a [(Ident, TraitItemNodePath, TraitItemNode)] {
+    ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemNode)] {
         trai_item_nodes(db, self)
     }
 }
 
-impl HasNodePath for TraitPath {
-    type NodePath = TraitNodePath;
+impl HasSynNodePath for TraitPath {
+    type SynNodePath = TraitSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TraitNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+        TraitSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
 #[salsa::tracked(jar = EntityTreeJar)]
-fn trai_node(db: &dyn EntityTreeDb, node_path: TraitNodePath) -> ModuleItemNode {
+fn trai_node(db: &dyn EntityTreeDb, node_path: TraitSynNodePath) -> ModuleItemSynNode {
     let module_path = node_path.module_path(db);
     let entity_sheet = module_path.entity_tree_sheet(db).expect("valid file");
     match entity_sheet
         .major_entity_node(node_path.into())
         .expect("should be some")
     {
-        EntityNode::ModuleItem(node) => node,
+        EntitySynNode::ModuleItem(node) => node,
         _ => unreachable!(),
     }
 }

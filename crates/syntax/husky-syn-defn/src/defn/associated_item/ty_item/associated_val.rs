@@ -1,24 +1,24 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
 pub struct TypeAssociatedValNodeDefn {
     #[id]
-    pub node_path: TypeItemNodePath,
+    pub node_path: TypeItemSynNodePath,
     pub node_decl: TypeAssociatedValNodeDecl,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeAssociatedValDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeAssociatedValDecl,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeAssociatedValDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
+        db: &dyn SynDefnDb,
         path: TypeItemPath,
         decl: TypeAssociatedValDecl,
     ) -> DefnResult<Self> {

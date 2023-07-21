@@ -4,16 +4,16 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct UnitTypeVariantNodeDecl {
     #[id]
-    pub node_path: TypeVariantNodePath,
+    pub node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct UnitTypeVariantDecl {
     #[id]
     pub path: TypeVariantPath,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl UnitTypeVariantDecl {

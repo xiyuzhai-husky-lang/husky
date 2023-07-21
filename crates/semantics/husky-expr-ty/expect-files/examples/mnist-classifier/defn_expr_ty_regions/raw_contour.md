@@ -1,9 +1,9 @@
 [
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                             disambiguator: 0,
@@ -630,9 +630,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                             disambiguator: 0,
@@ -1113,9 +1113,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                             disambiguator: 0,
@@ -1742,9 +1742,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                             disambiguator: 0,
@@ -2435,9 +2435,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                             disambiguator: 0,
@@ -3282,9 +3282,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                             disambiguator: 0,
@@ -4020,9 +4020,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                             disambiguator: 0,
@@ -4881,9 +4881,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Fugitive(
-                    FugitiveNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Fugitive(
+                    FugitiveSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                             disambiguator: 0,
@@ -14989,9 +14989,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TraitForTypeItem(
-                    TraitForTypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TraitForTypeItem(
+                    TraitForTypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
@@ -15182,9 +15182,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -15642,9 +15642,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -16992,9 +16992,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -17192,9 +17192,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
@@ -18278,9 +18278,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Defn(
-            EntityNodePath::AssociatedItem(
-                AssociatedItemNodePath::TypeItem(
-                    TypeItemNodePath {
+            EntitySynNodePath::AssociatedItem(
+                AssociatedItemSynNodePath::TypeItem(
+                    TypeItemSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {

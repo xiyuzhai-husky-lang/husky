@@ -44,15 +44,15 @@ impl<'a> SymbolContextMut<'a> {
     pub(crate) fn into_expr_region(
         self,
         db: &dyn ExprDb,
-        parent: Option<ExprRegion>,
+        parent: Option<SynExprRegion>,
         path: RegionPath,
         expr_arena: ExprArena,
         principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
         pattern_expr_region: PatternExprRegion,
         stmt_arena: StmtArena,
         roots: Vec<ExprRoot>,
-    ) -> ExprRegion {
-        ExprRegion::new(
+    ) -> SynExprRegion {
+        SynExprRegion::new(
             db,
             ExprRegionData::new(
                 parent,

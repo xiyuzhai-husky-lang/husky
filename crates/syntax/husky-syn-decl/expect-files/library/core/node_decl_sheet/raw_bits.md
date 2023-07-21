@@ -3,9 +3,9 @@ Ok(
         [salsa id]: 15,
         decls: [
             (
-                EntityNodePath::ModuleItem(
-                    ModuleItemNodePath::Type(
-                        TypeNodePath {
+                EntitySynNodePath::ModuleItem(
+                    ModuleItemSynNodePath::Type(
+                        TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::raw_bits::r32`, `Extern`),
                                 disambiguator: 0,
@@ -13,11 +13,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ModuleItem(
-                    ModuleItemNodeDecl::Type(
+                SynNodeDecl::ModuleItem(
+                    ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
                             ExternTypeNodeDecl {
-                                node_path: TypeNodePath {
+                                node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::raw_bits::r32`, `Extern`),
                                         disambiguator: 0,
@@ -27,13 +27,13 @@ Ok(
                                 implicit_parameter_decl_list: Ok(
                                     None,
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
-                                            EntityNodePath::ModuleItem(
-                                                ModuleItemNodePath::Type(
-                                                    TypeNodePath {
+                                            EntitySynNodePath::ModuleItem(
+                                                ModuleItemSynNodePath::Type(
+                                                    TypeSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypePath(`core::raw_bits::r32`, `Extern`),
                                                             disambiguator: 0,
@@ -87,9 +87,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::ImplBlock(
-                    ImplBlockNodePath::TypeImplBlock(
-                        TypeImplBlockNodePath {
+                EntitySynNodePath::ImplBlock(
+                    ImplBlockSynNodePath::TypeImplBlock(
+                        TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::raw_bits`,
                                 ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -98,10 +98,10 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::ImplBlock(
-                    ImplBlockNodeDecl::Type(
+                SynNodeDecl::ImplBlock(
+                    ImplBlockSynNodeDecl::Type(
                         TypeImplBlockNodeDecl {
-                            node_path: TypeImplBlockNodePath {
+                            node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath {
                                     module_path: `core::raw_bits`,
                                     ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -109,8 +109,8 @@ Ok(
                                 },
                             },
                             ast_idx: 4,
-                            impl_block: TypeImplBlockNode {
-                                node_path: TypeImplBlockNodePath {
+                            impl_block: TypeImplBlockSynNode {
+                                node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
                                         module_path: `core::raw_bits`,
                                         ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -150,13 +150,13 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ImplBlock(
-                                            ImplBlockNodePath::TypeImplBlock(
-                                                TypeImplBlockNodePath {
+                                        EntitySynNodePath::ImplBlock(
+                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                TypeImplBlockSynNodePath {
                                                     path: TypeImplBlockPath {
                                                         module_path: `core::raw_bits`,
                                                         ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -242,9 +242,9 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::AssociatedItem(
-                    AssociatedItemNodePath::TypeItem(
-                        TypeItemNodePath {
+                EntitySynNodePath::AssociatedItem(
+                    AssociatedItemSynNodePath::TypeItem(
+                        TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -260,11 +260,11 @@ Ok(
                         },
                     ),
                 ),
-                NodeDecl::AssociatedItem(
-                    AssociatedItemNodeDecl::TypeItem(
+                SynNodeDecl::AssociatedItem(
+                    AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MethodFn(
                             TypeMethodFnNodeDecl {
-                                node_path: TypeItemNodePath {
+                                node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
                                             impl_block: TypeImplBlockPath {
@@ -279,7 +279,7 @@ Ok(
                                     },
                                 },
                                 node: TypeItemNode {
-                                    node_path: TypeItemNodePath {
+                                    node_path: TypeItemSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypeItemPath {
                                                 impl_block: TypeImplBlockPath {
@@ -359,16 +359,16 @@ Ok(
                                         },
                                     ),
                                 ),
-                                expr_region: ExprRegion {
+                                expr_region: SynExprRegion {
                                     data: ExprRegionData {
                                         parent: Some(
-                                            ExprRegion {
+                                            SynExprRegion {
                                                 data: ExprRegionData {
                                                     parent: None,
                                                     path: RegionPath::Decl(
-                                                        EntityNodePath::ImplBlock(
-                                                            ImplBlockNodePath::TypeImplBlock(
-                                                                TypeImplBlockNodePath {
+                                                        EntitySynNodePath::ImplBlock(
+                                                            ImplBlockSynNodePath::TypeImplBlock(
+                                                                TypeImplBlockSynNodePath {
                                                                     path: TypeImplBlockPath {
                                                                         module_path: `core::raw_bits`,
                                                                         ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -451,9 +451,9 @@ Ok(
                                             },
                                         ),
                                         path: RegionPath::Decl(
-                                            EntityNodePath::AssociatedItem(
-                                                AssociatedItemNodePath::TypeItem(
-                                                    TypeItemNodePath {
+                                            EntitySynNodePath::AssociatedItem(
+                                                AssociatedItemSynNodePath::TypeItem(
+                                                    TypeItemSynNodePath {
                                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                                             path: TypeItemPath {
                                                                 impl_block: TypeImplBlockPath {

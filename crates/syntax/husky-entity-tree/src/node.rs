@@ -17,32 +17,32 @@ use vec_like::VecPairMap;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum EntityNodePath {
-    Submodule(SubmoduleNodePath),
-    ModuleItem(ModuleItemNodePath),
-    TypeVariant(TypeVariantNodePath),
-    ImplBlock(ImplBlockNodePath),
-    AssociatedItem(AssociatedItemNodePath),
+pub enum EntitySynNodePath {
+    Submodule(SubmoduleSynNodePath),
+    ModuleItem(ModuleItemSynNodePath),
+    TypeVariant(TypeVariantSynNodePath),
+    ImplBlock(ImplBlockSynNodePath),
+    AssociatedItem(AssociatedItemSynNodePath),
 }
 
-impl EntityNodePath {
+impl EntitySynNodePath {
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<EntityPath> {
         match self {
-            EntityNodePath::Submodule(node_path) => node_path.path(db).map(Into::into),
-            EntityNodePath::ModuleItem(node_path) => node_path.path(db).map(Into::into),
-            EntityNodePath::TypeVariant(node_path) => node_path.path(db).map(Into::into),
-            EntityNodePath::ImplBlock(node_path) => node_path.path(db).map(Into::into),
-            EntityNodePath::AssociatedItem(node_path) => node_path.path(db).map(Into::into),
+            EntitySynNodePath::Submodule(node_path) => node_path.path(db).map(Into::into),
+            EntitySynNodePath::ModuleItem(node_path) => node_path.path(db).map(Into::into),
+            EntitySynNodePath::TypeVariant(node_path) => node_path.path(db).map(Into::into),
+            EntitySynNodePath::ImplBlock(node_path) => node_path.path(db).map(Into::into),
+            EntitySynNodePath::AssociatedItem(node_path) => node_path.path(db).map(Into::into),
         }
     }
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            EntityNodePath::Submodule(node_path) => node_path.module_path(db),
-            EntityNodePath::ModuleItem(node_path) => node_path.module_path(db),
-            EntityNodePath::TypeVariant(node_path) => node_path.module_path(db),
-            EntityNodePath::ImplBlock(node_path) => node_path.module_path(db),
-            EntityNodePath::AssociatedItem(node_path) => node_path.module_path(db),
+            EntitySynNodePath::Submodule(node_path) => node_path.module_path(db),
+            EntitySynNodePath::ModuleItem(node_path) => node_path.module_path(db),
+            EntitySynNodePath::TypeVariant(node_path) => node_path.module_path(db),
+            EntitySynNodePath::ImplBlock(node_path) => node_path.module_path(db),
+            EntitySynNodePath::AssociatedItem(node_path) => node_path.module_path(db),
         }
     }
 
@@ -51,16 +51,16 @@ impl EntityNodePath {
     }
 }
 
-pub trait HasNodePath: Copy {
-    type NodePath;
+pub trait HasSynNodePath: Copy {
+    type SynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath;
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath;
 }
 
-impl HasNodePath for EntityPath {
-    type NodePath = EntityNodePath;
+impl HasSynNodePath for EntityPath {
+    type SynNodePath = EntitySynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         match self {
             EntityPath::Module(path) => todo!(),
             EntityPath::ModuleItem(_) => todo!(),
@@ -121,15 +121,15 @@ impl<P> MaybeAmbiguousPath<P> {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum EntityNode {
-    Submodule(SubmoduleNode),
-    ModuleItem(ModuleItemNode),
-    AssociatedItem(AssociatedItemNode),
-    TypeVariant(TypeVariantNode),
-    ImplBlock(ImplBlockNode),
+pub enum EntitySynNode {
+    Submodule(SubmoduleSynNode),
+    ModuleItem(ModuleItemSynNode),
+    AssociatedItem(AssociatedItemSynNode),
+    TypeVariant(TypeVariantSynNode),
+    ImplBlock(ImplBlockSynNode),
 }
 
-impl EntityNode {
+impl EntitySynNode {
     pub(crate) fn try_new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -141,7 +141,7 @@ impl EntityNode {
     ) -> Option<Self> {
         match entity_path {
             EntityPath::Module(submodule_path) => Some(
-                SubmoduleNode::new(
+                SubmoduleSynNode::new(
                     db,
                     registry,
                     submodule_path,
@@ -152,7 +152,7 @@ impl EntityNode {
                 .into(),
             ),
             EntityPath::ModuleItem(module_item_path) => Some(
-                ModuleItemNode::new(
+                ModuleItemSynNode::new(
                     db,
                     registry,
                     module_item_path,
@@ -168,33 +168,33 @@ impl EntityNode {
         }
     }
 
-    pub fn node_path(self, db: &dyn EntityTreeDb) -> EntityNodePath {
+    pub fn node_path(self, db: &dyn EntityTreeDb) -> EntitySynNodePath {
         match self {
-            EntityNode::Submodule(node) => node.node_path(db).into(),
-            EntityNode::ModuleItem(node) => node.node_path(db).into(),
-            EntityNode::AssociatedItem(node) => node.node_path(db).into(),
-            EntityNode::TypeVariant(node) => node.node_path(db).into(),
-            EntityNode::ImplBlock(node) => node.node_path(db).into(),
+            EntitySynNode::Submodule(node) => node.node_path(db).into(),
+            EntitySynNode::ModuleItem(node) => node.node_path(db).into(),
+            EntitySynNode::AssociatedItem(node) => node.node_path(db).into(),
+            EntitySynNode::TypeVariant(node) => node.node_path(db).into(),
+            EntitySynNode::ImplBlock(node) => node.node_path(db).into(),
         }
     }
 
     pub fn ast_idx(self, db: &dyn EntityTreeDb) -> AstIdx {
         match self {
-            EntityNode::Submodule(node) => node.ast_idx(db),
-            EntityNode::ModuleItem(node) => node.ast_idx(db),
-            EntityNode::AssociatedItem(_) => todo!(),
-            EntityNode::TypeVariant(_) => todo!(),
-            EntityNode::ImplBlock(_) => todo!(),
+            EntitySynNode::Submodule(node) => node.ast_idx(db),
+            EntitySynNode::ModuleItem(node) => node.ast_idx(db),
+            EntitySynNode::AssociatedItem(_) => todo!(),
+            EntitySynNode::TypeVariant(_) => todo!(),
+            EntitySynNode::ImplBlock(_) => todo!(),
         }
     }
 
     pub fn ident_token(self, db: &dyn EntityTreeDb) -> IdentToken {
         match self {
-            EntityNode::Submodule(symbol) => symbol.ident_token(db),
-            EntityNode::ModuleItem(symbol) => symbol.ident_token(db),
-            EntityNode::AssociatedItem(_) => todo!(),
-            EntityNode::TypeVariant(_) => todo!(),
-            EntityNode::ImplBlock(_) => todo!(),
+            EntitySynNode::Submodule(symbol) => symbol.ident_token(db),
+            EntitySynNode::ModuleItem(symbol) => symbol.ident_token(db),
+            EntitySynNode::AssociatedItem(_) => todo!(),
+            EntitySynNode::TypeVariant(_) => todo!(),
+            EntitySynNode::ImplBlock(_) => todo!(),
         }
     }
 }
@@ -219,14 +219,14 @@ impl EntityNode {
 //     //         entity_symbol.module_item_node().unwrap()
 // }
 
-impl EntityNodePath {
-    pub fn node(self, db: &dyn EntityTreeDb) -> EntityNode {
+impl EntitySynNodePath {
+    pub fn node(self, db: &dyn EntityTreeDb) -> EntitySynNode {
         match self {
-            EntityNodePath::Submodule(path) => path.node(db).into(),
-            EntityNodePath::ModuleItem(path) => path.node(db).into(),
-            EntityNodePath::AssociatedItem(path) => path.node(db).into(),
-            EntityNodePath::TypeVariant(path) => path.node(db).into(),
-            EntityNodePath::ImplBlock(path) => path.node(db).into(),
+            EntitySynNodePath::Submodule(path) => path.node(db).into(),
+            EntitySynNodePath::ModuleItem(path) => path.node(db).into(),
+            EntitySynNodePath::AssociatedItem(path) => path.node(db).into(),
+            EntitySynNodePath::TypeVariant(path) => path.node(db).into(),
+            EntitySynNodePath::ImplBlock(path) => path.node(db).into(),
         }
     }
 }

@@ -3,9 +3,9 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeAliasNodeDecl {
     #[id]
-    pub node_path: FugitiveNodePath,
+    pub node_path: FugitiveSynNodePath,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl<'a> DeclParser<'a> {}
@@ -14,5 +14,5 @@ impl<'a> DeclParser<'a> {}
 pub struct TypeAliasDecl {
     #[id]
     pub path: FugitivePath,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }

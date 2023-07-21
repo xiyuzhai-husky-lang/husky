@@ -4,10 +4,10 @@ Ok(
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
-                    node: EntityNode::ModuleItem(
-                        ModuleItemNode {
-                            node_path: ModuleItemNodePath::Type(
-                                TypeNodePath {
+                    node: EntitySynNode::ModuleItem(
+                        ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Type(
+                                TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::list::List`, `Extern`),
                                         disambiguator: 0,
@@ -32,9 +32,9 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntityNodePath::ModuleItem(
-                        ModuleItemNodePath::Type(
-                            TypeNodePath {
+                    node_path: EntitySynNodePath::ModuleItem(
+                        ModuleItemSynNodePath::Type(
+                            TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::list::List`, `Extern`),
                                     disambiguator: 0,
@@ -56,9 +56,9 @@ Ok(
                         module_item_path: ModuleItemPath::Type(
                             TypePath(`core::list::List`, `Extern`),
                         ),
-                        node: ModuleItemNode {
-                            node_path: ModuleItemNodePath::Type(
-                                TypeNodePath {
+                        node: ModuleItemSynNode {
+                            node_path: ModuleItemSynNodePath::Type(
+                                TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::list::List`, `Extern`),
                                         disambiguator: 0,
@@ -88,8 +88,8 @@ Ok(
         ),
         impl_block_node_table: [
             (
-                ImplBlockNodePath::TypeImplBlock(
-                    TypeImplBlockNodePath {
+                ImplBlockSynNodePath::TypeImplBlock(
+                    TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::list`,
                             ty_path: TypePath(`core::list::List`, `Extern`),
@@ -97,9 +97,9 @@ Ok(
                         },
                     },
                 ),
-                ImplBlockNode::TypeImplBlock(
-                    TypeImplBlockNode {
-                        node_path: TypeImplBlockNodePath {
+                ImplBlockSynNode::TypeImplBlock(
+                    TypeImplBlockSynNode {
+                        node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `core::list`,
                                 ty_path: TypePath(`core::list::List`, `Extern`),

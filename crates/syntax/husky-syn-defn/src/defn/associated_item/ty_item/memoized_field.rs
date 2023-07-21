@@ -1,18 +1,18 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeMemoizedFieldNodeDefn {
     #[id]
-    pub node_path: TypeItemNodePath,
+    pub node_path: TypeItemSynNodePath,
     pub node_decl: TypeMemoizedFieldNodeDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeMemoizedFieldNodeDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
-        node_path: TypeItemNodePath,
+        db: &dyn SynDefnDb,
+        node_path: TypeItemSynNodePath,
         node_decl: TypeMemoizedFieldNodeDecl,
     ) -> TypeMemoizedFieldNodeDefn {
         let mut parser = expr_parser(
@@ -34,22 +34,22 @@ impl TypeMemoizedFieldNodeDefn {
     }
 }
 
-#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
+#[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeMemoizedFieldDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeMemoizedFieldDecl,
     pub body: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeMemoizedFieldDefn {
     pub(super) fn new(
-        db: &dyn DefnDb,
+        db: &dyn SynDefnDb,
         path: TypeItemPath,
         decl: TypeMemoizedFieldDecl,
     ) -> DeclResult<TypeMemoizedFieldDefn> {
-        let TypeItemNodeDefn::MemoizedField(node_defn) = path.node_path(db).node_defn(db) else {
+        let TypeItemSynNodeDefn::MemoizedField(node_defn) = path.node_path(db).node_defn(db) else {
             unreachable!()
         };
         Ok(TypeMemoizedFieldDefn::new_inner(

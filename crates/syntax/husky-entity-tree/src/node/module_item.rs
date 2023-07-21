@@ -12,36 +12,36 @@ use husky_entity_path::ModuleItemPath;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntityTreeDb)]
 #[enum_class::from_variants]
-pub enum ModuleItemNodePath {
-    Trait(TraitNodePath),
-    Type(TypeNodePath),
-    Fugitive(FugitiveNodePath),
+pub enum ModuleItemSynNodePath {
+    Trait(TraitSynNodePath),
+    Type(TypeSynNodePath),
+    Fugitive(FugitiveSynNodePath),
 }
 
-impl ModuleItemNodePath {
+impl ModuleItemSynNodePath {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
         path: ModuleItemPath,
     ) -> Self {
         match path {
-            ModuleItemPath::Type(path) => TypeNodePath::new(db, registry, path).into(),
-            ModuleItemPath::Trait(path) => TraitNodePath::new(db, registry, path).into(),
-            ModuleItemPath::Fugitive(path) => FugitiveNodePath::new(db, registry, path).into(),
+            ModuleItemPath::Type(path) => TypeSynNodePath::new(db, registry, path).into(),
+            ModuleItemPath::Trait(path) => TraitSynNodePath::new(db, registry, path).into(),
+            ModuleItemPath::Fugitive(path) => FugitiveSynNodePath::new(db, registry, path).into(),
         }
     }
 
     pub fn path(self, db: &dyn EntityTreeDb) -> Option<ModuleItemPath> {
         match self {
-            ModuleItemNodePath::Trait(node_path) => node_path
+            ModuleItemSynNodePath::Trait(node_path) => node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
-            ModuleItemNodePath::Type(node_path) => node_path
+            ModuleItemSynNodePath::Type(node_path) => node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
-            ModuleItemNodePath::Fugitive(node_path) => node_path
+            ModuleItemSynNodePath::Fugitive(node_path) => node_path
                 .maybe_ambiguous_path(db)
                 .unambiguous_path()
                 .map(Into::into),
@@ -55,21 +55,21 @@ impl ModuleItemNodePath {
 
     pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
         match self {
-            ModuleItemNodePath::Trait(node) => node.module_path(db),
-            ModuleItemNodePath::Type(node) => node.module_path(db),
-            ModuleItemNodePath::Fugitive(node) => node.module_path(db),
+            ModuleItemSynNodePath::Trait(node) => node.module_path(db),
+            ModuleItemSynNodePath::Type(node) => node.module_path(db),
+            ModuleItemSynNodePath::Fugitive(node) => node.module_path(db),
         }
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> ModuleItemNode {
+    pub fn node(self, db: &dyn EntityTreeDb) -> ModuleItemSynNode {
         todo!()
     }
 }
 
-impl HasNodePath for ModuleItemPath {
-    type NodePath = ModuleItemNodePath;
+impl HasSynNodePath for ModuleItemPath {
+    type SynNodePath = ModuleItemSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         match self {
             ModuleItemPath::Type(path) => path.node_path(db).into(),
             ModuleItemPath::Trait(path) => path.node_path(db).into(),
@@ -80,16 +80,16 @@ impl HasNodePath for ModuleItemPath {
 
 // todo: change this to enum and create FugitiveNode etc.
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct ModuleItemNode {
+pub struct ModuleItemSynNode {
     #[id]
-    pub node_path: ModuleItemNodePath,
+    pub node_path: ModuleItemSynNodePath,
     pub visibility: Scope,
     pub ast_idx: AstIdx,
     pub ident_token: IdentToken,
     pub block: DefnBlock,
 }
 
-impl ModuleItemNode {
+impl ModuleItemSynNode {
     pub(super) fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
@@ -99,9 +99,9 @@ impl ModuleItemNode {
         ident_token: IdentToken,
         block: DefnBlock,
     ) -> Self {
-        ModuleItemNode::new_inner(
+        ModuleItemSynNode::new_inner(
             db,
-            ModuleItemNodePath::new(db, registry, module_item_path),
+            ModuleItemSynNodePath::new(db, registry, module_item_path),
             visibility,
             ast_idx,
             ident_token,

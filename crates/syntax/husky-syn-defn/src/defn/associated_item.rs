@@ -9,92 +9,98 @@ pub use self::ty_item::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = DefnDb)]
+#[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
-pub enum AssociatedItemNodeDefn {
-    TypeItem(TypeItemNodeDefn),
-    TraitItem(TraitItemNodeDefn),
-    TraitForTypeItem(TraitForTypeItemNodeDefn),
+pub enum AssociatedItemSynNodeDefn {
+    TypeItem(TypeItemSynNodeDefn),
+    TraitItem(TraitItemSynNodeDefn),
+    TraitForTypeItem(TraitForTypeItemSynNodeDefn),
 }
 
-impl AssociatedItemNodeDefn {
-    pub fn node_path(self, _db: &dyn DefnDb) -> AssociatedItemNodePath {
+impl AssociatedItemSynNodeDefn {
+    pub fn node_path(self, _db: &dyn SynDefnDb) -> AssociatedItemSynNodePath {
         match self {
-            AssociatedItemNodeDefn::TypeItem(_) => todo!(),
-            AssociatedItemNodeDefn::TraitItem(_) => todo!(),
-            AssociatedItemNodeDefn::TraitForTypeItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TypeItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TraitForTypeItem(_) => todo!(),
         }
     }
 
-    pub fn node_decl(self, db: &dyn DefnDb) -> AssociatedItemNodeDecl {
+    pub fn node_decl(self, db: &dyn SynDefnDb) -> AssociatedItemSynNodeDecl {
         match self {
-            AssociatedItemNodeDefn::TypeItem(node_defn) => node_defn.node_decl(db).into(),
-            AssociatedItemNodeDefn::TraitItem(_) => todo!(),
-            AssociatedItemNodeDefn::TraitForTypeItem(node_defn) => node_defn.node_decl(db).into(),
+            AssociatedItemSynNodeDefn::TypeItem(node_defn) => node_defn.node_decl(db).into(),
+            AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TraitForTypeItem(node_defn) => {
+                node_defn.node_decl(db).into()
+            }
         }
     }
 
-    pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
+    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
-            AssociatedItemNodeDefn::TypeItem(node_defn) => node_defn.expr_region(db),
-            AssociatedItemNodeDefn::TraitItem(_) => todo!(),
-            AssociatedItemNodeDefn::TraitForTypeItem(node_defn) => Some(node_defn.expr_region(db)),
+            AssociatedItemSynNodeDefn::TypeItem(node_defn) => node_defn.expr_region(db),
+            AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynNodeDefn::TraitForTypeItem(node_defn) => {
+                Some(node_defn.expr_region(db))
+            }
         }
     }
 }
 
-impl HasNodeDefn for AssociatedItemNodePath {
-    type NodeDefn = AssociatedItemNodeDefn;
+impl HasSynNodeDefn for AssociatedItemSynNodePath {
+    type NodeDefn = AssociatedItemSynNodeDefn;
 
-    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         match self {
-            AssociatedItemNodePath::TypeItem(node_path) => node_path.node_defn(db).into(),
-            AssociatedItemNodePath::TraitItem(node_path) => node_path.node_defn(db).into(),
-            AssociatedItemNodePath::TraitForTypeItem(node_path) => node_path.node_defn(db).into(),
-            AssociatedItemNodePath::IllFormedItem(_) => todo!(),
+            AssociatedItemSynNodePath::TypeItem(node_path) => node_path.node_defn(db).into(),
+            AssociatedItemSynNodePath::TraitItem(node_path) => node_path.node_defn(db).into(),
+            AssociatedItemSynNodePath::TraitForTypeItem(node_path) => {
+                node_path.node_defn(db).into()
+            }
+            AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = DefnDb)]
+#[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
-pub enum AssociatedItemDefn {
-    TypeItem(TypeItemDefn),
-    TraitItem(TraitItemDefn),
-    TraitForTypeItem(TraitForTypeItemDefn),
+pub enum AssociatedItemSynDefn {
+    TypeItem(TypeItemSynDefn),
+    TraitItem(TraitItemSynDefn),
+    TraitForTypeItem(TraitForTypeItemSynDefn),
 }
 
-impl AssociatedItemDefn {
-    pub fn decl(self, db: &dyn DefnDb) -> AssociatedItemDecl {
+impl AssociatedItemSynDefn {
+    pub fn decl(self, db: &dyn SynDefnDb) -> AssociatedItemSynDecl {
         match self {
-            AssociatedItemDefn::TypeItem(defn) => defn.decl(db).into(),
-            AssociatedItemDefn::TraitItem(_) => todo!(),
-            AssociatedItemDefn::TraitForTypeItem(defn) => defn.decl(db).into(),
+            AssociatedItemSynDefn::TypeItem(defn) => defn.decl(db).into(),
+            AssociatedItemSynDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynDefn::TraitForTypeItem(defn) => defn.decl(db).into(),
         }
     }
 
-    pub fn expr_region(self, db: &dyn DefnDb) -> Option<ExprRegion> {
+    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
-            AssociatedItemDefn::TypeItem(defn) => defn.expr_region(db),
-            AssociatedItemDefn::TraitItem(_) => todo!(),
-            AssociatedItemDefn::TraitForTypeItem(defn) => Some(defn.expr_region(db)),
+            AssociatedItemSynDefn::TypeItem(defn) => defn.expr_region(db),
+            AssociatedItemSynDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynDefn::TraitForTypeItem(defn) => Some(defn.expr_region(db)),
         }
     }
 
-    pub fn path(self, _db: &dyn DefnDb) -> Option<AssociatedItemPath> {
+    pub fn path(self, _db: &dyn SynDefnDb) -> Option<AssociatedItemPath> {
         match self {
-            AssociatedItemDefn::TypeItem(_) => todo!(),
-            AssociatedItemDefn::TraitItem(_) => todo!(),
-            AssociatedItemDefn::TraitForTypeItem(_) => todo!(),
+            AssociatedItemSynDefn::TypeItem(_) => todo!(),
+            AssociatedItemSynDefn::TraitItem(_) => todo!(),
+            AssociatedItemSynDefn::TraitForTypeItem(_) => todo!(),
         }
     }
 }
 
 impl HasDefn for AssociatedItemPath {
-    type Defn = AssociatedItemDefn;
+    type Defn = AssociatedItemSynDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
         Ok(match self {
             AssociatedItemPath::TypeItem(decl) => decl.defn(db)?.into(),
             AssociatedItemPath::TraitItem(decl) => decl.defn(db)?.into(),

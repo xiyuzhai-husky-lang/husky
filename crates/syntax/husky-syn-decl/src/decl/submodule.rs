@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SubmoduleNodeDecl {
     #[id]
-    pub node_path: SubmoduleNodePath,
+    pub node_path: SubmoduleSynNodePath,
     pub ast_idx: AstIdx,
 }
 
@@ -13,7 +13,7 @@ impl SubmoduleNodeDecl {
     }
 }
 
-impl HasNodeDecl for SubmoduleNodePath {
+impl HasNodeDecl for SubmoduleSynNodePath {
     type NodeDecl = SubmoduleNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -24,7 +24,7 @@ impl HasNodeDecl for SubmoduleNodePath {
 #[salsa::tracked( jar = SynDeclJar)]
 pub(crate) fn submodule_node_decl(
     db: &dyn DeclDb,
-    node_path: SubmoduleNodePath,
+    node_path: SubmoduleSynNodePath,
 ) -> SubmoduleNodeDecl {
     let node = node_path.node(db);
     SubmoduleNodeDecl::new(db, node_path, node.ast_idx(db))

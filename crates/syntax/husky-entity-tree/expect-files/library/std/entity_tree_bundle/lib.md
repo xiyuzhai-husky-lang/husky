@@ -6,9 +6,9 @@ Ok(
                 major_entity_node_table: MajorEntityNodeTable {
                     entries: [
                         EntityNodeEntry {
-                            node: EntityNode::Submodule(
-                                SubmoduleNode {
-                                    node_path: SubmoduleNodePath {
+                            node: EntitySynNode::Submodule(
+                                SubmoduleSynNode {
+                                    node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::prelude`,
                                             disambiguator: 0,
@@ -26,8 +26,8 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::Submodule(
-                                SubmoduleNodePath {
+                            node_path: EntitySynNodePath::Submodule(
+                                SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `std::prelude`,
                                         disambiguator: 0,
@@ -40,9 +40,9 @@ Ok(
                             ),
                         },
                         EntityNodeEntry {
-                            node: EntityNode::Submodule(
-                                SubmoduleNode {
-                                    node_path: SubmoduleNodePath {
+                            node: EntitySynNode::Submodule(
+                                SubmoduleSynNode {
+                                    node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::logic`,
                                             disambiguator: 0,
@@ -60,8 +60,8 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::Submodule(
-                                SubmoduleNodePath {
+                            node_path: EntitySynNodePath::Submodule(
+                                SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `std::logic`,
                                         disambiguator: 0,
@@ -74,9 +74,9 @@ Ok(
                             ),
                         },
                         EntityNodeEntry {
-                            node: EntityNode::Submodule(
-                                SubmoduleNode {
-                                    node_path: SubmoduleNodePath {
+                            node: EntitySynNode::Submodule(
+                                SubmoduleSynNode {
+                                    node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::ops`,
                                             disambiguator: 0,
@@ -94,8 +94,8 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::Submodule(
-                                SubmoduleNodePath {
+                            node_path: EntitySynNodePath::Submodule(
+                                SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `std::ops`,
                                         disambiguator: 0,
@@ -118,8 +118,8 @@ Ok(
                             ),
                             symbol: EntitySymbol::Submodule {
                                 submodule_path: `std::prelude`,
-                                node: SubmoduleNode {
-                                    node_path: SubmoduleNodePath {
+                                node: SubmoduleSynNode {
+                                    node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::prelude`,
                                             disambiguator: 0,
@@ -145,8 +145,8 @@ Ok(
                             ),
                             symbol: EntitySymbol::Submodule {
                                 submodule_path: `std::logic`,
-                                node: SubmoduleNode {
-                                    node_path: SubmoduleNodePath {
+                                node: SubmoduleSynNode {
+                                    node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::logic`,
                                             disambiguator: 0,
@@ -172,8 +172,8 @@ Ok(
                             ),
                             symbol: EntitySymbol::Submodule {
                                 submodule_path: `std::ops`,
-                                node: SubmoduleNode {
-                                    node_path: SubmoduleNodePath {
+                                node: SubmoduleSynNode {
+                                    node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::ops`,
                                             disambiguator: 0,
@@ -236,9 +236,9 @@ Ok(
                                         module_item_path: ModuleItemPath::Type(
                                             TypePath(`core::logic::Prop`, `Extern`),
                                         ),
-                                        node: ModuleItemNode {
-                                            node_path: ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        node: ModuleItemSynNode {
+                                            node_path: ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::logic::Prop`, `Extern`),
                                                         disambiguator: 0,
@@ -283,9 +283,9 @@ Ok(
                                         module_item_path: ModuleItemPath::Type(
                                             TypePath(`core::logic::LogicAnd`, `Structure`),
                                         ),
-                                        node: ModuleItemNode {
-                                            node_path: ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        node: ModuleItemSynNode {
+                                            node_path: ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                                         disambiguator: 0,
@@ -330,9 +330,9 @@ Ok(
                                         module_item_path: ModuleItemPath::Type(
                                             TypePath(`core::logic::LogicOr`, `Inductive`),
                                         ),
-                                        node: ModuleItemNode {
-                                            node_path: ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        node: ModuleItemSynNode {
+                                            node_path: ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                                         disambiguator: 0,
@@ -462,10 +462,10 @@ Ok(
                 major_entity_node_table: MajorEntityNodeTable {
                     entries: [
                         EntityNodeEntry {
-                            node: EntityNode::ModuleItem(
-                                ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Trait(
-                                        TraitNodePath {
+                            node: EntitySynNode::ModuleItem(
+                                ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Trait(
+                                        TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`std::ops::Add`),
                                                 disambiguator: 0,
@@ -498,9 +498,9 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntityNodePath::ModuleItem(
-                                ModuleItemNodePath::Trait(
-                                    TraitNodePath {
+                            node_path: EntitySynNodePath::ModuleItem(
+                                ModuleItemSynNodePath::Trait(
+                                    TraitSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitPath(`std::ops::Add`),
                                             disambiguator: 0,
@@ -526,9 +526,9 @@ Ok(
                                 module_item_path: ModuleItemPath::Trait(
                                     TraitPath(`std::ops::Add`),
                                 ),
-                                node: ModuleItemNode {
-                                    node_path: ModuleItemNodePath::Trait(
-                                        TraitNodePath {
+                                node: ModuleItemSynNode {
+                                    node_path: ModuleItemSynNodePath::Trait(
+                                        TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`std::ops::Add`),
                                                 disambiguator: 0,

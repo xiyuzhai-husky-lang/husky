@@ -1,9 +1,9 @@
 [
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Trait(
-                    TraitNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Trait(
+                    TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::marker::Copy`),
                             disambiguator: 0,
@@ -55,9 +55,9 @@
     },
     ExprTypeRegion {
         path: RegionPath::Decl(
-            EntityNodePath::ModuleItem(
-                ModuleItemNodePath::Trait(
-                    TraitNodePath {
+            EntitySynNodePath::ModuleItem(
+                ModuleItemSynNodePath::Trait(
+                    TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::marker::Sized`),
                             disambiguator: 0,

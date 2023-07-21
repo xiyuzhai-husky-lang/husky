@@ -12,26 +12,26 @@ use husky_token::ImplToken;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum ImplBlockNodeDecl {
+pub enum ImplBlockSynNodeDecl {
     Type(TypeImplBlockNodeDecl),
     TraitForType(TraitForTypeImplBlockNodeDecl),
     IllFormed(IllFormedImplBlockNodeDecl),
 }
 
-impl ImplBlockNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> ImplBlockNodePath {
+impl ImplBlockSynNodeDecl {
+    pub fn node_path(self, db: &dyn DeclDb) -> ImplBlockSynNodePath {
         match self {
-            ImplBlockNodeDecl::Type(decl) => decl.node_path(db).into(),
-            ImplBlockNodeDecl::TraitForType(decl) => decl.node_path(db).into(),
-            ImplBlockNodeDecl::IllFormed(decl) => decl.node_path(db).into(),
+            ImplBlockSynNodeDecl::Type(decl) => decl.node_path(db).into(),
+            ImplBlockSynNodeDecl::TraitForType(decl) => decl.node_path(db).into(),
+            ImplBlockSynNodeDecl::IllFormed(decl) => decl.node_path(db).into(),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            ImplBlockNodeDecl::Type(decl) => decl.ast_idx(db),
-            ImplBlockNodeDecl::TraitForType(decl) => decl.ast_idx(db),
-            ImplBlockNodeDecl::IllFormed(decl) => decl.ast_idx(db),
+            ImplBlockSynNodeDecl::Type(decl) => decl.ast_idx(db),
+            ImplBlockSynNodeDecl::TraitForType(decl) => decl.ast_idx(db),
+            ImplBlockSynNodeDecl::IllFormed(decl) => decl.ast_idx(db),
         }
     }
 
@@ -39,31 +39,33 @@ impl ImplBlockNodeDecl {
         todo!()
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            ImplBlockNodeDecl::Type(node_decl) => node_decl.expr_region(db),
-            ImplBlockNodeDecl::TraitForType(node_decl) => node_decl.expr_region(db),
-            ImplBlockNodeDecl::IllFormed(node_decl) => node_decl.expr_region(db),
+            ImplBlockSynNodeDecl::Type(node_decl) => node_decl.expr_region(db),
+            ImplBlockSynNodeDecl::TraitForType(node_decl) => node_decl.expr_region(db),
+            ImplBlockSynNodeDecl::IllFormed(node_decl) => node_decl.expr_region(db),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            ImplBlockNodeDecl::Type(node_decl) => node_decl.errors(db),
-            ImplBlockNodeDecl::TraitForType(node_decl) => node_decl.errors(db),
-            ImplBlockNodeDecl::IllFormed(node_decl) => node_decl.errors(db),
+            ImplBlockSynNodeDecl::Type(node_decl) => node_decl.errors(db),
+            ImplBlockSynNodeDecl::TraitForType(node_decl) => node_decl.errors(db),
+            ImplBlockSynNodeDecl::IllFormed(node_decl) => node_decl.errors(db),
         }
     }
 }
 
-impl HasNodeDecl for ImplBlockNodePath {
-    type NodeDecl = ImplBlockNodeDecl;
+impl HasNodeDecl for ImplBlockSynNodePath {
+    type NodeDecl = ImplBlockSynNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            ImplBlockNodePath::TypeImplBlock(node_path) => node_path.node_decl(db).into(),
-            ImplBlockNodePath::TraitForTypeImplBlock(node_path) => node_path.node_decl(db).into(),
-            ImplBlockNodePath::IllFormedImplBlock(node_path) => node_path.node_decl(db).into(),
+            ImplBlockSynNodePath::TypeImplBlock(node_path) => node_path.node_decl(db).into(),
+            ImplBlockSynNodePath::TraitForTypeImplBlock(node_path) => {
+                node_path.node_decl(db).into()
+            }
+            ImplBlockSynNodePath::IllFormedImplBlock(node_path) => node_path.node_decl(db).into(),
         }
     }
 }
@@ -71,16 +73,16 @@ impl HasNodeDecl for ImplBlockNodePath {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum ImplBlockDecl {
+pub enum ImplBlockSynDecl {
     Type(TypeImplBlockDecl),
     TraitForType(TraitForTypeImplBlockDecl),
 }
 
-impl ImplBlockDecl {
+impl ImplBlockSynDecl {
     pub fn path(self, db: &dyn DeclDb) -> ImplBlockPath {
         match self {
-            ImplBlockDecl::Type(decl) => decl.path(db).into(),
-            ImplBlockDecl::TraitForType(_) => todo!(),
+            ImplBlockSynDecl::Type(decl) => decl.path(db).into(),
+            ImplBlockSynDecl::TraitForType(_) => todo!(),
         }
     }
 
@@ -88,16 +90,16 @@ impl ImplBlockDecl {
         todo!()
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            ImplBlockDecl::Type(decl) => decl.expr_region(db),
-            ImplBlockDecl::TraitForType(decl) => decl.expr_region(db),
+            ImplBlockSynDecl::Type(decl) => decl.expr_region(db),
+            ImplBlockSynDecl::TraitForType(decl) => decl.expr_region(db),
         }
     }
 }
 
 impl HasDecl for ImplBlockPath {
-    type Decl = ImplBlockDecl;
+    type Decl = ImplBlockSynDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         match self {
@@ -110,7 +112,7 @@ impl HasDecl for ImplBlockPath {
 pub(crate) fn impl_block_decl(
     db: &dyn DeclDb,
     impl_block: ImplBlockPath,
-) -> DeclResult<ImplBlockDecl> {
+) -> DeclResult<ImplBlockSynDecl> {
     todo!()
     // match impl_block {
     //     ImplBlockNode::TypeImplBlock(impl_block) => impl_block.decl(db).map(Into::into),

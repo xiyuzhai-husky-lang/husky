@@ -11,7 +11,7 @@ pub struct UseSymbol {
     pub use_expr_idx: UseExprIdx,
 }
 
-impl ModuleItemNode {
+impl ModuleItemSynNode {
     pub fn ident(&self, db: &dyn EntityTreeDb) -> Ident {
         self.node_path(db).ident(db)
     }
@@ -39,11 +39,11 @@ pub enum EntitySymbol {
     },
     Submodule {
         submodule_path: ModulePath,
-        node: SubmoduleNode,
+        node: SubmoduleSynNode,
     },
     ModuleItem {
         module_item_path: ModuleItemPath,
-        node: ModuleItemNode,
+        node: ModuleItemSynNode,
     },
     TypeVariant {
         ty_variant_path: TypeVariantPath,
@@ -52,19 +52,21 @@ pub enum EntitySymbol {
 }
 
 impl EntitySymbol {
-    pub(crate) fn from_node(db: &dyn EntityTreeDb, node: EntityNode) -> Option<Self> {
+    pub(crate) fn from_node(db: &dyn EntityTreeDb, node: EntitySynNode) -> Option<Self> {
         match node {
-            EntityNode::Submodule(node) => Some(EntitySymbol::Submodule {
+            EntitySynNode::Submodule(node) => Some(EntitySymbol::Submodule {
                 submodule_path: node.unambiguous_path(db)?,
                 node,
             }),
-            EntityNode::ModuleItem(node) => Some(EntitySymbol::ModuleItem {
+            EntitySynNode::ModuleItem(node) => Some(EntitySymbol::ModuleItem {
                 module_item_path: node.unambiguous_path(db)?,
                 node,
             }),
-            EntityNode::AssociatedItem(_)
-            | EntityNode::TypeVariant(_)
-            | EntityNode::ImplBlock(_) => unreachable!(),
+            EntitySynNode::AssociatedItem(_)
+            | EntitySynNode::TypeVariant(_)
+            | EntitySynNode::ImplBlock(_) => {
+                unreachable!()
+            }
         }
     }
 }
@@ -89,7 +91,7 @@ impl EntitySymbol {
         }
     }
 
-    pub fn module_item_node(self) -> Option<ModuleItemNode> {
+    pub fn module_item_node(self) -> Option<ModuleItemSynNode> {
         match self {
             EntitySymbol::ModuleItem { node, .. } => Some(node),
             _ => None,

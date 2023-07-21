@@ -1,9 +1,9 @@
 Ok(
     [
-        NodeDefn::Submodule(
-            SubmoduleNodeDefn {
+        SynNodeDefn::Submodule(
+            SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleNodePath {
+                    node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::connected_component`,
                             disambiguator: 0,
@@ -13,10 +13,10 @@ Ok(
                 },
             },
         ),
-        NodeDefn::Submodule(
-            SubmoduleNodeDefn {
+        SynNodeDefn::Submodule(
+            SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleNodePath {
+                    node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::raw_contour`,
                             disambiguator: 0,
@@ -26,10 +26,10 @@ Ok(
                 },
             },
         ),
-        NodeDefn::Submodule(
-            SubmoduleNodeDefn {
+        SynNodeDefn::Submodule(
+            SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleNodePath {
+                    node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::geom2d`,
                             disambiguator: 0,
@@ -39,10 +39,10 @@ Ok(
                 },
             },
         ),
-        NodeDefn::Submodule(
-            SubmoduleNodeDefn {
+        SynNodeDefn::Submodule(
+            SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleNodePath {
+                    node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch`,
                             disambiguator: 0,
@@ -52,10 +52,10 @@ Ok(
                 },
             },
         ),
-        NodeDefn::Submodule(
-            SubmoduleNodeDefn {
+        SynNodeDefn::Submodule(
+            SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleNodePath {
+                    node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::fermi`,
                             disambiguator: 0,
@@ -65,10 +65,10 @@ Ok(
                 },
             },
         ),
-        NodeDefn::Submodule(
-            SubmoduleNodeDefn {
+        SynNodeDefn::Submodule(
+            SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleNodePath {
+                    node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::digits`,
                             disambiguator: 0,
@@ -78,10 +78,10 @@ Ok(
                 },
             },
         ),
-        NodeDefn::Submodule(
-            SubmoduleNodeDefn {
+        SynNodeDefn::Submodule(
+            SubmoduleSynNodeDefn {
                 node_decl: SubmoduleNodeDecl {
-                    node_path: SubmoduleNodePath {
+                    node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::major`,
                             disambiguator: 0,

@@ -3,11 +3,11 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct ExternTypeNodeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl ExternTypeNodeDecl {
@@ -33,7 +33,7 @@ impl<'a> DeclParser<'a> {
     // get declaration from tokens
     pub(super) fn parse_extern_ty_node_decl(
         &self,
-        node_path: TypeNodePath,
+        node_path: TypeSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
@@ -58,7 +58,7 @@ pub struct ExternTypeDecl {
     pub path: TypePath,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl ExternTypeDecl {

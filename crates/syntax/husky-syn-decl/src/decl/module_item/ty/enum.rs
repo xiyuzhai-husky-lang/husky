@@ -3,11 +3,11 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct EnumTypeNodeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl EnumTypeNodeDecl {
@@ -32,7 +32,7 @@ impl EnumTypeNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_enum_ty_node_decl(
         &self,
-        node_path: TypeNodePath,
+        node_path: TypeSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         children: TypeVariants,
@@ -53,7 +53,7 @@ pub struct EnumTypeDecl {
     pub path: TypePath,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl EnumTypeDecl {

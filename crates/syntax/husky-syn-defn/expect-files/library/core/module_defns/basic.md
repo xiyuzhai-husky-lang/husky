@@ -8,13 +8,13 @@ Ok(
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::bool`, `Extern`),
                             generic_parameters: [],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::basic::bool`, `Extern`),
                                                         disambiguator: 0,
@@ -75,13 +75,13 @@ Ok(
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::never`, `Extern`),
                             generic_parameters: [],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::basic::never`, `Extern`),
                                                         disambiguator: 0,
@@ -142,13 +142,13 @@ Ok(
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::unit`, `Extern`),
                             generic_parameters: [],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::basic::unit`, `Extern`),
                                                         disambiguator: 0,
@@ -209,13 +209,13 @@ Ok(
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::Trait`, `Extern`),
                             generic_parameters: [],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::basic::Trait`, `Extern`),
                                                         disambiguator: 0,
@@ -276,13 +276,13 @@ Ok(
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::Module`, `Extern`),
                             generic_parameters: [],
-                            expr_region: ExprRegion {
+                            expr_region: SynExprRegion {
                                 data: ExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
-                                        EntityNodePath::ModuleItem(
-                                            ModuleItemNodePath::Type(
-                                                TypeNodePath {
+                                        EntitySynNodePath::ModuleItem(
+                                            ModuleItemSynNodePath::Type(
+                                                TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::basic::Module`, `Extern`),
                                                         disambiguator: 0,

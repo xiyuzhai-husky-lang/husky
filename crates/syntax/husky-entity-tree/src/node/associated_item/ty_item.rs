@@ -3,11 +3,11 @@ use smallvec::SmallVec;
 use super::*;
 
 #[salsa::interned(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
-pub struct TypeItemNodePath {
+pub struct TypeItemSynNodePath {
     maybe_ambiguous_path: MaybeAmbiguousPath<TypeItemPath>,
 }
 
-impl TypeItemNodePath {
+impl TypeItemSynNodePath {
     fn new(db: &dyn EntityTreeDb, registry: &mut EntityNodeRegistry, path: TypeItemPath) -> Self {
         Self::new_inner(db, registry.issue_maybe_ambiguous_path(path))
     }
@@ -20,7 +20,7 @@ impl TypeItemNodePath {
         self.maybe_ambiguous_path(db).path.module_path(db)
     }
 
-    pub fn impl_block(self, db: &dyn EntityTreeDb) -> TypeImplBlockNodePath {
+    pub fn impl_block(self, db: &dyn EntityTreeDb) -> TypeImplBlockSynNodePath {
         self.maybe_ambiguous_path(db)
             .path
             .impl_block(db)
@@ -36,24 +36,24 @@ impl TypeItemNodePath {
     }
 }
 
-impl From<TypeItemNodePath> for EntityNodePath {
-    fn from(id: TypeItemNodePath) -> Self {
-        EntityNodePath::AssociatedItem(id.into())
+impl From<TypeItemSynNodePath> for EntitySynNodePath {
+    fn from(id: TypeItemSynNodePath) -> Self {
+        EntitySynNodePath::AssociatedItem(id.into())
     }
 }
 
-impl HasNodePath for TypeItemPath {
-    type NodePath = TypeItemNodePath;
+impl HasSynNodePath for TypeItemPath {
+    type SynNodePath = TypeItemSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::NodePath {
-        TypeItemNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
+    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+        TypeItemSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
 pub struct TypeItemNode {
     #[id]
-    pub node_path: TypeItemNodePath,
+    pub node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
     pub ident: Ident,
     pub item_kind: TypeItemKind,
@@ -66,15 +66,15 @@ impl TypeItemNode {
     fn new(
         db: &dyn EntityTreeDb,
         registry: &mut EntityNodeRegistry,
-        impl_block_node_path: TypeImplBlockNodePath,
+        impl_block_node_path: TypeImplBlockSynNodePath,
         ast_idx: AstIdx,
         ident: Ident,
         item_kind: TypeItemKind,
         visibility: Scope,
         is_generic: bool,
-    ) -> (TypeItemNodePath, Self) {
+    ) -> (TypeItemSynNodePath, Self) {
         let path = TypeItemPath::new(db, impl_block_node_path.path(), ident, item_kind);
-        let node_path = TypeItemNodePath::new(db, registry, path);
+        let node_path = TypeItemSynNodePath::new(db, registry, path);
         (
             node_path,
             Self::new_inner(
@@ -89,7 +89,7 @@ impl TypeItemNode {
 }
 
 #[salsa::tracked(jar = EntityTreeJar)]
-pub(crate) fn ty_item_node(db: &dyn EntityTreeDb, node_path: TypeItemNodePath) -> TypeItemNode {
+pub(crate) fn ty_item_node(db: &dyn EntityTreeDb, node_path: TypeItemSynNodePath) -> TypeItemNode {
     node_path
         .impl_block(db)
         .items(db)
@@ -102,8 +102,8 @@ pub(crate) fn ty_item_node(db: &dyn EntityTreeDb, node_path: TypeItemNodePath) -
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub(crate) fn ty_impl_block_items(
     db: &dyn EntityTreeDb,
-    node_path: TypeImplBlockNodePath,
-) -> Vec<(Ident, TypeItemNodePath, TypeItemNode)> {
+    node_path: TypeImplBlockSynNodePath,
+) -> Vec<(Ident, TypeItemSynNodePath, TypeItemNode)> {
     let impl_block_node = node_path.node(db);
     let module_path = node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path).unwrap();
@@ -157,12 +157,12 @@ pub trait HasItemNodePaths: Copy {
 }
 
 impl HasItemNodePaths for TypePath {
-    type ItemNodePath = TypeItemNodePath;
+    type ItemNodePath = TypeItemSynNodePath;
 
     fn item_node_paths<'a>(
         self,
         db: &'a dyn EntityTreeDb,
-    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemNodePath)]> {
+    ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemSynNodePath)]> {
         ty_item_node_paths(db, self).as_ref().map(|v| v as &[_])
     }
 }
@@ -171,7 +171,7 @@ impl HasItemNodePaths for TypePath {
 pub(crate) fn ty_item_node_paths(
     db: &dyn EntityTreeDb,
     path: TypePath,
-) -> EntityTreeBundleResult<Vec<(Ident, TypeItemNodePath)>> {
+) -> EntityTreeBundleResult<Vec<(Ident, TypeItemSynNodePath)>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle

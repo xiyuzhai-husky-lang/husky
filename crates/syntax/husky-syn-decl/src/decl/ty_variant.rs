@@ -18,7 +18,7 @@ pub enum TypeVariantNodeDecl {
 }
 
 impl TypeVariantNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> TypeVariantNodePath {
+    pub fn node_path(self, db: &dyn DeclDb) -> TypeVariantSynNodePath {
         match self {
             TypeVariantNodeDecl::Props(node_decl) => node_decl.node_path(db),
             TypeVariantNodeDecl::Unit(node_decl) => node_decl.node_path(db),
@@ -43,7 +43,7 @@ impl TypeVariantNodeDecl {
     }
 }
 
-impl HasNodeDecl for TypeVariantNodePath {
+impl HasNodeDecl for TypeVariantSynNodePath {
     type NodeDecl = TypeVariantNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -54,13 +54,13 @@ impl HasNodeDecl for TypeVariantNodePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_variant_node_decl(
     db: &dyn DeclDb,
-    node_path: TypeVariantNodePath,
+    node_path: TypeVariantSynNodePath,
 ) -> TypeVariantNodeDecl {
     DeclParser::new(db, node_path.module_path(db)).parse_ty_variant_node_decl(node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_variant_node_decl(&self, node_path: TypeVariantNodePath) -> TypeVariantNodeDecl {
+    fn parse_ty_variant_node_decl(&self, node_path: TypeVariantSynNodePath) -> TypeVariantNodeDecl {
         let db = self.db();
         let node = node_path.node(db);
         let ast_idx = node.ast_idx(db);

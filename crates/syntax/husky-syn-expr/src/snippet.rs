@@ -7,7 +7,7 @@ pub(crate) fn parse_expr_from_snippet(
     db: &dyn ExprDb,
     crate_path: CratePath,
     snippet: Snippet,
-) -> PreludeResult<(ExprRegion, Option<ExprIdx>)> {
+) -> PreludeResult<(SynExprRegion, Option<ExprIdx>)> {
     let token_sheet_data = db.snippet_token_sheet_data(snippet);
     let mut expr_parser = ExprParser::new(
         db,

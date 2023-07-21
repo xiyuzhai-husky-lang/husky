@@ -13,7 +13,7 @@ pub struct ExprRangeRegion {
 }
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]
-pub(crate) fn expr_range_region(db: &dyn ExprDb, expr_region: ExprRegion) -> ExprRangeRegion {
+pub(crate) fn expr_range_region(db: &dyn ExprDb, expr_region: SynExprRegion) -> ExprRangeRegion {
     SynExprRangeCalculator::new(db, expr_region).calc_all()
 }
 
@@ -113,7 +113,7 @@ impl<'a> std::ops::Index<&StmtIdx> for SynExprRangeCalculator<'a> {
 }
 
 impl<'a> SynExprRangeCalculator<'a> {
-    fn new(db: &'a dyn ExprDb, expr_region: ExprRegion) -> Self {
+    fn new(db: &'a dyn ExprDb, expr_region: SynExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
         let region_path = expr_region_data.path();
         let token_sheet_data = region_path.token_sheet_data(db).expect("todo");

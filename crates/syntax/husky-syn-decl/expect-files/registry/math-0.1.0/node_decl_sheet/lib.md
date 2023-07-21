@@ -3,17 +3,17 @@ Ok(
         [salsa id]: 49,
         decls: [
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `math::algebra`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebra`,
                                 disambiguator: 0,
@@ -24,17 +24,17 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `math::algebraic_geometry`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebraic_geometry`,
                                 disambiguator: 0,
@@ -45,17 +45,17 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `math::algebraic_topology`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebraic_topology`,
                                 disambiguator: 0,
@@ -66,17 +66,17 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `math::category_theory`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::category_theory`,
                                 disambiguator: 0,
@@ -87,17 +87,17 @@ Ok(
                 ),
             ),
             (
-                EntityNodePath::Submodule(
-                    SubmoduleNodePath {
+                EntitySynNodePath::Submodule(
+                    SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `math::probability`,
                             disambiguator: 0,
                         },
                     },
                 ),
-                NodeDecl::Submodule(
+                SynNodeDecl::Submodule(
                     SubmoduleNodeDecl {
-                        node_path: SubmoduleNodePath {
+                        node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::probability`,
                                 disambiguator: 0,

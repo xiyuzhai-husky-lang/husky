@@ -1,8 +1,8 @@
 use super::*;
 use husky_syn_defn::HasDefns;
 use husky_syn_expr::{
-    ExprError, ExprRegion, OriginalExprError, OriginalPrincipalEntityPathExprError,
-    PrincipalEntityPathExpr, PrincipalEntityPathExprError, Stmt, StmtError, SynExpr,
+    ExprError, OriginalExprError, OriginalPrincipalEntityPathExprError, PrincipalEntityPathExpr,
+    PrincipalEntityPathExprError, Stmt, StmtError, SynExpr, SynExprRegion,
 };
 use salsa::DebugWithDb;
 
@@ -36,7 +36,7 @@ pub(crate) fn expr_diagnostic_sheet(
 }
 
 impl<'a> ModuleDiagnosticsCollector<'a> {
-    fn collect_expr_diagnostics(&mut self, expr_region: ExprRegion) {
+    fn collect_expr_diagnostics(&mut self, expr_region: SynExprRegion) {
         let expr_region_data = expr_region.data(self.db());
         for expr in expr_region_data.expr_arena().data() {
             match expr {

@@ -5,7 +5,7 @@ pub struct TraitMethodFnNodeDecl {
     #[id]
     pub path: TraitItemPath,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
     #[return_ref]
     implicit_parameter_decl_list: Option<Generics>,
     #[return_ref]
@@ -27,7 +27,7 @@ pub struct TraitMethodFnDecl {
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TraitMethodFnDecl {}

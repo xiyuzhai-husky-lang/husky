@@ -3,10 +3,10 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeAssociatedValNodeDecl {
     #[id]
-    pub id: TypeItemNodePath,
+    pub id: TypeItemSynNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeAssociatedValNodeDecl {
@@ -22,7 +22,7 @@ impl<'a> DeclParser<'a> {}
 pub struct TypeAssociatedValDecl {
     #[id]
     pub path: TypeItemPath,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeAssociatedValDecl {

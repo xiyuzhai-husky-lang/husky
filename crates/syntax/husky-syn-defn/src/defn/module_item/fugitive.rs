@@ -11,9 +11,9 @@ pub use self::val::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = DefnDb)]
+#[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
-pub enum FugitiveNodeDefn {
+pub enum FugitiveSynNodeDefn {
     Fn(FnNodeDefn),
     // Function(FunctionDefn),
     Val(ValNodeDefn),
@@ -21,16 +21,16 @@ pub enum FugitiveNodeDefn {
     // AliasType(TypeAliasDefn)
 }
 
-impl FugitiveNodeDefn {
-    pub fn node_decl(self, db: &dyn DefnDb) -> FugitiveNodeDecl {
+impl FugitiveSynNodeDefn {
+    pub fn node_decl(self, db: &dyn SynDefnDb) -> FugitiveNodeDecl {
         match self {
-            FugitiveNodeDefn::Fn(node_defn) => node_defn.node_decl(db).into(),
-            FugitiveNodeDefn::Val(node_defn) => node_defn.node_decl(db).into(),
-            FugitiveNodeDefn::Gn(node_defn) => node_defn.node_decl(db).into(),
+            FugitiveSynNodeDefn::Fn(node_defn) => node_defn.node_decl(db).into(),
+            FugitiveSynNodeDefn::Val(node_defn) => node_defn.node_decl(db).into(),
+            FugitiveSynNodeDefn::Gn(node_defn) => node_defn.node_decl(db).into(),
         }
     }
 
-    pub fn node_path(self, db: &dyn DefnDb) -> FugitiveNodePath {
+    pub fn node_path(self, db: &dyn SynDefnDb) -> FugitiveSynNodePath {
         todo!()
         // match self {
         //     FugitiveDefn::Fn(defn) => defn.path(db),
@@ -39,25 +39,28 @@ impl FugitiveNodeDefn {
         // }
     }
 
-    pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
         match self {
-            FugitiveNodeDefn::Fn(defn) => defn.expr_region(db),
-            FugitiveNodeDefn::Val(defn) => defn.expr_region(db),
-            FugitiveNodeDefn::Gn(defn) => defn.expr_region(db),
+            FugitiveSynNodeDefn::Fn(defn) => defn.expr_region(db),
+            FugitiveSynNodeDefn::Val(defn) => defn.expr_region(db),
+            FugitiveSynNodeDefn::Gn(defn) => defn.expr_region(db),
         }
     }
 }
 
-impl HasNodeDefn for FugitiveNodePath {
-    type NodeDefn = FugitiveNodeDefn;
+impl HasSynNodeDefn for FugitiveSynNodePath {
+    type NodeDefn = FugitiveSynNodeDefn;
 
-    fn node_defn(self, db: &dyn DefnDb) -> Self::NodeDefn {
+    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         fugitive_node_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn fugitive_node_defn(db: &dyn DefnDb, node_path: FugitiveNodePath) -> FugitiveNodeDefn {
+pub(crate) fn fugitive_node_defn(
+    db: &dyn SynDefnDb,
+    node_path: FugitiveSynNodePath,
+) -> FugitiveSynNodeDefn {
     match node_path.node_decl(db) {
         FugitiveNodeDecl::Fn(node_decl) => FnNodeDefn::new(db, node_path, node_decl).into(),
         FugitiveNodeDecl::Val(node_decl) => ValNodeDefn::new(db, node_path, node_decl).into(),
@@ -66,7 +69,7 @@ pub(crate) fn fugitive_node_defn(db: &dyn DefnDb, node_path: FugitiveNodePath) -
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = DefnDb)]
+#[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum FugitiveDefn {
     Fn(FnDefn),
@@ -77,7 +80,7 @@ pub enum FugitiveDefn {
 }
 
 impl FugitiveDefn {
-    pub fn decl(self, db: &dyn DefnDb) -> FugitiveDecl {
+    pub fn decl(self, db: &dyn SynDefnDb) -> FugitiveDecl {
         match self {
             FugitiveDefn::Fn(defn) => defn.decl(db).into(),
             FugitiveDefn::Val(defn) => defn.decl(db).into(),
@@ -85,7 +88,7 @@ impl FugitiveDefn {
         }
     }
 
-    pub fn path(self, db: &dyn DefnDb) -> FugitivePath {
+    pub fn path(self, db: &dyn SynDefnDb) -> FugitivePath {
         todo!()
         // match self {
         //     FugitiveDefn::Fn(defn) => defn.path(db),
@@ -93,7 +96,7 @@ impl FugitiveDefn {
         //     FugitiveDefn::Gn(defn) => defn.path(db),
         // }
     }
-    pub fn expr_region(self, db: &dyn DefnDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
         match self {
             FugitiveDefn::Fn(defn) => defn.expr_region(db),
             FugitiveDefn::Val(defn) => defn.expr_region(db),
@@ -105,13 +108,13 @@ impl FugitiveDefn {
 impl HasDefn for FugitivePath {
     type Defn = FugitiveDefn;
 
-    fn defn(self, db: &dyn DefnDb) -> DefnResult<Self::Defn> {
+    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
         fugitive_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar= SynDefnJar)]
-pub(crate) fn fugitive_defn(db: &dyn DefnDb, path: FugitivePath) -> DefnResult<FugitiveDefn> {
+pub(crate) fn fugitive_defn(db: &dyn SynDefnDb, path: FugitivePath) -> DefnResult<FugitiveDefn> {
     Ok(match path.decl(db)? {
         FugitiveDecl::Fn(decl) => FnDefn::new(db, path, decl).into(),
         FugitiveDecl::Val(decl) => ValDefn::new(db, path, decl).into(),

@@ -11,54 +11,54 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum ModuleItemNodeDecl {
+pub enum ModuleItemSynNodeDecl {
     Type(TypeNodeDecl),
     Fugitive(FugitiveNodeDecl),
     Trait(TraitNodeDecl),
 }
 
-impl ModuleItemNodeDecl {
+impl ModuleItemSynNodeDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            ModuleItemNodeDecl::Type(node_decl) => node_decl.ast_idx(db),
-            ModuleItemNodeDecl::Fugitive(node_decl) => node_decl.ast_idx(db),
-            ModuleItemNodeDecl::Trait(node_decl) => node_decl.ast_idx(db),
+            ModuleItemSynNodeDecl::Type(node_decl) => node_decl.ast_idx(db),
+            ModuleItemSynNodeDecl::Fugitive(node_decl) => node_decl.ast_idx(db),
+            ModuleItemSynNodeDecl::Trait(node_decl) => node_decl.ast_idx(db),
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            ModuleItemNodeDecl::Type(node_decl) => node_decl.expr_region(db).into(),
-            ModuleItemNodeDecl::Fugitive(node_decl) => node_decl.expr_region(db).into(),
-            ModuleItemNodeDecl::Trait(node_decl) => node_decl.expr_region(db).into(),
+            ModuleItemSynNodeDecl::Type(node_decl) => node_decl.expr_region(db).into(),
+            ModuleItemSynNodeDecl::Fugitive(node_decl) => node_decl.expr_region(db).into(),
+            ModuleItemSynNodeDecl::Trait(node_decl) => node_decl.expr_region(db).into(),
         }
     }
 
-    pub fn node_path(self, db: &dyn DeclDb) -> EntityNodePath {
+    pub fn node_path(self, db: &dyn DeclDb) -> EntitySynNodePath {
         match self {
-            ModuleItemNodeDecl::Type(node_decl) => node_decl.node_path(db).into(),
-            ModuleItemNodeDecl::Fugitive(node_decl) => node_decl.node_path(db).into(),
-            ModuleItemNodeDecl::Trait(node_decl) => node_decl.node_path(db).into(),
+            ModuleItemSynNodeDecl::Type(node_decl) => node_decl.node_path(db).into(),
+            ModuleItemSynNodeDecl::Fugitive(node_decl) => node_decl.node_path(db).into(),
+            ModuleItemSynNodeDecl::Trait(node_decl) => node_decl.node_path(db).into(),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            ModuleItemNodeDecl::Type(node_decl) => node_decl.errors(db),
-            ModuleItemNodeDecl::Fugitive(node_decl) => node_decl.errors(db),
-            ModuleItemNodeDecl::Trait(node_decl) => node_decl.errors(db),
+            ModuleItemSynNodeDecl::Type(node_decl) => node_decl.errors(db),
+            ModuleItemSynNodeDecl::Fugitive(node_decl) => node_decl.errors(db),
+            ModuleItemSynNodeDecl::Trait(node_decl) => node_decl.errors(db),
         }
     }
 }
 
-impl HasNodeDecl for ModuleItemNodePath {
-    type NodeDecl = ModuleItemNodeDecl;
+impl HasNodeDecl for ModuleItemSynNodePath {
+    type NodeDecl = ModuleItemSynNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            ModuleItemNodePath::Trait(node_path) => node_path.node_decl(db).into(),
-            ModuleItemNodePath::Type(node_path) => node_path.node_decl(db).into(),
-            ModuleItemNodePath::Fugitive(node_path) => node_path.node_decl(db).into(),
+            ModuleItemSynNodePath::Trait(node_path) => node_path.node_decl(db).into(),
+            ModuleItemSynNodePath::Type(node_path) => node_path.node_decl(db).into(),
+            ModuleItemSynNodePath::Fugitive(node_path) => node_path.node_decl(db).into(),
         }
     }
 }
@@ -81,7 +81,7 @@ impl ModuleItemDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> ExprRegion {
+    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             ModuleItemDecl::Type(decl) => decl.expr_region(db).into(),
             ModuleItemDecl::Fugitive(decl) => decl.expr_region(db).into(),

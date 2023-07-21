@@ -115,10 +115,10 @@ impl SymbolDeclarativeTermRegion {
     ) {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty_term.is_none() {
             self.self_ty_term = match region_path {
-                RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Trait(_))) => {
-                    Some(self.new_self_ty_term_parameter_symbol(db))
-                }
-                RegionPath::Decl(EntityNodePath::ModuleItem(ModuleItemNodePath::Type(
+                RegionPath::Decl(EntitySynNodePath::ModuleItem(ModuleItemSynNodePath::Trait(
+                    _,
+                ))) => Some(self.new_self_ty_term_parameter_symbol(db)),
+                RegionPath::Decl(EntitySynNodePath::ModuleItem(ModuleItemSynNodePath::Type(
                     ty_node_path,
                 ))) => Some(
                     self.ty_defn_self_ty_term(
@@ -128,11 +128,11 @@ impl SymbolDeclarativeTermRegion {
                             .expect("should have valid entity path"),
                     ),
                 ),
-                RegionPath::Decl(EntityNodePath::ImplBlock(node_path)) => match node_path {
-                    ImplBlockNodePath::TypeImplBlock(node_path) => {
+                RegionPath::Decl(EntitySynNodePath::ImplBlock(node_path)) => match node_path {
+                    ImplBlockSynNodePath::TypeImplBlock(node_path) => {
                         None // reserved for later stage
                     }
-                    ImplBlockNodePath::TraitForTypeImplBlock(impl_block_path) => {
+                    ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_path) => {
                         match impl_block_path.ty_sketch(db) {
                             TypeSketch::DeriveAny => {
                                 Some(self.new_self_ty_term_parameter_symbol(db))
@@ -140,7 +140,7 @@ impl SymbolDeclarativeTermRegion {
                             TypeSketch::Path(ty_path) => None, // reserved for later stage
                         }
                     }
-                    ImplBlockNodePath::IllFormedImplBlock(_) => None,
+                    ImplBlockSynNodePath::IllFormedImplBlock(_) => None,
                 },
                 _ => unreachable!(),
             }

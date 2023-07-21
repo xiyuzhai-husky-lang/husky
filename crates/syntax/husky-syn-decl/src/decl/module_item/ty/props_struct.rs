@@ -5,7 +5,7 @@ use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct PropsStructTypeNodeDecl {
     #[id]
-    pub node_path: TypeNodePath,
+    pub node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
@@ -15,7 +15,7 @@ pub struct PropsStructTypeNodeDecl {
     fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
     rcurl: NodeDeclResult<PropsStructRightCurlyBraceToken>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl PropsStructTypeNodeDecl {
@@ -71,7 +71,7 @@ pub struct PropsStructTypeDecl {
     pub generic_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldDeclPattern; 4]>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl PropsStructTypeDecl {

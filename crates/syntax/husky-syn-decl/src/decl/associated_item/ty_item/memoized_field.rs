@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeMemoizedFieldNodeDecl {
     #[id]
-    pub node_path: TypeItemNodePath,
+    pub node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
     pub colon_token: TokenResult<Option<ColonToken>>,
     #[return_ref]
@@ -11,7 +11,7 @@ pub struct TypeMemoizedFieldNodeDecl {
     #[return_ref]
     pub eq_token: NodeDeclResult<EqToken>,
     pub expr: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeMemoizedFieldNodeDecl {
@@ -72,7 +72,7 @@ pub struct TypeMemoizedFieldDecl {
     pub path: TypeItemPath,
     pub return_ty: Option<ReturnTypeExprBeforeEq>,
     pub expr: Option<ExprIdx>,
-    pub expr_region: ExprRegion,
+    pub expr_region: SynExprRegion,
 }
 
 impl TypeMemoizedFieldDecl {
