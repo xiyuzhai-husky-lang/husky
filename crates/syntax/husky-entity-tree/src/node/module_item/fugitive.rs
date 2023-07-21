@@ -16,7 +16,7 @@ impl From<FugitiveSynNodePath> for EntitySynNodePath {
 impl HasSynNodePath for FugitivePath {
     type SynNodePath = FugitiveSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         FugitiveSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }

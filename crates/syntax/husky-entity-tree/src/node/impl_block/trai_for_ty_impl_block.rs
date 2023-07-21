@@ -75,7 +75,7 @@ impl From<TraitForTypeImplBlockSynNodePath> for EntitySynNodePath {
 impl HasSynNodePath for TraitForTypeImplBlockPath {
     type SynNodePath = TraitForTypeImplBlockSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         TraitForTypeImplBlockSynNodePath { path: self }
     }
 }
@@ -174,7 +174,7 @@ fn trai_for_ty_impl_block_item_paths(
     db: &dyn EntityTreeDb,
     path: TraitForTypeImplBlockPath,
 ) -> SmallVecPairMap<Ident, TraitForTypeItemPath, 2> {
-    path.node_path(db)
+    path.syn_node_path(db)
         .items(db)
         .iter()
         .filter_map(|(ident, node_path, _)| Some((*ident, node_path.path(db)?)))

@@ -36,7 +36,7 @@ impl TypeSynNodePath {
 impl HasSynNodePath for TypePath {
     type SynNodePath = TypeSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         TypeSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }

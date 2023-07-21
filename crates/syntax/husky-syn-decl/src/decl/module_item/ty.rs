@@ -352,7 +352,7 @@ impl HasDecl for TypePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
-    TypeDecl::from_node_decl(db, path, path.node_path(db).node_decl(db))
+    TypeDecl::from_node_decl(db, path, path.syn_node_path(db).node_decl(db))
 }
 
 #[test]

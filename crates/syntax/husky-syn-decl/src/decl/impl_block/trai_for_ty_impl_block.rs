@@ -163,7 +163,7 @@ pub(crate) fn trai_for_ty_impl_block_decl(
     db: &dyn DeclDb,
     path: TraitForTypeImplBlockPath,
 ) -> DeclResult<TraitForTypeImplBlockDecl> {
-    let node_decl = path.node_path(db).node_decl(db);
+    let node_decl = path.syn_node_path(db).node_decl(db);
     TraitForTypeImplBlockDecl::from_node_decl(db, path, node_decl)
 }
 

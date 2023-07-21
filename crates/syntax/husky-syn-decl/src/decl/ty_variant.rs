@@ -162,6 +162,6 @@ pub(crate) fn ty_variant_decl(
     db: &dyn DeclDb,
     path: TypeVariantPath,
 ) -> DeclResult<TypeVariantDecl> {
-    let node_decl = path.node_path(db).node_decl(db);
+    let node_decl = path.syn_node_path(db).node_decl(db);
     TypeVariantDecl::from_node_decl(db, path, node_decl)
 }

@@ -46,7 +46,7 @@ impl TraitSynNodePath {
 impl HasSynNodePath for TraitPath {
     type SynNodePath = TraitSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         TraitSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }
@@ -77,7 +77,7 @@ fn trai_item_paths(
     db: &dyn EntityTreeDb,
     path: TraitPath,
 ) -> SmallVecPairMap<Ident, TraitItemPath, APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS> {
-    let item_nodes = path.node_path(db).item_nodes(db);
+    let item_nodes = path.syn_node_path(db).item_nodes(db);
     item_nodes
         .iter()
         .filter_map(|(ident, node_path, _)| Some((*ident, node_path.path(db)?)))

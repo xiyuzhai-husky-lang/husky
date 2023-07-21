@@ -77,7 +77,7 @@ impl HasSynNodePath for TypeImplBlockPath {
     type SynNodePath = TypeImplBlockSynNodePath;
 
     #[inline(always)]
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         TypeImplBlockSynNodePath { path: self }
     }
 }

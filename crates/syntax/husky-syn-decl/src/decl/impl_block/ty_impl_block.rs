@@ -155,7 +155,7 @@ pub(crate) fn ty_impl_block_decl(
     // maybe add AsId carefully
     path: TypeImplBlockPath,
 ) -> DeclResult<TypeImplBlockDecl> {
-    let node_path = path.node_path(db);
+    let node_path = path.syn_node_path(db);
     let node_decl = node_path.node_decl(db);
     TypeImplBlockDecl::from_node_decl(db, path, node_decl)
 }

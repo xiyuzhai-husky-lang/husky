@@ -45,7 +45,7 @@ pub struct ValDefn {
 
 impl ValDefn {
     pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: ValDecl) -> Self {
-        let FugitiveSynNodeDefn::Val(node_defn) = path.node_path(db).node_defn(db) else {
+        let FugitiveSynNodeDefn::Val(node_defn) = path.syn_node_path(db).node_defn(db) else {
             unreachable!()
         };
         Self::new_inner(

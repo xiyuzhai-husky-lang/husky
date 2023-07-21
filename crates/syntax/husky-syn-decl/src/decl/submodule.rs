@@ -56,7 +56,7 @@ impl HasDecl for ModulePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn submodule_decl(db: &dyn DeclDb, path: ModulePath) -> DeclResult<SubmoduleDecl> {
-    let node_path = path.node_path(db);
+    let node_path = path.syn_node_path(db);
     let node_decl = node_path.node_decl(db);
     Ok(SubmoduleDecl::from_node_decl(db, path, node_decl))
 }

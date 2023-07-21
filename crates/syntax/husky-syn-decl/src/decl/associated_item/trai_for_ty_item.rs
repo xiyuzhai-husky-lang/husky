@@ -231,6 +231,6 @@ pub(crate) fn trai_for_ty_item_decl(
     db: &dyn DeclDb,
     path: TraitForTypeItemPath,
 ) -> DeclResult<TraitForTypeItemDecl> {
-    let node_decl = path.node_path(db).node_decl(db);
+    let node_decl = path.syn_node_path(db).node_decl(db);
     TraitForTypeItemDecl::from_node_decl(db, path, node_decl)
 }

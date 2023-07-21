@@ -51,7 +51,7 @@ impl From<IllFormedImplBlockSynNodePath> for EntitySynNodePath {
 impl HasSynNodePath for IllFormedImplBlockPath {
     type SynNodePath = IllFormedImplBlockSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         IllFormedImplBlockSynNodePath { path: self }
     }
 }

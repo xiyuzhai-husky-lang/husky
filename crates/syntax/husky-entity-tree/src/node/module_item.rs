@@ -69,11 +69,11 @@ impl ModuleItemSynNodePath {
 impl HasSynNodePath for ModuleItemPath {
     type SynNodePath = ModuleItemSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         match self {
-            ModuleItemPath::Type(path) => path.node_path(db).into(),
-            ModuleItemPath::Trait(path) => path.node_path(db).into(),
-            ModuleItemPath::Fugitive(path) => path.node_path(db).into(),
+            ModuleItemPath::Type(path) => path.syn_node_path(db).into(),
+            ModuleItemPath::Trait(path) => path.syn_node_path(db).into(),
+            ModuleItemPath::Fugitive(path) => path.syn_node_path(db).into(),
         }
     }
 }

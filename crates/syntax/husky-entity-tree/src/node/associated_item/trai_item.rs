@@ -31,7 +31,7 @@ impl TraitItemSynNodePath {
 impl HasSynNodePath for TraitItemPath {
     type SynNodePath = TraitItemSynNodePath;
 
-    fn node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
         TraitItemSynNodePath::new_inner(db, MaybeAmbiguousPath::from_path(self))
     }
 }

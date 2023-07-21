@@ -108,6 +108,6 @@ impl HasDecl for TraitPath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
-    let node_decl = path.node_path(db).node_decl(db);
+    let node_decl = path.syn_node_path(db).node_decl(db);
     TraitDecl::from_node_decl(db, path, node_decl)
 }
