@@ -6,7 +6,7 @@ pub struct TraitExpr {
 }
 
 impl TraitExpr {
-    pub fn expr(&self) -> ArenaIdx<Expr> {
+    pub fn expr(&self) -> ArenaIdx<SynExpr> {
         self.expr
     }
 }

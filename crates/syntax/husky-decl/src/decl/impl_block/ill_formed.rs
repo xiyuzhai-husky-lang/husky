@@ -2,7 +2,7 @@ use super::*;
 use husky_print_utils::p;
 use salsa::DebugWithDb;
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct IllFormedImplBlockNodeDecl {
     #[id]
     pub node_path: IllFormedImplBlockNodePath,
@@ -26,7 +26,7 @@ impl HasNodeDecl for IllFormedImplBlockNodePath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ill_formed_impl_block_node_decl(
     db: &dyn DeclDb,
     node_path: IllFormedImplBlockNodePath,

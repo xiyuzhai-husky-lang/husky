@@ -5,7 +5,7 @@ pub use self::generic::*;
 pub use self::specific::*;
 
 use crate::*;
-use husky_expr::{
+use husky_syn_expr::{
     ExprRegionData, GenericParameterDecl, GenericParameterDeclPatternVariant, SpecificParameterDecl,
 };
 use husky_token::VarianceToken;

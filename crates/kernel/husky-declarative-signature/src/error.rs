@@ -1,6 +1,6 @@
 use husky_decr::DecrError;
 use husky_entity_tree::EntityTreeBundleError;
-use husky_expr::ExprError;
+use husky_syn_expr::ExprError;
 use thiserror::Error;
 
 use crate::*;

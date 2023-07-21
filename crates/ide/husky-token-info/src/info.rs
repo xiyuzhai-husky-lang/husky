@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::EntityKind;
 use husky_entity_tree::{OnceUseRuleIdx, OnceUseRuleState, UseExprIdx};
-use husky_expr::{
+use husky_syn_expr::{
     CurrentSymbolIdx, CurrentSymbolKind, ExprRegion, InheritedSymbolIdx, InheritedSymbolKind,
 };
 

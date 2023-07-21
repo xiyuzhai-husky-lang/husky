@@ -1,9 +1,9 @@
 use super::*;
-use husky_expr::ExprIdx;
+use husky_syn_expr::ExprIdx;
 use parsec::{SeparatedSmallList, TryParseFromStream};
 
 // todo: GADT
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TupleTypeVariantNodeDecl {
     #[id]
     pub node_path: TypeVariantNodePath,
@@ -36,7 +36,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>>
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TupleTypeVariantDecl {
     #[id]
     pub path: TypeVariantPath,

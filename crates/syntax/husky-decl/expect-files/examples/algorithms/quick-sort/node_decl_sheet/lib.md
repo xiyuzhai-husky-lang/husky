@@ -131,7 +131,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -141,7 +141,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::BoxColonList {
+                                                SynExpr::BoxColonList {
                                                     lbox_token_idx: TokenIdx(
                                                         12,
                                                     ),
@@ -153,7 +153,7 @@ Ok(
                                                         14,
                                                     ),
                                                 },
-                                                Expr::CurrentSymbol {
+                                                SynExpr::CurrentSymbol {
                                                     ident: `T`,
                                                     token_idx: TokenIdx(
                                                         15,
@@ -170,7 +170,7 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                Expr::ExplicitApplication {
+                                                SynExpr::ExplicitApplication {
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },
@@ -486,7 +486,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -496,7 +496,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::BoxColonList {
+                                                SynExpr::BoxColonList {
                                                     lbox_token_idx: TokenIdx(
                                                         51,
                                                     ),
@@ -508,7 +508,7 @@ Ok(
                                                         53,
                                                     ),
                                                 },
-                                                Expr::CurrentSymbol {
+                                                SynExpr::CurrentSymbol {
                                                     ident: `T`,
                                                     token_idx: TokenIdx(
                                                         54,
@@ -525,11 +525,11 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                Expr::ExplicitApplication {
+                                                SynExpr::ExplicitApplication {
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -539,7 +539,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -991,7 +991,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -1001,7 +1001,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::BoxColonList {
+                                                SynExpr::BoxColonList {
                                                     lbox_token_idx: TokenIdx(
                                                         112,
                                                     ),
@@ -1013,7 +1013,7 @@ Ok(
                                                         114,
                                                     ),
                                                 },
-                                                Expr::CurrentSymbol {
+                                                SynExpr::CurrentSymbol {
                                                     ident: `T`,
                                                     token_idx: TokenIdx(
                                                         115,
@@ -1030,11 +1030,11 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                Expr::ExplicitApplication {
+                                                SynExpr::ExplicitApplication {
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -1044,7 +1044,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 2,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -1054,7 +1054,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 3,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(

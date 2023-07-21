@@ -29,8 +29,8 @@ use husky_toml_token::TomlTokenJar;
     CorgiConfigJar,
     CorgiConfigAstJar,
     ManifestJar,
-    ExprJar,
-    DeclJar
+    SynExprJar,
+    SynDeclJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {

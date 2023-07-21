@@ -29,7 +29,7 @@ use husky_vfs::*;
     CorgiConfigJar,
     CorgiConfigAstJar,
     ManifestJar,
-    ExprJar
+    SynExprJar
 )]
 #[derive(Default)]
 pub(crate) struct DB {

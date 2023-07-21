@@ -271,7 +271,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let expr_idx = {
             match self.finish_batch() {
                 Some(expr_idx) => expr_idx,
-                None => self.alloc_expr(Expr::Err(err(state).into())),
+                None => self.alloc_expr(SynExpr::Err(err(state).into())),
             }
         };
         self.parser.add_expr_root(expr_root_kind, expr_idx);

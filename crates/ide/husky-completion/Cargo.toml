@@ -8,7 +8,7 @@ edition = "2021"
 lsp-types = { version = "0.93", features = ["proposed"] }
 husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-expr = { path = "../../syntax/husky-expr" }
+husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }

@@ -2,7 +2,7 @@ use super::*;
 use husky_ast::Ast;
 use salsa::DebugWithDb;
 
-#[salsa::tracked(db = DefnDb, jar = DefnJar, constructor = new_inner)]
+#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeMethodFnNodeDefn {
     #[id]
     pub node_path: TypeItemNodePath,
@@ -36,7 +36,7 @@ impl TypeMethodFnNodeDefn {
     }
 }
 
-#[salsa::tracked(db = DefnDb, jar = DefnJar, constructor = new_inner)]
+#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TypeMethodFnDefn {
     #[id]
     pub path: TypeItemPath,

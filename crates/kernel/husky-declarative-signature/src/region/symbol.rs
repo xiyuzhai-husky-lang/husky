@@ -1,5 +1,5 @@
 use husky_entity_tree::*;
-use husky_expr::*;
+use husky_syn_expr::*;
 
 use super::*;
 

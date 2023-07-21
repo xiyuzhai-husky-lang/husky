@@ -2,7 +2,7 @@ use husky_print_utils::p;
 
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeAssociatedTypeNodeDecl {
     #[id]
     pub node_path: TraitForTypeItemNodePath,
@@ -62,7 +62,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeAssociatedTypeDecl {
     #[id]
     pub path: TraitForTypeItemPath,

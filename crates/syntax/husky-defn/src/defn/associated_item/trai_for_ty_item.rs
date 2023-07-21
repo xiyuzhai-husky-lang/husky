@@ -60,7 +60,7 @@ impl HasNodeDefn for TraitForTypeItemNodePath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn trai_for_ty_item_node_defn(
     db: &dyn DefnDb,
     node_path: TraitForTypeItemNodePath,
@@ -120,7 +120,7 @@ impl HasDefn for TraitForTypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn trai_for_ty_item_defn(
     db: &dyn DefnDb,
     path: TraitForTypeItemPath,

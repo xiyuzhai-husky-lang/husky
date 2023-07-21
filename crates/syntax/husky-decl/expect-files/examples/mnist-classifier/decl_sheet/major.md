@@ -36,7 +36,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::List {
+                                                SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         8,
                                                     ),
@@ -45,7 +45,7 @@ Ok(
                                                         9,
                                                     ),
                                                 },
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -55,7 +55,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
+                                                SynExpr::ExplicitApplication {
                                                     function_expr_idx: 0,
                                                     argument_expr_idx: 1,
                                                 },
@@ -157,7 +157,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -167,7 +167,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Prefix {
+                                                SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
                                                         20,
@@ -272,7 +272,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -380,7 +380,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::List {
+                                                SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         106,
                                                     ),
@@ -389,14 +389,14 @@ Ok(
                                                         107,
                                                     ),
                                                 },
-                                                Expr::Prefix {
+                                                SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
                                                         105,
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -406,7 +406,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
+                                                SynExpr::ExplicitApplication {
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },
@@ -508,7 +508,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -518,7 +518,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Prefix {
+                                                SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
                                                         117,
@@ -623,7 +623,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -633,7 +633,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::Prefix {
+                                                SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
                                                         130,
@@ -738,7 +738,7 @@ Ok(
                                         ),
                                         expr_arena: Arena {
                                             data: [
-                                                Expr::List {
+                                                SynExpr::List {
                                                     lbox_token_idx: TokenIdx(
                                                         141,
                                                     ),
@@ -747,14 +747,14 @@ Ok(
                                                         142,
                                                     ),
                                                 },
-                                                Expr::Prefix {
+                                                SynExpr::Prefix {
                                                     opr: Tilde,
                                                     opr_token_idx: TokenIdx(
                                                         140,
                                                     ),
                                                     opd: 0,
                                                 },
-                                                Expr::PrincipalEntityPath {
+                                                SynExpr::PrincipalEntityPath {
                                                     entity_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
@@ -764,7 +764,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                Expr::ExplicitApplication {
+                                                SynExpr::ExplicitApplication {
                                                     function_expr_idx: 1,
                                                     argument_expr_idx: 2,
                                                 },

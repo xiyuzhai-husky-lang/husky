@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitAssociatedTypeNodeDecl {
     #[id]
     pub path: TraitItemPath,
@@ -8,7 +8,7 @@ pub struct TraitAssociatedTypeNodeDecl {
     pub expr_region: ExprRegion,
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TraitAssociatedTypeDecl {
     #[id]
     pub path: TraitItemPath,

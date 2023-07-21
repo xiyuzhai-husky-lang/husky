@@ -4,8 +4,8 @@ use husky_defn::*;
 
 use husky_entity_taxonomy::EntityKind;
 use husky_entity_tree::ParentUseExpr;
-use husky_expr::*;
 use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion, IndexOrComposeWithListExprDisambiguation};
+use husky_syn_expr::*;
 
 pub(crate) struct InferEngine<'a> {
     db: &'a dyn TokenInfoDb,
@@ -259,15 +259,15 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn visit_expr(&mut self, expr_idx: ExprIdx, expr: &Expr) {
+    fn visit_expr(&mut self, expr_idx: ExprIdx, expr: &SynExpr) {
         match expr {
-            Expr::CurrentSymbol {
+            SynExpr::CurrentSymbol {
                 token_idx,
                 current_symbol_idx,
                 current_symbol_kind,
                 ..
             }
-            | Expr::FrameVarDecl {
+            | SynExpr::FrameVarDecl {
                 token_idx,
                 frame_var_symbol_idx: current_symbol_idx,
                 current_symbol_kind,
@@ -280,7 +280,7 @@ impl<'a> InferContext<'a> {
                     expr_region: self.expr_region,
                 },
             ),
-            Expr::InheritedSymbol {
+            SynExpr::InheritedSymbol {
                 token_idx,
                 inherited_symbol_idx,
                 inherited_symbol_kind,
@@ -293,34 +293,34 @@ impl<'a> InferContext<'a> {
                     inherited_symbol_kind: *inherited_symbol_kind,
                 },
             ),
-            Expr::SelfType(token_idx) => self.sheet.add(*token_idx, TokenInfo::SelfType),
-            Expr::SelfValue(token_idx) => self.sheet.add(*token_idx, TokenInfo::SelfValue),
-            Expr::Field { ident_token, .. } => {
+            SynExpr::SelfType(token_idx) => self.sheet.add(*token_idx, TokenInfo::SelfType),
+            SynExpr::SelfValue(token_idx) => self.sheet.add(*token_idx, TokenInfo::SelfValue),
+            SynExpr::Field { ident_token, .. } => {
                 self.sheet.add(ident_token.token_idx(), TokenInfo::Field)
             }
-            Expr::MethodApplicationOrCall { ident_token, .. } => {
+            SynExpr::MethodApplicationOrCall { ident_token, .. } => {
                 self.sheet.add(ident_token.token_idx(), TokenInfo::Method)
             }
-            Expr::Literal(_, _)
-            | Expr::PrincipalEntityPath { .. }
-            | Expr::ScopeResolution { .. }
-            | Expr::Binary { .. }
-            | Expr::Prefix { .. }
-            | Expr::Suffix { .. }
-            | Expr::TemplateInstantiation { .. }
-            | Expr::NewTuple { .. }
-            | Expr::List { .. }
-            | Expr::Bracketed { .. }
-            | Expr::Err(_)
-            | Expr::Block { .. }
-            | Expr::Be { .. } => (),
-            Expr::BoxColonList { .. } => (),
-            Expr::FunctionApplicationOrCall { function, .. }
-            | Expr::ExplicitApplication {
+            SynExpr::Literal(_, _)
+            | SynExpr::PrincipalEntityPath { .. }
+            | SynExpr::ScopeResolution { .. }
+            | SynExpr::Binary { .. }
+            | SynExpr::Prefix { .. }
+            | SynExpr::Suffix { .. }
+            | SynExpr::TemplateInstantiation { .. }
+            | SynExpr::NewTuple { .. }
+            | SynExpr::List { .. }
+            | SynExpr::Bracketed { .. }
+            | SynExpr::Err(_)
+            | SynExpr::Block { .. }
+            | SynExpr::Be { .. } => (),
+            SynExpr::BoxColonList { .. } => (),
+            SynExpr::FunctionApplicationOrCall { function, .. }
+            | SynExpr::ExplicitApplication {
                 function_expr_idx: function,
                 ..
             } => match self.expr_region_data[*function] {
-                Expr::List {
+                SynExpr::List {
                     lbox_token_idx,
                     items: _,
                     rbox_token_idx,
@@ -328,7 +328,7 @@ impl<'a> InferContext<'a> {
                     self.sheet.add(lbox_token_idx, TokenInfo::BoxPrefix);
                     self.sheet.add(rbox_token_idx, TokenInfo::BoxPrefix)
                 }
-                Expr::BoxColonList {
+                SynExpr::BoxColonList {
                     lbox_token_idx,
                     colon_token_idx,
                     rbox_token_idx,
@@ -340,7 +340,7 @@ impl<'a> InferContext<'a> {
                 }
                 _ => (),
             },
-            Expr::IndexOrCompositionWithList {
+            SynExpr::IndexOrCompositionWithList {
                 owner: _,
                 lbox_token_idx: _,
                 items: _indices,
@@ -363,7 +363,7 @@ impl<'a> InferContext<'a> {
                     None | Some(Err(_)) => (),
                 }
             }
-            Expr::Unit {
+            SynExpr::Unit {
                 lpar_token_idx,
                 rpar_token_idx,
             } => {
@@ -372,7 +372,7 @@ impl<'a> InferContext<'a> {
                 self.sheet
                     .add(*rpar_token_idx, TokenInfo::UnitRightParenthesis);
             }
-            Expr::EmptyHtmlTag {
+            SynExpr::EmptyHtmlTag {
                 empty_html_bra_idx,
                 function_ident,
                 ref arguments,
@@ -389,8 +389,8 @@ impl<'a> InferContext<'a> {
                     }
                 }
             }
-            Expr::FunctionCall { .. } => (),
-            Expr::Ritchie { .. } => (),
+            SynExpr::FunctionCall { .. } => (),
+            SynExpr::Ritchie { .. } => (),
         }
     }
 

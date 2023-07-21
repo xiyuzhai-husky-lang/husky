@@ -50,19 +50,19 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     match opr {
                         IncompleteCommaListOpr::UnitOrBracketedOrNewTuple => match items.last() {
-                            None => Expr::Unit {
+                            None => SynExpr::Unit {
                                 lpar_token_idx: bra_token_idx,
                                 rpar_token_idx: ket_token_idx,
                             },
                             Some(last_item) => {
                                 if items.len() == 1 && last_item.comma_token_idx().is_none() {
-                                    Expr::Bracketed {
+                                    SynExpr::Bracketed {
                                         lpar_token_idx: bra_token_idx,
                                         item: last_item.expr_idx(),
                                         rpar_token_idx: ket_token_idx,
                                     }
                                 } else {
-                                    Expr::NewTuple {
+                                    SynExpr::NewTuple {
                                         lpar_token_idx: bra_token_idx,
                                         items,
                                         rpar_token_idx: ket_token_idx,
@@ -72,7 +72,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         }
                         .into(),
                         IncompleteCommaListOpr::Index { owner } => {
-                            Expr::IndexOrCompositionWithList {
+                            SynExpr::IndexOrCompositionWithList {
                                 owner,
                                 lbox_token_idx: bra_token_idx,
                                 items,
@@ -80,14 +80,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             }
                             .into()
                         }
-                        IncompleteCommaListOpr::BoxList => Expr::List {
+                        IncompleteCommaListOpr::BoxList => SynExpr::List {
                             lbox_token_idx: bra_token_idx,
                             items,
                             rbox_token_idx: ket_token_idx,
                         }
                         .into(),
                         IncompleteCommaListOpr::BoxColonList { colon_token_idx } => {
-                            Expr::BoxColonList {
+                            SynExpr::BoxColonList {
                                 lbox_token_idx: bra_token_idx,
                                 colon_token_idx,
                                 items,
@@ -99,7 +99,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
                             // ad hoc
                             let implicit_arguments: Option<ImplicitArgumentList> = None;
-                            Expr::FunctionApplicationOrCall {
+                            SynExpr::FunctionApplicationOrCall {
                                 function,
                                 implicit_arguments,
                                 lpar_token_idx: bra_token_idx,
@@ -114,7 +114,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             dot_token_idx,
                             ident_token,
                             implicit_arguments,
-                        } => Expr::MethodApplicationOrCall {
+                        } => SynExpr::MethodApplicationOrCall {
                             self_argument: self_expr,
                             dot_token_idx,
                             ident_token,
@@ -125,7 +125,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         }
                         .into(),
                         IncompleteCommaListOpr::TemplateInstantiation { template } => {
-                            Expr::TemplateInstantiation {
+                            SynExpr::TemplateInstantiation {
                                 template,
                                 implicit_arguments: ImplicitArgumentList::new(
                                     bra_token_idx,
@@ -164,7 +164,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 IncompleteCallListOpr::FunctionCall {
                     function,
                     implicit_arguments,
-                } => self.set_complete_expr(Expr::FunctionCall {
+                } => self.set_complete_expr(SynExpr::FunctionCall {
                     function,
                     implicit_arguments,
                     lpar_token_idx,
@@ -215,7 +215,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
     }
 
-    fn accept_atom(&mut self, atom: Expr) {
+    fn accept_atom(&mut self, atom: SynExpr) {
         self.push_top_expr(atom.into())
     }
 
@@ -231,7 +231,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     fn accept_suffix_opr(&mut self, punctuation: SuffixOpr, punctuation_token_idx: TokenIdx) {
         self.take_complete_and_push_to_top(|this, top_expr| match top_expr {
-            Some(expr) => Expr::Suffix {
+            Some(expr) => SynExpr::Suffix {
                 opd: this.alloc_expr(expr),
                 opr: punctuation,
                 opr_token_idx: punctuation_token_idx,
@@ -273,7 +273,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                         items: smallvec![],
                                     }
                                     .into(),
-                                    Ok(None) => Expr::Field {
+                                    Ok(None) => SynExpr::Field {
                                         owner: self_expr,
                                         dot_token_idx,
                                         ident_token,
@@ -288,15 +288,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             }
                         }
                     }
-                    _ => {
-                        Expr::Err(OriginalExprError::ExpectedIdentAfterDot { dot_token_idx }.into())
-                            .into()
-                    }
+                    _ => SynExpr::Err(
+                        OriginalExprError::ExpectedIdentAfterDot { dot_token_idx }.into(),
+                    )
+                    .into(),
                 }
             }
-            None => {
-                Expr::Err(OriginalExprError::ExpectedExprBeforeDot { dot_token_idx }.into()).into()
-            }
+            None => SynExpr::Err(OriginalExprError::ExpectedExprBeforeDot { dot_token_idx }.into())
+                .into(),
         })
     }
 
@@ -351,7 +350,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     fn accept_be_pattern(&mut self, be_token_idx: TokenIdx) {
         self.reduce(Precedence::Be);
-        let src = self.take_complete_expr().unwrap_or(Expr::Err(
+        let src = self.take_complete_expr().unwrap_or(SynExpr::Err(
             OriginalExprError::ExpectedItemBeforeBe { be_token_idx }.into(),
         ));
         let src = self.alloc_expr(src);
@@ -363,7 +362,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             },
             None => todo!(),
         };
-        let expr = Expr::Be {
+        let expr = SynExpr::Be {
             src,
             be_token_idx,
             target: self.parse_be_variables_pattern_expected(end),
@@ -373,7 +372,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     fn accept_binary_opr(&mut self, binary: BinaryOpr, binary_token_idx: TokenIdx) {
         self.reduce(binary.into());
-        let lopd = self.take_complete_expr().unwrap_or(Expr::Err(
+        let lopd = self.take_complete_expr().unwrap_or(SynExpr::Err(
             OriginalExprError::NoLeftOperandForBinaryOperator { binary_token_idx }.into(),
         ));
         let unfinished_expr = IncompleteExpr::Binary {
@@ -453,7 +452,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     None => todo!(),
                 },
                 Bracket::Curl => {
-                    Expr::Err(OriginalExprError::UnexpectedLeftCurlyBrace(bra_token_idx).into())
+                    SynExpr::Err(OriginalExprError::UnexpectedLeftCurlyBrace(bra_token_idx).into())
                         .into()
                 }
                 Bracket::Lambda => todo!(),
@@ -462,14 +461,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         OriginalExprError::ExpectedFunctionIdentAfterOpeningHtmlBra,
                     ) {
                         Ok(function_ident) => function_ident,
-                        Err(e) => return Expr::Err(e).into(),
+                        Err(e) => return SynExpr::Err(e).into(),
                     };
                     let arguments = match parse_consecutive_vec_map(parser) {
                         Ok(arguments) => arguments,
-                        Err(e) => return Expr::Err(e).into(),
+                        Err(e) => return SynExpr::Err(e).into(),
                     };
                     match parser.try_parse_option::<EmptyHtmlKetToken>() {
-                        Ok(Some(empty_html_ket)) => Expr::EmptyHtmlTag {
+                        Ok(Some(empty_html_ket)) => SynExpr::EmptyHtmlTag {
                             empty_html_bra_idx: bra_token_idx,
                             function_ident,
                             arguments,

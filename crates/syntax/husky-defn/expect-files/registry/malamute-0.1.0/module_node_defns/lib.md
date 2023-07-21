@@ -99,7 +99,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::CurrentSymbol {
+                                            SynExpr::CurrentSymbol {
                                                 ident: `Label`,
                                                 token_idx: TokenIdx(
                                                     9,
@@ -312,7 +312,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::CurrentSymbol {
+                                            SynExpr::CurrentSymbol {
                                                 ident: `Label`,
                                                 token_idx: TokenIdx(
                                                     24,
@@ -461,7 +461,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::CurrentSymbol {
+                                            SynExpr::CurrentSymbol {
                                                 ident: `Label`,
                                                 token_idx: TokenIdx(
                                                     68,
@@ -478,7 +478,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            Expr::PrincipalEntityPath {
+                                            SynExpr::PrincipalEntityPath {
                                                 entity_path_expr: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::ModuleItem(
@@ -488,7 +488,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::PrincipalEntityPath {
+                                            SynExpr::PrincipalEntityPath {
                                                 entity_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::ModuleItem(
@@ -498,7 +498,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::Literal(
+                                            SynExpr::Literal(
                                                 TokenIdx(
                                                     82,
                                                 ),
@@ -508,7 +508,7 @@ Ok(
                                                     ),
                                                 ),
                                             ),
-                                            Expr::PrincipalEntityPath {
+                                            SynExpr::PrincipalEntityPath {
                                                 entity_path_expr: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::ModuleItem(
@@ -518,7 +518,7 @@ Ok(
                                                     ),
                                                 ),
                                             },
-                                            Expr::CurrentSymbol {
+                                            SynExpr::CurrentSymbol {
                                                 ident: `Label`,
                                                 token_idx: TokenIdx(
                                                     87,
@@ -535,11 +535,11 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            Expr::ExplicitApplication {
+                                            SynExpr::ExplicitApplication {
                                                 function_expr_idx: 4,
                                                 argument_expr_idx: 5,
                                             },
-                                            Expr::CurrentSymbol {
+                                            SynExpr::CurrentSymbol {
                                                 ident: `label`,
                                                 token_idx: TokenIdx(
                                                     88,
@@ -556,7 +556,7 @@ Ok(
                                                     },
                                                 },
                                             },
-                                            Expr::ExplicitApplication {
+                                            SynExpr::ExplicitApplication {
                                                 function_expr_idx: 6,
                                                 argument_expr_idx: 7,
                                             },
@@ -986,7 +986,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::CurrentSymbol {
+                                                    SynExpr::CurrentSymbol {
                                                         ident: `Label`,
                                                         token_idx: TokenIdx(
                                                             68,
@@ -1003,7 +1003,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    Expr::PrincipalEntityPath {
+                                                    SynExpr::PrincipalEntityPath {
                                                         entity_path_expr: 0,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::ModuleItem(
@@ -1013,7 +1013,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::PrincipalEntityPath {
+                                                    SynExpr::PrincipalEntityPath {
                                                         entity_path_expr: 1,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::ModuleItem(
@@ -1023,7 +1023,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::Literal(
+                                                    SynExpr::Literal(
                                                         TokenIdx(
                                                             82,
                                                         ),
@@ -1033,7 +1033,7 @@ Ok(
                                                             ),
                                                         ),
                                                     ),
-                                                    Expr::PrincipalEntityPath {
+                                                    SynExpr::PrincipalEntityPath {
                                                         entity_path_expr: 2,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::ModuleItem(
@@ -1043,7 +1043,7 @@ Ok(
                                                             ),
                                                         ),
                                                     },
-                                                    Expr::CurrentSymbol {
+                                                    SynExpr::CurrentSymbol {
                                                         ident: `Label`,
                                                         token_idx: TokenIdx(
                                                             87,
@@ -1060,11 +1060,11 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    Expr::ExplicitApplication {
+                                                    SynExpr::ExplicitApplication {
                                                         function_expr_idx: 4,
                                                         argument_expr_idx: 5,
                                                     },
-                                                    Expr::CurrentSymbol {
+                                                    SynExpr::CurrentSymbol {
                                                         ident: `label`,
                                                         token_idx: TokenIdx(
                                                             88,
@@ -1081,7 +1081,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    Expr::ExplicitApplication {
+                                                    SynExpr::ExplicitApplication {
                                                         function_expr_idx: 6,
                                                         argument_expr_idx: 7,
                                                     },
@@ -1543,7 +1543,7 @@ Ok(
                             ),
                             expr_arena: Arena {
                                 data: [
-                                    Expr::CurrentSymbol {
+                                    SynExpr::CurrentSymbol {
                                         ident: `Label`,
                                         token_idx: TokenIdx(
                                             39,
@@ -1560,7 +1560,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    Expr::PrincipalEntityPath {
+                                    SynExpr::PrincipalEntityPath {
                                         entity_path_expr: 2,
                                         opt_path: Some(
                                             PrincipalEntityPath::ModuleItem(
@@ -1570,7 +1570,7 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    Expr::PrincipalEntityPath {
+                                    SynExpr::PrincipalEntityPath {
                                         entity_path_expr: 3,
                                         opt_path: Some(
                                             PrincipalEntityPath::ModuleItem(
@@ -1580,11 +1580,11 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    Expr::ExplicitApplication {
+                                    SynExpr::ExplicitApplication {
                                         function_expr_idx: 1,
                                         argument_expr_idx: 2,
                                     },
-                                    Expr::CurrentSymbol {
+                                    SynExpr::CurrentSymbol {
                                         ident: `Label`,
                                         token_idx: TokenIdx(
                                             47,
@@ -1601,11 +1601,11 @@ Ok(
                                             },
                                         },
                                     },
-                                    Expr::ExplicitApplication {
+                                    SynExpr::ExplicitApplication {
                                         function_expr_idx: 3,
                                         argument_expr_idx: 4,
                                     },
-                                    Expr::CurrentSymbol {
+                                    SynExpr::CurrentSymbol {
                                         ident: `label`,
                                         token_idx: TokenIdx(
                                             48,
@@ -1622,11 +1622,11 @@ Ok(
                                             },
                                         },
                                     },
-                                    Expr::ExplicitApplication {
+                                    SynExpr::ExplicitApplication {
                                         function_expr_idx: 5,
                                         argument_expr_idx: 6,
                                     },
-                                    Expr::PrincipalEntityPath {
+                                    SynExpr::PrincipalEntityPath {
                                         entity_path_expr: 4,
                                         opt_path: Some(
                                             PrincipalEntityPath::ModuleItem(
@@ -1636,7 +1636,7 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    Expr::CurrentSymbol {
+                                    SynExpr::CurrentSymbol {
                                         ident: `Label`,
                                         token_idx: TokenIdx(
                                             51,
@@ -1653,11 +1653,11 @@ Ok(
                                             },
                                         },
                                     },
-                                    Expr::ExplicitApplication {
+                                    SynExpr::ExplicitApplication {
                                         function_expr_idx: 8,
                                         argument_expr_idx: 9,
                                     },
-                                    Expr::CurrentSymbol {
+                                    SynExpr::CurrentSymbol {
                                         ident: `label`,
                                         token_idx: TokenIdx(
                                             52,
@@ -1674,7 +1674,7 @@ Ok(
                                             },
                                         },
                                     },
-                                    Expr::ExplicitApplication {
+                                    SynExpr::ExplicitApplication {
                                         function_expr_idx: 10,
                                         argument_expr_idx: 11,
                                     },
@@ -1986,7 +1986,7 @@ Ok(
                                                 ),
                                                 expr_arena: Arena {
                                                     data: [
-                                                        Expr::CurrentSymbol {
+                                                        SynExpr::CurrentSymbol {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
                                                                 39,
@@ -2003,7 +2003,7 @@ Ok(
                                                                 },
                                                             },
                                                         },
-                                                        Expr::PrincipalEntityPath {
+                                                        SynExpr::PrincipalEntityPath {
                                                             entity_path_expr: 2,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::ModuleItem(
@@ -2013,7 +2013,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         },
-                                                        Expr::PrincipalEntityPath {
+                                                        SynExpr::PrincipalEntityPath {
                                                             entity_path_expr: 3,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::ModuleItem(
@@ -2023,11 +2023,11 @@ Ok(
                                                                 ),
                                                             ),
                                                         },
-                                                        Expr::ExplicitApplication {
+                                                        SynExpr::ExplicitApplication {
                                                             function_expr_idx: 1,
                                                             argument_expr_idx: 2,
                                                         },
-                                                        Expr::CurrentSymbol {
+                                                        SynExpr::CurrentSymbol {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
                                                                 47,
@@ -2044,11 +2044,11 @@ Ok(
                                                                 },
                                                             },
                                                         },
-                                                        Expr::ExplicitApplication {
+                                                        SynExpr::ExplicitApplication {
                                                             function_expr_idx: 3,
                                                             argument_expr_idx: 4,
                                                         },
-                                                        Expr::CurrentSymbol {
+                                                        SynExpr::CurrentSymbol {
                                                             ident: `label`,
                                                             token_idx: TokenIdx(
                                                                 48,
@@ -2065,11 +2065,11 @@ Ok(
                                                                 },
                                                             },
                                                         },
-                                                        Expr::ExplicitApplication {
+                                                        SynExpr::ExplicitApplication {
                                                             function_expr_idx: 5,
                                                             argument_expr_idx: 6,
                                                         },
-                                                        Expr::PrincipalEntityPath {
+                                                        SynExpr::PrincipalEntityPath {
                                                             entity_path_expr: 4,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::ModuleItem(
@@ -2079,7 +2079,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         },
-                                                        Expr::CurrentSymbol {
+                                                        SynExpr::CurrentSymbol {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
                                                                 51,
@@ -2096,11 +2096,11 @@ Ok(
                                                                 },
                                                             },
                                                         },
-                                                        Expr::ExplicitApplication {
+                                                        SynExpr::ExplicitApplication {
                                                             function_expr_idx: 8,
                                                             argument_expr_idx: 9,
                                                         },
-                                                        Expr::CurrentSymbol {
+                                                        SynExpr::CurrentSymbol {
                                                             ident: `label`,
                                                             token_idx: TokenIdx(
                                                                 52,
@@ -2117,7 +2117,7 @@ Ok(
                                                                 },
                                                             },
                                                         },
-                                                        Expr::ExplicitApplication {
+                                                        SynExpr::ExplicitApplication {
                                                             function_expr_idx: 10,
                                                             argument_expr_idx: 11,
                                                         },
@@ -2339,7 +2339,7 @@ Ok(
                                     ),
                                     expr_arena: Arena {
                                         data: [
-                                            Expr::Unit {
+                                            SynExpr::Unit {
                                                 lpar_token_idx: TokenIdx(
                                                     57,
                                                 ),
@@ -2446,7 +2446,7 @@ Ok(
                                                         ),
                                                         expr_arena: Arena {
                                                             data: [
-                                                                Expr::CurrentSymbol {
+                                                                SynExpr::CurrentSymbol {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
                                                                         39,
@@ -2463,7 +2463,7 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                Expr::PrincipalEntityPath {
+                                                                SynExpr::PrincipalEntityPath {
                                                                     entity_path_expr: 2,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::ModuleItem(
@@ -2473,7 +2473,7 @@ Ok(
                                                                         ),
                                                                     ),
                                                                 },
-                                                                Expr::PrincipalEntityPath {
+                                                                SynExpr::PrincipalEntityPath {
                                                                     entity_path_expr: 3,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::ModuleItem(
@@ -2483,11 +2483,11 @@ Ok(
                                                                         ),
                                                                     ),
                                                                 },
-                                                                Expr::ExplicitApplication {
+                                                                SynExpr::ExplicitApplication {
                                                                     function_expr_idx: 1,
                                                                     argument_expr_idx: 2,
                                                                 },
-                                                                Expr::CurrentSymbol {
+                                                                SynExpr::CurrentSymbol {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
                                                                         47,
@@ -2504,11 +2504,11 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                Expr::ExplicitApplication {
+                                                                SynExpr::ExplicitApplication {
                                                                     function_expr_idx: 3,
                                                                     argument_expr_idx: 4,
                                                                 },
-                                                                Expr::CurrentSymbol {
+                                                                SynExpr::CurrentSymbol {
                                                                     ident: `label`,
                                                                     token_idx: TokenIdx(
                                                                         48,
@@ -2525,11 +2525,11 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                Expr::ExplicitApplication {
+                                                                SynExpr::ExplicitApplication {
                                                                     function_expr_idx: 5,
                                                                     argument_expr_idx: 6,
                                                                 },
-                                                                Expr::PrincipalEntityPath {
+                                                                SynExpr::PrincipalEntityPath {
                                                                     entity_path_expr: 4,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::ModuleItem(
@@ -2539,7 +2539,7 @@ Ok(
                                                                         ),
                                                                     ),
                                                                 },
-                                                                Expr::CurrentSymbol {
+                                                                SynExpr::CurrentSymbol {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
                                                                         51,
@@ -2556,11 +2556,11 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                Expr::ExplicitApplication {
+                                                                SynExpr::ExplicitApplication {
                                                                     function_expr_idx: 8,
                                                                     argument_expr_idx: 9,
                                                                 },
-                                                                Expr::CurrentSymbol {
+                                                                SynExpr::CurrentSymbol {
                                                                     ident: `label`,
                                                                     token_idx: TokenIdx(
                                                                         52,
@@ -2577,7 +2577,7 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                Expr::ExplicitApplication {
+                                                                SynExpr::ExplicitApplication {
                                                                     function_expr_idx: 10,
                                                                     argument_expr_idx: 11,
                                                                 },
@@ -2799,7 +2799,7 @@ Ok(
                                             ),
                                             expr_arena: Arena {
                                                 data: [
-                                                    Expr::Unit {
+                                                    SynExpr::Unit {
                                                         lpar_token_idx: TokenIdx(
                                                             57,
                                                         ),

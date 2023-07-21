@@ -32,7 +32,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         path_name_token: PathNameToken,
         principal_entity_path: PrincipalEntityPath,
-    ) -> Expr {
+    ) -> SynExpr {
         let root = self.alloc_entity_path_expr(PrincipalEntityPathExpr::Root {
             path_name_token,
             principal_entity_path,
@@ -41,7 +41,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
            && let Some(scope_resolution_token)= self.try_parse_err_as_none::<ScopeResolutionToken>() {
             self.parse_subentity_path_expr(root, major_entity_path, scope_resolution_token)
         } else{
-            Expr::PrincipalEntityPath {
+            SynExpr::PrincipalEntityPath {
                 entity_path_expr: root,
                 opt_path: Some(principal_entity_path),
             }
@@ -53,7 +53,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         parent: PrincipalEntityPathExprIdx,
         parent_path: MajorEntityPath,
         scope_resolution_token: ScopeResolutionToken,
-    ) -> Expr {
+    ) -> SynExpr {
         let ident_token: PrincipalEntityPathExprResult<IdentToken> = self.try_parse_expected(
             OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution,
         );
@@ -64,8 +64,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     Ok(subentity_path) => match subentity_path {
                         SubentityPath::Principal(path) => Ok(path),
                         SubentityPath::Associated => {
-                            return Expr::ScopeResolution {
-                                parent_expr_idx: self.alloc_expr(Expr::PrincipalEntityPath {
+                            return SynExpr::ScopeResolution {
+                                parent_expr_idx: self.alloc_expr(SynExpr::PrincipalEntityPath {
                                     entity_path_expr: parent,
                                     opt_path: Some(parent_path.into()),
                                 }),
@@ -95,7 +95,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             && let Some(scope_resolution_token) = self.try_parse_err_as_none::<ScopeResolutionToken>() {
             self.parse_subentity_path_expr(expr, major_entity_path, scope_resolution_token)
         } else {
-            Expr::PrincipalEntityPath {
+            SynExpr::PrincipalEntityPath {
                 entity_path_expr: expr,
                 opt_path,
             } 

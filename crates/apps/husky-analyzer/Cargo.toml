@@ -64,8 +64,8 @@ husky-decr = { path = "../../syntax/husky-decr" }
 husky-defn = { path = "../../syntax/husky-defn" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
-husky-syntax-fmt = { path = "../../syntax/husky-syntax-fmt" }
-husky-expr = { path = "../../syntax/husky-expr" }
+husky-syn-fmt = { path = "../../syntax/husky-syn-fmt" }
+husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 # utils
 error-utils = { path = "../../utils/husky-error-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }

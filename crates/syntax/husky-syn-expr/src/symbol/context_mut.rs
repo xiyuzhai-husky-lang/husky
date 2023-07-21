@@ -37,7 +37,7 @@ impl<'a> SymbolContextMut<'a> {
             .map(|e| Symbol::PrincipalEntity(e.path(db))))
     }
 
-    fn exprs(&self) -> &[Expr] {
+    fn exprs(&self) -> &[SynExpr] {
         todo!()
     }
 

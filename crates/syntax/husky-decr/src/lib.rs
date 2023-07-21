@@ -10,8 +10,8 @@ pub use self::error::*;
 
 use self::parser::*;
 use husky_entity_path::*;
-use husky_expr::*;
+use husky_syn_expr::*;
 use husky_token::*;
 
 #[salsa::jar(db = DecrDb)]
-pub struct DecrJar(DeriveDecr, ty_path_decrs);
+pub struct SynDecrJar(DeriveDecr, ty_path_decrs);

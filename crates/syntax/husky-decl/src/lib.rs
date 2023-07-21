@@ -21,7 +21,7 @@ use either::*;
 use husky_ast::*;
 use husky_entity_path::*;
 use husky_entity_tree::*;
-use husky_expr::*;
+use husky_syn_expr::*;
 use husky_token::*;
 use husky_vfs::ModulePath;
 use parsec::StreamParser;
@@ -31,7 +31,7 @@ use smallvec::{SmallVec, ToSmallVec};
 use tests::*;
 
 #[salsa::jar(db = DeclDb)]
-pub struct DeclJar(
+pub struct SynDeclJar(
     // decl
     // - submodule
     SubmoduleNodeDecl,

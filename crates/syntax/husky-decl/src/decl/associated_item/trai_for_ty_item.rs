@@ -84,7 +84,7 @@ impl HasNodeDecl for TraitForTypeItemNodePath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_item_node_decl(
     db: &dyn DeclDb,
     node_path: TraitForTypeItemNodePath,
@@ -226,7 +226,7 @@ impl HasDecl for TraitForTypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = DeclJar)]
+#[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_item_decl(
     db: &dyn DeclDb,
     path: TraitForTypeItemPath,

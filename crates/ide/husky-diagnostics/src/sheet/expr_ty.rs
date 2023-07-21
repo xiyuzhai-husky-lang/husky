@@ -1,8 +1,8 @@
 use super::*;
 use husky_defn::HasDefns;
-use husky_expr::{ExprIdx, ExprRegion};
 use husky_expr_ty::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
 use husky_fluffy_term::*;
+use husky_syn_expr::{ExprIdx, ExprRegion};
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]

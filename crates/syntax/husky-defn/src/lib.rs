@@ -15,13 +15,13 @@ use husky_ast::*;
 use husky_decl::*;
 use husky_entity_path::*;
 use husky_entity_tree::*;
-use husky_expr::ExprIdx;
-use husky_expr::*;
+use husky_syn_expr::ExprIdx;
+use husky_syn_expr::*;
 use husky_vfs::ModulePath;
 use salsa::DbWithJar;
 
 #[salsa::jar(db = DefnDb)]
-pub struct DefnJar(
+pub struct SynDefnJar(
     // type
     ty_node_defn,
     ty_defn,

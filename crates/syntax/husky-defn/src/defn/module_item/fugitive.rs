@@ -56,7 +56,7 @@ impl HasNodeDefn for FugitiveNodePath {
     }
 }
 
-#[salsa::tracked(jar = DefnJar)]
+#[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn fugitive_node_defn(db: &dyn DefnDb, node_path: FugitiveNodePath) -> FugitiveNodeDefn {
     match node_path.node_decl(db) {
         FugitiveNodeDecl::Fn(node_decl) => FnNodeDefn::new(db, node_path, node_decl).into(),
@@ -110,7 +110,7 @@ impl HasDefn for FugitivePath {
     }
 }
 
-#[salsa::tracked(jar= DefnJar)]
+#[salsa::tracked(jar= SynDefnJar)]
 pub(crate) fn fugitive_defn(db: &dyn DefnDb, path: FugitivePath) -> DefnResult<FugitiveDefn> {
     Ok(match path.decl(db)? {
         FugitiveDecl::Fn(decl) => FnDefn::new(db, path, decl).into(),

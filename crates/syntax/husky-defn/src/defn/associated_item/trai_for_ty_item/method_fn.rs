@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DefnDb, jar = DefnJar, constructor = new_inner)]
+#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitForTypeMethodFnNodeDefn {
     #[id]
     pub node_path: TraitForTypeItemNodePath,
@@ -34,7 +34,7 @@ impl TraitForTypeMethodFnNodeDefn {
     }
 }
 
-#[salsa::tracked(db = DefnDb, jar = DefnJar, constructor = new_inner)]
+#[salsa::tracked(db = DefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct TraitForTypeMethodFnDefn {
     #[id]
     pub path: TraitForTypeItemPath,

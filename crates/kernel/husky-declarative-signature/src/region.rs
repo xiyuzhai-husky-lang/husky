@@ -10,7 +10,7 @@ pub(crate) use engine::*;
 use crate::*;
 
 use husky_entity_tree::RegionPath;
-use husky_expr::{
+use husky_syn_expr::{
     AllowSelfType, CurrentSymbolIdx, ExprIdx, ExprMap, ExprRegion, InheritedSymbolIdx,
     ParentSymbolIdx, PatternExprIdx, PatternExprMap, PatternSymbolMap, SymbolRegion,
 };

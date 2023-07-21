@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_tree::EntityTreeError;
-use husky_expr::OriginalExprError;
+use husky_syn_expr::OriginalExprError;
 use husky_token::*;
 use husky_vfs::VfsError;
 use original_error::IntoError;

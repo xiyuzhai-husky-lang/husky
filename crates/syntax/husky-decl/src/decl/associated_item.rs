@@ -113,7 +113,7 @@ impl HasDecl for AssociatedItemPath {
     }
 }
 
-// #[salsa::tracked(jar = DeclJar, return_ref)]
+// #[salsa::tracked(jar = SynDeclJar, return_ref)]
 // pub(crate) fn associated_item_decl(
 //     db: &dyn DeclDb,
 //     node: AssociatedItemNode,

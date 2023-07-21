@@ -1,5 +1,5 @@
 use husky_decr::DecrDb;
-use husky_expr::ExprRegion;
+use husky_syn_expr::ExprRegion;
 
 use crate::*;
 

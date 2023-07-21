@@ -1,5 +1,5 @@
 use crate::*;
-use husky_expr::ExprRegion;
+use husky_syn_expr::ExprRegion;
 
 pub(crate) struct ModuleDiagnosticsCollector<'a> {
     context: SheetDiagnosticsContext<'a>,

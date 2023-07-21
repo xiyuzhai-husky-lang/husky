@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 use husky_vfs::CratePath;
 
-#[salsa::tracked(jar = ExprJar, return_ref)]
+#[salsa::tracked(jar = SynExprJar, return_ref)]
 pub(crate) fn parse_expr_from_snippet(
     db: &dyn ExprDb,
     crate_path: CratePath,

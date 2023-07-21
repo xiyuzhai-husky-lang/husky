@@ -8,7 +8,7 @@ use crate::*;
 use husky_entity_path::EntityPathError;
 use husky_ethereal_signature::EtherealSignatureError;
 use husky_ethereal_term::EtherealTermError;
-use husky_expr::ExprIdx;
+use husky_syn_expr::ExprIdx;
 use husky_token::IdentToken;
 use original_error::IntoError;
 use thiserror::Error;

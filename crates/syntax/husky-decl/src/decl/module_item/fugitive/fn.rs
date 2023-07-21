@@ -1,7 +1,7 @@
 use super::*;
 use husky_token::{CurryToken, EolToken};
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct FnNodeDecl {
     #[id]
     pub node_path: FugitiveNodePath,
@@ -74,7 +74,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = DeclJar)]
+#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct FnDecl {
     #[id]
     pub path: FugitivePath,
