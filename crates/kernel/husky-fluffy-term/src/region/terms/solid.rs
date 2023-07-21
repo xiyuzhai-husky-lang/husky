@@ -1,4 +1,5 @@
 use super::*;
+use salsa::DisplayWithDb;
 use vec_like::{AsVecMapEntry, VecMap, VecSet};
 
 // `Default` is not implemented because we might need to initialize it from the parent
@@ -43,6 +44,39 @@ impl SolidTerm {
 
     pub(crate) fn data2(self, solid_terms: &SolidTerms) -> &SolidTermData {
         &solid_terms.entries.data()[self.0 as usize]
+    }
+
+    pub fn show(self, db: &dyn FluffyTermDb, solid_terms: &SolidTerms) -> String {
+        match self.data2(solid_terms) {
+            SolidTermData::TypeOntology {
+                path,
+                refined_path,
+                arguments,
+            } => todo!(),
+            SolidTermData::TypeOntologyAtPlace {
+                path,
+                refined_path,
+                arguments,
+                base_ty_term,
+                place,
+            } => match base_ty_term {
+                Some(base_ty_term) => format!("{} at {:?}", base_ty_term.display(db), place),
+                None => todo!(),
+            },
+            SolidTermData::SymbolAtPlace { term, place } => todo!(),
+            SolidTermData::Curry {
+                curry_kind,
+                variance,
+                parameter_variable,
+                parameter_ty,
+                return_ty,
+            } => todo!(),
+            SolidTermData::Ritchie {
+                ritchie_kind,
+                parameter_contracted_tys,
+                return_ty,
+            } => todo!(),
+        }
     }
 }
 

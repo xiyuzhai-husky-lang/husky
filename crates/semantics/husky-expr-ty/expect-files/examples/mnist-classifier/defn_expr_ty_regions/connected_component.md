@@ -6240,27 +6240,6 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
-                            InstanceConstructor,
-                        ),
-                        Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 14,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    14,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
                         Trivial,
                         Ok(
                             Solid(
@@ -6272,26 +6251,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    15,
-                ),
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        ExplicitApplicationOrFunctionCall(
-                            RitchieCall,
-                        ),
-                        Ok(
-                            Hollow(
-                                HollowTerm(
-                                    1,
-                                ),
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: Some(
-                    16,
+                    14,
                 ),
             },
             ExprTypeInfo {
@@ -6314,7 +6274,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    17,
+                    15,
                 ),
             },
             ExprTypeInfo {
@@ -6335,7 +6295,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    18,
+                    16,
                 ),
             },
         ],
@@ -6367,7 +6327,7 @@
             Ok(
                 FluffyTerm::Application(
                     EtherealTermApplication {
-                        function: EtherealTerm(`Leash`),
+                        function: EtherealTerm(`Option`),
                         argument: EtherealTerm(`Leash RawContour`),
                         shift: 0,
                     },
@@ -6377,7 +6337,7 @@
                 FluffyTerm::Application(
                     EtherealTermApplication {
                         function: EtherealTerm(`List`),
-                        argument: EtherealTerm(`Leash Leash RawContour`),
+                        argument: EtherealTerm(`Option Leash RawContour`),
                         shift: 0,
                     },
                 ),
@@ -6457,70 +6417,7 @@
                     },
                 },
                 hollow_terms: HollowTerms {
-                    entries: [
-                        HollowTermEntry {
-                            data: Hole {
-                                hole_source: Expectation(
-                                    14,
-                                ),
-                                hole_kind: ImplicitType,
-                                fill: None,
-                                constraints: [
-                                    CoercibleFrom {
-                                        target: Solid(
-                                            SolidTerm(
-                                                0,
-                                            ),
-                                        ),
-                                    },
-                                ],
-                            },
-                            resolve_progress: Unresolved,
-                        },
-                        HollowTermEntry {
-                            data: TypeOntology {
-                                path: TypePath(
-                                    Id {
-                                        value: 37,
-                                    },
-                                ),
-                                refined_path: Left(
-                                    Option,
-                                ),
-                                arguments: [
-                                    Hollow(
-                                        HollowTerm(
-                                            0,
-                                        ),
-                                    ),
-                                ],
-                            },
-                            resolve_progress: Unresolved,
-                        },
-                        HollowTermEntry {
-                            data: Ritchie {
-                                ritchie_kind: FnType,
-                                params: [
-                                    Regular(
-                                        FluffyTermRitchieRegularParameter {
-                                            contract: Move,
-                                            ty: Hollow(
-                                                HollowTerm(
-                                                    0,
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ],
-                                return_ty: Hollow(
-                                    HollowTerm(
-                                        1,
-                                    ),
-                                ),
-                            },
-                            resolve_progress: Unresolved,
-                        },
-                    ],
+                    entries: [],
                     first_unresolved_term_idx: 0,
                 },
             },
@@ -6955,7 +6852,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 43,
+                                                                            value: 41,
                                                                         },
                                                                     ),
                                                                 ),
@@ -6970,9 +6867,16 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsFunctionType(
-                                ExpectEqsFunctionType {
-                                    final_destination: TypeOntology,
+                            expectation: ImplicitlyConvertible(
+                                ExpectCoersion {
+                                    contract: Move,
+                                    ty_expected: Application(
+                                        EtherealTermApplication(
+                                            Id {
+                                                value: 41,
+                                            },
+                                        ),
+                                    ),
                                 },
                             ),
                             meta: ExpectationState {
@@ -6981,123 +6885,15 @@
                                     expr_idx: 23,
                                     kind: Expr,
                                 },
-                                expectee: Curry(
-                                    EtherealTermCurry(
-                                        Id {
-                                            value: 14,
-                                        },
-                                    ),
-                                ),
-                                resolve_progress: Resolved(
-                                    Ok(
-                                        EqsFunctionCallType(
-                                            ExpectEqsFunctionTypeOutcome {
-                                                implicit_parameter_substitutions: [
-                                                    ImplicitParameterSubstitution {
-                                                        variable: Variable(
-                                                            EtherealTermVariable(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
-                                                            ),
-                                                        ),
-                                                        substitute: Hollow(
-                                                            HollowTerm(
-                                                                0,
-                                                            ),
-                                                        ),
-                                                    },
-                                                ],
-                                                return_ty: Hollow(
-                                                    HollowTerm(
-                                                        1,
-                                                    ),
-                                                ),
-                                                variant: Ritchie {
-                                                    ritchie_kind: FnType,
-                                                    parameter_contracted_tys: [
-                                                        Regular(
-                                                            FluffyTermRitchieRegularParameter {
-                                                                contract: Move,
-                                                                ty: Hollow(
-                                                                    HollowTerm(
-                                                                        0,
-                                                                    ),
-                                                                ),
-                                                            },
-                                                        ),
-                                                    ],
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                        ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: Move,
-                                    ty_expected: Hollow(
-                                        HollowTerm(
-                                            0,
-                                        ),
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 15,
-                                src: ExpectationSource {
-                                    expr_idx: 24,
-                                    kind: Expr,
-                                },
                                 expectee: Solid(
                                     SolidTerm(
                                         0,
                                     ),
                                 ),
-                                resolve_progress: Holed,
-                            },
-                        },
-                        ExpectationEntry {
-                            expectation: ImplicitlyConvertible(
-                                ExpectCoersion {
-                                    contract: Move,
-                                    ty_expected: Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 43,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 16,
-                                src: ExpectationSource {
-                                    expr_idx: 25,
-                                    kind: Expr,
-                                },
-                                expectee: Hollow(
-                                    HollowTerm(
-                                        1,
-                                    ),
-                                ),
                                 resolve_progress: Resolved(
-                                    Err(
-                                        Original(
-                                            TypePathMismatch {
-                                                expected_path: TypePath(
-                                                    Id {
-                                                        value: 69,
-                                                    },
-                                                ),
-                                                expectee_path: TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
-                                            },
+                                    Ok(
+                                        ImplicitlyConvertible(
+                                            Trivial,
                                         ),
                                     ),
                                 ),
@@ -7119,9 +6915,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 17,
+                                idx: 15,
                                 src: ExpectationSource {
-                                    expr_idx: 26,
+                                    expr_idx: 24,
                                     kind: Expr,
                                 },
                                 expectee: EntityPath(
@@ -7158,9 +6954,9 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 18,
+                                idx: 16,
                                 src: ExpectationSource {
-                                    expr_idx: 27,
+                                    expr_idx: 25,
                                     kind: Expr,
                                 },
                                 expectee: EntityPath(
@@ -9576,7 +9372,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 10,
+                                        value: 9,
                                     },
                                 ),
                             ),
@@ -10013,7 +9809,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 10,
+                                            value: 9,
                                         },
                                     ),
                                 ),

@@ -4524,7 +4524,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 119,
+                                                value: 115,
                                             },
                                         ),
                                     ),
@@ -5654,7 +5654,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 119,
+                                        value: 115,
                                     },
                                 ),
                             ),
@@ -9959,7 +9959,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 119,
+                                                value: 115,
                                             },
                                         ),
                                     ),
@@ -10881,7 +10881,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 119,
+                                                value: 115,
                                             },
                                         ),
                                     ),
@@ -10896,7 +10896,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 119,
+                                            value: 115,
                                         },
                                     ),
                                 ),
@@ -12338,7 +12338,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 119,
+                                                                            value: 115,
                                                                         },
                                                                     ),
                                                                 ),
@@ -12359,7 +12359,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 119,
+                                                value: 115,
                                             },
                                         ),
                                     ),
@@ -15269,7 +15269,7 @@
                                     ty: Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 14,
+                                                value: 13,
                                             },
                                         ),
                                     ),
@@ -15280,7 +15280,7 @@
                             Ritchie(
                                 EtherealTermRitchie(
                                     Id {
-                                        value: 14,
+                                        value: 13,
                                     },
                                 ),
                             ),
@@ -15458,7 +15458,7 @@
                                 expectee: Ritchie(
                                     EtherealTermRitchie(
                                         Id {
-                                            value: 14,
+                                            value: 13,
                                         },
                                     ),
                                 ),

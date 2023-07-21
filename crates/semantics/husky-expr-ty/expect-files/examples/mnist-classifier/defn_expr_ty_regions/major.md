@@ -44,7 +44,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 116,
+                                        value: 112,
                                     },
                                 ),
                             ),
@@ -209,14 +209,31 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 116,
+                                            value: 112,
                                         },
                                     ),
                                 ),
                                 resolve_progress: Resolved(
                                     Err(
                                         Original(
-                                            TypePathMismatch {
+                                            TypePathMismatchForCoersion {
+                                                contract: None,
+                                                ty_expected: EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 100,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                expectee: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 112,
+                                                        },
+                                                    ),
+                                                ),
                                                 expected_path: TypePath(
                                                     Id {
                                                         value: 100,
@@ -371,7 +388,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 113,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -402,7 +419,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 113,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -593,7 +610,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 113,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -762,7 +779,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 113,
+                                            value: 111,
                                         },
                                     ),
                                 ),
@@ -782,7 +799,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 113,
+                                            value: 111,
                                         },
                                     ),
                                 ),
@@ -919,7 +936,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 113,
+                                            value: 111,
                                         },
                                     ),
                                 ),
@@ -933,7 +950,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 74,
+                                                value: 71,
                                             },
                                         ),
                                     ),
@@ -1014,7 +1031,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 113,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -1045,7 +1062,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 113,
+                                        value: 111,
                                     },
                                 ),
                             ),
@@ -1129,7 +1146,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 74,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -1313,7 +1330,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 113,
+                                            value: 111,
                                         },
                                     ),
                                 ),
@@ -1333,7 +1350,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 113,
+                                            value: 111,
                                         },
                                     ),
                                 ),
@@ -1392,7 +1409,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 74,
+                                            value: 71,
                                         },
                                     ),
                                 ),
@@ -1494,7 +1511,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 74,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -1610,7 +1627,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 74,
+                                            value: 71,
                                         },
                                     ),
                                 ),
@@ -1624,7 +1641,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 118,
+                                                value: 114,
                                             },
                                         ),
                                     ),
@@ -1646,7 +1663,22 @@
                                 resolve_progress: Resolved(
                                     Err(
                                         Original(
-                                            TypePathMismatch {
+                                            TypePathMismatchForCoersion {
+                                                contract: Move,
+                                                ty_expected: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 114,
+                                                        },
+                                                    ),
+                                                ),
+                                                expectee: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 39,
+                                                        },
+                                                    ),
+                                                ),
                                                 expected_path: TypePath(
                                                     Id {
                                                         value: 68,
@@ -1670,7 +1702,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 118,
+                                                value: 114,
                                             },
                                         ),
                                     ),
@@ -1692,7 +1724,22 @@
                                 resolve_progress: Resolved(
                                     Err(
                                         Original(
-                                            TypePathMismatch {
+                                            TypePathMismatchForCoersion {
+                                                contract: Move,
+                                                ty_expected: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 114,
+                                                        },
+                                                    ),
+                                                ),
+                                                expectee: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 39,
+                                                        },
+                                                    ),
+                                                ),
                                                 expected_path: TypePath(
                                                     Id {
                                                         value: 68,
@@ -1743,7 +1790,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 74,
+                                        value: 71,
                                     },
                                 ),
                             ),
@@ -1936,7 +1983,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 74,
+                                            value: 71,
                                         },
                                     ),
                                 ),
@@ -2041,7 +2088,24 @@
                                 resolve_progress: Resolved(
                                     Err(
                                         Original(
-                                            TypePathMismatch {
+                                            TypePathMismatchForCoersion {
+                                                contract: Move,
+                                                ty_expected: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 36,
+                                                        },
+                                                    ),
+                                                ),
+                                                expectee: EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 82,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                                 expected_path: TypePath(
                                                     Id {
                                                         value: 68,
@@ -2089,7 +2153,24 @@
                                 resolve_progress: Resolved(
                                     Err(
                                         Original(
-                                            TypePathMismatch {
+                                            TypePathMismatchForCoersion {
+                                                contract: Move,
+                                                ty_expected: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 36,
+                                                        },
+                                                    ),
+                                                ),
+                                                expectee: EntityPath(
+                                                    TypeOntology(
+                                                        TypePath(
+                                                            Id {
+                                                                value: 82,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
                                                 expected_path: TypePath(
                                                     Id {
                                                         value: 68,
@@ -2262,7 +2343,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 75,
+                                        value: 72,
                                     },
                                 ),
                             ),
@@ -2290,7 +2371,7 @@
                                     ty: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 48,
+                                                value: 45,
                                             },
                                         ),
                                     ),
@@ -2301,7 +2382,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 45,
                                     },
                                 ),
                             ),
@@ -2320,7 +2401,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 48,
+                                        value: 45,
                                     },
                                 ),
                             ),
@@ -2378,7 +2459,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 75,
+                                            value: 72,
                                         },
                                     ),
                                 ),
@@ -2392,7 +2473,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 49,
+                                                value: 46,
                                             },
                                         ),
                                     ),
@@ -2407,14 +2488,29 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 45,
                                         },
                                     ),
                                 ),
                                 resolve_progress: Resolved(
                                     Err(
                                         Original(
-                                            TypePathMismatch {
+                                            TypePathMismatchForCoersion {
+                                                contract: Move,
+                                                ty_expected: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 46,
+                                                        },
+                                                    ),
+                                                ),
+                                                expectee: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 45,
+                                                        },
+                                                    ),
+                                                ),
                                                 expected_path: TypePath(
                                                     Id {
                                                         value: 68,
@@ -2438,7 +2534,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 49,
+                                                value: 46,
                                             },
                                         ),
                                     ),
@@ -2453,14 +2549,29 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 48,
+                                            value: 45,
                                         },
                                     ),
                                 ),
                                 resolve_progress: Resolved(
                                     Err(
                                         Original(
-                                            TypePathMismatch {
+                                            TypePathMismatchForCoersion {
+                                                contract: Move,
+                                                ty_expected: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 46,
+                                                        },
+                                                    ),
+                                                ),
+                                                expectee: Application(
+                                                    EtherealTermApplication(
+                                                        Id {
+                                                            value: 45,
+                                                        },
+                                                    ),
+                                                ),
                                                 expected_path: TypePath(
                                                     Id {
                                                         value: 68,

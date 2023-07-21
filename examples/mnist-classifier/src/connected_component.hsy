@@ -37,7 +37,7 @@ impl ConnectedComponent:
         raw_contours.pop_with_largest_opt_f32(hole_tmpl);
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl))
         matches.push(raw_contours.pop_with_largest_opt_f32(hole_tmpl))
-        return EffHoles(Some(matches))
+        return EffHoles(matches)
 
     val max_hole_ilen: f32 =
         // todo: change self to iter

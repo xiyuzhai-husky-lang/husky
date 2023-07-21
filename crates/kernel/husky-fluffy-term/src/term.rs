@@ -72,7 +72,7 @@ impl FluffyTerm {
     pub fn show(self, db: &dyn FluffyTermDb, region: &FluffyTermRegion) -> String {
         match self.nested() {
             NestedFluffyTerm::Ethereal(term) => term.display(db).to_string(),
-            NestedFluffyTerm::Solid(_) => todo!(),
+            NestedFluffyTerm::Solid(term) => term.show(db, region.terms.solid_terms()),
             NestedFluffyTerm::Hollow(_) => todo!(),
         }
     }

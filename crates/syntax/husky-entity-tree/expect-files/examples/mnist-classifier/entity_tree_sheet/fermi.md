@@ -2295,7 +2295,7 @@ Ok(
                                             ident_token: IdentToken {
                                                 ident: `find_connected_components`,
                                                 token_idx: TokenIdx(
-                                                    657,
+                                                    654,
                                                 ),
                                             },
                                             block: Fugitive {

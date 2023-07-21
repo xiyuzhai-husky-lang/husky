@@ -241,7 +241,7 @@ Ok(
             ),
             end_line: 39,
             end_character: Some(
-                38,
+                32,
             ),
             kind: Some(
                 Region,

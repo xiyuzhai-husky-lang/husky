@@ -23,7 +23,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 81,
+                                        value: 78,
                                     },
                                 ),
                             ),
@@ -42,7 +42,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 81,
+                                        value: 78,
                                     },
                                 ),
                             ),
@@ -94,7 +94,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 81,
+                                                value: 78,
                                             },
                                         ),
                                     ),
@@ -109,7 +109,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 81,
+                                            value: 78,
                                         },
                                     ),
                                 ),
@@ -129,7 +129,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 81,
+                                                value: 78,
                                             },
                                         ),
                                     ),
@@ -144,7 +144,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 81,
+                                            value: 78,
                                         },
                                     ),
                                 ),

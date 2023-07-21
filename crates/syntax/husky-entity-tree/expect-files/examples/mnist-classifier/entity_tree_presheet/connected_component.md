@@ -199,7 +199,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `horizontal_extend`,
                                 token_idx: TokenIdx(
-                                    571,
+                                    568,
                                 ),
                             },
                             block: Fugitive {
@@ -249,7 +249,7 @@ Ok(
                             ident_token: IdentToken {
                                 ident: `find_connected_components`,
                                 token_idx: TokenIdx(
-                                    657,
+                                    654,
                                 ),
                             },
                             block: Fugitive {

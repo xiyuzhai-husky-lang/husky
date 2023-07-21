@@ -167,7 +167,7 @@
                             Application(
                                 EtherealTermApplication(
                                     Id {
-                                        value: 115,
+                                        value: 86,
                                     },
                                 ),
                             ),
@@ -319,7 +319,7 @@
                                                     ty: Application(
                                                         EtherealTermApplication(
                                                             Id {
-                                                                value: 114,
+                                                                value: 85,
                                                             },
                                                         ),
                                                     ),
@@ -427,7 +427,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    14,
+                    13,
                 ),
             },
             ExprTypeInfo {
@@ -448,7 +448,7 @@
                     ),
                 ),
                 expectation_rule_idx: Some(
-                    15,
+                    14,
                 ),
             },
         ],
@@ -480,7 +480,7 @@
             Ok(
                 FluffyTerm::Application(
                     EtherealTermApplication {
-                        function: EtherealTerm(`Leash`),
+                        function: EtherealTerm(`Option`),
                         argument: EtherealTerm(`Leash ConcaveComponent`),
                         shift: 0,
                     },
@@ -490,7 +490,7 @@
                 FluffyTerm::Application(
                     EtherealTermApplication {
                         function: EtherealTerm(`List`),
-                        argument: EtherealTerm(`Leash Leash ConcaveComponent`),
+                        argument: EtherealTerm(`Option Leash ConcaveComponent`),
                         shift: 0,
                     },
                 ),
@@ -572,7 +572,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 48,
+                                                value: 45,
                                             },
                                         ),
                                     ),
@@ -581,7 +581,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 49,
+                                                value: 46,
                                             },
                                         ),
                                     ),
@@ -607,7 +607,7 @@
                                     Ritchie(
                                         EtherealTermRitchie(
                                             Id {
-                                                value: 11,
+                                                value: 10,
                                             },
                                         ),
                                     ),
@@ -616,7 +616,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 51,
+                                                value: 48,
                                             },
                                         ),
                                     ),
@@ -642,7 +642,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 114,
+                                                value: 85,
                                             },
                                         ),
                                     ),
@@ -651,7 +651,7 @@
                                     Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 115,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -877,7 +877,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 115,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -892,7 +892,7 @@
                                 expectee: Application(
                                     EtherealTermApplication(
                                         Id {
-                                            value: 115,
+                                            value: 86,
                                         },
                                     ),
                                 ),
@@ -1040,7 +1040,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 89,
+                                                                            value: 86,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1052,7 +1052,7 @@
                                                                 ty: Application(
                                                                     EtherealTermApplication(
                                                                         Id {
-                                                                            value: 90,
+                                                                            value: 87,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1073,7 +1073,7 @@
                                     ty_expected: Application(
                                         EtherealTermApplication(
                                             Id {
-                                                value: 89,
+                                                value: 86,
                                             },
                                         ),
                                     ),
@@ -1100,53 +1100,6 @@
                             },
                         },
                         ExpectationEntry {
-                            expectation: EqsExactly(
-                                ExpectSubtype {
-                                    expected: Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 88,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            meta: ExpectationState {
-                                idx: 13,
-                                src: ExpectationSource {
-                                    expr_idx: 21,
-                                    kind: Expectation(
-                                        12,
-                                    ),
-                                },
-                                expectee: Application(
-                                    EtherealTermApplication(
-                                        Id {
-                                            value: 114,
-                                        },
-                                    ),
-                                ),
-                                resolve_progress: Resolved(
-                                    Err(
-                                        Original(
-                                            TypePathMismatch {
-                                                expected_path: TypePath(
-                                                    Id {
-                                                        value: 37,
-                                                    },
-                                                ),
-                                                expectee_path: TypePath(
-                                                    Id {
-                                                        value: 68,
-                                                    },
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            },
-                        },
-                        ExpectationEntry {
                             expectation: ImplicitlyConvertible(
                                 ExpectCoersion {
                                     contract: Move,
@@ -1162,7 +1115,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 14,
+                                idx: 13,
                                 src: ExpectationSource {
                                     expr_idx: 23,
                                     kind: Expr,
@@ -1201,7 +1154,7 @@
                                 },
                             ),
                             meta: ExpectationState {
-                                idx: 15,
+                                idx: 14,
                                 src: ExpectationSource {
                                     expr_idx: 24,
                                     kind: Expr,

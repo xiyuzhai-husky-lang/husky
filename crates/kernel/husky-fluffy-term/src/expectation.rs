@@ -209,8 +209,18 @@ pub type FluffyTermExpectationResult<T> = Result<T, FluffyTermExpectationError>;
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub enum OriginalFluffyTermExpectationError {
-    #[error("type path mismatch")]
-    TypePathMismatch {
+    #[error("type path mismatch for subtyping")]
+    TypePathMismatchForSubtyping {
+        expected: FluffyTerm,
+        expectee: FluffyTerm,
+        expected_path: TypePath,
+        expectee_path: TypePath,
+    },
+    #[error("type path mismatch for coersion")]
+    TypePathMismatchForCoersion {
+        contract: Contract,
+        ty_expected: FluffyTerm,
+        expectee: FluffyTerm,
         expected_path: TypePath,
         expectee_path: TypePath,
     },
