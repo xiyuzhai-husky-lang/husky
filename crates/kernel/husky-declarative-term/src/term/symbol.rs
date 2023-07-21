@@ -8,14 +8,17 @@ use super::*;
 use thiserror::Error;
 use vec_like::VecSet;
 
-/// symbols are defined in a top-down manner
+/// symbols are defined in a top-down manner through generics
 #[salsa::interned(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub struct DeclarativeTermSymbol {
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     /// this is the index for all symbols with the same type
     /// so that we have better cache hits
+    /// todo: change to RefinedGenericIndex
     pub idx: u8,
 }
+
+pub enum RefinedGenericIndex {}
 
 impl DeclarativeTermSymbol {
     pub(crate) const AD_HOD_IDX_START: u8 = u8::MAX / 2;

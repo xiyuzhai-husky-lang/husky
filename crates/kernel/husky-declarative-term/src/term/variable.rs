@@ -14,8 +14,11 @@ pub struct DeclarativeTermVariable {
     pub ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     /// this is the index to disambiguate it from all other symbols with the same type
     /// so that we have better cache hits
+    /// todo: change to RefinedDeBrujinIndex
     pub idx: u8,
 }
+
+pub enum RefinedDeBrujinIndex {}
 
 impl DeclarativeTermVariable {
     pub(crate) fn show_with_db_fmt(
