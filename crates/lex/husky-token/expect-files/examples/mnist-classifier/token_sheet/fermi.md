@@ -862,7 +862,7 @@ Ok(
                 ),
             ),
             Token::Ident(
-                `collect_refs`,
+                `collect_leashes`,
             ),
             Token::Punctuation(
                 Punctuation(

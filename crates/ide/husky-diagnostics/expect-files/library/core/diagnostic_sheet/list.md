@@ -13,7 +13,18 @@ DiagnosticSheet {
         diagnostics: [],
     },
     decl_diagnostic_sheet: DeclDiagnosticSheet {
-        diagnostics: [],
+        diagnostics: [
+            Diagnostic {
+                message: "Syntax Error: expected `)` in parameter list",
+                severity: Error,
+                range: [15:28, 15:29),
+            },
+            Diagnostic {
+                message: "Syntax Error: expect end-of-line colon",
+                severity: Error,
+                range: [15:28, 15:29),
+            },
+        ],
     },
     defn_diagnostic_sheet: DefnDiagnosticSheet {
         diagnostics: [],

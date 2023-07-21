@@ -2152,7 +2152,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 5,
+                                    ast_idx: 6,
                                     ident_token: IdentToken {
                                         ident: `List`,
                                         token_idx: TokenIdx(
@@ -2203,7 +2203,7 @@ Ok(
                                         },
                                     ),
                                     visibility: Scope::Pub,
-                                    ast_idx: 5,
+                                    ast_idx: 6,
                                     ident_token: IdentToken {
                                         ident: `List`,
                                         token_idx: TokenIdx(
@@ -2243,7 +2243,7 @@ Ok(
                                         disambiguator: 0,
                                     },
                                 },
-                                ast_idx: 6,
+                                ast_idx: 7,
                                 impl_token: ImplToken {
                                     token_idx: TokenIdx(
                                         8,
@@ -2252,7 +2252,7 @@ Ok(
                                 ty_expr: 1,
                                 items: TypeItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        0..5,
+                                        0..6,
                                     ),
                                 },
                             },

@@ -29,7 +29,7 @@ pub fn fermi_match(
     concave_components: ~[]ConcaveComponent,
     templates: [](fn (~ConcaveComponent) -> ?f32)
 ) -> FermiMatchResult:
-    let mut others = concave_components.collect_refs()
+    let mut others = concave_components.collect_leashes()
     let mut matches: []?~ConcaveComponent = []
     // todo: change this to `for template in templates` after introducing `for ... in` loop
     for i < templates.ilen():

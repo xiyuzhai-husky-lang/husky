@@ -309,6 +309,43 @@ Ok(
                 expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::EntityNode(
+                EntityNodePath::AssociatedItem(
+                    AssociatedItemNodePath::TypeItem(
+                        TypeItemNodePath {
+                            maybe_ambiguous_path: MaybeAmbiguousPath {
+                                path: TypeItemPath {
+                                    impl_block: TypeImplBlockPath {
+                                        module_path: `core::list`,
+                                        ty_path: TypePath(`core::list::List`, `Extern`),
+                                        disambiguator: 0,
+                                    },
+                                    ident: `collect_leashes`,
+                                    item_kind: MethodFn,
+                                },
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                ),
+                AssociatedItem {
+                    associated_item_kind: TypeItem(
+                        MethodFn,
+                    ),
+                },
+            ),
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
+            TokenInfo::None,
         ],
     },
 )

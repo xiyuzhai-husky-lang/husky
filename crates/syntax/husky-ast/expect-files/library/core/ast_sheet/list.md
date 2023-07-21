@@ -184,6 +184,42 @@ Ok(
                 },
                 Ast::Defn {
                     token_group_idx: TokenGroupIdx(
+                        7,
+                    ),
+                    visibility_expr: VisibilityExpr {
+                        visibility: Pub,
+                        variant: Pub {
+                            pub_token: PubToken {
+                                token_idx: TokenIdx(
+                                    64,
+                                ),
+                            },
+                        },
+                    },
+                    entity_kind: AssociatedItem {
+                        associated_item_kind: TypeItem(
+                            MethodFn,
+                        ),
+                    },
+                    ident_token: IdentToken {
+                        ident: `collect_leashes`,
+                        token_idx: TokenIdx(
+                            66,
+                        ),
+                    },
+                    is_generic: false,
+                    saved_stream_state: TokenStreamState {
+                        next_token_idx: TokenIdx(
+                            67,
+                        ),
+                        drained: false,
+                    },
+                    block: AssociatedItem {
+                        body: None,
+                    },
+                },
+                Ast::Defn {
+                    token_group_idx: TokenGroupIdx(
                         0,
                     ),
                     visibility_expr: VisibilityExpr {
@@ -232,7 +268,7 @@ Ok(
                         Type(
                             TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    0..5,
+                                    0..6,
                                 ),
                             },
                         ),
@@ -241,7 +277,7 @@ Ok(
             ],
         },
         top_level_asts: ArenaIdxRange(
-            5..7,
+            6..8,
         ),
         siblings: [
             ArenaIdxRange(
@@ -260,10 +296,13 @@ Ok(
                 0..0,
             ),
             ArenaIdxRange(
-                0..5,
+                0..0,
             ),
             ArenaIdxRange(
-                5..7,
+                0..6,
+            ),
+            ArenaIdxRange(
+                6..8,
             ),
         ],
     },
