@@ -17,7 +17,7 @@ Ok(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Val(
                             ValNodeDecl {
-                                node_path: FugitiveSynNodePath {
+                                syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                         disambiguator: 0,
@@ -154,7 +154,7 @@ Ok(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Val(
                             ValNodeDecl {
-                                node_path: FugitiveSynNodePath {
+                                syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                         disambiguator: 0,
@@ -374,7 +374,7 @@ Ok(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
                             FnNodeDecl {
-                                node_path: FugitiveSynNodePath {
+                                syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                                         disambiguator: 0,

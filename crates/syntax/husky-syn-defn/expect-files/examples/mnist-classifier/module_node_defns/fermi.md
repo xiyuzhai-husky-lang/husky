@@ -4,14 +4,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::PropsStruct(
                     PropsStructTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: PropsStructTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                     disambiguator: 0,
@@ -301,14 +301,14 @@ Ok(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
                     FnNodeDefn {
-                        node_path: FugitiveSynNodePath {
+                        syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: FnNodeDecl {
-                            node_path: FugitiveSynNodePath {
+                            syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                     disambiguator: 0,
@@ -1849,7 +1849,7 @@ Ok(
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
                 TypeImplBlockNodeDecl {
-                    node_path: TypeImplBlockSynNodePath {
+                    syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::fermi`,
                             ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1858,7 +1858,7 @@ Ok(
                     },
                     ast_idx: 23,
                     impl_block: TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::fermi`,
                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1992,7 +1992,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MemoizedField(
                     TypeMemoizedFieldNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -2007,7 +2007,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMemoizedFieldNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -2850,7 +2850,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MemoizedField(
                     TypeMemoizedFieldNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -2865,7 +2865,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMemoizedFieldNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {
@@ -3708,7 +3708,7 @@ Ok(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MemoizedField(
                     TypeMemoizedFieldNodeDefn {
-                        node_path: TypeItemSynNodePath {
+                        syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -3723,7 +3723,7 @@ Ok(
                             },
                         },
                         node_decl: TypeMemoizedFieldNodeDecl {
-                            node_path: TypeItemSynNodePath {
+                            syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
                                         impl_block: TypeImplBlockPath {

@@ -3,7 +3,7 @@ use husky_coword::Ident;
 use husky_token::{IdentToken, PathNameToken};
 
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub(crate) struct OnceUseRules(Vec<OnceUseRule>);
 
 impl std::ops::Index<OnceUseRuleIdx> for OnceUseRules {
@@ -36,7 +36,7 @@ impl OnceUseRules {
     }
 
     #[cfg(test)]
-    pub(crate) fn check_done(&self, db: &dyn EntityTreeDb) {
+    pub(crate) fn check_done(&self, db: &dyn EntitySynTreeDb) {
         use husky_print_utils::p;
 
         for tracker in self.0.iter() {
@@ -52,7 +52,7 @@ impl OnceUseRules {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct OnceUseRule {
     ast_idx: AstIdx,
     use_expr_idx: UseExprIdx,
@@ -63,7 +63,7 @@ pub struct OnceUseRule {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum OnceUseRuleVariant {
     Parent {
         parent_name_token: PathNameToken,
@@ -78,7 +78,7 @@ pub enum OnceUseRuleVariant {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum OnceUseRuleState {
     Unresolved,
     Resolved {

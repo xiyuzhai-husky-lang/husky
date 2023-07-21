@@ -16,7 +16,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Trait(
                         TraitNodeDecl {
-                            node_path: TraitSynNodePath {
+                            syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::visual::Visualize`),
                                     disambiguator: 0,
@@ -99,7 +99,7 @@ Ok(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
                             ExternTypeNodeDecl {
-                                node_path: TypeSynNodePath {
+                                syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::visual::Html`, `Extern`),
                                         disambiguator: 0,

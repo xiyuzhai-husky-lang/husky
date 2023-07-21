@@ -35,14 +35,14 @@ impl<'a> DeclParser<'a> {
     #[inline(always)]
     pub(crate) fn expr_parser(
         &self,
-        node_path: impl Into<EntitySynNodePath>,
+        syn_node_path: impl Into<EntitySynNodePath>,
         parent_expr_region: Option<SynExprRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> ExprParser<'a> {
         ExprParser::new(
             self.db,
-            RegionPath::Decl(node_path.into()),
+            RegionPath::Decl(syn_node_path.into()),
             self.token_sheet_data,
             self.module_symbol_context,
             parent_expr_region,

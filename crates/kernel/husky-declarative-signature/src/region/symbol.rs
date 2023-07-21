@@ -128,20 +128,22 @@ impl SymbolDeclarativeTermRegion {
                             .expect("should have valid entity path"),
                     ),
                 ),
-                RegionPath::Decl(EntitySynNodePath::ImplBlock(node_path)) => match node_path {
-                    ImplBlockSynNodePath::TypeImplBlock(node_path) => {
-                        None // reserved for later stage
-                    }
-                    ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_path) => {
-                        match impl_block_path.ty_sketch(db) {
-                            TypeSketch::DeriveAny => {
-                                Some(self.new_self_ty_term_parameter_symbol(db))
-                            }
-                            TypeSketch::Path(ty_path) => None, // reserved for later stage
+                RegionPath::Decl(EntitySynNodePath::ImplBlock(syn_node_path)) => {
+                    match syn_node_path {
+                        ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
+                            None // reserved for later stage
                         }
+                        ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_path) => {
+                            match impl_block_path.ty_sketch(db) {
+                                TypeSketch::DeriveAny => {
+                                    Some(self.new_self_ty_term_parameter_symbol(db))
+                                }
+                                TypeSketch::Path(ty_path) => None, // reserved for later stage
+                            }
+                        }
+                        ImplBlockSynNodePath::IllFormedImplBlock(_) => None,
                     }
-                    ImplBlockSynNodePath::IllFormedImplBlock(_) => None,
-                },
+                }
                 _ => unreachable!(),
             }
         }

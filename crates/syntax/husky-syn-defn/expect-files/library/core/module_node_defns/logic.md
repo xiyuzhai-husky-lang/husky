@@ -4,14 +4,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::logic::Prop`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::logic::Prop`, `Extern`),
                                     disambiguator: 0,
@@ -84,14 +84,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Structure(
                     StructureTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: StructureTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                     disambiguator: 0,
@@ -342,14 +342,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Inductive(
                     InductiveTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: InductiveTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                     disambiguator: 0,

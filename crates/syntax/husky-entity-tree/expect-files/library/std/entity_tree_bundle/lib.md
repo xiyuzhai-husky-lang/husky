@@ -1,14 +1,14 @@
 Ok(
-    EntityTreeCrateBundle {
+    EntitySynTreeCrateBundle {
         sheets: [
-            EntityTreeSheet {
+            EntitySynTreeSheet {
                 module_path: `std`,
                 major_entity_node_table: MajorEntityNodeTable {
                     entries: [
                         EntityNodeEntry {
                             node: EntitySynNode::Submodule(
                                 SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::prelude`,
                                             disambiguator: 0,
@@ -26,7 +26,7 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntitySynNodePath::Submodule(
+                            syn_node_path: EntitySynNodePath::Submodule(
                                 SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `std::prelude`,
@@ -42,7 +42,7 @@ Ok(
                         EntityNodeEntry {
                             node: EntitySynNode::Submodule(
                                 SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::logic`,
                                             disambiguator: 0,
@@ -60,7 +60,7 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntitySynNodePath::Submodule(
+                            syn_node_path: EntitySynNodePath::Submodule(
                                 SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `std::logic`,
@@ -76,7 +76,7 @@ Ok(
                         EntityNodeEntry {
                             node: EntitySynNode::Submodule(
                                 SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::ops`,
                                             disambiguator: 0,
@@ -94,7 +94,7 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntitySynNodePath::Submodule(
+                            syn_node_path: EntitySynNodePath::Submodule(
                                 SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: `std::ops`,
@@ -119,7 +119,7 @@ Ok(
                             symbol: EntitySymbol::Submodule {
                                 submodule_path: `std::prelude`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::prelude`,
                                             disambiguator: 0,
@@ -146,7 +146,7 @@ Ok(
                             symbol: EntitySymbol::Submodule {
                                 submodule_path: `std::logic`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::logic`,
                                             disambiguator: 0,
@@ -173,7 +173,7 @@ Ok(
                             symbol: EntitySymbol::Submodule {
                                 submodule_path: `std::ops`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `std::ops`,
                                             disambiguator: 0,
@@ -203,7 +203,7 @@ Ok(
                 ),
                 errors: [],
             },
-            EntityTreeSheet {
+            EntitySynTreeSheet {
                 module_path: `std::prelude`,
                 major_entity_node_table: MajorEntityNodeTable {
                     entries: [],
@@ -220,7 +220,7 @@ Ok(
                 ),
                 errors: [],
             },
-            EntityTreeSheet {
+            EntitySynTreeSheet {
                 module_path: `std::logic`,
                 major_entity_node_table: MajorEntityNodeTable {
                     entries: [],
@@ -237,7 +237,7 @@ Ok(
                                             TypePath(`core::logic::Prop`, `Extern`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Type(
+                                            syn_node_path: ModuleItemSynNodePath::Type(
                                                 TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::logic::Prop`, `Extern`),
@@ -284,7 +284,7 @@ Ok(
                                             TypePath(`core::logic::LogicAnd`, `Structure`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Type(
+                                            syn_node_path: ModuleItemSynNodePath::Type(
                                                 TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::logic::LogicAnd`, `Structure`),
@@ -331,7 +331,7 @@ Ok(
                                             TypePath(`core::logic::LogicOr`, `Inductive`),
                                         ),
                                         node: ModuleItemSynNode {
-                                            node_path: ModuleItemSynNodePath::Type(
+                                            syn_node_path: ModuleItemSynNodePath::Type(
                                                 TypeSynNodePath {
                                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                                         path: TypePath(`core::logic::LogicOr`, `Inductive`),
@@ -457,14 +457,14 @@ Ok(
                 ),
                 errors: [],
             },
-            EntityTreeSheet {
+            EntitySynTreeSheet {
                 module_path: `std::ops`,
                 major_entity_node_table: MajorEntityNodeTable {
                     entries: [
                         EntityNodeEntry {
                             node: EntitySynNode::ModuleItem(
                                 ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`std::ops::Add`),
@@ -498,7 +498,7 @@ Ok(
                                     },
                                 },
                             ),
-                            node_path: EntitySynNodePath::ModuleItem(
+                            syn_node_path: EntitySynNodePath::ModuleItem(
                                 ModuleItemSynNodePath::Trait(
                                     TraitSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -527,7 +527,7 @@ Ok(
                                     TraitPath(`std::ops::Add`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Trait(
+                                    syn_node_path: ModuleItemSynNodePath::Trait(
                                         TraitSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TraitPath(`std::ops::Add`),

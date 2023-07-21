@@ -1,5 +1,5 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `math::algebraic_topology`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [],

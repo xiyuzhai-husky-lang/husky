@@ -1,12 +1,12 @@
 Ok(
-    EntityTreePresheet {
+    EntitySynTreePresheet {
         module_path: `mnist_classifier`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::connected_component`,
                                     disambiguator: 0,
@@ -24,7 +24,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::connected_component`,
@@ -40,7 +40,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::raw_contour`,
                                     disambiguator: 0,
@@ -58,7 +58,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::raw_contour`,
@@ -74,7 +74,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::geom2d`,
                                     disambiguator: 0,
@@ -92,7 +92,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::geom2d`,
@@ -108,7 +108,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::line_segment_sketch`,
                                     disambiguator: 0,
@@ -126,7 +126,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::line_segment_sketch`,
@@ -142,7 +142,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::fermi`,
                                     disambiguator: 0,
@@ -160,7 +160,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::fermi`,
@@ -176,7 +176,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::digits`,
                                     disambiguator: 0,
@@ -194,7 +194,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::digits`,
@@ -210,7 +210,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::major`,
                                     disambiguator: 0,
@@ -228,7 +228,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::major`,

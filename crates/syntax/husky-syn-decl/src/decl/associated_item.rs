@@ -23,14 +23,16 @@ pub enum AssociatedItemSynNodeDecl {
 }
 
 impl AssociatedItemSynNodeDecl {
-    pub fn node_path(self, db: &dyn DeclDb) -> AssociatedItemSynNodePath {
+    pub fn syn_node_path(self, db: &dyn DeclDb) -> AssociatedItemSynNodePath {
         match self {
-            AssociatedItemSynNodeDecl::TypeItem(node_decl) => node_decl.node_path(db).into(),
-            AssociatedItemSynNodeDecl::TraitItem(node_decl) => node_decl.node_path(db).into(),
+            AssociatedItemSynNodeDecl::TypeItem(node_decl) => node_decl.syn_node_path(db).into(),
+            AssociatedItemSynNodeDecl::TraitItem(node_decl) => node_decl.syn_node_path(db).into(),
             AssociatedItemSynNodeDecl::TraitForTypeItem(node_decl) => {
-                node_decl.node_path(db).into()
+                node_decl.syn_node_path(db).into()
             }
-            AssociatedItemSynNodeDecl::IllFormedItem(node_decl) => node_decl.node_path(db).into(),
+            AssociatedItemSynNodeDecl::IllFormedItem(node_decl) => {
+                node_decl.syn_node_path(db).into()
+            }
         }
     }
 

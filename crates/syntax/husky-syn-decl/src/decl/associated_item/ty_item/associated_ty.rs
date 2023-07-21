@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeAssociatedTypeNodeDecl {
     #[id]
-    pub node_path: TypeItemSynNodePath,
+    pub syn_node_path: TypeItemSynNodePath,
     pub node: TypeItemNode,
     pub ast_idx: AstIdx,
     pub expr_region: SynExprRegion,

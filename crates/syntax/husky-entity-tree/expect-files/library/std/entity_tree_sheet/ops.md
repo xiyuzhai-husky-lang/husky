@@ -1,12 +1,12 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `std::ops`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`std::ops::Add`),
@@ -40,7 +40,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Trait(
                             TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -69,7 +69,7 @@ Ok(
                             TraitPath(`std::ops::Add`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`std::ops::Add`),

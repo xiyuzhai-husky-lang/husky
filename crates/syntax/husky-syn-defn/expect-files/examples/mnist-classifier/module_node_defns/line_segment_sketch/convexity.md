@@ -4,14 +4,14 @@ Ok(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
                     FnNodeDefn {
-                        node_path: FugitiveSynNodePath {
+                        syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: FnNodeDecl {
-                            node_path: FugitiveSynNodePath {
+                            syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                                     disambiguator: 0,

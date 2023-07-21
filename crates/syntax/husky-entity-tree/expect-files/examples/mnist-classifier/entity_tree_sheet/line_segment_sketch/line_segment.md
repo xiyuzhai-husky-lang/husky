@@ -1,12 +1,12 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `mnist_classifier::line_segment_sketch::line_segment`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Type(
+                            syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -32,7 +32,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -57,7 +57,7 @@ Ok(
                             TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Type(
+                            syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -96,7 +96,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -147,7 +147,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -198,7 +198,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -249,7 +249,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -300,7 +300,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -351,7 +351,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -405,7 +405,7 @@ Ok(
                 ),
                 ImplBlockSynNode::TypeImplBlock(
                     TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -486,7 +486,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::geom2d`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::geom2d`,
                                             disambiguator: 0,

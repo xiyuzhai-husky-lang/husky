@@ -4,7 +4,7 @@ use husky_print_utils::p;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct ValNodeDecl {
     #[id]
-    pub node_path: FugitiveSynNodePath,
+    pub syn_node_path: FugitiveSynNodePath,
     pub ast_idx: AstIdx,
     pub colon_token: TokenResult<Option<ColonToken>>,
     #[return_ref]
@@ -30,13 +30,17 @@ impl ValNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_val_node_decl(
         &self,
-        node_path: FugitiveSynNodePath,
+        syn_node_path: FugitiveSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> ValNodeDecl {
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::False, AllowSelfValue::False);
+        let mut parser = self.expr_parser(
+            syn_node_path,
+            None,
+            AllowSelfType::False,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let colon_token = ctx.try_parse_option();
         let var_ty = if let Ok(Some(_)) = colon_token {
@@ -49,7 +53,7 @@ impl<'a> DeclParser<'a> {
         let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
         ValNodeDecl::new(
             self.db(),
-            node_path,
+            syn_node_path,
             ast_idx,
             colon_token,
             var_ty,

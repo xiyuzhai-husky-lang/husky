@@ -3,7 +3,7 @@ use vec_like::SmallVecPairMap;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct TraitForTypeImplBlockSynNodePath {
     path: TraitForTypeImplBlockPath,
 }
@@ -32,36 +32,36 @@ impl TraitForTypeImplBlockSynNodePath {
         self.path
     }
 
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         self.path.module_path(db)
     }
 
-    pub fn trai_path(self, db: &dyn EntityTreeDb) -> TraitPath {
+    pub fn trai_path(self, db: &dyn EntitySynTreeDb) -> TraitPath {
         self.path.trai_path(db)
     }
 
-    pub fn ty_sketch(self, db: &dyn EntityTreeDb) -> TypeSketch {
+    pub fn ty_sketch(self, db: &dyn EntitySynTreeDb) -> TypeSketch {
         self.path.ty_sketch(db)
     }
 
     pub fn items(
         self,
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
     ) -> &[(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemNode)] {
         trai_for_ty_impl_block_items(db, self)
     }
 
     pub fn item_node_paths<'a>(
         self,
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySynTreeDb,
     ) -> impl Iterator<Item = TraitForTypeItemSynNodePath> + 'a {
         self.items(db)
             .iter()
             .copied()
-            .map(|(_, node_path, _)| node_path)
+            .map(|(_, syn_node_path, _)| syn_node_path)
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> TraitForTypeImplBlockSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeImplBlockSynNode {
         trai_for_ty_impl_block_node(db, self)
     }
 }
@@ -75,15 +75,15 @@ impl From<TraitForTypeImplBlockSynNodePath> for EntitySynNodePath {
 impl HasSynNodePath for TraitForTypeImplBlockPath {
     type SynNodePath = TraitForTypeImplBlockSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         TraitForTypeImplBlockSynNodePath { path: self }
     }
 }
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct TraitForTypeImplBlockSynNode {
     #[id]
-    pub node_path: TraitForTypeImplBlockSynNodePath,
+    pub syn_node_path: TraitForTypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     pub trai_expr: ModuleItemPathExprIdx,
@@ -104,7 +104,7 @@ pub enum SelfTypeSketchExpr {
 
 impl TraitForTypeImplBlockSynNode {
     pub(super) fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
         ast_idx: AstIdx,
@@ -138,45 +138,45 @@ impl TraitForTypeImplBlockSynNode {
         ))
     }
 
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.node_path(db).path.module_path(db)
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
+        self.syn_node_path(db).path.module_path(db)
     }
 
-    pub fn ty_sketch(self, db: &dyn EntityTreeDb) -> TypeSketch {
-        self.node_path(db).path.ty_sketch(db)
+    pub fn ty_sketch(self, db: &dyn EntitySynTreeDb) -> TypeSketch {
+        self.syn_node_path(db).path.ty_sketch(db)
     }
 
-    pub fn trai_path(self, db: &dyn EntityTreeDb) -> TraitPath {
-        self.node_path(db).path.trai_path(db)
+    pub fn trai_path(self, db: &dyn EntitySynTreeDb) -> TraitPath {
+        self.syn_node_path(db).path.trai_path(db)
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn trai_for_ty_impl_block_node(
-    db: &dyn EntityTreeDb,
-    node_path: TraitForTypeImplBlockSynNodePath,
+    db: &dyn EntitySynTreeDb,
+    syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNode {
-    let module_path = node_path.module_path(db);
-    let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
-    entity_tree_sheet.trai_for_ty_impl_block_node(db, node_path)
+    let module_path = syn_node_path.module_path(db);
+    let entity_tree_sheet = db.entity_syn_tree_sheet(module_path).expect("valid module");
+    entity_tree_sheet.trai_for_ty_impl_block_node(db, syn_node_path)
 }
 
 impl HasItemPaths for TraitForTypeImplBlockPath {
     type ItemPath = TraitForTypeItemPath;
 
-    fn item_paths(self, db: &dyn EntityTreeDb) -> &[(Ident, Self::ItemPath)] {
+    fn item_paths(self, db: &dyn EntitySynTreeDb) -> &[(Ident, Self::ItemPath)] {
         trai_for_ty_impl_block_item_paths(db, self)
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 fn trai_for_ty_impl_block_item_paths(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     path: TraitForTypeImplBlockPath,
 ) -> SmallVecPairMap<Ident, TraitForTypeItemPath, 2> {
     path.syn_node_path(db)
         .items(db)
         .iter()
-        .filter_map(|(ident, node_path, _)| Some((*ident, node_path.path(db)?)))
+        .filter_map(|(ident, syn_node_path, _)| Some((*ident, syn_node_path.path(db)?)))
         .collect()
 }

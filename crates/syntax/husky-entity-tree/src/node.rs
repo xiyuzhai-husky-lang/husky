@@ -15,7 +15,7 @@ use husky_token::IdentToken;
 use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum EntitySynNodePath {
     Submodule(SubmoduleSynNodePath),
@@ -26,27 +26,29 @@ pub enum EntitySynNodePath {
 }
 
 impl EntitySynNodePath {
-    pub fn path(self, db: &dyn EntityTreeDb) -> Option<EntityPath> {
+    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<EntityPath> {
         match self {
-            EntitySynNodePath::Submodule(node_path) => node_path.path(db).map(Into::into),
-            EntitySynNodePath::ModuleItem(node_path) => node_path.path(db).map(Into::into),
-            EntitySynNodePath::TypeVariant(node_path) => node_path.path(db).map(Into::into),
-            EntitySynNodePath::ImplBlock(node_path) => node_path.path(db).map(Into::into),
-            EntitySynNodePath::AssociatedItem(node_path) => node_path.path(db).map(Into::into),
+            EntitySynNodePath::Submodule(syn_node_path) => syn_node_path.path(db).map(Into::into),
+            EntitySynNodePath::ModuleItem(syn_node_path) => syn_node_path.path(db).map(Into::into),
+            EntitySynNodePath::TypeVariant(syn_node_path) => syn_node_path.path(db).map(Into::into),
+            EntitySynNodePath::ImplBlock(syn_node_path) => syn_node_path.path(db).map(Into::into),
+            EntitySynNodePath::AssociatedItem(syn_node_path) => {
+                syn_node_path.path(db).map(Into::into)
+            }
         }
     }
 
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         match self {
-            EntitySynNodePath::Submodule(node_path) => node_path.module_path(db),
-            EntitySynNodePath::ModuleItem(node_path) => node_path.module_path(db),
-            EntitySynNodePath::TypeVariant(node_path) => node_path.module_path(db),
-            EntitySynNodePath::ImplBlock(node_path) => node_path.module_path(db),
-            EntitySynNodePath::AssociatedItem(node_path) => node_path.module_path(db),
+            EntitySynNodePath::Submodule(syn_node_path) => syn_node_path.module_path(db),
+            EntitySynNodePath::ModuleItem(syn_node_path) => syn_node_path.module_path(db),
+            EntitySynNodePath::TypeVariant(syn_node_path) => syn_node_path.module_path(db),
+            EntitySynNodePath::ImplBlock(syn_node_path) => syn_node_path.module_path(db),
+            EntitySynNodePath::AssociatedItem(syn_node_path) => syn_node_path.module_path(db),
         }
     }
 
-    pub fn toolchain(self, db: &dyn EntityTreeDb) -> Toolchain {
+    pub fn toolchain(self, db: &dyn EntitySynTreeDb) -> Toolchain {
         self.module_path(db).toolchain(db)
     }
 }
@@ -54,13 +56,13 @@ impl EntitySynNodePath {
 pub trait HasSynNodePath: Copy {
     type SynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath;
+    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath;
 }
 
 impl HasSynNodePath for EntityPath {
     type SynNodePath = EntitySynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         match self {
             EntityPath::Module(path) => todo!(),
             EntityPath::ModuleItem(_) => todo!(),
@@ -99,7 +101,7 @@ impl EntityNodeRegistry {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb, jar = EntityTreeJar)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb, jar = EntityTreeJar)]
 pub struct MaybeAmbiguousPath<P> {
     path: P,
     disambiguator: u8,
@@ -119,7 +121,7 @@ impl<P> MaybeAmbiguousPath<P> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum EntitySynNode {
     Submodule(SubmoduleSynNode),
@@ -131,7 +133,7 @@ pub enum EntitySynNode {
 
 impl EntitySynNode {
     pub(crate) fn try_new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
         visibility: Scope,
         ast_idx: AstIdx,
@@ -168,17 +170,17 @@ impl EntitySynNode {
         }
     }
 
-    pub fn node_path(self, db: &dyn EntityTreeDb) -> EntitySynNodePath {
+    pub fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> EntitySynNodePath {
         match self {
-            EntitySynNode::Submodule(node) => node.node_path(db).into(),
-            EntitySynNode::ModuleItem(node) => node.node_path(db).into(),
-            EntitySynNode::AssociatedItem(node) => node.node_path(db).into(),
-            EntitySynNode::TypeVariant(node) => node.node_path(db).into(),
-            EntitySynNode::ImplBlock(node) => node.node_path(db).into(),
+            EntitySynNode::Submodule(node) => node.syn_node_path(db).into(),
+            EntitySynNode::ModuleItem(node) => node.syn_node_path(db).into(),
+            EntitySynNode::AssociatedItem(node) => node.syn_node_path(db).into(),
+            EntitySynNode::TypeVariant(node) => node.syn_node_path(db).into(),
+            EntitySynNode::ImplBlock(node) => node.syn_node_path(db).into(),
         }
     }
 
-    pub fn ast_idx(self, db: &dyn EntityTreeDb) -> AstIdx {
+    pub fn ast_idx(self, db: &dyn EntitySynTreeDb) -> AstIdx {
         match self {
             EntitySynNode::Submodule(node) => node.ast_idx(db),
             EntitySynNode::ModuleItem(node) => node.ast_idx(db),
@@ -188,7 +190,7 @@ impl EntitySynNode {
         }
     }
 
-    pub fn ident_token(self, db: &dyn EntityTreeDb) -> IdentToken {
+    pub fn ident_token(self, db: &dyn EntitySynTreeDb) -> IdentToken {
         match self {
             EntitySynNode::Submodule(symbol) => symbol.ident_token(db),
             EntitySynNode::ModuleItem(symbol) => symbol.ident_token(db),
@@ -220,12 +222,12 @@ impl EntitySynNode {
 // }
 
 impl EntitySynNodePath {
-    pub fn node(self, db: &dyn EntityTreeDb) -> EntitySynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> EntitySynNode {
         match self {
             EntitySynNodePath::Submodule(path) => path.node(db).into(),
             EntitySynNodePath::ModuleItem(path) => path.node(db).into(),
             EntitySynNodePath::AssociatedItem(path) => path.node(db).into(),
-            EntitySynNodePath::TypeVariant(path) => path.node(db).into(),
+            EntitySynNodePath::TypeVariant(path) => path.syn_node(db).into(),
             EntitySynNodePath::ImplBlock(path) => path.node(db).into(),
         }
     }
@@ -234,5 +236,5 @@ impl EntitySynNodePath {
 pub trait HasItemPaths: Copy {
     type ItemPath;
 
-    fn item_paths(self, db: &dyn EntityTreeDb) -> &[(Ident, Self::ItemPath)];
+    fn item_paths(self, db: &dyn EntitySynTreeDb) -> &[(Ident, Self::ItemPath)];
 }

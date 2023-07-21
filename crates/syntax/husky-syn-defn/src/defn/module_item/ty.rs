@@ -75,27 +75,33 @@ impl HasSynNodeDefn for TypeSynNodePath {
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn ty_node_defn(db: &dyn SynDefnDb, node_path: TypeSynNodePath) -> TypeSynNodeDefn {
-    match node_path.node_decl(db) {
-        TypeNodeDecl::Enum(node_decl) => EnumTypeNodeDefn::new(db, node_path, node_decl).into(),
+pub(crate) fn ty_node_defn(db: &dyn SynDefnDb, syn_node_path: TypeSynNodePath) -> TypeSynNodeDefn {
+    match syn_node_path.node_decl(db) {
+        TypeNodeDecl::Enum(node_decl) => EnumTypeNodeDefn::new(db, syn_node_path, node_decl).into(),
         TypeNodeDecl::PropsStruct(node_decl) => {
-            PropsStructTypeNodeDefn::new(db, node_path, node_decl).into()
+            PropsStructTypeNodeDefn::new(db, syn_node_path, node_decl).into()
         }
         TypeNodeDecl::TupleStruct(node_decl) => {
-            TupleStructTypeNodeDefn::new(db, node_path, node_decl).into()
+            TupleStructTypeNodeDefn::new(db, syn_node_path, node_decl).into()
         }
         TypeNodeDecl::UnitStruct(node_decl) => {
-            UnitStructTypeNodeDefn::new(db, node_path, node_decl).into()
+            UnitStructTypeNodeDefn::new(db, syn_node_path, node_decl).into()
         }
-        TypeNodeDecl::Record(node_decl) => RecordTypeNodeDefn::new(db, node_path, node_decl).into(),
+        TypeNodeDecl::Record(node_decl) => {
+            RecordTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        }
         TypeNodeDecl::Inductive(node_decl) => {
-            InductiveTypeNodeDefn::new(db, node_path, node_decl).into()
+            InductiveTypeNodeDefn::new(db, syn_node_path, node_decl).into()
         }
         TypeNodeDecl::Structure(node_decl) => {
-            StructureTypeNodeDefn::new(db, node_path, node_decl).into()
+            StructureTypeNodeDefn::new(db, syn_node_path, node_decl).into()
         }
-        TypeNodeDecl::Extern(node_decl) => ExternTypeNodeDefn::new(db, node_path, node_decl).into(),
-        TypeNodeDecl::Union(node_decl) => UnionTypeNodeDefn::new(db, node_path, node_decl).into(),
+        TypeNodeDecl::Extern(node_decl) => {
+            ExternTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        }
+        TypeNodeDecl::Union(node_decl) => {
+            UnionTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        }
     }
 }
 

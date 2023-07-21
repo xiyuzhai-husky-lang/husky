@@ -4,7 +4,7 @@ use husky_token::{CurryToken, EolToken};
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct FnNodeDecl {
     #[id]
-    pub node_path: FugitiveSynNodePath,
+    pub syn_node_path: FugitiveSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
@@ -41,13 +41,17 @@ impl FnNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_fn_node_decl(
         &self,
-        node_path: FugitiveSynNodePath,
+        syn_node_path: FugitiveSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> FnNodeDecl {
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::False, AllowSelfValue::False);
+        let mut parser = self.expr_parser(
+            syn_node_path,
+            None,
+            AllowSelfType::False,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameter_decl_list = ctx.try_parse_option();
         let parameter_decl_list =
@@ -62,7 +66,7 @@ impl<'a> DeclParser<'a> {
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         FnNodeDecl::new(
             self.db(),
-            node_path,
+            syn_node_path,
             ast_idx,
             implicit_parameter_decl_list,
             parameter_decl_list,

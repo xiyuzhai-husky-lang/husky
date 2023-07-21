@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SubmoduleNodeDecl {
     #[id]
-    pub node_path: SubmoduleSynNodePath,
+    pub syn_node_path: SubmoduleSynNodePath,
     pub ast_idx: AstIdx,
 }
 
@@ -24,10 +24,10 @@ impl HasNodeDecl for SubmoduleSynNodePath {
 #[salsa::tracked( jar = SynDeclJar)]
 pub(crate) fn submodule_node_decl(
     db: &dyn DeclDb,
-    node_path: SubmoduleSynNodePath,
+    syn_node_path: SubmoduleSynNodePath,
 ) -> SubmoduleNodeDecl {
-    let node = node_path.node(db);
-    SubmoduleNodeDecl::new(db, node_path, node.ast_idx(db))
+    let node = syn_node_path.node(db);
+    SubmoduleNodeDecl::new(db, syn_node_path, node.ast_idx(db))
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
@@ -56,7 +56,7 @@ impl HasDecl for ModulePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn submodule_decl(db: &dyn DeclDb, path: ModulePath) -> DeclResult<SubmoduleDecl> {
-    let node_path = path.syn_node_path(db);
-    let node_decl = node_path.node_decl(db);
+    let syn_node_path = path.syn_node_path(db);
+    let node_decl = syn_node_path.node_decl(db);
     Ok(SubmoduleDecl::from_node_decl(db, path, node_decl))
 }

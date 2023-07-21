@@ -3,7 +3,7 @@ use either::*;
 use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum VariadicVariant {
     Default,
     Vec {
@@ -32,7 +32,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum SpecificParameterDecl {
     Regular {
         pattern: PatternExprIdx,

@@ -3,7 +3,7 @@ use parsec::HasStreamState;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct LetVariableDecls {
     pattern_expr_idx: PatternExprIdx,
     variables: CurrentSymbolIdxRange,

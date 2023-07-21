@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeAssociatedFnNodeDecl {
     #[id]
-    pub node_path: TypeItemSynNodePath,
+    pub syn_node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
     #[return_ref]
     pub implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
@@ -39,15 +39,15 @@ impl TypeAssociatedFnNodeDecl {
 impl<'a> DeclParser<'a> {
     pub(super) fn parse_ty_associated_fn_node_decl(
         &self,
-        node_path: TypeItemSynNodePath,
+        syn_node_path: TypeItemSynNodePath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TypeAssociatedFnNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
-            node_path,
-            Some(node_path.impl_block(db).node_decl(db).expr_region(db)),
+            syn_node_path,
+            Some(syn_node_path.impl_block(db).node_decl(db).expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -65,7 +65,7 @@ impl<'a> DeclParser<'a> {
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TypeAssociatedFnNodeDecl::new(
             db,
-            node_path,
+            syn_node_path,
             ast_idx,
             implicit_parameter_decl_list,
             parameter_decl_list,

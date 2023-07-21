@@ -17,7 +17,7 @@ Ok(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
                             ExternTypeNodeDecl {
-                                node_path: TypeSynNodePath {
+                                syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::array::Array`, `Extern`),
                                         disambiguator: 0,

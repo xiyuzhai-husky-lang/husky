@@ -16,7 +16,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Trait(
                         TraitNodeDecl {
-                            node_path: TraitSynNodePath {
+                            syn_node_path: TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitPath(`core::clone::Clone`),
                                     disambiguator: 0,
@@ -100,7 +100,7 @@ Ok(
                 SynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::TraitForType(
                         TraitForTypeImplBlockNodeDecl {
-                            node_path: TraitForTypeImplBlockSynNodePath {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::clone`,
                                     trai_path: TraitPath(`core::clone::Clone`),
@@ -267,7 +267,7 @@ Ok(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
                         TraitForTypeItemNodeDecl::MethodFn(
                             TraitForTypeMethodFnNodeDecl {
-                                node_path: TraitForTypeItemSynNodePath {
+                                syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
                                             impl_block: TraitForTypeImplBlockPath {
@@ -283,7 +283,7 @@ Ok(
                                     },
                                 },
                                 node: TraitForTypeItemNode {
-                                    node_path: TraitForTypeItemSynNodePath {
+                                    syn_node_path: TraitForTypeItemSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TraitForTypeItemPath {
                                                 impl_block: TraitForTypeImplBlockPath {

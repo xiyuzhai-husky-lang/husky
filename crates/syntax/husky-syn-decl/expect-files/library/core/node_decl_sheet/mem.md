@@ -17,7 +17,7 @@ Ok(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
                             ExternTypeNodeDecl {
-                                node_path: TypeSynNodePath {
+                                syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::mem::Ref`, `Extern`),
                                         disambiguator: 0,
@@ -215,7 +215,7 @@ Ok(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
                             ExternTypeNodeDecl {
-                                node_path: TypeSynNodePath {
+                                syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::mem::RefMut`, `Extern`),
                                         disambiguator: 0,
@@ -413,7 +413,7 @@ Ok(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
                             ExternTypeNodeDecl {
-                                node_path: TypeSynNodePath {
+                                syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::mem::Leash`, `Extern`),
                                         disambiguator: 0,
@@ -569,7 +569,7 @@ Ok(
                 SynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::TraitForType(
                         TraitForTypeImplBlockNodeDecl {
-                            node_path: TraitForTypeImplBlockSynNodePath {
+                            syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::mem`,
                                     trai_path: TraitPath(`core::marker::Copy`),

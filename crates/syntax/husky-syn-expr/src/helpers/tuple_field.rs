@@ -3,7 +3,7 @@ use parsec::parse_consecutive_list;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct TupleFieldDeclPattern {
     decorators: Vec<FieldDecorator>,
     visibility: Option<FieldVisibilityExpr>,
@@ -38,7 +38,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Tupl
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct FieldDecorator {}
 
 impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for FieldDecorator {
@@ -57,7 +57,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Fiel
 // todo: repetitive
 // merge with struct field?
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum FieldVisibilityExpr {
     Pub,
 }

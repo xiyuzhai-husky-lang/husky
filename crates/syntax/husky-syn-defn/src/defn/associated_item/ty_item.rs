@@ -25,13 +25,13 @@ pub enum TypeItemSynNodeDefn {
 }
 
 impl TypeItemSynNodeDefn {
-    pub fn node_path(self, db: &dyn SynDefnDb) -> TypeItemSynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDefnDb) -> TypeItemSynNodePath {
         match self {
-            TypeItemSynNodeDefn::AssociatedFn(node_defn) => node_defn.node_path(db),
-            TypeItemSynNodeDefn::MethodFn(node_defn) => node_defn.node_path(db),
-            TypeItemSynNodeDefn::AssociatedType(node_defn) => node_defn.node_path(db),
-            TypeItemSynNodeDefn::AssociatedVal(node_defn) => node_defn.node_path(db),
-            TypeItemSynNodeDefn::MemoizedField(node_defn) => node_defn.node_path(db),
+            TypeItemSynNodeDefn::AssociatedFn(node_defn) => node_defn.syn_node_path(db),
+            TypeItemSynNodeDefn::MethodFn(node_defn) => node_defn.syn_node_path(db),
+            TypeItemSynNodeDefn::AssociatedType(node_defn) => node_defn.syn_node_path(db),
+            TypeItemSynNodeDefn::AssociatedVal(node_defn) => node_defn.syn_node_path(db),
+            TypeItemSynNodeDefn::MemoizedField(node_defn) => node_defn.syn_node_path(db),
         }
     }
 
@@ -67,19 +67,19 @@ impl HasSynNodeDefn for TypeItemSynNodePath {
 #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_item_node_defn(
     db: &dyn SynDefnDb,
-    node_path: TypeItemSynNodePath,
+    syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDefn {
-    match node_path.node_decl(db) {
+    match syn_node_path.node_decl(db) {
         TypeItemNodeDecl::AssociatedFn(node_decl) => {
-            TypeAssociatedFnNodeDefn::new(db, node_path, node_decl).into()
+            TypeAssociatedFnNodeDefn::new(db, syn_node_path, node_decl).into()
         }
         TypeItemNodeDecl::MethodFn(node_decl) => {
-            TypeMethodFnNodeDefn::new(db, node_path, node_decl).into()
+            TypeMethodFnNodeDefn::new(db, syn_node_path, node_decl).into()
         }
         TypeItemNodeDecl::AssociatedType(_) => todo!(),
         TypeItemNodeDecl::AssociatedVal(_) => todo!(),
         TypeItemNodeDecl::MemoizedField(node_decl) => {
-            TypeMemoizedFieldNodeDefn::new(db, node_path, node_decl).into()
+            TypeMemoizedFieldNodeDefn::new(db, syn_node_path, node_decl).into()
         }
     }
 }

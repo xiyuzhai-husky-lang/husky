@@ -9,7 +9,7 @@ pub(crate) struct EntityTreeSymbolContext<'a, 'b>
 where
     'a: 'b,
 {
-    db: &'a dyn EntityTreeDb,
+    db: &'a dyn EntitySynTreeDb,
     crate_path: CratePath,
     crate_root: ModulePath,
     crate_prelude: CratePrelude<'b>,
@@ -22,7 +22,7 @@ where
     'a: 'b,
 {
     pub(crate) fn new(
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySynTreeDb,
         crate_path: CratePath,
         crate_root: ModulePath,
         crate_prelude: CratePrelude<'b>,
@@ -49,7 +49,7 @@ where
             .or_else(|| self.crate_prelude.resolve_ident(db, module_path, ident))
     }
 
-    pub(crate) fn db(&self) -> &'a dyn EntityTreeDb {
+    pub(crate) fn db(&self) -> &'a dyn EntitySynTreeDb {
         self.db
     }
 

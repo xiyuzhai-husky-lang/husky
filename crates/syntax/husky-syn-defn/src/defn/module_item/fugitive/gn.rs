@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
 pub struct GnNodeDefn {
     #[id]
-    pub node_path: FugitiveSynNodePath,
+    pub syn_node_path: FugitiveSynNodePath,
     pub node_decl: GnNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
@@ -12,13 +12,13 @@ pub struct GnNodeDefn {
 impl GnNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
-        node_path: FugitiveSynNodePath,
+        syn_node_path: FugitiveSynNodePath,
         node_decl: GnNodeDecl,
     ) -> Self {
-        let node_path = node_decl.node_path(db);
+        let syn_node_path = node_decl.syn_node_path(db);
         let mut parser = expr_parser(
             db,
-            node_path,
+            syn_node_path,
             node_decl.expr_region(db),
             AllowSelfType::False,
             AllowSelfValue::False,
@@ -31,7 +31,7 @@ impl GnNodeDefn {
             } => body.map(|body| parser.parse_block_expr(body)),
             _ => unreachable!(),
         };
-        GnNodeDefn::new_inner(db, node_path, node_decl, body, parser.finish())
+        GnNodeDefn::new_inner(db, syn_node_path, node_decl, body, parser.finish())
     }
 }
 

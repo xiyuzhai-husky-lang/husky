@@ -1,12 +1,12 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `mnist_classifier::line_segment_sketch`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::line_segment_sketch::concave_component`,
                                     disambiguator: 0,
@@ -24,7 +24,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -40,7 +40,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::line_segment_sketch::convex_component`,
                                     disambiguator: 0,
@@ -58,7 +58,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::line_segment_sketch::convex_component`,
@@ -74,7 +74,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::line_segment_sketch::convexity`,
                                     disambiguator: 0,
@@ -92,7 +92,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::line_segment_sketch::convexity`,
@@ -108,7 +108,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::Submodule(
                         SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::line_segment_sketch::line_segment`,
                                     disambiguator: 0,
@@ -126,7 +126,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::Submodule(
+                    syn_node_path: EntitySynNodePath::Submodule(
                         SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `mnist_classifier::line_segment_sketch::line_segment`,
@@ -142,7 +142,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Type(
+                            syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -168,7 +168,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -184,7 +184,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Type(
+                            syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -210,7 +210,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -226,7 +226,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
@@ -260,7 +260,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -278,7 +278,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
@@ -312,7 +312,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -330,7 +330,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
@@ -364,7 +364,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -382,7 +382,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
@@ -416,7 +416,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -434,7 +434,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
@@ -468,7 +468,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -495,7 +495,7 @@ Ok(
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         node: SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::line_segment_sketch::concave_component`,
                                     disambiguator: 0,
@@ -522,7 +522,7 @@ Ok(
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `mnist_classifier::line_segment_sketch::convex_component`,
                         node: SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::line_segment_sketch::convex_component`,
                                     disambiguator: 0,
@@ -549,7 +549,7 @@ Ok(
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `mnist_classifier::line_segment_sketch::convexity`,
                         node: SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::line_segment_sketch::convexity`,
                                     disambiguator: 0,
@@ -576,7 +576,7 @@ Ok(
                     symbol: EntitySymbol::Submodule {
                         submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
                         node: SubmoduleSynNode {
-                            node_path: SubmoduleSynNodePath {
+                            syn_node_path: SubmoduleSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: `mnist_classifier::line_segment_sketch::line_segment`,
                                     disambiguator: 0,
@@ -603,7 +603,7 @@ Ok(
                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Type(
+                            syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -638,7 +638,7 @@ Ok(
                             TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Type(
+                            syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -675,7 +675,7 @@ Ok(
                             FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
@@ -720,7 +720,7 @@ Ok(
                             FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
@@ -765,7 +765,7 @@ Ok(
                             FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
@@ -810,7 +810,7 @@ Ok(
                             FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
@@ -855,7 +855,7 @@ Ok(
                             FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
@@ -900,7 +900,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -947,7 +947,7 @@ Ok(
                                     FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Fugitive(
+                                    syn_node_path: ModuleItemSynNodePath::Fugitive(
                                         FugitiveSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
@@ -1000,7 +1000,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -1049,7 +1049,7 @@ Ok(
                                     TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -1100,7 +1100,7 @@ Ok(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -1151,7 +1151,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1202,7 +1202,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -1253,7 +1253,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1304,7 +1304,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -1355,7 +1355,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1406,7 +1406,7 @@ Ok(
                                     TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -1467,7 +1467,7 @@ Ok(
                 ),
                 ImplBlockSynNode::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNode {
-                        node_path: TraitForTypeImplBlockSynNodePath {
+                        syn_node_path: TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
@@ -1518,7 +1518,7 @@ Ok(
                 ),
                 ImplBlockSynNode::TypeImplBlock(
                     TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -1559,7 +1559,7 @@ Ok(
                 ),
                 ImplBlockSynNode::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNode {
-                        node_path: TraitForTypeImplBlockSynNodePath {
+                        syn_node_path: TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
@@ -1610,7 +1610,7 @@ Ok(
                 ),
                 ImplBlockSynNode::TypeImplBlock(
                     TypeImplBlockSynNode {
-                        node_path: TypeImplBlockSynNodePath {
+                        syn_node_path: TypeImplBlockSynNodePath {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -1658,7 +1658,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::line_segment_sketch::concave_component`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::line_segment_sketch::concave_component`,
                                             disambiguator: 0,
@@ -1702,7 +1702,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::line_segment_sketch::convex_component`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::line_segment_sketch::convex_component`,
                                             disambiguator: 0,
@@ -1746,7 +1746,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::line_segment_sketch::line_segment`,
                                             disambiguator: 0,
@@ -1846,7 +1846,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::line_segment_sketch::line_segment`,
                                             disambiguator: 0,
@@ -1896,7 +1896,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::geom2d`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::geom2d`,
                                             disambiguator: 0,
@@ -1946,7 +1946,7 @@ Ok(
                             EntitySymbol::Submodule {
                                 submodule_path: `mnist_classifier::raw_contour`,
                                 node: SubmoduleSynNode {
-                                    node_path: SubmoduleSynNodePath {
+                                    syn_node_path: SubmoduleSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: `mnist_classifier::raw_contour`,
                                             disambiguator: 0,
@@ -1993,7 +1993,7 @@ Ok(
                                     TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),

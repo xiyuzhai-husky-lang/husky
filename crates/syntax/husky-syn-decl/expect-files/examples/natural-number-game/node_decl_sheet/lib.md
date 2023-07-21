@@ -17,7 +17,7 @@ Ok(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Inductive(
                             InductiveTypeNodeDecl {
-                                node_path: TypeSynNodePath {
+                                syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                         disambiguator: 0,
@@ -101,7 +101,7 @@ Ok(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Structure(
                             StructureTypeNodeDecl {
-                                node_path: TypeSynNodePath {
+                                syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                         disambiguator: 0,
@@ -185,7 +185,7 @@ Ok(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Structure(
                             StructureTypeNodeDecl {
-                                node_path: TypeSynNodePath {
+                                syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                         disambiguator: 0,
@@ -269,7 +269,7 @@ Ok(
                 SynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::Type(
                         TypeImplBlockNodeDecl {
-                            node_path: TypeImplBlockSynNodePath {
+                            syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath {
                                     module_path: `natural_number_game`,
                                     ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -278,7 +278,7 @@ Ok(
                             },
                             ast_idx: 6,
                             impl_block: TypeImplBlockSynNode {
-                                node_path: TypeImplBlockSynNodePath {
+                                syn_node_path: TypeImplBlockSynNodePath {
                                     path: TypeImplBlockPath {
                                         module_path: `natural_number_game`,
                                         ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),

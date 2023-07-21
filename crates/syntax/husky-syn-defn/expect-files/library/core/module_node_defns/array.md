@@ -4,14 +4,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::array::Array`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::array::Array`, `Extern`),
                                     disambiguator: 0,

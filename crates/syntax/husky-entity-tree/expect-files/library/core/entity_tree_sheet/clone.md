@@ -1,12 +1,12 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `core::clone`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::clone::Clone`),
@@ -38,7 +38,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Trait(
                             TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -63,7 +63,7 @@ Ok(
                             TraitPath(`core::clone::Clone`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::clone::Clone`),
@@ -112,7 +112,7 @@ Ok(
                 ),
                 ImplBlockSynNode::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNode {
-                        node_path: TraitForTypeImplBlockSynNodePath {
+                        syn_node_path: TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::clone`,
                                 trai_path: TraitPath(`core::clone::Clone`),

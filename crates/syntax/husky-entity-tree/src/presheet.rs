@@ -11,11 +11,11 @@ use crate::*;
 use husky_token::TokenSheetData;
 use vec_like::{AsVecMapEntry, VecPairMap};
 
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+#[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
 pub(crate) fn entity_tree_presheet(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     module_path: ModulePath,
-) -> VfsResult<EntityTreePresheet> {
+) -> VfsResult<EntitySynTreePresheet> {
     Ok(EntityTreePresheetBuilder::new(db, module_path)?.build())
 }
 
@@ -27,8 +27,8 @@ fn entity_tree_presheet_works() {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
-pub struct EntityTreePresheet {
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+pub struct EntitySynTreePresheet {
     module_path: ModulePath,
     major_entity_node_table: MajorEntityNodeTable,
     use_one_trackers: OnceUseRules,
@@ -37,7 +37,7 @@ pub struct EntityTreePresheet {
     errors: Vec<EntityTreeError>,
 }
 
-impl std::ops::Index<UseExprIdx> for EntityTreePresheet {
+impl std::ops::Index<UseExprIdx> for EntitySynTreePresheet {
     type Output = UseExpr;
 
     fn index(&self, index: UseExprIdx) -> &Self::Output {
@@ -45,10 +45,10 @@ impl std::ops::Index<UseExprIdx> for EntityTreePresheet {
     }
 }
 
-impl EntityTreePresheet {
+impl EntitySynTreePresheet {
     pub(crate) fn presheet_mut<'a>(
         &'a self,
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySynTreeDb,
     ) -> EntityTreePresheetMut<'a> {
         EntityTreePresheetMut {
             module_path: self.module_path,
@@ -61,8 +61,11 @@ impl EntityTreePresheet {
         }
     }
 
-    pub(crate) fn major_entity_node(&self, node_path: EntitySynNodePath) -> Option<EntitySynNode> {
-        self.major_entity_node_table.node(node_path)
+    pub(crate) fn major_entity_node(
+        &self,
+        syn_node_path: EntitySynNodePath,
+    ) -> Option<EntitySynNode> {
+        self.major_entity_node_table.node(syn_node_path)
     }
 }
 
@@ -90,8 +93,8 @@ impl<'a> EntityTreePresheetMut<'a> {
     pub(crate) fn into_sheet(
         self,
         impl_block_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
-    ) -> EntityTreeSheet {
-        EntityTreeSheet::new(
+    ) -> EntitySynTreeSheet {
+        EntitySynTreeSheet::new(
             self.module_path,
             self.node_table,
             self.symbol_table,
@@ -103,7 +106,7 @@ impl<'a> EntityTreePresheetMut<'a> {
     }
 
     #[cfg(test)]
-    pub(crate) fn check_done(&self, db: &dyn EntityTreeDb) {
+    pub(crate) fn check_done(&self, db: &dyn EntitySynTreeDb) {
         self.once_use_rules.check_done(db)
     }
 
@@ -125,7 +128,7 @@ impl<'a> AsVecMapEntry for EntityTreePresheetMut<'a> {
 }
 
 struct EntityTreePresheetBuilder<'a> {
-    db: &'a dyn EntityTreeDb,
+    db: &'a dyn EntitySynTreeDb,
     module_path: ModulePath,
     ast_sheet: &'a AstSheet,
     token_sheet_data: &'a TokenSheetData,
@@ -136,7 +139,7 @@ struct EntityTreePresheetBuilder<'a> {
 }
 
 impl<'a> EntityTreePresheetBuilder<'a> {
-    fn new(db: &'a dyn EntityTreeDb, module_path: ModulePath) -> VfsResult<Self> {
+    fn new(db: &'a dyn EntitySynTreeDb, module_path: ModulePath) -> VfsResult<Self> {
         Ok(Self {
             db,
             module_path,
@@ -149,11 +152,11 @@ impl<'a> EntityTreePresheetBuilder<'a> {
         })
     }
 
-    fn build(mut self) -> EntityTreePresheet {
+    fn build(mut self) -> EntitySynTreePresheet {
         for (ast_idx, ast) in self.ast_sheet.all_ast_indexed_iter() {
             self.process(ast_idx, ast)
         }
-        EntityTreePresheet {
+        EntitySynTreePresheet {
             module_path: self.module_path,
             major_entity_node_table: self.entity_node_table,
             use_one_trackers: self.entity_use_trackers,

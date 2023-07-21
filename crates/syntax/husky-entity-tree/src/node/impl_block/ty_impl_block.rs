@@ -4,7 +4,7 @@ use super::*;
 
 // basically a wrapper type
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct TypeImplBlockSynNodePath {
     path: TypeImplBlockPath,
 }
@@ -42,34 +42,34 @@ impl TypeImplBlockSynNodePath {
     }
 
     #[inline(always)]
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         self.path.module_path(db)
     }
 
     #[inline(always)]
-    pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
+    pub fn ty_path(self, db: &dyn EntitySynTreeDb) -> TypePath {
         self.path.ty_path(db)
     }
 
     #[inline(always)]
-    pub fn node(self, db: &dyn EntityTreeDb) -> TypeImplBlockSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> TypeImplBlockSynNode {
         ty_impl_block_node(db, self)
     }
 
     #[inline(always)]
-    pub fn items(self, db: &dyn EntityTreeDb) -> &[(Ident, TypeItemSynNodePath, TypeItemNode)] {
+    pub fn items(self, db: &dyn EntitySynTreeDb) -> &[(Ident, TypeItemSynNodePath, TypeItemNode)] {
         ty_impl_block_items(db, self)
     }
 
     #[inline(always)]
     pub fn item_node_paths<'a>(
         self,
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySynTreeDb,
     ) -> impl Iterator<Item = TypeItemSynNodePath> + 'a {
         self.items(db)
             .iter()
             .copied()
-            .map(|(_, node_path, _)| node_path)
+            .map(|(_, syn_node_path, _)| syn_node_path)
     }
 }
 
@@ -77,15 +77,15 @@ impl HasSynNodePath for TypeImplBlockPath {
     type SynNodePath = TypeImplBlockSynNodePath;
 
     #[inline(always)]
-    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         TypeImplBlockSynNodePath { path: self }
     }
 }
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct TypeImplBlockSynNode {
     #[id]
-    pub node_path: TypeImplBlockSynNodePath,
+    pub syn_node_path: TypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
     pub impl_token: ImplToken,
     pub ty_expr: ModuleItemPathExprIdx,
@@ -94,7 +94,7 @@ pub struct TypeImplBlockSynNode {
 
 impl TypeImplBlockSynNode {
     pub(super) fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         impl_token: ImplToken,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
@@ -115,21 +115,21 @@ impl TypeImplBlockSynNode {
         )
     }
 
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
-        self.node_path(db).path.module_path(db)
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
+        self.syn_node_path(db).path.module_path(db)
     }
 
-    pub fn ty_path(self, db: &dyn EntityTreeDb) -> TypePath {
-        self.node_path(db).path.ty_path(db)
+    pub fn ty_path(self, db: &dyn EntitySynTreeDb) -> TypePath {
+        self.syn_node_path(db).path.ty_path(db)
     }
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn ty_impl_block_node(
-    db: &dyn EntityTreeDb,
-    node_path: TypeImplBlockSynNodePath,
+    db: &dyn EntitySynTreeDb,
+    syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNode {
-    let module_path = node_path.module_path(db);
-    let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
-    entity_tree_sheet.ty_impl_block_node(node_path)
+    let module_path = syn_node_path.module_path(db);
+    let entity_tree_sheet = db.entity_syn_tree_sheet(module_path).expect("valid module");
+    entity_tree_sheet.ty_impl_block_node(syn_node_path)
 }

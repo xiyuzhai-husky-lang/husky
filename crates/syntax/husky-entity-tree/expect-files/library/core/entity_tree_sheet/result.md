@@ -1,12 +1,12 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `core::result`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Type(
+                            syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::result::Result`, `Enum`),
@@ -38,7 +38,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Type(
                             TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -63,7 +63,7 @@ Ok(
                             TypePath(`core::result::Result`, `Enum`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Type(
+                            syn_node_path: ModuleItemSynNodePath::Type(
                                 TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::result::Result`, `Enum`),
@@ -164,7 +164,7 @@ Ok(
                 ),
                 ImplBlockSynNode::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNode {
-                        node_path: TraitForTypeImplBlockSynNodePath {
+                        syn_node_path: TraitForTypeImplBlockSynNodePath {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::result`,
                                 trai_path: TraitPath(`core::ops::Unveil`),
@@ -231,7 +231,7 @@ Ok(
                                     TypePath(`core::result::Result`, `Enum`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::result::Result`, `Enum`),

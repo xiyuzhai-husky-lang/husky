@@ -18,7 +18,7 @@ pub enum AssociatedItemSynNodeDefn {
 }
 
 impl AssociatedItemSynNodeDefn {
-    pub fn node_path(self, _db: &dyn SynDefnDb) -> AssociatedItemSynNodePath {
+    pub fn syn_node_path(self, _db: &dyn SynDefnDb) -> AssociatedItemSynNodePath {
         match self {
             AssociatedItemSynNodeDefn::TypeItem(_) => todo!(),
             AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
@@ -52,10 +52,14 @@ impl HasSynNodeDefn for AssociatedItemSynNodePath {
 
     fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         match self {
-            AssociatedItemSynNodePath::TypeItem(node_path) => node_path.node_defn(db).into(),
-            AssociatedItemSynNodePath::TraitItem(node_path) => node_path.node_defn(db).into(),
-            AssociatedItemSynNodePath::TraitForTypeItem(node_path) => {
-                node_path.node_defn(db).into()
+            AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
+                syn_node_path.node_defn(db).into()
+            }
+            AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
+                syn_node_path.node_defn(db).into()
+            }
+            AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
+                syn_node_path.node_defn(db).into()
             }
             AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),
         }

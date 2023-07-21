@@ -5,7 +5,7 @@ use husky_token::{PathNameToken, TokenIdx};
 use smallvec::SmallVec;
 
 #[derive(Debug)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub(crate) enum PresheetAction {
     ResolveUseExpr {
         module_path: ModulePath,
@@ -160,7 +160,7 @@ impl<'a> EntityTreePresheetMut<'a> {
 
     pub(crate) fn resolve_use_expr(
         &mut self,
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         rule_idx: OnceUseRuleIdx,
         name_token: PathNameToken,
         original_symbol: EntitySymbol,

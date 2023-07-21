@@ -1,5 +1,5 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `std::logic`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [],
@@ -16,7 +16,7 @@ Ok(
                                     TypePath(`core::logic::Prop`, `Extern`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::logic::Prop`, `Extern`),
@@ -63,7 +63,7 @@ Ok(
                                     TypePath(`core::logic::LogicAnd`, `Structure`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
@@ -110,7 +110,7 @@ Ok(
                                     TypePath(`core::logic::LogicOr`, `Inductive`),
                                 ),
                                 node: ModuleItemSynNode {
-                                    node_path: ModuleItemSynNodePath::Type(
+                                    syn_node_path: ModuleItemSynNodePath::Type(
                                         TypeSynNodePath {
                                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),

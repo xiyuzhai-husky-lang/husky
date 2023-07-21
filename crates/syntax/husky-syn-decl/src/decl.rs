@@ -48,13 +48,13 @@ impl SynNodeDecl {
         }
     }
 
-    pub fn node_path(self, db: &dyn DeclDb) -> EntitySynNodePath {
+    pub fn syn_node_path(self, db: &dyn DeclDb) -> EntitySynNodePath {
         match self {
-            SynNodeDecl::Submodule(node_decl) => node_decl.node_path(db).into(),
-            SynNodeDecl::ModuleItem(node_decl) => node_decl.node_path(db).into(),
-            SynNodeDecl::ImplBlock(node_decl) => node_decl.node_path(db).into(),
-            SynNodeDecl::AssociatedItem(node_decl) => node_decl.node_path(db).into(),
-            SynNodeDecl::TypeVariant(node_decl) => node_decl.node_path(db).into(),
+            SynNodeDecl::Submodule(node_decl) => node_decl.syn_node_path(db).into(),
+            SynNodeDecl::ModuleItem(node_decl) => node_decl.syn_node_path(db).into(),
+            SynNodeDecl::ImplBlock(node_decl) => node_decl.syn_node_path(db).into(),
+            SynNodeDecl::AssociatedItem(node_decl) => node_decl.syn_node_path(db).into(),
+            SynNodeDecl::TypeVariant(node_decl) => node_decl.syn_node_path(db).into(),
         }
     }
 
@@ -124,11 +124,11 @@ impl HasNodeDecl for EntitySynNodePath {
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            EntitySynNodePath::ModuleItem(node_path) => node_path.node_decl(db).into(),
+            EntitySynNodePath::ModuleItem(syn_node_path) => syn_node_path.node_decl(db).into(),
             EntitySynNodePath::TypeVariant(_) => todo!(),
             EntitySynNodePath::ImplBlock(_) => todo!(),
             EntitySynNodePath::AssociatedItem(_) => todo!(),
-            EntitySynNodePath::Submodule(node_path) => node_path.node_decl(db).into(),
+            EntitySynNodePath::Submodule(syn_node_path) => syn_node_path.node_decl(db).into(),
         }
     }
 }

@@ -18,7 +18,7 @@ pub(crate) fn entity_tree_diagnostic_sheet(
 ) -> EntityTreeDiagnosticSheet {
     let mut diagnostics = vec![];
     let ctx = SheetDiagnosticsContext::new(db, module_path);
-    if let Ok(entity_tree_sheet) = db.entity_tree_sheet(module_path) {
+    if let Ok(entity_tree_sheet) = db.entity_syn_tree_sheet(module_path) {
         for e in entity_tree_sheet.errors() {
             match e {
                 EntityTreeError::Original(e) => diagnostics.push(e.to_diagnostic(&ctx)),

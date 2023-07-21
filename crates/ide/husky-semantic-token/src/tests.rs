@@ -9,7 +9,7 @@ use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
 use husky_entity_path::EntityPathJar;
-use husky_entity_tree::EntityTreeJar;
+use husky_entity_tree::EntitySynTreeJar;
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_expr_ty::ExprTypeJar;
@@ -38,7 +38,7 @@ use husky_toml_token::TomlTokenJar;
     CorgiConfigAstJar,
     ManifestJar,
     AstJar,
-    EntityTreeJar,
+    EntitySynTreeJar,
     SynDeclJar,
     SynDecrJar,
     SynDefnJar,

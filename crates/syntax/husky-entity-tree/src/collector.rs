@@ -6,7 +6,7 @@ use husky_print_utils::p;
 use vec_like::{VecMap, VecPairMap};
 
 pub(crate) struct EntityTreeCollector<'a> {
-    db: &'a dyn EntityTreeDb,
+    db: &'a dyn EntitySynTreeDb,
     crate_path: CratePath,
     crate_root_path: ModulePath,
     impl_registry: ImplBlockRegistry,
@@ -17,9 +17,9 @@ pub(crate) struct EntityTreeCollector<'a> {
 
 impl<'a> EntityTreeCollector<'a> {
     pub(crate) fn new(
-        db: &'a dyn EntityTreeDb,
+        db: &'a dyn EntitySynTreeDb,
         crate_path: CratePath,
-    ) -> EntityTreeBundleResult<Self> {
+    ) -> EntitySynTreeBundleResult<Self> {
         let crate_root = ModulePath::new_root(db, crate_path);
         let all_modules = db.all_modules_within_crate(crate_path);
         let presheets = VecMap::from_iter_assuming_no_repetitions(
@@ -45,7 +45,7 @@ impl<'a> EntityTreeCollector<'a> {
         })
     }
 
-    pub(crate) fn collect_all(mut self) -> EntityTreeCrateBundle {
+    pub(crate) fn collect_all(mut self) -> EntitySynTreeCrateBundle {
         // for testing purposes
         let mut loop_idx = 0;
         const LOOP_LIMIT: usize = 100;
@@ -75,7 +75,7 @@ impl<'a> EntityTreeCollector<'a> {
             .map(|(presheet, impl_block_node_table)| presheet.into_sheet(impl_block_node_table)),
         )
         .expect("no repetitions");
-        EntityTreeCrateBundle::new(sheets, self.major_path_expr_arena)
+        EntitySynTreeCrateBundle::new(sheets, self.major_path_expr_arena)
     }
 
     fn collect_impl_node_block_tables(
@@ -108,7 +108,9 @@ impl<'a> EntityTreeCollector<'a> {
                         )),
                         _ => None,
                     })
-                    .map(|impl_block_node| (impl_block_node.node_path(self.db), impl_block_node)),
+                    .map(|impl_block_node| {
+                        (impl_block_node.syn_node_path(self.db), impl_block_node)
+                    }),
             )
             .expect("no repetitions");
             impl_blocks_for_each_module.push(impl_blocks);

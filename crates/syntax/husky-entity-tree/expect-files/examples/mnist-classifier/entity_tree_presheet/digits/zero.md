@@ -1,12 +1,12 @@
 Ok(
-    EntityTreePresheet {
+    EntitySynTreePresheet {
         module_path: `mnist_classifier::digits::zero`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
@@ -40,7 +40,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -58,7 +58,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
@@ -92,7 +92,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -110,7 +110,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Fugitive(
+                            syn_node_path: ModuleItemSynNodePath::Fugitive(
                                 FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
@@ -144,7 +144,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Fugitive(
                             FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {

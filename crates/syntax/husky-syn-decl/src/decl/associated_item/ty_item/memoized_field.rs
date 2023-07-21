@@ -3,7 +3,7 @@ use super::*;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeMemoizedFieldNodeDecl {
     #[id]
-    pub node_path: TypeItemSynNodePath,
+    pub syn_node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
     pub colon_token: TokenResult<Option<ColonToken>>,
     #[return_ref]
@@ -35,10 +35,10 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenStreamState,
     ) -> TypeMemoizedFieldNodeDecl {
         let db = self.db();
-        let node_path = node.node_path(db);
-        let impl_block_node_decl = node_path.impl_block(db).node_decl(db);
+        let syn_node_path = node.syn_node_path(db);
+        let impl_block_node_decl = syn_node_path.impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
-            node_path,
+            syn_node_path,
             Some(impl_block_node_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -55,7 +55,7 @@ impl<'a> DeclParser<'a> {
         let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
         TypeMemoizedFieldNodeDecl::new(
             db,
-            node_path,
+            syn_node_path,
             ast_idx,
             colon_token,
             form_ty,

@@ -1,5 +1,5 @@
 Ok(
-    EntityTreePresheet {
+    EntitySynTreePresheet {
         module_path: `math::category_theory`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [],

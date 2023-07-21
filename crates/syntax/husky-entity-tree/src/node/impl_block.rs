@@ -18,7 +18,7 @@ use thiserror::Error;
 use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynNodePath {
     TypeImplBlock(TypeImplBlockSynNodePath),
@@ -29,33 +29,39 @@ pub enum ImplBlockSynNodePath {
 pub(crate) struct ImplBlockNodePathRegistry {}
 
 impl ImplBlockSynNodePath {
-    pub fn path(self, db: &dyn EntityTreeDb) -> Option<ImplBlockPath> {
+    pub fn path(self, db: &dyn EntitySynTreeDb) -> Option<ImplBlockPath> {
         match self {
-            ImplBlockSynNodePath::TypeImplBlock(node_path) => Some(node_path.path().into()),
-            ImplBlockSynNodePath::TraitForTypeImplBlock(node_path) => Some(node_path.path().into()),
+            ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => Some(syn_node_path.path().into()),
+            ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
+                Some(syn_node_path.path().into())
+            }
             ImplBlockSynNodePath::IllFormedImplBlock(_) => None,
         }
     }
 
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         match self {
-            ImplBlockSynNodePath::TypeImplBlock(node_path) => node_path.module_path(db),
-            ImplBlockSynNodePath::TraitForTypeImplBlock(node_path) => node_path.module_path(db),
-            ImplBlockSynNodePath::IllFormedImplBlock(node_path) => node_path.module_path(db),
+            ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => syn_node_path.module_path(db),
+            ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
+                syn_node_path.module_path(db)
+            }
+            ImplBlockSynNodePath::IllFormedImplBlock(syn_node_path) => {
+                syn_node_path.module_path(db)
+            }
         }
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> ImplBlockSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> ImplBlockSynNode {
         todo!()
     }
 
-    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[AssociatedItemPath] {
+    pub fn item_node_paths(self, db: &dyn EntitySynTreeDb) -> &[AssociatedItemPath] {
         todo!()
     }
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynNode {
     TypeImplBlock(TypeImplBlockSynNode),
@@ -64,17 +70,19 @@ pub enum ImplBlockSynNode {
 }
 
 impl ImplBlockSynNode {
-    pub fn node_path(self, db: &dyn EntityTreeDb) -> ImplBlockSynNodePath {
+    pub fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> ImplBlockSynNodePath {
         match self {
-            ImplBlockSynNode::TypeImplBlock(impl_block) => impl_block.node_path(db).into(),
-            ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => impl_block.node_path(db).into(),
-            ImplBlockSynNode::IllFormedImplBlock(impl_block) => impl_block.node_path(db).into(),
+            ImplBlockSynNode::TypeImplBlock(impl_block) => impl_block.syn_node_path(db).into(),
+            ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => {
+                impl_block.syn_node_path(db).into()
+            }
+            ImplBlockSynNode::IllFormedImplBlock(impl_block) => impl_block.syn_node_path(db).into(),
         }
     }
 
     pub fn for_each_item(
         self,
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         f: impl FnMut(),
     ) -> &[AssociatedItemSynNodePath] {
         todo!()
@@ -83,7 +91,7 @@ impl ImplBlockSynNode {
 
 impl ImplBlockSynNode {
     pub(crate) fn parse_from_token_group<'a, 'b>(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         crate_root_path: ModulePath,
         registry: &mut ImplBlockRegistry,
         entity_tree_context: EntityTreeSymbolContext<'a, 'b>,
@@ -129,7 +137,7 @@ impl ImplBlockSynNode {
     }
 
     pub(crate) fn parse_from_token_group_aux<'a, 'b>(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         crate_root_path: ModulePath,
         registry: &mut ImplBlockRegistry,
         module_path: ModulePath,
@@ -218,12 +226,12 @@ impl ImplBlockSynNode {
         })
     }
 
-    pub fn module_path(&self, _db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(&self, _db: &dyn EntitySynTreeDb) -> ModulePath {
         todo!()
         // self.id(db).module_path
     }
 
-    pub fn items(self, db: &dyn EntityTreeDb) -> &[(Ident, AssociatedItemSynNode)] {
+    pub fn items(self, db: &dyn EntitySynTreeDb) -> &[(Ident, AssociatedItemSynNode)] {
         todo!()
         // match self {
         //     ImplBlockNode::TypeImplBlock(impl_block) => ty_impl_block_items(db, impl_block),
@@ -236,7 +244,7 @@ impl ImplBlockSynNode {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum ImplError {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,

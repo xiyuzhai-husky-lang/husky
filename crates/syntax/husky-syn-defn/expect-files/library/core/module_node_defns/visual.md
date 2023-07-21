@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Trait(
                 TraitSynNodeDefn {
-                    node_path: TraitSynNodePath {
+                    syn_node_path: TraitSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: TraitPath(`core::visual::Visualize`),
                             disambiguator: 0,
                         },
                     },
                     node_decl: TraitNodeDecl {
-                        node_path: TraitSynNodePath {
+                        syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::visual::Visualize`),
                                 disambiguator: 0,
@@ -82,14 +82,14 @@ Ok(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
                     ExternTypeNodeDefn {
-                        node_path: TypeSynNodePath {
+                        syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::visual::Html`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
                         node_decl: ExternTypeNodeDecl {
-                            node_path: TypeSynNodePath {
+                            syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::visual::Html`, `Extern`),
                                     disambiguator: 0,

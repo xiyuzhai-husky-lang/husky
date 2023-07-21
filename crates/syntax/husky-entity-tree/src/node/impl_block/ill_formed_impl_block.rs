@@ -3,7 +3,7 @@ use original_error::IntoError;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct IllFormedImplBlockSynNodePath {
     path: IllFormedImplBlockPath,
 }
@@ -28,16 +28,16 @@ where
 }
 
 impl IllFormedImplBlockSynNodePath {
-    pub fn module_path(self, db: &dyn EntityTreeDb) -> ModulePath {
+    pub fn module_path(self, db: &dyn EntitySynTreeDb) -> ModulePath {
         self.path.module_path(db)
     }
 
-    pub fn item_node_paths(self, db: &dyn EntityTreeDb) -> &[IllFormedItemSynNodePath] {
+    pub fn item_node_paths(self, db: &dyn EntitySynTreeDb) -> &[IllFormedItemSynNodePath] {
         // ad hoc
         &[]
     }
 
-    pub fn node(self, db: &dyn EntityTreeDb) -> IllFormedImplBlockSynNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> IllFormedImplBlockSynNode {
         ill_formed_impl_block_node(db, self)
     }
 }
@@ -51,15 +51,15 @@ impl From<IllFormedImplBlockSynNodePath> for EntitySynNodePath {
 impl HasSynNodePath for IllFormedImplBlockPath {
     type SynNodePath = IllFormedImplBlockSynNodePath;
 
-    fn syn_node_path(self, db: &dyn EntityTreeDb) -> Self::SynNodePath {
+    fn syn_node_path(self, db: &dyn EntitySynTreeDb) -> Self::SynNodePath {
         IllFormedImplBlockSynNodePath { path: self }
     }
 }
 
-#[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar, constructor = new_inner)]
+#[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct IllFormedImplBlockSynNode {
     #[id]
-    pub node_path: IllFormedImplBlockSynNodePath,
+    pub syn_node_path: IllFormedImplBlockSynNodePath,
     pub impl_token: ImplToken,
     pub ast_idx: AstIdx,
     pub items: Option<ImplBlockItems>,
@@ -69,7 +69,7 @@ pub struct IllFormedImplBlockSynNode {
 
 impl IllFormedImplBlockSynNode {
     pub(super) fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut ImplBlockRegistry,
         impl_token: ImplToken,
         module: ModulePath,
@@ -91,7 +91,7 @@ impl IllFormedImplBlockSynNode {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum ImplBlockIllForm {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,
@@ -111,12 +111,12 @@ impl IntoError for ImplBlockIllForm {
     type Error = Self;
 }
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn ill_formed_impl_block_node(
-    db: &dyn EntityTreeDb,
-    node_path: IllFormedImplBlockSynNodePath,
+    db: &dyn EntitySynTreeDb,
+    syn_node_path: IllFormedImplBlockSynNodePath,
 ) -> IllFormedImplBlockSynNode {
-    let module_path = node_path.module_path(db);
-    let entity_tree_sheet = db.entity_tree_sheet(module_path).expect("valid module");
-    entity_tree_sheet.ill_formed_impl_block_node(db, node_path)
+    let module_path = syn_node_path.module_path(db);
+    let entity_tree_sheet = db.entity_syn_tree_sheet(module_path).expect("valid module");
+    entity_tree_sheet.ill_formed_impl_block_node(db, syn_node_path)
 }

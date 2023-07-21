@@ -1,5 +1,5 @@
 Ok(
-    EntityTreePresheet {
+    EntitySynTreePresheet {
         module_path: `std::logic`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [],

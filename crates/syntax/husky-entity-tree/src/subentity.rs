@@ -3,12 +3,12 @@ use husky_entity_taxonomy::AssociatedItemKind;
 use husky_print_utils::p;
 use vec_like::VecMapGetEntry;
 
-#[salsa::tracked(jar = EntityTreeJar)]
+#[salsa::tracked(jar = EntitySynTreeJar)]
 pub(crate) fn module_subentity_path(
-    _db: &dyn EntityTreeDb,
+    _db: &dyn EntitySynTreeDb,
     _parent: ModulePath,
     _identifier: Ident,
-) -> EntityTreeResult<EntityPath> {
+) -> EntitySynTreeResult<EntityPath> {
     todo!()
 }
 
@@ -21,14 +21,14 @@ pub enum SubentityPath {
 }
 
 pub(crate) fn subentity_path(
-    db: &dyn EntityTreeDb,
+    db: &dyn EntitySynTreeDb,
     parent: MajorEntityPath,
     ident: Ident,
-) -> EntityTreeResult<SubentityPath> {
+) -> EntitySynTreeResult<SubentityPath> {
     match parent {
         MajorEntityPath::Module(module_path) => {
             match db
-                .entity_tree_sheet(module_path)?
+                .entity_syn_tree_sheet(module_path)?
                 .module_symbols()
                 .resolve_ident(db, ReferenceModulePath::Generic, ident)
             {
@@ -38,7 +38,7 @@ pub(crate) fn subentity_path(
         }
         MajorEntityPath::ModuleItem(module_item_path) => {
             let crate_path = module_item_path.crate_path(db);
-            let _entity_tree_crate_bundle = db.entity_tree_bundle(crate_path)?;
+            let _entity_tree_crate_bundle = db.entity_syn_tree_bundle(crate_path)?;
             match module_item_path {
                 ModuleItemPath::Type(path) => {
                     if let Some((_, path)) = path.ty_variant_paths(db).get_entry(ident).copied() {

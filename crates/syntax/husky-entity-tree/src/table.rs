@@ -8,7 +8,7 @@ use husky_print_utils::p;
 use husky_token::IdentToken;
 
 #[derive(Debug, Default, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct EntitySymbolTable(Vec<EntitySymbolEntry>);
 
 impl EntitySymbolTable {
@@ -20,7 +20,7 @@ impl EntitySymbolTable {
         &self.0
     }
 
-    pub(crate) fn insert(&mut self, new_entry: EntitySymbolEntry) -> EntityTreeResult<()> {
+    pub(crate) fn insert(&mut self, new_entry: EntitySymbolEntry) -> EntitySynTreeResult<()> {
         // todo: should there be checks?
         self.0.push(new_entry);
         Ok(())
@@ -29,7 +29,7 @@ impl EntitySymbolTable {
     pub(crate) fn extend(
         &mut self,
         iter: impl IntoIterator<Item = EntitySymbolEntry>,
-    ) -> EntityTreeResult<()> {
+    ) -> EntitySynTreeResult<()> {
         for new_entry in iter {
             self.insert(new_entry)?
         }
@@ -38,14 +38,14 @@ impl EntitySymbolTable {
 }
 
 #[derive(Debug, Default, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct EntitySymbolTableRef<'a>(&'a [EntitySymbolEntry]);
 
 impl<'a> EntitySymbolTableRef<'a> {
     // todo: add token_idx: TokenIdx
     pub fn resolve_ident(
         &self,
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         reference_module_path: ReferenceModulePath,
         ident: Ident,
     ) -> Option<EntitySymbol> {
@@ -65,7 +65,7 @@ impl<'a> EntitySymbolTableRef<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct EntitySymbolEntry {
     ident: Ident,
     visibility: Scope,
@@ -73,7 +73,7 @@ pub struct EntitySymbolEntry {
 }
 
 impl EntitySymbolEntry {
-    pub(crate) fn new_crate_root(db: &dyn EntityTreeDb, crate_path: CratePath) -> Self {
+    pub(crate) fn new_crate_root(db: &dyn EntitySynTreeDb, crate_path: CratePath) -> Self {
         let root_module_path = ModulePath::new_root(db, crate_path);
         Self {
             ident: db.coword_menu().crate_ident(),
@@ -83,7 +83,7 @@ impl EntitySymbolEntry {
     }
 
     pub(crate) fn new_package_dependency(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         package_dependency: &PackageDependency,
     ) -> Self {
         let package_path = package_dependency.package_path();
@@ -97,7 +97,7 @@ impl EntitySymbolEntry {
     }
 
     pub(crate) fn new_use_symbol_entry(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         original_symbol: EntitySymbol,
         rule: &mut OnceUseRule,
     ) -> Self {
@@ -119,7 +119,7 @@ impl EntitySymbolEntry {
     }
 
     pub(crate) fn new_use_ty_variant_entry(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         parent_rule: &OnceUseRule,
         ident: Ident,
         ty_variant_path: TypeVariantPath,
@@ -142,7 +142,7 @@ impl EntitySymbolEntry {
 
     pub(crate) fn export_via_use_all(
         &self,
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         reference_module_path: ModulePath,
         rule: &UseAllModuleSymbolsRule,
     ) -> Option<Self> {
@@ -164,7 +164,7 @@ impl EntitySymbolEntry {
 
     pub(crate) fn is_visible_from(
         &self,
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         module_path: ReferenceModulePath,
     ) -> bool {
         self.visibility.is_visible_from(db, module_path)
@@ -185,13 +185,13 @@ impl EntitySymbolEntry {
 
 // module items and submodules
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct MajorEntityNodeTable {
     entries: Vec<EntityNodeEntry>,
 }
 
 impl MajorEntityNodeTable {
-    pub(crate) fn entity_symbol_table(&self, db: &dyn EntityTreeDb) -> EntitySymbolTable {
+    pub(crate) fn entity_symbol_table(&self, db: &dyn EntitySynTreeDb) -> EntitySymbolTable {
         EntitySymbolTable(
             self.entries
                 .iter()
@@ -202,7 +202,7 @@ impl MajorEntityNodeTable {
 
     pub(crate) fn try_add_new_node(
         &mut self,
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
         visibility: Scope,
         ast_idx: AstIdx,
@@ -223,23 +223,23 @@ impl MajorEntityNodeTable {
         }
     }
 
-    pub(crate) fn node(&self, node_path: EntitySynNodePath) -> Option<EntitySynNode> {
+    pub(crate) fn node(&self, syn_node_path: EntitySynNodePath) -> Option<EntitySynNode> {
         self.entries
             .iter()
-            .find_map(|entry| (entry.node_path == node_path).then_some(entry.node))
+            .find_map(|entry| (entry.syn_node_path == syn_node_path).then_some(entry.node))
     }
 
     pub(crate) fn node_paths<'a>(&'a self) -> impl Iterator<Item = EntitySynNodePath> + 'a {
-        self.entries.iter().map(|entry| entry.node_path)
+        self.entries.iter().map(|entry| entry.syn_node_path)
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntityTreeDb)]
+#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct EntityNodeEntry {
     node: EntitySynNode,
-    /// cached for performance, always equal to node.node_path(db)
-    node_path: EntitySynNodePath,
+    /// cached for performance, always equal to node.syn_node_path(db)
+    syn_node_path: EntitySynNodePath,
     /// cached for performance, always equal to node.ident(db)
     ident: Ident,
     /// cached for performance, always equal to node.visibility(db)
@@ -247,7 +247,7 @@ pub struct EntityNodeEntry {
 }
 
 impl EntitySymbolEntry {
-    fn from_node(db: &dyn EntityTreeDb, node_entry: &EntityNodeEntry) -> Option<Self> {
+    fn from_node(db: &dyn EntitySynTreeDb, node_entry: &EntityNodeEntry) -> Option<Self> {
         Some(EntitySymbolEntry {
             ident: node_entry.ident,
             visibility: node_entry.visibility,
@@ -258,7 +258,7 @@ impl EntitySymbolEntry {
 
 impl EntityNodeEntry {
     fn new(
-        db: &dyn EntityTreeDb,
+        db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
         visibility: Scope,
         ast_idx: AstIdx,
@@ -276,7 +276,7 @@ impl EntityNodeEntry {
             block,
         )?;
         Some(Self {
-            node_path: node.node_path(db),
+            syn_node_path: node.syn_node_path(db),
             ident: ident_token.ident(),
             visibility,
             node,

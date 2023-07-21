@@ -1,12 +1,12 @@
 Ok(
-    EntityTreeSheet {
+    EntitySynTreeSheet {
         module_path: `core::cmp`,
         major_entity_node_table: MajorEntityNodeTable {
             entries: [
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::cmp::PartialEq`),
@@ -32,7 +32,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Trait(
                             TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -48,7 +48,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::cmp::Eq`),
@@ -74,7 +74,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Trait(
                             TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -90,7 +90,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::cmp::PartialOrd`),
@@ -116,7 +116,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Trait(
                             TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -132,7 +132,7 @@ Ok(
                 EntityNodeEntry {
                     node: EntitySynNode::ModuleItem(
                         ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::cmp::Ord`),
@@ -158,7 +158,7 @@ Ok(
                             },
                         },
                     ),
-                    node_path: EntitySynNodePath::ModuleItem(
+                    syn_node_path: EntitySynNodePath::ModuleItem(
                         ModuleItemSynNodePath::Trait(
                             TraitSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -183,7 +183,7 @@ Ok(
                             TraitPath(`core::cmp::PartialEq`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::cmp::PartialEq`),
@@ -218,7 +218,7 @@ Ok(
                             TraitPath(`core::cmp::Eq`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::cmp::Eq`),
@@ -253,7 +253,7 @@ Ok(
                             TraitPath(`core::cmp::PartialOrd`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::cmp::PartialOrd`),
@@ -288,7 +288,7 @@ Ok(
                             TraitPath(`core::cmp::Ord`),
                         ),
                         node: ModuleItemSynNode {
-                            node_path: ModuleItemSynNodePath::Trait(
+                            syn_node_path: ModuleItemSynNodePath::Trait(
                                 TraitSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitPath(`core::cmp::Ord`),

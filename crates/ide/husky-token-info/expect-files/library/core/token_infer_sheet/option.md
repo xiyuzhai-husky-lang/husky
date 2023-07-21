@@ -15,7 +15,7 @@ Ok(
                                 TypePath(`core::option::Option`, `Enum`),
                             ),
                             node: ModuleItemSynNode {
-                                node_path: ModuleItemSynNodePath::Type(
+                                syn_node_path: ModuleItemSynNodePath::Type(
                                     TypeSynNodePath {
                                         maybe_ambiguous_path: MaybeAmbiguousPath {
                                             path: TypePath(`core::option::Option`, `Enum`),

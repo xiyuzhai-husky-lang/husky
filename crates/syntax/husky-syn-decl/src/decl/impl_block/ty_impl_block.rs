@@ -4,7 +4,7 @@ use husky_token::EolToken;
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
 pub struct TypeImplBlockNodeDecl {
     #[id]
-    pub node_path: TypeImplBlockSynNodePath,
+    pub syn_node_path: TypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
     pub impl_block: TypeImplBlockSynNode,
     pub impl_token: ImplToken,
@@ -32,46 +32,50 @@ impl HasNodeDecl for TypeImplBlockSynNode {
     type NodeDecl = TypeImplBlockNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        self.node_path(db).node_decl(db)
+        self.syn_node_path(db).node_decl(db)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_impl_block_node_decl(
     db: &dyn DeclDb,
-    node_path: TypeImplBlockSynNodePath,
+    syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockNodeDecl {
-    let parser = DeclParser::new(db, node_path.module_path(db));
-    parser.parse_ty_impl_block_node_decl(node_path)
+    let parser = DeclParser::new(db, syn_node_path.module_path(db));
+    parser.parse_ty_impl_block_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
     fn parse_ty_impl_block_node_decl(
         &self,
-        node_path: TypeImplBlockSynNodePath,
+        syn_node_path: TypeImplBlockSynNodePath,
     ) -> TypeImplBlockNodeDecl {
         let db = self.db();
-        let node = node_path.node(db);
+        let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
         match self.ast_sheet()[ast_idx] {
             Ast::ImplBlock {
                 token_group_idx,
                 items: _,
-            } => self.parse_ty_impl_block_decl_aux(node_path, node, ast_idx, token_group_idx),
+            } => self.parse_ty_impl_block_decl_aux(syn_node_path, node, ast_idx, token_group_idx),
             _ => unreachable!(),
         }
     }
 
     fn parse_ty_impl_block_decl_aux(
         &self,
-        node_path: TypeImplBlockSynNodePath,
+        syn_node_path: TypeImplBlockSynNodePath,
         node: TypeImplBlockSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
     ) -> TypeImplBlockNodeDecl {
         let db = self.db();
-        let mut parser =
-            self.expr_parser(node_path, None, AllowSelfType::True, AllowSelfValue::False);
+        let mut parser = self.expr_parser(
+            syn_node_path,
+            None,
+            AllowSelfType::True,
+            AllowSelfValue::False,
+        );
         let mut ctx = parser.ctx(None, token_group_idx, None);
         let impl_token = ctx.try_parse_option().unwrap().unwrap();
         let implicit_parameter_decl_list = ctx.try_parse_option();
@@ -79,7 +83,7 @@ impl<'a> DeclParser<'a> {
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
         TypeImplBlockNodeDecl::new(
             db,
-            node_path,
+            syn_node_path,
             ast_idx,
             node,
             impl_token,
@@ -151,11 +155,11 @@ impl HasDecl for TypeImplBlockPath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_impl_block_decl(
     db: &dyn DeclDb,
-    // here use path instead of node_path because salsa doesn't support use wrapper type by default
+    // here use path instead of syn_node_path because salsa doesn't support use wrapper type by default
     // maybe add AsId carefully
     path: TypeImplBlockPath,
 ) -> DeclResult<TypeImplBlockDecl> {
-    let node_path = path.syn_node_path(db);
-    let node_decl = node_path.node_decl(db);
+    let syn_node_path = path.syn_node_path(db);
+    let node_decl = syn_node_path.node_decl(db);
     TypeImplBlockDecl::from_node_decl(db, path, node_decl)
 }
