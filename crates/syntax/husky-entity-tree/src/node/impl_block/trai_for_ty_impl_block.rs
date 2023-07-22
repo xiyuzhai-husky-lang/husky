@@ -47,7 +47,7 @@ impl TraitForTypeImplBlockSynNodePath {
     pub fn items(
         self,
         db: &dyn EntitySynTreeDb,
-    ) -> &[(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemNode)] {
+    ) -> &[(Ident, TraitForTypeItemSynNodePath, TraitForTypeItemSynNode)] {
         trai_for_ty_impl_block_items(db, self)
     }
 
@@ -62,7 +62,7 @@ impl TraitForTypeImplBlockSynNodePath {
     }
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> TraitForTypeImplBlockSynNode {
-        trai_for_ty_impl_block_node(db, self)
+        trai_for_ty_impl_block_syn_node(db, self)
     }
 }
 
@@ -152,13 +152,13 @@ impl TraitForTypeImplBlockSynNode {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-pub(crate) fn trai_for_ty_impl_block_node(
+pub(crate) fn trai_for_ty_impl_block_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNode {
     let module_path = syn_node_path.module_path(db);
     let entity_tree_sheet = db.entity_syn_tree_sheet(module_path).expect("valid module");
-    entity_tree_sheet.trai_for_ty_impl_block_node(db, syn_node_path)
+    entity_tree_sheet.trai_for_ty_impl_block_syn_node(db, syn_node_path)
 }
 
 impl HasItemPaths for TraitForTypeImplBlockPath {

@@ -6,7 +6,7 @@ use super::*;
 pub struct TraitForTypeAssociatedTypeNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
-    pub node: TraitForTypeItemNode,
+    pub node: TraitForTypeItemSynNode,
     pub ast_idx: AstIdx,
     #[return_ref]
     pub generics: NodeDeclResult<Option<Generics>>,
@@ -28,16 +28,16 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_trai_for_ty_associated_ty_node_decl(
         &self,
         syn_node_path: TraitForTypeItemSynNodePath,
-        node: TraitForTypeItemNode,
+        node: TraitForTypeItemSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TraitForTypeAssociatedTypeNodeDecl {
         let db = self.db();
-        let impl_block_node_decl = syn_node_path.impl_block(db).node_decl(db);
+        let impl_block_syn_node_decl = syn_node_path.impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
             node.syn_node_path(db),
-            Some(impl_block_node_decl.expr_region(db)),
+            Some(impl_block_syn_node_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::False,
         );

@@ -89,11 +89,11 @@ impl HasNodeDecl for TypeItemSynNodePath {
     type NodeDecl = TypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        ty_item_node_decl(db, self)
+        ty_item_syn_node_decl(db, self)
     }
 }
 
-impl HasNodeDecl for TypeItemNode {
+impl HasNodeDecl for TypeItemSynNode {
     type NodeDecl = TypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
@@ -102,17 +102,17 @@ impl HasNodeDecl for TypeItemNode {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_item_node_decl(
+pub(crate) fn ty_item_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemNodeDecl {
     let module_path = syn_node_path.module_path(db);
     let ctx = DeclParser::new(db, module_path);
-    ctx.parse_ty_item_node_decl(syn_node_path)
+    ctx.parse_ty_item_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_item_node_decl(&self, syn_node_path: TypeItemSynNodePath) -> TypeItemNodeDecl {
+    fn parse_ty_item_syn_node_decl(&self, syn_node_path: TypeItemSynNodePath) -> TypeItemNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
@@ -125,7 +125,7 @@ impl<'a> DeclParser<'a> {
                     },
                 saved_stream_state,
                 ..
-            } => self.parse_ty_item_node_decl_aux(
+            } => self.parse_ty_item_syn_node_decl_aux(
                 syn_node_path,
                 node,
                 ast_idx,
@@ -137,10 +137,10 @@ impl<'a> DeclParser<'a> {
         }
     }
 
-    fn parse_ty_item_node_decl_aux(
+    fn parse_ty_item_syn_node_decl_aux(
         &self,
         syn_node_path: TypeItemSynNodePath,
-        node: TypeItemNode,
+        node: TypeItemSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         ty_item_kind: TypeItemKind,

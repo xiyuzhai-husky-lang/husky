@@ -4,7 +4,7 @@ use super::*;
 pub struct IllFormedItemNodeDecl {
     #[id]
     pub syn_node_path: IllFormedItemSynNodePath,
-    pub node: IllFormedItemNode,
+    pub node: IllFormedItemSynNode,
 }
 
 impl From<IllFormedItemNodeDecl> for SynNodeDecl {

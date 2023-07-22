@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeAssociatedTypeNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub node: TypeItemNode,
+    pub node: TypeItemSynNode,
     pub ast_idx: AstIdx,
     pub expr_region: SynExprRegion,
 }

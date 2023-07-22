@@ -80,21 +80,21 @@ impl HasNodeDecl for TraitForTypeItemSynNodePath {
     type NodeDecl = TraitForTypeItemNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        trai_for_ty_item_node_decl(db, self)
+        trai_for_ty_item_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_for_ty_item_node_decl(
+pub(crate) fn trai_for_ty_item_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
-    parser.parse_trai_for_ty_item_node_decl(syn_node_path)
+    parser.parse_trai_for_ty_item_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_trai_for_ty_item_node_decl(
+    fn parse_trai_for_ty_item_syn_node_decl(
         &self,
         syn_node_path: TraitForTypeItemSynNodePath,
     ) -> TraitForTypeItemNodeDecl {
@@ -110,7 +110,7 @@ impl<'a> DeclParser<'a> {
                     },
                 saved_stream_state,
                 ..
-            } => self.parse_trai_for_ty_item_node_decl_aux(
+            } => self.parse_trai_for_ty_item_syn_node_decl_aux(
                 syn_node_path,
                 node,
                 ast_idx,
@@ -122,10 +122,10 @@ impl<'a> DeclParser<'a> {
         }
     }
 
-    pub(super) fn parse_trai_for_ty_item_node_decl_aux(
+    pub(super) fn parse_trai_for_ty_item_syn_node_decl_aux(
         &self,
         syn_node_path: TraitForTypeItemSynNodePath,
-        node: TraitForTypeItemNode,
+        node: TraitForTypeItemSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         trai_item_kind: TraitItemKind,

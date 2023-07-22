@@ -48,7 +48,7 @@ impl AssociatedItemSynNodePath {
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum AssociatedItemSynNode {
-    TypeItem(TypeItemNode),
+    TypeItem(TypeItemSynNode),
 }
 
 impl AssociatedItemSynNode {

@@ -35,7 +35,7 @@ pub struct SynDeclJar(
     // decl
     // - submodule
     SubmoduleNodeDecl,
-    submodule_node_decl,
+    submodule_syn_node_decl,
     SubmoduleDecl,
     submodule_decl,
     // - type
@@ -65,7 +65,7 @@ pub struct SynDeclJar(
     TraitDecl,
     trai_decl,
     // - form
-    fugitive_node_decl,
+    fugitive_syn_node_decl,
     fugitive_decl,
     ValNodeDecl,
     ValDecl,
@@ -77,15 +77,15 @@ pub struct SynDeclJar(
     TypeAliasDecl,
     // - impl block
     TypeImplBlockNodeDecl,
-    ty_impl_block_node_decl,
+    ty_impl_block_syn_node_decl,
     TypeImplBlockDecl,
     ty_impl_block_decl,
     TraitForTypeImplBlockNodeDecl,
-    trai_for_ty_impl_block_node_decl,
+    trai_for_ty_impl_block_syn_node_decl,
     TraitForTypeImplBlockDecl,
     trai_for_ty_impl_block_decl,
     IllFormedImplBlockNodeDecl,
-    ill_formed_impl_block_node_decl,
+    ill_formed_impl_block_syn_node_decl,
     // - variant
     ty_variant_node_decl,
     ty_variant_decl,
@@ -97,7 +97,7 @@ pub struct SynDeclJar(
     TupleTypeVariantDecl,
     // - associated items
     // -- type item
-    ty_item_node_decl,
+    ty_item_syn_node_decl,
     ty_item_decl,
     TypeAssociatedFnNodeDecl,
     TypeAssociatedFnDecl,
@@ -119,7 +119,7 @@ pub struct SynDeclJar(
     TraitAssociatedValNodeDecl,
     TraitAssociatedValDecl,
     // -- trait for type item
-    trai_for_ty_item_node_decl,
+    trai_for_ty_item_syn_node_decl,
     trai_for_ty_item_decl,
     TraitForTypeAssociatedFnNodeDecl,
     TraitForTypeAssociatedFnDecl,

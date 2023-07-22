@@ -9,7 +9,7 @@ pub struct EntitySynTreeSheet {
     major_entity_node_table: MajorEntityNodeTable,
     entity_symbol_table: EntitySymbolTable,
     // todo: split this into ty impl block and trai for ty impl block
-    impl_block_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
+    impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     once_use_rules: OnceUseRules,
     use_all_rules: UseAllModuleSymbolsRules,
     errors: Vec<EntityTreeError>,
@@ -38,13 +38,13 @@ impl EntitySynTreeSheet {
         once_use_rules: OnceUseRules,
         use_all_rules: UseAllModuleSymbolsRules,
         errors: Vec<EntityTreeError>,
-        impl_block_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
+        impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     ) -> Self {
         Self {
             module_path,
             major_entity_node_table,
             entity_symbol_table,
-            impl_block_node_table,
+            impl_block_syn_node_table,
             once_use_rules,
             use_all_rules,
             errors,
@@ -86,11 +86,11 @@ impl EntitySynTreeSheet {
         self.major_entity_node_table.node(syn_node_path)
     }
 
-    pub(crate) fn ty_impl_block_node(
+    pub(crate) fn ty_impl_block_syn_node(
         &self,
         syn_node_path: TypeImplBlockSynNodePath,
     ) -> TypeImplBlockSynNode {
-        self.impl_block_node_table
+        self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
@@ -101,12 +101,12 @@ impl EntitySynTreeSheet {
             .expect("valid node path")
     }
 
-    pub(crate) fn trai_for_ty_impl_block_node(
+    pub(crate) fn trai_for_ty_impl_block_syn_node(
         &self,
         db: &dyn EntitySynTreeDb,
         syn_node_path: TraitForTypeImplBlockSynNodePath,
     ) -> TraitForTypeImplBlockSynNode {
-        self.impl_block_node_table
+        self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
@@ -117,12 +117,12 @@ impl EntitySynTreeSheet {
             .expect("valid node path")
     }
 
-    pub(crate) fn ill_formed_impl_block_node(
+    pub(crate) fn ill_formed_impl_block_syn_node(
         &self,
         db: &dyn EntitySynTreeDb,
         syn_node_path: IllFormedImplBlockSynNodePath,
     ) -> IllFormedImplBlockSynNode {
-        self.impl_block_node_table
+        self.impl_block_syn_node_table
             .iter()
             .find_map(|(node_path1, node)| {
                 (*node_path1 == syn_node_path.into()).then(|| match node {
@@ -133,16 +133,18 @@ impl EntitySynTreeSheet {
             .expect("valid node path")
     }
 
-    pub fn impl_block_node_paths<'a>(&'a self) -> impl Iterator<Item = ImplBlockSynNodePath> + 'a {
-        self.impl_block_node_table
+    pub fn impl_block_syn_node_paths<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = ImplBlockSynNodePath> + 'a {
+        self.impl_block_syn_node_table
             .iter()
             .map(|(syn_node_path, _)| *syn_node_path)
     }
 
-    pub fn all_ty_impl_block_node_paths<'a>(
+    pub fn all_ty_impl_block_syn_node_paths<'a>(
         &'a self,
     ) -> impl Iterator<Item = TypeImplBlockSynNodePath> + 'a {
-        self.impl_block_node_table
+        self.impl_block_syn_node_table
             .iter()
             .copied()
             .filter_map(|(syn_node_path, _)| match syn_node_path {
@@ -151,23 +153,22 @@ impl EntitySynTreeSheet {
             })
     }
 
-    pub fn all_ty_impl_block_nodes<'a>(
+    pub fn all_ty_impl_block_syn_nodes<'a>(
         &'a self,
     ) -> impl Iterator<Item = TypeImplBlockSynNode> + 'a {
-        self.impl_block_node_table
-            .iter()
-            .copied()
-            .filter_map(|(_, impl_block)| match impl_block {
+        self.impl_block_syn_node_table.iter().copied().filter_map(
+            |(_, impl_block)| match impl_block {
                 ImplBlockSynNode::TypeImplBlock(impl_block) => Some(impl_block),
                 _ => None,
-            })
+            },
+        )
     }
 
     pub fn all_trai_for_ty_impl_block_paths<'a>(
         &'a self,
         db: &'a dyn EntitySynTreeDb,
     ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
-        self.impl_block_node_table
+        self.impl_block_syn_node_table
             .iter()
             .copied()
             .filter_map(|(syn_node_path, _)| match syn_node_path.path(db)? {
@@ -176,30 +177,28 @@ impl EntitySynTreeSheet {
             })
     }
 
-    pub fn all_trai_for_ty_impl_block_nodes<'a>(
+    pub fn all_trai_for_ty_impl_block_syn_nodes<'a>(
         &'a self,
     ) -> impl Iterator<Item = TraitForTypeImplBlockSynNode> + 'a {
-        self.impl_block_node_table
-            .iter()
-            .copied()
-            .filter_map(|(_, impl_block)| match impl_block {
+        self.impl_block_syn_node_table.iter().copied().filter_map(
+            |(_, impl_block)| match impl_block {
                 ImplBlockSynNode::TypeImplBlock(_) => None,
                 ImplBlockSynNode::TraitForTypeImplBlock(impl_block) => Some(impl_block),
                 ImplBlockSynNode::IllFormedImplBlock(_) => None,
-            })
+            },
+        )
     }
 
-    pub fn all_ill_formed_impl_block_nodes<'a>(
+    pub fn all_ill_formed_impl_block_syn_nodes<'a>(
         &'a self,
     ) -> impl Iterator<Item = IllFormedImplBlockSynNode> + 'a {
-        self.impl_block_node_table
-            .iter()
-            .copied()
-            .filter_map(|(_, impl_block)| match impl_block {
+        self.impl_block_syn_node_table.iter().copied().filter_map(
+            |(_, impl_block)| match impl_block {
                 ImplBlockSynNode::TypeImplBlock(_) => None,
                 ImplBlockSynNode::TraitForTypeImplBlock(_) => None,
                 ImplBlockSynNode::IllFormedImplBlock(impl_block) => Some(impl_block),
-            })
+            },
+        )
     }
 }
 
@@ -241,7 +240,7 @@ fn entity_tree_sheet_works() {
 
 // include submodules, module items, associated items
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub fn module_entity_node_paths(
+pub fn module_entity_syn_node_paths(
     db: &dyn EntitySynTreeDb,
     module_path: ModulePath,
 ) -> EntitySynTreeResult<Vec<EntitySynNodePath>> {
@@ -251,21 +250,21 @@ pub fn module_entity_node_paths(
         node_paths.push(syn_node_path)
     }
     // todo: trait item
-    for impl_block_node_path in entity_tree_sheet.impl_block_node_paths() {
-        node_paths.push(impl_block_node_path.into());
-        match impl_block_node_path {
-            ImplBlockSynNodePath::TypeImplBlock(impl_block_node_path) => {
-                for syn_node_path in impl_block_node_path.item_node_paths(db) {
+    for impl_block_syn_node_path in entity_tree_sheet.impl_block_syn_node_paths() {
+        node_paths.push(impl_block_syn_node_path.into());
+        match impl_block_syn_node_path {
+            ImplBlockSynNodePath::TypeImplBlock(impl_block_syn_node_path) => {
+                for syn_node_path in impl_block_syn_node_path.item_node_paths(db) {
                     node_paths.push(syn_node_path.into())
                 }
             }
-            ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_node_path) => {
-                for syn_node_path in impl_block_node_path.item_node_paths(db) {
+            ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_syn_node_path) => {
+                for syn_node_path in impl_block_syn_node_path.item_node_paths(db) {
                     node_paths.push(syn_node_path.into())
                 }
             }
-            ImplBlockSynNodePath::IllFormedImplBlock(impl_block_node_path) => {
-                for syn_node_path in impl_block_node_path.item_node_paths(db).iter().copied() {
+            ImplBlockSynNodePath::IllFormedImplBlock(impl_block_syn_node_path) => {
+                for syn_node_path in impl_block_syn_node_path.item_node_paths(db).iter().copied() {
                     node_paths.push(syn_node_path.into())
                 }
             }
@@ -289,7 +288,7 @@ pub fn module_entity_paths(
             paths.push(path)
         }
     }
-    for syn_node_path in entity_tree_sheet.impl_block_node_paths() {
+    for syn_node_path in entity_tree_sheet.impl_block_syn_node_paths() {
         if let Some(path) = syn_node_path.path(db) {
             paths.push(path.into());
             match path {

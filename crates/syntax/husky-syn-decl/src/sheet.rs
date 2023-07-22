@@ -26,22 +26,22 @@ pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntitySynTreeResult
         decls.push((syn_node_path, syn_node_path.node_decl(db)))
     }
     // todo: handle trait items
-    for impl_block_node_path in entity_tree_sheet.impl_block_node_paths() {
-        decls.push((impl_block_node_path.into(), impl_block_node_path.node_decl(db).into()));
-        match impl_block_node_path {
-            ImplBlockSynNodePath::TypeImplBlock(impl_block_node_path) => {
-                for item_node_path in impl_block_node_path.item_node_paths(db) {
+    for impl_block_syn_node_path in entity_tree_sheet.impl_block_syn_node_paths() {
+        decls.push((impl_block_syn_node_path.into(), impl_block_syn_node_path.node_decl(db).into()));
+        match impl_block_syn_node_path {
+            ImplBlockSynNodePath::TypeImplBlock(impl_block_syn_node_path) => {
+                for item_node_path in impl_block_syn_node_path.item_node_paths(db) {
                     decls.push((item_node_path.into(), item_node_path.node_decl(db).into()))
                 }
             }
-            ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_node_path) => {
-                for item_node_path in impl_block_node_path.item_node_paths(db) {
+            ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_syn_node_path) => {
+                for item_node_path in impl_block_syn_node_path.item_node_paths(db) {
                     decls.push((item_node_path.into(), item_node_path.node_decl(db).into()))
                 }
             }
-            ImplBlockSynNodePath::IllFormedImplBlock(impl_block_node_path) => { 
+            ImplBlockSynNodePath::IllFormedImplBlock(impl_block_syn_node_path) => { 
                 for item_node_path in
-                    impl_block_node_path.item_node_paths(db).iter().copied()
+                    impl_block_syn_node_path.item_node_paths(db).iter().copied()
                 {
                     decls.push((
                         item_node_path.into(),
@@ -79,7 +79,7 @@ pub fn decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntitySynTreeResult<Decl
         }
     }
     // todo: trait item
-    for syn_node_path in entity_tree_sheet.impl_block_node_paths() {
+    for syn_node_path in entity_tree_sheet.impl_block_syn_node_paths() {
         if let Some(path) = syn_node_path.path(db) && let Ok(decl) = path.decl(db) {
             decls.push((path.into(), decl.into()));
             match path {

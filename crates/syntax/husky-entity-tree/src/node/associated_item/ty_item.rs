@@ -35,8 +35,8 @@ impl TypeItemSynNodePath {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> TypeItemNode {
-        ty_item_node(db, self)
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> TypeItemSynNode {
+        ty_item_syn_node(db, self)
     }
 }
 
@@ -55,7 +55,7 @@ impl HasSynNodePath for TypeItemPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TypeItemNode {
+pub struct TypeItemSynNode {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
@@ -65,19 +65,19 @@ pub struct TypeItemNode {
     pub is_generic: bool,
 }
 
-impl TypeItemNode {
+impl TypeItemSynNode {
     #[inline(always)]
     fn new(
         db: &dyn EntitySynTreeDb,
         registry: &mut EntityNodeRegistry,
-        impl_block_node_path: TypeImplBlockSynNodePath,
+        impl_block_syn_node_path: TypeImplBlockSynNodePath,
         ast_idx: AstIdx,
         ident: Ident,
         item_kind: TypeItemKind,
         visibility: Scope,
         is_generic: bool,
     ) -> (TypeItemSynNodePath, Self) {
-        let path = TypeItemPath::new(db, impl_block_node_path.path(), ident, item_kind);
+        let path = TypeItemPath::new(db, impl_block_syn_node_path.path(), ident, item_kind);
         let syn_node_path = TypeItemSynNodePath::new(db, registry, path);
         (
             syn_node_path,
@@ -99,10 +99,10 @@ impl TypeItemNode {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-pub(crate) fn ty_item_node(
+pub(crate) fn ty_item_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: TypeItemSynNodePath,
-) -> TypeItemNode {
+) -> TypeItemSynNode {
     syn_node_path
         .impl_block(db)
         .items(db)
@@ -116,11 +116,11 @@ pub(crate) fn ty_item_node(
 pub(crate) fn ty_impl_block_items(
     db: &dyn EntitySynTreeDb,
     syn_node_path: TypeImplBlockSynNodePath,
-) -> Vec<(Ident, TypeItemSynNodePath, TypeItemNode)> {
-    let impl_block_node = syn_node_path.node(db);
+) -> Vec<(Ident, TypeItemSynNodePath, TypeItemSynNode)> {
+    let impl_block_syn_node = syn_node_path.node(db);
     let module_path = syn_node_path.module_path(db);
     let ast_sheet = db.ast_sheet(module_path).unwrap();
-    let items = impl_block_node.items(db);
+    let items = impl_block_syn_node.items(db);
     let mut registry = EntityNodeRegistry::default();
     items
         .ast_idx_range()
@@ -141,7 +141,7 @@ pub(crate) fn ty_impl_block_items(
                         } => *ty_item_kind,
                         _ => unreachable!(),
                     };
-                    let (syn_node_path, node) = TypeItemNode::new(
+                    let (syn_node_path, node) = TypeItemSynNode::new(
                         db,
                         &mut registry,
                         syn_node_path,
@@ -176,19 +176,19 @@ impl HasItemNodePaths for TypePath {
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemSynNodePath)]> {
-        ty_item_node_paths(db, self).as_ref().map(|v| v as &[_])
+        ty_item_syn_node_paths(db, self).as_ref().map(|v| v as &[_])
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub(crate) fn ty_item_node_paths(
+pub(crate) fn ty_item_syn_node_paths(
     db: &dyn EntitySynTreeDb,
     path: TypePath,
 ) -> EntitySynTreeBundleResult<Vec<(Ident, TypeItemSynNodePath)>> {
     let crate_path = path.module_path(db).crate_path(db);
     let entity_tree_crate_bundle = db.entity_syn_tree_bundle(crate_path)?;
     Ok(entity_tree_crate_bundle
-        .all_ty_impl_block_node_paths()
+        .all_ty_impl_block_syn_node_paths()
         .filter_map(|syn_node_path| {
             // ad hoc
             // todo: guard against two methods with the same ident

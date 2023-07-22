@@ -22,21 +22,21 @@ impl HasNodeDecl for IllFormedImplBlockSynNodePath {
     type NodeDecl = IllFormedImplBlockNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        ill_formed_impl_block_node_decl(db, self)
+        ill_formed_impl_block_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ill_formed_impl_block_node_decl(
+pub(crate) fn ill_formed_impl_block_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: IllFormedImplBlockSynNodePath,
 ) -> IllFormedImplBlockNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
-    parser.parse_ill_formed_impl_block_node_decl(syn_node_path)
+    parser.parse_ill_formed_impl_block_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ill_formed_impl_block_node_decl(
+    fn parse_ill_formed_impl_block_syn_node_decl(
         &self,
         syn_node_path: IllFormedImplBlockSynNodePath,
     ) -> IllFormedImplBlockNodeDecl {
@@ -47,7 +47,7 @@ impl<'a> DeclParser<'a> {
             Ast::ImplBlock {
                 token_group_idx,
                 items: _,
-            } => self.parse_ill_formed_impl_block_node_decl_aux(
+            } => self.parse_ill_formed_impl_block_syn_node_decl_aux(
                 syn_node_path,
                 node,
                 ast_idx,
@@ -57,7 +57,7 @@ impl<'a> DeclParser<'a> {
         }
     }
 
-    fn parse_ill_formed_impl_block_node_decl_aux(
+    fn parse_ill_formed_impl_block_syn_node_decl_aux(
         &self,
         syn_node_path: IllFormedImplBlockSynNodePath,
         node: IllFormedImplBlockSynNode,

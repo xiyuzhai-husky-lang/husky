@@ -16,7 +16,7 @@ impl IllFormedItemSynNodePath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct IllFormedItemNode {
+pub struct IllFormedItemSynNode {
     #[id]
     pub syn_node_path: IllFormedItemSynNodePath,
 }

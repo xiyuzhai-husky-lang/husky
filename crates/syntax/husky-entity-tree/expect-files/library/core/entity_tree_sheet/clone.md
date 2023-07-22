@@ -98,7 +98,7 @@ Ok(
                 },
             ],
         ),
-        impl_block_node_table: [
+        impl_block_syn_node_table: [
             (
                 ImplBlockSynNodePath::TraitForTypeImplBlock(
                     TraitForTypeImplBlockSynNodePath {

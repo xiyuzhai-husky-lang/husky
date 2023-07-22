@@ -72,7 +72,9 @@ impl<'a> EntityTreeCollector<'a> {
                 self.presheets.into_iter(),
                 impl_blocks_for_each_module.into_iter(),
             )
-            .map(|(presheet, impl_block_node_table)| presheet.into_sheet(impl_block_node_table)),
+            .map(|(presheet, impl_block_syn_node_table)| {
+                presheet.into_sheet(impl_block_syn_node_table)
+            }),
         )
         .expect("no repetitions");
         EntitySynTreeCrateBundle::new(sheets, self.major_path_expr_arena)
@@ -108,8 +110,11 @@ impl<'a> EntityTreeCollector<'a> {
                         )),
                         _ => None,
                     })
-                    .map(|impl_block_node| {
-                        (impl_block_node.syn_node_path(self.db), impl_block_node)
+                    .map(|impl_block_syn_node| {
+                        (
+                            impl_block_syn_node.syn_node_path(self.db),
+                            impl_block_syn_node,
+                        )
                     }),
             )
             .expect("no repetitions");

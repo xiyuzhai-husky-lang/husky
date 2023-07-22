@@ -58,12 +58,12 @@ impl HasSynNodeDefn for TraitForTypeItemSynNodePath {
     type NodeDefn = TraitForTypeItemSynNodeDefn;
 
     fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
-        trai_for_ty_item_node_defn(db, self)
+        trai_for_ty_item_syn_node_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn trai_for_ty_item_node_defn(
+pub(crate) fn trai_for_ty_item_syn_node_defn(
     db: &dyn SynDefnDb,
     syn_node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemSynNodeDefn {
