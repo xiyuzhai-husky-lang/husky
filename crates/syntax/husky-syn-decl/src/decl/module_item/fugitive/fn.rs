@@ -94,22 +94,22 @@ impl FnDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: FugitivePath,
-        node_decl: FnNodeDecl,
+        syn_node_decl: FnNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = node_decl
+        let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let parenic_parameter_decl_list = node_decl.parenic_parameter_decl_list(db).as_ref()?;
+        let parenic_parameter_decl_list = syn_node_decl.parenic_parameter_decl_list(db).as_ref()?;
         let parenic_parameters: ExplicitParameterDeclPatterns = parenic_parameter_decl_list
             .parenic_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
-        let return_ty = *node_decl.return_ty(db).as_ref()?;
-        let expr_region = node_decl.expr_region(db);
+        let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
+        let expr_region = syn_node_decl.expr_region(db);
         Ok(FnDecl::new(
             db,
             path,

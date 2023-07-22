@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Enum(
-                    EnumTypeDefn {
+                    EnumTypeSynDefn {
                         path: TypePath(`core::result::Result`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`core::result::Result`, `Enum`),
@@ -596,7 +596,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::AssociatedType(
-                    TraitForTypeAssociatedTypeDefn {
+                    TraitForTypeAssociatedTypeSynDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::result`,
@@ -1763,7 +1763,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
-                    TraitForTypeMethodFnDefn {
+                    TraitForTypeMethodFnSynDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::result`,

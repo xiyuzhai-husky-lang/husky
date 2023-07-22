@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::PropsStruct(
-                    PropsStructTypeNodeDefn {
+                    PropsStructTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -395,7 +395,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
-                    TypeMethodFnNodeDefn {
+                    TypeMethodFnSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -410,7 +410,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -1011,7 +1011,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
-                    TypeMethodFnNodeDefn {
+                    TypeMethodFnSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -1026,7 +1026,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {

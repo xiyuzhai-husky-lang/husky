@@ -2,7 +2,7 @@ Ok(
     [
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::array`,
@@ -15,7 +15,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::basic`,
@@ -28,7 +28,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::clone`,
@@ -41,7 +41,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::cmp`,
@@ -54,7 +54,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::default`,
@@ -67,7 +67,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::fmt`,
@@ -80,7 +80,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::list`,
@@ -93,7 +93,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::logic`,
@@ -106,7 +106,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::marker`,
@@ -119,7 +119,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::mem`,
@@ -132,7 +132,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::num`,
@@ -145,7 +145,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::ops`,
@@ -158,7 +158,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::option`,
@@ -171,7 +171,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::prelude`,
@@ -184,7 +184,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::raw_bits`,
@@ -197,7 +197,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::result`,
@@ -210,7 +210,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::slice`,
@@ -223,7 +223,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::str`,
@@ -236,7 +236,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `core::visual`,

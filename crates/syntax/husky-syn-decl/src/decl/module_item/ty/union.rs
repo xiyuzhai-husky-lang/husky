@@ -35,7 +35,7 @@ impl UnionTypeDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        node_decl: UnionTypeNodeDecl,
+        syn_node_decl: UnionTypeNodeDecl,
     ) -> DeclResult<Self> {
         todo!()
     }

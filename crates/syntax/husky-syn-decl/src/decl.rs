@@ -30,41 +30,41 @@ pub enum SynNodeDecl {
 impl SynNodeDecl {
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            SynNodeDecl::Submodule(node_decl) => node_decl.ast_idx(db),
-            SynNodeDecl::ModuleItem(node_decl) => node_decl.ast_idx(db),
-            SynNodeDecl::ImplBlock(node_decl) => node_decl.ast_idx(db),
-            SynNodeDecl::AssociatedItem(node_decl) => node_decl.ast_idx(db),
-            SynNodeDecl::TypeVariant(node_decl) => node_decl.ast_idx(db),
+            SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.ast_idx(db),
+            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.ast_idx(db),
+            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.ast_idx(db),
+            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.ast_idx(db),
+            SynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.ast_idx(db),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> Option<SynExprRegion> {
         match self {
             SynNodeDecl::Submodule(_) => None,
-            SynNodeDecl::ModuleItem(node_decl) => node_decl.expr_region(db).into(),
-            SynNodeDecl::ImplBlock(node_decl) => node_decl.expr_region(db).into(),
-            SynNodeDecl::AssociatedItem(node_decl) => node_decl.expr_region(db).into(),
+            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.expr_region(db).into(),
+            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.expr_region(db).into(),
+            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.expr_region(db).into(),
             SynNodeDecl::TypeVariant(_node_decl) => todo!(),
         }
     }
 
     pub fn syn_node_path(self, db: &dyn DeclDb) -> EntitySynNodePath {
         match self {
-            SynNodeDecl::Submodule(node_decl) => node_decl.syn_node_path(db).into(),
-            SynNodeDecl::ModuleItem(node_decl) => node_decl.syn_node_path(db).into(),
-            SynNodeDecl::ImplBlock(node_decl) => node_decl.syn_node_path(db).into(),
-            SynNodeDecl::AssociatedItem(node_decl) => node_decl.syn_node_path(db).into(),
-            SynNodeDecl::TypeVariant(node_decl) => node_decl.syn_node_path(db).into(),
+            SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
+            SynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            SynNodeDecl::Submodule(node_decl) => node_decl.errors(db),
-            SynNodeDecl::ModuleItem(node_decl) => node_decl.errors(db),
-            SynNodeDecl::ImplBlock(node_decl) => node_decl.errors(db),
-            SynNodeDecl::AssociatedItem(node_decl) => node_decl.errors(db),
-            SynNodeDecl::TypeVariant(node_decl) => node_decl.errors(db),
+            SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.errors(db),
+            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.errors(db),
+            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.errors(db),
+            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.errors(db),
+            SynNodeDecl::TypeVariant(syn_node_decl) => syn_node_decl.errors(db),
         }
     }
 }
@@ -116,19 +116,19 @@ impl Decl {
 pub trait HasNodeDecl: Copy {
     type NodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl;
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl;
 }
 
 impl HasNodeDecl for EntitySynNodePath {
     type NodeDecl = SynNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
-            EntitySynNodePath::ModuleItem(syn_node_path) => syn_node_path.node_decl(db).into(),
+            EntitySynNodePath::ModuleItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
             EntitySynNodePath::TypeVariant(_) => todo!(),
             EntitySynNodePath::ImplBlock(_) => todo!(),
             EntitySynNodePath::AssociatedItem(_) => todo!(),
-            EntitySynNodePath::Submodule(syn_node_path) => syn_node_path.node_decl(db).into(),
+            EntitySynNodePath::Submodule(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
         }
     }
 }

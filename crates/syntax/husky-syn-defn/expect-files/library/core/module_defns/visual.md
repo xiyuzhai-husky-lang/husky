@@ -69,7 +69,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::visual::Html`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::visual::Html`, `Extern`),

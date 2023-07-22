@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Enum(
-                    EnumTypeDefn {
+                    EnumTypeSynDefn {
                         path: TypePath(`mnist::MnistLabel`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`mnist::MnistLabel`, `Enum`),
@@ -70,7 +70,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::TupleStruct(
-                    TupleStructTypeDefn {
+                    TupleStructTypeSynDefn {
                         path: TypePath(`mnist::BinaryImage28`, `Struct`),
                         decl: TupleStructTypeDecl {
                             path: TypePath(`mnist::BinaryImage28`, `Struct`),
@@ -204,7 +204,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist::input`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist::input`, `Val`),

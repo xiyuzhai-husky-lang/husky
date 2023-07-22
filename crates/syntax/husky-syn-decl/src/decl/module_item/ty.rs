@@ -40,57 +40,57 @@ pub enum TypeNodeDecl {
 impl TypeNodeDecl {
     pub fn syn_node_path(self, db: &dyn DeclDb) -> TypeSynNodePath {
         match self {
-            TypeNodeDecl::Enum(node_decl) => node_decl.syn_node_path(db),
-            TypeNodeDecl::Inductive(node_decl) => node_decl.syn_node_path(db),
-            TypeNodeDecl::Record(node_decl) => node_decl.syn_node_path(db),
-            TypeNodeDecl::UnitStruct(node_decl) => node_decl.syn_node_path(db),
-            TypeNodeDecl::PropsStruct(node_decl) => node_decl.syn_node_path(db),
-            TypeNodeDecl::TupleStruct(node_decl) => node_decl.syn_node_path(db),
-            TypeNodeDecl::Structure(node_decl) => node_decl.syn_node_path(db),
-            TypeNodeDecl::Extern(node_decl) => node_decl.syn_node_path(db),
-            TypeNodeDecl::Union(node_decl) => node_decl.syn_node_path(db),
+            TypeNodeDecl::Enum(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeNodeDecl::Inductive(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeNodeDecl::Record(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeNodeDecl::Structure(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeNodeDecl::Extern(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeNodeDecl::Union(syn_node_decl) => syn_node_decl.syn_node_path(db),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TypeNodeDecl::Enum(node_decl) => node_decl.ast_idx(db),
-            TypeNodeDecl::UnitStruct(node_decl) => node_decl.ast_idx(db),
-            TypeNodeDecl::TupleStruct(node_decl) => node_decl.ast_idx(db),
-            TypeNodeDecl::PropsStruct(node_decl) => node_decl.ast_idx(db),
-            TypeNodeDecl::Record(node_decl) => node_decl.ast_idx(db),
-            TypeNodeDecl::Inductive(node_decl) => node_decl.ast_idx(db),
-            TypeNodeDecl::Structure(node_decl) => node_decl.ast_idx(db),
-            TypeNodeDecl::Extern(node_decl) => node_decl.ast_idx(db),
-            TypeNodeDecl::Union(node_decl) => node_decl.ast_idx(db),
+            TypeNodeDecl::Enum(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeNodeDecl::Record(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeNodeDecl::Inductive(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeNodeDecl::Structure(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeNodeDecl::Extern(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeNodeDecl::Union(syn_node_decl) => syn_node_decl.ast_idx(db),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            TypeNodeDecl::Enum(node_decl) => node_decl.expr_region(db),
-            TypeNodeDecl::UnitStruct(node_decl) => node_decl.expr_region(db),
-            TypeNodeDecl::TupleStruct(node_decl) => node_decl.expr_region(db),
-            TypeNodeDecl::PropsStruct(node_decl) => node_decl.expr_region(db),
-            TypeNodeDecl::Record(node_decl) => node_decl.expr_region(db),
-            TypeNodeDecl::Inductive(node_decl) => node_decl.expr_region(db),
-            TypeNodeDecl::Structure(node_decl) => node_decl.expr_region(db),
-            TypeNodeDecl::Extern(node_decl) => node_decl.expr_region(db),
-            TypeNodeDecl::Union(node_decl) => node_decl.expr_region(db),
+            TypeNodeDecl::Enum(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeNodeDecl::Record(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeNodeDecl::Inductive(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeNodeDecl::Structure(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeNodeDecl::Extern(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeNodeDecl::Union(syn_node_decl) => syn_node_decl.expr_region(db),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            TypeNodeDecl::Enum(node_decl) => node_decl.errors(db),
-            TypeNodeDecl::PropsStruct(node_decl) => node_decl.errors(db),
-            TypeNodeDecl::UnitStruct(node_decl) => node_decl.errors(db),
-            TypeNodeDecl::TupleStruct(node_decl) => node_decl.errors(db),
-            TypeNodeDecl::Record(node_decl) => node_decl.errors(db),
-            TypeNodeDecl::Inductive(node_decl) => node_decl.errors(db),
-            TypeNodeDecl::Structure(node_decl) => node_decl.errors(db),
-            TypeNodeDecl::Extern(node_decl) => node_decl.errors(db),
-            TypeNodeDecl::Union(node_decl) => node_decl.errors(db),
+            TypeNodeDecl::Enum(syn_node_decl) => syn_node_decl.errors(db),
+            TypeNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.errors(db),
+            TypeNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.errors(db),
+            TypeNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.errors(db),
+            TypeNodeDecl::Record(syn_node_decl) => syn_node_decl.errors(db),
+            TypeNodeDecl::Inductive(syn_node_decl) => syn_node_decl.errors(db),
+            TypeNodeDecl::Structure(syn_node_decl) => syn_node_decl.errors(db),
+            TypeNodeDecl::Extern(syn_node_decl) => syn_node_decl.errors(db),
+            TypeNodeDecl::Union(syn_node_decl) => syn_node_decl.errors(db),
         }
     }
 }
@@ -98,7 +98,7 @@ impl TypeNodeDecl {
 impl HasNodeDecl for TypeSynNodePath {
     type NodeDecl = TypeNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         ty_node_decl(db, self)
     }
 }
@@ -311,35 +311,35 @@ impl TypeDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        node_decl: TypeNodeDecl,
+        syn_node_decl: TypeNodeDecl,
     ) -> DeclResult<Self> {
-        Ok(match node_decl {
-            TypeNodeDecl::Enum(node_decl) => {
-                EnumTypeDecl::from_node_decl(db, path, node_decl)?.into()
+        Ok(match syn_node_decl {
+            TypeNodeDecl::Enum(syn_node_decl) => {
+                EnumTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::PropsStruct(node_decl) => {
-                PropsStructTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeNodeDecl::PropsStruct(syn_node_decl) => {
+                PropsStructTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::UnitStruct(node_decl) => {
-                UnitStructTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeNodeDecl::UnitStruct(syn_node_decl) => {
+                UnitStructTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::TupleStruct(node_decl) => {
-                TupleStructTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeNodeDecl::TupleStruct(syn_node_decl) => {
+                TupleStructTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Record(node_decl) => {
-                RecordTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeNodeDecl::Record(syn_node_decl) => {
+                RecordTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Inductive(node_decl) => {
-                InductiveTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeNodeDecl::Inductive(syn_node_decl) => {
+                InductiveTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Structure(node_decl) => {
-                StructureTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeNodeDecl::Structure(syn_node_decl) => {
+                StructureTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Extern(node_decl) => {
-                ExternTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeNodeDecl::Extern(syn_node_decl) => {
+                ExternTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Union(node_decl) => {
-                UnionTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeNodeDecl::Union(syn_node_decl) => {
+                UnionTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
     }
@@ -356,7 +356,7 @@ impl HasDecl for TypePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
-    TypeDecl::from_node_decl(db, path, path.syn_node_path(db).node_decl(db))
+    TypeDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 
 #[test]

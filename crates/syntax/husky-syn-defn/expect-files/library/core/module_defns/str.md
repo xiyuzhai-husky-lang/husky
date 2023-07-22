@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::str::str`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::str::str`, `Extern`),
@@ -70,7 +70,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::str::StringLiteral`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::str::StringLiteral`, `Extern`),

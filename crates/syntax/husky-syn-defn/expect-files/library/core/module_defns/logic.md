@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::logic::Prop`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::logic::Prop`, `Extern`),
@@ -70,7 +70,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Structure(
-                    StructureTypeDefn {
+                    StructureTypeSynDefn {
                         path: TypePath(`core::logic::LogicAnd`, `Structure`),
                         decl: StructureTypeDecl {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
@@ -291,7 +291,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Inductive(
-                    InductiveTypeDefn {
+                    InductiveTypeSynDefn {
                         path: TypePath(`core::logic::LogicOr`, `Inductive`),
                         decl: InductiveTypeDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),

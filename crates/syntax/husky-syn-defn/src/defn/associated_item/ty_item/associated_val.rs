@@ -1,22 +1,22 @@
 use super::*;
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
-pub struct TypeAssociatedValNodeDefn {
+pub struct TypeAssociatedValSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub node_decl: TypeAssociatedValNodeDecl,
+    pub syn_node_decl: TypeAssociatedValNodeDecl,
     pub expr_region: SynExprRegion,
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct TypeAssociatedValDefn {
+pub struct TypeAssociatedValSynDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeAssociatedValDecl,
     pub expr_region: SynExprRegion,
 }
 
-impl TypeAssociatedValDefn {
+impl TypeAssociatedValSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TypeItemPath,

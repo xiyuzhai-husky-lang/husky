@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::PropsStruct(
-                    PropsStructTypeDefn {
+                    PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
@@ -311,7 +311,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::PropsStruct(
-                    PropsStructTypeDefn {
+                    PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
@@ -1110,7 +1110,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::PropsStruct(
-                    PropsStructTypeDefn {
+                    PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -5803,7 +5803,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
-                    TraitForTypeMethodFnDefn {
+                    TraitForTypeMethodFnSynDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -6534,7 +6534,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -7090,7 +7090,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -8182,7 +8182,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -9263,7 +9263,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -10131,7 +10131,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -10966,7 +10966,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -12859,7 +12859,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -13405,7 +13405,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -13951,7 +13951,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
-                    TypeMethodFnDefn {
+                    TypeMethodFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,
@@ -15245,7 +15245,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
-                    TypeMethodFnDefn {
+                    TypeMethodFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::connected_component`,

@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
-                    ExternTypeNodeDefn {
+                    ExternTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::list::List`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::list::List`, `Extern`),
@@ -368,7 +368,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
-                    TypeMethodFnNodeDefn {
+                    TypeMethodFnSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -383,7 +383,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -1030,7 +1030,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
-                    TypeMethodFnNodeDefn {
+                    TypeMethodFnSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -1045,7 +1045,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -1793,7 +1793,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
-                    TypeMethodFnNodeDefn {
+                    TypeMethodFnSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -1808,7 +1808,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -2487,7 +2487,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
-                    TypeMethodFnNodeDefn {
+                    TypeMethodFnSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -2502,7 +2502,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -3181,7 +3181,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
-                    TypeMethodFnNodeDefn {
+                    TypeMethodFnSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -3196,7 +3196,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -3888,7 +3888,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
-                    TypeMethodFnNodeDefn {
+                    TypeMethodFnSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -3903,7 +3903,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {

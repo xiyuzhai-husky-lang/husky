@@ -70,15 +70,15 @@ impl InductiveTypeDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        node_decl: InductiveTypeNodeDecl,
+        syn_node_decl: InductiveTypeNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = node_decl
+        let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let expr_region = node_decl.expr_region(db);
+        let expr_region = syn_node_decl.expr_region(db);
         Ok(Self::new(db, path, generic_parameters, expr_region))
     }
 }

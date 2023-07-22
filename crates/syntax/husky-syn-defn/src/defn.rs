@@ -25,18 +25,18 @@ pub enum SynNodeDefn {
 }
 
 impl SynNodeDefn {
-    pub fn node_decl(self, db: &dyn SynDefnDb) -> SynNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> SynNodeDecl {
         match self {
-            SynNodeDefn::Submodule(node_defn) => node_defn.node_decl().into(),
-            SynNodeDefn::ModuleItem(node_defn) => node_defn.node_decl(db).into(),
-            SynNodeDefn::TypeVariant(node_defn) => node_defn.node_decl(db).into(),
-            SynNodeDefn::ImplBlock(node_decl) => node_decl.into(),
-            SynNodeDefn::AssociatedItem(node_defn) => node_defn.node_decl(db).into(),
+            SynNodeDefn::Submodule(syn_node_defn) => syn_node_defn.syn_node_decl().into(),
+            SynNodeDefn::ModuleItem(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            SynNodeDefn::TypeVariant(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            SynNodeDefn::ImplBlock(syn_node_decl) => syn_node_decl.into(),
+            SynNodeDefn::AssociatedItem(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
         }
     }
 
     pub fn ast_idx(self, db: &dyn SynDefnDb) -> AstIdx {
-        self.node_decl(db).ast_idx(db)
+        self.syn_node_decl(db).ast_idx(db)
     }
 
     pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
@@ -53,19 +53,19 @@ impl SynNodeDefn {
 pub trait HasSynNodeDefn: Copy {
     type NodeDefn;
 
-    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn;
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn;
 }
 
 impl HasSynNodeDefn for EntitySynNodePath {
     type NodeDefn = SynNodeDefn;
 
-    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         match self {
-            EntitySynNodePath::Submodule(path) => path.node_defn(db).into(),
-            EntitySynNodePath::ModuleItem(path) => path.node_defn(db).into(),
-            EntitySynNodePath::TypeVariant(path) => path.node_defn(db).into(),
-            EntitySynNodePath::ImplBlock(path) => path.node_defn(db).into(),
-            EntitySynNodePath::AssociatedItem(path) => path.node_defn(db).into(),
+            EntitySynNodePath::Submodule(path) => path.syn_node_defn(db).into(),
+            EntitySynNodePath::ModuleItem(path) => path.syn_node_defn(db).into(),
+            EntitySynNodePath::TypeVariant(path) => path.syn_node_defn(db).into(),
+            EntitySynNodePath::ImplBlock(path) => path.syn_node_defn(db).into(),
+            EntitySynNodePath::AssociatedItem(path) => path.syn_node_defn(db).into(),
         }
     }
 }
@@ -89,7 +89,7 @@ pub(crate) fn module_node_defns(
         .as_ref()?
         .iter()
         .copied()
-        .map(|syn_node_path| syn_node_path.node_defn(db))
+        .map(|syn_node_path| syn_node_path.syn_node_defn(db))
         .collect())
 }
 

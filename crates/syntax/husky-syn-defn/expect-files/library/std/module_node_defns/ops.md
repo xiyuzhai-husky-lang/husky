@@ -9,7 +9,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`std::ops::Add`),

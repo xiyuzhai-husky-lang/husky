@@ -18,7 +18,7 @@ pub enum TypeVariantSynNodeDefn {
 }
 
 impl TypeVariantSynNodeDefn {
-    pub fn node_decl(self, db: &dyn SynDefnDb) -> TypeVariantNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TypeVariantNodeDecl {
         todo!()
     }
 }
@@ -26,7 +26,7 @@ impl TypeVariantSynNodeDefn {
 impl HasSynNodeDefn for TypeVariantSynNodePath {
     type NodeDefn = TypeVariantSynNodeDefn;
 
-    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         todo!()
     }
 }
@@ -35,9 +35,9 @@ impl HasSynNodeDefn for TypeVariantSynNodePath {
 #[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantDefn {
-    Unit(UnitVariantDefn),
-    Tuple(TupleVariantDefn),
-    Props(PropsVariantDefn),
+    Unit(UnitVariantSynDefn),
+    Tuple(TupleVariantSynDefn),
+    Props(PropsVariantSynDefn),
 }
 
 impl TypeVariantDefn {

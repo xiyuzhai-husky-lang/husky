@@ -190,7 +190,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
-                    TraitForTypeMethodFnDefn {
+                    TraitForTypeMethodFnSynDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `core::clone`,

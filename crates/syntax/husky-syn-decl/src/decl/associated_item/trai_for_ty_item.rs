@@ -68,10 +68,10 @@ impl TraitForTypeItemNodeDecl {
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            TraitForTypeItemNodeDecl::AssociatedFn(node_decl) => node_decl.errors(db),
-            TraitForTypeItemNodeDecl::MethodFn(node_decl) => node_decl.errors(db),
-            TraitForTypeItemNodeDecl::AssociatedType(node_decl) => node_decl.errors(db),
-            TraitForTypeItemNodeDecl::AssociatedVal(node_decl) => node_decl.errors(db),
+            TraitForTypeItemNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
+            TraitForTypeItemNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),
+            TraitForTypeItemNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.errors(db),
+            TraitForTypeItemNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.errors(db),
         }
     }
 }
@@ -79,7 +79,7 @@ impl TraitForTypeItemNodeDecl {
 impl HasNodeDecl for TraitForTypeItemSynNodePath {
     type NodeDecl = TraitForTypeItemNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         trai_for_ty_item_syn_node_decl(db, self)
     }
 }
@@ -174,17 +174,17 @@ impl TraitForTypeItemDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitForTypeItemPath,
-        node_decl: TraitForTypeItemNodeDecl,
+        syn_node_decl: TraitForTypeItemNodeDecl,
     ) -> DeclResult<Self> {
-        Ok(match node_decl {
-            TraitForTypeItemNodeDecl::AssociatedFn(node_decl) => {
-                TraitForTypeAssociatedFnDecl::from_node_decl(db, path, node_decl)?.into()
+        Ok(match syn_node_decl {
+            TraitForTypeItemNodeDecl::AssociatedFn(syn_node_decl) => {
+                TraitForTypeAssociatedFnDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TraitForTypeItemNodeDecl::MethodFn(node_decl) => {
-                TraitForTypeMethodFnDecl::from_node_decl(db, path, node_decl)?.into()
+            TraitForTypeItemNodeDecl::MethodFn(syn_node_decl) => {
+                TraitForTypeMethodFnDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TraitForTypeItemNodeDecl::AssociatedType(node_decl) => {
-                TraitForTypeAssociatedTypeDecl::from_node_decl(db, path, node_decl)?.into()
+            TraitForTypeItemNodeDecl::AssociatedType(syn_node_decl) => {
+                TraitForTypeAssociatedTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
         })
@@ -231,6 +231,6 @@ pub(crate) fn trai_for_ty_item_decl(
     db: &dyn DeclDb,
     path: TraitForTypeItemPath,
 ) -> DeclResult<TraitForTypeItemDecl> {
-    let node_decl = path.syn_node_path(db).node_decl(db);
-    TraitForTypeItemDecl::from_node_decl(db, path, node_decl)
+    let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
+    TraitForTypeItemDecl::from_node_decl(db, path, syn_node_decl)
 }

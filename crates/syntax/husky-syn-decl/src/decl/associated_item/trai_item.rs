@@ -72,7 +72,7 @@ impl TraitItemNodeDecl {
 impl HasNodeDecl for TraitItemSynNodePath {
     type NodeDecl = TraitItemNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         todo!()
     }
 }

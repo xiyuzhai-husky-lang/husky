@@ -1,28 +1,28 @@
 use super::*;
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct TypeMemoizedFieldNodeDefn {
+pub struct TypeMemoizedFieldSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub node_decl: TypeMemoizedFieldNodeDecl,
+    pub syn_node_decl: TypeMemoizedFieldNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
-impl TypeMemoizedFieldNodeDefn {
+impl TypeMemoizedFieldSynNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: TypeItemSynNodePath,
-        node_decl: TypeMemoizedFieldNodeDecl,
-    ) -> TypeMemoizedFieldNodeDefn {
+        syn_node_decl: TypeMemoizedFieldNodeDecl,
+    ) -> TypeMemoizedFieldSynNodeDefn {
         let mut parser = expr_parser(
             db,
             syn_node_path,
-            node_decl.expr_region(db),
+            syn_node_decl.expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
-        let ast_idx = node_decl.ast_idx(db);
+        let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {
             Ast::Defn {
                 block: DefnBlock::AssociatedItem { body },
@@ -30,12 +30,18 @@ impl TypeMemoizedFieldNodeDefn {
             } => body.map(|body| parser.parse_block_expr(body)),
             _ => unreachable!(),
         };
-        TypeMemoizedFieldNodeDefn::new_inner(db, syn_node_path, node_decl, body, parser.finish())
+        TypeMemoizedFieldSynNodeDefn::new_inner(
+            db,
+            syn_node_path,
+            syn_node_decl,
+            body,
+            parser.finish(),
+        )
     }
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct TypeMemoizedFieldDefn {
+pub struct TypeMemoizedFieldSynDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeMemoizedFieldDecl,
@@ -43,21 +49,21 @@ pub struct TypeMemoizedFieldDefn {
     pub expr_region: SynExprRegion,
 }
 
-impl TypeMemoizedFieldDefn {
+impl TypeMemoizedFieldSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TypeItemPath,
         decl: TypeMemoizedFieldDecl,
-    ) -> DeclResult<TypeMemoizedFieldDefn> {
-        let TypeItemSynNodeDefn::MemoizedField(node_defn) = path.syn_node_path(db).node_defn(db) else {
+    ) -> DeclResult<TypeMemoizedFieldSynDefn> {
+        let TypeItemSynNodeDefn::MemoizedField(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()
         };
-        Ok(TypeMemoizedFieldDefn::new_inner(
+        Ok(TypeMemoizedFieldSynDefn::new_inner(
             db,
             path,
             decl,
-            node_defn.body(db),
-            node_defn.expr_region(db),
+            syn_node_defn.body(db),
+            syn_node_defn.expr_region(db),
         ))
     }
 }

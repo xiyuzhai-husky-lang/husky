@@ -43,7 +43,7 @@ impl TraitForTypeImplBlockNodeDecl {
 impl HasNodeDecl for TraitForTypeImplBlockSynNodePath {
     type NodeDecl = TraitForTypeImplBlockNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         trai_for_ty_impl_block_syn_node_decl(db, self)
     }
 }
@@ -163,26 +163,26 @@ pub(crate) fn trai_for_ty_impl_block_decl(
     db: &dyn DeclDb,
     path: TraitForTypeImplBlockPath,
 ) -> DeclResult<TraitForTypeImplBlockDecl> {
-    let node_decl = path.syn_node_path(db).node_decl(db);
-    TraitForTypeImplBlockDecl::from_node_decl(db, path, node_decl)
+    let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
+    TraitForTypeImplBlockDecl::from_node_decl(db, path, syn_node_decl)
 }
 
 impl TraitForTypeImplBlockDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitForTypeImplBlockPath,
-        node_decl: TraitForTypeImplBlockNodeDecl,
+        syn_node_decl: TraitForTypeImplBlockNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = node_decl
+        let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let trai_expr = node_decl.trai_expr(db);
-        let self_ty_decl = node_decl.self_ty_decl(db);
-        let expr_region = node_decl.expr_region(db);
-        node_decl.eol_colon(db).as_ref()?;
+        let trai_expr = syn_node_decl.trai_expr(db);
+        let self_ty_decl = syn_node_decl.self_ty_decl(db);
+        let expr_region = syn_node_decl.expr_region(db);
+        syn_node_decl.eol_colon(db).as_ref()?;
         Ok(Self::new(
             db,
             path,

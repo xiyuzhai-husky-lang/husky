@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Enum(
-                    EnumTypeNodeDefn {
+                    EnumTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::option::Option`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: EnumTypeNodeDecl {
+                        syn_node_decl: EnumTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::option::Option`, `Enum`),

@@ -35,7 +35,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::PropsStruct(
-                    PropsStructTypeDefn {
+                    PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -471,7 +471,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::PropsStruct(
-                    PropsStructTypeDefn {
+                    PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -15596,7 +15596,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
-                    TraitForTypeMethodFnDefn {
+                    TraitForTypeMethodFnSynDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
@@ -16342,7 +16342,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::AssociatedFn(
-                    TypeAssociatedFnDefn {
+                    TypeAssociatedFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
@@ -17520,7 +17520,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
-                    TypeMethodFnDefn {
+                    TypeMethodFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
@@ -18214,7 +18214,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
-                    TraitForTypeMethodFnDefn {
+                    TraitForTypeMethodFnSynDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
@@ -18945,7 +18945,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
@@ -19501,7 +19501,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,
@@ -21283,7 +21283,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::AssociatedFn(
-                    TypeAssociatedFnDefn {
+                    TypeAssociatedFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch`,

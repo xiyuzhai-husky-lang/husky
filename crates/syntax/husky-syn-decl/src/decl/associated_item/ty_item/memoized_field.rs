@@ -36,7 +36,7 @@ impl<'a> DeclParser<'a> {
     ) -> TypeMemoizedFieldNodeDecl {
         let db = self.db();
         let syn_node_path = node.syn_node_path(db);
-        let impl_block_syn_node_decl = syn_node_path.impl_block(db).node_decl(db);
+        let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
         let mut parser = self.expr_parser(
             syn_node_path,
             Some(impl_block_syn_node_decl.expr_region(db)),
@@ -79,11 +79,11 @@ impl TypeMemoizedFieldDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeItemPath,
-        node_decl: TypeMemoizedFieldNodeDecl,
+        syn_node_decl: TypeMemoizedFieldNodeDecl,
     ) -> DeclResult<Self> {
-        let return_ty = *node_decl.return_ty(db).as_ref()?;
-        let expr = node_decl.expr(db);
-        let expr_region = node_decl.expr_region(db);
+        let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
+        let expr = syn_node_decl.expr(db);
+        let expr_region = syn_node_decl.expr_region(db);
         Ok(Self::new(db, path, return_ty, expr, expr_region))
     }
 

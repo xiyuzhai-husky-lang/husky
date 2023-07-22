@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::PropsStruct(
-                    PropsStructTypeDefn {
+                    PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
@@ -379,7 +379,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
-                    TraitForTypeMethodFnDefn {
+                    TraitForTypeMethodFnSynDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch::convex_component`,

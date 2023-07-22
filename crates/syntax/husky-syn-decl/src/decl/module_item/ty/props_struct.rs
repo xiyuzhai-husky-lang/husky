@@ -78,16 +78,16 @@ impl PropsStructTypeDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        node_decl: PropsStructTypeNodeDecl,
+        syn_node_decl: PropsStructTypeNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = node_decl
+        let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let fields = SmallVec::from(node_decl.fields(db).as_ref()?.elements());
-        let expr_region = node_decl.expr_region(db);
+        let fields = SmallVec::from(syn_node_decl.fields(db).as_ref()?.elements());
+        let expr_region = syn_node_decl.expr_region(db);
         Ok(Self::new(db, path, generic_parameters, fields, expr_region))
     }
 }

@@ -2,7 +2,7 @@ Ok(
     [
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::connected_component`,
@@ -15,7 +15,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::raw_contour`,
@@ -28,7 +28,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::geom2d`,
@@ -41,7 +41,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch`,
@@ -54,7 +54,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::fermi`,
@@ -67,7 +67,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::digits`,
@@ -80,7 +80,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::major`,

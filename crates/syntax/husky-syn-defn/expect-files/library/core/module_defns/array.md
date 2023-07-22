@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::array::Array`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::array::Array`, `Extern`),

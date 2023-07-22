@@ -4,13 +4,13 @@ use super::*;
 pub struct TraitSynNodeDefn {
     #[id]
     pub syn_node_path: TraitSynNodePath,
-    pub node_decl: TraitNodeDecl,
+    pub syn_node_decl: TraitNodeDecl,
 }
 
 impl HasSynNodeDefn for TraitSynNodePath {
     type NodeDefn = TraitSynNodeDefn;
 
-    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         trai_node_defn(db, self)
     }
 }
@@ -20,8 +20,8 @@ pub(crate) fn trai_node_defn(
     db: &dyn SynDefnDb,
     syn_node_path: TraitSynNodePath,
 ) -> TraitSynNodeDefn {
-    let node_decl = syn_node_path.node_decl(db);
-    TraitSynNodeDefn::new(db, syn_node_path, node_decl)
+    let syn_node_decl = syn_node_path.syn_node_decl(db);
+    TraitSynNodeDefn::new(db, syn_node_path, syn_node_decl)
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]

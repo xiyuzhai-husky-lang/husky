@@ -41,17 +41,17 @@ impl ImplBlockSynNodeDecl {
 
     pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            ImplBlockSynNodeDecl::Type(node_decl) => node_decl.expr_region(db),
-            ImplBlockSynNodeDecl::TraitForType(node_decl) => node_decl.expr_region(db),
-            ImplBlockSynNodeDecl::IllFormed(node_decl) => node_decl.expr_region(db),
+            ImplBlockSynNodeDecl::Type(syn_node_decl) => syn_node_decl.expr_region(db),
+            ImplBlockSynNodeDecl::TraitForType(syn_node_decl) => syn_node_decl.expr_region(db),
+            ImplBlockSynNodeDecl::IllFormed(syn_node_decl) => syn_node_decl.expr_region(db),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            ImplBlockSynNodeDecl::Type(node_decl) => node_decl.errors(db),
-            ImplBlockSynNodeDecl::TraitForType(node_decl) => node_decl.errors(db),
-            ImplBlockSynNodeDecl::IllFormed(node_decl) => node_decl.errors(db),
+            ImplBlockSynNodeDecl::Type(syn_node_decl) => syn_node_decl.errors(db),
+            ImplBlockSynNodeDecl::TraitForType(syn_node_decl) => syn_node_decl.errors(db),
+            ImplBlockSynNodeDecl::IllFormed(syn_node_decl) => syn_node_decl.errors(db),
         }
     }
 }
@@ -59,16 +59,16 @@ impl ImplBlockSynNodeDecl {
 impl HasNodeDecl for ImplBlockSynNodePath {
     type NodeDecl = ImplBlockSynNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         match self {
             ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {
-                syn_node_path.node_decl(db).into()
+                syn_node_path.syn_node_decl(db).into()
             }
             ImplBlockSynNodePath::TraitForTypeImplBlock(syn_node_path) => {
-                syn_node_path.node_decl(db).into()
+                syn_node_path.syn_node_decl(db).into()
             }
             ImplBlockSynNodePath::IllFormedImplBlock(syn_node_path) => {
-                syn_node_path.node_decl(db).into()
+                syn_node_path.syn_node_decl(db).into()
             }
         }
     }

@@ -1,14 +1,14 @@
 use super::*;
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
-pub struct RecordTypeNodeDefn {
+pub struct RecordTypeSynNodeDefn {
     #[id]
     pub syn_node_path: TypeSynNodePath,
-    pub node_decl: RecordTypeNodeDecl,
+    pub syn_node_decl: RecordTypeNodeDecl,
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
-pub struct RecordTypeDefn {
+pub struct RecordTypeSynDefn {
     #[id]
     pub path: TypePath,
     pub decl: RecordTypeDecl,

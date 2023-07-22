@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::PropsStruct(
-                    PropsStructTypeDefn {
+                    PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -213,7 +213,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Enum(
-                    EnumTypeDefn {
+                    EnumTypeSynDefn {
                         path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
@@ -5491,7 +5491,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::PropsStruct(
-                    PropsStructTypeDefn {
+                    PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
@@ -12884,7 +12884,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::MethodFn(
-                    TraitForTypeMethodFnDefn {
+                    TraitForTypeMethodFnSynDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::raw_contour`,
@@ -13647,7 +13647,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::raw_contour`,
@@ -14207,7 +14207,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::raw_contour`,
@@ -15965,7 +15965,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::raw_contour`,
@@ -16556,7 +16556,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::raw_contour`,
@@ -18210,7 +18210,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
-                    TypeMethodFnDefn {
+                    TypeMethodFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::raw_contour`,

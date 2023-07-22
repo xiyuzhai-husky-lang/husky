@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
@@ -384,7 +384,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
@@ -765,7 +765,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),

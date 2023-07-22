@@ -3,8 +3,8 @@ use super::*;
 impl HasSynNodeDefn for ImplBlockSynNodePath {
     type NodeDefn = ImplBlockSynNodeDecl;
 
-    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
-        self.node_decl(db)
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+        self.syn_node_decl(db)
     }
 }
 

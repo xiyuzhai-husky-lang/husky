@@ -23,20 +23,20 @@ pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntitySynTreeResult
     let entity_tree_sheet = db.entity_syn_tree_sheet(path)?;
     let mut decls: Vec<(EntitySynNodePath, SynNodeDecl)> = Default::default();
     for syn_node_path in entity_tree_sheet.major_entity_node_paths() {
-        decls.push((syn_node_path, syn_node_path.node_decl(db)))
+        decls.push((syn_node_path, syn_node_path.syn_node_decl(db)))
     }
     // todo: handle trait items
     for impl_block_syn_node_path in entity_tree_sheet.impl_block_syn_node_paths() {
-        decls.push((impl_block_syn_node_path.into(), impl_block_syn_node_path.node_decl(db).into()));
+        decls.push((impl_block_syn_node_path.into(), impl_block_syn_node_path.syn_node_decl(db).into()));
         match impl_block_syn_node_path {
             ImplBlockSynNodePath::TypeImplBlock(impl_block_syn_node_path) => {
                 for item_node_path in impl_block_syn_node_path.item_node_paths(db) {
-                    decls.push((item_node_path.into(), item_node_path.node_decl(db).into()))
+                    decls.push((item_node_path.into(), item_node_path.syn_node_decl(db).into()))
                 }
             }
             ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_syn_node_path) => {
                 for item_node_path in impl_block_syn_node_path.item_node_paths(db) {
-                    decls.push((item_node_path.into(), item_node_path.node_decl(db).into()))
+                    decls.push((item_node_path.into(), item_node_path.syn_node_decl(db).into()))
                 }
             }
             ImplBlockSynNodePath::IllFormedImplBlock(impl_block_syn_node_path) => { 
@@ -45,7 +45,7 @@ pub fn node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntitySynTreeResult
                 {
                     decls.push((
                         item_node_path.into(),
-                        item_node_path.node_decl(db).into(),
+                        item_node_path.syn_node_decl(db).into(),
                     ))
                 }
             }

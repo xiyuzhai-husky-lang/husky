@@ -25,30 +25,38 @@ pub enum AssociatedItemSynNodeDecl {
 impl AssociatedItemSynNodeDecl {
     pub fn syn_node_path(self, db: &dyn DeclDb) -> AssociatedItemSynNodePath {
         match self {
-            AssociatedItemSynNodeDecl::TypeItem(node_decl) => node_decl.syn_node_path(db).into(),
-            AssociatedItemSynNodeDecl::TraitItem(node_decl) => node_decl.syn_node_path(db).into(),
-            AssociatedItemSynNodeDecl::TraitForTypeItem(node_decl) => {
-                node_decl.syn_node_path(db).into()
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
+                syn_node_decl.syn_node_path(db).into()
             }
-            AssociatedItemSynNodeDecl::IllFormedItem(node_decl) => {
-                node_decl.syn_node_path(db).into()
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
+                syn_node_decl.syn_node_path(db).into()
+            }
+            AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => {
+                syn_node_decl.syn_node_path(db).into()
+            }
+            AssociatedItemSynNodeDecl::IllFormedItem(syn_node_decl) => {
+                syn_node_decl.syn_node_path(db).into()
             }
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            AssociatedItemSynNodeDecl::TypeItem(node_decl) => node_decl.ast_idx(db),
-            AssociatedItemSynNodeDecl::TraitItem(node_decl) => node_decl.ast_idx(db),
-            AssociatedItemSynNodeDecl::TraitForTypeItem(node_decl) => node_decl.ast_idx(db),
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.ast_idx(db),
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.ast_idx(db),
+            AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => syn_node_decl.ast_idx(db),
             AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
         }
     }
 
     pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            AssociatedItemSynNodeDecl::TypeItem(node_decl) => node_decl.generic_parameters(db),
-            AssociatedItemSynNodeDecl::TraitItem(node_decl) => node_decl.generic_parameters(db),
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
+                syn_node_decl.generic_parameters(db)
+            }
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
+                syn_node_decl.generic_parameters(db)
+            }
             AssociatedItemSynNodeDecl::TraitForTypeItem(_) => todo!(),
             AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
         }
@@ -56,18 +64,20 @@ impl AssociatedItemSynNodeDecl {
 
     pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            AssociatedItemSynNodeDecl::TypeItem(node_decl) => node_decl.expr_region(db),
-            AssociatedItemSynNodeDecl::TraitItem(node_decl) => node_decl.expr_region(db),
-            AssociatedItemSynNodeDecl::TraitForTypeItem(node_decl) => node_decl.expr_region(db),
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.expr_region(db),
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.expr_region(db),
+            AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => {
+                syn_node_decl.expr_region(db)
+            }
             AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            AssociatedItemSynNodeDecl::TypeItem(node_decl) => node_decl.errors(db),
-            AssociatedItemSynNodeDecl::TraitItem(node_decl) => node_decl.errors(db),
-            AssociatedItemSynNodeDecl::TraitForTypeItem(node_decl) => node_decl.errors(db),
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.errors(db),
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.errors(db),
+            AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => syn_node_decl.errors(db),
             AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
         }
     }

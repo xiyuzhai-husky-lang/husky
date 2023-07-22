@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Inductive(
-                    InductiveTypeDefn {
+                    InductiveTypeSynDefn {
                         path: TypePath(`natural_number_game::Nat`, `Inductive`),
                         decl: InductiveTypeDecl {
                             path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -70,7 +70,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Structure(
-                    StructureTypeDefn {
+                    StructureTypeSynDefn {
                         path: TypePath(`natural_number_game::OddNat`, `Structure`),
                         decl: StructureTypeDecl {
                             path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -137,7 +137,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Structure(
-                    StructureTypeDefn {
+                    StructureTypeSynDefn {
                         path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                         decl: StructureTypeDecl {
                             path: TypePath(`natural_number_game::EvenNat`, `Structure`),

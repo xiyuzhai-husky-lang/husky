@@ -48,9 +48,9 @@ impl TupleTypeVariantDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeVariantPath,
-        node_decl: TupleTypeVariantNodeDecl,
+        syn_node_decl: TupleTypeVariantNodeDecl,
     ) -> DeclResult<Self> {
-        let fields = SmallVec::from(node_decl.field_comma_list(db).as_ref()?.elements());
-        Ok(Self::new(db, path, fields, node_decl.expr_region(db)))
+        let fields = SmallVec::from(syn_node_decl.field_comma_list(db).as_ref()?.elements());
+        Ok(Self::new(db, path, fields, syn_node_decl.expr_region(db)))
     }
 }
