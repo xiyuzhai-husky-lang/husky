@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Inductive(
-                    InductiveTypeNodeDefn {
+                    InductiveTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: InductiveTypeNodeDecl {
+                        syn_node_decl: InductiveTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -83,14 +83,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Structure(
-                    StructureTypeNodeDefn {
+                    StructureTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: StructureTypeNodeDecl {
+                        syn_node_decl: StructureTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -163,14 +163,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Structure(
-                    StructureTypeNodeDefn {
+                    StructureTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: StructureTypeNodeDecl {
+                        syn_node_decl: StructureTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`natural_number_game::EvenNat`, `Structure`),

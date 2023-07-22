@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Val(
-                    ValNodeDefn {
+                    ValSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ValNodeDecl {
+                        syn_node_decl: ValNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
@@ -413,14 +413,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Val(
-                    ValNodeDefn {
+                    ValSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ValNodeDecl {
+                        syn_node_decl: ValNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
@@ -856,14 +856,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Val(
-                    ValNodeDefn {
+                    ValSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ValNodeDecl {
+                        syn_node_decl: ValNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
@@ -4417,14 +4417,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
@@ -5122,14 +5122,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),

@@ -43,8 +43,8 @@ impl<'a> InferEngine<'a> {
     }
 
     fn visit_nodes(&mut self) -> EntitySynTreeResult<()> {
-        for node_defn in self.module_path.node_defns(self.db)?.iter().copied() {
-            self.visit_node(node_defn)
+        for syn_node_defn in self.module_path.node_defns(self.db)?.iter().copied() {
+            self.visit_node(syn_node_defn)
         }
         Ok(())
     }
@@ -85,15 +85,15 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_node(&mut self, node_defn: SynNodeDefn) {
-        let node_decl = node_defn.node_decl(self.db);
-        if let Some(expr_region) = node_decl.expr_region(self.db) {
+    fn visit_node(&mut self, syn_node_defn: SynNodeDefn) {
+        let syn_node_decl = syn_node_defn.syn_node_decl(self.db);
+        if let Some(expr_region) = syn_node_decl.expr_region(self.db) {
             self.visit_expr_region(expr_region)
         }
-        if let Some(expr_region) = node_defn.expr_region(self.db) {
+        if let Some(expr_region) = syn_node_defn.expr_region(self.db) {
             self.visit_expr_region(expr_region)
         }
-        let ast_idx = node_defn.ast_idx(self.db);
+        let ast_idx = syn_node_defn.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 ident_token,
@@ -101,12 +101,12 @@ impl<'a> InferEngine<'a> {
                 ..
             } => self.sheet.add(
                 ident_token.token_idx(),
-                TokenInfo::EntityNode(node_decl.syn_node_path(self.db), entity_kind),
+                TokenInfo::EntityNode(syn_node_decl.syn_node_path(self.db), entity_kind),
             ),
             Ast::ImplBlock { .. } => (),
             _ => unreachable!(),
         }
-        match node_defn {
+        match syn_node_defn {
             SynNodeDefn::ModuleItem(defn) => self.visit_module_item_node(defn),
             SynNodeDefn::AssociatedItem(defn) => self.visit_associated_item(defn),
             SynNodeDefn::TypeVariant(_) => todo!(),
@@ -150,35 +150,35 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_enum_ty(&mut self, _defn: EnumTypeNodeDefn) {
+    fn visit_enum_ty(&mut self, _defn: EnumTypeSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_inductive_ty(&mut self, _defn: InductiveTypeNodeDefn) {
+    fn visit_inductive_ty(&mut self, _defn: InductiveTypeSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_record_ty(&mut self, _defn: RecordTypeNodeDefn) {
+    fn visit_record_ty(&mut self, _defn: RecordTypeSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_unit_struct_ty(&mut self, _defn: UnitStructTypeNodeDefn) {
+    fn visit_unit_struct_ty(&mut self, _defn: UnitStructTypeSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_tuple_struct_ty(&mut self, _defn: TupleStructTypeNodeDefn) {
+    fn visit_tuple_struct_ty(&mut self, _defn: TupleStructTypeSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_props_struct_ty(&mut self, _defn: PropsStructTypeNodeDefn) {
+    fn visit_props_struct_ty(&mut self, _defn: PropsStructTypeSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_structure_ty(&mut self, _defn: StructureTypeNodeDefn) {
+    fn visit_structure_ty(&mut self, _defn: StructureTypeSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_alias_ty(&mut self, _defn: ExternTypeNodeDefn) {
+    fn visit_alias_ty(&mut self, _defn: ExternTypeSynNodeDefn) {
         // todo!()
     }
 
@@ -194,41 +194,43 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_fn_node(&mut self, node_defn: FnNodeDefn) {}
+    fn visit_fn_node(&mut self, syn_node_defn: FnSynNodeDefn) {}
 
-    fn visit_val_node(&mut self, node_defn: ValNodeDefn) {}
+    fn visit_val_node(&mut self, syn_node_defn: ValSynNodeDefn) {}
 
-    fn visit_gn_node(&mut self, node_defn: GnNodeDefn) {
-        let node_decl = node_defn.node_decl(self.db);
+    fn visit_gn_node(&mut self, syn_node_defn: GnNodeSynDefn) {
+        let syn_node_decl = syn_node_defn.syn_node_decl(self.db);
         // todo!()
     }
 
-    fn visit_value(&mut self, node_defn: ValNodeDefn) {
-        let node_decl = node_defn.node_decl(self.db);
+    fn visit_value(&mut self, syn_node_defn: ValSynNodeDefn) {
+        let syn_node_decl = syn_node_defn.syn_node_decl(self.db);
         // todo!()
     }
 
-    fn visit_associated_item(&mut self, node_defn: AssociatedItemSynNodeDefn) {
-        match node_defn {
-            AssociatedItemSynNodeDefn::TypeItem(node_defn) => {
-                self.visit_ty_item_syn_node(node_defn)
+    fn visit_associated_item(&mut self, syn_node_defn: AssociatedItemSynNodeDefn) {
+        match syn_node_defn {
+            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
+                self.visit_ty_item_syn_node(syn_node_defn)
             }
-            AssociatedItemSynNodeDefn::TraitItem(node_defn) => self.visit_trai_item_node(node_defn),
-            AssociatedItemSynNodeDefn::TraitForTypeItem(node_defn) => {
-                self.visit_trai_for_ty_item_syn_node(node_defn)
+            AssociatedItemSynNodeDefn::TraitItem(syn_node_defn) => {
+                self.visit_trai_item_node(syn_node_defn)
+            }
+            AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
+                self.visit_trai_for_ty_item_syn_node(syn_node_defn)
             }
         }
     }
 
-    fn visit_ty_item_syn_node(&self, node_defn: TypeItemSynNodeDefn) {
+    fn visit_ty_item_syn_node(&self, syn_node_defn: TypeItemSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_trai_item_node(&self, node_defn: TraitItemSynNodeDefn) {
+    fn visit_trai_item_node(&self, syn_node_defn: TraitItemSynNodeDefn) {
         // todo!()
     }
 
-    fn visit_trai_for_ty_item_syn_node(&self, node_defn: TraitForTypeItemSynNodeDefn) {
+    fn visit_trai_for_ty_item_syn_node(&self, syn_node_defn: TraitForTypeItemSynNodeDefn) {
         // todo!()
     }
 }

@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Enum(
-                    EnumTypeNodeDefn {
+                    EnumTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`malamute::OneVsAll`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: EnumTypeNodeDecl {
+                        syn_node_decl: EnumTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -216,14 +216,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Enum(
-                    EnumTypeNodeDefn {
+                    EnumTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: EnumTypeNodeDecl {
+                        syn_node_decl: EnumTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -429,14 +429,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Gn(
-                    GnNodeDefn {
+                    GnNodeSynDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: GnNodeDecl {
+                        syn_node_decl: GnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`malamute::narrow_down`, `Gn`),
@@ -1872,7 +1872,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::AssociatedType(
-                    TraitForTypeAssociatedTypeNodeDefn {
+                    TraitForTypeAssociatedTypeSynNodeDefn {
                         syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
@@ -1894,7 +1894,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TraitForTypeAssociatedTypeNodeDecl {
+                        syn_node_decl: TraitForTypeAssociatedTypeNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {

@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::raw_bits::r32`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -172,7 +172,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
-                    TypeMethodFnDefn {
+                    TypeMethodFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `core::raw_bits`,

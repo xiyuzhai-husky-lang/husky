@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::mem::Ref`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::mem::Ref`, `Extern`),
@@ -160,7 +160,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::mem::RefMut`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::mem::RefMut`, `Extern`),
@@ -317,7 +317,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::mem::Leash`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::mem::Leash`, `Extern`),

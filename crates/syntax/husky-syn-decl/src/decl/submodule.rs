@@ -16,7 +16,7 @@ impl SubmoduleNodeDecl {
 impl HasNodeDecl for SubmoduleSynNodePath {
     type NodeDecl = SubmoduleNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         submodule_syn_node_decl(db, self)
     }
 }
@@ -39,8 +39,8 @@ pub struct SubmoduleDecl {
 
 impl SubmoduleDecl {
     #[inline(always)]
-    fn from_node_decl(db: &dyn DeclDb, path: ModulePath, node_decl: SubmoduleNodeDecl) -> Self {
-        Self::new(db, path, node_decl.ast_idx(db))
+    fn from_node_decl(db: &dyn DeclDb, path: ModulePath, syn_node_decl: SubmoduleNodeDecl) -> Self {
+        Self::new(db, path, syn_node_decl.ast_idx(db))
     }
 }
 
@@ -57,6 +57,6 @@ impl HasDecl for ModulePath {
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn submodule_decl(db: &dyn DeclDb, path: ModulePath) -> DeclResult<SubmoduleDecl> {
     let syn_node_path = path.syn_node_path(db);
-    let node_decl = syn_node_path.node_decl(db);
-    Ok(SubmoduleDecl::from_node_decl(db, path, node_decl))
+    let syn_node_decl = syn_node_path.syn_node_decl(db);
+    Ok(SubmoduleDecl::from_node_decl(db, path, syn_node_decl))
 }

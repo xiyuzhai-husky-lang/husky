@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::basic::bool`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::bool`, `Extern`),
@@ -70,7 +70,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::basic::never`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::never`, `Extern`),
@@ -137,7 +137,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::basic::unit`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::unit`, `Extern`),
@@ -204,7 +204,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::basic::Trait`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::Trait`, `Extern`),
@@ -271,7 +271,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::basic::Module`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::basic::Module`, `Extern`),

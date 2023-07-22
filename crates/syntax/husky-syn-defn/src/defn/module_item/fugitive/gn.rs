@@ -1,29 +1,29 @@
 use super::*;
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct GnNodeDefn {
+pub struct GnNodeSynDefn {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
-    pub node_decl: GnNodeDecl,
+    pub syn_node_decl: GnNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
-impl GnNodeDefn {
+impl GnNodeSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: FugitiveSynNodePath,
-        node_decl: GnNodeDecl,
+        syn_node_decl: GnNodeDecl,
     ) -> Self {
-        let syn_node_path = node_decl.syn_node_path(db);
+        let syn_node_path = syn_node_decl.syn_node_path(db);
         let mut parser = expr_parser(
             db,
             syn_node_path,
-            node_decl.expr_region(db),
+            syn_node_decl.expr_region(db),
             AllowSelfType::False,
             AllowSelfValue::False,
         );
-        let ast_idx = node_decl.ast_idx(db);
+        let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {
             Ast::Defn {
                 block: DefnBlock::Fugitive { body, .. },
@@ -31,7 +31,7 @@ impl GnNodeDefn {
             } => body.map(|body| parser.parse_block_expr(body)),
             _ => unreachable!(),
         };
-        GnNodeDefn::new_inner(db, syn_node_path, node_decl, body, parser.finish())
+        GnNodeSynDefn::new_inner(db, syn_node_path, syn_node_decl, body, parser.finish())
     }
 }
 
@@ -46,15 +46,15 @@ pub struct GnDefn {
 
 impl GnDefn {
     pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: GnDecl) -> Self {
-        let FugitiveSynNodeDefn::Gn(node_defn) = path.syn_node_path(db).node_defn(db) else {
+        let FugitiveSynNodeDefn::Gn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()
         };
         GnDefn::new_inner(
             db,
             path,
             decl,
-            node_defn.body(db),
-            node_defn.expr_region(db),
+            syn_node_defn.body(db),
+            syn_node_defn.expr_region(db),
         )
     }
 }

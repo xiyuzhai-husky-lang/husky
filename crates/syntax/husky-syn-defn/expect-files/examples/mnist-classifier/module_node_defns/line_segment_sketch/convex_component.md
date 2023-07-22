@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::PropsStruct(
-                    PropsStructTypeNodeDefn {
+                    PropsStructTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
@@ -463,7 +463,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
-                    TraitForTypeMethodFnNodeDefn {
+                    TraitForTypeMethodFnSynNodeDefn {
                         syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
@@ -485,7 +485,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TraitForTypeMethodFnNodeDecl {
+                        syn_node_decl: TraitForTypeMethodFnNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {

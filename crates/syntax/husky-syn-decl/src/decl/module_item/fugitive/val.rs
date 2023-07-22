@@ -77,11 +77,11 @@ impl ValDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: FugitivePath,
-        node_decl: ValNodeDecl,
+        syn_node_decl: ValNodeDecl,
     ) -> DeclResult<Self> {
-        let val_ty = *node_decl.return_ty(db).as_ref()?;
-        let expr = node_decl.expr(db);
-        let expr_region = node_decl.expr_region(db);
+        let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
+        let expr = syn_node_decl.expr(db);
+        let expr_region = syn_node_decl.expr_region(db);
         Ok(ValDecl::new(db, path, val_ty, expr, expr_region))
     }
 }

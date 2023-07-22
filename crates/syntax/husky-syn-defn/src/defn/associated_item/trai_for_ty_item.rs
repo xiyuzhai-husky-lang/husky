@@ -14,42 +14,58 @@ use super::*;
 #[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemSynNodeDefn {
-    AssociatedFn(TraitForTypeAssociatedFnNodeDefn),
-    MethodFn(TraitForTypeMethodFnNodeDefn),
-    AssociatedType(TraitForTypeAssociatedTypeNodeDefn),
-    AssociatedVal(TraitForTypeAssociatedValNodeDefn),
+    AssociatedFn(TraitForTypeAssociatedFnSynNodeDefn),
+    MethodFn(TraitForTypeMethodFnSynNodeDefn),
+    AssociatedType(TraitForTypeAssociatedTypeSynNodeDefn),
+    AssociatedVal(TraitForTypeAssociatedValSynNodeDefn),
     // todo: MemoizedField
 }
 
 impl TraitForTypeItemSynNodeDefn {
     pub fn syn_node_path(self, db: &dyn SynDefnDb) -> TraitForTypeItemSynNodePath {
         match self {
-            TraitForTypeItemSynNodeDefn::AssociatedFn(node_defn) => node_defn.syn_node_path(db),
-            TraitForTypeItemSynNodeDefn::MethodFn(node_defn) => node_defn.syn_node_path(db),
-            TraitForTypeItemSynNodeDefn::AssociatedType(node_defn) => node_defn.syn_node_path(db),
-            TraitForTypeItemSynNodeDefn::AssociatedVal(node_defn) => node_defn.syn_node_path(db),
-            // TraitForTypeItemNodeDefn::MemoizedField(node_defn) => node_defn.syn_node_path(db),
+            TraitForTypeItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
+                syn_node_defn.syn_node_path(db)
+            }
+            TraitForTypeItemSynNodeDefn::MethodFn(syn_node_defn) => syn_node_defn.syn_node_path(db),
+            TraitForTypeItemSynNodeDefn::AssociatedType(syn_node_defn) => {
+                syn_node_defn.syn_node_path(db)
+            }
+            TraitForTypeItemSynNodeDefn::AssociatedVal(syn_node_defn) => {
+                syn_node_defn.syn_node_path(db)
+            } // TraitForTypeItemNodeDefn::MemoizedField(syn_node_defn) => syn_node_defn.syn_node_path(db),
         }
     }
 
-    pub fn node_decl(self, db: &dyn SynDefnDb) -> TraitForTypeItemNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TraitForTypeItemNodeDecl {
         match self {
-            TraitForTypeItemSynNodeDefn::AssociatedFn(node_defn) => node_defn.node_decl(db).into(),
-            TraitForTypeItemSynNodeDefn::MethodFn(node_defn) => node_defn.node_decl(db).into(),
-            TraitForTypeItemSynNodeDefn::AssociatedType(node_defn) => {
-                node_defn.node_decl(db).into()
+            TraitForTypeItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
             }
-            TraitForTypeItemSynNodeDefn::AssociatedVal(node_defn) => node_defn.node_decl(db).into(),
-            // TraitForTypeItemNodeDefn::MemoizedField(node_defn) => node_defn.node_decl(db).into(),
+            TraitForTypeItemSynNodeDefn::MethodFn(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            }
+            TraitForTypeItemSynNodeDefn::AssociatedType(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            }
+            TraitForTypeItemSynNodeDefn::AssociatedVal(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            } // TraitForTypeItemNodeDefn::MemoizedField(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
         }
     }
 
     pub fn expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
         match self {
-            TraitForTypeItemSynNodeDefn::AssociatedFn(node_defn) => node_defn.expr_region(db),
-            TraitForTypeItemSynNodeDefn::MethodFn(node_defn) => node_defn.expr_region(db),
-            TraitForTypeItemSynNodeDefn::AssociatedType(node_defn) => node_defn.expr_region(db),
-            TraitForTypeItemSynNodeDefn::AssociatedVal(node_defn) => node_defn.expr_region(db),
+            TraitForTypeItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
+                syn_node_defn.expr_region(db)
+            }
+            TraitForTypeItemSynNodeDefn::MethodFn(syn_node_defn) => syn_node_defn.expr_region(db),
+            TraitForTypeItemSynNodeDefn::AssociatedType(syn_node_defn) => {
+                syn_node_defn.expr_region(db)
+            }
+            TraitForTypeItemSynNodeDefn::AssociatedVal(syn_node_defn) => {
+                syn_node_defn.expr_region(db)
+            }
         }
     }
 }
@@ -57,7 +73,7 @@ impl TraitForTypeItemSynNodeDefn {
 impl HasSynNodeDefn for TraitForTypeItemSynNodePath {
     type NodeDefn = TraitForTypeItemSynNodeDefn;
 
-    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         trai_for_ty_item_syn_node_defn(db, self)
     }
 }
@@ -67,13 +83,13 @@ pub(crate) fn trai_for_ty_item_syn_node_defn(
     db: &dyn SynDefnDb,
     syn_node_path: TraitForTypeItemSynNodePath,
 ) -> TraitForTypeItemSynNodeDefn {
-    match syn_node_path.node_decl(db) {
+    match syn_node_path.syn_node_decl(db) {
         TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
-        TraitForTypeItemNodeDecl::MethodFn(node_decl) => {
-            TraitForTypeMethodFnNodeDefn::new(db, syn_node_path, node_decl).into()
+        TraitForTypeItemNodeDecl::MethodFn(syn_node_decl) => {
+            TraitForTypeMethodFnSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TraitForTypeItemNodeDecl::AssociatedType(node_decl) => {
-            TraitForTypeAssociatedTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        TraitForTypeItemNodeDecl::AssociatedType(syn_node_decl) => {
+            TraitForTypeAssociatedTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
         TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
         // TraitForTypeItemNodeDecl::MemoizedField(_) => todo!(),
@@ -84,10 +100,10 @@ pub(crate) fn trai_for_ty_item_syn_node_defn(
 #[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemSynDefn {
-    AssociatedFn(TraitForTypeAssociatedFnDefn),
-    MethodFn(TraitForTypeMethodFnDefn),
-    AssociatedType(TraitForTypeAssociatedTypeDefn),
-    AssociatedVal(TraitForTypeAssociatedValDefn),
+    AssociatedFn(TraitForTypeAssociatedFnSynDefn),
+    MethodFn(TraitForTypeMethodFnSynDefn),
+    AssociatedType(TraitForTypeAssociatedTypeSynDefn),
+    AssociatedVal(TraitForTypeAssociatedValSynDefn),
 }
 
 impl TraitForTypeItemSynDefn {
@@ -130,13 +146,13 @@ pub(crate) fn trai_for_ty_item_defn(
     Ok(match path.decl(db)? {
         TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
         TraitForTypeItemDecl::MethodFn(decl) => {
-            TraitForTypeMethodFnDefn::new(db, path, decl).into()
+            TraitForTypeMethodFnSynDefn::new(db, path, decl).into()
         }
         TraitForTypeItemDecl::AssociatedType(decl) => {
-            TraitForTypeAssociatedTypeDefn::new(db, path, decl).into()
+            TraitForTypeAssociatedTypeSynDefn::new(db, path, decl).into()
         }
         TraitForTypeItemDecl::AssociatedVal(decl) => {
-            TraitForTypeAssociatedValDefn::new(db, path, decl)?.into()
+            TraitForTypeAssociatedValSynDefn::new(db, path, decl)?.into()
         }
     })
 }

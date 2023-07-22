@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::slice::Slice`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::slice::Slice`, `Extern`),
@@ -117,7 +117,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Extern(
-                    ExternTypeDefn {
+                    ExternTypeSynDefn {
                         path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                         decl: ExternTypeDecl {
                             path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
@@ -393,7 +393,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
-                    TypeMethodFnDefn {
+                    TypeMethodFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `core::slice`,
@@ -985,7 +985,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
-                    TypeMethodFnDefn {
+                    TypeMethodFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `core::slice`,
@@ -1577,7 +1577,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MethodFn(
-                    TypeMethodFnDefn {
+                    TypeMethodFnSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `core::slice`,

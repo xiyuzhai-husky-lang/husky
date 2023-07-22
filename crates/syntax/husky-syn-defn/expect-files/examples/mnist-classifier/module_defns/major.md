@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
@@ -363,7 +363,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
@@ -1271,7 +1271,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
@@ -1915,7 +1915,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
@@ -2260,7 +2260,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
@@ -2604,7 +2604,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
@@ -2923,7 +2923,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),

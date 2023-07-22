@@ -29,7 +29,7 @@ impl TypeAssociatedValDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeItemPath,
-        node_decl: TypeAssociatedValNodeDecl,
+        syn_node_decl: TypeAssociatedValNodeDecl,
     ) -> DeclResult<Self> {
         todo!()
     }

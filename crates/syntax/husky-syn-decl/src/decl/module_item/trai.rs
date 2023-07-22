@@ -24,7 +24,7 @@ impl TraitNodeDecl {
 impl HasNodeDecl for TraitSynNodePath {
     type NodeDecl = TraitNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         trai_node_decl(db, self)
     }
 }
@@ -83,16 +83,16 @@ impl TraitDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitPath,
-        node_decl: TraitNodeDecl,
+        syn_node_decl: TraitNodeDecl,
     ) -> DeclResult<TraitDecl> {
-        let ast_idx = node_decl.ast_idx(db);
-        let generic_parameters = node_decl
+        let ast_idx = syn_node_decl.ast_idx(db);
+        let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let expr_region = node_decl.expr_region(db);
+        let expr_region = syn_node_decl.expr_region(db);
         Ok(TraitDecl::new(
             db,
             path,
@@ -113,6 +113,6 @@ impl HasDecl for TraitPath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
-    let node_decl = path.syn_node_path(db).node_decl(db);
-    TraitDecl::from_node_decl(db, path, node_decl)
+    let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
+    TraitDecl::from_node_decl(db, path, syn_node_decl)
 }

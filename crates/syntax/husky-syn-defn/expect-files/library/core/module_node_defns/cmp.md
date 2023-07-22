@@ -9,7 +9,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::PartialEq`),
@@ -87,7 +87,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::Eq`),
@@ -165,7 +165,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::PartialOrd`),
@@ -243,7 +243,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::cmp::Ord`),

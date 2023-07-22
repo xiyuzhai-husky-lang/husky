@@ -47,9 +47,9 @@ impl FugitiveNodeDecl {
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            FugitiveNodeDecl::Fn(node_decl) => node_decl.errors(db),
-            FugitiveNodeDecl::Val(node_decl) => node_decl.errors(db),
-            FugitiveNodeDecl::Gn(node_decl) => node_decl.errors(db),
+            FugitiveNodeDecl::Fn(syn_node_decl) => syn_node_decl.errors(db),
+            FugitiveNodeDecl::Val(syn_node_decl) => syn_node_decl.errors(db),
+            FugitiveNodeDecl::Gn(syn_node_decl) => syn_node_decl.errors(db),
         }
     }
 }
@@ -57,7 +57,7 @@ impl FugitiveNodeDecl {
 impl HasNodeDecl for FugitiveSynNodePath {
     type NodeDecl = FugitiveNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         fugitive_syn_node_decl(db, self)
     }
 }
@@ -130,14 +130,18 @@ impl FugitiveDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: FugitivePath,
-        node_decl: FugitiveNodeDecl,
+        syn_node_decl: FugitiveNodeDecl,
     ) -> DeclResult<Self> {
-        Ok(match node_decl {
-            FugitiveNodeDecl::Fn(node_decl) => FnDecl::from_node_decl(db, path, node_decl)?.into(),
-            FugitiveNodeDecl::Val(node_decl) => {
-                ValDecl::from_node_decl(db, path, node_decl)?.into()
+        Ok(match syn_node_decl {
+            FugitiveNodeDecl::Fn(syn_node_decl) => {
+                FnDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            FugitiveNodeDecl::Gn(node_decl) => GnDecl::from_node_decl(db, path, node_decl)?.into(),
+            FugitiveNodeDecl::Val(syn_node_decl) => {
+                ValDecl::from_node_decl(db, path, syn_node_decl)?.into()
+            }
+            FugitiveNodeDecl::Gn(syn_node_decl) => {
+                GnDecl::from_node_decl(db, path, syn_node_decl)?.into()
+            }
         })
     }
 
@@ -176,6 +180,6 @@ impl HasDecl for FugitivePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn fugitive_decl(db: &dyn DeclDb, path: FugitivePath) -> DeclResult<FugitiveDecl> {
-    let node_decl = path.syn_node_path(db).node_decl(db);
-    FugitiveDecl::from_node_decl(db, path, node_decl)
+    let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
+    FugitiveDecl::from_node_decl(db, path, syn_node_decl)
 }

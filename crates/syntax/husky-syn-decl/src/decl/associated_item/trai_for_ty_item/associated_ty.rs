@@ -34,7 +34,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenStreamState,
     ) -> TraitForTypeAssociatedTypeNodeDecl {
         let db = self.db();
-        let impl_block_syn_node_decl = syn_node_path.impl_block(db).node_decl(db);
+        let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
         let mut parser = self.expr_parser(
             node.syn_node_path(db),
             Some(impl_block_syn_node_decl.expr_region(db)),
@@ -76,16 +76,16 @@ impl TraitForTypeAssociatedTypeDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitForTypeItemPath,
-        node_decl: TraitForTypeAssociatedTypeNodeDecl,
+        syn_node_decl: TraitForTypeAssociatedTypeNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = node_decl
+        let generic_parameters = syn_node_decl
             .generics(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let expr_region = node_decl.expr_region(db);
-        let ty_term_expr_idx = node_decl.ty_term_expr_idx(db);
+        let expr_region = syn_node_decl.expr_region(db);
+        let ty_term_expr_idx = syn_node_decl.ty_term_expr_idx(db);
         Ok(TraitForTypeAssociatedTypeDecl::new(
             db,
             path,

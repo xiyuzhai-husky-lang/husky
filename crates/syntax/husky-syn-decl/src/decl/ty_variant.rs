@@ -20,17 +20,17 @@ pub enum TypeVariantNodeDecl {
 impl TypeVariantNodeDecl {
     pub fn syn_node_path(self, db: &dyn DeclDb) -> TypeVariantSynNodePath {
         match self {
-            TypeVariantNodeDecl::Props(node_decl) => node_decl.syn_node_path(db),
-            TypeVariantNodeDecl::Unit(node_decl) => node_decl.syn_node_path(db),
-            TypeVariantNodeDecl::Tuple(node_decl) => node_decl.syn_node_path(db),
+            TypeVariantNodeDecl::Props(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeVariantNodeDecl::Unit(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeVariantNodeDecl::Tuple(syn_node_decl) => syn_node_decl.syn_node_path(db),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TypeVariantNodeDecl::Props(node_decl) => node_decl.ast_idx(db),
-            TypeVariantNodeDecl::Unit(node_decl) => node_decl.ast_idx(db),
-            TypeVariantNodeDecl::Tuple(node_decl) => node_decl.ast_idx(db),
+            TypeVariantNodeDecl::Props(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeVariantNodeDecl::Unit(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeVariantNodeDecl::Tuple(syn_node_decl) => syn_node_decl.ast_idx(db),
         }
     }
 
@@ -46,7 +46,7 @@ impl TypeVariantNodeDecl {
 impl HasNodeDecl for TypeVariantSynNodePath {
     type NodeDecl = TypeVariantNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         ty_variant_node_decl(db, self)
     }
 }
@@ -81,7 +81,7 @@ impl<'a> DeclParser<'a> {
             Some(
                 syn_node_path
                     .parent_ty_node_path(db)
-                    .node_decl(db)
+                    .syn_node_decl(db)
                     .expr_region(db),
             ),
             AllowSelfType::True,
@@ -126,17 +126,17 @@ impl TypeVariantDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeVariantPath,
-        node_decl: TypeVariantNodeDecl,
+        syn_node_decl: TypeVariantNodeDecl,
     ) -> DeclResult<Self> {
-        Ok(match node_decl {
-            TypeVariantNodeDecl::Props(node_decl) => {
-                PropsTypeVariantDecl::from_node_decl(db, path, node_decl)?.into()
+        Ok(match syn_node_decl {
+            TypeVariantNodeDecl::Props(syn_node_decl) => {
+                PropsTypeVariantDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeVariantNodeDecl::Unit(node_decl) => {
-                UnitTypeVariantDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeVariantNodeDecl::Unit(syn_node_decl) => {
+                UnitTypeVariantDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeVariantNodeDecl::Tuple(node_decl) => {
-                TupleTypeVariantDecl::from_node_decl(db, path, node_decl)?.into()
+            TypeVariantNodeDecl::Tuple(syn_node_decl) => {
+                TupleTypeVariantDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
     }
@@ -167,6 +167,6 @@ pub(crate) fn ty_variant_decl(
     db: &dyn DeclDb,
     path: TypeVariantPath,
 ) -> DeclResult<TypeVariantDecl> {
-    let node_decl = path.syn_node_path(db).node_decl(db);
-    TypeVariantDecl::from_node_decl(db, path, node_decl)
+    let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
+    TypeVariantDecl::from_node_decl(db, path, syn_node_decl)
 }

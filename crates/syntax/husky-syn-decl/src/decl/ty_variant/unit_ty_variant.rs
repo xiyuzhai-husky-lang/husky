@@ -20,8 +20,8 @@ impl UnitTypeVariantDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeVariantPath,
-        node_decl: UnitTypeVariantNodeDecl,
+        syn_node_decl: UnitTypeVariantNodeDecl,
     ) -> DeclResult<Self> {
-        Ok(Self::new(db, path, node_decl.expr_region(db)))
+        Ok(Self::new(db, path, syn_node_decl.expr_region(db)))
     }
 }

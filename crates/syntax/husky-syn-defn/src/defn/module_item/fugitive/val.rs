@@ -1,28 +1,28 @@
 use super::*;
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct ValNodeDefn {
+pub struct ValSynNodeDefn {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
-    pub node_decl: ValNodeDecl,
+    pub syn_node_decl: ValNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
-impl ValNodeDefn {
+impl ValSynNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: FugitiveSynNodePath,
-        node_decl: ValNodeDecl,
+        syn_node_decl: ValNodeDecl,
     ) -> Self {
         let mut parser = expr_parser(
             db,
             syn_node_path,
-            node_decl.expr_region(db),
+            syn_node_decl.expr_region(db),
             AllowSelfType::False,
             AllowSelfValue::False,
         );
-        let ast_idx = node_decl.ast_idx(db);
+        let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {
             Ast::Defn {
                 block: DefnBlock::Fugitive { body, .. },
@@ -30,12 +30,12 @@ impl ValNodeDefn {
             } => body.map(|body| parser.parse_block_expr(body)),
             _ => unreachable!(),
         };
-        ValNodeDefn::new_inner(db, syn_node_path, node_decl, body, parser.finish())
+        ValSynNodeDefn::new_inner(db, syn_node_path, syn_node_decl, body, parser.finish())
     }
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct ValDefn {
+pub struct ValSynDefn {
     #[id]
     pub path: FugitivePath,
     pub decl: ValDecl,
@@ -43,17 +43,17 @@ pub struct ValDefn {
     pub expr_region: SynExprRegion,
 }
 
-impl ValDefn {
+impl ValSynDefn {
     pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: ValDecl) -> Self {
-        let FugitiveSynNodeDefn::Val(node_defn) = path.syn_node_path(db).node_defn(db) else {
+        let FugitiveSynNodeDefn::Val(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()
         };
         Self::new_inner(
             db,
             path,
             decl,
-            node_defn.body(db),
-            node_defn.expr_region(db),
+            syn_node_defn.body(db),
+            syn_node_defn.expr_region(db),
         )
     }
 }

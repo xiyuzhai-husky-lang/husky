@@ -3,28 +3,28 @@ use husky_ast::Ast;
 use salsa::DebugWithDb;
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct TypeMethodFnNodeDefn {
+pub struct TypeMethodFnSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub node_decl: TypeMethodFnNodeDecl,
+    pub syn_node_decl: TypeMethodFnNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
-impl TypeMethodFnNodeDefn {
+impl TypeMethodFnSynNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: TypeItemSynNodePath,
-        node_decl: TypeMethodFnNodeDecl,
+        syn_node_decl: TypeMethodFnNodeDecl,
     ) -> Self {
         let mut parser = expr_parser(
             db,
             syn_node_path,
-            node_decl.expr_region(db),
+            syn_node_decl.expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
-        let ast_idx = node_decl.ast_idx(db);
+        let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {
             Ast::Defn {
                 block: DefnBlock::AssociatedItem { body },
@@ -32,12 +32,12 @@ impl TypeMethodFnNodeDefn {
             } => body.map(|body| parser.parse_block_expr(body)),
             _ => unreachable!(),
         };
-        Self::new_inner(db, syn_node_path, node_decl, body, parser.finish())
+        Self::new_inner(db, syn_node_path, syn_node_decl, body, parser.finish())
     }
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct TypeMethodFnDefn {
+pub struct TypeMethodFnSynDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeMethodFnDecl,
@@ -45,21 +45,21 @@ pub struct TypeMethodFnDefn {
     pub expr_region: SynExprRegion,
 }
 
-impl TypeMethodFnDefn {
+impl TypeMethodFnSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TypeItemPath,
         decl: TypeMethodFnDecl,
     ) -> DefnResult<Self> {
-        let TypeItemSynNodeDefn::MethodFn(node_defn) = path.syn_node_path(db).node_defn(db) else {
+        let TypeItemSynNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()
         };
-        Ok(TypeMethodFnDefn::new_inner(
+        Ok(TypeMethodFnSynDefn::new_inner(
             db,
             path,
             decl,
-            node_defn.body(db),
-            node_defn.expr_region(db),
+            syn_node_defn.body(db),
+            syn_node_defn.expr_region(db),
         ))
     }
 }

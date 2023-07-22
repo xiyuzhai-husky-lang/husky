@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Enum(
-                    EnumTypeDefn {
+                    EnumTypeSynDefn {
                         path: TypePath(`core::option::Option`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`core::option::Option`, `Enum`),

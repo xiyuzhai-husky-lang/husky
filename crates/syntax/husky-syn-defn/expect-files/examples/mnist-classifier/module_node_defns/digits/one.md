@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Val(
-                    ValNodeDefn {
+                    ValSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ValNodeDecl {
+                        syn_node_decl: ValNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -479,14 +479,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Val(
-                    ValNodeDefn {
+                    ValSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ValNodeDecl {
+                        syn_node_decl: ValNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -6089,14 +6089,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
@@ -6794,14 +6794,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
@@ -7526,14 +7526,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),

@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::PropsStruct(
-                    PropsStructTypeNodeDefn {
+                    PropsStructTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -273,14 +273,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Enum(
-                    EnumTypeNodeDefn {
+                    EnumTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: EnumTypeNodeDecl {
+                        syn_node_decl: EnumTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
@@ -353,14 +353,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
@@ -1105,14 +1105,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
@@ -1828,14 +1828,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
@@ -2580,14 +2580,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
@@ -3699,14 +3699,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
@@ -4640,14 +4640,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
@@ -5925,14 +5925,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::PropsStruct(
-                    PropsStructTypeNodeDefn {
+                    PropsStructTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
@@ -6175,14 +6175,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
@@ -7268,14 +7268,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
@@ -13502,7 +13502,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TraitForTypeItem(
                 TraitForTypeItemSynNodeDefn::MethodFn(
-                    TraitForTypeMethodFnNodeDefn {
+                    TraitForTypeMethodFnSynNodeDefn {
                         syn_node_path: TraitForTypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitForTypeItemPath {
@@ -13524,7 +13524,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TraitForTypeMethodFnNodeDecl {
+                        syn_node_decl: TraitForTypeMethodFnNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
@@ -14384,7 +14384,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MemoizedField(
-                    TypeMemoizedFieldNodeDefn {
+                    TypeMemoizedFieldSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -14399,7 +14399,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMemoizedFieldNodeDecl {
+                        syn_node_decl: TypeMemoizedFieldNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -14973,7 +14973,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MemoizedField(
-                    TypeMemoizedFieldNodeDefn {
+                    TypeMemoizedFieldSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -14988,7 +14988,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMemoizedFieldNodeDecl {
+                        syn_node_decl: TypeMemoizedFieldNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -16760,7 +16760,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MemoizedField(
-                    TypeMemoizedFieldNodeDefn {
+                    TypeMemoizedFieldSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -16775,7 +16775,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMemoizedFieldNodeDecl {
+                        syn_node_decl: TypeMemoizedFieldNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -17380,7 +17380,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MemoizedField(
-                    TypeMemoizedFieldNodeDefn {
+                    TypeMemoizedFieldSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -17395,7 +17395,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMemoizedFieldNodeDecl {
+                        syn_node_decl: TypeMemoizedFieldNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -19063,7 +19063,7 @@ Ok(
         SynNodeDefn::AssociatedItem(
             AssociatedItemSynNodeDefn::TypeItem(
                 TypeItemSynNodeDefn::MethodFn(
-                    TypeMethodFnNodeDefn {
+                    TypeMethodFnSynNodeDefn {
                         syn_node_path: TypeItemSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypeItemPath {
@@ -19078,7 +19078,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {

@@ -52,7 +52,7 @@ impl TraitForTypeAssociatedFnDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitForTypeItemPath,
-        node_decl: TraitForTypeAssociatedFnNodeDecl,
+        syn_node_decl: TraitForTypeAssociatedFnNodeDecl,
     ) -> DeclResult<Self> {
         todo!()
     }

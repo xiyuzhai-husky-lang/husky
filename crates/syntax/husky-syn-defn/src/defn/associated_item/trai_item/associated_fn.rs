@@ -1,27 +1,27 @@
 use super::*;
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
-pub struct TraitAssociatedFnNodeDefn {
+pub struct TraitAssociatedFnSynNodeDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
-    pub node_decl: TraitAssociatedFnNodeDecl,
+    pub syn_node_decl: TraitAssociatedFnNodeDecl,
     pub expr_region: SynExprRegion,
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct TraitAssociatedFnDefn {
+pub struct TraitAssociatedFnSynDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     pub decl: TraitAssociatedFnDecl,
     pub expr_region: SynExprRegion,
 }
 
-impl TraitAssociatedFnDefn {
+impl TraitAssociatedFnSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TraitItemPath,
         decl: TraitAssociatedFnDecl,
-    ) -> DeclResult<TraitAssociatedFnDefn> {
+    ) -> DeclResult<TraitAssociatedFnSynDefn> {
         todo!()
         // let syn_node_path = decl.syn_node_path(db);
         // let mut parser = expr_parser(

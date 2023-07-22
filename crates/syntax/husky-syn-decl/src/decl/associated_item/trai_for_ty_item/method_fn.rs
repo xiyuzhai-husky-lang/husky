@@ -48,7 +48,7 @@ impl<'a> DeclParser<'a> {
         saved_stream_state: TokenStreamState,
     ) -> TraitForTypeMethodFnNodeDecl {
         let db = self.db();
-        let impl_block_syn_node_decl = syn_node_path.impl_block(db).node_decl(db);
+        let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
         let mut parser = self.expr_parser(
             node.syn_node_path(db),
             Some(impl_block_syn_node_decl.expr_region(db)),
@@ -99,23 +99,23 @@ impl TraitForTypeMethodFnDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitForTypeItemPath,
-        node_decl: TraitForTypeMethodFnNodeDecl,
+        syn_node_decl: TraitForTypeMethodFnNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = node_decl
+        let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let parenic_parameter_decl_list = node_decl.parenic_parameter_decl_list(db).as_ref()?;
+        let parenic_parameter_decl_list = syn_node_decl.parenic_parameter_decl_list(db).as_ref()?;
         let self_parameter = *parenic_parameter_decl_list.self_parameter();
         let parenic_parameters: ExplicitParameterDeclPatterns = parenic_parameter_decl_list
             .parenic_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
-        let return_ty = *node_decl.return_ty(db).as_ref()?;
-        let expr_region = node_decl.expr_region(db);
+        let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
+        let expr_region = syn_node_decl.expr_region(db);
         Ok(TraitForTypeMethodFnDecl::new(
             db,
             path,

@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
@@ -876,14 +876,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
@@ -2269,14 +2269,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::partition`, `Fn`),
@@ -4464,14 +4464,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Fn`),
@@ -5256,14 +5256,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Fugitive(
                 FugitiveSynNodeDefn::Fn(
-                    FnNodeDefn {
+                    FnSynNodeDefn {
                         syn_node_path: FugitiveSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: FnNodeDecl {
+                        syn_node_decl: FnNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Fn`),

@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),

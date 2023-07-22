@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
-                    ExternTypeNodeDefn {
+                    ExternTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::mem::Ref`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::mem::Ref`, `Extern`),
@@ -197,14 +197,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
-                    ExternTypeNodeDefn {
+                    ExternTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::mem::RefMut`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::mem::RefMut`, `Extern`),
@@ -391,14 +391,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
-                    ExternTypeNodeDefn {
+                    ExternTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::mem::Leash`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::mem::Leash`, `Extern`),

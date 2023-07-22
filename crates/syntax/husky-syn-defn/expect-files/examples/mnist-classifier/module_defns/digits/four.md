@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
@@ -934,7 +934,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
@@ -1315,7 +1315,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
@@ -1696,7 +1696,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
                 FugitiveDefn::Val(
-                    ValDefn {
+                    ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                         decl: ValDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),

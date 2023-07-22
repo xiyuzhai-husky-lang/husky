@@ -1,29 +1,29 @@
 use super::*;
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct TraitForTypeAssociatedTypeNodeDefn {
+pub struct TraitForTypeAssociatedTypeSynNodeDefn {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
-    pub node_decl: TraitForTypeAssociatedTypeNodeDecl,
+    pub syn_node_decl: TraitForTypeAssociatedTypeNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
-impl TraitForTypeAssociatedTypeNodeDefn {
+impl TraitForTypeAssociatedTypeSynNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: TraitForTypeItemSynNodePath,
-        node_decl: TraitForTypeAssociatedTypeNodeDecl,
+        syn_node_decl: TraitForTypeAssociatedTypeNodeDecl,
     ) -> Self {
-        let syn_node_path = node_decl.syn_node_path(db);
+        let syn_node_path = syn_node_decl.syn_node_path(db);
         let mut parser = expr_parser(
             db,
             syn_node_path,
-            node_decl.expr_region(db),
+            syn_node_decl.expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::False,
         );
-        let ast_idx = node_decl.ast_idx(db);
+        let ast_idx = syn_node_decl.ast_idx(db);
         let body = match parser.ast_sheet()[ast_idx] {
             Ast::Defn {
                 block: DefnBlock::AssociatedItem { body },
@@ -31,10 +31,10 @@ impl TraitForTypeAssociatedTypeNodeDefn {
             } => body.map(|body| parser.parse_block_expr(body)),
             _ => unreachable!(),
         };
-        TraitForTypeAssociatedTypeNodeDefn::new_inner(
+        TraitForTypeAssociatedTypeSynNodeDefn::new_inner(
             db,
             syn_node_path,
-            node_decl,
+            syn_node_decl,
             body,
             parser.finish(),
         )
@@ -42,22 +42,22 @@ impl TraitForTypeAssociatedTypeNodeDefn {
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct TraitForTypeAssociatedTypeDefn {
+pub struct TraitForTypeAssociatedTypeSynDefn {
     #[id]
     pub path: TraitForTypeItemPath,
     pub decl: TraitForTypeAssociatedTypeDecl,
     pub expr_region: SynExprRegion,
 }
 
-impl TraitForTypeAssociatedTypeDefn {
+impl TraitForTypeAssociatedTypeSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TraitForTypeItemPath,
         decl: TraitForTypeAssociatedTypeDecl,
     ) -> Self {
-        let TraitForTypeItemSynNodeDefn::AssociatedType(node_defn) = path.syn_node_path(db).node_defn(db) else {
+        let TraitForTypeItemSynNodeDefn::AssociatedType(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()
         };
-        TraitForTypeAssociatedTypeDefn::new_inner(db, path, decl, node_defn.expr_region(db))
+        TraitForTypeAssociatedTypeSynDefn::new_inner(db, path, decl, syn_node_defn.expr_region(db))
     }
 }

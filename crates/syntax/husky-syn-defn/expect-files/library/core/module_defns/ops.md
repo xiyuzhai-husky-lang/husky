@@ -1605,7 +1605,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Enum(
-                    EnumTypeDefn {
+                    EnumTypeSynDefn {
                         path: TypePath(`core::ops::ControlFlow`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`core::ops::ControlFlow`, `Enum`),

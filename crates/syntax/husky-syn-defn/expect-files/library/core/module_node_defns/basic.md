@@ -3,14 +3,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
-                    ExternTypeNodeDefn {
+                    ExternTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::bool`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::bool`, `Extern`),
@@ -83,14 +83,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
-                    ExternTypeNodeDefn {
+                    ExternTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::never`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::never`, `Extern`),
@@ -163,14 +163,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
-                    ExternTypeNodeDefn {
+                    ExternTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::unit`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::unit`, `Extern`),
@@ -243,14 +243,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
-                    ExternTypeNodeDefn {
+                    ExternTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::Trait`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::Trait`, `Extern`),
@@ -323,14 +323,14 @@ Ok(
         SynNodeDefn::ModuleItem(
             ModuleItemSynNodeDefn::Type(
                 TypeSynNodeDefn::Extern(
-                    ExternTypeNodeDefn {
+                    ExternTypeSynNodeDefn {
                         syn_node_path: TypeSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TypePath(`core::basic::Module`, `Extern`),
                                 disambiguator: 0,
                             },
                         },
-                        node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::basic::Module`, `Extern`),

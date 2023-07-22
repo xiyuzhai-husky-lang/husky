@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Enum(
-                    EnumTypeDefn {
+                    EnumTypeSynDefn {
                         path: TypePath(`malamute::OneVsAll`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -179,7 +179,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::Enum(
-                    EnumTypeDefn {
+                    EnumTypeSynDefn {
                         path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                         decl: EnumTypeDecl {
                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -1665,7 +1665,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TraitForTypeItem(
                 TraitForTypeItemSynDefn::AssociatedType(
-                    TraitForTypeAssociatedTypeDefn {
+                    TraitForTypeAssociatedTypeSynDefn {
                         path: TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
                                 module_path: `malamute`,

@@ -31,8 +31,8 @@ impl TypeImplBlockNodeDecl {
 impl HasNodeDecl for TypeImplBlockSynNode {
     type NodeDecl = TypeImplBlockNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        self.syn_node_path(db).node_decl(db)
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+        self.syn_node_path(db).syn_node_decl(db)
     }
 }
 
@@ -98,7 +98,7 @@ impl<'a> DeclParser<'a> {
 impl HasNodeDecl for TypeImplBlockSynNodePath {
     type NodeDecl = TypeImplBlockNodeDecl;
 
-    fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         ty_impl_block_syn_node_decl(db, self)
     }
 }
@@ -123,17 +123,17 @@ impl TypeImplBlockDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeImplBlockPath,
-        node_decl: TypeImplBlockNodeDecl,
+        syn_node_decl: TypeImplBlockNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = node_decl
+        let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let self_ty_expr = node_decl.self_ty_expr(db);
-        let expr_region = node_decl.expr_region(db);
-        node_decl.eol_colon(db).as_ref()?;
+        let self_ty_expr = syn_node_decl.self_ty_expr(db);
+        let expr_region = syn_node_decl.expr_region(db);
+        syn_node_decl.eol_colon(db).as_ref()?;
         Ok(Self::new(
             db,
             path,
@@ -160,6 +160,6 @@ pub(crate) fn ty_impl_block_decl(
     path: TypeImplBlockPath,
 ) -> DeclResult<TypeImplBlockDecl> {
     let syn_node_path = path.syn_node_path(db);
-    let node_decl = syn_node_path.node_decl(db);
-    TypeImplBlockDecl::from_node_decl(db, path, node_decl)
+    let syn_node_decl = syn_node_path.syn_node_decl(db);
+    TypeImplBlockDecl::from_node_decl(db, path, syn_node_decl)
 }

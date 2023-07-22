@@ -24,29 +24,29 @@ use super::*;
 #[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeSynNodeDefn {
-    Enum(EnumTypeNodeDefn),
-    Inductive(InductiveTypeNodeDefn),
-    Record(RecordTypeNodeDefn),
-    PropsStruct(PropsStructTypeNodeDefn),
-    TupleStruct(TupleStructTypeNodeDefn),
-    UnitStruct(UnitStructTypeNodeDefn),
-    Structure(StructureTypeNodeDefn),
-    Extern(ExternTypeNodeDefn),
-    Union(UnionTypeNodeDefn),
+    Enum(EnumTypeSynNodeDefn),
+    Inductive(InductiveTypeSynNodeDefn),
+    Record(RecordTypeSynNodeDefn),
+    PropsStruct(PropsStructTypeSynNodeDefn),
+    TupleStruct(TupleStructTypeSynNodeDefn),
+    UnitStruct(UnitStructTypeSynNodeDefn),
+    Structure(StructureTypeSynNodeDefn),
+    Extern(ExternTypeSynNodeDefn),
+    Union(UnionTypeSynNodeDefn),
 }
 
 impl TypeSynNodeDefn {
-    pub fn node_decl(self, db: &dyn SynDefnDb) -> TypeNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TypeNodeDecl {
         match self {
-            TypeSynNodeDefn::Enum(node_defn) => node_defn.node_decl(db).into(),
-            TypeSynNodeDefn::Inductive(node_defn) => node_defn.node_decl(db).into(),
-            TypeSynNodeDefn::Record(node_defn) => node_defn.node_decl(db).into(),
-            TypeSynNodeDefn::UnitStruct(node_defn) => node_defn.node_decl(db).into(),
-            TypeSynNodeDefn::TupleStruct(node_defn) => node_defn.node_decl(db).into(),
-            TypeSynNodeDefn::PropsStruct(node_defn) => node_defn.node_decl(db).into(),
-            TypeSynNodeDefn::Structure(node_defn) => node_defn.node_decl(db).into(),
-            TypeSynNodeDefn::Extern(node_defn) => node_defn.node_decl(db).into(),
-            TypeSynNodeDefn::Union(node_defn) => node_defn.node_decl(db).into(),
+            TypeSynNodeDefn::Enum(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            TypeSynNodeDefn::Inductive(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            TypeSynNodeDefn::Record(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            TypeSynNodeDefn::UnitStruct(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            TypeSynNodeDefn::TupleStruct(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            TypeSynNodeDefn::PropsStruct(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            TypeSynNodeDefn::Structure(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            TypeSynNodeDefn::Extern(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            TypeSynNodeDefn::Union(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
         }
     }
 
@@ -69,38 +69,40 @@ impl TypeSynNodeDefn {
 impl HasSynNodeDefn for TypeSynNodePath {
     type NodeDefn = TypeSynNodeDefn;
 
-    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         ty_node_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_node_defn(db: &dyn SynDefnDb, syn_node_path: TypeSynNodePath) -> TypeSynNodeDefn {
-    match syn_node_path.node_decl(db) {
-        TypeNodeDecl::Enum(node_decl) => EnumTypeNodeDefn::new(db, syn_node_path, node_decl).into(),
-        TypeNodeDecl::PropsStruct(node_decl) => {
-            PropsStructTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+    match syn_node_path.syn_node_decl(db) {
+        TypeNodeDecl::Enum(syn_node_decl) => {
+            EnumTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TypeNodeDecl::TupleStruct(node_decl) => {
-            TupleStructTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        TypeNodeDecl::PropsStruct(syn_node_decl) => {
+            PropsStructTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TypeNodeDecl::UnitStruct(node_decl) => {
-            UnitStructTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        TypeNodeDecl::TupleStruct(syn_node_decl) => {
+            TupleStructTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TypeNodeDecl::Record(node_decl) => {
-            RecordTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        TypeNodeDecl::UnitStruct(syn_node_decl) => {
+            UnitStructTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TypeNodeDecl::Inductive(node_decl) => {
-            InductiveTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        TypeNodeDecl::Record(syn_node_decl) => {
+            RecordTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TypeNodeDecl::Structure(node_decl) => {
-            StructureTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        TypeNodeDecl::Inductive(syn_node_decl) => {
+            InductiveTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TypeNodeDecl::Extern(node_decl) => {
-            ExternTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        TypeNodeDecl::Structure(syn_node_decl) => {
+            StructureTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TypeNodeDecl::Union(node_decl) => {
-            UnionTypeNodeDefn::new(db, syn_node_path, node_decl).into()
+        TypeNodeDecl::Extern(syn_node_decl) => {
+            ExternTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
+        }
+        TypeNodeDecl::Union(syn_node_decl) => {
+            UnionTypeSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
     }
 }
@@ -109,15 +111,15 @@ pub(crate) fn ty_node_defn(db: &dyn SynDefnDb, syn_node_path: TypeSynNodePath) -
 #[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeDefn {
-    Enum(EnumTypeDefn),
-    Inductive(InductiveTypeDefn),
-    Record(RecordTypeDefn),
-    PropsStruct(PropsStructTypeDefn),
-    TupleStruct(TupleStructTypeDefn),
-    UnitStruct(UnitStructTypeDefn),
-    Structure(StructureTypeDefn),
-    Extern(ExternTypeDefn),
-    Union(UnionTypeDefn),
+    Enum(EnumTypeSynDefn),
+    Inductive(InductiveTypeSynDefn),
+    Record(RecordTypeSynDefn),
+    PropsStruct(PropsStructTypeSynDefn),
+    TupleStruct(TupleStructTypeSynDefn),
+    UnitStruct(UnitStructTypeSynDefn),
+    Structure(StructureTypeSynDefn),
+    Extern(ExternTypeSynDefn),
+    Union(UnionTypeSynDefn),
 }
 
 impl TypeDefn {
@@ -162,14 +164,14 @@ impl HasDefn for TypePath {
 #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_defn(db: &dyn SynDefnDb, path: TypePath) -> DefnResult<TypeDefn> {
     Ok(match path.decl(db)? {
-        TypeDecl::Enum(decl) => EnumTypeDefn::new(db, path, decl).into(),
-        TypeDecl::PropsStruct(decl) => PropsStructTypeDefn::new(db, path, decl).into(),
-        TypeDecl::TupleStruct(decl) => TupleStructTypeDefn::new(db, path, decl).into(),
-        TypeDecl::UnitStruct(decl) => UnitStructTypeDefn::new(db, path, decl).into(),
-        TypeDecl::Record(decl) => RecordTypeDefn::new(db, path, decl).into(),
-        TypeDecl::Inductive(decl) => InductiveTypeDefn::new(db, path, decl).into(),
-        TypeDecl::Structure(decl) => StructureTypeDefn::new(db, path, decl).into(),
-        TypeDecl::Extern(decl) => ExternTypeDefn::new(db, path, decl).into(),
-        TypeDecl::Union(decl) => UnionTypeDefn::new(db, path, decl).into(),
+        TypeDecl::Enum(decl) => EnumTypeSynDefn::new(db, path, decl).into(),
+        TypeDecl::PropsStruct(decl) => PropsStructTypeSynDefn::new(db, path, decl).into(),
+        TypeDecl::TupleStruct(decl) => TupleStructTypeSynDefn::new(db, path, decl).into(),
+        TypeDecl::UnitStruct(decl) => UnitStructTypeSynDefn::new(db, path, decl).into(),
+        TypeDecl::Record(decl) => RecordTypeSynDefn::new(db, path, decl).into(),
+        TypeDecl::Inductive(decl) => InductiveTypeSynDefn::new(db, path, decl).into(),
+        TypeDecl::Structure(decl) => StructureTypeSynDefn::new(db, path, decl).into(),
+        TypeDecl::Extern(decl) => ExternTypeSynDefn::new(db, path, decl).into(),
+        TypeDecl::Union(decl) => UnionTypeSynDefn::new(db, path, decl).into(),
     })
 }

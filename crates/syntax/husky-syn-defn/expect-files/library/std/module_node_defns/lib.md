@@ -2,7 +2,7 @@ Ok(
     [
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::prelude`,
@@ -15,7 +15,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::logic`,
@@ -28,7 +28,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `std::ops`,

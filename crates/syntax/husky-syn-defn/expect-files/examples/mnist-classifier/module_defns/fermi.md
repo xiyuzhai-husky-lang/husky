@@ -3,7 +3,7 @@ Ok(
         Defn::ModuleItem(
             ModuleItemDefn::Type(
                 TypeDefn::PropsStruct(
-                    PropsStructTypeDefn {
+                    PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                         decl: PropsStructTypeDecl {
                             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1835,7 +1835,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::fermi`,
@@ -2664,7 +2664,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::fermi`,
@@ -3493,7 +3493,7 @@ Ok(
         Defn::AssociatedItem(
             AssociatedItemSynDefn::TypeItem(
                 TypeItemSynDefn::MemoizedField(
-                    TypeMemoizedFieldDefn {
+                    TypeMemoizedFieldSynDefn {
                         path: TypeItemPath {
                             impl_block: TypeImplBlockPath {
                                 module_path: `mnist_classifier::fermi`,

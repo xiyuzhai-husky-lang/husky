@@ -18,18 +18,20 @@ pub enum ModuleItemSynNodeDefn {
 }
 
 impl ModuleItemSynNodeDefn {
-    pub fn node_decl(self, db: &dyn SynDefnDb) -> ModuleItemSynNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> ModuleItemSynNodeDecl {
         match self {
-            ModuleItemSynNodeDefn::Type(node_defn) => node_defn.node_decl(db).into(),
-            ModuleItemSynNodeDefn::Trait(node_defn) => node_defn.node_decl(db).into(),
-            ModuleItemSynNodeDefn::Fugitive(node_defn) => node_defn.node_decl(db).into(),
+            ModuleItemSynNodeDefn::Type(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            ModuleItemSynNodeDefn::Trait(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
+            ModuleItemSynNodeDefn::Fugitive(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            }
         }
     }
 
     pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
             ModuleItemSynNodeDefn::Type(_) | ModuleItemSynNodeDefn::Trait(_) => None,
-            ModuleItemSynNodeDefn::Fugitive(node_defn) => Some(node_defn.expr_region(db)),
+            ModuleItemSynNodeDefn::Fugitive(syn_node_defn) => Some(syn_node_defn.expr_region(db)),
         }
     }
 }
@@ -37,11 +39,13 @@ impl ModuleItemSynNodeDefn {
 impl HasSynNodeDefn for ModuleItemSynNodePath {
     type NodeDefn = ModuleItemSynNodeDefn;
 
-    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         match self {
-            ModuleItemSynNodePath::Trait(syn_node_path) => syn_node_path.node_defn(db).into(),
-            ModuleItemSynNodePath::Type(syn_node_path) => syn_node_path.node_defn(db).into(),
-            ModuleItemSynNodePath::Fugitive(syn_node_path) => syn_node_path.node_defn(db).into(),
+            ModuleItemSynNodePath::Trait(syn_node_path) => syn_node_path.syn_node_defn(db).into(),
+            ModuleItemSynNodePath::Type(syn_node_path) => syn_node_path.syn_node_defn(db).into(),
+            ModuleItemSynNodePath::Fugitive(syn_node_path) => {
+                syn_node_path.syn_node_defn(db).into()
+            }
         }
     }
 }

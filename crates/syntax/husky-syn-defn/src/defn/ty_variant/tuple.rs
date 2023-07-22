@@ -4,11 +4,11 @@ use super::*;
 pub struct TupleVariantSynNodeDefn {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
-    pub node_decl: TupleTypeVariantNodeDecl,
+    pub syn_node_decl: TupleTypeVariantNodeDecl,
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
-pub struct TupleVariantDefn {
+pub struct TupleVariantSynDefn {
     #[id]
     pub path: TypeVariantPath,
     pub decl: TupleTypeVariantDecl,

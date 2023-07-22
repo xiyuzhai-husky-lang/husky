@@ -26,22 +26,24 @@ impl AssociatedItemSynNodeDefn {
         }
     }
 
-    pub fn node_decl(self, db: &dyn SynDefnDb) -> AssociatedItemSynNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> AssociatedItemSynNodeDecl {
         match self {
-            AssociatedItemSynNodeDefn::TypeItem(node_defn) => node_defn.node_decl(db).into(),
+            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
+            }
             AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
-            AssociatedItemSynNodeDefn::TraitForTypeItem(node_defn) => {
-                node_defn.node_decl(db).into()
+            AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
+                syn_node_defn.syn_node_decl(db).into()
             }
         }
     }
 
     pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
-            AssociatedItemSynNodeDefn::TypeItem(node_defn) => node_defn.expr_region(db),
+            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => syn_node_defn.expr_region(db),
             AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
-            AssociatedItemSynNodeDefn::TraitForTypeItem(node_defn) => {
-                Some(node_defn.expr_region(db))
+            AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
+                Some(syn_node_defn.expr_region(db))
             }
         }
     }
@@ -50,16 +52,16 @@ impl AssociatedItemSynNodeDefn {
 impl HasSynNodeDefn for AssociatedItemSynNodePath {
     type NodeDefn = AssociatedItemSynNodeDefn;
 
-    fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
         match self {
             AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
-                syn_node_path.node_defn(db).into()
+                syn_node_path.syn_node_defn(db).into()
             }
             AssociatedItemSynNodePath::TraitItem(syn_node_path) => {
-                syn_node_path.node_defn(db).into()
+                syn_node_path.syn_node_defn(db).into()
             }
             AssociatedItemSynNodePath::TraitForTypeItem(syn_node_path) => {
-                syn_node_path.node_defn(db).into()
+                syn_node_path.syn_node_defn(db).into()
             }
             AssociatedItemSynNodePath::IllFormedItem(_) => todo!(),
         }
