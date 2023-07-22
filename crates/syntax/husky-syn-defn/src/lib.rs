@@ -43,7 +43,7 @@ pub struct SynDefnJar(
     UnionTypeNodeDefn,
     UnionTypeDefn,
     // fugitive
-    fugitive_node_defn,
+    fugitive_syn_node_defn,
     fugitive_defn,
     ValNodeDefn,
     ValDefn,
@@ -68,7 +68,7 @@ pub struct SynDefnJar(
     PropsVariantSynNodeDefn,
     PropsVariantDefn,
     // type item
-    ty_item_node_defn,
+    ty_item_syn_node_defn,
     ty_item_defn,
     TypeAssociatedFnNodeDefn,
     TypeAssociatedFnDefn,
@@ -91,7 +91,7 @@ pub struct SynDefnJar(
     TraitAssociatedValNodeDefn,
     TraitAssociatedValDefn,
     // trait for type item
-    trai_for_ty_item_node_defn,
+    trai_for_ty_item_syn_node_defn,
     trai_for_ty_item_defn,
     TraitForTypeAssociatedFnNodeDefn,
     TraitForTypeAssociatedFnDefn,

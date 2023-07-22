@@ -43,12 +43,12 @@ impl FugitiveSynNodePath {
     }
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> ModuleItemSynNode {
-        fugitive_node(db, self)
+        fugitive_syn_node(db, self)
     }
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-pub(crate) fn fugitive_node(
+pub(crate) fn fugitive_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: FugitiveSynNodePath,
 ) -> ModuleItemSynNode {

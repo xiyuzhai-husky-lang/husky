@@ -92,7 +92,7 @@ impl<'a> EntityTreePresheetMut<'a> {
 
     pub(crate) fn into_sheet(
         self,
-        impl_block_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
+        impl_block_syn_node_table: VecPairMap<ImplBlockSynNodePath, ImplBlockSynNode>,
     ) -> EntitySynTreeSheet {
         EntitySynTreeSheet::new(
             self.module_path,
@@ -101,7 +101,7 @@ impl<'a> EntityTreePresheetMut<'a> {
             self.once_use_rules,
             self.all_module_items_use_rules,
             self.errors,
-            impl_block_node_table,
+            impl_block_syn_node_table,
         )
     }
 

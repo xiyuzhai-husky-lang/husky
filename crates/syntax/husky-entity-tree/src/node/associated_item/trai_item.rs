@@ -27,7 +27,7 @@ impl TraitItemSynNodePath {
         self.maybe_ambiguous_path(db).path.item_kind(db)
     }
 
-    pub fn node(self, db: &dyn EntitySynTreeDb) -> TraitItemNode {
+    pub fn node(self, db: &dyn EntitySynTreeDb) -> TraitItemSynNode {
         todo!()
     }
 }
@@ -41,7 +41,7 @@ impl HasSynNodePath for TraitItemPath {
 }
 
 #[salsa::tracked(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
-pub struct TraitItemNode {
+pub struct TraitItemSynNode {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     pub ast_idx: AstIdx,
@@ -51,7 +51,7 @@ pub struct TraitItemNode {
     pub is_generic: bool,
 }
 
-impl TraitItemNode {
+impl TraitItemSynNode {
     #[inline(always)]
     fn new(
         db: &dyn EntitySynTreeDb,
@@ -85,11 +85,11 @@ impl TraitItemNode {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar, return_ref)]
-pub(crate) fn trai_item_nodes(
+pub(crate) fn trai_item_syn_nodes(
     db: &dyn EntitySynTreeDb,
     trai_node_path: TraitSynNodePath,
 ) -> SmallVec<
-    [(Ident, TraitItemSynNodePath, TraitItemNode);
+    [(Ident, TraitItemSynNodePath, TraitItemSynNode);
         APPROXIMATE_UPPER_BOUND_ON_NUMBER_OF_TRAIT_ITEMS],
 > {
     let trai_node = trai_node_path.node(db);
@@ -120,7 +120,7 @@ pub(crate) fn trai_item_nodes(
                     } = entity_kind else {
                         unreachable!()
                     };
-                    let (syn_node_path, node) = TraitItemNode::new(
+                    let (syn_node_path, node) = TraitItemSynNode::new(
                         db,
                         &mut registry,
                         trai_node_path,

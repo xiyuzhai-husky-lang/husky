@@ -17,12 +17,12 @@ impl HasNodeDecl for SubmoduleSynNodePath {
     type NodeDecl = SubmoduleNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        submodule_node_decl(db, self)
+        submodule_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked( jar = SynDeclJar)]
-pub(crate) fn submodule_node_decl(
+pub(crate) fn submodule_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: SubmoduleSynNodePath,
 ) -> SubmoduleNodeDecl {

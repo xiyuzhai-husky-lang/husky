@@ -7,7 +7,7 @@ Ok(
         entity_symbol_table: EntitySymbolTable(
             [],
         ),
-        impl_block_node_table: [],
+        impl_block_syn_node_table: [],
         once_use_rules: OnceUseRules(
             [],
         ),

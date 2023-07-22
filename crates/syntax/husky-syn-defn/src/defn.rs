@@ -85,7 +85,7 @@ pub(crate) fn module_node_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
 ) -> EntitySynTreeResult<Vec<SynNodeDefn>> {
-    Ok(module_entity_node_paths(db, module_path)
+    Ok(module_entity_syn_node_paths(db, module_path)
         .as_ref()?
         .iter()
         .copied()

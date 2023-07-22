@@ -37,16 +37,16 @@ impl HasNodeDecl for TypeImplBlockSynNode {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_impl_block_node_decl(
+pub(crate) fn ty_impl_block_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
-    parser.parse_ty_impl_block_node_decl(syn_node_path)
+    parser.parse_ty_impl_block_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_impl_block_node_decl(
+    fn parse_ty_impl_block_syn_node_decl(
         &self,
         syn_node_path: TypeImplBlockSynNodePath,
     ) -> TypeImplBlockNodeDecl {
@@ -99,7 +99,7 @@ impl HasNodeDecl for TypeImplBlockSynNodePath {
     type NodeDecl = TypeImplBlockNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        ty_impl_block_node_decl(db, self)
+        ty_impl_block_syn_node_decl(db, self)
     }
 }
 

@@ -38,8 +38,8 @@ impl TraitSynNodePath {
     pub fn item_nodes<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
-    ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemNode)] {
-        trai_item_nodes(db, self)
+    ) -> &'a [(Ident, TraitItemSynNodePath, TraitItemSynNode)] {
+        trai_item_syn_nodes(db, self)
     }
 }
 

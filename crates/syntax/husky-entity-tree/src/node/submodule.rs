@@ -27,7 +27,7 @@ impl SubmoduleSynNodePath {
     }
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> SubmoduleSynNode {
-        submodule_node(db, self)
+        submodule_syn_node(db, self)
     }
 }
 
@@ -72,7 +72,7 @@ impl SubmoduleSynNode {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-pub(crate) fn submodule_node(
+pub(crate) fn submodule_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: SubmoduleSynNodePath,
 ) -> SubmoduleSynNode {

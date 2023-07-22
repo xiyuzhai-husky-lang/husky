@@ -1916,7 +1916,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TraitForTypeItemNode {
+                            node: TraitForTypeItemSynNode {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {

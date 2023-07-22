@@ -58,21 +58,21 @@ impl HasNodeDecl for FugitiveSynNodePath {
     type NodeDecl = FugitiveNodeDecl;
 
     fn node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        fugitive_node_decl(db, self)
+        fugitive_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn fugitive_node_decl(
+pub(crate) fn fugitive_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: FugitiveSynNodePath,
 ) -> FugitiveNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
-    parser.parse_fugitive_node_decl(syn_node_path)
+    parser.parse_fugitive_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_fugitive_node_decl(&self, syn_node_path: FugitiveSynNodePath) -> FugitiveNodeDecl {
+    fn parse_fugitive_syn_node_decl(&self, syn_node_path: FugitiveSynNodePath) -> FugitiveNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
@@ -81,7 +81,7 @@ impl<'a> DeclParser<'a> {
                 token_group_idx,
                 saved_stream_state,
                 ..
-            } => self.parse_fugitive_node_decl_aux(
+            } => self.parse_fugitive_syn_node_decl_aux(
                 syn_node_path,
                 ast_idx,
                 token_group_idx,
@@ -91,7 +91,7 @@ impl<'a> DeclParser<'a> {
         }
     }
 
-    fn parse_fugitive_node_decl_aux(
+    fn parse_fugitive_syn_node_decl_aux(
         &self,
         syn_node_path: FugitiveSynNodePath,
         ast_idx: AstIdx,

@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeMethodFnNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub node: TypeItemNode,
+    pub node: TypeItemSynNode,
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
@@ -41,16 +41,16 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_ty_method_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,
-        node: TypeItemNode,
+        node: TypeItemSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
     ) -> TypeMethodFnNodeDecl {
         let db = self.db();
-        let impl_block_node_decl = syn_node_path.impl_block(db).node_decl(db);
+        let impl_block_syn_node_decl = syn_node_path.impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
             node.syn_node_path(db),
-            Some(impl_block_node_decl.expr_region(db)),
+            Some(impl_block_syn_node_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );

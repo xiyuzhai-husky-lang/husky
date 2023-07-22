@@ -52,12 +52,12 @@ impl HasSynNodeDefn for FugitiveSynNodePath {
     type NodeDefn = FugitiveSynNodeDefn;
 
     fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
-        fugitive_node_defn(db, self)
+        fugitive_syn_node_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn fugitive_node_defn(
+pub(crate) fn fugitive_syn_node_defn(
     db: &dyn SynDefnDb,
     syn_node_path: FugitiveSynNodePath,
 ) -> FugitiveSynNodeDefn {

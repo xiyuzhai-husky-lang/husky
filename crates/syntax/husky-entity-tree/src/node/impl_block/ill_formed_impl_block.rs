@@ -38,7 +38,7 @@ impl IllFormedImplBlockSynNodePath {
     }
 
     pub fn node(self, db: &dyn EntitySynTreeDb) -> IllFormedImplBlockSynNode {
-        ill_formed_impl_block_node(db, self)
+        ill_formed_impl_block_syn_node(db, self)
     }
 }
 
@@ -112,11 +112,11 @@ impl IntoError for ImplBlockIllForm {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-pub(crate) fn ill_formed_impl_block_node(
+pub(crate) fn ill_formed_impl_block_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: IllFormedImplBlockSynNodePath,
 ) -> IllFormedImplBlockSynNode {
     let module_path = syn_node_path.module_path(db);
     let entity_tree_sheet = db.entity_syn_tree_sheet(module_path).expect("valid module");
-    entity_tree_sheet.ill_formed_impl_block_node(db, syn_node_path)
+    entity_tree_sheet.ill_formed_impl_block_syn_node(db, syn_node_path)
 }

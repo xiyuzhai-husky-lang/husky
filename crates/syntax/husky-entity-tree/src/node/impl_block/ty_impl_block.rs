@@ -53,11 +53,14 @@ impl TypeImplBlockSynNodePath {
 
     #[inline(always)]
     pub fn node(self, db: &dyn EntitySynTreeDb) -> TypeImplBlockSynNode {
-        ty_impl_block_node(db, self)
+        ty_impl_block_syn_node(db, self)
     }
 
     #[inline(always)]
-    pub fn items(self, db: &dyn EntitySynTreeDb) -> &[(Ident, TypeItemSynNodePath, TypeItemNode)] {
+    pub fn items(
+        self,
+        db: &dyn EntitySynTreeDb,
+    ) -> &[(Ident, TypeItemSynNodePath, TypeItemSynNode)] {
         ty_impl_block_items(db, self)
     }
 
@@ -125,11 +128,11 @@ impl TypeImplBlockSynNode {
 }
 
 #[salsa::tracked(jar = EntitySynTreeJar)]
-pub(crate) fn ty_impl_block_node(
+pub(crate) fn ty_impl_block_syn_node(
     db: &dyn EntitySynTreeDb,
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNode {
     let module_path = syn_node_path.module_path(db);
     let entity_tree_sheet = db.entity_syn_tree_sheet(module_path).expect("valid module");
-    entity_tree_sheet.ty_impl_block_node(syn_node_path)
+    entity_tree_sheet.ty_impl_block_syn_node(syn_node_path)
 }

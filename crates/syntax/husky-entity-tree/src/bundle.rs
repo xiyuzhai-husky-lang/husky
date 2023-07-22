@@ -47,21 +47,21 @@ impl EntitySynTreeCrateBundle {
         &self.sheets
     }
 
-    pub fn all_ty_impl_block_node_paths<'a>(
+    pub fn all_ty_impl_block_syn_node_paths<'a>(
         &'a self,
     ) -> impl Iterator<Item = TypeImplBlockSynNodePath> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_ty_impl_block_node_paths())
+            .map(|sheet| sheet.all_ty_impl_block_syn_node_paths())
             .flatten()
     }
 
-    pub fn all_ty_impl_block_nodes<'a>(
+    pub fn all_ty_impl_block_syn_nodes<'a>(
         &'a self,
     ) -> impl Iterator<Item = TypeImplBlockSynNode> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_ty_impl_block_nodes())
+            .map(|sheet| sheet.all_ty_impl_block_syn_nodes())
             .flatten()
     }
 
@@ -70,7 +70,7 @@ impl EntitySynTreeCrateBundle {
     ) -> impl Iterator<Item = IllFormedImplBlockSynNode> + 'a {
         self.sheets
             .iter()
-            .map(|sheet| sheet.all_ill_formed_impl_block_nodes())
+            .map(|sheet| sheet.all_ill_formed_impl_block_syn_nodes())
             .flatten()
     }
 

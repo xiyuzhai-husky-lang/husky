@@ -60,12 +60,12 @@ impl HasSynNodeDefn for TypeItemSynNodePath {
     type NodeDefn = TypeItemSynNodeDefn;
 
     fn node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
-        ty_item_node_defn(db, self)
+        ty_item_syn_node_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn ty_item_node_defn(
+pub(crate) fn ty_item_syn_node_defn(
     db: &dyn SynDefnDb,
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDefn {

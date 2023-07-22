@@ -398,7 +398,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemNode {
+                            node: TypeItemSynNode {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -1060,7 +1060,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemNode {
+                            node: TypeItemSynNode {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -1823,7 +1823,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemNode {
+                            node: TypeItemSynNode {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -2517,7 +2517,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemNode {
+                            node: TypeItemSynNode {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -3211,7 +3211,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemNode {
+                            node: TypeItemSynNode {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -3918,7 +3918,7 @@ Ok(
                                     disambiguator: 0,
                                 },
                             },
-                            node: TypeItemNode {
+                            node: TypeItemSynNode {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {

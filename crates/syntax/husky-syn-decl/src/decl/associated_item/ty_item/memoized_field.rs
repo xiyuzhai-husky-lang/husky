@@ -31,15 +31,15 @@ impl<'a> DeclParser<'a> {
         &self,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-        node: TypeItemNode,
+        node: TypeItemSynNode,
         saved_stream_state: TokenStreamState,
     ) -> TypeMemoizedFieldNodeDecl {
         let db = self.db();
         let syn_node_path = node.syn_node_path(db);
-        let impl_block_node_decl = syn_node_path.impl_block(db).node_decl(db);
+        let impl_block_syn_node_decl = syn_node_path.impl_block(db).node_decl(db);
         let mut parser = self.expr_parser(
             syn_node_path,
-            Some(impl_block_node_decl.expr_region(db)),
+            Some(impl_block_syn_node_decl.expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );

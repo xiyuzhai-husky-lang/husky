@@ -132,7 +132,7 @@ impl<'a> InferEngine<'a> {
         match defn {
             ModuleItemSynNodeDefn::Type(defn) => self.visit_ty(defn),
             ModuleItemSynNodeDefn::Trait(defn) => self.visit_trai(defn),
-            ModuleItemSynNodeDefn::Fugitive(defn) => self.visit_fugitive_node(defn),
+            ModuleItemSynNodeDefn::Fugitive(defn) => self.visit_fugitive_syn_node(defn),
         }
     }
 
@@ -186,7 +186,7 @@ impl<'a> InferEngine<'a> {
         //todo!()
     }
 
-    fn visit_fugitive_node(&mut self, defn: FugitiveSynNodeDefn) {
+    fn visit_fugitive_syn_node(&mut self, defn: FugitiveSynNodeDefn) {
         match defn {
             FugitiveSynNodeDefn::Fn(defn) => self.visit_fn_node(defn),
             FugitiveSynNodeDefn::Val(defn) => self.visit_val_node(defn),
@@ -210,15 +210,17 @@ impl<'a> InferEngine<'a> {
 
     fn visit_associated_item(&mut self, node_defn: AssociatedItemSynNodeDefn) {
         match node_defn {
-            AssociatedItemSynNodeDefn::TypeItem(node_defn) => self.visit_ty_item_node(node_defn),
+            AssociatedItemSynNodeDefn::TypeItem(node_defn) => {
+                self.visit_ty_item_syn_node(node_defn)
+            }
             AssociatedItemSynNodeDefn::TraitItem(node_defn) => self.visit_trai_item_node(node_defn),
             AssociatedItemSynNodeDefn::TraitForTypeItem(node_defn) => {
-                self.visit_trai_for_ty_item_node(node_defn)
+                self.visit_trai_for_ty_item_syn_node(node_defn)
             }
         }
     }
 
-    fn visit_ty_item_node(&self, node_defn: TypeItemSynNodeDefn) {
+    fn visit_ty_item_syn_node(&self, node_defn: TypeItemSynNodeDefn) {
         // todo!()
     }
 
@@ -226,7 +228,7 @@ impl<'a> InferEngine<'a> {
         // todo!()
     }
 
-    fn visit_trai_for_ty_item_node(&self, node_defn: TraitForTypeItemSynNodeDefn) {
+    fn visit_trai_for_ty_item_syn_node(&self, node_defn: TraitForTypeItemSynNodeDefn) {
         // todo!()
     }
 }
