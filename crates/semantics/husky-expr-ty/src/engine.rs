@@ -32,7 +32,7 @@ pub(crate) struct ExprTypeEngine<'a> {
     symbol_terms: SymbolMap<FluffyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
     pattern_expr_ty_infos: PatternSynExprMap<PatternExprTypeInfo>,
-    pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
+    pattern_symbol_ty_infos: PatternSynSymbolMap<PatternSymbolTypeInfo>,
     pattern_expr_contracts: PatternSynExprMap<Contract>,
     return_ty: Option<EtherealTerm>,
     unveiler: Unveiler,
@@ -128,7 +128,7 @@ impl<'a> ExprTypeEngine<'a> {
                 expr_region_data.symbol_region(),
             ),
             pattern_expr_ty_infos: PatternSynExprMap::new(pattern_expr_region.pattern_expr_arena()),
-            pattern_symbol_ty_infos: PatternSymbolMap::new(
+            pattern_symbol_ty_infos: PatternSynSymbolMap::new(
                 pattern_expr_region.pattern_symbol_arena(),
             ),
             return_ty,

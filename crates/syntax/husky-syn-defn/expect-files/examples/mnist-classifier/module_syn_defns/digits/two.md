@@ -619,7 +619,7 @@ Ok(
                                                         25,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -804,7 +804,7 @@ Ok(
                                                                 25,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                                 ident: `cc`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -858,7 +858,7 @@ Ok(
                                                 36,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
                                                 ident: `cc`,
                                             },
                                         },
@@ -888,7 +888,7 @@ Ok(
                                                 42,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
@@ -928,7 +928,7 @@ Ok(
                                                 47,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
@@ -1042,12 +1042,12 @@ Ok(
                                 symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
-                                            InheritedSymbol {
+                                            InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
                                                     ident: `cc`,
                                                 },
                                             },
@@ -1067,7 +1067,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `dp`,
                                                     pattern_symbol_idx: 0,
                                                 },
@@ -1274,7 +1274,7 @@ Ok(
                                                         54,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -1459,7 +1459,7 @@ Ok(
                                                                 54,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                                 ident: `cc`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -1513,7 +1513,7 @@ Ok(
                                                 65,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
                                                 ident: `cc`,
                                             },
                                         },
@@ -1543,7 +1543,7 @@ Ok(
                                                 71,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
@@ -1583,7 +1583,7 @@ Ok(
                                                 76,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
@@ -1697,12 +1697,12 @@ Ok(
                                 symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
-                                            InheritedSymbol {
+                                            InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
                                                     ident: `cc`,
                                                 },
                                             },
@@ -1722,7 +1722,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `dp`,
                                                     pattern_symbol_idx: 0,
                                                 },
@@ -1929,7 +1929,7 @@ Ok(
                                                         83,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                         ident: `cc`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -2114,7 +2114,7 @@ Ok(
                                                                 83,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                                 ident: `cc`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -2168,7 +2168,7 @@ Ok(
                                                 94,
                                             ),
                                             inherited_symbol_idx: 0,
-                                            inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
+                                            inherited_symbol_kind: InheritedSynSymbolKind::ExplicitParameter {
                                                 ident: `cc`,
                                             },
                                         },
@@ -2198,7 +2198,7 @@ Ok(
                                                 100,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
@@ -2238,7 +2238,7 @@ Ok(
                                                 105,
                                             ),
                                             current_symbol_idx: 0,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 0,
                                             },
                                         },
@@ -2352,12 +2352,12 @@ Ok(
                                 symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
-                                            InheritedSymbol {
+                                            InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
                                                     ident: `cc`,
                                                 },
                                             },
@@ -2377,7 +2377,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `dp`,
                                                     pattern_symbol_idx: 0,
                                                 },
@@ -2987,7 +2987,7 @@ Ok(
                                                 160,
                                             ),
                                             current_symbol_idx: 7,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 7,
                                             },
                                         },
@@ -3189,7 +3189,7 @@ Ok(
                                                 196,
                                             ),
                                             current_symbol_idx: 6,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 6,
                                             },
                                         },
@@ -3273,7 +3273,7 @@ Ok(
                                                 210,
                                             ),
                                             current_symbol_idx: 12,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 12,
                                             },
                                         },
@@ -3301,7 +3301,7 @@ Ok(
                                                 214,
                                             ),
                                             current_symbol_idx: 6,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 6,
                                             },
                                         },
@@ -3331,7 +3331,7 @@ Ok(
                                                 219,
                                             ),
                                             current_symbol_idx: 9,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 9,
                                             },
                                         },
@@ -3355,7 +3355,7 @@ Ok(
                                                 223,
                                             ),
                                             current_symbol_idx: 10,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 10,
                                             },
                                         },
@@ -3379,7 +3379,7 @@ Ok(
                                                 229,
                                             ),
                                             current_symbol_idx: 10,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 10,
                                             },
                                         },
@@ -3409,7 +3409,7 @@ Ok(
                                                 233,
                                             ),
                                             current_symbol_idx: 15,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 15,
                                             },
                                         },
@@ -3436,7 +3436,7 @@ Ok(
                                                 240,
                                             ),
                                             current_symbol_idx: 9,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 9,
                                             },
                                         },
@@ -3499,7 +3499,7 @@ Ok(
                                                 253,
                                             ),
                                             current_symbol_idx: 9,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 9,
                                             },
                                         },
@@ -3541,7 +3541,7 @@ Ok(
                                                 263,
                                             ),
                                             current_symbol_idx: 9,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 9,
                                             },
                                         },
@@ -3583,7 +3583,7 @@ Ok(
                                                 273,
                                             ),
                                             current_symbol_idx: 9,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 9,
                                             },
                                         },
@@ -3625,7 +3625,7 @@ Ok(
                                                 283,
                                             ),
                                             current_symbol_idx: 9,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 9,
                                             },
                                         },
@@ -3667,7 +3667,7 @@ Ok(
                                                 294,
                                             ),
                                             current_symbol_idx: 19,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 19,
                                             },
                                         },
@@ -3677,7 +3677,7 @@ Ok(
                                                 296,
                                             ),
                                             current_symbol_idx: 20,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 20,
                                             },
                                         },
@@ -3724,7 +3724,7 @@ Ok(
                                                 303,
                                             ),
                                             current_symbol_idx: 10,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 10,
                                             },
                                         },
@@ -3766,7 +3766,7 @@ Ok(
                                                 313,
                                             ),
                                             current_symbol_idx: 10,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 10,
                                             },
                                         },
@@ -3808,7 +3808,7 @@ Ok(
                                                 324,
                                             ),
                                             current_symbol_idx: 22,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 22,
                                             },
                                         },
@@ -3818,7 +3818,7 @@ Ok(
                                                 326,
                                             ),
                                             current_symbol_idx: 23,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 23,
                                             },
                                         },
@@ -3865,7 +3865,7 @@ Ok(
                                                 331,
                                             ),
                                             current_symbol_idx: 21,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 21,
                                             },
                                         },
@@ -3875,7 +3875,7 @@ Ok(
                                                 333,
                                             ),
                                             current_symbol_idx: 24,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 24,
                                             },
                                         },
@@ -3895,7 +3895,7 @@ Ok(
                                                 335,
                                             ),
                                             current_symbol_idx: 6,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 6,
                                             },
                                         },
@@ -3925,7 +3925,7 @@ Ok(
                                                 340,
                                             ),
                                             current_symbol_idx: 9,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 9,
                                             },
                                         },
@@ -3949,7 +3949,7 @@ Ok(
                                                 344,
                                             ),
                                             current_symbol_idx: 10,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 10,
                                             },
                                         },
@@ -3973,7 +3973,7 @@ Ok(
                                                 348,
                                             ),
                                             current_symbol_idx: 11,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 11,
                                             },
                                         },
@@ -3997,7 +3997,7 @@ Ok(
                                                 352,
                                             ),
                                             current_symbol_idx: 11,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 11,
                                             },
                                         },
@@ -4057,7 +4057,7 @@ Ok(
                                                 364,
                                             ),
                                             current_symbol_idx: 11,
-                                            current_symbol_kind: CurrentSymbolKind::LetVariable {
+                                            current_symbol_kind: CurrentSynSymbolKind::LetVariable {
                                                 pattern_symbol_idx: 11,
                                             },
                                         },
@@ -5636,7 +5636,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `none`,
                                                     pattern_symbol_idx: 0,
                                                 },
@@ -5653,7 +5653,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `none`,
                                                     pattern_symbol_idx: 1,
                                                 },
@@ -5670,7 +5670,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `none`,
                                                     pattern_symbol_idx: 2,
                                                 },
@@ -5687,7 +5687,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `none`,
                                                     pattern_symbol_idx: 3,
                                                 },
@@ -5704,7 +5704,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `none`,
                                                     pattern_symbol_idx: 4,
                                                 },
@@ -5721,7 +5721,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `none`,
                                                     pattern_symbol_idx: 5,
                                                 },
@@ -5738,7 +5738,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `cc_num`,
                                                     pattern_symbol_idx: 6,
                                                 },
@@ -5755,7 +5755,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `eff_holes`,
                                                     pattern_symbol_idx: 7,
                                                 },
@@ -5772,7 +5772,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `none`,
                                                     pattern_symbol_idx: 8,
                                                 },
@@ -5789,7 +5789,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `left_cc`,
                                                     pattern_symbol_idx: 9,
                                                 },
@@ -5806,7 +5806,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `right_cc`,
                                                     pattern_symbol_idx: 10,
                                                 },
@@ -5823,7 +5823,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `down_cc`,
                                                     pattern_symbol_idx: 11,
                                                 },
@@ -5840,7 +5840,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `lower_excess`,
                                                     pattern_symbol_idx: 12,
                                                 },
@@ -5857,7 +5857,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `some`,
                                                     pattern_symbol_idx: 13,
                                                 },
@@ -5874,7 +5874,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `some`,
                                                     pattern_symbol_idx: 14,
                                                 },
@@ -5891,7 +5891,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `a`,
                                                     pattern_symbol_idx: 15,
                                                 },
@@ -5908,7 +5908,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `end_tan`,
                                                     pattern_symbol_idx: 16,
                                                 },
@@ -5925,7 +5925,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `x`,
                                                     pattern_symbol_idx: 17,
                                                 },
@@ -5942,7 +5942,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `y`,
                                                     pattern_symbol_idx: 18,
                                                 },
@@ -5959,7 +5959,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `left_ymax`,
                                                     pattern_symbol_idx: 19,
                                                 },
@@ -5976,7 +5976,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `left_ymin`,
                                                     pattern_symbol_idx: 20,
                                                 },
@@ -5993,7 +5993,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `left_mid_y`,
                                                     pattern_symbol_idx: 21,
                                                 },
@@ -6010,7 +6010,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `right_ymax`,
                                                     pattern_symbol_idx: 22,
                                                 },
@@ -6027,7 +6027,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `right_ymin`,
                                                     pattern_symbol_idx: 23,
                                                 },
@@ -6044,7 +6044,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `right_mid_y`,
                                                     pattern_symbol_idx: 24,
                                                 },
@@ -6061,7 +6061,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `some`,
                                                     pattern_symbol_idx: 25,
                                                 },
@@ -6078,7 +6078,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `some`,
                                                     pattern_symbol_idx: 26,
                                                 },
@@ -6095,7 +6095,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `some`,
                                                     pattern_symbol_idx: 27,
                                                 },
@@ -6112,7 +6112,7 @@ Ok(
                                                         ),
                                                     ),
                                                 ),
-                                                variant: CurrentSymbolVariant::LetVariable {
+                                                variant: CurrentSynSymbolVariant::LetVariable {
                                                     ident: `a`,
                                                     pattern_symbol_idx: 28,
                                                 },

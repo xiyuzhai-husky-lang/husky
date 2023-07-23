@@ -263,7 +263,7 @@ impl<'a> BlockExprParser<'a> {
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr)?;
-                let current_symbol_variant = CurrentSymbolVariant::FrameVariable {
+                let current_symbol_variant = CurrentSynSymbolVariant::FrameVariable {
                     expr_idx: particulars.frame_var_expr_idx,
                     ident: particulars.frame_var_ident,
                 };

@@ -5,7 +5,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         pattern_expr_idx: PatternSynExprIdx,
         ty: FluffyTerm,
-        symbols: CurrentSymbolIdxRange,
+        symbols: CurrentSynSymbolIdxRange,
     ) {
         self.save_pattern_ty(pattern_expr_idx, ty);
         for symbol in symbols {
@@ -54,23 +54,23 @@ impl<'a> ExprTypeEngine<'a> {
         current_symbol_idx: idx_arena::ArenaIdx<CurrentSynSymbol>,
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[current_symbol_idx].variant() {
-            CurrentSymbolVariant::ImplicitParameter {
+            CurrentSynSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant,
             } => todo!(),
-            CurrentSymbolVariant::ExplicitRegularParameter {
+            CurrentSynSymbolVariant::ExplicitRegularParameter {
                 pattern_symbol_idx, ..
             } => todo!(),
-            CurrentSymbolVariant::LetVariable {
+            CurrentSynSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             } => self.infer_new_pattern_symbol_ty(*pattern_symbol_idx),
-            CurrentSymbolVariant::FrameVariable { .. } => todo!(),
-            CurrentSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => todo!(),
+            CurrentSynSymbolVariant::FrameVariable { .. } => todo!(),
+            CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => todo!(),
         }
     }
 
     fn infer_new_pattern_symbol_ty(
         &mut self,
-        pattern_symbol_idx: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSynSymbolIdx,
     ) -> Option<FluffyTerm> {
         let ty_result = self.calc_new_pattern_symbol_ty(pattern_symbol_idx);
         let ty = ty_result.as_ref().ok().copied();
@@ -81,7 +81,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_new_pattern_symbol_ty(
         &mut self,
-        pattern_symbol_idx: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSynSymbolIdx,
     ) -> PatternSymbolTypeResult<FluffyTerm> {
         match self.expr_region_data[pattern_symbol_idx] {
             PatternSynSymbol::Atom(pattern_expr_idx) => self

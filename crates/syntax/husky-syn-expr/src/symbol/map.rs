@@ -2,8 +2,8 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolMap<V> {
-    inherited_symbol_map: InheritedSymbolMap<V>,
-    current_symbol_map: CurrentSymbolMap<V>,
+    inherited_symbol_map: InheritedSynSymbolMap<V>,
+    current_symbol_map: CurrentSynSymbolMap<V>,
 }
 
 impl<V> SymbolMap<V> {
@@ -28,9 +28,9 @@ impl<V> SymbolMap<V> {
                     }
                     inherited_symbol_map
                 }
-                None => InheritedSymbolMap::new(inherited_symbol_arena),
+                None => InheritedSynSymbolMap::new(inherited_symbol_arena),
             },
-            current_symbol_map: CurrentSymbolMap::new(current_symbol_arena),
+            current_symbol_map: CurrentSynSymbolMap::new(current_symbol_arena),
         }
     }
 
@@ -38,19 +38,19 @@ impl<V> SymbolMap<V> {
         self.current_symbol_map.insert_new(idx, v)
     }
 
-    pub fn inherited_symbol_map(&self) -> &InheritedSymbolMap<V> {
+    pub fn inherited_symbol_map(&self) -> &InheritedSynSymbolMap<V> {
         &self.inherited_symbol_map
     }
 
-    pub fn current_symbol_map(&self) -> &CurrentSymbolMap<V> {
+    pub fn current_symbol_map(&self) -> &CurrentSynSymbolMap<V> {
         &self.current_symbol_map
     }
 }
 
-impl<V> std::ops::Index<InheritedSymbolIdx> for SymbolMap<V> {
+impl<V> std::ops::Index<InheritedSynSymbolIdx> for SymbolMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedSymbolIdx) -> &Self::Output {
+    fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
         &self.inherited_symbol_map[index]
     }
 }

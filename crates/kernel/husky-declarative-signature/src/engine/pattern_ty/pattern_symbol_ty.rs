@@ -32,7 +32,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         }
     }
 
-    fn infer_new_pattern_symbol_ty(&mut self, pattern_symbol_idx: PatternSymbolIdx) {
+    fn infer_new_pattern_symbol_ty(&mut self, pattern_symbol_idx: PatternSynSymbolIdx) {
         let modifier = self
             .expr_region_data
             .pattern_symbol_modifier(pattern_symbol_idx);
@@ -45,7 +45,7 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn calc_new_pattern_symbol_base_ty(
         &mut self,
-        pattern_symbol: PatternSymbolIdx,
+        pattern_symbol: PatternSynSymbolIdx,
     ) -> DeclarativeTerm {
         match self.expr_region_data[pattern_symbol] {
             PatternSynSymbol::Atom(pattern_expr) => self

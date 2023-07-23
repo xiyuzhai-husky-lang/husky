@@ -1,6 +1,6 @@
 use husky_entity_taxonomy::{EntityKind, ModuleItemConnectionKind, ModuleItemKind, TypeKind};
 use husky_entity_tree::OnceUseRuleState;
-use husky_syn_expr::{CurrentSymbolKind, InheritedSymbolKind};
+use husky_syn_expr::{CurrentSynSymbolKind, InheritedSynSymbolKind};
 
 use crate::*;
 
@@ -42,19 +42,19 @@ fn token_to_semantic_token(
             current_symbol_kind,
             ..
         } => match current_symbol_kind {
-            CurrentSymbolKind::LetVariable { .. } => SemanticToken::Variable,
-            CurrentSymbolKind::ExplicitRegularParameter { .. } => SemanticToken::Parameter,
-            CurrentSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
-            CurrentSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
-            CurrentSymbolKind::ExplicitVariadicParameter { .. } => SemanticToken::Parameter,
+            CurrentSynSymbolKind::LetVariable { .. } => SemanticToken::Variable,
+            CurrentSynSymbolKind::ExplicitRegularParameter { .. } => SemanticToken::Parameter,
+            CurrentSynSymbolKind::FrameVariable(_) => SemanticToken::FrameVariable,
+            CurrentSynSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
+            CurrentSynSymbolKind::ExplicitVariadicParameter { .. } => SemanticToken::Parameter,
         },
         // SemanticToken::Variable,
         TokenInfo::InheritedSymbol {
             inherited_symbol_kind,
             ..
         } => match inherited_symbol_kind {
-            InheritedSymbolKind::ExplicitParameter { .. } => SemanticToken::Parameter,
-            InheritedSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
+            InheritedSynSymbolKind::ExplicitParameter { .. } => SemanticToken::Parameter,
+            InheritedSynSymbolKind::ImplicitParameter { .. } => SemanticToken::ImplicitParameter,
         },
         TokenInfo::SelfType => SemanticToken::SelfType,
         TokenInfo::SelfValue => SemanticToken::SelfValue,

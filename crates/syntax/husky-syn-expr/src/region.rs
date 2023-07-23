@@ -118,10 +118,10 @@ impl std::ops::Index<CurrentSynSymbolIdx> for SynExprRegionData {
         &self.symbol_region[index]
     }
 }
-impl std::ops::Index<PatternSymbolIdx> for SynExprRegionData {
+impl std::ops::Index<PatternSynSymbolIdx> for SynExprRegionData {
     type Output = PatternSynSymbol;
 
-    fn index(&self, index: PatternSymbolIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynSymbolIdx) -> &Self::Output {
         &self.pattern_expr_region[index]
     }
 }

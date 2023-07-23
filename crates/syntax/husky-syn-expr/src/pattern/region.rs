@@ -6,9 +6,9 @@ pub struct PatternSynExprRegion {
     pattern_expr_arena: PatternSynExprArena,
     pattern_expr_contracts: PatternSynExprOrderedMap<Contract>,
     pattern_infos: Vec<PatternSynExprInfo>,
-    pattern_symbol_arena: PatternSymbolArena,
-    pattern_symbol_maps: PatternSynExprOrderedMap<IdentPairMap<PatternSymbolIdx>>,
-    pattern_symbol_modifiers: PatternSymbolOrderedMap<SymbolModifier>,
+    pattern_symbol_arena: PatternSynSymbolArena,
+    pattern_symbol_maps: PatternSynExprOrderedMap<IdentPairMap<PatternSynSymbolIdx>>,
+    pattern_symbol_modifiers: PatternSynSymbolOrderedMap<SymbolModifier>,
 }
 
 impl PatternSynExprRegion {
@@ -33,8 +33,8 @@ impl PatternSynExprRegion {
     fn collect_symbols(
         &mut self,
         pattern_expr_idx: PatternSynExprIdx,
-    ) -> IdentPairMap<PatternSymbolIdx> {
-        let symbols: IdentPairMap<PatternSymbolIdx> =
+    ) -> IdentPairMap<PatternSynSymbolIdx> {
+        let symbols: IdentPairMap<PatternSynSymbolIdx> =
             match self.pattern_expr_arena[pattern_expr_idx] {
                 PatternSynExpr::Literal(_) => Default::default(),
                 PatternSynExpr::Ident {
@@ -62,7 +62,7 @@ impl PatternSynExprRegion {
         symbols
     }
 
-    fn alloc_new_symbol(&mut self, symbol: PatternSynSymbol) -> PatternSymbolIdx {
+    fn alloc_new_symbol(&mut self, symbol: PatternSynSymbol) -> PatternSynSymbolIdx {
         let modifier = symbol.pattern_symbol_modifier(&self.pattern_expr_arena);
         let idx = self.pattern_symbol_arena.alloc_one(symbol);
         self.pattern_symbol_modifiers.insert_next(idx, modifier);
@@ -78,7 +78,7 @@ impl PatternSynExprRegion {
     pub fn pattern_expr_symbols(
         &self,
         pattern_expr_idx: PatternSynExprIdx,
-    ) -> &[(Ident, PatternSymbolIdx)] {
+    ) -> &[(Ident, PatternSynSymbolIdx)] {
         &self.pattern_symbol_maps[pattern_expr_idx]
     }
 
@@ -90,7 +90,7 @@ impl PatternSynExprRegion {
         &self.pattern_expr_arena
     }
 
-    pub fn pattern_symbol_arena(&self) -> &PatternSymbolArena {
+    pub fn pattern_symbol_arena(&self) -> &PatternSynSymbolArena {
         &self.pattern_symbol_arena
     }
 }
@@ -103,18 +103,18 @@ impl std::ops::Index<PatternSynExprIdx> for PatternSynExprRegion {
     }
 }
 
-impl std::ops::Index<PatternSymbolIdx> for PatternSynExprRegion {
+impl std::ops::Index<PatternSynSymbolIdx> for PatternSynExprRegion {
     type Output = PatternSynSymbol;
 
-    fn index(&self, index: PatternSymbolIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynSymbolIdx) -> &Self::Output {
         &self.pattern_symbol_arena[index]
     }
 }
 
-impl std::ops::Index<&PatternSymbolIdx> for PatternSynExprRegion {
+impl std::ops::Index<&PatternSynSymbolIdx> for PatternSynExprRegion {
     type Output = PatternSynSymbol;
 
-    fn index(&self, index: &PatternSymbolIdx) -> &Self::Output {
+    fn index(&self, index: &PatternSynSymbolIdx) -> &Self::Output {
         &self.pattern_symbol_arena[index]
     }
 }
@@ -125,7 +125,10 @@ impl SynExprRegionData {
             .pattern_contract(pattern_expr_idx)
     }
 
-    pub fn pattern_symbol_modifier(&self, pattern_symbol_idx: PatternSymbolIdx) -> SymbolModifier {
+    pub fn pattern_symbol_modifier(
+        &self,
+        pattern_symbol_idx: PatternSynSymbolIdx,
+    ) -> SymbolModifier {
         self.pattern_expr_region()
             .pattern_symbol_modifier(pattern_symbol_idx)
     }
@@ -136,7 +139,10 @@ impl PatternSynExprRegion {
         self.pattern_expr_contracts[pattern_expr_idx]
     }
 
-    pub fn pattern_symbol_modifier(&self, pattern_symbol_idx: PatternSymbolIdx) -> SymbolModifier {
+    pub fn pattern_symbol_modifier(
+        &self,
+        pattern_symbol_idx: PatternSynSymbolIdx,
+    ) -> SymbolModifier {
         self.pattern_symbol_modifiers[pattern_symbol_idx]
     }
 }

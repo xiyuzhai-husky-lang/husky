@@ -104,7 +104,7 @@ Ok(
                                                     10,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `B`,

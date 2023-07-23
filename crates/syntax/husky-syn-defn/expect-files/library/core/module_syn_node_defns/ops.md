@@ -104,7 +104,7 @@ Ok(
                                                     12,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -239,7 +239,7 @@ Ok(
                                                     41,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -374,7 +374,7 @@ Ok(
                                                     70,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -509,7 +509,7 @@ Ok(
                                                     99,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -644,7 +644,7 @@ Ok(
                                                     124,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -779,7 +779,7 @@ Ok(
                                                     153,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -914,7 +914,7 @@ Ok(
                                                     178,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -1049,7 +1049,7 @@ Ok(
                                                     207,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -1184,7 +1184,7 @@ Ok(
                                                     232,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -1319,7 +1319,7 @@ Ok(
                                                     261,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -1454,7 +1454,7 @@ Ok(
                                                     286,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -1589,7 +1589,7 @@ Ok(
                                                     315,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -1880,7 +1880,7 @@ Ok(
                                                     388,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Rhs`,
@@ -2015,7 +2015,7 @@ Ok(
                                                     410,
                                                 ),
                                                 access_end: None,
-                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                         ident_token: IdentToken {
                                                             ident: `T`,
@@ -2170,7 +2170,7 @@ Ok(
                                                         439,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `R`,
@@ -2187,7 +2187,7 @@ Ok(
                                                         441,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `C`,

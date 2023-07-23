@@ -25,8 +25,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
@@ -63,8 +63,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
@@ -81,8 +81,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
@@ -103,8 +103,8 @@ Ok(
             ),
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(
@@ -188,8 +188,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
+                    InheritedImplicitParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),
@@ -230,8 +230,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 0,
-                inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
-                    InheritedImplicitParameterSymbol::Type {
+                inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
+                    InheritedImplicitParameterSynSymbol::Type {
                         ident: `E`,
                     },
                 ),

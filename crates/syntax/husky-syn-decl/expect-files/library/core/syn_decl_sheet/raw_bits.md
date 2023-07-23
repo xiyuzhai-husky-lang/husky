@@ -461,7 +461,7 @@ Ok(
                                                             32,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `k`,
                                                             pattern_symbol_idx: 0,
                                                         },

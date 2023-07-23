@@ -139,7 +139,7 @@ Ok(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
                                                             label_token: LifetimeLabelToken {
                                                                 label: `'a`,
@@ -156,7 +156,7 @@ Ok(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
@@ -333,7 +333,7 @@ Ok(
                                                         17,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
                                                             label_token: LifetimeLabelToken {
                                                                 label: `'a`,
@@ -350,7 +350,7 @@ Ok(
                                                         20,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
@@ -501,7 +501,7 @@ Ok(
                                                         28,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
@@ -664,8 +664,8 @@ Ok(
                                             37,
                                         ),
                                         current_symbol_idx: 0,
-                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
                                                     ident: `E`,
                                                     token_idx: TokenIdx(
@@ -746,7 +746,7 @@ Ok(
                                                 33,
                                             ),
                                             access_end: None,
-                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                     ident_token: IdentToken {
                                                         ident: `E`,

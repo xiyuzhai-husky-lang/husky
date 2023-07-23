@@ -58,7 +58,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSymbolVariant::ImplicitParameter {
+                CurrentSynSymbolVariant::ImplicitParameter {
                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                         ident_token,
                     },
@@ -96,7 +96,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
                     ctx.pattern_expr_region(),
                     access_start,
                     None,
-                    CurrentSymbolVariant::ImplicitParameter {
+                    CurrentSynSymbolVariant::ImplicitParameter {
                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime {
                             label_token,
                         },
@@ -133,7 +133,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSymbolVariant::ImplicitParameter {
+                        CurrentSynSymbolVariant::ImplicitParameter {
                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
                                 ident_token,
                                 ty_expr_idx: ty_expr,

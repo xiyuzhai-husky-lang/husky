@@ -25,7 +25,7 @@ impl PatternSynSymbol {
     }
 }
 
-pub type PatternSymbolArena = Arena<PatternSynSymbol>;
-pub type PatternSymbolIdx = ArenaIdx<PatternSynSymbol>;
-pub type PatternSymbolMap<V> = ArenaMap<PatternSynSymbol, V>;
-pub type PatternSymbolOrderedMap<V> = ArenaOrderedMap<PatternSynSymbol, V>;
+pub type PatternSynSymbolArena = Arena<PatternSynSymbol>;
+pub type PatternSynSymbolIdx = ArenaIdx<PatternSynSymbol>;
+pub type PatternSynSymbolMap<V> = ArenaMap<PatternSynSymbol, V>;
+pub type PatternSynSymbolOrderedMap<V> = ArenaOrderedMap<PatternSynSymbol, V>;

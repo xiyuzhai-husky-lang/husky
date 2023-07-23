@@ -159,8 +159,8 @@ Ok(
                                                         15,
                                                     ),
                                                     current_symbol_idx: 0,
-                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -261,7 +261,7 @@ Ok(
                                                             5,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `T`,
@@ -278,7 +278,7 @@ Ok(
                                                             11,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `arr`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -514,8 +514,8 @@ Ok(
                                                         54,
                                                     ),
                                                     current_symbol_idx: 0,
-                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -708,7 +708,7 @@ Ok(
                                                             44,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `T`,
@@ -725,7 +725,7 @@ Ok(
                                                             50,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `arr`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -736,7 +736,7 @@ Ok(
                                                             57,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `low`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -747,7 +747,7 @@ Ok(
                                                             61,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `high`,
                                                             pattern_symbol_idx: 2,
                                                         },
@@ -1019,8 +1019,8 @@ Ok(
                                                         115,
                                                     ),
                                                     current_symbol_idx: 0,
-                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `T`,
                                                                 token_idx: TokenIdx(
@@ -1238,7 +1238,7 @@ Ok(
                                                             105,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `T`,
@@ -1255,7 +1255,7 @@ Ok(
                                                             111,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `arr`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -1266,7 +1266,7 @@ Ok(
                                                             118,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `low`,
                                                             pattern_symbol_idx: 1,
                                                         },
@@ -1277,7 +1277,7 @@ Ok(
                                                             122,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `high`,
                                                             pattern_symbol_idx: 2,
                                                         },

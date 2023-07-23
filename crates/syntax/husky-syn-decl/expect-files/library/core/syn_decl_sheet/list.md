@@ -88,7 +88,7 @@ Ok(
                                                             6,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `E`,
@@ -190,8 +190,8 @@ Ok(
                                                     13,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
@@ -257,7 +257,7 @@ Ok(
                                                         11,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `E`,
@@ -365,8 +365,8 @@ Ok(
                                                                     13,
                                                                 ),
                                                                 current_symbol_idx: 0,
-                                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
@@ -432,7 +432,7 @@ Ok(
                                                                         11,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
@@ -540,13 +540,13 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                            InheritedImplicitParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -667,8 +667,8 @@ Ok(
                                                                     13,
                                                                 ),
                                                                 current_symbol_idx: 0,
-                                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
@@ -734,7 +734,7 @@ Ok(
                                                                         11,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
@@ -795,8 +795,8 @@ Ok(
                                                         32,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSymbol::Type {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                        InheritedImplicitParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
                                                     ),
@@ -855,13 +855,13 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                            InheritedImplicitParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -876,7 +876,7 @@ Ok(
                                                             31,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `e`,
                                                             pattern_symbol_idx: 0,
                                                         },
@@ -982,8 +982,8 @@ Ok(
                                                                     13,
                                                                 ),
                                                                 current_symbol_idx: 0,
-                                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
@@ -1049,7 +1049,7 @@ Ok(
                                                                         11,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
@@ -1120,8 +1120,8 @@ Ok(
                                                         42,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSymbol::Type {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                        InheritedImplicitParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
                                                     ),
@@ -1173,13 +1173,13 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                            InheritedImplicitParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -1278,8 +1278,8 @@ Ok(
                                                                     13,
                                                                 ),
                                                                 current_symbol_idx: 0,
-                                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
@@ -1345,7 +1345,7 @@ Ok(
                                                                         11,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
@@ -1416,8 +1416,8 @@ Ok(
                                                         51,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSymbol::Type {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                        InheritedImplicitParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
                                                     ),
@@ -1469,13 +1469,13 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                            InheritedImplicitParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),
@@ -1587,8 +1587,8 @@ Ok(
                                                                     13,
                                                                 ),
                                                                 current_symbol_idx: 0,
-                                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `E`,
                                                                             token_idx: TokenIdx(
@@ -1654,7 +1654,7 @@ Ok(
                                                                         11,
                                                                     ),
                                                                     access_end: None,
-                                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `E`,
@@ -1725,8 +1725,8 @@ Ok(
                                                         62,
                                                     ),
                                                     inherited_symbol_idx: 0,
-                                                    inherited_symbol_kind: InheritedSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSymbol::Type {
+                                                    inherited_symbol_kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                        InheritedImplicitParameterSynSymbol::Type {
                                                             ident: `E`,
                                                         },
                                                     ),
@@ -1778,13 +1778,13 @@ Ok(
                                         symbol_region: SynSymbolRegion {
                                             inherited_symbol_arena: Arena {
                                                 data: [
-                                                    InheritedSymbol {
+                                                    InheritedSynSymbol {
                                                         parent_symbol_idx: Current(
                                                             0,
                                                         ),
                                                         modifier: Const,
-                                                        kind: InheritedSymbolKind::ImplicitParameter(
-                                                            InheritedImplicitParameterSymbol::Type {
+                                                        kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                            InheritedImplicitParameterSynSymbol::Type {
                                                                 ident: `E`,
                                                             },
                                                         ),

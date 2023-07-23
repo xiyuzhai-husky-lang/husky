@@ -414,7 +414,7 @@ Ok(
                                                             541,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `line_segment_sketch`,
                                                             pattern_symbol_idx: 0,
                                                         },

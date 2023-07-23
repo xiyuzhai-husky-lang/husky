@@ -6,7 +6,7 @@ use super::*;
 #[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct BeVariablesPattern {
     pattern_expr: PatternSynExprIdx,
-    variables: CurrentSymbolIdxRange,
+    variables: CurrentSynSymbolIdxRange,
 }
 
 impl<'a, 'b> ExprParseContext<'a, 'b> {
@@ -31,7 +31,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    CurrentSymbolVariant::LetVariable {
+                    CurrentSynSymbolVariant::LetVariable {
                         ident: *ident,
                         pattern_symbol_idx: *pattern_symbol,
                     },
@@ -51,7 +51,7 @@ impl BeVariablesPattern {
         self.pattern_expr
     }
 
-    pub fn variables(&self) -> CurrentSymbolIdxRange {
+    pub fn variables(&self) -> CurrentSynSymbolIdxRange {
         self.variables
     }
 }

@@ -17,7 +17,7 @@ pub(super) struct DeclarativeTermEngine<'a> {
     expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     /// todo: change this to ordered
     pattern_expr_ty_infos: PatternSynExprMap<PatternExprDeclarativeTypeInfo>,
-    pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
+    pattern_symbol_ty_infos: PatternSynSymbolMap<PatternSymbolTypeInfo>,
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar, return_ref)]
@@ -54,7 +54,7 @@ impl<'a> DeclarativeTermEngine<'a> {
             ),
             expr_terms: SynExprMap::new(expr_region_data.expr_arena()),
             pattern_expr_ty_infos: PatternSynExprMap::new(expr_region_data.pattern_expr_arena()),
-            pattern_symbol_ty_infos: PatternSymbolMap::new(
+            pattern_symbol_ty_infos: PatternSynSymbolMap::new(
                 expr_region_data
                     .pattern_expr_region()
                     .pattern_symbol_arena(),
@@ -89,7 +89,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                     let (current_symbol_idx, current_symbol) = current_symbol_indexed_iter
                         .next()
                         .expect("ty constraint should match with current symbols");
-                    let CurrentSymbolVariant::ImplicitParameter {
+                    let CurrentSynSymbolVariant::ImplicitParameter {
                         implicit_parameter_variant,
                     } = current_symbol.variant() else {
                         unreachable!()
@@ -139,7 +139,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         &mut self,
         pattern_expr: PatternSynExprIdx,
         ty: SynExprIdx,
-        symbols: CurrentSymbolIdxRange,
+        symbols: CurrentSynSymbolIdxRange,
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
@@ -165,7 +165,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     ) {
         let current_symbol = &self.expr_region_data.symbol_region()[current_symbol_idx];
         match current_symbol.variant() {
-            CurrentSymbolVariant::ExplicitRegularParameter {
+            CurrentSynSymbolVariant::ExplicitRegularParameter {
                 ident,
                 pattern_symbol_idx,
             } => {

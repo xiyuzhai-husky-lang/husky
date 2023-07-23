@@ -81,7 +81,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
+                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
                 syn_expr_region: ExprRegionLeash(_),

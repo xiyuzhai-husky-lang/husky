@@ -234,7 +234,7 @@ Ok(
                                                             9,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `P`,
@@ -251,7 +251,7 @@ Ok(
                                                             13,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `Q`,
@@ -459,7 +459,7 @@ Ok(
                                                             31,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `P`,
@@ -476,7 +476,7 @@ Ok(
                                                             35,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `Q`,

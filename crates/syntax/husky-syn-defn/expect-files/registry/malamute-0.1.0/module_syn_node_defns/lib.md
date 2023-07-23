@@ -105,8 +105,8 @@ Ok(
                                                     9,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
@@ -152,7 +152,7 @@ Ok(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `Label`,
@@ -169,7 +169,7 @@ Ok(
                                                         10,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
                                                             ident_token: IdentToken {
                                                                 ident: `label`,
@@ -318,8 +318,8 @@ Ok(
                                                     24,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
@@ -365,7 +365,7 @@ Ok(
                                                         20,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `Label`,
@@ -382,7 +382,7 @@ Ok(
                                                         25,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
                                                             ident_token: IdentToken {
                                                                 ident: `label`,
@@ -467,8 +467,8 @@ Ok(
                                                     68,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
@@ -524,8 +524,8 @@ Ok(
                                                     87,
                                                 ),
                                                 current_symbol_idx: 0,
-                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Label`,
                                                             token_idx: TokenIdx(
@@ -545,8 +545,8 @@ Ok(
                                                     88,
                                                 ),
                                                 current_symbol_idx: 1,
-                                                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                         ident_token: IdentToken {
                                                             ident: `label`,
                                                             token_idx: TokenIdx(
@@ -669,7 +669,7 @@ Ok(
                                                         64,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                             ident_token: IdentToken {
                                                                 ident: `Label`,
@@ -686,7 +686,7 @@ Ok(
                                                         69,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ImplicitParameter {
+                                                    variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                         implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
                                                             ident_token: IdentToken {
                                                                 ident: `label`,
@@ -704,7 +704,7 @@ Ok(
                                                         72,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ExplicitVariadicParameter {
+                                                    variant: CurrentSynSymbolVariant::ExplicitVariadicParameter {
                                                         symbol_modifier_keyword_group: None,
                                                         ident_token: IdentToken {
                                                             ident: `f`,
@@ -720,7 +720,7 @@ Ok(
                                                         79,
                                                     ),
                                                     access_end: None,
-                                                    variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                    variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                         ident: `skip`,
                                                         pattern_symbol_idx: 0,
                                                     },
@@ -992,8 +992,8 @@ Ok(
                                                             68,
                                                         ),
                                                         current_symbol_idx: 0,
-                                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
@@ -1049,8 +1049,8 @@ Ok(
                                                             87,
                                                         ),
                                                         current_symbol_idx: 0,
-                                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                 ident_token: IdentToken {
                                                                     ident: `Label`,
                                                                     token_idx: TokenIdx(
@@ -1070,8 +1070,8 @@ Ok(
                                                             88,
                                                         ),
                                                         current_symbol_idx: 1,
-                                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                 ident_token: IdentToken {
                                                                     ident: `label`,
                                                                     token_idx: TokenIdx(
@@ -1194,7 +1194,7 @@ Ok(
                                                                 64,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                     ident_token: IdentToken {
                                                                         ident: `Label`,
@@ -1211,7 +1211,7 @@ Ok(
                                                                 69,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
                                                                     ident_token: IdentToken {
                                                                         ident: `label`,
@@ -1229,7 +1229,7 @@ Ok(
                                                                 72,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ExplicitVariadicParameter {
+                                                            variant: CurrentSynSymbolVariant::ExplicitVariadicParameter {
                                                                 symbol_modifier_keyword_group: None,
                                                                 ident_token: IdentToken {
                                                                     ident: `f`,
@@ -1245,7 +1245,7 @@ Ok(
                                                                 79,
                                                             ),
                                                             access_end: None,
-                                                            variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                            variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                                 ident: `skip`,
                                                                 pattern_symbol_idx: 0,
                                                             },
@@ -1353,43 +1353,43 @@ Ok(
                                 symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
-                                            InheritedSymbol {
+                                            InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSymbol::Type {
+                                                kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                    InheritedImplicitParameterSynSymbol::Type {
                                                         ident: `Label`,
                                                     },
                                                 ),
                                             },
-                                            InheritedSymbol {
+                                            InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
                                                     1,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSymbol::Constant {
+                                                kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                    InheritedImplicitParameterSynSymbol::Constant {
                                                         ident: `label`,
                                                     },
                                                 ),
                                             },
-                                            InheritedSymbol {
+                                            InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
                                                     2,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
                                                     ident: `f`,
                                                 },
                                             },
-                                            InheritedSymbol {
+                                            InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
                                                     3,
                                                 ),
                                                 modifier: None,
-                                                kind: InheritedSymbolKind::ExplicitParameter {
+                                                kind: InheritedSynSymbolKind::ExplicitParameter {
                                                     ident: `skip`,
                                                 },
                                             },
@@ -1549,8 +1549,8 @@ Ok(
                                             39,
                                         ),
                                         current_symbol_idx: 0,
-                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
                                                     ident: `Label`,
                                                     token_idx: TokenIdx(
@@ -1590,8 +1590,8 @@ Ok(
                                             47,
                                         ),
                                         current_symbol_idx: 0,
-                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
                                                     ident: `Label`,
                                                     token_idx: TokenIdx(
@@ -1611,8 +1611,8 @@ Ok(
                                             48,
                                         ),
                                         current_symbol_idx: 1,
-                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                 ident_token: IdentToken {
                                                     ident: `label`,
                                                     token_idx: TokenIdx(
@@ -1642,8 +1642,8 @@ Ok(
                                             51,
                                         ),
                                         current_symbol_idx: 0,
-                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                 ident_token: IdentToken {
                                                     ident: `Label`,
                                                     token_idx: TokenIdx(
@@ -1663,8 +1663,8 @@ Ok(
                                             52,
                                         ),
                                         current_symbol_idx: 1,
-                                        current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                            implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                        current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                            implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                 ident_token: IdentToken {
                                                     ident: `label`,
                                                     token_idx: TokenIdx(
@@ -1802,7 +1802,7 @@ Ok(
                                                 35,
                                             ),
                                             access_end: None,
-                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Label`,
@@ -1819,7 +1819,7 @@ Ok(
                                                 40,
                                             ),
                                             access_end: None,
-                                            variant: CurrentSymbolVariant::ImplicitParameter {
+                                            variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
                                                     ident_token: IdentToken {
                                                         ident: `label`,
@@ -1992,8 +1992,8 @@ Ok(
                                                                 39,
                                                             ),
                                                             current_symbol_idx: 0,
-                                                            current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                            current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
                                                                         ident: `Label`,
                                                                         token_idx: TokenIdx(
@@ -2033,8 +2033,8 @@ Ok(
                                                                 47,
                                                             ),
                                                             current_symbol_idx: 0,
-                                                            current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                            current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
                                                                         ident: `Label`,
                                                                         token_idx: TokenIdx(
@@ -2054,8 +2054,8 @@ Ok(
                                                                 48,
                                                             ),
                                                             current_symbol_idx: 1,
-                                                            current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                                            current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                     ident_token: IdentToken {
                                                                         ident: `label`,
                                                                         token_idx: TokenIdx(
@@ -2085,8 +2085,8 @@ Ok(
                                                                 51,
                                                             ),
                                                             current_symbol_idx: 0,
-                                                            current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                            current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                     ident_token: IdentToken {
                                                                         ident: `Label`,
                                                                         token_idx: TokenIdx(
@@ -2106,8 +2106,8 @@ Ok(
                                                                 52,
                                                             ),
                                                             current_symbol_idx: 1,
-                                                            current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                                            current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                     ident_token: IdentToken {
                                                                         ident: `label`,
                                                                         token_idx: TokenIdx(
@@ -2245,7 +2245,7 @@ Ok(
                                                                     35,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                         ident_token: IdentToken {
                                                                             ident: `Label`,
@@ -2262,7 +2262,7 @@ Ok(
                                                                     40,
                                                                 ),
                                                                 access_end: None,
-                                                                variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                     implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
                                                                         ident_token: IdentToken {
                                                                             ident: `label`,
@@ -2374,24 +2374,24 @@ Ok(
                                     symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [
-                                                InheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         0,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSymbol::Type {
+                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                        InheritedImplicitParameterSynSymbol::Type {
                                                             ident: `Label`,
                                                         },
                                                     ),
                                                 },
-                                                InheritedSymbol {
+                                                InheritedSynSymbol {
                                                     parent_symbol_idx: Current(
                                                         1,
                                                     ),
                                                     modifier: Const,
-                                                    kind: InheritedSymbolKind::ImplicitParameter(
-                                                        InheritedImplicitParameterSymbol::Constant {
+                                                    kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                        InheritedImplicitParameterSynSymbol::Constant {
                                                             ident: `label`,
                                                         },
                                                     ),
@@ -2452,8 +2452,8 @@ Ok(
                                                                         39,
                                                                     ),
                                                                     current_symbol_idx: 0,
-                                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `Label`,
                                                                                 token_idx: TokenIdx(
@@ -2493,8 +2493,8 @@ Ok(
                                                                         47,
                                                                     ),
                                                                     current_symbol_idx: 0,
-                                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `Label`,
                                                                                 token_idx: TokenIdx(
@@ -2514,8 +2514,8 @@ Ok(
                                                                         48,
                                                                     ),
                                                                     current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                             ident_token: IdentToken {
                                                                                 ident: `label`,
                                                                                 token_idx: TokenIdx(
@@ -2545,8 +2545,8 @@ Ok(
                                                                         51,
                                                                     ),
                                                                     current_symbol_idx: 0,
-                                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                                                                             ident_token: IdentToken {
                                                                                 ident: `Label`,
                                                                                 token_idx: TokenIdx(
@@ -2566,8 +2566,8 @@ Ok(
                                                                         52,
                                                                     ),
                                                                     current_symbol_idx: 1,
-                                                                    current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                                                                        implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                                                                    current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                                                                        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                                                                             ident_token: IdentToken {
                                                                                 ident: `label`,
                                                                                 token_idx: TokenIdx(
@@ -2705,7 +2705,7 @@ Ok(
                                                                             35,
                                                                         ),
                                                                         access_end: None,
-                                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Type {
                                                                                 ident_token: IdentToken {
                                                                                     ident: `Label`,
@@ -2722,7 +2722,7 @@ Ok(
                                                                             40,
                                                                         ),
                                                                         access_end: None,
-                                                                        variant: CurrentSymbolVariant::ImplicitParameter {
+                                                                        variant: CurrentSynSymbolVariant::ImplicitParameter {
                                                                             implicit_parameter_variant: CurrentImplicitParameterSymbol::Constant {
                                                                                 ident_token: IdentToken {
                                                                                     ident: `label`,
@@ -2834,24 +2834,24 @@ Ok(
                                             symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [
-                                                        InheritedSymbol {
+                                                        InheritedSynSymbol {
                                                             parent_symbol_idx: Current(
                                                                 0,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSymbol::Type {
+                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                                InheritedImplicitParameterSynSymbol::Type {
                                                                     ident: `Label`,
                                                                 },
                                                             ),
                                                         },
-                                                        InheritedSymbol {
+                                                        InheritedSynSymbol {
                                                             parent_symbol_idx: Current(
                                                                 1,
                                                             ),
                                                             modifier: Const,
-                                                            kind: InheritedSymbolKind::ImplicitParameter(
-                                                                InheritedImplicitParameterSymbol::Constant {
+                                                            kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                                InheritedImplicitParameterSynSymbol::Constant {
                                                                     ident: `label`,
                                                                 },
                                                             ),
@@ -2929,24 +2929,24 @@ Ok(
                                 symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
-                                            InheritedSymbol {
+                                            InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
                                                     0,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSymbol::Type {
+                                                kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                    InheritedImplicitParameterSynSymbol::Type {
                                                         ident: `Label`,
                                                     },
                                                 ),
                                             },
-                                            InheritedSymbol {
+                                            InheritedSynSymbol {
                                                 parent_symbol_idx: Current(
                                                     1,
                                                 ),
                                                 modifier: Const,
-                                                kind: InheritedSymbolKind::ImplicitParameter(
-                                                    InheritedImplicitParameterSymbol::Constant {
+                                                kind: InheritedSynSymbolKind::ImplicitParameter(
+                                                    InheritedImplicitParameterSynSymbol::Constant {
                                                         ident: `label`,
                                                     },
                                                 ),
