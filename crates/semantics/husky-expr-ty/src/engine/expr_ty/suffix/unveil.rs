@@ -9,7 +9,7 @@ use maybe_result::*;
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_unveil_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
+    pub(super) fn calc_unveil_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
         match self.unveiler {
             Unveiler::Unique {
                 opd_ty,

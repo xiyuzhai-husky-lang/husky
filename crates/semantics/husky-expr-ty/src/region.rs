@@ -6,9 +6,9 @@ use crate::*;
 #[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeRegion {
     path: RegionPath,
-    expr_ty_infos: ExprMap<ExprTypeInfo>,
-    extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
-    expr_fluffy_terms: ExprMap<ExprTermResult<FluffyTerm>>,
+    expr_ty_infos: SynExprMap<ExprTypeInfo>,
+    extra_expr_errors: Vec<(SynExprIdx, ExprTypeError)>,
+    expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FluffyTerm>,
     fluffy_term_region: FluffyTermRegion,
@@ -20,9 +20,9 @@ impl ExprTypeRegion {
     pub(crate) fn new(
         db: &dyn ExprTypeDb,
         path: RegionPath,
-        expr_ty_infos: ExprMap<ExprTypeInfo>,
-        extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
-        expr_fluffy_terms: ExprMap<ExprTermResult<FluffyTerm>>,
+        expr_ty_infos: SynExprMap<ExprTypeInfo>,
+        extra_expr_errors: Vec<(SynExprIdx, ExprTypeError)>,
+        expr_fluffy_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
         symbol_terms: SymbolMap<FluffyTerm>,
         symbol_tys: SymbolMap<SymbolType>,
         fluffy_term_region: FluffyTermRegion,
@@ -46,15 +46,15 @@ impl ExprTypeRegion {
         self.path
     }
 
-    pub fn expr_ty_infos(&self) -> &ExprMap<ExprTypeInfo> {
+    pub fn expr_ty_infos(&self) -> &SynExprMap<ExprTypeInfo> {
         &self.expr_ty_infos
     }
 
-    pub fn extra_expr_ty_errors(&self) -> &[(ExprIdx, ExprTypeError)] {
+    pub fn extra_expr_ty_errors(&self) -> &[(SynExprIdx, ExprTypeError)] {
         &self.extra_expr_errors
     }
 
-    pub fn expr_fluffy_terms(&self) -> &ExprMap<ExprTermResult<FluffyTerm>> {
+    pub fn expr_fluffy_terms(&self) -> &SynExprMap<ExprTermResult<FluffyTerm>> {
         &self.expr_fluffy_terms
     }
 
@@ -80,7 +80,7 @@ impl ExprTypeRegion {
 
     pub fn expr_ty_info_variant(
         &self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
     ) -> Option<ExprTypeResultRef<&ExprDisambiguation>> {
         // ad hoc
         // todo: change this to always some

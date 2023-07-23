@@ -6,7 +6,7 @@ pub enum HtmlArgumentExpr {
         property_ident: IdentToken,
         eq: EqToken,
         lcurl: LeftCurlyBraceToken,
-        expr: ExprIdx,
+        expr: SynExprIdx,
         rcurl: RightCurlyBraceToken,
     },
     Shortened {

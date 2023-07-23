@@ -13,7 +13,7 @@ pub struct TraitForTypeAssociatedTypeSynNodeDecl {
     #[return_ref]
     pub eq_token: NodeDeclResult<EqToken>,
     // todo: change this to NodeDeclResult??
-    pub ty_term_expr_idx: ExprIdx,
+    pub ty_term_expr_idx: SynExprIdx,
     pub expr_region: SynExprRegion,
 }
 
@@ -68,7 +68,7 @@ pub struct TraitForTypeAssociatedTypeSynDecl {
     pub path: TraitForTypeItemPath,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub ty_term_expr_idx: ExprIdx,
+    pub ty_term_expr_idx: SynExprIdx,
     pub expr_region: SynExprRegion,
 }
 

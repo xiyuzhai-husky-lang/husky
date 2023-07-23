@@ -2,7 +2,7 @@ use crate::*;
 use husky_ast::{AstIdx, AstTokenIdxRangeSheet};
 use husky_expr_ty::*;
 use husky_fluffy_term::FluffyTermRegion;
-use husky_syn_expr::{ExprIdx, ExprRangeRegion, ExprRegionData, SynExprRegion};
+use husky_syn_expr::{ExprRangeRegion, SynExprIdx, SynExprRegion, SynExprRegionData};
 use husky_token::{TokenGroupIdx, TokenIdx, TokenIdxRange, TokenStreamState};
 
 pub(crate) struct SheetDiagnosticsContext<'a> {
@@ -70,7 +70,7 @@ pub(crate) struct RegionDiagnosticsContext<'a> {
     db: &'a dyn DiagnosticsDb,
     token_sheet_data: &'a TokenSheetData,
     ranged_token_sheet: &'a RangedTokenSheet,
-    expr_region_data: &'a ExprRegionData,
+    expr_region_data: &'a SynExprRegionData,
     expr_ty_region: &'a ExprTypeRegion,
     expr_range_region: &'a ExprRangeRegion,
 }
@@ -111,7 +111,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
         self.expr_ty_region.fluffy_term_region()
     }
 
-    pub(crate) fn expr_text_range(&self, expr_idx: ExprIdx) -> TextRange {
+    pub(crate) fn expr_text_range(&self, expr_idx: SynExprIdx) -> TextRange {
         self.text_range(self.expr_range_region[expr_idx])
     }
 

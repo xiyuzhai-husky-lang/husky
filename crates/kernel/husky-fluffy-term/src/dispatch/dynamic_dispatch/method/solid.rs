@@ -10,7 +10,7 @@ impl SolidTerm {
     pub(super) fn method_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident: Ident,
         available_traits: &[TraitPath],
         mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,

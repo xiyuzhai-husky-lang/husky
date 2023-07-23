@@ -2,7 +2,7 @@ use super::*;
 use husky_syn_defn::HasDefns;
 use husky_syn_expr::{
     ExprError, OriginalExprError, OriginalPrincipalEntityPathExprError, PrincipalEntityPathExpr,
-    PrincipalEntityPathExprError, Stmt, StmtError, SynExpr, SynExprRegion,
+    PrincipalEntityPathExprError, StmtError, SynExpr, SynExprRegion, SynStmt,
 };
 use salsa::DebugWithDb;
 
@@ -46,7 +46,7 @@ impl<'a> ModuleDiagnosticsCollector<'a> {
         }
         for stmt in expr_region_data.stmt_arena().data() {
             match stmt {
-                Stmt::Err(e) => self.visit_atom(e),
+                SynStmt::Err(e) => self.visit_atom(e),
                 _ => (),
             }
         }

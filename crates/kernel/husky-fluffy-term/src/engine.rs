@@ -14,7 +14,7 @@ pub trait FluffyTermEngine<'a>: Sized {
         self.fluffy_term_region_mut().terms_mut()
     }
     fn term_menu(&self) -> &'a EtherealTermMenu;
-    fn expr_region_data(&self) -> &'a ExprRegionData;
+    fn expr_region_data(&self) -> &'a SynExprRegionData;
 
     fn new_ty_ontology_application(
         &mut self,

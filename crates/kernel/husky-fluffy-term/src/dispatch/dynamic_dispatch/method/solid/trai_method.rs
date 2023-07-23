@@ -4,7 +4,7 @@ impl HasFluffyTraitMethodDispatch for SolidTerm {
     fn trai_method_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
@@ -22,7 +22,7 @@ impl SolidTerm {
     pub(super) fn trai_method_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
         mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,

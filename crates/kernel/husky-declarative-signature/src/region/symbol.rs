@@ -94,7 +94,7 @@ impl SymbolDeclarativeTermRegion {
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
     pub(crate) fn new(
         parent: Option<&SymbolDeclarativeTermRegion>,
-        symbol_region: &SymbolRegion,
+        symbol_region: &SynSymbolRegion,
     ) -> Self {
         let registry = parent.map_or(Default::default(), |parent| parent.registry.clone());
         Self {
@@ -111,7 +111,7 @@ impl SymbolDeclarativeTermRegion {
         &mut self,
         db: &dyn DeclarativeSignatureDb,
         region_path: RegionPath,
-        symbol_region: &SymbolRegion,
+        symbol_region: &SynSymbolRegion,
     ) {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty_term.is_none() {
             self.self_ty_term = match region_path {

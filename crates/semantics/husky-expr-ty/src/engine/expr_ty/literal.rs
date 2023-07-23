@@ -4,7 +4,7 @@ use husky_token::FloatLiteral;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_literal_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         literal_token_idx: TokenIdx,
         expectation: &impl ExpectFluffyTerm,
     ) -> Result<FluffyTerm, ExprTypeError> {

@@ -19,7 +19,7 @@ impl FluffyTerm {
     pub fn static_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident: Ident,
         all_available_traits: &[()],
     ) -> FluffyTermMaybeResult<StaticDispatch> {

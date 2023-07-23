@@ -40,7 +40,7 @@ impl FluffyTermInstantiate for EtherealTermRitchieParameter {
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
         match self {

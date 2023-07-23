@@ -3,9 +3,9 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_index_or_compose_with_list_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        owner: ExprIdx,
-        indices: &[CommaListItem],
+        expr_idx: SynExprIdx,
+        owner: SynExprIdx,
+        indices: &[SynCommaListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(owner_ty) = self.infer_new_expr_ty(
             owner,
@@ -33,9 +33,9 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_index_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         self_expr_ty: FluffyTerm,
-        indices: &[CommaListItem],
+        indices: &[SynCommaListItem],
     ) -> ExprTypeResult<(FluffyIndexDispatch, ExprTypeResult<FluffyTerm>)> {
         let index_tys: SmallVec<[FluffyTerm; 2]> = indices
             .iter()

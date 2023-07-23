@@ -46,7 +46,7 @@ pub struct MethodFunctionFluffySignature {}
 
 pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
     ty_path: TypePath,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],
@@ -88,7 +88,7 @@ pub(crate) fn ty_method_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
 
 fn ty_method_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     engine: &mut impl FluffyTermEngine,
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
     template: TypeMethodFnEtherealSignatureTemplate,
     ty_template_arguments: &[Term],
     method_template_arguments: &[FluffyTerm],

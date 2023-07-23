@@ -11,8 +11,8 @@ use crate::*;
 
 use husky_entity_tree::RegionPath;
 use husky_syn_expr::{
-    AllowSelfType, CurrentSymbolIdx, ExprIdx, ExprMap, InheritedSymbolIdx, ParentSymbolIdx,
-    PatternExprIdx, PatternExprMap, PatternSymbolMap, SymbolRegion, SynExprRegion,
+    AllowSelfType, CurrentSymbolIdx, InheritedSymbolIdx, ParentSymbolIdx, PatternSymbolMap,
+    PatternSynExprIdx, PatternSynExprMap, SynExprIdx, SynExprMap, SynExprRegion, SynSymbolRegion,
 };
 
 /// preparation for generating signature
@@ -24,8 +24,8 @@ use husky_syn_expr::{
 pub struct DeclarativeTermRegion {
     path: RegionPath,
     term_symbol_region: SymbolDeclarativeTermRegion,
-    expr_terms: ExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
-    pattern_expr_ty_infos: PatternExprMap<PatternExprDeclarativeTypeInfo>,
+    expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
+    pattern_expr_ty_infos: PatternSynExprMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
 
@@ -33,8 +33,8 @@ impl DeclarativeTermRegion {
     pub(crate) fn new(
         path: RegionPath,
         term_symbol_region: SymbolDeclarativeTermRegion,
-        expr_terms: ExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
-        pattern_expr_ty_infos: PatternExprMap<PatternExprDeclarativeTypeInfo>,
+        expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
+        pattern_expr_ty_infos: PatternSynExprMap<PatternExprDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
     ) -> Self {
         Self {
@@ -58,7 +58,7 @@ impl DeclarativeTermRegion {
             .current_symbol_signature(current_symbol_idx)
     }
 
-    pub fn expr_term(&self, expr: ExprIdx) -> DeclarativeTermResultBorrowed2<DeclarativeTerm> {
+    pub fn expr_term(&self, expr: SynExprIdx) -> DeclarativeTermResultBorrowed2<DeclarativeTerm> {
         self.expr_terms[expr].as_ref().copied()
     }
 

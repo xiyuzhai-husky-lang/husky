@@ -9,7 +9,7 @@ pub struct PropsFieldDeclPattern {
     visibility: Option<FieldVisibilityExpr>,
     ident_token: IdentToken,
     colon: ColonToken,
-    ty_expr_idx: ExprIdx,
+    ty_expr_idx: SynExprIdx,
     initialization: Option<PropsFieldInitialization>,
 }
 
@@ -17,7 +17,7 @@ pub struct PropsFieldDeclPattern {
 pub enum PropsFieldInitialization {
     Bind {
         colon_eq_token: ColonEqToken,
-        value: ExprIdx,
+        value: SynExprIdx,
     },
     Default {},
 }
@@ -31,7 +31,7 @@ impl PropsFieldDeclPattern {
         self.colon
     }
 
-    pub fn ty_expr_idx(&self) -> ExprIdx {
+    pub fn ty_expr_idx(&self) -> SynExprIdx {
         self.ty_expr_idx
     }
 }
@@ -41,7 +41,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Prop
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> ExprResult<Option<Self>> {
+    ) -> SynExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
         let visibility = ctx.try_parse_option()?;
         let Some(ident_token) = ctx.try_parse_option::<IdentToken>()? else {

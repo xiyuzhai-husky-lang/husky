@@ -5,7 +5,7 @@ pub struct TraitForTypeMethodFnSynNodeDefn {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     pub syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
-    pub body: Option<ExprIdx>,
+    pub body: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
@@ -45,7 +45,7 @@ pub struct TraitForTypeMethodFnSynDefn {
     #[id]
     pub path: TraitForTypeItemPath,
     pub decl: TraitForTypeMethodFnSynDecl,
-    pub body: Option<ExprIdx>,
+    pub body: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 

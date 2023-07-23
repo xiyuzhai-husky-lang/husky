@@ -3,7 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn get_current_symbol_ty(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         current_symbol_idx: CurrentSymbolIdx,
     ) -> ExprTypeResult<FluffyTerm> {
         Ok(self

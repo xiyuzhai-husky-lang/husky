@@ -3,7 +3,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_pattern_and_symbols_ty(
         &mut self,
-        pattern_expr_idx: PatternExprIdx,
+        pattern_expr_idx: PatternSynExprIdx,
         ty: FluffyTerm,
         symbols: CurrentSymbolIdxRange,
     ) {
@@ -14,27 +14,27 @@ impl<'a> ExprTypeEngine<'a> {
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn save_pattern_ty(&mut self, pattern_expr_idx: PatternExprIdx, ty: FluffyTerm) {
+    fn save_pattern_ty(&mut self, pattern_expr_idx: PatternSynExprIdx, ty: FluffyTerm) {
         self.pattern_expr_ty_infos
             .insert_new(pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
         self.infer_subpattern_tys(pattern_expr_idx)
     }
 
     /// subpattern expressions get its type from its parent
-    fn infer_subpattern_tys(&mut self, pattern_expr_idx: PatternExprIdx) {
+    fn infer_subpattern_tys(&mut self, pattern_expr_idx: PatternSynExprIdx) {
         match self.expr_region_data[pattern_expr_idx] {
-            PatternExpr::Literal(_) => todo!(),
-            PatternExpr::Ident { .. } => (), // there is no subpattern to infer
-            PatternExpr::Entity(_) => todo!(),
-            PatternExpr::Tuple { name, fields } => todo!(),
-            PatternExpr::Struct { name, fields } => todo!(),
-            PatternExpr::OneOf { options } => todo!(),
-            PatternExpr::Binding {
+            PatternSynExpr::Literal(_) => todo!(),
+            PatternSynExpr::Ident { .. } => (), // there is no subpattern to infer
+            PatternSynExpr::Entity(_) => todo!(),
+            PatternSynExpr::Tuple { name, fields } => todo!(),
+            PatternSynExpr::Struct { name, fields } => todo!(),
+            PatternSynExpr::OneOf { options } => todo!(),
+            PatternSynExpr::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            PatternExpr::Range {
+            PatternSynExpr::Range {
                 start,
                 dot_dot_token,
                 end,
@@ -84,13 +84,13 @@ impl<'a> ExprTypeEngine<'a> {
         pattern_symbol_idx: PatternSymbolIdx,
     ) -> PatternSymbolTypeResult<FluffyTerm> {
         match self.expr_region_data[pattern_symbol_idx] {
-            PatternSymbol::Atom(pattern_expr_idx) => self
+            PatternSynSymbol::Atom(pattern_expr_idx) => self
                 .get_pattern_expr_ty(pattern_expr_idx)
                 .ok_or(DerivedPatternSymbolTypeError::PatternExprTypeError.into()),
         }
     }
 
-    fn get_pattern_expr_ty(&self, pattern_expr_idx: PatternExprIdx) -> Option<FluffyTerm> {
+    fn get_pattern_expr_ty(&self, pattern_expr_idx: PatternSynExprIdx) -> Option<FluffyTerm> {
         self.pattern_expr_ty_infos
             .get(pattern_expr_idx)
             .map(|info| info.ty().ok().copied())

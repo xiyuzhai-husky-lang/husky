@@ -7,7 +7,7 @@ pub struct SymbolMap<V> {
 }
 
 impl<V> SymbolMap<V> {
-    pub fn new(parent: Option<&Self>, region: &SymbolRegion) -> Self
+    pub fn new(parent: Option<&Self>, region: &SynSymbolRegion) -> Self
     where
         V: Clone,
     {

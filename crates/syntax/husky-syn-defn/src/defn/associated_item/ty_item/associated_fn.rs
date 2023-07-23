@@ -5,7 +5,7 @@ pub struct TypeAssociatedFnSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub syn_node_decl: TypeAssociatedFnSynNodeDecl,
-    pub body: Option<ExprIdx>,
+    pub body: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
@@ -45,7 +45,7 @@ pub struct TypeAssociatedFnSynDefn {
     #[id]
     pub path: TypeItemPath,
     pub decl: TypeAssociatedFnSynDecl,
-    pub body: Option<ExprIdx>,
+    pub body: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 

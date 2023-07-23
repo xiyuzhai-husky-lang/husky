@@ -3,9 +3,9 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_function_application_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        function_expr_idx: ExprIdx,
-        argument_expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
+        function_expr_idx: SynExprIdx,
+        argument_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
     ) -> ExprTypeResult<FluffyTerm> {
         let Some(function_ty_outcome) = self.infer_new_expr_ty_for_outcome(
@@ -38,12 +38,12 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(super) fn calc_function_application_expr_ty_aux(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         variance: Variance,
         parameter_variable: Option<FluffyTerm>,
         parameter_ty: FluffyTerm,
         return_ty: FluffyTerm,
-        argument_expr_idx: ExprIdx,
+        argument_expr_idx: SynExprIdx,
     ) -> ExprTypeResult<FluffyTerm> {
         let Some(argument_ty) = self.infer_new_expr_ty (
             argument_expr_idx,

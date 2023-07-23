@@ -4,7 +4,7 @@ use super::*;
 pub(in crate::parser) enum IncompleteCommaListOpr {
     UnitOrBracketedOrNewTuple,
     Index {
-        owner: ExprIdx,
+        owner: SynExprIdx,
     },
     BoxList,
     BoxColonList {
@@ -13,7 +13,7 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
     NewLambdaHead,
     FunctionInstantiation {},
     FunctionApplicationOrCall {
-        function: ExprIdx,
+        function: SynExprIdx,
     },
     RitchieArguments {
         ritchie_kind_token_idx: TokenIdx,
@@ -21,19 +21,19 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
         lpar_token: LeftParenthesisToken,
     },
     TemplateInstantiation {
-        template: ExprIdx,
+        template: SynExprIdx,
     },
     MethodInstantiation {
-        self_expr: ExprIdx,
+        self_expr: SynExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
     },
     #[deprecated(note = "move this to CallList")]
     MethodApplicationOrCall {
-        self_expr: ExprIdx,
+        self_expr: SynExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
-        implicit_arguments: Option<ImplicitArgumentList>,
+        implicit_arguments: Option<SynImplicitArgumentList>,
     },
 }
 

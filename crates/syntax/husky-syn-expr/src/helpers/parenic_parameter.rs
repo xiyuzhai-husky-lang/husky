@@ -35,10 +35,10 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
 #[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum SpecificParameterDecl {
     Regular {
-        pattern: PatternExprIdx,
+        pattern: PatternSynExprIdx,
         variables: CurrentSymbolIdxRange,
         colon: ColonToken,
-        ty: ExprIdx,
+        ty: SynExprIdx,
     },
     Variadic {
         dot_dot_dot_token: DotDotDotToken,
@@ -47,18 +47,18 @@ pub enum SpecificParameterDecl {
         ident_token: IdentToken,
         variable: CurrentSymbolIdx,
         colon: ColonToken,
-        ty: ExprIdx,
+        ty: SynExprIdx,
     },
     Keyed {
-        pattern: PatternExprIdx,
+        pattern: PatternSynExprIdx,
         symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
         ident_token: IdentToken,
         variable: CurrentSymbolIdx,
         colon: ColonToken,
-        ty: ExprIdx,
+        ty: SynExprIdx,
         eq_token: EqToken,
         // todo: change this to custom enum
-        default: Either<UnderscoreToken, ExprIdx>,
+        default: Either<UnderscoreToken, SynExprIdx>,
     },
 }
 
@@ -67,8 +67,8 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> ExprResult<Option<Self>> {
-        if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternExprInfo::Parameter)? {
+    ) -> SynExprResult<Option<Self>> {
+        if let Some(pattern_expr_idx) = ctx.parse_pattern_expr(PatternSynExprInfo::Parameter)? {
             let symbols = ctx
                 .pattern_expr_region()
                 .pattern_expr_symbols(pattern_expr_idx);
@@ -101,7 +101,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
                 }),
             );
             if let Some(eq_token) = ctx.try_parse_option::<EqToken>()? {
-                let PatternExpr::Ident {
+                let PatternSynExpr::Ident {
                     symbol_modifier_keyword_group ,
                     ident_token,
                 } = ctx.pattern_expr_region()[pattern_expr_idx] else {

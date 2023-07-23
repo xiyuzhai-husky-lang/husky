@@ -3,13 +3,13 @@ use super::*;
 #[derive(Debug, PartialEq, Eq)]
 pub(in crate::parser) enum IncompleteCallListOpr {
     FunctionCall {
-        function: ExprIdx,
-        implicit_arguments: Option<ImplicitArgumentList>,
+        function: SynExprIdx,
+        implicit_arguments: Option<SynImplicitArgumentList>,
     },
     MethodCall {
-        self_expr: ExprIdx,
+        self_expr: SynExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
-        implicit_arguments: Option<ImplicitArgumentList>,
+        implicit_arguments: Option<SynImplicitArgumentList>,
     },
 }

@@ -53,14 +53,14 @@ impl<'a> BlockExprParser<'a> {
         &mut self,
         body: FugitiveBody,
         token_group_idx: TokenGroupIdx,
-    ) -> ExprResult<StmtIdxRange> {
+    ) -> SynExprResult<SynStmtIdxRange> {
         match self.parse_block_stmts(body) {
             Some(stmt_idx_range) => Ok(stmt_idx_range),
             None => Err(OriginalExprError::ExpectedBlock(token_group_idx).into()),
         }
     }
 
-    pub fn parse_block_stmts(&mut self, body: FugitiveBody) -> Option<StmtIdxRange> {
+    pub fn parse_block_stmts(&mut self, body: FugitiveBody) -> Option<SynStmtIdxRange> {
         let block_end = self.form_body_end(body);
         let body = body.ast_idx_range();
         if body.len() == 0 {
@@ -76,7 +76,7 @@ impl<'a> BlockExprParser<'a> {
         Some(self.alloc_stmts(stmts))
     }
 
-    pub fn parse_block_expr(&mut self, body: FugitiveBody) -> ExprIdx {
+    pub fn parse_block_expr(&mut self, body: FugitiveBody) -> SynExprIdx {
         let stmts = self
             .parse_block_stmts(body)
             .expect("husky-ast should guarantee that this not empty");
@@ -91,7 +91,7 @@ impl<'a> BlockExprParser<'a> {
         ast: &Ast,
         ast_token_idx_range: TokenIdxRange,
         block_end: TokenIdxRangeEnd,
-    ) -> Option<Stmt> {
+    ) -> Option<SynStmt> {
         match ast {
             Ast::BasicStmtOrBranch {
                 token_group_idx,
@@ -101,7 +101,7 @@ impl<'a> BlockExprParser<'a> {
                 if_branch,
                 elif_branches,
                 else_branch,
-            } => Some(Stmt::IfElse {
+            } => Some(SynStmt::IfElse {
                 if_branch: self.parse_if_branch(*if_branch),
                 elif_branches: self.parse_elif_branches(*elif_branches),
                 else_branch: self.parse_else_branch(*else_branch),
@@ -115,7 +115,7 @@ impl<'a> BlockExprParser<'a> {
                 let mut token_stream = self
                     .token_sheet_data
                     .token_group_token_stream(*token_group_idx, None);
-                Some(Stmt::Match {
+                Some(SynStmt::Match {
                     match_token: token_stream.try_parse_option().unwrap().unwrap(),
                 })
             }
@@ -136,14 +136,14 @@ impl<'a> BlockExprParser<'a> {
         token_group_idx: TokenGroupIdx,
         block_end: TokenIdxRangeEnd,
         body: Option<FugitiveBody>,
-    ) -> Option<Stmt> {
+    ) -> Option<SynStmt> {
         let token_stream = self
             .token_sheet_data
             .token_group_token_stream(token_group_idx, None);
         let mut ctx = self.ctx(token_stream);
         match ctx.try_parse_option::<BasicStmtKeywordToken>() {
             Ok(Some(basic_stmt_keyword_token)) => Some(match basic_stmt_keyword_token {
-                BasicStmtKeywordToken::Let(let_token) => Stmt::Let {
+                BasicStmtKeywordToken::Let(let_token) => SynStmt::Let {
                     let_token,
                     let_variable_pattern: ctx.parse_let_variables_pattern_expected(block_end),
                     assign_token: ctx.try_parse_expected(OriginalExprError::ExpectedAssign),
@@ -153,7 +153,7 @@ impl<'a> BlockExprParser<'a> {
                         OriginalExprError::ExpectedInitialValue,
                     ),
                 },
-                BasicStmtKeywordToken::Return(return_token) => Stmt::Return {
+                BasicStmtKeywordToken::Return(return_token) => SynStmt::Return {
                     return_token,
                     result: ctx.parse_expr_expected2(
                         None,
@@ -161,7 +161,7 @@ impl<'a> BlockExprParser<'a> {
                         OriginalExprError::ExpectedResult,
                     ),
                 },
-                BasicStmtKeywordToken::Require(require_token) => Stmt::Require {
+                BasicStmtKeywordToken::Require(require_token) => SynStmt::Require {
                     require_token,
                     condition: ctx.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -169,7 +169,7 @@ impl<'a> BlockExprParser<'a> {
                         OriginalExprError::ExpectedCondition,
                     ),
                 },
-                BasicStmtKeywordToken::Assert(assert_token) => Stmt::Assert {
+                BasicStmtKeywordToken::Assert(assert_token) => SynStmt::Assert {
                     assert_token,
                     condition: ctx.parse_expr_expected2(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -177,7 +177,7 @@ impl<'a> BlockExprParser<'a> {
                         OriginalExprError::ExpectedCondition,
                     ),
                 },
-                BasicStmtKeywordToken::Break(break_token) => Stmt::Break { break_token },
+                BasicStmtKeywordToken::Break(break_token) => SynStmt::Break { break_token },
                 BasicStmtKeywordToken::For(for_token) => {
                     let expr =
                         match ctx.parse_expr_expected(None, OriginalExprError::ExpectedCondition) {
@@ -210,7 +210,7 @@ impl<'a> BlockExprParser<'a> {
                     )
                     .into()
                 }
-                BasicStmtKeywordToken::While(while_token) => Stmt::While {
+                BasicStmtKeywordToken::While(while_token) => SynStmt::While {
                     while_token,
                     condition: ctx.parse_expr_expected(
                         Some(ExprEnvironment::Condition(block_end)),
@@ -223,7 +223,7 @@ impl<'a> BlockExprParser<'a> {
                     ),
                 },
                 BasicStmtKeywordToken::Do(do_token) => match ctx.try_parse_option::<WhileToken>() {
-                    Ok(Some(while_token)) => Stmt::DoWhile {
+                    Ok(Some(while_token)) => SynStmt::DoWhile {
                         do_token,
                         while_token,
                         condition: ctx.parse_expr_expected(
@@ -242,7 +242,7 @@ impl<'a> BlockExprParser<'a> {
             }),
             Ok(None) => ctx
                 .parse_expr_root(None, ExprRootKind::EvalExpr)
-                .map(|expr_idx| Stmt::Eval { expr_idx }),
+                .map(|expr_idx| SynStmt::Eval { expr_idx }),
             Err(_) => todo!(),
         }
     }
@@ -251,10 +251,10 @@ impl<'a> BlockExprParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         for_token: StmtForToken,
-        expr: ExprIdx,
-        eol_colon: ExprResult<EolToken>,
+        expr: SynExprIdx,
+        eol_colon: SynExprResult<EolToken>,
         body: FugitiveBody,
-    ) -> StmtResult<Stmt> {
+    ) -> StmtResult<SynStmt> {
         match self.expr_arena[expr] {
             SynExpr::Binary {
                 lopd,
@@ -294,7 +294,7 @@ impl<'a> BlockExprParser<'a> {
                         current_symbol_kind,
                     },
                 );
-                Ok(Stmt::ForBetween {
+                Ok(SynStmt::ForBetween {
                     for_token,
                     particulars,
                     frame_var_symbol_idx,
@@ -307,7 +307,7 @@ impl<'a> BlockExprParser<'a> {
                 opr: BinaryOpr::In,
                 opr_token_idx,
                 ropd,
-            } => Ok(Stmt::ForIn {
+            } => Ok(SynStmt::ForIn {
                 for_token,
                 condition: todo!(),
                 eol_colon,
@@ -319,8 +319,8 @@ impl<'a> BlockExprParser<'a> {
 
     fn parse_for_between_particulars(
         &self,
-        lopd: ExprIdx,
-        ropd: ExprIdx,
+        lopd: SynExprIdx,
+        ropd: SynExprIdx,
         comparison_opr: BinaryComparisonOpr,
     ) -> Result<ForBetweenParticulars, StmtError> {
         use OriginalExprError::UnrecognizedIdent;
@@ -381,11 +381,11 @@ impl<'a> BlockExprParser<'a> {
         &mut self,
         token_group_idx: TokenGroupIdx,
         forext_token: ForextToken,
-        expr: ExprIdx,
-        eol_colon: ExprResult<EolToken>,
+        expr: SynExprIdx,
+        eol_colon: SynExprResult<EolToken>,
         body: FugitiveBody,
-    ) -> StmtResult<Stmt> {
-        Ok(Stmt::ForExt {
+    ) -> StmtResult<SynStmt> {
+        Ok(SynStmt::ForExt {
             forext_token,
             expr,
             eol_colon,

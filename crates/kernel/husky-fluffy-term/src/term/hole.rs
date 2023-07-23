@@ -6,12 +6,12 @@ use super::*;
 #[salsa::derive_debug_with_db(db = FluffyTermDb)]
 #[enum_class::from_variants]
 pub enum HoleSource {
-    Expr(ExprIdx),
+    Expr(SynExprIdx),
     Expectation(ExpectationIdx),
 }
 
 impl HoleSource {
-    pub fn expr_idx(self) -> ExprIdx {
+    pub fn expr_idx(self) -> SynExprIdx {
         todo!()
         // self.expr_idx
     }

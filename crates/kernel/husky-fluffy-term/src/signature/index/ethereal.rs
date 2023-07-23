@@ -2,7 +2,7 @@ use super::*;
 
 pub(crate) fn ethereal_owner_ty_index_signature(
     engine: &mut impl FluffyTermEngine,
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
     refined_ty_path: Either<PreludeTypePath, CustomTypePath>,
     owner_ty_arguments: &[EtherealTerm],
     index_ty: FluffyTerm,
@@ -28,7 +28,7 @@ pub(crate) fn ethereal_owner_ty_index_signature(
 /// option means confident or not
 fn common_ethereal_owner_ty_index_signature(
     engine: &mut impl FluffyTermEngine,
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
     prelude_ty_path: PreludeTypePath,
     owner_ty_arguments: &[EtherealTerm],
     index_ty: FluffyTerm,

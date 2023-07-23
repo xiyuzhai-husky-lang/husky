@@ -18,7 +18,7 @@ impl std::ops::Deref for DeclarativeParenicParameters {
 impl DeclarativeParenicParameters {
     pub(crate) fn from_decl(
         parameters: &[SpecificParameterDecl],
-        expr_region_data: &ExprRegionData,
+        expr_region_data: &SynExprRegionData,
         signature_region: &DeclarativeTermRegion,
     ) -> DeclarativeSignatureResult<Self> {
         Ok(Self {

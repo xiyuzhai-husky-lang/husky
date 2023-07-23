@@ -2,11 +2,11 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ReturnTypeExprBeforeColon {
-    expr: ExprIdx,
+    expr: SynExprIdx,
 }
 
 impl ReturnTypeExprBeforeColon {
-    pub fn expr(&self) -> ExprIdx {
+    pub fn expr(&self) -> SynExprIdx {
         self.expr
     }
 }
@@ -16,7 +16,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ReturnTypeEx
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> ExprResult<Option<Self>> {
+    ) -> SynExprResult<Option<Self>> {
         if let Some(expr) = ctx.parse_expr_root(None, ExprRootKind::ReturnType) {
             Ok(Some(ReturnTypeExprBeforeColon { expr }))
         } else {
@@ -27,11 +27,11 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ReturnTypeEx
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ReturnTypeExprBeforeEq {
-    expr: ExprIdx,
+    expr: SynExprIdx,
 }
 
 impl ReturnTypeExprBeforeEq {
-    pub fn expr(&self) -> ExprIdx {
+    pub fn expr(&self) -> SynExprIdx {
         self.expr
     }
 }
@@ -41,7 +41,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for ReturnTypeEx
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> ExprResult<Option<Self>> {
+    ) -> SynExprResult<Option<Self>> {
         if let Some(expr) =
             ctx.parse_expr_root(ExprEnvironment::TypeBeforeEq, ExprRootKind::ReturnType)
         {

@@ -39,7 +39,7 @@ macro_rules! report {
 use report;
 
 pub struct ExprParser<'a> {
-    db: &'a dyn ExprDb,
+    db: &'a dyn SynExprDb,
     path: RegionPath,
     // todo: make this option
     module_path: ModulePath,
@@ -47,16 +47,16 @@ pub struct ExprParser<'a> {
     token_sheet_data: &'a TokenSheetData,
     parent_expr_region: Option<SynExprRegion>,
     symbol_context: SymbolContextMut<'a>,
-    expr_arena: ExprArena,
-    principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
-    pattern_expr_region: PatternExprRegion,
-    stmt_arena: StmtArena,
-    expr_roots: Vec<ExprRoot>,
+    expr_arena: SynExprArena,
+    principal_entity_path_expr_arena: PrincipalEntityPathSynExprArena,
+    pattern_expr_region: PatternSynExprRegion,
+    stmt_arena: SynStmtArena,
+    expr_roots: Vec<SynExprRoot>,
 }
 
 impl<'a> ExprParser<'a> {
     pub fn new(
-        db: &'a dyn ExprDb,
+        db: &'a dyn SynExprDb,
         path: RegionPath,
         token_sheet_data: &'a TokenSheetData,
         module_symbol_context: ModuleSymbolContext<'a>,
@@ -116,7 +116,7 @@ impl<'a> ExprParser<'a> {
         )
     }
 
-    pub(crate) fn pattern_expr_region(&self) -> &PatternExprRegion {
+    pub(crate) fn pattern_expr_region(&self) -> &PatternSynExprRegion {
         &self.pattern_expr_region
     }
 
@@ -166,7 +166,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         }
     }
 
-    pub(crate) fn db(&self) -> &'a dyn ExprDb {
+    pub(crate) fn db(&self) -> &'a dyn SynExprDb {
         self.parser.db
     }
 
@@ -174,7 +174,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &self.token_stream
     }
 
-    pub fn expr_arena(&self) -> &ExprArena {
+    pub fn expr_arena(&self) -> &SynExprArena {
         &self.parser.expr_arena
     }
 
@@ -182,7 +182,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         env: impl Into<Option<ExprEnvironment>>,
         expr_root_kind: ExprRootKind,
-    ) -> Option<ExprIdx> {
+    ) -> Option<SynExprIdx> {
         let env = env.into();
         if let Some(env) = env {
             self.env_stack.set(env);
@@ -213,7 +213,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         &mut self,
         env: Option<ExprEnvironment>,
         err: impl FnOnce(TokenStreamState) -> E,
-    ) -> Result<ExprIdx, E::Error> {
+    ) -> Result<SynExprIdx, E::Error> {
         let state = self.save_state();
         if let Some(env) = env {
             self.env_stack.set(env);
@@ -246,7 +246,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         env: Option<ExprEnvironment>,
         expr_root_kind: ExprRootKind,
         err: impl FnOnce(TokenStreamState) -> OriginalExprError,
-    ) -> ExprIdx {
+    ) -> SynExprIdx {
         let state = self.save_state();
         if let Some(env) = env {
             self.env_stack.set(env);
@@ -278,7 +278,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         expr_idx
     }
 
-    pub(crate) fn pattern_expr_region(&self) -> &PatternExprRegion {
+    pub(crate) fn pattern_expr_region(&self) -> &PatternSynExprRegion {
         self.parser.pattern_expr_region()
     }
 
@@ -300,8 +300,8 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
 
     pub fn parse_pattern_expr(
         &mut self,
-        env: PatternExprInfo,
-    ) -> ExprResult<Option<PatternExprIdx>> {
+        env: PatternSynExprInfo,
+    ) -> SynExprResult<Option<PatternSynExprIdx>> {
         let symbol_modifier_keyword_group = self.try_parse_option()?;
         let ident_token = match symbol_modifier_keyword_group {
             None => match self.try_parse_option::<IdentToken>()? {
@@ -311,7 +311,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             Some(_) => self.try_parse_expected(OriginalExprError::ExpectedIdentAfterModifier)?,
         };
         Ok(Some(self.alloc_pattern_expr(
-            PatternExpr::Ident {
+            PatternSynExpr::Ident {
                 symbol_modifier_keyword_group,
                 ident_token,
             },

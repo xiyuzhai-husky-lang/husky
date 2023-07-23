@@ -38,7 +38,7 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-pub(crate) fn t<'a>(db: &'a DB, input: &str) -> (&'a ExprRegionData, Option<ExprIdx>) {
+pub(crate) fn t<'a>(db: &'a DB, input: &str) -> (&'a SynExprRegionData, Option<SynExprIdx>) {
     let toolchain = db.dev_toolchain().unwrap();
     let path_menu = db.vfs_path_menu(toolchain);
     let snippet = Snippet::new(db, input.to_owned());
@@ -53,7 +53,7 @@ fn parse_expr_works() {
     let db = DB::default();
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -82,7 +82,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -100,7 +100,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -112,7 +112,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 0,
                     },
@@ -127,7 +127,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -163,7 +163,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -181,7 +181,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -193,7 +193,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 1,
                     },
@@ -208,7 +208,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -237,7 +237,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -255,7 +255,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -267,7 +267,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 0,
                     },
@@ -282,7 +282,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -311,7 +311,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -329,7 +329,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -341,7 +341,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 0,
                     },
@@ -356,7 +356,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -382,7 +382,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -400,7 +400,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -412,7 +412,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 0,
                     },
@@ -427,7 +427,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -476,7 +476,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -494,7 +494,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -506,7 +506,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 2,
                     },
@@ -521,7 +521,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -569,7 +569,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -587,7 +587,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -599,7 +599,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 2,
                     },
@@ -614,7 +614,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -640,7 +640,7 @@ fn parse_expr_works() {
                                 0,
                             ),
                             items: [
-                                CommaListItem {
+                                SynCommaListItem {
                                     expr_idx: 0,
                                     comma_token_idx: None,
                                 },
@@ -677,7 +677,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -695,7 +695,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -707,7 +707,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 3,
                     },
@@ -722,7 +722,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -770,7 +770,7 @@ fn parse_expr_works() {
                                 0,
                             ),
                             items: [
-                                CommaListItem {
+                                SynCommaListItem {
                                     expr_idx: 0,
                                     comma_token_idx: Some(
                                         TokenIdx(
@@ -778,7 +778,7 @@ fn parse_expr_works() {
                                         ),
                                     ),
                                 },
-                                CommaListItem {
+                                SynCommaListItem {
                                     expr_idx: 1,
                                     comma_token_idx: None,
                                 },
@@ -795,7 +795,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -813,7 +813,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -825,7 +825,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 2,
                     },
@@ -898,7 +898,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -951,7 +951,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -969,7 +969,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -981,7 +981,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 1,
                     },
@@ -996,7 +996,7 @@ fn parse_expr_works() {
 
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -1057,7 +1057,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -1075,7 +1075,7 @@ fn parse_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -1087,7 +1087,7 @@ fn parse_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 1,
                     },
@@ -1107,7 +1107,7 @@ fn parse_application_expr_works() {
     // this is wrong semantically, but useful for specifying syntactic behavior
     expect_test::expect![[r#"
         (
-            ExprRegionData {
+            SynExprRegionData {
                 parent: None,
                 path: Snippet(
                     ModulePath(
@@ -1164,7 +1164,7 @@ fn parse_application_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: PatternExprRegion {
+                pattern_expr_region: PatternSynExprRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -1182,7 +1182,7 @@ fn parse_application_expr_works() {
                         data: [],
                     },
                 },
-                symbol_region: SymbolRegion {
+                symbol_region: SynSymbolRegion {
                     inherited_symbol_arena: Arena {
                         data: [],
                     },
@@ -1194,7 +1194,7 @@ fn parse_application_expr_works() {
                     pattern_ty_constraints: [],
                 },
                 roots: [
-                    ExprRoot {
+                    SynExprRoot {
                         kind: Snippet,
                         expr_idx: 4,
                     },

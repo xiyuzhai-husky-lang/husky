@@ -3,8 +3,8 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_let_stmt(
         &mut self,
-        let_variable_decls: &ExprResult<LetVariableDecls>,
-        initial_value: ExprIdx,
+        let_variable_decls: &SynExprResult<LetVariableDecls>,
+        initial_value: SynExprIdx,
     ) -> Option<FluffyTerm> {
         let pattern_ty = match let_variable_decls {
             Ok(pattern) => match pattern.ty() {

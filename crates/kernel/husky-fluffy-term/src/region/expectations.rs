@@ -38,12 +38,12 @@ impl Expectations {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct ExpectationSource {
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
     kind: ExpectationSourceKind,
 }
 
 impl ExpectationSource {
-    pub fn new_expr(expr_idx: ExprIdx) -> Self {
+    pub fn new_expr(expr_idx: SynExprIdx) -> Self {
         Self {
             expr_idx,
             kind: ExpectationSourceKind::Expr,
@@ -65,7 +65,7 @@ pub enum ExpectationSourceKind {
 }
 
 impl ExpectationSource {
-    pub fn expr_idx(self) -> ExprIdx {
+    pub fn expr_idx(self) -> SynExprIdx {
         self.expr_idx
     }
 }

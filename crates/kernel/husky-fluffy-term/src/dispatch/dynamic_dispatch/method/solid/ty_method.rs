@@ -4,7 +4,7 @@ impl HasFluffyTypeMethodDispatch for SolidTerm {
     fn ty_method_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         self.ty_method_dispatch_aux(engine, expr_idx, ident_token, smallvec![])
@@ -15,7 +15,7 @@ impl SolidTerm {
     pub(super) fn ty_method_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
         mut indirections: SmallVec<[FluffyDynamicDispatchIndirection; 2]>,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {

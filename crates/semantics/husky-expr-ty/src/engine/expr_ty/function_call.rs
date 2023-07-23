@@ -3,11 +3,11 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_function_application_or_call_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        function: ExprIdx,
+        expr_idx: SynExprIdx,
+        function: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-        implicit_arguments: Option<&ImplicitArgumentList>,
-        items: &[CommaListItem],
+        implicit_arguments: Option<&SynImplicitArgumentList>,
+        items: &[SynCommaListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(outcome) = self.infer_new_expr_ty_for_outcome(
             function,
@@ -66,10 +66,10 @@ impl<'a> ExprTypeEngine<'a> {
 
     pub(super) fn calc_function_call_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        function: ExprIdx,
+        expr_idx: SynExprIdx,
+        function: SynExprIdx,
         final_destination: FinalDestination,
-        implicit_arguments: Option<&ImplicitArgumentList>,
+        implicit_arguments: Option<&SynImplicitArgumentList>,
         items: &[CallListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(outcome) = self.infer_new_expr_ty_for_outcome(

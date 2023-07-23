@@ -3,8 +3,8 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_binary_closed_expr_ty(
         &mut self,
-        lopd: ExprIdx,
-        ropd: ExprIdx,
+        lopd: SynExprIdx,
+        ropd: SynExprIdx,
         opr: BinaryClosedOpr,
         menu: &EtherealTermMenu,
     ) -> Result<FluffyTerm, ExprTypeError> {

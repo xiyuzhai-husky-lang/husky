@@ -5,7 +5,7 @@ pub struct TraitForTypeAssociatedTypeSynNodeDefn {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     pub syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl,
-    pub body: Option<ExprIdx>,
+    pub body: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 

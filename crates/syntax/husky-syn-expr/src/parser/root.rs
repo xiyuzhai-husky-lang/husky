@@ -1,13 +1,13 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ExprRoot {
+pub struct SynExprRoot {
     kind: ExprRootKind,
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
 }
 
-impl ExprRoot {
-    fn new(kind: ExprRootKind, expr_idx: ExprIdx) -> Self {
+impl SynExprRoot {
+    fn new(kind: ExprRootKind, expr_idx: SynExprIdx) -> Self {
         Self { kind, expr_idx }
     }
 
@@ -15,7 +15,7 @@ impl ExprRoot {
         self.kind
     }
 
-    pub fn expr_idx(&self) -> ExprIdx {
+    pub fn expr_idx(&self) -> SynExprIdx {
         self.expr_idx
     }
 }
@@ -30,8 +30,8 @@ pub enum ExprRootKind {
     BlockExpr,
     ReturnExpr,
     Condition,
-    ExplicitParameterDefaultValue { ty_expr_idx: ExprIdx },
-    FieldBindInitialValue { ty_expr_idx: ExprIdx },
+    ExplicitParameterDefaultValue { ty_expr_idx: SynExprIdx },
+    FieldBindInitialValue { ty_expr_idx: SynExprIdx },
     ConstantImplicitParameterType,
     ExplicitParameterType,
     HtmlArgumentExpr,
@@ -45,7 +45,7 @@ pub enum ExprRootKind {
 }
 
 impl<'a> ExprParser<'a> {
-    pub(super) fn add_expr_root(&mut self, kind: ExprRootKind, expr: ExprIdx) {
-        self.expr_roots.push(ExprRoot::new(kind, expr))
+    pub(super) fn add_expr_root(&mut self, kind: ExprRootKind, expr: SynExprIdx) {
+        self.expr_roots.push(SynExprRoot::new(kind, expr))
     }
 }

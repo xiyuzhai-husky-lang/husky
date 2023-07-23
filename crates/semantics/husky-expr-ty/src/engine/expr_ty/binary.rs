@@ -15,10 +15,10 @@ impl<'a> ExprTypeEngine<'a> {
     /// This function will return an error if .
     pub(super) fn calc_binary_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        lopd: ExprIdx,
+        expr_idx: SynExprIdx,
+        lopd: SynExprIdx,
         opr: BinaryOpr,
-        ropd: ExprIdx,
+        ropd: SynExprIdx,
     ) -> ExprTypeResult<FluffyTerm> {
         let menu = self.term_menu;
         match opr {
@@ -45,15 +45,15 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_binary_short_circuit_logic_expr_ty(
         &mut self,
-        lopd: ExprIdx,
-        ropd: ExprIdx,
+        lopd: SynExprIdx,
+        ropd: SynExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         self.infer_new_expr_ty_discarded(lopd, self.expect_argument_ty_bool());
         self.infer_new_expr_ty_discarded(ropd, self.expect_argument_ty_bool());
         Ok(self.term_menu.bool_ty_ontology().into())
     }
 
-    fn calc_ins_expr_ty(&mut self, ropd: ExprIdx) -> Result<FluffyTerm, ExprTypeError> {
+    fn calc_ins_expr_ty(&mut self, ropd: SynExprIdx) -> Result<FluffyTerm, ExprTypeError> {
         let Some(ropd_ty) = self.infer_new_expr_ty(
             ropd,
             ExpectAnyOriginal,
@@ -80,8 +80,8 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_as_expr_ty(
         &mut self,
-        ropd: ExprIdx,
-        lopd: ExprIdx,
+        ropd: SynExprIdx,
+        lopd: SynExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         self.infer_new_expr_ty_discarded(ropd, ExpectEqsCategory::new_any_sort());
         let Some(ropd_term) = self.infer_new_expr_term(ropd,  )
@@ -94,8 +94,8 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_curry_expr_ty(
         &mut self,
-        lopd: ExprIdx,
-        ropd: ExprIdx,
+        lopd: SynExprIdx,
+        ropd: SynExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         let expect_any_sort = ExpectEqsCategory::new_any_sort();
         let Some(lopd_universe) = self.infer_new_expr_ty_for_outcome(lopd, expect_any_sort,  )
@@ -112,9 +112,9 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_binary_assign_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        lopd: ExprIdx,
-        ropd: ExprIdx,
+        expr_idx: SynExprIdx,
+        lopd: SynExprIdx,
+        ropd: SynExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         // self
         //     .fluffy_term_region
@@ -130,10 +130,10 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_binary_assign_closed_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        lopd: ExprIdx,
+        expr_idx: SynExprIdx,
+        lopd: SynExprIdx,
         opr: BinaryClosedOpr,
-        ropd: ExprIdx,
+        ropd: SynExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         // let expr_eval_lifetime = self
         //     .fluffy_term_region
@@ -149,10 +149,10 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_binary_assign_shift_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        lopd: ExprIdx,
+        expr_idx: SynExprIdx,
+        lopd: SynExprIdx,
         opr: BinaryShiftOpr,
-        ropd: ExprIdx,
+        ropd: SynExprIdx,
     ) -> Result<FluffyTerm, ExprTypeError> {
         todo!()
         // let expr_eval_lifetime = self
@@ -167,7 +167,7 @@ impl<'a> ExprTypeEngine<'a> {
         // Ok(self.term_menu.unit().into())
     }
 
-    fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FluffyTerm, ropd: ExprIdx) {
+    fn infer_basic_assign_ropd_ty(&mut self, lopd_ty: FluffyTerm, ropd: SynExprIdx) {
         let ropd_ty = self.infer_new_expr_ty(ropd, ExpectAnyOriginal);
         let Some(ropd_ty) = ropd_ty else { return };
         todo!()
@@ -200,7 +200,7 @@ impl<'a> ExprTypeEngine<'a> {
         &mut self,
         lopd_ty: FluffyTerm,
         opr: BinaryClosedOpr,
-        ropd: ExprIdx,
+        ropd: SynExprIdx,
     ) {
         match opr {
             BinaryClosedOpr::Add => todo!(),

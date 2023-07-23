@@ -5,7 +5,7 @@ pub struct ValSynNodeDefn {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     pub syn_node_decl: ValSynNodeDecl,
-    pub body: Option<ExprIdx>,
+    pub body: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
@@ -39,7 +39,7 @@ pub struct ValSynDefn {
     #[id]
     pub path: FugitivePath,
     pub decl: ValSynDecl,
-    pub body: Option<ExprIdx>,
+    pub body: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 

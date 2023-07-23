@@ -28,7 +28,7 @@ impl MemberSignature for FluffyIndexSignature {
 
 fn list_index_signature(
     engine: &mut impl FluffyTermEngine,
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
     element_ty: FluffyTerm,
     index_ty: FluffyTerm,
 ) -> FluffyTermMaybeResult<FluffyIndexSignature> {

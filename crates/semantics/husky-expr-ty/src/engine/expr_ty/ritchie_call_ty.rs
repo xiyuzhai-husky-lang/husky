@@ -4,7 +4,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_ritchie_arguments_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ritchie_parameters: &[FluffyTermRitchieParameter],
         ritchie_arguments: impl Iterator<Item = CallListItem> + Clone,
     ) {

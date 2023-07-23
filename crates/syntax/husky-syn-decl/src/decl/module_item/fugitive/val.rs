@@ -11,7 +11,7 @@ pub struct ValSynNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeEq>>,
     #[return_ref]
     pub eq_token: NodeDeclResult<EqToken>,
-    pub expr: Option<ExprIdx>,
+    pub expr: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
@@ -69,7 +69,7 @@ pub struct ValSynDecl {
     #[id]
     pub path: FugitivePath,
     pub return_ty: Option<ReturnTypeExprBeforeEq>,
-    pub expr: Option<ExprIdx>,
+    pub expr: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 

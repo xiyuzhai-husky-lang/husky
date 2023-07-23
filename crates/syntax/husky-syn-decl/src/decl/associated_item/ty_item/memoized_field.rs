@@ -10,7 +10,7 @@ pub struct TypeMemoizedFieldSynNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeEq>>,
     #[return_ref]
     pub eq_token: NodeDeclResult<EqToken>,
-    pub expr: Option<ExprIdx>,
+    pub expr: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
@@ -71,7 +71,7 @@ pub struct TypeMemoizedFieldSynDecl {
     #[id]
     pub path: TypeItemPath,
     pub return_ty: Option<ReturnTypeExprBeforeEq>,
-    pub expr: Option<ExprIdx>,
+    pub expr: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 

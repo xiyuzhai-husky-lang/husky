@@ -26,7 +26,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
     fn trai_method_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         self.trai_method_dispatch_aux(
@@ -42,7 +42,7 @@ pub trait HasFluffyTraitMethodDispatch: Copy {
     fn trai_method_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch>;
@@ -52,7 +52,7 @@ pub trait HasFluffyTypeMethodDispatch: Copy {
     fn ty_method_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch>;
 }
@@ -70,7 +70,7 @@ pub trait HasFluffyMethodDispatch:
     fn method_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         if let Some(dispatch) = self
@@ -87,7 +87,7 @@ impl HasFluffyTypeMethodDispatch for FluffyTerm {
     fn ty_method_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         match self.nested() {
@@ -108,7 +108,7 @@ impl HasFluffyTraitMethodDispatch for FluffyTerm {
     fn trai_method_dispatch_aux(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
         trai_item_records: TraitInUseItemsWithGivenIdent,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {

@@ -3,9 +3,9 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_prefix_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         opr: PrefixOpr,
-        opd: ExprIdx,
+        opd: SynExprIdx,
         final_destination: FinalDestination,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match opr {
@@ -132,7 +132,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_bitnot_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
+    fn calc_bitnot_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
         let Some(ty) = self.infer_new_expr_ty(
             opd,
             self.expect_ty0_subtype(),

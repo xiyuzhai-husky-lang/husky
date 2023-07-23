@@ -2,7 +2,7 @@ use super::*;
 use husky_expr_ty::{ExprTermError, ExprTypeError, OriginalExprTermError, OriginalExprTypeError};
 use husky_fluffy_term::*;
 use husky_syn_defn::HasDefns;
-use husky_syn_expr::{ExprIdx, SynExprRegion};
+use husky_syn_expr::{SynExprIdx, SynExprRegion};
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
@@ -79,7 +79,7 @@ fn collect_expr_ty_diagnostics(
     }
 }
 
-impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
+impl Diagnose for (SynExprIdx, &'_ OriginalExprTermError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, _db: &RegionDiagnosticsContext) -> String {
@@ -97,7 +97,7 @@ impl Diagnose for (ExprIdx, &'_ OriginalExprTermError) {
     }
 }
 
-impl Diagnose for (ExprIdx, &'_ OriginalExprTypeError) {
+impl Diagnose for (SynExprIdx, &'_ OriginalExprTypeError) {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {

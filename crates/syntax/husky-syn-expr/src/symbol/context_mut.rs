@@ -4,19 +4,19 @@ use super::*;
 
 pub struct SymbolContextMut<'a> {
     module_symbol_context: ModuleSymbolContext<'a>,
-    symbol_region: SymbolRegion,
+    symbol_region: SynSymbolRegion,
 }
 
 impl<'a> SymbolContextMut<'a> {
     pub fn new(
         module_symbol_context: ModuleSymbolContext<'a>,
-        parent_symbol_region: Option<&SymbolRegion>,
+        parent_symbol_region: Option<&SynSymbolRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
         Self {
             module_symbol_context,
-            symbol_region: SymbolRegion::new(
+            symbol_region: SynSymbolRegion::new(
                 parent_symbol_region,
                 allow_self_type,
                 allow_self_value,
@@ -26,7 +26,7 @@ impl<'a> SymbolContextMut<'a> {
 
     pub(crate) fn resolve_ident(
         &self,
-        db: &dyn ExprDb,
+        db: &dyn SynExprDb,
         reference_module_path: ModulePath,
         token_idx: TokenIdx,
         ident: Ident,
@@ -43,18 +43,18 @@ impl<'a> SymbolContextMut<'a> {
 
     pub(crate) fn into_expr_region(
         self,
-        db: &dyn ExprDb,
+        db: &dyn SynExprDb,
         parent: Option<SynExprRegion>,
         path: RegionPath,
-        expr_arena: ExprArena,
-        principal_entity_path_expr_arena: PrincipalEntityPathExprArena,
-        pattern_expr_region: PatternExprRegion,
-        stmt_arena: StmtArena,
-        roots: Vec<ExprRoot>,
+        expr_arena: SynExprArena,
+        principal_entity_path_expr_arena: PrincipalEntityPathSynExprArena,
+        pattern_expr_region: PatternSynExprRegion,
+        stmt_arena: SynStmtArena,
+        roots: Vec<SynExprRoot>,
     ) -> SynExprRegion {
         SynExprRegion::new(
             db,
-            ExprRegionData::new(
+            SynExprRegionData::new(
                 parent,
                 path,
                 expr_arena,
@@ -83,7 +83,7 @@ impl<'a> SymbolContextMut<'a> {
         self.symbol_region.define_symbols(variables, ty_constraint)
     }
 
-    pub(crate) fn symbol_region(&self) -> &SymbolRegion {
+    pub(crate) fn symbol_region(&self) -> &SynSymbolRegion {
         &self.symbol_region
     }
 }

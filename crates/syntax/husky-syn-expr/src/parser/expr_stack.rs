@@ -52,7 +52,7 @@ impl ExprStack {
 }
 
 impl SynExpr {
-    pub fn base_entity_path(&self, db: &dyn ExprDb, arena: &ExprArena) -> BaseEntityPath {
+    pub fn base_entity_path(&self, db: &dyn SynExprDb, arena: &SynExprArena) -> BaseEntityPath {
         match self {
             SynExpr::Literal(_, _) => BaseEntityPath::None,
             SynExpr::PrincipalEntityPath { opt_path: path, .. } => match *path {
@@ -527,7 +527,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         self.push_top_expr(top_expr)
     }
 
-    pub(super) fn finish_batch(&mut self) -> Option<ExprIdx> {
+    pub(super) fn finish_batch(&mut self) -> Option<SynExprIdx> {
         assert!(self.stack.incomplete_exprs.len() == 0);
         std::mem::take(&mut self.stack.complete_expr).map(|expr| self.parser.alloc_expr(expr))
     }
