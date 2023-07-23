@@ -13,7 +13,7 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
-pub enum FugitiveDefn {
+pub enum FugitiveHirDefn {
     Fn(FnHirDefn),
     // Function(FunctionDefn),
     Val(ValHirDefn),
@@ -21,12 +21,12 @@ pub enum FugitiveDefn {
     // AliasType(TypeAliasDefn)
 }
 
-impl FugitiveDefn {
-    pub fn decl(self, db: &dyn HirDefnDb) -> FugitiveDecl {
+impl FugitiveHirDefn {
+    pub fn decl(self, db: &dyn HirDefnDb) -> FugitiveHirDecl {
         match self {
-            FugitiveDefn::Fn(defn) => defn.decl(db).into(),
-            FugitiveDefn::Val(defn) => defn.decl(db).into(),
-            FugitiveDefn::Gn(defn) => defn.decl(db).into(),
+            FugitiveHirDefn::Fn(defn) => defn.decl(db).into(),
+            FugitiveHirDefn::Val(defn) => defn.decl(db).into(),
+            FugitiveHirDefn::Gn(defn) => defn.decl(db).into(),
         }
     }
 
@@ -38,11 +38,11 @@ impl FugitiveDefn {
         //     FugitiveDefn::Gn(defn) => defn.path(db),
         // }
     }
-    pub fn expr_region(self, db: &dyn HirDefnDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> HirExprRegion {
         match self {
-            FugitiveDefn::Fn(defn) => defn.expr_region(db),
-            FugitiveDefn::Val(defn) => defn.expr_region(db),
-            FugitiveDefn::Gn(defn) => defn.expr_region(db),
+            FugitiveHirDefn::Fn(defn) => defn.expr_region(db),
+            FugitiveHirDefn::Val(defn) => defn.expr_region(db),
+            FugitiveHirDefn::Gn(defn) => defn.expr_region(db),
         }
     }
 }

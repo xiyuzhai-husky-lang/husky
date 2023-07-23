@@ -11,15 +11,16 @@ pub struct FnHirDefn {
 
 impl FnHirDefn {
     pub(super) fn new(db: &dyn HirDefnDb, path: FugitivePath, decl: FnHirDecl) -> Self {
-        let FugitiveHirNodeDefn::Fn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
-            unreachable!()
-        };
-        FnHirDefn::new_inner(
-            db,
-            path,
-            decl,
-            syn_node_defn.body(db),
-            syn_node_defn.expr_region(db),
-        )
+        todo!()
+        // let FugitiveHirNodeDefn::Fn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
+        //     unreachable!()
+        // };
+        // FnHirDefn::new_inner(
+        //     db,
+        //     path,
+        //     decl,
+        //     syn_node_defn.body(db),
+        //     syn_node_defn.expr_region(db),
+        // )
     }
 }

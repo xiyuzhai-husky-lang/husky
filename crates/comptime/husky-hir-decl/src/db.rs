@@ -18,10 +18,14 @@ pub struct HirDeclJar(
     TypeAssociatedTypeHirDecl,
     // - trait items
     TraitAssociatedFnHirDecl,
+    TraitAssociatedTypeHirDecl,
+    TraitAssociatedValHirDecl,
     TraitMethodFnHirDecl,
     // - trait for type
     trai_for_ty_item_hir_decl,
+    TraitForTypeAssociatedFnHirDecl,
     TraitForTypeAssociatedTypeHirDecl,
+    TraitForTypeAssociatedValHirDecl,
     TraitForTypeMethodFnHirDecl,
     // ty
     ty_hir_decl,

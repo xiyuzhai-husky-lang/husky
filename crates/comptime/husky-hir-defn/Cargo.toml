@@ -14,5 +14,6 @@ husky-hir-expr = { path = "../../comptime/husky-hir-expr" }
 husky-hir-decl = { path = "../../comptime/husky-hir-decl" }
 # kernel
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-ethereal-term = {path = "../../kernel/husky-ethereal-term" }
 # syntax
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }

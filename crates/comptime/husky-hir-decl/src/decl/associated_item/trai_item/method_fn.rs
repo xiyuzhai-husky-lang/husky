@@ -6,4 +6,5 @@ pub struct TraitMethodFnHirDecl {
     pub generic_parameters: EtherealGenericParameters,
     /// `Self` as generic parameter
     pub self_ty_generic_parameter: EtherealGenericParameter,
+    pub hir_expr_region: HirExprRegion,
 }

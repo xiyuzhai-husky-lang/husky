@@ -1,7 +1,9 @@
 pub mod db;
 mod region;
+mod source_map;
 
 pub use self::region::*;
+pub use self::source_map::*;
 
 use self::db::*;
 

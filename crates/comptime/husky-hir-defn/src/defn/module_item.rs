@@ -29,7 +29,7 @@ impl ModuleItemHirDefn {
     pub fn expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
             ModuleItemHirDefn::Type(_) | ModuleItemHirDefn::Trait(_) => None,
-            ModuleItemHirDefn::Fugitive(defn) => Some(defn.expr_region(db)),
+            ModuleItemHirDefn::Fugitive(defn) => Some(defn.hir_expr_region(db)),
         }
     }
 }

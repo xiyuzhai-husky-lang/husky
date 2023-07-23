@@ -6,4 +6,5 @@ pub struct TypeImplBlockHirDecl {
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,
     pub self_ty: EtherealTerm,
+    pub hir_expr_region: HirExprRegion,
 }

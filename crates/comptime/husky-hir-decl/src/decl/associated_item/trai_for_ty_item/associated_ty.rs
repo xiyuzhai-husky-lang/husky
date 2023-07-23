@@ -6,4 +6,5 @@ pub struct TraitForTypeAssociatedTypeHirDecl {
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,
     pub ty_term: EtherealTerm,
+    pub hir_expr_region: HirExprRegion,
 }
