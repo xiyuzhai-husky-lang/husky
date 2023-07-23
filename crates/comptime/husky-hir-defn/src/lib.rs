@@ -1,5 +1,11 @@
 mod db;
 mod defn;
+#[cfg(test)]
+mod tests;
 
 pub use self::db::*;
 pub use self::defn::*;
+
+use husky_entity_path::*;
+use husky_hir_decl::*;
+use husky_hir_expr::*;

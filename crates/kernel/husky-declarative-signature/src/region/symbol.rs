@@ -38,7 +38,7 @@ impl SymbolDeclarativeTermRegion {
     pub(crate) fn add_new_implicit_parameter_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        idx: CurrentSymbolIdx,
+        idx: CurrentSynSymbolIdx,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
         let symbol = self.registry.new_symbol(db, ty);
@@ -57,7 +57,7 @@ impl SymbolDeclarativeTermRegion {
     pub(crate) fn add_new_parenic_parameter_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        current_symbol: CurrentSymbolIdx,
+        current_symbol: CurrentSynSymbolIdx,
         modifier: SymbolModifier,
         ty: DeclarativeTermSymbolTypeResult<DeclarativeTerm>,
     ) {
@@ -80,7 +80,7 @@ impl SymbolDeclarativeTermRegion {
     fn add_new_current_symbol_signature(
         &mut self,
         db: &dyn DeclarativeSignatureDb,
-        idx: CurrentSymbolIdx,
+        idx: CurrentSynSymbolIdx,
         signature: SymbolSignature,
     ) {
         self.symbol_signatures.insert_next(idx, signature)
@@ -226,7 +226,7 @@ impl SymbolDeclarativeTermRegion {
 
     pub fn current_symbol_signature(
         &self,
-        current_symbol_idx: CurrentSymbolIdx,
+        current_symbol_idx: CurrentSynSymbolIdx,
     ) -> Option<SymbolSignature> {
         self.symbol_signatures
             .current_symbol_map()

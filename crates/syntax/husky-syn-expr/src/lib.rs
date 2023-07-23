@@ -100,13 +100,13 @@ pub enum SynExpr {
     CurrentSymbol {
         ident: Ident,
         token_idx: TokenIdx,
-        current_symbol_idx: CurrentSymbolIdx,
+        current_symbol_idx: CurrentSynSymbolIdx,
         current_symbol_kind: CurrentSymbolKind,
     },
     FrameVarDecl {
         token_idx: TokenIdx,
         ident: Ident,
-        frame_var_symbol_idx: CurrentSymbolIdx,
+        frame_var_symbol_idx: CurrentSynSymbolIdx,
         current_symbol_kind: CurrentSymbolKind,
     },
     SelfType(TokenIdx),

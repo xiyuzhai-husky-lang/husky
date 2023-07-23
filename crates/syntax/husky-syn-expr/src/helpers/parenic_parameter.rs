@@ -45,7 +45,7 @@ pub enum SpecificParameterDecl {
         variadic_variant: VariadicVariant,
         symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
         ident_token: IdentToken,
-        variable: CurrentSymbolIdx,
+        variable: CurrentSynSymbolIdx,
         colon: ColonToken,
         ty: SynExprIdx,
     },
@@ -53,7 +53,7 @@ pub enum SpecificParameterDecl {
         pattern: PatternSynExprIdx,
         symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
         ident_token: IdentToken,
-        variable: CurrentSymbolIdx,
+        variable: CurrentSynSymbolIdx,
         colon: ColonToken,
         ty: SynExprIdx,
         eq_token: EqToken,
@@ -76,7 +76,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
             let variables = symbols
                 .iter()
                 .map(|(ident, pattern_symbol_idx)| {
-                    CurrentSymbol::new(
+                    CurrentSynSymbol::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
@@ -142,7 +142,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
                 ctx.try_parse_option::<SymbolModifierKeywordGroup>()?;
             let ident_token =
                 ctx.try_parse_expected::<IdentToken, _>(OriginalExprError::ExpectedIdent)?;
-            let variable = CurrentSymbol::new(
+            let variable = CurrentSynSymbol::new(
                 ctx.pattern_expr_region(),
                 access_start,
                 None,

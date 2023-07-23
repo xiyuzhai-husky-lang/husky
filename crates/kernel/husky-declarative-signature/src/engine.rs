@@ -161,7 +161,7 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn infer_current_symbol_signature_in_parenic_parameter(
         &mut self,
-        current_symbol_idx: CurrentSymbolIdx,
+        current_symbol_idx: CurrentSynSymbolIdx,
     ) {
         let current_symbol = &self.expr_region_data.symbol_region()[current_symbol_idx];
         match current_symbol.variant() {
@@ -524,7 +524,10 @@ impl<'a> DeclarativeTermEngine<'a> {
         }
     }
 
-    pub(crate) fn current_symbol_term(&self, symbol: CurrentSymbolIdx) -> Option<SymbolSignature> {
+    pub(crate) fn current_symbol_term(
+        &self,
+        symbol: CurrentSynSymbolIdx,
+    ) -> Option<SymbolSignature> {
         self.symbol_declarative_term_region
             .current_symbol_signature(symbol)
     }
