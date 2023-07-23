@@ -9,3 +9,4 @@ pub use self::defn::*;
 use husky_entity_path::*;
 use husky_hir_decl::*;
 use husky_hir_expr::*;
+use husky_syn_defn::*;

@@ -150,10 +150,10 @@ pub struct TraitForTypeImplBlockSynDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl HasDecl for TraitForTypeImplBlockPath {
+impl HasSynDecl for TraitForTypeImplBlockPath {
     type Decl = TraitForTypeImplBlockSynDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         trai_for_ty_impl_block_syn_decl(db, self)
     }
 }

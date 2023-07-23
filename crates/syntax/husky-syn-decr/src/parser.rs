@@ -4,7 +4,7 @@ use husky_ast::{AstSheet, DecrId, DecrParent};
 use husky_entity_tree::{
     EntitySynTreeCrateBundle, EntitySynTreeResult, EntitySynTreeSheet, ModuleSymbolContext,
 };
-use husky_syn_decl::HasDecl;
+use husky_syn_decl::HasSynDecl;
 use husky_vfs::ModulePath;
 
 pub(crate) struct DecrParserFactory<'a> {
@@ -33,7 +33,7 @@ impl<'a> DecrParserFactory<'a> {
     ) -> ExprParser<'a> {
         let parent_expr_region = match decr_id.parent() {
             DecrParent::Defn(path) => path
-                .decl(self.db)
+                .syn_decl(self.db)
                 .ok()
                 .map(|decl| decl.expr_region(self.db))
                 .flatten(),

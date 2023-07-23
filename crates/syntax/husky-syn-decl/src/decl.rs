@@ -133,22 +133,22 @@ impl HasNodeDecl for EntitySynNodePath {
     }
 }
 
-pub trait HasDecl: Copy {
+pub trait HasSynDecl: Copy {
     type Decl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl>;
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl>;
 }
 
-impl HasDecl for EntityPath {
+impl HasSynDecl for EntityPath {
     type Decl = Decl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         match self {
-            EntityPath::Module(path) => path.decl(db).map(Into::into),
-            EntityPath::ModuleItem(path) => path.decl(db).map(Into::into),
-            EntityPath::AssociatedItem(path) => path.decl(db).map(Into::into),
-            EntityPath::TypeVariant(path) => path.decl(db).map(Into::into),
-            EntityPath::ImplBlock(path) => path.decl(db).map(Into::into),
+            EntityPath::Module(path) => path.syn_decl(db).map(Into::into),
+            EntityPath::ModuleItem(path) => path.syn_decl(db).map(Into::into),
+            EntityPath::AssociatedItem(path) => path.syn_decl(db).map(Into::into),
+            EntityPath::TypeVariant(path) => path.syn_decl(db).map(Into::into),
+            EntityPath::ImplBlock(path) => path.syn_decl(db).map(Into::into),
         }
     }
 }

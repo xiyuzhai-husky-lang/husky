@@ -150,7 +150,7 @@ pub(crate) fn ty_item_syn_defn(
     db: &dyn SynDefnDb,
     path: TypeItemPath,
 ) -> SynDefnResult<TypeItemSynDefn> {
-    let decl = path.decl(db)?;
+    let decl = path.syn_decl(db)?;
     Ok(match decl {
         TypeItemDecl::AssociatedFn(decl) => TypeAssociatedFnSynDefn::new(db, path, decl)?.into(),
         TypeItemDecl::MethodFn(decl) => TypeMethodFnSynDefn::new(db, path, decl)?.into(),

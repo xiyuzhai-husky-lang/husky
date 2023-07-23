@@ -116,10 +116,10 @@ impl TraitItemDecl {
     }
 }
 
-impl HasDecl for TraitItemPath {
+impl HasSynDecl for TraitItemPath {
     type Decl = TraitItemDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         todo!()
     }
 }

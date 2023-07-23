@@ -170,10 +170,10 @@ impl FugitiveDecl {
     }
 }
 
-impl HasDecl for FugitivePath {
+impl HasSynDecl for FugitivePath {
     type Decl = FugitiveDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         fugitive_syn_decl(db, self)
     }
 }

@@ -41,6 +41,6 @@ impl HasSynDefn for TraitPath {
 
 #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn trai_syn_defn(db: &dyn SynDefnDb, path: TraitPath) -> SynDefnResult<TraitSynDefn> {
-    let decl = path.decl(db)?;
+    let decl = path.syn_decl(db)?;
     Ok(TraitSynDefn::new(db, path, decl))
 }

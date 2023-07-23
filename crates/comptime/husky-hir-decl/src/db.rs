@@ -7,6 +7,7 @@ impl<Db> HirDeclDb for Db where Db: salsa::DbWithJar<HirDeclJar> + HirExprDb {}
 
 #[salsa::jar(db = HirDeclDb)]
 pub struct HirDeclJar(
+    SubmoduleHirDecl,
     // associated_items
     // - type items
     ty_item_hir_decl,
@@ -30,6 +31,13 @@ pub struct HirDeclJar(
     TupleStructHirDecl,
     UnionHirDecl,
     UnitStructHirDecl,
+    // trai
+    TraitHirDecl,
+    // fugitive
+    FnHirDecl,
+    GnHirDecl,
+    TypeAliasHirDecl,
+    ValHirDecl,
     // ty variant
     ty_variant_hir_decl,
     EnumTupleTypeVariantHirDecl,

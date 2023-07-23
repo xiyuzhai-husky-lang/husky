@@ -118,10 +118,10 @@ impl AssociatedItemSynDecl {
     }
 }
 
-impl HasDecl for AssociatedItemPath {
+impl HasSynDecl for AssociatedItemPath {
     type Decl = AssociatedItemSynDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         todo!()
         // associated_item_syn_decl(db, self).as_ref().copied()
     }

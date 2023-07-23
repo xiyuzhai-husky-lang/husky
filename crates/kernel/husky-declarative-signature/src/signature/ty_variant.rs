@@ -49,25 +49,27 @@ pub(crate) fn ty_variant_syn_declarative_signature_template(
 ) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {
     Ok(
         match path.parent_ty_path(db).declarative_signature_template(db)? {
-            TypeDeclarativeSignatureTemplate::Enum(parent_ty_template) => match path.decl(db)? {
-                TypeVariantDecl::Props(_) => todo!(),
-                TypeVariantDecl::Unit(decl) => {
-                    EnumUnitTypeVariantDeclarativeSignatureTemplate::from_decl(
-                        db,
-                        parent_ty_template,
-                        decl,
-                    )?
-                    .into()
+            TypeDeclarativeSignatureTemplate::Enum(parent_ty_template) => {
+                match path.syn_decl(db)? {
+                    TypeVariantDecl::Props(_) => todo!(),
+                    TypeVariantDecl::Unit(decl) => {
+                        EnumUnitTypeVariantDeclarativeSignatureTemplate::from_decl(
+                            db,
+                            parent_ty_template,
+                            decl,
+                        )?
+                        .into()
+                    }
+                    TypeVariantDecl::Tuple(decl) => {
+                        EnumTupleTypeVariantDeclarativeSignatureTemplate::from_decl(
+                            db,
+                            parent_ty_template,
+                            decl,
+                        )?
+                        .into()
+                    }
                 }
-                TypeVariantDecl::Tuple(decl) => {
-                    EnumTupleTypeVariantDeclarativeSignatureTemplate::from_decl(
-                        db,
-                        parent_ty_template,
-                        decl,
-                    )?
-                    .into()
-                }
-            },
+            }
             TypeDeclarativeSignatureTemplate::Inductive(_) => todo!(),
             _ => todo!(),
         },

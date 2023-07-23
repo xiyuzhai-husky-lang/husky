@@ -10,7 +10,7 @@ pub use self::method_function::*;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum TraitItemHirDecl {
     AssociatedFn(TraitAssociatedFnHirDecl),

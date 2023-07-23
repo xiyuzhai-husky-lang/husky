@@ -102,13 +102,13 @@ impl ImplBlockSynDecl {
     }
 }
 
-impl HasDecl for ImplBlockPath {
+impl HasSynDecl for ImplBlockPath {
     type Decl = ImplBlockSynDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         match self {
-            ImplBlockPath::TypeImplBlock(path) => path.decl(db).map(Into::into),
-            ImplBlockPath::TraitForTypeImplBlock(path) => path.decl(db).map(Into::into),
+            ImplBlockPath::TypeImplBlock(path) => path.syn_decl(db).map(Into::into),
+            ImplBlockPath::TraitForTypeImplBlock(path) => path.syn_decl(db).map(Into::into),
         }
     }
 }

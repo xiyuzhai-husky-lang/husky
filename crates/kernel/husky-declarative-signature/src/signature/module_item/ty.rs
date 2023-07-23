@@ -85,7 +85,7 @@ pub(crate) fn ty_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: TypePath,
 ) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate> {
-    let decl = path.decl(db)?;
+    let decl = path.syn_decl(db)?;
     Ok(match decl {
         TypeDecl::Enum(decl) => EnumDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into(),
         TypeDecl::PropsStruct(decl) => {

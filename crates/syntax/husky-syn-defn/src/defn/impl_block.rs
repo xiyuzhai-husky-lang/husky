@@ -12,6 +12,6 @@ impl HasSynDefn for ImplBlockPath {
     type SynDefn = ImplBlockSynDecl;
 
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
-        Ok(self.decl(db)?)
+        Ok(self.syn_decl(db)?)
     }
 }

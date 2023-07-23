@@ -36,7 +36,7 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
     db: &dyn DeclarativeSignatureDb,
     path: TraitForTypeItemPath,
 ) -> DeclarativeSignatureResult<TraitForTypeItemDeclarativeSignatureTemplate> {
-    let decl = path.decl(db)?;
+    let decl = path.syn_decl(db)?;
     match decl {
         TraitForTypeItemDecl::AssociatedFn(decl) => {
             trai_for_ty_associated_fn_declarative_signature_template(db, decl).map(Into::into)

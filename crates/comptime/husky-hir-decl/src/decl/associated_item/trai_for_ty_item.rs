@@ -12,7 +12,7 @@ pub use self::method_function::*;
 
 use super::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemHirDecl {
     AssociatedType(TraitForTypeAssociatedTypeHirDecl),

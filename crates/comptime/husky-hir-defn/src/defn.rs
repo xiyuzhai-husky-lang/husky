@@ -66,25 +66,25 @@ impl HirDefn {
 pub trait HasHirDefn: Copy {
     type HirDefn;
 
-    fn syn_defn(self, db: &dyn HirDefnDb) -> HirDefnResult<Self::HirDefn>;
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn;
 }
 
 impl HasHirDefn for EntityPath {
     type HirDefn = HirDefn;
 
-    fn syn_defn(self, db: &dyn HirDefnDb) -> HirDefnResult<Self::HirDefn> {
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
         Ok(match self {
-            EntityPath::Module(path) => path.syn_defn(db)?.into(),
-            EntityPath::ModuleItem(path) => path.syn_defn(db)?.into(),
-            EntityPath::ImplBlock(path) => path.syn_defn(db)?.into(),
-            EntityPath::AssociatedItem(path) => path.syn_defn(db)?.into(),
+            EntityPath::Module(path) => path.hir_defn(db)?.into(),
+            EntityPath::ModuleItem(path) => path.hir_defn(db)?.into(),
+            EntityPath::ImplBlock(path) => path.hir_defn(db)?.into(),
+            EntityPath::AssociatedItem(path) => path.hir_defn(db)?.into(),
             EntityPath::TypeVariant(_) => todo!(),
         })
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar, return_ref)]
-pub(crate) fn module_syn_defns(
+pub(crate) fn module_hir_defns(
     db: &dyn HirDefnDb,
     module_path: ModulePath,
 ) -> EntityHirTreeResult<Vec<HirDefn>> {
@@ -92,7 +92,7 @@ pub(crate) fn module_syn_defns(
         .as_ref()?
         .iter()
         .copied()
-        .filter_map(|path| path.syn_defn(db).ok())
+        .filter_map(|path| path.hir_defn(db).ok())
         .collect())
 }
 
@@ -101,7 +101,7 @@ fn module_defns_works() {
     use tests::*;
 
     DB::default()
-        .ast_expect_test_debug_with_db("module_syn_defns", |db, module_path: ModulePath| {
+        .ast_expect_test_debug_with_db("module_hir_defns", |db, module_path: ModulePath| {
             module_path.defns(db)
         });
 }

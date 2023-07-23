@@ -10,7 +10,7 @@ pub struct TraitHirDefn {
 impl HasHirDefn for TraitPath {
     type HirDefn = TraitHirDefn;
 
-    fn syn_defn(self, db: &dyn HirDefnDb) -> HirDefnResult<Self::HirDefn> {
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
         trai_syn_defn(db, self)
     }
 }

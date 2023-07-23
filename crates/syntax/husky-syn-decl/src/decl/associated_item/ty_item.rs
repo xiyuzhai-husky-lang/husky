@@ -234,10 +234,10 @@ pub enum TypeItemDecls {
     MemoizedField(SmallVecImpl<TypeMemoizedFieldSynDecl>),
 }
 
-impl HasDecl for TypeItemPath {
+impl HasSynDecl for TypeItemPath {
     type Decl = TypeItemDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         ty_item_syn_decl(db, self)
     }
 }

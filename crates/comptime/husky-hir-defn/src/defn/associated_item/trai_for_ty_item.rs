@@ -47,7 +47,7 @@ impl TraitForTypeItemHirDefn {
 impl HasHirDefn for TraitForTypeItemPath {
     type HirDefn = TraitForTypeItemHirDefn;
 
-    fn syn_defn(self, db: &dyn HirDefnDb) -> HirDefnResult<Self::HirDefn> {
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
         trai_for_ty_item_syn_defn(db, self)
     }
 }
