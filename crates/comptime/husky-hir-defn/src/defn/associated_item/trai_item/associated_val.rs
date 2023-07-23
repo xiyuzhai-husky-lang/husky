@@ -4,6 +4,6 @@ use super::*;
 pub struct TraitAssociatedValHirDefn {
     #[id]
     pub syn_node_path: TraitItemPath,
-    pub decl: TraitAssociatedValHirDecl,
-    pub expr_region: HirExprRegion,
+    pub hir_decl: TraitAssociatedValHirDecl,
+    pub hir_expr_region: HirExprRegion,
 }

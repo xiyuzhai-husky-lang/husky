@@ -4,16 +4,16 @@ use super::*;
 pub struct TypeMemoizedFieldHirDefn {
     #[id]
     pub path: TypeItemPath,
-    pub decl: TypeMemoizedFieldHirDecl,
+    pub hir_decl: TypeMemoizedFieldHirDecl,
     pub body: Option<HirExprIdx>,
-    pub expr_region: HirExprRegion,
+    pub hir_expr_region: HirExprRegion,
 }
 
 impl TypeMemoizedFieldHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
         path: TypeItemPath,
-        decl: TypeMemoizedFieldHirDecl,
+        hir_decl: TypeMemoizedFieldHirDecl,
     ) -> TypeMemoizedFieldHirDefn {
         todo!()
         // let TypeItemHirNodeDefn::MemoizedField(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
@@ -22,9 +22,9 @@ impl TypeMemoizedFieldHirDefn {
         // TypeMemoizedFieldHirDefn::new_inner(
         //     db,
         //     path,
-        //     decl,
+        //     hir_decl,
         //     syn_node_defn.body(db),
-        //     syn_node_defn.expr_region(db),
+        //     syn_node_defn.hir_expr_region(db),
         // )
     }
 }

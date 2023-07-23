@@ -4,16 +4,16 @@ use super::*;
 pub struct TraitForTypeMethodFnHirDefn {
     #[id]
     pub path: TraitForTypeItemPath,
-    pub decl: TraitForTypeMethodFnHirDecl,
+    pub hir_decl: TraitForTypeMethodFnHirDecl,
     pub body: Option<HirExprIdx>,
-    pub expr_region: HirExprRegion,
+    pub hir_expr_region: HirExprRegion,
 }
 
 impl TraitForTypeMethodFnHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
         path: TraitForTypeItemPath,
-        decl: TraitForTypeMethodFnHirDecl,
+        hir_decl: TraitForTypeMethodFnHirDecl,
     ) -> TraitForTypeMethodFnHirDefn {
         todo!()
         // let TraitForTypeItemSynDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
@@ -22,9 +22,9 @@ impl TraitForTypeMethodFnHirDefn {
         // TraitForTypeMethodFnHirDefn::new_inner(
         //     db,
         //     path,
-        //     decl,
+        //     hir_decl,
         //     syn_node_defn.body(db),
-        //     syn_node_defn.expr_region(db),
+        //     syn_node_defn.hir_expr_region(db),
         // )
     }
 }

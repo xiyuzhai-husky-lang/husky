@@ -18,18 +18,18 @@ pub enum ModuleItemHirDefn {
 }
 
 impl ModuleItemHirDefn {
-    pub fn decl(self, db: &dyn HirDefnDb) -> ModuleItemHirDecl {
+    pub fn hir_decl(self, db: &dyn HirDefnDb) -> ModuleItemHirDecl {
         match self {
-            ModuleItemHirDefn::Type(defn) => defn.decl(db).into(),
-            ModuleItemHirDefn::Trait(defn) => defn.decl(db).into(),
-            ModuleItemHirDefn::Fugitive(defn) => defn.decl(db).into(),
+            ModuleItemHirDefn::Type(hir_defn) => hir_defn.hir_decl(db).into(),
+            ModuleItemHirDefn::Trait(hir_defn) => hir_defn.hir_decl(db).into(),
+            ModuleItemHirDefn::Fugitive(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
-    pub fn expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
             ModuleItemHirDefn::Type(_) | ModuleItemHirDefn::Trait(_) => None,
-            ModuleItemHirDefn::Fugitive(defn) => Some(defn.hir_expr_region(db)),
+            ModuleItemHirDefn::Fugitive(hir_defn) => Some(hir_defn.hir_expr_region(db)),
         }
     }
 }

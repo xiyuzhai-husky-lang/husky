@@ -18,19 +18,19 @@ pub enum AssociatedItemHirDefn {
 }
 
 impl AssociatedItemHirDefn {
-    pub fn decl(self, db: &dyn HirDefnDb) -> AssociatedItemHirDecl {
+    pub fn hir_decl(self, db: &dyn HirDefnDb) -> AssociatedItemHirDecl {
         match self {
-            AssociatedItemHirDefn::TypeItem(defn) => defn.hir_decl(db).into(),
+            AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.hir_decl(db).into(),
             AssociatedItemHirDefn::TraitItem(_) => todo!(),
-            AssociatedItemHirDefn::TraitForTypeItem(defn) => defn.decl(db).into(),
+            AssociatedItemHirDefn::TraitForTypeItem(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
-    pub fn expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
-            AssociatedItemHirDefn::TypeItem(defn) => defn.hir_expr_region(db),
+            AssociatedItemHirDefn::TypeItem(hir_defn) => hir_defn.hir_expr_region(db),
             AssociatedItemHirDefn::TraitItem(_) => todo!(),
-            AssociatedItemHirDefn::TraitForTypeItem(defn) => Some(defn.expr_region(db)),
+            AssociatedItemHirDefn::TraitForTypeItem(hir_defn) => Some(hir_defn.hir_expr_region(db)),
         }
     }
 
@@ -48,9 +48,9 @@ impl HasHirDefn for AssociatedItemPath {
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
         match self {
-            AssociatedItemPath::TypeItem(decl) => decl.hir_defn(db).into(),
-            AssociatedItemPath::TraitItem(decl) => decl.hir_defn(db).into(),
-            AssociatedItemPath::TraitForTypeItem(decl) => decl.hir_defn(db).into(),
+            AssociatedItemPath::TypeItem(hir_decl) => hir_decl.hir_defn(db).into(),
+            AssociatedItemPath::TraitItem(hir_decl) => hir_decl.hir_defn(db).into(),
+            AssociatedItemPath::TraitForTypeItem(hir_decl) => hir_decl.hir_defn(db).into(),
         }
     }
 }

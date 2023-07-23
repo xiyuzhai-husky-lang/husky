@@ -5,13 +5,17 @@ use salsa::DebugWithDb;
 pub struct TypeMethodFnHirDefn {
     #[id]
     pub path: TypeItemPath,
-    pub decl: TypeMethodFnHirDecl,
+    pub hir_decl: TypeMethodFnHirDecl,
     pub body: Option<HirExprIdx>,
-    pub expr_region: HirExprRegion,
+    pub hir_expr_region: HirExprRegion,
 }
 
 impl TypeMethodFnHirDefn {
-    pub(super) fn new(db: &dyn HirDefnDb, path: TypeItemPath, decl: TypeMethodFnHirDecl) -> Self {
+    pub(super) fn new(
+        db: &dyn HirDefnDb,
+        path: TypeItemPath,
+        hir_decl: TypeMethodFnHirDecl,
+    ) -> Self {
         todo!()
         // let TypeItemHirNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
         //     unreachable!()
@@ -19,9 +23,9 @@ impl TypeMethodFnHirDefn {
         // Ok(TypeMethodFnHirDefn::new_inner(
         //     db,
         //     path,
-        //     decl,
+        //     hir_decl,
         //     syn_node_defn.body(db),
-        //     syn_node_defn.expr_region(db),
+        //     syn_node_defn.hir_expr_region(db),
         // ))
     }
 }

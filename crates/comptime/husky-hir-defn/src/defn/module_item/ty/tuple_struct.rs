@@ -4,5 +4,5 @@ use super::*;
 pub struct TupleStructTypeHirDefn {
     #[id]
     pub path: TypePath,
-    pub decl: TupleStructTypeHirDecl,
+    pub hir_decl: TupleStructTypeHirDecl,
 }

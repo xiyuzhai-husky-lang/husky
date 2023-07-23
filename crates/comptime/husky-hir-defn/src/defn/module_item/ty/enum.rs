@@ -4,5 +4,5 @@ use super::*;
 pub struct EnumTypeHirDefn {
     #[id]
     pub path: TypePath,
-    pub decl: EnumTypeHirDecl,
+    pub hir_decl: EnumTypeHirDecl,
 }

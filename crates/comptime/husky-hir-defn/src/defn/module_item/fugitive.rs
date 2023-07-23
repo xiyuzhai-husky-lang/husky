@@ -22,27 +22,27 @@ pub enum FugitiveHirDefn {
 }
 
 impl FugitiveHirDefn {
-    pub fn decl(self, db: &dyn HirDefnDb) -> FugitiveHirDecl {
+    pub fn hir_decl(self, db: &dyn HirDefnDb) -> FugitiveHirDecl {
         match self {
-            FugitiveHirDefn::Fn(defn) => defn.decl(db).into(),
-            FugitiveHirDefn::Val(defn) => defn.decl(db).into(),
-            FugitiveHirDefn::Gn(defn) => defn.decl(db).into(),
+            FugitiveHirDefn::Fn(hir_defn) => hir_defn.hir_decl(db).into(),
+            FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_decl(db).into(),
+            FugitiveHirDefn::Gn(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
     pub fn path(self, db: &dyn HirDefnDb) -> FugitivePath {
         todo!()
         // match self {
-        //     FugitiveDefn::Fn(defn) => defn.path(db),
-        //     FugitiveDefn::Val(defn) => defn.path(db),
-        //     FugitiveDefn::Gn(defn) => defn.path(db),
+        //     FugitiveDefn::Fn(hir_defn) => hir_defn.path(db),
+        //     FugitiveDefn::Val(hir_defn) => hir_defn.path(db),
+        //     FugitiveDefn::Gn(hir_defn) => hir_defn.path(db),
         // }
     }
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> HirExprRegion {
         match self {
-            FugitiveHirDefn::Fn(defn) => defn.expr_region(db),
-            FugitiveHirDefn::Val(defn) => defn.expr_region(db),
-            FugitiveHirDefn::Gn(defn) => defn.expr_region(db),
+            FugitiveHirDefn::Fn(hir_defn) => hir_defn.hir_expr_region(db),
+            FugitiveHirDefn::Val(hir_defn) => hir_defn.hir_expr_region(db),
+            FugitiveHirDefn::Gn(hir_defn) => hir_defn.hir_expr_region(db),
         }
     }
 }
@@ -58,8 +58,8 @@ impl HasHirDefn for FugitivePath {
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn fugitive_hir_defn(db: &dyn HirDefnDb, path: FugitivePath) -> FugitiveHirDefn {
     match path.hir_decl(db) {
-        FugitiveHirDecl::Fn(decl) => FnHirDefn::new(db, path, decl).into(),
-        FugitiveHirDecl::Val(decl) => ValHirDefn::new(db, path, decl).into(),
-        FugitiveHirDecl::Gn(decl) => GnHirDefn::new(db, path, decl).into(),
+        FugitiveHirDecl::Fn(hir_decl) => FnHirDefn::new(db, path, hir_decl).into(),
+        FugitiveHirDecl::Val(hir_decl) => ValHirDefn::new(db, path, hir_decl).into(),
+        FugitiveHirDecl::Gn(hir_decl) => GnHirDefn::new(db, path, hir_decl).into(),
     }
 }

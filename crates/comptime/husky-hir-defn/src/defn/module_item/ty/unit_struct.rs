@@ -4,5 +4,5 @@ use super::*;
 pub struct UnitStructTypeHirDefn {
     #[id]
     pub path: TypePath,
-    pub decl: UnitStructTypeHirDecl,
+    pub hir_decl: UnitStructTypeHirDecl,
 }

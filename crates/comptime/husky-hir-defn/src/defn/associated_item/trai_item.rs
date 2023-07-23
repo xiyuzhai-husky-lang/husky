@@ -29,7 +29,7 @@ impl TraitItemHirDefn {
     pub fn path(self, _db: &dyn HirDefnDb) -> AssociatedItemPath {
         todo!()
     }
-    pub fn expr_region(self, _db: &dyn HirDefnDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, _db: &dyn HirDefnDb) -> HirExprRegion {
         todo!()
     }
 }
@@ -46,12 +46,14 @@ impl HasHirDefn for TraitItemPath {
 pub(crate) fn trai_item_hir_defn(db: &dyn HirDefnDb, path: TraitItemPath) -> TraitItemHirDefn {
     let hir_decl = path.hir_decl(db);
     match hir_decl {
-        TraitItemHirDecl::AssociatedFn(decl) => {
+        TraitItemHirDecl::AssociatedFn(hir_decl) => {
             todo!()
-            // TraitAssociatedFnHirDefn::new(db, path, decl)?.into()
+            // TraitAssociatedFnHirDefn::new(db, path, hir_decl)?.into()
         }
-        TraitItemHirDecl::MethodFn(decl) => TraitMethodFnHirDefn::new(db, path, decl).into(),
-        TraitItemHirDecl::AssociatedType(_decl) => todo!(),
-        TraitItemHirDecl::AssociatedVal(_decl) => todo!(),
+        TraitItemHirDecl::MethodFn(hir_decl) => {
+            TraitMethodFnHirDefn::new(db, path, hir_decl).into()
+        }
+        TraitItemHirDecl::AssociatedType(hir_decl) => todo!(),
+        TraitItemHirDecl::AssociatedVal(hir_decl) => todo!(),
     }
 }

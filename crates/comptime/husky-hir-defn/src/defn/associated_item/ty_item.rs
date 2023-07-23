@@ -31,21 +31,21 @@ impl TypeItemHirDefn {
 
     pub fn hir_decl(self, db: &dyn HirDefnDb) -> TypeItemHirDecl {
         match self {
-            TypeItemHirDefn::AssociatedFn(defn) => defn.decl(db).into(),
-            TypeItemHirDefn::MethodFn(defn) => defn.decl(db).into(),
-            TypeItemHirDefn::AssociatedType(defn) => defn.decl(db).into(),
-            TypeItemHirDefn::AssociatedVal(defn) => defn.decl(db).into(),
-            TypeItemHirDefn::MemoizedField(defn) => defn.decl(db).into(),
+            TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeItemHirDefn::MemoizedField(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
-            TypeItemHirDefn::AssociatedFn(defn) => defn.expr_region(db).into(),
-            TypeItemHirDefn::MethodFn(defn) => defn.expr_region(db).into(),
-            TypeItemHirDefn::AssociatedType(defn) => defn.expr_region(db).into(),
-            TypeItemHirDefn::AssociatedVal(defn) => defn.expr_region(db).into(),
-            TypeItemHirDefn::MemoizedField(defn) => defn.expr_region(db).into(),
+            TypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_expr_region(db).into(),
+            TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_expr_region(db).into(),
+            TypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.hir_expr_region(db).into(),
+            TypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_expr_region(db).into(),
+            TypeItemHirDefn::MemoizedField(hir_defn) => hir_defn.hir_expr_region(db).into(),
         }
     }
 }
@@ -61,12 +61,14 @@ impl HasHirDefn for TypeItemPath {
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn ty_item_hir_defn(db: &dyn HirDefnDb, path: TypeItemPath) -> TypeItemHirDefn {
     match path.hir_decl(db) {
-        TypeItemHirDecl::AssociatedFn(decl) => TypeAssociatedFnHirDefn::new(db, path, decl).into(),
-        TypeItemHirDecl::MethodFn(decl) => TypeMethodFnHirDefn::new(db, path, decl).into(),
+        TypeItemHirDecl::AssociatedFn(hir_decl) => {
+            TypeAssociatedFnHirDefn::new(db, path, hir_decl).into()
+        }
+        TypeItemHirDecl::MethodFn(hir_decl) => TypeMethodFnHirDefn::new(db, path, hir_decl).into(),
         TypeItemHirDecl::AssociatedType(_) => todo!(),
         TypeItemHirDecl::AssociatedVal(_) => todo!(),
-        TypeItemHirDecl::MemoizedField(decl) => {
-            TypeMemoizedFieldHirDefn::new(db, path, decl).into()
+        TypeItemHirDecl::MemoizedField(hir_decl) => {
+            TypeMemoizedFieldHirDefn::new(db, path, hir_decl).into()
         }
     }
 }
