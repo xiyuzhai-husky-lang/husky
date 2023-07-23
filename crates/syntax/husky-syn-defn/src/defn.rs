@@ -76,12 +76,12 @@ pub trait HasNodeDefns: Copy {
 
 impl HasNodeDefns for ModulePath {
     fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]> {
-        Ok(module_node_defns(db, self).as_ref()?)
+        Ok(module_syn_node_defns(db, self).as_ref()?)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar, return_ref)]
-pub(crate) fn module_node_defns(
+pub(crate) fn module_syn_node_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
 ) -> EntitySynTreeResult<Vec<SynNodeDefn>> {
@@ -98,7 +98,7 @@ fn module_node_defns_works() {
     use tests::*;
 
     DB::default()
-        .ast_expect_test_debug_with_db("module_node_defns", |db, module_path: ModulePath| {
+        .ast_expect_test_debug_with_db("module_syn_node_defns", |db, module_path: ModulePath| {
             module_path.node_defns(db)
         });
 }
@@ -159,21 +159,21 @@ impl Defn {
     }
 }
 
-pub trait HasDefn: Copy {
-    type Defn;
+pub trait HasSynDefn: Copy {
+    type SynDefn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn>;
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn>;
 }
 
-impl HasDefn for EntityPath {
-    type Defn = Defn;
+impl HasSynDefn for EntityPath {
+    type SynDefn = Defn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(match self {
-            EntityPath::Module(path) => path.defn(db)?.into(),
-            EntityPath::ModuleItem(path) => path.defn(db)?.into(),
-            EntityPath::ImplBlock(path) => path.defn(db)?.into(),
-            EntityPath::AssociatedItem(path) => path.defn(db)?.into(),
+            EntityPath::Module(path) => path.syn_defn(db)?.into(),
+            EntityPath::ModuleItem(path) => path.syn_defn(db)?.into(),
+            EntityPath::ImplBlock(path) => path.syn_defn(db)?.into(),
+            EntityPath::AssociatedItem(path) => path.syn_defn(db)?.into(),
             EntityPath::TypeVariant(_) => todo!(),
         })
     }
@@ -185,12 +185,12 @@ pub trait HasDefns: Copy {
 
 impl HasDefns for ModulePath {
     fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[Defn]> {
-        Ok(module_defns(db, self).as_ref()?)
+        Ok(module_syn_defns(db, self).as_ref()?)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar, return_ref)]
-pub(crate) fn module_defns(
+pub(crate) fn module_syn_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
 ) -> EntitySynTreeResult<Vec<Defn>> {
@@ -198,7 +198,7 @@ pub(crate) fn module_defns(
         .as_ref()?
         .iter()
         .copied()
-        .filter_map(|path| path.defn(db).ok())
+        .filter_map(|path| path.syn_defn(db).ok())
         .collect())
 }
 
@@ -206,7 +206,8 @@ pub(crate) fn module_defns(
 fn module_defns_works() {
     use tests::*;
 
-    DB::default().ast_expect_test_debug_with_db("module_defns", |db, module_path: ModulePath| {
-        module_path.defns(db)
-    });
+    DB::default()
+        .ast_expect_test_debug_with_db("module_syn_defns", |db, module_path: ModulePath| {
+            module_path.defns(db)
+        });
 }

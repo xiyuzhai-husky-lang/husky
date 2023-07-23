@@ -55,7 +55,7 @@ impl HasSynNodeDefn for ModuleItemSynNodePath {
 #[enum_class::from_variants]
 pub enum ModuleItemDefn {
     Type(TypeDefn),
-    Trait(TraitDefn),
+    Trait(TraitSynDefn),
     Fugitive(FugitiveDefn),
 }
 
@@ -76,14 +76,14 @@ impl ModuleItemDefn {
     }
 }
 
-impl HasDefn for ModuleItemPath {
-    type Defn = ModuleItemDefn;
+impl HasSynDefn for ModuleItemPath {
+    type SynDefn = ModuleItemDefn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(match self {
-            ModuleItemPath::Type(path) => path.defn(db)?.into(),
-            ModuleItemPath::Fugitive(path) => path.defn(db)?.into(),
-            ModuleItemPath::Trait(path) => path.defn(db)?.into(),
+            ModuleItemPath::Type(path) => path.syn_defn(db)?.into(),
+            ModuleItemPath::Fugitive(path) => path.syn_defn(db)?.into(),
+            ModuleItemPath::Trait(path) => path.syn_defn(db)?.into(),
         })
     }
 }

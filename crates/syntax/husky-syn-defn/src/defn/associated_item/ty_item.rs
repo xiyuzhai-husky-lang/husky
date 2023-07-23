@@ -137,16 +137,19 @@ impl TypeItemSynDefn {
     }
 }
 
-impl HasDefn for TypeItemPath {
-    type Defn = TypeItemSynDefn;
+impl HasSynDefn for TypeItemPath {
+    type SynDefn = TypeItemSynDefn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
-        ty_item_defn(db, self)
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+        ty_item_syn_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn ty_item_defn(db: &dyn SynDefnDb, path: TypeItemPath) -> DefnResult<TypeItemSynDefn> {
+pub(crate) fn ty_item_syn_defn(
+    db: &dyn SynDefnDb,
+    path: TypeItemPath,
+) -> SynDefnResult<TypeItemSynDefn> {
     let decl = path.decl(db)?;
     Ok(match decl {
         TypeItemDecl::AssociatedFn(decl) => TypeAssociatedFnSynDefn::new(db, path, decl)?.into(),

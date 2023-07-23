@@ -3,31 +3,31 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = SynDefnDb)]
-pub enum DefnError {
+pub enum SynDefnError {
     #[error("{0}")]
-    Original(#[from] OriginalDefnError),
+    Original(#[from] OriginalSynDefnError),
     #[error("{0}")]
-    Derived(#[from] DerivedDefnError),
+    Derived(#[from] DerivedSynDefnError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 #[salsa::derive_debug_with_db(db = SynDefnDb)]
-pub enum OriginalDefnError {
+pub enum OriginalSynDefnError {
     #[error("expect body")]
     ExpectBody,
 }
 
-impl From<DeclError> for DefnError {
+impl From<DeclError> for SynDefnError {
     fn from(value: DeclError) -> Self {
-        DefnError::Derived(DerivedDefnError::Decl)
+        SynDefnError::Derived(DerivedSynDefnError::Decl)
     }
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone)]
 // #[salsa::derive_debug_with_db(db = DefnDb)]
-pub enum DerivedDefnError {
+pub enum DerivedSynDefnError {
     #[error("decl")]
     Decl,
 }
 
-pub type DefnResult<T> = Result<T, DefnError>;
+pub type SynDefnResult<T> = Result<T, SynDefnError>;

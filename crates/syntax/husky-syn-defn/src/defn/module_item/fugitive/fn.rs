@@ -36,7 +36,7 @@ impl FnSynNodeDefn {
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
-pub struct FnDefn {
+pub struct FnSynDefn {
     #[id]
     pub path: FugitivePath,
     pub decl: FnDecl,
@@ -44,12 +44,12 @@ pub struct FnDefn {
     pub expr_region: SynExprRegion,
 }
 
-impl FnDefn {
+impl FnSynDefn {
     pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: FnDecl) -> Self {
         let FugitiveSynNodeDefn::Fn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()
         };
-        FnDefn::new_inner(
+        FnSynDefn::new_inner(
             db,
             path,
             decl,

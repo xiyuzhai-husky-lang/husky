@@ -23,7 +23,7 @@ impl TraitMethodFnSynDefn {
         db: &dyn SynDefnDb,
         path: TraitItemPath,
         decl: TraitMethodFnDecl,
-    ) -> DefnResult<Self> {
+    ) -> SynDefnResult<Self> {
         let TraitItemSynNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()
         };

@@ -198,7 +198,7 @@ impl<'a> InferEngine<'a> {
 
     fn visit_val_node(&mut self, syn_node_defn: ValSynNodeDefn) {}
 
-    fn visit_gn_node(&mut self, syn_node_defn: GnNodeSynDefn) {
+    fn visit_gn_node(&mut self, syn_node_defn: GnSynNodeDefn) {
         let syn_node_decl = syn_node_defn.syn_node_decl(self.db);
         // todo!()
     }

@@ -17,7 +17,7 @@ pub enum FugitiveSynNodeDefn {
     Fn(FnSynNodeDefn),
     // Function(FunctionDefn),
     Val(ValSynNodeDefn),
-    Gn(GnNodeSynDefn),
+    Gn(GnSynNodeDefn),
     // AliasType(TypeAliasDefn)
 }
 
@@ -69,7 +69,7 @@ pub(crate) fn fugitive_syn_node_defn(
             ValSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
         FugitiveNodeDecl::Gn(syn_node_decl) => {
-            GnNodeSynDefn::new(db, syn_node_path, syn_node_decl).into()
+            GnSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
     }
 }
@@ -78,10 +78,10 @@ pub(crate) fn fugitive_syn_node_defn(
 #[salsa::derive_debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum FugitiveDefn {
-    Fn(FnDefn),
+    Fn(FnSynDefn),
     // Function(FunctionDefn),
     Val(ValSynDefn),
-    Gn(GnDefn),
+    Gn(GnSynDefn),
     // AliasType(TypeAliasDefn)
 }
 
@@ -111,19 +111,22 @@ impl FugitiveDefn {
     }
 }
 
-impl HasDefn for FugitivePath {
-    type Defn = FugitiveDefn;
+impl HasSynDefn for FugitivePath {
+    type SynDefn = FugitiveDefn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
-        fugitive_defn(db, self)
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+        fugitive_syn_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar= SynDefnJar)]
-pub(crate) fn fugitive_defn(db: &dyn SynDefnDb, path: FugitivePath) -> DefnResult<FugitiveDefn> {
+pub(crate) fn fugitive_syn_defn(
+    db: &dyn SynDefnDb,
+    path: FugitivePath,
+) -> SynDefnResult<FugitiveDefn> {
     Ok(match path.decl(db)? {
-        FugitiveDecl::Fn(decl) => FnDefn::new(db, path, decl).into(),
+        FugitiveDecl::Fn(decl) => FnSynDefn::new(db, path, decl).into(),
         FugitiveDecl::Val(decl) => ValSynDefn::new(db, path, decl).into(),
-        FugitiveDecl::Gn(decl) => GnDefn::new(db, path, decl).into(),
+        FugitiveDecl::Gn(decl) => GnSynDefn::new(db, path, decl).into(),
     })
 }

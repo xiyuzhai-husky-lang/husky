@@ -11,12 +11,12 @@ impl HasSynNodeDefn for TraitSynNodePath {
     type NodeDefn = TraitSynNodeDefn;
 
     fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
-        trai_node_defn(db, self)
+        trai_syn_node_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn trai_node_defn(
+pub(crate) fn trai_syn_node_defn(
     db: &dyn SynDefnDb,
     syn_node_path: TraitSynNodePath,
 ) -> TraitSynNodeDefn {
@@ -25,22 +25,22 @@ pub(crate) fn trai_node_defn(
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar)]
-pub struct TraitDefn {
+pub struct TraitSynDefn {
     #[id]
     pub path: TraitPath,
     pub decl: TraitDecl,
 }
 
-impl HasDefn for TraitPath {
-    type Defn = TraitDefn;
+impl HasSynDefn for TraitPath {
+    type SynDefn = TraitSynDefn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
-        trai_defn(db, self)
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+        trai_syn_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn trai_defn(db: &dyn SynDefnDb, path: TraitPath) -> DefnResult<TraitDefn> {
+pub(crate) fn trai_syn_defn(db: &dyn SynDefnDb, path: TraitPath) -> SynDefnResult<TraitSynDefn> {
     let decl = path.decl(db)?;
-    Ok(TraitDefn::new(db, path, decl))
+    Ok(TraitSynDefn::new(db, path, decl))
 }

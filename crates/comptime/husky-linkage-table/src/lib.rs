@@ -125,8 +125,8 @@ pub trait ResolveLinkage {
         //                         //             CallFormSource::Static(linkage_source) => Some(*linkage_source),
         //                         //         };
         //                         //     }
-        //                         //     let trai_defn = self.entity_defn(*trai).unwrap();
-        //                         //     match trai_defn.variant {
+        //                         //     let trai_syn_defn = self.entity_defn(*trai).unwrap();
+        //                         //     match trai_syn_defn.variant {
         //                         //         EntityDefnVariant::Trait {
         //                         //             ref generic_parameters,
         //                         //             ref members,

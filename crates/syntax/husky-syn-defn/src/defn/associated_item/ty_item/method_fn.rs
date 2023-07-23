@@ -50,7 +50,7 @@ impl TypeMethodFnSynDefn {
         db: &dyn SynDefnDb,
         path: TypeItemPath,
         decl: TypeMethodFnDecl,
-    ) -> DefnResult<Self> {
+    ) -> SynDefnResult<Self> {
         let TypeItemSynNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()
         };

@@ -103,14 +103,14 @@ impl AssociatedItemSynDefn {
     }
 }
 
-impl HasDefn for AssociatedItemPath {
-    type Defn = AssociatedItemSynDefn;
+impl HasSynDefn for AssociatedItemPath {
+    type SynDefn = AssociatedItemSynDefn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(match self {
-            AssociatedItemPath::TypeItem(decl) => decl.defn(db)?.into(),
-            AssociatedItemPath::TraitItem(decl) => decl.defn(db)?.into(),
-            AssociatedItemPath::TraitForTypeItem(decl) => decl.defn(db)?.into(),
+            AssociatedItemPath::TypeItem(decl) => decl.syn_defn(db)?.into(),
+            AssociatedItemPath::TraitItem(decl) => decl.syn_defn(db)?.into(),
+            AssociatedItemPath::TraitForTypeItem(decl) => decl.syn_defn(db)?.into(),
         })
     }
 }

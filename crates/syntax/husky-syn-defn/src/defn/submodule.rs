@@ -34,10 +34,10 @@ impl SubmoduleDefn {
     }
 }
 
-impl HasDefn for ModulePath {
-    type Defn = SubmoduleDefn;
+impl HasSynDefn for ModulePath {
+    type SynDefn = SubmoduleDefn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(SubmoduleDefn {
             decl: self.decl(db)?,
         })

@@ -21,7 +21,7 @@ impl TypeAssociatedValSynDefn {
         db: &dyn SynDefnDb,
         path: TypeItemPath,
         decl: TypeAssociatedValDecl,
-    ) -> DefnResult<Self> {
+    ) -> SynDefnResult<Self> {
         todo!()
     }
 }
