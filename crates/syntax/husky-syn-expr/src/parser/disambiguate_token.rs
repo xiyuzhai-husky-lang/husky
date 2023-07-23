@@ -360,7 +360,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             } => todo!(),
                             SynExpr::FunctionApplicationOrCall {
                                 function,
-                                implicit_arguments,
+                                generic_arguments,
                                 lpar_token_idx,
                                 items,
                                 rpar_token_idx,
@@ -376,7 +376,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             } => todo!(),
                             SynExpr::FunctionCall {
                                 function,
-                                implicit_arguments,
+                                generic_arguments,
                                 lpar_token_idx,
                                 items,
                                 rpar_token_idx,
@@ -390,14 +390,14 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 self_argument,
                                 dot_token_idx,
                                 ident_token,
-                                implicit_arguments,
+                                generic_arguments,
                                 lpar_token_idx,
                                 items,
                                 rpar_token_idx,
                             } => todo!(),
                             SynExpr::TemplateInstantiation {
                                 template,
-                                implicit_arguments,
+                                generic_arguments,
                             } => todo!(),
                             SynExpr::ExplicitApplication {
                                 function_expr_idx,
@@ -495,8 +495,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             current_symbol_idx,
                             current_symbol_kind,
                         }
-                    }
-                    //  Expr::EntityPath(entity_path),
+                    } //  Expr::EntityPath(entity_path),
                 },
                 None => {
                     SynExpr::Err(OriginalExprError::UnrecognizedIdent { token_idx, ident }.into())

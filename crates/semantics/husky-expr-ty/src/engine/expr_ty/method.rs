@@ -7,13 +7,13 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         self_argument: SynExprIdx,
         ident_token: IdentToken,
-        implicit_arguments: Option<&SynImplicitArgumentList>,
+        generic_arguments: Option<&SynGenericArgumentList>,
         explicit_arguments: &[SynCommaListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(self_expr_ty) =
             self.infer_new_expr_ty( self_argument, ExpectAnyOriginal)
             else {
-                if let Some(implicit_arguments) = implicit_arguments {
+                if let Some(generic_arguments) = generic_arguments {
                     todo!()
                 }
                 for argument in explicit_arguments {

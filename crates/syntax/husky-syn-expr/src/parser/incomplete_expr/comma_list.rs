@@ -33,7 +33,7 @@ pub(in crate::parser) enum IncompleteCommaListOpr {
         self_expr: SynExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
-        implicit_arguments: Option<SynImplicitArgumentList>,
+        generic_arguments: Option<SynGenericArgumentList>,
     },
 }
 

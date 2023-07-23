@@ -98,10 +98,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         IncompleteCommaListOpr::NewLambdaHead => todo!(),
                         IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
                             // ad hoc
-                            let implicit_arguments: Option<SynImplicitArgumentList> = None;
+                            let generic_arguments: Option<SynGenericArgumentList> = None;
                             SynExpr::FunctionApplicationOrCall {
                                 function,
-                                implicit_arguments,
+                                generic_arguments,
                                 lpar_token_idx: bra_token_idx,
                                 items,
                                 rpar_token_idx: ket_token_idx,
@@ -113,12 +113,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             self_expr,
                             dot_token_idx,
                             ident_token,
-                            implicit_arguments,
+                            generic_arguments,
                         } => SynExpr::MethodApplicationOrCall {
                             self_argument: self_expr,
                             dot_token_idx,
                             ident_token,
-                            implicit_arguments,
+                            generic_arguments,
                             lpar_token_idx: bra_token_idx,
                             items,
                             rpar_token_idx: ket_token_idx,
@@ -127,7 +127,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         IncompleteCommaListOpr::TemplateInstantiation { template } => {
                             SynExpr::TemplateInstantiation {
                                 template,
-                                implicit_arguments: SynImplicitArgumentList::new(
+                                generic_arguments: SynGenericArgumentList::new(
                                     bra_token_idx,
                                     items,
                                     ket_token_idx,
@@ -163,10 +163,10 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             } => match opr {
                 IncompleteCallListOpr::FunctionCall {
                     function,
-                    implicit_arguments,
+                    generic_arguments,
                 } => self.set_complete_expr(SynExpr::FunctionCall {
                     function,
-                    implicit_arguments,
+                    generic_arguments,
                     lpar_token_idx,
                     items,
                     rpar_token_idx: ket_token_idx,
@@ -175,12 +175,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     self_expr,
                     dot_token_idx,
                     ident_token,
-                    implicit_arguments,
+                    generic_arguments,
                 } => todo!(),
             },
             // IncompleteExpr::RitchieCallKeyedArgumentList {
             //     function,
-            //     implicit_arguments,
+            //     generic_arguments,
             //     bra,
             //     lpar_token_idx,
             //     arguments,
@@ -194,7 +194,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             //     self_expr,
             //     dot_token_idx,
             //     ident_token,
-            //     implicit_arguments,
+            //     generic_arguments,
             //     bra,
             //     bra_token_idx,
             //     arguments,
@@ -253,7 +253,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                     self_expr,
                                     dot_token_idx,
                                     ident_token,
-                                    implicit_arguments: None,
+                                    generic_arguments: None,
                                 },
                                 bra: Bracket::Par,
                                 bra_token_idx: lpar.token_idx(),

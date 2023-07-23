@@ -2573,7 +2573,7 @@ Ok(
                                         },
                                         SynExpr::FunctionApplicationOrCall {
                                             function: 0,
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 32,
                                             ),
@@ -3263,7 +3263,7 @@ Ok(
                                         },
                                         SynExpr::FunctionApplicationOrCall {
                                             function: 0,
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 57,
                                             ),
@@ -4137,7 +4137,7 @@ Ok(
                                         },
                                         SynExpr::FunctionApplicationOrCall {
                                             function: 0,
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 77,
                                             ),
@@ -4860,7 +4860,7 @@ Ok(
                                                     119,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 120,
                                             ),
@@ -5621,7 +5621,7 @@ Ok(
                                                     134,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 135,
                                             ),
@@ -5646,7 +5646,7 @@ Ok(
                                                     139,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 140,
                                             ),
@@ -6408,7 +6408,7 @@ Ok(
                                         },
                                         SynExpr::FunctionApplicationOrCall {
                                             function: 0,
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 180,
                                             ),
@@ -7280,7 +7280,7 @@ Ok(
                                         },
                                         SynExpr::FunctionApplicationOrCall {
                                             function: 0,
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 201,
                                             ),
@@ -8003,7 +8003,7 @@ Ok(
                                                     243,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 244,
                                             ),
@@ -10459,7 +10459,7 @@ Ok(
                                                     316,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 317,
                                             ),
@@ -10506,7 +10506,7 @@ Ok(
                                                     321,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 322,
                                             ),
@@ -10627,7 +10627,7 @@ Ok(
                                                     347,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 348,
                                             ),
@@ -10691,7 +10691,7 @@ Ok(
                                                     358,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 359,
                                             ),
@@ -11714,7 +11714,7 @@ Ok(
                                                     377,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 378,
                                             ),
@@ -11739,7 +11739,7 @@ Ok(
                                                     382,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 383,
                                             ),
@@ -12658,7 +12658,7 @@ Ok(
                                                     404,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 405,
                                             ),
@@ -12716,7 +12716,7 @@ Ok(
                                                     416,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 417,
                                             ),
@@ -12809,7 +12809,7 @@ Ok(
                                                     429,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 430,
                                             ),
@@ -12870,7 +12870,7 @@ Ok(
                                                     441,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 442,
                                             ),
@@ -12989,7 +12989,7 @@ Ok(
                                                     468,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 469,
                                             ),
@@ -13051,7 +13051,7 @@ Ok(
                                                     478,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 479,
                                             ),
@@ -14716,7 +14716,7 @@ Ok(
                                         },
                                         SynExpr::FunctionApplicationOrCall {
                                             function: 26,
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 559,
                                             ),
@@ -16844,7 +16844,7 @@ Ok(
                                                     628,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 629,
                                             ),
@@ -16908,7 +16908,7 @@ Ok(
                                                     639,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 640,
                                             ),
@@ -16924,7 +16924,7 @@ Ok(
                                         },
                                         SynExpr::FunctionApplicationOrCall {
                                             function: 0,
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 623,
                                             ),
@@ -17762,7 +17762,7 @@ Ok(
                                                     663,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 664,
                                             ),
@@ -17826,7 +17826,7 @@ Ok(
                                                     674,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 675,
                                             ),
@@ -17842,7 +17842,7 @@ Ok(
                                         },
                                         SynExpr::FunctionApplicationOrCall {
                                             function: 0,
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 658,
                                             ),

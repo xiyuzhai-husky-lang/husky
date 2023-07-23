@@ -5,7 +5,7 @@ use std::fmt::Debug;
 pub struct DeclarativeTermExplicitApplicationOrRitchieCall {
     pub function: DeclarativeTerm,
     #[return_ref]
-    pub implicit_arguments: Vec<DeclarativeTerm>,
+    pub generic_arguments: Vec<DeclarativeTerm>,
     #[return_ref]
     pub items: Vec<DeclarativeTerm>,
     pub extra_comma: bool,
@@ -19,8 +19,8 @@ impl DeclarativeTermExplicitApplicationOrRitchieCall {
         ctx: &mut DeclarativeTermShowContext,
     ) -> std::fmt::Result {
         self.function(db).show_with_db_fmt(f, db, ctx);
-        let implicit_arguments = self.implicit_arguments(db);
-        if implicit_arguments.len() > 0 {
+        let generic_arguments = self.generic_arguments(db);
+        if generic_arguments.len() > 0 {
             todo!()
         }
         f.write_str("(");
