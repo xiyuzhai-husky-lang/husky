@@ -19,12 +19,12 @@ pub enum TypeVariantDeclarativeSignatureTemplate {
 
 pub(crate) fn variant_signature_template_from_decl(
     _db: &dyn DeclarativeSignatureDb,
-    decl: TypeVariantDecl,
+    decl: TypeVariantSynDecl,
 ) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {
     match decl {
-        TypeVariantDecl::Props(_) => todo!(),
-        TypeVariantDecl::Unit(_) => todo!(),
-        TypeVariantDecl::Tuple(_) => todo!(),
+        TypeVariantSynDecl::Props(_) => todo!(),
+        TypeVariantSynDecl::Unit(_) => todo!(),
+        TypeVariantSynDecl::Tuple(_) => todo!(),
         // TypeDecl::Enum(decl) => enum_declarative_signature_template(db, decl).into(),
     }
 }
@@ -51,8 +51,8 @@ pub(crate) fn ty_variant_syn_declarative_signature_template(
         match path.parent_ty_path(db).declarative_signature_template(db)? {
             TypeDeclarativeSignatureTemplate::Enum(parent_ty_template) => {
                 match path.syn_decl(db)? {
-                    TypeVariantDecl::Props(_) => todo!(),
-                    TypeVariantDecl::Unit(decl) => {
+                    TypeVariantSynDecl::Props(_) => todo!(),
+                    TypeVariantSynDecl::Unit(decl) => {
                         EnumUnitTypeVariantDeclarativeSignatureTemplate::from_decl(
                             db,
                             parent_ty_template,
@@ -60,7 +60,7 @@ pub(crate) fn ty_variant_syn_declarative_signature_template(
                         )?
                         .into()
                     }
-                    TypeVariantDecl::Tuple(decl) => {
+                    TypeVariantSynDecl::Tuple(decl) => {
                         EnumTupleTypeVariantDeclarativeSignatureTemplate::from_decl(
                             db,
                             parent_ty_template,

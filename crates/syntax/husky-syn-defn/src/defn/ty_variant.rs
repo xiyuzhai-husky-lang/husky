@@ -18,7 +18,7 @@ pub enum TypeVariantSynNodeDefn {
 }
 
 impl TypeVariantSynNodeDefn {
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TypeVariantNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TypeVariantSynNodeDecl {
         todo!()
     }
 }

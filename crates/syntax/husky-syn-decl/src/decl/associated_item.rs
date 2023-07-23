@@ -16,9 +16,9 @@ use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeI
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum AssociatedItemSynNodeDecl {
-    TypeItem(TypeItemNodeDecl),
-    TraitItem(TraitItemNodeDecl),
-    TraitForTypeItem(TraitForTypeItemNodeDecl),
+    TypeItem(TypeItemSynNodeDecl),
+    TraitItem(TraitItemSynNodeDecl),
+    TraitForTypeItem(TraitForTypeItemSynNodeDecl),
     IllFormedItem(IllFormedItemSynNodeDecl),
 }
 
@@ -87,9 +87,9 @@ impl AssociatedItemSynNodeDecl {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum AssociatedItemSynDecl {
-    TypeItem(TypeItemDecl),
-    TraitItem(TraitItemDecl),
-    TraitForTypeItem(TraitForTypeItemDecl),
+    TypeItem(TypeItemSynDecl),
+    TraitItem(TraitItemSynDecl),
+    TraitForTypeItem(TraitForTypeItemSynDecl),
 }
 
 impl AssociatedItemSynDecl {
@@ -109,7 +109,7 @@ impl AssociatedItemSynDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.expr_region(db),
             AssociatedItemSynDecl::TraitItem(decl) => decl.expr_region(db),

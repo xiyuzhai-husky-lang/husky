@@ -25,7 +25,7 @@ use parsec::parse_separated_list2;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TypeNodeDecl {
+pub enum TypeSynNodeDecl {
     Enum(EnumTypeSynNodeDecl),
     PropsStruct(PropsStructTypeSynNodeDecl),
     UnitStruct(UnitStructTypeSynNodeDecl),
@@ -37,66 +37,66 @@ pub enum TypeNodeDecl {
     Union(UnionTypeSynNodeDecl),
 }
 
-impl TypeNodeDecl {
+impl TypeSynNodeDecl {
     pub fn syn_node_path(self, db: &dyn DeclDb) -> TypeSynNodePath {
         match self {
-            TypeNodeDecl::Enum(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeNodeDecl::Inductive(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeNodeDecl::Record(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeNodeDecl::Structure(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeNodeDecl::Extern(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeNodeDecl::Union(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeSynNodeDecl::Structure(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeSynNodeDecl::Extern(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeSynNodeDecl::Union(syn_node_decl) => syn_node_decl.syn_node_path(db),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TypeNodeDecl::Enum(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeNodeDecl::Record(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeNodeDecl::Inductive(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeNodeDecl::Structure(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeNodeDecl::Extern(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeNodeDecl::Union(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeSynNodeDecl::Structure(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeSynNodeDecl::Extern(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeSynNodeDecl::Union(syn_node_decl) => syn_node_decl.ast_idx(db),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            TypeNodeDecl::Enum(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeNodeDecl::Record(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeNodeDecl::Inductive(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeNodeDecl::Structure(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeNodeDecl::Extern(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeNodeDecl::Union(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::Structure(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::Extern(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::Union(syn_node_decl) => syn_node_decl.expr_region(db),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            TypeNodeDecl::Enum(syn_node_decl) => syn_node_decl.errors(db),
-            TypeNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.errors(db),
-            TypeNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.errors(db),
-            TypeNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.errors(db),
-            TypeNodeDecl::Record(syn_node_decl) => syn_node_decl.errors(db),
-            TypeNodeDecl::Inductive(syn_node_decl) => syn_node_decl.errors(db),
-            TypeNodeDecl::Structure(syn_node_decl) => syn_node_decl.errors(db),
-            TypeNodeDecl::Extern(syn_node_decl) => syn_node_decl.errors(db),
-            TypeNodeDecl::Union(syn_node_decl) => syn_node_decl.errors(db),
+            TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.errors(db),
+            TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.errors(db),
+            TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.errors(db),
+            TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.errors(db),
+            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.errors(db),
+            TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.errors(db),
+            TypeSynNodeDecl::Structure(syn_node_decl) => syn_node_decl.errors(db),
+            TypeSynNodeDecl::Extern(syn_node_decl) => syn_node_decl.errors(db),
+            TypeSynNodeDecl::Union(syn_node_decl) => syn_node_decl.errors(db),
         }
     }
 }
 
 impl HasNodeDecl for TypeSynNodePath {
-    type NodeDecl = TypeNodeDecl;
+    type NodeDecl = TypeSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         ty_node_decl(db, self)
@@ -104,13 +104,13 @@ impl HasNodeDecl for TypeSynNodePath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_node_decl(db: &dyn DeclDb, syn_node_path: TypeSynNodePath) -> TypeNodeDecl {
+pub(crate) fn ty_node_decl(db: &dyn DeclDb, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
     let ctx = DeclParser::new(db, syn_node_path.module_path(db));
     ctx.parse_ty_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_node_decl(&self, syn_node_path: TypeSynNodePath) -> TypeNodeDecl {
+    fn parse_ty_node_decl(&self, syn_node_path: TypeSynNodePath) -> TypeSynNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
@@ -143,7 +143,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         variants: Option<TypeVariants>,
         saved_stream_state: TokenStreamState,
-    ) -> TypeNodeDecl {
+    ) -> TypeSynNodeDecl {
         match type_kind {
             TypeKind::Enum => self
                 .parse_enum_ty_node_decl(
@@ -203,7 +203,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> TypeNodeDecl {
+    ) -> TypeSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
             syn_node_path,
@@ -252,7 +252,7 @@ impl<'a> DeclParser<'a> {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TypeDecl {
+pub enum TypeSynDecl {
     Enum(EnumTypeSynDecl),
     PropsStruct(PropsStructTypeSynDecl),
     UnitStruct(UnitStructTypeSynDecl),
@@ -264,46 +264,46 @@ pub enum TypeDecl {
     Union(UnionTypeSynDecl),
 }
 
-impl TypeDecl {
+impl TypeSynDecl {
     pub fn path(self, db: &dyn DeclDb) -> TypePath {
         match self {
-            TypeDecl::Enum(decl) => decl.path(db),
-            TypeDecl::Inductive(decl) => decl.path(db),
-            TypeDecl::Record(decl) => decl.path(db),
-            TypeDecl::UnitStruct(decl) => decl.path(db),
-            TypeDecl::PropsStruct(decl) => decl.path(db),
-            TypeDecl::TupleStruct(decl) => decl.path(db),
-            TypeDecl::Structure(decl) => decl.path(db),
-            TypeDecl::Extern(decl) => decl.path(db),
-            TypeDecl::Union(decl) => decl.path(db),
+            TypeSynDecl::Enum(decl) => decl.path(db),
+            TypeSynDecl::Inductive(decl) => decl.path(db),
+            TypeSynDecl::Record(decl) => decl.path(db),
+            TypeSynDecl::UnitStruct(decl) => decl.path(db),
+            TypeSynDecl::PropsStruct(decl) => decl.path(db),
+            TypeSynDecl::TupleStruct(decl) => decl.path(db),
+            TypeSynDecl::Structure(decl) => decl.path(db),
+            TypeSynDecl::Extern(decl) => decl.path(db),
+            TypeSynDecl::Union(decl) => decl.path(db),
         }
     }
 
     pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            TypeDecl::Enum(decl) => decl.generic_parameters(db),
-            TypeDecl::UnitStruct(decl) => decl.generic_parameters(db),
-            TypeDecl::TupleStruct(decl) => decl.generic_parameters(db),
-            TypeDecl::PropsStruct(decl) => decl.generic_parameters(db),
-            TypeDecl::Record(decl) => decl.generic_parameters(db),
-            TypeDecl::Inductive(decl) => decl.generic_parameters(db),
-            TypeDecl::Structure(decl) => decl.generic_parameters(db),
-            TypeDecl::Extern(decl) => decl.generic_parameters(db),
-            TypeDecl::Union(decl) => decl.generic_parameters(db),
+            TypeSynDecl::Enum(decl) => decl.generic_parameters(db),
+            TypeSynDecl::UnitStruct(decl) => decl.generic_parameters(db),
+            TypeSynDecl::TupleStruct(decl) => decl.generic_parameters(db),
+            TypeSynDecl::PropsStruct(decl) => decl.generic_parameters(db),
+            TypeSynDecl::Record(decl) => decl.generic_parameters(db),
+            TypeSynDecl::Inductive(decl) => decl.generic_parameters(db),
+            TypeSynDecl::Structure(decl) => decl.generic_parameters(db),
+            TypeSynDecl::Extern(decl) => decl.generic_parameters(db),
+            TypeSynDecl::Union(decl) => decl.generic_parameters(db),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            TypeDecl::Enum(decl) => decl.expr_region(db),
-            TypeDecl::UnitStruct(decl) => decl.expr_region(db),
-            TypeDecl::TupleStruct(decl) => decl.expr_region(db),
-            TypeDecl::PropsStruct(decl) => decl.expr_region(db),
-            TypeDecl::Record(decl) => decl.expr_region(db),
-            TypeDecl::Inductive(decl) => decl.expr_region(db),
-            TypeDecl::Structure(decl) => decl.expr_region(db),
-            TypeDecl::Extern(decl) => decl.expr_region(db),
-            TypeDecl::Union(decl) => decl.expr_region(db),
+            TypeSynDecl::Enum(decl) => decl.expr_region(db),
+            TypeSynDecl::UnitStruct(decl) => decl.expr_region(db),
+            TypeSynDecl::TupleStruct(decl) => decl.expr_region(db),
+            TypeSynDecl::PropsStruct(decl) => decl.expr_region(db),
+            TypeSynDecl::Record(decl) => decl.expr_region(db),
+            TypeSynDecl::Inductive(decl) => decl.expr_region(db),
+            TypeSynDecl::Structure(decl) => decl.expr_region(db),
+            TypeSynDecl::Extern(decl) => decl.expr_region(db),
+            TypeSynDecl::Union(decl) => decl.expr_region(db),
         }
     }
 
@@ -311,34 +311,34 @@ impl TypeDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        syn_node_decl: TypeNodeDecl,
+        syn_node_decl: TypeSynNodeDecl,
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
-            TypeNodeDecl::Enum(syn_node_decl) => {
+            TypeSynNodeDecl::Enum(syn_node_decl) => {
                 EnumTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::PropsStruct(syn_node_decl) => {
+            TypeSynNodeDecl::PropsStruct(syn_node_decl) => {
                 PropsStructTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::UnitStruct(syn_node_decl) => {
+            TypeSynNodeDecl::UnitStruct(syn_node_decl) => {
                 UnitStructTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::TupleStruct(syn_node_decl) => {
+            TypeSynNodeDecl::TupleStruct(syn_node_decl) => {
                 TupleStructTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Record(syn_node_decl) => {
+            TypeSynNodeDecl::Record(syn_node_decl) => {
                 RecordTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Inductive(syn_node_decl) => {
+            TypeSynNodeDecl::Inductive(syn_node_decl) => {
                 InductiveTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Structure(syn_node_decl) => {
+            TypeSynNodeDecl::Structure(syn_node_decl) => {
                 StructureTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Extern(syn_node_decl) => {
+            TypeSynNodeDecl::Extern(syn_node_decl) => {
                 ExternTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeNodeDecl::Union(syn_node_decl) => {
+            TypeSynNodeDecl::Union(syn_node_decl) => {
                 UnionTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
@@ -346,7 +346,7 @@ impl TypeDecl {
 }
 
 impl HasSynDecl for TypePath {
-    type Decl = TypeDecl;
+    type Decl = TypeSynDecl;
 
     #[inline(always)]
     fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
@@ -355,8 +355,8 @@ impl HasSynDecl for TypePath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeDecl> {
-    TypeDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
+pub(crate) fn ty_decl(db: &dyn DeclDb, path: TypePath) -> DeclResult<TypeSynDecl> {
+    TypeSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 
 #[test]

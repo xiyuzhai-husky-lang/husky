@@ -11,40 +11,40 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TypeVariantNodeDecl {
+pub enum TypeVariantSynNodeDecl {
     Props(PropsTypeVariantSynNodeDecl),
     Unit(UnitTypeVariantSynNodeDecl),
     Tuple(TupleTypeVariantSynNodeDecl),
 }
 
-impl TypeVariantNodeDecl {
+impl TypeVariantSynNodeDecl {
     pub fn syn_node_path(self, db: &dyn DeclDb) -> TypeVariantSynNodePath {
         match self {
-            TypeVariantNodeDecl::Props(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeVariantNodeDecl::Unit(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeVariantNodeDecl::Tuple(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeVariantSynNodeDecl::Props(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeVariantSynNodeDecl::Unit(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeVariantSynNodeDecl::Tuple(syn_node_decl) => syn_node_decl.syn_node_path(db),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TypeVariantNodeDecl::Props(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeVariantNodeDecl::Unit(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeVariantNodeDecl::Tuple(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeVariantSynNodeDecl::Props(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeVariantSynNodeDecl::Unit(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeVariantSynNodeDecl::Tuple(syn_node_decl) => syn_node_decl.ast_idx(db),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            TypeVariantNodeDecl::Props(_) => todo!(),
-            TypeVariantNodeDecl::Unit(_) => todo!(),
-            TypeVariantNodeDecl::Tuple(_) => todo!(),
+            TypeVariantSynNodeDecl::Props(_) => todo!(),
+            TypeVariantSynNodeDecl::Unit(_) => todo!(),
+            TypeVariantSynNodeDecl::Tuple(_) => todo!(),
         }
     }
 }
 
 impl HasNodeDecl for TypeVariantSynNodePath {
-    type NodeDecl = TypeVariantNodeDecl;
+    type NodeDecl = TypeVariantSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         ty_variant_syn_node_decl(db, self)
@@ -55,7 +55,7 @@ impl HasNodeDecl for TypeVariantSynNodePath {
 pub(crate) fn ty_variant_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: TypeVariantSynNodePath,
-) -> TypeVariantNodeDecl {
+) -> TypeVariantSynNodeDecl {
     DeclParser::new(db, syn_node_path.module_path(db)).parse_ty_variant_syn_node_decl(syn_node_path)
 }
 
@@ -63,7 +63,7 @@ impl<'a> DeclParser<'a> {
     fn parse_ty_variant_syn_node_decl(
         &self,
         syn_node_path: TypeVariantSynNodePath,
-    ) -> TypeVariantNodeDecl {
+    ) -> TypeVariantSynNodeDecl {
         let db = self.db();
         let node = syn_node_path.syn_node(db);
         let ast_idx = node.ast_idx(db);
@@ -116,26 +116,26 @@ impl<'a> DeclParser<'a> {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TypeVariantDecl {
+pub enum TypeVariantSynDecl {
     Props(PropsTypeVariantSynDecl),
     Unit(UnitTypeVariantSynDecl),
     Tuple(TupleTypeVariantSynDecl),
 }
 
-impl TypeVariantDecl {
+impl TypeVariantSynDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeVariantPath,
-        syn_node_decl: TypeVariantNodeDecl,
+        syn_node_decl: TypeVariantSynNodeDecl,
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
-            TypeVariantNodeDecl::Props(syn_node_decl) => {
+            TypeVariantSynNodeDecl::Props(syn_node_decl) => {
                 PropsTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeVariantNodeDecl::Unit(syn_node_decl) => {
+            TypeVariantSynNodeDecl::Unit(syn_node_decl) => {
                 UnitTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TypeVariantNodeDecl::Tuple(syn_node_decl) => {
+            TypeVariantSynNodeDecl::Tuple(syn_node_decl) => {
                 TupleTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
@@ -143,9 +143,9 @@ impl TypeVariantDecl {
 
     pub fn path(self, db: &dyn DeclDb) -> TypeVariantPath {
         match self {
-            TypeVariantDecl::Props(_) => todo!(),
-            TypeVariantDecl::Unit(_) => todo!(),
-            TypeVariantDecl::Tuple(_) => todo!(),
+            TypeVariantSynDecl::Props(_) => todo!(),
+            TypeVariantSynDecl::Unit(_) => todo!(),
+            TypeVariantSynDecl::Tuple(_) => todo!(),
         }
     }
 
@@ -155,7 +155,7 @@ impl TypeVariantDecl {
 }
 
 impl HasSynDecl for TypeVariantPath {
-    type Decl = TypeVariantDecl;
+    type Decl = TypeVariantSynDecl;
 
     fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         ty_variant_syn_decl(db, self)
@@ -166,7 +166,7 @@ impl HasSynDecl for TypeVariantPath {
 pub(crate) fn ty_variant_syn_decl(
     db: &dyn DeclDb,
     path: TypeVariantPath,
-) -> DeclResult<TypeVariantDecl> {
+) -> DeclResult<TypeVariantSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TypeVariantDecl::from_node_decl(db, path, syn_node_decl)
+    TypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)
 }

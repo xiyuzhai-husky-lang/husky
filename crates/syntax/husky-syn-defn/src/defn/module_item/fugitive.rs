@@ -22,7 +22,7 @@ pub enum FugitiveSynNodeDefn {
 }
 
 impl FugitiveSynNodeDefn {
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> FugitiveNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> FugitiveSynNodeDecl {
         match self {
             FugitiveSynNodeDefn::Fn(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
             FugitiveSynNodeDefn::Val(syn_node_defn) => syn_node_defn.syn_node_decl(db).into(),
@@ -62,13 +62,13 @@ pub(crate) fn fugitive_syn_node_defn(
     syn_node_path: FugitiveSynNodePath,
 ) -> FugitiveSynNodeDefn {
     match syn_node_path.syn_node_decl(db) {
-        FugitiveNodeDecl::Fn(syn_node_decl) => {
+        FugitiveSynNodeDecl::Fn(syn_node_decl) => {
             FnSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        FugitiveNodeDecl::Val(syn_node_decl) => {
+        FugitiveSynNodeDecl::Val(syn_node_decl) => {
             ValSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        FugitiveNodeDecl::Gn(syn_node_decl) => {
+        FugitiveSynNodeDecl::Gn(syn_node_decl) => {
             GnSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
     }
@@ -86,7 +86,7 @@ pub enum FugitiveDefn {
 }
 
 impl FugitiveDefn {
-    pub fn decl(self, db: &dyn SynDefnDb) -> FugitiveDecl {
+    pub fn decl(self, db: &dyn SynDefnDb) -> FugitiveSynDecl {
         match self {
             FugitiveDefn::Fn(defn) => defn.decl(db).into(),
             FugitiveDefn::Val(defn) => defn.decl(db).into(),
@@ -125,8 +125,8 @@ pub(crate) fn fugitive_syn_defn(
     path: FugitivePath,
 ) -> SynDefnResult<FugitiveDefn> {
     Ok(match path.syn_decl(db)? {
-        FugitiveDecl::Fn(decl) => FnSynDefn::new(db, path, decl).into(),
-        FugitiveDecl::Val(decl) => ValSynDefn::new(db, path, decl).into(),
-        FugitiveDecl::Gn(decl) => GnSynDefn::new(db, path, decl).into(),
+        FugitiveSynDecl::Fn(decl) => FnSynDefn::new(db, path, decl).into(),
+        FugitiveSynDecl::Val(decl) => ValSynDefn::new(db, path, decl).into(),
+        FugitiveSynDecl::Gn(decl) => GnSynDefn::new(db, path, decl).into(),
     })
 }

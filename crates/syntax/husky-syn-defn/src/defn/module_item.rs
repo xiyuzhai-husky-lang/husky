@@ -60,7 +60,7 @@ pub enum ModuleItemDefn {
 }
 
 impl ModuleItemDefn {
-    pub fn decl(self, db: &dyn SynDefnDb) -> ModuleItemDecl {
+    pub fn decl(self, db: &dyn SynDefnDb) -> ModuleItemSynDecl {
         match self {
             ModuleItemDefn::Type(defn) => defn.decl(db).into(),
             ModuleItemDefn::Trait(defn) => defn.decl(db).into(),

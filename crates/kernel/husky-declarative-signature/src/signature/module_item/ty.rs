@@ -87,29 +87,31 @@ pub(crate) fn ty_declarative_signature_template(
 ) -> DeclarativeSignatureResult<TypeDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;
     Ok(match decl {
-        TypeDecl::Enum(decl) => EnumDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into(),
-        TypeDecl::PropsStruct(decl) => {
+        TypeSynDecl::Enum(decl) => {
+            EnumDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
+        }
+        TypeSynDecl::PropsStruct(decl) => {
             PropsStructDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeDecl::UnitStruct(decl) => {
+        TypeSynDecl::UnitStruct(decl) => {
             UnitStructDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeDecl::TupleStruct(decl) => {
+        TypeSynDecl::TupleStruct(decl) => {
             TupleStructDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeDecl::Record(decl) => {
+        TypeSynDecl::Record(decl) => {
             RecordDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeDecl::Inductive(decl) => {
+        TypeSynDecl::Inductive(decl) => {
             InductiveDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeDecl::Structure(decl) => {
+        TypeSynDecl::Structure(decl) => {
             StructureDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeDecl::Extern(decl) => {
+        TypeSynDecl::Extern(decl) => {
             ExternDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
-        TypeDecl::Union(decl) => {
+        TypeSynDecl::Union(decl) => {
             UnionDeclarativeSignatureTemplate::from_decl(db, path, decl)?.into()
         }
     })

@@ -15,62 +15,62 @@ use husky_ast::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TraitItemNodeDecl {
+pub enum TraitItemSynNodeDecl {
     AssociatedFn(TraitAssociatedFnSynNodeDecl),
     MethodFn(TraitMethodFnSynNodeDecl),
     AssociatedType(TraitAssociatedTypeSynNodeDecl),
     AssociatedVal(TraitAssociatedValSynNodeDecl),
 }
 
-impl TraitItemNodeDecl {
+impl TraitItemSynNodeDecl {
     pub fn syn_node_path(self, _db: &dyn DeclDb) -> TraitItemSynNodePath {
         match self {
-            TraitItemNodeDecl::AssociatedFn(_) => todo!(),
-            TraitItemNodeDecl::MethodFn(_) => todo!(),
-            TraitItemNodeDecl::AssociatedType(_) => todo!(),
-            TraitItemNodeDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
+            TraitItemSynNodeDecl::MethodFn(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TraitItemNodeDecl::AssociatedFn(decl) => decl.ast_idx(db),
-            TraitItemNodeDecl::MethodFn(decl) => decl.ast_idx(db),
-            TraitItemNodeDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TraitItemNodeDecl::AssociatedVal(decl) => decl.ast_idx(db),
+            TraitItemSynNodeDecl::AssociatedFn(decl) => decl.ast_idx(db),
+            TraitItemSynNodeDecl::MethodFn(decl) => decl.ast_idx(db),
+            TraitItemSynNodeDecl::AssociatedType(decl) => decl.ast_idx(db),
+            TraitItemSynNodeDecl::AssociatedVal(decl) => decl.ast_idx(db),
         }
     }
 
     pub fn generic_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            TraitItemNodeDecl::AssociatedFn(_) => todo!(),
-            TraitItemNodeDecl::MethodFn(_) => todo!(),
-            TraitItemNodeDecl::AssociatedType(_) => todo!(),
-            TraitItemNodeDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
+            TraitItemSynNodeDecl::MethodFn(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, _db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            TraitItemNodeDecl::AssociatedFn(_) => todo!(),
-            TraitItemNodeDecl::MethodFn(_) => todo!(),
-            TraitItemNodeDecl::AssociatedType(_) => todo!(),
-            TraitItemNodeDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
+            TraitItemSynNodeDecl::MethodFn(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            TraitItemNodeDecl::AssociatedFn(_) => todo!(),
-            TraitItemNodeDecl::MethodFn(_) => todo!(),
-            TraitItemNodeDecl::AssociatedType(_) => todo!(),
-            TraitItemNodeDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
+            TraitItemSynNodeDecl::MethodFn(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedType(_) => todo!(),
+            TraitItemSynNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
 }
 
 impl HasNodeDecl for TraitItemSynNodePath {
-    type NodeDecl = TraitItemNodeDecl;
+    type NodeDecl = TraitItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         todo!()
@@ -80,44 +80,44 @@ impl HasNodeDecl for TraitItemSynNodePath {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TraitItemDecl {
+pub enum TraitItemSynDecl {
     AssociatedFn(TraitAssociatedFnSynDecl),
     MethodFn(TraitMethodFnSynDecl),
     AssociatedType(TraitAssociatedTypeSynDecl),
     AssociatedVal(TraitAssociatedValSynDecl),
 }
 
-impl TraitItemDecl {
+impl TraitItemSynDecl {
     pub fn path(self, _db: &dyn DeclDb) -> TraitItemPath {
         match self {
-            TraitItemDecl::AssociatedFn(_) => todo!(),
-            TraitItemDecl::MethodFn(_) => todo!(),
-            TraitItemDecl::AssociatedType(_) => todo!(),
-            TraitItemDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynDecl::AssociatedFn(_) => todo!(),
+            TraitItemSynDecl::MethodFn(_) => todo!(),
+            TraitItemSynDecl::AssociatedType(_) => todo!(),
+            TraitItemSynDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn generic_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            TraitItemDecl::AssociatedFn(_) => todo!(),
-            TraitItemDecl::MethodFn(_) => todo!(),
-            TraitItemDecl::AssociatedType(_) => todo!(),
-            TraitItemDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynDecl::AssociatedFn(_) => todo!(),
+            TraitItemSynDecl::MethodFn(_) => todo!(),
+            TraitItemSynDecl::AssociatedType(_) => todo!(),
+            TraitItemSynDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, _db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            TraitItemDecl::AssociatedFn(_) => todo!(),
-            TraitItemDecl::MethodFn(_) => todo!(),
-            TraitItemDecl::AssociatedType(_) => todo!(),
-            TraitItemDecl::AssociatedVal(_) => todo!(),
+            TraitItemSynDecl::AssociatedFn(_) => todo!(),
+            TraitItemSynDecl::MethodFn(_) => todo!(),
+            TraitItemSynDecl::AssociatedType(_) => todo!(),
+            TraitItemSynDecl::AssociatedVal(_) => todo!(),
         }
     }
 }
 
 impl HasSynDecl for TraitItemPath {
-    type Decl = TraitItemDecl;
+    type Decl = TraitItemSynDecl;
 
     fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         todo!()

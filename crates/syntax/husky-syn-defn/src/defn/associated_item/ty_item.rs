@@ -35,7 +35,7 @@ impl TypeItemSynNodeDefn {
         }
     }
 
-    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TypeItemNodeDecl {
+    pub fn syn_node_decl(self, db: &dyn SynDefnDb) -> TypeItemSynNodeDecl {
         match self {
             TypeItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
                 syn_node_defn.syn_node_decl(db).into()
@@ -86,15 +86,15 @@ pub(crate) fn ty_item_syn_node_defn(
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDefn {
     match syn_node_path.syn_node_decl(db) {
-        TypeItemNodeDecl::AssociatedFn(syn_node_decl) => {
+        TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => {
             TypeAssociatedFnSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TypeItemNodeDecl::MethodFn(syn_node_decl) => {
+        TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
             TypeMethodFnSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
-        TypeItemNodeDecl::AssociatedType(_) => todo!(),
-        TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-        TypeItemNodeDecl::MemoizedField(syn_node_decl) => {
+        TypeItemSynNodeDecl::AssociatedType(_) => todo!(),
+        TypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
+        TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => {
             TypeMemoizedFieldSynNodeDefn::new(db, syn_node_path, syn_node_decl).into()
         }
     }
@@ -116,7 +116,7 @@ impl TypeItemSynDefn {
         todo!()
     }
 
-    pub fn decl(self, db: &dyn SynDefnDb) -> TypeItemDecl {
+    pub fn decl(self, db: &dyn SynDefnDb) -> TypeItemSynDecl {
         match self {
             TypeItemSynDefn::AssociatedFn(defn) => defn.decl(db).into(),
             TypeItemSynDefn::MethodFn(defn) => defn.decl(db).into(),
@@ -152,10 +152,12 @@ pub(crate) fn ty_item_syn_defn(
 ) -> SynDefnResult<TypeItemSynDefn> {
     let decl = path.syn_decl(db)?;
     Ok(match decl {
-        TypeItemDecl::AssociatedFn(decl) => TypeAssociatedFnSynDefn::new(db, path, decl)?.into(),
-        TypeItemDecl::MethodFn(decl) => TypeMethodFnSynDefn::new(db, path, decl)?.into(),
-        TypeItemDecl::AssociatedType(_) => todo!(),
-        TypeItemDecl::AssociatedVal(_) => todo!(),
-        TypeItemDecl::MemoizedField(decl) => TypeMemoizedFieldSynDefn::new(db, path, decl)?.into(),
+        TypeItemSynDecl::AssociatedFn(decl) => TypeAssociatedFnSynDefn::new(db, path, decl)?.into(),
+        TypeItemSynDecl::MethodFn(decl) => TypeMethodFnSynDefn::new(db, path, decl)?.into(),
+        TypeItemSynDecl::AssociatedType(_) => todo!(),
+        TypeItemSynDecl::AssociatedVal(_) => todo!(),
+        TypeItemSynDecl::MemoizedField(decl) => {
+            TypeMemoizedFieldSynDefn::new(db, path, decl)?.into()
+        }
     })
 }

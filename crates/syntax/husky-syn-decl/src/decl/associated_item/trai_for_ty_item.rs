@@ -16,68 +16,68 @@ use husky_ast::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TraitForTypeItemNodeDecl {
+pub enum TraitForTypeItemSynNodeDecl {
     AssociatedFn(TraitForTypeAssociatedFnSynNodeDecl),
     MethodFn(TraitForTypeMethodFnSynNodeDecl),
     AssociatedType(TraitForTypeAssociatedTypeSynNodeDecl),
     AssociatedVal(TraitForTypeAssociatedValSynNodeDecl),
 }
 
-impl From<TraitForTypeItemNodeDecl> for SynNodeDecl {
-    fn from(decl: TraitForTypeItemNodeDecl) -> Self {
+impl From<TraitForTypeItemSynNodeDecl> for SynNodeDecl {
+    fn from(decl: TraitForTypeItemSynNodeDecl) -> Self {
         SynNodeDecl::AssociatedItem(decl.into())
     }
 }
 
-impl TraitForTypeItemNodeDecl {
+impl TraitForTypeItemSynNodeDecl {
     pub fn syn_node_path(self, db: &dyn DeclDb) -> TraitForTypeItemSynNodePath {
         match self {
-            TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.syn_node_path(db),
-            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.syn_node_path(db),
-            TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
+            TraitForTypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
+            TraitForTypeItemSynNodeDecl::MethodFn(decl) => decl.syn_node_path(db),
+            TraitForTypeItemSynNodeDecl::AssociatedType(decl) => decl.syn_node_path(db),
+            TraitForTypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TraitForTypeItemNodeDecl::AssociatedFn(decl) => decl.ast_idx(db),
-            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.ast_idx(db),
-            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.ast_idx(db),
-            TraitForTypeItemNodeDecl::AssociatedVal(decl) => decl.ast_idx(db),
+            TraitForTypeItemSynNodeDecl::AssociatedFn(decl) => decl.ast_idx(db),
+            TraitForTypeItemSynNodeDecl::MethodFn(decl) => decl.ast_idx(db),
+            TraitForTypeItemSynNodeDecl::AssociatedType(decl) => decl.ast_idx(db),
+            TraitForTypeItemSynNodeDecl::AssociatedVal(decl) => decl.ast_idx(db),
         }
     }
 
     pub fn generic_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            TraitForTypeItemNodeDecl::AssociatedFn(_) => todo!(),
-            TraitForTypeItemNodeDecl::MethodFn(_) => todo!(),
-            TraitForTypeItemNodeDecl::AssociatedType(_) => todo!(),
-            TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
+            TraitForTypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
+            TraitForTypeItemSynNodeDecl::MethodFn(_) => todo!(),
+            TraitForTypeItemSynNodeDecl::AssociatedType(_) => todo!(),
+            TraitForTypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            TraitForTypeItemNodeDecl::AssociatedFn(decl) => decl.expr_region(db),
-            TraitForTypeItemNodeDecl::MethodFn(decl) => decl.expr_region(db),
-            TraitForTypeItemNodeDecl::AssociatedType(decl) => decl.expr_region(db),
-            TraitForTypeItemNodeDecl::AssociatedVal(decl) => decl.expr_region(db),
+            TraitForTypeItemSynNodeDecl::AssociatedFn(decl) => decl.expr_region(db),
+            TraitForTypeItemSynNodeDecl::MethodFn(decl) => decl.expr_region(db),
+            TraitForTypeItemSynNodeDecl::AssociatedType(decl) => decl.expr_region(db),
+            TraitForTypeItemSynNodeDecl::AssociatedVal(decl) => decl.expr_region(db),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            TraitForTypeItemNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
-            TraitForTypeItemNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),
-            TraitForTypeItemNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.errors(db),
-            TraitForTypeItemNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.errors(db),
+            TraitForTypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
+            TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),
+            TraitForTypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.errors(db),
+            TraitForTypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.errors(db),
         }
     }
 }
 
 impl HasNodeDecl for TraitForTypeItemSynNodePath {
-    type NodeDecl = TraitForTypeItemNodeDecl;
+    type NodeDecl = TraitForTypeItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         trai_for_ty_item_syn_node_decl(db, self)
@@ -88,7 +88,7 @@ impl HasNodeDecl for TraitForTypeItemSynNodePath {
 pub(crate) fn trai_for_ty_item_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: TraitForTypeItemSynNodePath,
-) -> TraitForTypeItemNodeDecl {
+) -> TraitForTypeItemSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
     parser.parse_trai_for_ty_item_syn_node_decl(syn_node_path)
 }
@@ -97,7 +97,7 @@ impl<'a> DeclParser<'a> {
     fn parse_trai_for_ty_item_syn_node_decl(
         &self,
         syn_node_path: TraitForTypeItemSynNodePath,
-    ) -> TraitForTypeItemNodeDecl {
+    ) -> TraitForTypeItemSynNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
@@ -130,7 +130,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         trai_item_kind: TraitItemKind,
         saved_stream_state: TokenStreamState,
-    ) -> TraitForTypeItemNodeDecl {
+    ) -> TraitForTypeItemSynNodeDecl {
         match trai_item_kind {
             TraitItemKind::MethodFn => self
                 .parse_trai_for_ty_method_fn_node_decl(
@@ -157,69 +157,69 @@ impl<'a> DeclParser<'a> {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TraitForTypeItemDecl {
+pub enum TraitForTypeItemSynDecl {
     AssociatedFn(TraitForTypeAssociatedFnSynDecl),
     MethodFn(TraitForTypeMethodFnSynDecl),
     AssociatedType(TraitForTypeAssociatedTypeSynDecl),
     AssociatedVal(TraitForTypeAssociatedValSynDecl),
 }
 
-impl From<TraitForTypeItemDecl> for Decl {
-    fn from(decl: TraitForTypeItemDecl) -> Self {
+impl From<TraitForTypeItemSynDecl> for Decl {
+    fn from(decl: TraitForTypeItemSynDecl) -> Self {
         Decl::AssociatedItem(decl.into())
     }
 }
 
-impl TraitForTypeItemDecl {
+impl TraitForTypeItemSynDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitForTypeItemPath,
-        syn_node_decl: TraitForTypeItemNodeDecl,
+        syn_node_decl: TraitForTypeItemSynNodeDecl,
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
-            TraitForTypeItemNodeDecl::AssociatedFn(syn_node_decl) => {
+            TraitForTypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => {
                 TraitForTypeAssociatedFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TraitForTypeItemNodeDecl::MethodFn(syn_node_decl) => {
+            TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
                 TraitForTypeMethodFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TraitForTypeItemNodeDecl::AssociatedType(syn_node_decl) => {
+            TraitForTypeItemSynNodeDecl::AssociatedType(syn_node_decl) => {
                 TraitForTypeAssociatedTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
+            TraitForTypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
         })
     }
 
     pub fn path(self, db: &dyn DeclDb) -> TraitForTypeItemPath {
         match self {
-            TraitForTypeItemDecl::AssociatedFn(decl) => decl.path(db),
-            TraitForTypeItemDecl::MethodFn(decl) => decl.path(db),
-            TraitForTypeItemDecl::AssociatedType(decl) => decl.path(db),
-            TraitForTypeItemDecl::AssociatedVal(decl) => decl.path(db),
+            TraitForTypeItemSynDecl::AssociatedFn(decl) => decl.path(db),
+            TraitForTypeItemSynDecl::MethodFn(decl) => decl.path(db),
+            TraitForTypeItemSynDecl::AssociatedType(decl) => decl.path(db),
+            TraitForTypeItemSynDecl::AssociatedVal(decl) => decl.path(db),
         }
     }
 
     pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            TraitForTypeItemDecl::AssociatedFn(decl) => decl.generic_parameters(db),
-            TraitForTypeItemDecl::MethodFn(decl) => decl.generic_parameters(db),
-            TraitForTypeItemDecl::AssociatedType(decl) => decl.generic_parameters(db),
-            TraitForTypeItemDecl::AssociatedVal(_) => &[],
+            TraitForTypeItemSynDecl::AssociatedFn(decl) => decl.generic_parameters(db),
+            TraitForTypeItemSynDecl::MethodFn(decl) => decl.generic_parameters(db),
+            TraitForTypeItemSynDecl::AssociatedType(decl) => decl.generic_parameters(db),
+            TraitForTypeItemSynDecl::AssociatedVal(_) => &[],
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            TraitForTypeItemDecl::AssociatedFn(decl) => decl.expr_region(db),
-            TraitForTypeItemDecl::MethodFn(decl) => decl.expr_region(db),
-            TraitForTypeItemDecl::AssociatedType(decl) => decl.expr_region(db),
-            TraitForTypeItemDecl::AssociatedVal(decl) => decl.expr_region(db),
+            TraitForTypeItemSynDecl::AssociatedFn(decl) => decl.expr_region(db),
+            TraitForTypeItemSynDecl::MethodFn(decl) => decl.expr_region(db),
+            TraitForTypeItemSynDecl::AssociatedType(decl) => decl.expr_region(db),
+            TraitForTypeItemSynDecl::AssociatedVal(decl) => decl.expr_region(db),
         }
     }
 }
 
 impl HasSynDecl for TraitForTypeItemPath {
-    type Decl = TraitForTypeItemDecl;
+    type Decl = TraitForTypeItemSynDecl;
 
     fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         trai_for_ty_item_syn_decl(db, self)
@@ -230,7 +230,7 @@ impl HasSynDecl for TraitForTypeItemPath {
 pub(crate) fn trai_for_ty_item_syn_decl(
     db: &dyn DeclDb,
     path: TraitForTypeItemPath,
-) -> DeclResult<TraitForTypeItemDecl> {
+) -> DeclResult<TraitForTypeItemSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TraitForTypeItemDecl::from_node_decl(db, path, syn_node_decl)
+    TraitForTypeItemSynDecl::from_node_decl(db, path, syn_node_decl)
 }
