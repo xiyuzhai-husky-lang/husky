@@ -319,7 +319,7 @@ Ok(
                                                             56,
                                                         ),
                                                     },
-                                                    implicit_arguments: None,
+                                                    generic_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         57,
                                                     ),
@@ -346,7 +346,7 @@ Ok(
                                                             61,
                                                         ),
                                                     },
-                                                    implicit_arguments: None,
+                                                    generic_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         62,
                                                     ),
@@ -393,7 +393,7 @@ Ok(
                                                             73,
                                                         ),
                                                     },
-                                                    implicit_arguments: None,
+                                                    generic_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         74,
                                                     ),
@@ -420,7 +420,7 @@ Ok(
                                                             78,
                                                         ),
                                                     },
-                                                    implicit_arguments: None,
+                                                    generic_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         79,
                                                     ),

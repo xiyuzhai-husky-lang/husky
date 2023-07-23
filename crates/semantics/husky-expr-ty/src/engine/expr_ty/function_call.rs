@@ -6,7 +6,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         function: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
-        implicit_arguments: Option<&SynImplicitArgumentList>,
+        generic_arguments: Option<&SynGenericArgumentList>,
         items: &[SynCommaListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(outcome) = self.infer_new_expr_ty_for_outcome(
@@ -18,7 +18,7 @@ impl<'a> ExprTypeEngine<'a> {
             }
             Err(DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred)?
         };
-        if let Some(implicit_arguments) = implicit_arguments {
+        if let Some(generic_arguments) = generic_arguments {
             todo!()
         }
         match outcome.variant() {
@@ -69,7 +69,7 @@ impl<'a> ExprTypeEngine<'a> {
         expr_idx: SynExprIdx,
         function: SynExprIdx,
         final_destination: FinalDestination,
-        implicit_arguments: Option<&SynImplicitArgumentList>,
+        generic_arguments: Option<&SynGenericArgumentList>,
         items: &[CallListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(outcome) = self.infer_new_expr_ty_for_outcome(

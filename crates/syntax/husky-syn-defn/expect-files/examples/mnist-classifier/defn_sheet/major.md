@@ -170,7 +170,7 @@ Ok(
                                         ),
                                         Expr::FunctionApplicationOrCall {
                                             function: 0,
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 14,
                                             ),
@@ -432,7 +432,7 @@ Ok(
                                                     39,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 40,
                                             ),
@@ -1226,7 +1226,7 @@ Ok(
                                                     84,
                                                 ),
                                             },
-                                            implicit_arguments: None,
+                                            generic_arguments: None,
                                             lpar_token_idx: TokenIdx(
                                                 85,
                                             ),

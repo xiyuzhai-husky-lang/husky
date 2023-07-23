@@ -200,26 +200,26 @@ impl<'a> ExprTypeEngine<'a> {
             ),
             SynExpr::FunctionApplicationOrCall {
                 function,
-                ref implicit_arguments,
+                ref generic_arguments,
                 ref items,
                 ..
             } => self.calc_function_application_or_call_expr_ty(
                 expr_idx,
                 function,
                 expr_ty_expectation,
-                implicit_arguments.as_ref(),
+                generic_arguments.as_ref(),
                 items,
             ),
             SynExpr::FunctionCall {
                 function,
-                ref implicit_arguments,
+                ref generic_arguments,
                 ref items,
                 ..
             } => self.calc_function_call_expr_ty(
                 expr_idx,
                 function,
                 expr_ty_expectation.final_destination(self),
-                implicit_arguments.as_ref(),
+                generic_arguments.as_ref(),
                 items,
             ),
             SynExpr::Field {
@@ -228,19 +228,19 @@ impl<'a> ExprTypeEngine<'a> {
             SynExpr::MethodApplicationOrCall {
                 self_argument,
                 ident_token,
-                ref implicit_arguments,
+                ref generic_arguments,
                 ref items,
                 ..
             } => self.calc_method_application_or_call_ty(
                 expr_idx,
                 self_argument,
                 ident_token,
-                implicit_arguments.as_ref(),
+                generic_arguments.as_ref(),
                 items,
             ),
             SynExpr::TemplateInstantiation {
                 template,
-                ref implicit_arguments,
+                ref generic_arguments,
             } => todo!(),
             SynExpr::ExplicitApplication {
                 function_expr_idx,

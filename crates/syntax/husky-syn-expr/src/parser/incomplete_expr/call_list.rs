@@ -4,12 +4,12 @@ use super::*;
 pub(in crate::parser) enum IncompleteCallListOpr {
     FunctionCall {
         function: SynExprIdx,
-        implicit_arguments: Option<SynImplicitArgumentList>,
+        generic_arguments: Option<SynGenericArgumentList>,
     },
     MethodCall {
         self_expr: SynExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
-        implicit_arguments: Option<SynImplicitArgumentList>,
+        generic_arguments: Option<SynGenericArgumentList>,
     },
 }

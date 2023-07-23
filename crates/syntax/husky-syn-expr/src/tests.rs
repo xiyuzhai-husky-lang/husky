@@ -1040,7 +1040,7 @@ fn parse_expr_works() {
                                     2,
                                 ),
                             },
-                            implicit_arguments: None,
+                            generic_arguments: None,
                             lpar_token_idx: TokenIdx(
                                 3,
                             ),

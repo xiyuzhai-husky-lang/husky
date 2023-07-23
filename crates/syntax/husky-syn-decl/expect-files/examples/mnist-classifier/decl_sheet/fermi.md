@@ -408,7 +408,7 @@ Ok(
                                                 },
                                                 SynExpr::FunctionApplicationOrCall {
                                                     function: 4,
-                                                    implicit_arguments: None,
+                                                    generic_arguments: None,
                                                     lpar_token_idx: TokenIdx(
                                                         160,
                                                     ),

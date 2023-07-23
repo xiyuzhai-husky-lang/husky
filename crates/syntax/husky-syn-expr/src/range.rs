@@ -284,7 +284,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             } => self[owner].to(TokenIdxRangeEnd::new_after(ident_token.token_idx())),
             SynExpr::TemplateInstantiation {
                 template,
-                implicit_arguments,
+                generic_arguments,
             } => todo!(),
             SynExpr::ExplicitApplication {
                 function_expr_idx: function,

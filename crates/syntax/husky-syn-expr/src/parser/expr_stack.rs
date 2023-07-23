@@ -127,7 +127,7 @@ impl SynExpr {
                     } => todo!(),
                     SynExpr::FunctionApplicationOrCall {
                         function,
-                        implicit_arguments,
+                        generic_arguments,
                         lpar_token_idx,
                         items,
                         rpar_token_idx,
@@ -143,7 +143,7 @@ impl SynExpr {
                     } => todo!(),
                     SynExpr::FunctionCall {
                         function,
-                        implicit_arguments,
+                        generic_arguments,
                         lpar_token_idx,
                         items,
                         rpar_token_idx,
@@ -157,14 +157,14 @@ impl SynExpr {
                         self_argument,
                         dot_token_idx,
                         ident_token,
-                        implicit_arguments,
+                        generic_arguments,
                         lpar_token_idx,
                         items,
                         rpar_token_idx,
                     } => todo!(),
                     SynExpr::TemplateInstantiation {
                         template,
-                        implicit_arguments,
+                        generic_arguments,
                     } => todo!(),
                     SynExpr::ExplicitApplication {
                         function_expr_idx,
@@ -489,7 +489,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                 IncompleteExpr::CallList {
                                     opr: IncompleteCallListOpr::FunctionCall {
                                         function,
-                                        implicit_arguments: /* ad hoc */ None,
+                                        generic_arguments: /* ad hoc */ None,
                                     },
                                     lpar_token_idx: bra_token_idx,
                                     items,
@@ -502,7 +502,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                                         self_expr,
                                         dot_token_idx,
                                         ident_token,
-                                        implicit_arguments,
+                                        generic_arguments,
                                     },
                                 bra,
                                 bra_token_idx,

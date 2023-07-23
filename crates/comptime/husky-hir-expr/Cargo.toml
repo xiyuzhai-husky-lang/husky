@@ -13,3 +13,7 @@ salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
 # semantics
 husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
+# kernel
+husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-coword = { path = "../../kernel/husky-coword" }

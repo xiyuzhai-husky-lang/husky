@@ -154,7 +154,7 @@ pub enum SynExpr {
     ///   - `f` is a Ritchie function, this is a Ritchie function call with zero element
     FunctionApplicationOrCall {
         function: SynExprIdx,
-        implicit_arguments: Option<SynImplicitArgumentList>,
+        generic_arguments: Option<SynGenericArgumentList>,
         lpar_token_idx: TokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
@@ -173,7 +173,7 @@ pub enum SynExpr {
     },
     FunctionCall {
         function: SynExprIdx,
-        implicit_arguments: Option<SynImplicitArgumentList>,
+        generic_arguments: Option<SynGenericArgumentList>,
         lpar_token_idx: TokenIdx,
         items: SmallVec<[CallListItem; 4]>,
         rpar_token_idx: TokenIdx,
@@ -187,14 +187,14 @@ pub enum SynExpr {
         self_argument: SynExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
-        implicit_arguments: Option<SynImplicitArgumentList>,
+        generic_arguments: Option<SynGenericArgumentList>,
         lpar_token_idx: TokenIdx,
         items: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
     },
     TemplateInstantiation {
         template: SynExprIdx,
-        implicit_arguments: SynImplicitArgumentList,
+        generic_arguments: SynGenericArgumentList,
     },
     // todo: implicit arguments
     ExplicitApplication {
@@ -254,13 +254,13 @@ pub enum SynExpr {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct SynImplicitArgumentList {
+pub struct SynGenericArgumentList {
     langle: TokenIdx,
     arguments: SmallVec<[SynCommaListItem; 4]>,
     rangle: TokenIdx,
 }
 
-impl SynImplicitArgumentList {
+impl SynGenericArgumentList {
     pub(crate) fn new(
         langle: TokenIdx,
         arguments: SmallVec<[SynCommaListItem; 4]>,

@@ -43,7 +43,7 @@ pub enum ExprHir {
     },
     FunctionCall {
         function: ExprHirIdx,
-        implicit_arguments: Option<ImplicitArgumentListHir>,
+        generic_arguments: Option<GenericArgumentListHir>,
         arguments: ExprHirIdxRange,
     },
     Field {
@@ -53,12 +53,12 @@ pub enum ExprHir {
     MethodCall {
         self_expr: ExprHirIdx,
         ident_token: Ident,
-        implicit_arguments: Option<ImplicitArgumentListHir>,
+        generic_arguments: Option<GenericArgumentListHir>,
         nonself_arguments: ExprHirIdxRange,
     },
     TemplateInstantiation {
         template: ExprHirIdx,
-        implicit_arguments: ImplicitArgumentListHir,
+        generic_arguments: GenericArgumentListHir,
     },
     Application {
         function: ExprHirIdx,
@@ -79,7 +79,7 @@ pub enum ExprHir {
     },
 }
 
-pub struct ImplicitArgumentListHir {}
+pub struct GenericArgumentListHir {}
 
 pub type ExprHirArena = Arena<ExprHir>;
 pub type ExprHirIdx = ArenaIdx<ExprHir>;
