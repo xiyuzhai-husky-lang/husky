@@ -60,12 +60,13 @@ impl HasHirDefn for TypeItemPath {
 
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn ty_item_hir_defn(db: &dyn HirDefnDb, path: TypeItemPath) -> TypeItemHirDefn {
-    let decl = path.syn_decl(db)?;
-    Ok(match decl {
-        TypeItemDecl::AssociatedFn(decl) => TypeAssociatedFnHirDefn::new(db, path, decl)?.into(),
-        TypeItemDecl::MethodFn(decl) => TypeMethodFnHirDefn::new(db, path, decl)?.into(),
-        TypeItemDecl::AssociatedType(_) => todo!(),
-        TypeItemDecl::AssociatedVal(_) => todo!(),
-        TypeItemDecl::MemoizedField(decl) => TypeMemoizedFieldHirDefn::new(db, path, decl)?.into(),
-    })
+    match path.hir_decl(db) {
+        TypeItemHirDecl::AssociatedFn(decl) => TypeAssociatedFnHirDefn::new(db, path, decl).into(),
+        TypeItemHirDecl::MethodFn(decl) => TypeMethodFnHirDefn::new(db, path, decl).into(),
+        TypeItemHirDecl::AssociatedType(_) => todo!(),
+        TypeItemHirDecl::AssociatedVal(_) => todo!(),
+        TypeItemHirDecl::MemoizedField(decl) => {
+            TypeMemoizedFieldHirDefn::new(db, path, decl).into()
+        }
+    }
 }

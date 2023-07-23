@@ -1,5 +1,5 @@
 use crate::*;
-use husky_opn_syntax::{
+use husky_opr::{
     BinaryClosedOpr, BinaryComparisonOpr, BinaryOpr, BinaryShiftOpr, BinaryShortcuitLogicOpr,
     Bracket, SuffixOpr,
 };

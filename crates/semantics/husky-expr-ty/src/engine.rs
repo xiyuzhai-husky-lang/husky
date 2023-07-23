@@ -12,7 +12,7 @@ pub(crate) use self::utils::*;
 
 use self::symbol::*;
 use crate::*;
-use husky_opn_syntax::PrefixOpr;
+use husky_opr::PrefixOpr;
 use husky_print_utils::p;
 use husky_token::{IntegerLikeLiteral, Literal, Token, TokenIdx, TokenSheetData};
 use husky_vfs::Toolchain;

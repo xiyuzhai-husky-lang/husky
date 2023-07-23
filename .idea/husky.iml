@@ -122,7 +122,7 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-init-syntax/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-loop-syntax/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-manifest-ast/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-opn-syntax/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-opr/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-syn-fmt/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-toml-ast/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-toml-ast/tests" isTestSource="true" />

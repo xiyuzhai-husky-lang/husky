@@ -17,7 +17,7 @@ mod utils;
 pub(crate) use self::suffix::*;
 
 use super::*;
-use husky_opn_syntax::*;
+use husky_opr::*;
 
 pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {
     Unresolved,

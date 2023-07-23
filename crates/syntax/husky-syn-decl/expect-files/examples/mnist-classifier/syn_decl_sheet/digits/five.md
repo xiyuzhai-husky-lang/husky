@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Val(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Val(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 return_ty: Some(

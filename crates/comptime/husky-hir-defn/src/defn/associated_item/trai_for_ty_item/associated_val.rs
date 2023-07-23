@@ -13,7 +13,7 @@ impl TraitForTypeAssociatedValHirDefn {
         db: &dyn HirDefnDb,
         path: TraitForTypeItemPath,
         decl: TraitForTypeAssociatedValHirDecl,
-    ) -> HirDefnResult<Self> {
+    ) -> Self {
         todo!()
     }
 }

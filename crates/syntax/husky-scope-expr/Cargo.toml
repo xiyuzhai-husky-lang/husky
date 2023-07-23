@@ -16,4 +16,4 @@ husky-scope = { path = "../../kernel/husky-scope" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-opr = { path = "../../kernel/husky-opr" }

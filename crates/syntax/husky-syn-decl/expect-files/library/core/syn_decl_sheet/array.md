@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::array::Array`, `Extern`),
                                 generic_parameters: [
@@ -132,7 +132,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             8,
@@ -150,7 +150,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             11,

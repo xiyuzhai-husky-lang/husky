@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Enum(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Enum(
                             EnumTypeSynDecl {
                                 path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 generic_parameters: [],
@@ -80,8 +80,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::TupleStruct(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::TupleStruct(
                             TupleStructTypeSynDecl {
                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                 generic_parameters: [],
@@ -218,8 +218,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Val(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Val(
                             ValSynDecl {
                                 path: FugitivePath(`mnist::input`, `Val`),
                                 return_ty: Some(

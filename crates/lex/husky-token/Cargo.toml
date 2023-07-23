@@ -27,7 +27,7 @@ husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-term-prelude = {path = "../../kernel/husky-term-prelude" }
 # syntax
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-opr = { path = "../../kernel/husky-opr" }
 # utils
 husky-expect-test-snippets-utils = { path = "../../utils/husky-expect-test-snippets-utils" }
 wild-utils = { path = "../../utils/husky-wild-utils" }

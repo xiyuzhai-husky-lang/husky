@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::PropsStruct(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 generic_parameters: [],
@@ -250,8 +250,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 generic_parameters: [],
@@ -571,7 +571,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             150,
@@ -582,7 +582,7 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             157,
@@ -768,7 +768,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
-                        TypeItemDecl::MemoizedField(
+                        TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -988,7 +988,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
-                        TypeItemDecl::MemoizedField(
+                        TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -1208,7 +1208,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
-                        TypeItemDecl::MemoizedField(
+                        TypeItemSynDecl::MemoizedField(
                             TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {

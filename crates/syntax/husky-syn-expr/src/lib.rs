@@ -34,7 +34,7 @@ pub use self::symbol::*;
 use husky_coword::*;
 use husky_entity_path::{EntityPath, PrincipalEntityPath};
 use husky_entity_tree::*;
-use husky_opn_syntax::*;
+use husky_opr::*;
 use husky_term_prelude::*;
 use husky_text::*;
 use husky_token::*;

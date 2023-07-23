@@ -2,7 +2,7 @@ Ok(
     [
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                         decl: ValSynDecl {
@@ -362,7 +362,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                         decl: ValSynDecl {
@@ -1151,7 +1151,7 @@ Ok(
                                     },
                                     current_symbol_arena: Arena {
                                         data: [
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: Mut,
                                                 access_start: TokenIdx(
                                                     26,
@@ -1168,7 +1168,7 @@ Ok(
                                                     pattern_symbol_idx: 0,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: Mut,
                                                 access_start: TokenIdx(
                                                     31,
@@ -1185,7 +1185,7 @@ Ok(
                                                     pattern_symbol_idx: 1,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     42,
@@ -1202,7 +1202,7 @@ Ok(
                                                     expr_idx: 3,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     44,
@@ -1270,7 +1270,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         decl: ValSynDecl {
@@ -1841,7 +1841,7 @@ Ok(
                                     },
                                     current_symbol_arena: Arena {
                                         data: [
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: Mut,
                                                 access_start: TokenIdx(
                                                     76,
@@ -1858,7 +1858,7 @@ Ok(
                                                     pattern_symbol_idx: 0,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     87,
@@ -1914,7 +1914,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                         decl: ValSynDecl {
@@ -2259,7 +2259,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                         decl: ValSynDecl {
@@ -2603,7 +2603,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                         decl: ValSynDecl {
@@ -2922,7 +2922,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                         decl: ValSynDecl {

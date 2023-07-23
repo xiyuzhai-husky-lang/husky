@@ -265,7 +265,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {

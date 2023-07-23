@@ -99,7 +99,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::PropsStruct(
+                        TypeSynNodeDecl::PropsStruct(
                             PropsStructTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -610,7 +610,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::PropsStruct(
+                        TypeSynNodeDecl::PropsStruct(
                             PropsStructTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -884,7 +884,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Fugitive(
-                        FugitiveNodeDecl::Fn(
+                        FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1141,7 +1141,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             373,
@@ -1152,7 +1152,7 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             377,
@@ -1222,7 +1222,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Fugitive(
-                        FugitiveNodeDecl::Fn(
+                        FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1479,7 +1479,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             470,
@@ -1490,7 +1490,7 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             474,
@@ -1560,7 +1560,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Fugitive(
-                        FugitiveNodeDecl::Fn(
+                        FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1887,7 +1887,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             567,
@@ -1898,7 +1898,7 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             572,
@@ -1909,7 +1909,7 @@ Ok(
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             576,
@@ -1992,7 +1992,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Fugitive(
-                        FugitiveNodeDecl::Fn(
+                        FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2382,7 +2382,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             800,
@@ -2393,7 +2393,7 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             805,
@@ -2404,7 +2404,7 @@ Ok(
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             809,
@@ -2415,7 +2415,7 @@ Ok(
                                                             pattern_symbol_idx: 2,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             813,
@@ -2511,7 +2511,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Fugitive(
-                        FugitiveNodeDecl::Fn(
+                        FugitiveSynNodeDecl::Fn(
                             FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2788,7 +2788,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             1066,
@@ -2799,7 +2799,7 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             1071,
@@ -3078,7 +3078,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3542,7 +3542,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::AssociatedFn(
+                        TypeItemSynNodeDecl::AssociatedFn(
                             TypeAssociatedFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3973,7 +3973,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             118,
@@ -3984,7 +3984,7 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             123,
@@ -3995,7 +3995,7 @@ Ok(
                                                             pattern_symbol_idx: 1,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             127,
@@ -4086,7 +4086,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4581,7 +4581,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5087,7 +5087,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MemoizedField(
+                        TypeItemSynNodeDecl::MemoizedField(
                             TypeMemoizedFieldSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5349,7 +5349,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MemoizedField(
+                        TypeItemSynNodeDecl::MemoizedField(
                             TypeMemoizedFieldSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5598,7 +5598,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::AssociatedFn(
+                        TypeItemSynNodeDecl::AssociatedFn(
                             TypeAssociatedFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5966,7 +5966,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             347,
@@ -5977,7 +5977,7 @@ Ok(
                                                             pattern_symbol_idx: 0,
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             352,

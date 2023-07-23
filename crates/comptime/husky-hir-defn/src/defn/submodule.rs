@@ -16,8 +16,8 @@ impl HasHirDefn for ModulePath {
     type HirDefn = SubmoduleHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        Ok(SubmoduleHirDefn {
-            decl: self.decl(db)?,
-        })
+        SubmoduleHirDefn {
+            decl: self.hir_decl(db),
+        }
     }
 }

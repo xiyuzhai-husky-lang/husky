@@ -58,21 +58,22 @@ impl HasHirDefn for TypePath {
     type HirDefn = TypeHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        ty_defn(db, self)
+        ty_hir_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn ty_defn(db: &dyn HirDefnDb, path: TypePath) -> HirDefnResult<TypeHirDefn> {
-    Ok(match path.decl(db)? {
-        TypeDecl::Enum(decl) => EnumTypeHirDefn::new(db, path, decl).into(),
-        TypeDecl::PropsStruct(decl) => PropsStructTypeHirDefn::new(db, path, decl).into(),
-        TypeDecl::TupleStruct(decl) => TupleStructTypeHirDefn::new(db, path, decl).into(),
-        TypeDecl::UnitStruct(decl) => UnitStructTypeHirDefn::new(db, path, decl).into(),
-        TypeDecl::Record(decl) => RecordTypeHirDefn::new(db, path, decl).into(),
-        TypeDecl::Inductive(decl) => InductiveTypeHirDefn::new(db, path, decl).into(),
-        TypeDecl::Structure(decl) => StructureTypeHirDefn::new(db, path, decl).into(),
-        TypeDecl::Extern(decl) => ExternTypeHirDefn::new(db, path, decl).into(),
-        TypeDecl::Union(decl) => UnionTypeHirDefn::new(db, path, decl).into(),
-    })
+pub(crate) fn ty_hir_defn(db: &dyn HirDefnDb, path: TypePath) -> TypeHirDefn {
+    todo!()
+    // Ok(match path.decl(db)? {
+    //     TypeHirDecl::Enum(decl) => EnumTypeHirDefn::new(db, path, decl).into(),
+    //     TypeHirDecl::PropsStruct(decl) => PropsStructTypeHirDefn::new(db, path, decl).into(),
+    //     TypeHirDecl::TupleStruct(decl) => TupleStructTypeHirDefn::new(db, path, decl).into(),
+    //     TypeHirDecl::UnitStruct(decl) => UnitStructTypeHirDefn::new(db, path, decl).into(),
+    //     TypeHirDecl::Record(decl) => RecordTypeHirDefn::new(db, path, decl).into(),
+    //     TypeHirDecl::Inductive(decl) => InductiveTypeHirDefn::new(db, path, decl).into(),
+    //     TypeHirDecl::Structure(decl) => StructureTypeHirDefn::new(db, path, decl).into(),
+    //     TypeHirDecl::Extern(decl) => ExternTypeHirDefn::new(db, path, decl).into(),
+    //     TypeHirDecl::Union(decl) => UnionTypeHirDefn::new(db, path, decl).into(),
+    // })
 }

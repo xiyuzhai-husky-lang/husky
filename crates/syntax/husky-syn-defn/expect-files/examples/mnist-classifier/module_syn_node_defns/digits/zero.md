@@ -626,7 +626,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
                                                         21,
@@ -811,7 +811,7 @@ Ok(
                                                 },
                                                 current_symbol_arena: Arena {
                                                     data: [
-                                                        CurrentSymbol {
+                                                        CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
                                                                 21,
@@ -3482,7 +3482,7 @@ Ok(
                                     },
                                     current_symbol_arena: Arena {
                                         data: [
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     61,
@@ -3499,7 +3499,7 @@ Ok(
                                                     pattern_symbol_idx: 0,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     74,
@@ -3516,7 +3516,7 @@ Ok(
                                                     pattern_symbol_idx: 1,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     91,
@@ -3533,7 +3533,7 @@ Ok(
                                                     pattern_symbol_idx: 2,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     101,
@@ -3550,7 +3550,7 @@ Ok(
                                                     pattern_symbol_idx: 3,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     127,
@@ -3567,7 +3567,7 @@ Ok(
                                                     pattern_symbol_idx: 4,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     171,
@@ -3584,7 +3584,7 @@ Ok(
                                                     pattern_symbol_idx: 5,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     182,
@@ -3601,7 +3601,7 @@ Ok(
                                                     pattern_symbol_idx: 6,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     184,
@@ -3618,7 +3618,7 @@ Ok(
                                                     pattern_symbol_idx: 7,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     195,
@@ -3635,7 +3635,7 @@ Ok(
                                                     pattern_symbol_idx: 8,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     213,
@@ -3652,7 +3652,7 @@ Ok(
                                                     pattern_symbol_idx: 9,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     231,
@@ -3669,7 +3669,7 @@ Ok(
                                                     pattern_symbol_idx: 10,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     241,

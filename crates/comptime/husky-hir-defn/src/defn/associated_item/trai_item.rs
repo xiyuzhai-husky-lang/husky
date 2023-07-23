@@ -22,7 +22,7 @@ pub enum TraitItemHirDefn {
 }
 
 impl TraitItemHirDefn {
-    pub fn decl(self, _db: &dyn HirDefnDb) -> TraitItemDecl {
+    pub fn hir_decl(self, _db: &dyn HirDefnDb) -> TraitItemHirDecl {
         todo!()
     }
 
@@ -38,20 +38,20 @@ impl HasHirDefn for TraitItemPath {
     type HirDefn = TraitItemHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        trai_item_syn_defn(db, self)
+        trai_item_hir_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn trai_item_syn_defn(
-    db: &dyn HirDefnDb,
-    path: TraitItemPath,
-) -> HirDefnResult<TraitItemHirDefn> {
-    let decl = path.decl(db)?;
-    Ok(match decl {
-        TraitItemDecl::AssociatedFn(decl) => TraitAssociatedFnHirDefn::new(db, path, decl)?.into(),
-        TraitItemDecl::MethodFn(decl) => TraitMethodFnHirDefn::new(db, path, decl)?.into(),
-        TraitItemDecl::AssociatedType(_decl) => todo!(),
-        TraitItemDecl::AssociatedVal(_decl) => todo!(),
-    })
+pub(crate) fn trai_item_hir_defn(db: &dyn HirDefnDb, path: TraitItemPath) -> TraitItemHirDefn {
+    let hir_decl = path.hir_decl(db);
+    match hir_decl {
+        TraitItemHirDecl::AssociatedFn(decl) => {
+            todo!()
+            // TraitAssociatedFnHirDefn::new(db, path, decl)?.into()
+        }
+        TraitItemHirDecl::MethodFn(decl) => TraitMethodFnHirDefn::new(db, path, decl).into(),
+        TraitItemHirDecl::AssociatedType(_decl) => todo!(),
+        TraitItemHirDecl::AssociatedVal(_decl) => todo!(),
+    }
 }

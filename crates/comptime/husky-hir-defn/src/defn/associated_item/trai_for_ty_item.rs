@@ -48,25 +48,25 @@ impl HasHirDefn for TraitForTypeItemPath {
     type HirDefn = TraitForTypeItemHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        trai_for_ty_item_syn_defn(db, self)
+        trai_for_ty_item_hir_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn trai_for_ty_item_syn_defn(
+pub(crate) fn trai_for_ty_item_hir_defn(
     db: &dyn HirDefnDb,
     path: TraitForTypeItemPath,
-) -> HirDefnResult<TraitForTypeItemHirDefn> {
-    Ok(match path.decl(db)? {
-        TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
-        TraitForTypeItemDecl::MethodFn(decl) => {
+) -> TraitForTypeItemHirDefn {
+    match path.hir_decl(db) {
+        TraitForTypeItemHirDecl::AssociatedFn(_) => todo!(),
+        TraitForTypeItemHirDecl::MethodFn(decl) => {
             TraitForTypeMethodFnHirDefn::new(db, path, decl).into()
         }
-        TraitForTypeItemDecl::AssociatedType(decl) => {
+        TraitForTypeItemHirDecl::AssociatedType(decl) => {
             TraitForTypeAssociatedTypeHirDefn::new(db, path, decl).into()
         }
-        TraitForTypeItemDecl::AssociatedVal(decl) => {
-            TraitForTypeAssociatedValHirDefn::new(db, path, decl)?.into()
+        TraitForTypeItemHirDecl::AssociatedVal(decl) => {
+            TraitForTypeAssociatedValHirDefn::new(db, path, decl).into()
         }
-    })
+    }
 }

@@ -1,4 +1,4 @@
-use husky_opn_syntax::SuffixOpr;
+use husky_opr::SuffixOpr;
 
 use super::*;
 

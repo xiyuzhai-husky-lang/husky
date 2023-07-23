@@ -47,10 +47,10 @@ impl HasHirDefn for AssociatedItemPath {
     type HirDefn = AssociatedItemHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        Ok(match self {
-            AssociatedItemPath::TypeItem(decl) => decl.hir_defn(db)?.into(),
-            AssociatedItemPath::TraitItem(decl) => decl.hir_defn(db)?.into(),
-            AssociatedItemPath::TraitForTypeItem(decl) => decl.hir_defn(db)?.into(),
-        })
+        match self {
+            AssociatedItemPath::TypeItem(decl) => decl.hir_defn(db).into(),
+            AssociatedItemPath::TraitItem(decl) => decl.hir_defn(db).into(),
+            AssociatedItemPath::TraitForTypeItem(decl) => decl.hir_defn(db).into(),
+        }
     }
 }

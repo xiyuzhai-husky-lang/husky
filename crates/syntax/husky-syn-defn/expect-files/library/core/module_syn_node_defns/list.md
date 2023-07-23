@@ -107,7 +107,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         6,
@@ -324,7 +324,7 @@ Ok(
                                 },
                                 current_symbol_arena: Arena {
                                     data: [
-                                        CurrentSymbol {
+                                        CurrentSynSymbol {
                                             modifier: Const,
                                             access_start: TokenIdx(
                                                 11,
@@ -564,7 +564,7 @@ Ok(
                                                     },
                                                     current_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
                                                                     11,
@@ -809,7 +809,7 @@ Ok(
                                                             },
                                                             current_symbol_arena: Arena {
                                                                 data: [
-                                                                    CurrentSymbol {
+                                                                    CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
                                                                             11,
@@ -1248,7 +1248,7 @@ Ok(
                                                     },
                                                     current_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
                                                                     11,
@@ -1390,7 +1390,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
                                                         31,
@@ -1528,7 +1528,7 @@ Ok(
                                                             },
                                                             current_symbol_arena: Arena {
                                                                 data: [
-                                                                    CurrentSymbol {
+                                                                    CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
                                                                             11,
@@ -1670,7 +1670,7 @@ Ok(
                                                 },
                                                 current_symbol_arena: Arena {
                                                     data: [
-                                                        CurrentSymbol {
+                                                        CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
                                                                 31,
@@ -1989,7 +1989,7 @@ Ok(
                                                     },
                                                     current_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
                                                                     11,
@@ -2250,7 +2250,7 @@ Ok(
                                                             },
                                                             current_symbol_arena: Arena {
                                                                 data: [
-                                                                    CurrentSymbol {
+                                                                    CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
                                                                             11,
@@ -2683,7 +2683,7 @@ Ok(
                                                     },
                                                     current_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
                                                                     11,
@@ -2944,7 +2944,7 @@ Ok(
                                                             },
                                                             current_symbol_arena: Arena {
                                                                 data: [
-                                                                    CurrentSymbol {
+                                                                    CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
                                                                             11,
@@ -3390,7 +3390,7 @@ Ok(
                                                     },
                                                     current_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
                                                                     11,
@@ -3651,7 +3651,7 @@ Ok(
                                                             },
                                                             current_symbol_arena: Arena {
                                                                 data: [
-                                                                    CurrentSymbol {
+                                                                    CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
                                                                             11,
@@ -4071,7 +4071,7 @@ Ok(
                                                     },
                                                     current_symbol_arena: Arena {
                                                         data: [
-                                                            CurrentSymbol {
+                                                            CurrentSynSymbol {
                                                                 modifier: Const,
                                                                 access_start: TokenIdx(
                                                                     11,
@@ -4284,7 +4284,7 @@ Ok(
                                                             },
                                                             current_symbol_arena: Arena {
                                                                 data: [
-                                                                    CurrentSymbol {
+                                                                    CurrentSynSymbol {
                                                                         modifier: Const,
                                                                         access_start: TokenIdx(
                                                                             11,

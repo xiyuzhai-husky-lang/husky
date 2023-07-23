@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Val(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Val(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                                 return_ty: Some(
@@ -117,8 +117,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                                 generic_parameters: [],
@@ -280,7 +280,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             23,
@@ -331,8 +331,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Val(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Val(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                                 return_ty: Some(
@@ -439,8 +439,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Val(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Val(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                                 return_ty: Some(
@@ -547,8 +547,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Val(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Val(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                                 return_ty: Some(
@@ -738,8 +738,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                                 generic_parameters: [],
@@ -901,7 +901,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             254,
@@ -952,8 +952,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                                 generic_parameters: [],
@@ -1115,7 +1115,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             283,

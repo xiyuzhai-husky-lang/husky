@@ -27,7 +27,7 @@
 
 // use husky_entity_semantics::EntityDefnQueryGroup;
 // use husky_coword::{IdentPairMap, Ident};
-// use husky_opn_syntax::*;
+// use husky_opr::*;
 // use husky_print_utils::*;
 // use husky_ethereal_term::EtherealTerm;
 // use husky_text::*;

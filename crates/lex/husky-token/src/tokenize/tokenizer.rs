@@ -1,6 +1,6 @@
 use super::*;
 
-use husky_opn_syntax::*;
+use husky_opr::*;
 use husky_text::TextLine;
 
 pub(crate) struct Tokenizer<'lex> {

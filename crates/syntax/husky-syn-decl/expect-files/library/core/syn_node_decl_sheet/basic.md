@@ -15,7 +15,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -99,7 +99,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -183,7 +183,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -267,7 +267,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -351,7 +351,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {

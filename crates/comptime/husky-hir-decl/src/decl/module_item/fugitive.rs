@@ -20,6 +20,14 @@ pub enum FugitiveHirDecl {
     // todo: AliasType
 }
 
+impl HasHirDecl for FugitivePath {
+    type HirDecl = FugitiveHirDecl;
+
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl {
+        todo!()
+    }
+}
+
 impl FugitiveHirDecl {
     pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
         match self {

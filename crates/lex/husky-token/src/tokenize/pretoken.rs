@@ -1,5 +1,5 @@
 use super::*;
-use husky_opn_syntax::*;
+use husky_opr::*;
 
 use husky_text::{TextCharIter, TextRange};
 

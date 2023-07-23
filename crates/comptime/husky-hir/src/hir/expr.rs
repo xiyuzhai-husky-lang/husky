@@ -9,7 +9,7 @@ pub use region::*;
 pub use stmt::*;
 
 use super::*;
-use husky_opn_syntax::*;
+use husky_opr::*;
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 pub enum ExprHir {

@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Val(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Val(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                                 return_ty: Some(
@@ -117,8 +117,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                                 generic_parameters: [],
@@ -280,7 +280,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             25,
@@ -331,8 +331,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                                 generic_parameters: [],
@@ -494,7 +494,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             54,
@@ -545,8 +545,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Fn(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                                 generic_parameters: [],
@@ -708,7 +708,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             83,
@@ -759,8 +759,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Val(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Val(
                             ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                                 return_ty: Some(

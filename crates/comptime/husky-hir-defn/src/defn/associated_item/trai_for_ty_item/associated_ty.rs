@@ -14,9 +14,10 @@ impl TraitForTypeAssociatedTypeHirDefn {
         path: TraitForTypeItemPath,
         decl: TraitForTypeAssociatedTypeHirDecl,
     ) -> Self {
-        let TraitForTypeItemHirNodeDefn::AssociatedType(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
-            unreachable!()
-        };
-        TraitForTypeAssociatedTypeHirDefn::new_inner(db, path, decl, syn_node_defn.expr_region(db))
+        todo!()
+        // let TraitForTypeItemHirNodeDefn::AssociatedType(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
+        //     unreachable!()
+        // };
+        // TraitForTypeAssociatedTypeHirDefn::new_inner(db, path, decl, syn_node_defn.expr_region(db))
     }
 }

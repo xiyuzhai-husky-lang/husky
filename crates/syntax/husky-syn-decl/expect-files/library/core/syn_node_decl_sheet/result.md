@@ -15,7 +15,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Enum(
+                        TypeSynNodeDecl::Enum(
                             EnumTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -124,7 +124,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             10,
@@ -141,7 +141,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             12,
@@ -599,7 +599,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         26,
@@ -616,7 +616,7 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         28,
@@ -633,7 +633,7 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         30,
@@ -650,7 +650,7 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         32,
@@ -742,7 +742,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::AssociatedType(
+                        TraitForTypeItemSynNodeDecl::AssociatedType(
                             TraitForTypeAssociatedTypeSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1070,7 +1070,7 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         26,
@@ -1087,7 +1087,7 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         28,
@@ -1104,7 +1104,7 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         30,
@@ -1121,7 +1121,7 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         32,
@@ -1344,7 +1344,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1720,7 +1720,7 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         26,
@@ -1737,7 +1737,7 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         28,
@@ -1754,7 +1754,7 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         30,
@@ -1771,7 +1771,7 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         32,
@@ -2078,7 +2078,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             54,

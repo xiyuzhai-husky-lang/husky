@@ -14,6 +14,14 @@ pub enum ImplBlockHirDecl {
     TraitForType(TraitForTypeImplBlockHirDecl),
 }
 
+impl HasHirDecl for ImplBlockPath {
+    type HirDecl = ImplBlockHirDecl;
+
+    fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl {
+        todo!()
+    }
+}
+
 impl ImplBlockHirDecl {
     pub fn path(self, db: &dyn HirDeclDb) -> ImplBlockPath {
         match self {

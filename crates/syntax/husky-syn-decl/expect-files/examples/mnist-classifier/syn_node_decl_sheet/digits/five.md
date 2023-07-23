@@ -15,7 +15,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Fugitive(
-                        FugitiveNodeDecl::Val(
+                        FugitiveSynNodeDecl::Val(
                             ValSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {

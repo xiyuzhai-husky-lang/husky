@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Enum(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Enum(
                             EnumTypeSynDecl {
                                 path: TypePath(`malamute::OneVsAll`, `Enum`),
                                 generic_parameters: [
@@ -115,7 +115,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             5,
@@ -132,7 +132,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             10,
@@ -189,8 +189,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Enum(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Enum(
                             EnumTypeSynDecl {
                                 path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 generic_parameters: [
@@ -295,7 +295,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             20,
@@ -312,7 +312,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             25,
@@ -369,8 +369,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Fugitive(
-                        FugitiveDecl::Gn(
+                    ModuleItemSynDecl::Fugitive(
+                        FugitiveSynDecl::Gn(
                             GnSynDecl {
                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                 generic_parameters: [
@@ -695,7 +695,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             64,
@@ -712,7 +712,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             69,
@@ -730,7 +730,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             72,
@@ -746,7 +746,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             79,
@@ -1173,7 +1173,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         35,
@@ -1190,7 +1190,7 @@ Ok(
                                                         },
                                                     },
                                                 },
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         40,
@@ -1270,7 +1270,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::AssociatedType(
+                        TraitForTypeItemSynDecl::AssociatedType(
                             TraitForTypeAssociatedTypeSynDecl {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
@@ -1571,7 +1571,7 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         35,
@@ -1588,7 +1588,7 @@ Ok(
                                                                         },
                                                                     },
                                                                 },
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         40,
