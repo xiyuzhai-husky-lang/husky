@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SubmoduleSynNodeDecl {
     #[id]
     pub syn_node_path: SubmoduleSynNodePath,
@@ -8,7 +8,7 @@ pub struct SubmoduleSynNodeDecl {
 }
 
 impl SubmoduleSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         Default::default()
     }
 }
@@ -16,21 +16,21 @@ impl SubmoduleSynNodeDecl {
 impl HasNodeDecl for SubmoduleSynNodePath {
     type NodeDecl = SubmoduleSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         submodule_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked( jar = SynDeclJar)]
 pub(crate) fn submodule_syn_node_decl(
-    db: &dyn DeclDb,
+    db: &dyn SynDeclDb,
     syn_node_path: SubmoduleSynNodePath,
 ) -> SubmoduleSynNodeDecl {
     let node = syn_node_path.node(db);
     SubmoduleSynNodeDecl::new(db, syn_node_path, node.ast_idx(db))
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SubmoduleSynDecl {
     #[id]
     pub path: ModulePath,
@@ -40,7 +40,7 @@ pub struct SubmoduleSynDecl {
 impl SubmoduleSynDecl {
     #[inline(always)]
     fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: ModulePath,
         syn_node_decl: SubmoduleSynNodeDecl,
     ) -> Self {
@@ -53,13 +53,13 @@ impl SubmoduleSynDecl {
 impl HasSynDecl for ModulePath {
     type Decl = SubmoduleSynDecl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         submodule_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn submodule_decl(db: &dyn DeclDb, path: ModulePath) -> DeclResult<SubmoduleSynDecl> {
+pub(crate) fn submodule_decl(db: &dyn SynDeclDb, path: ModulePath) -> DeclResult<SubmoduleSynDecl> {
     let syn_node_path = path.syn_node_path(db);
     let syn_node_decl = syn_node_path.syn_node_decl(db);
     Ok(SubmoduleSynDecl::from_node_decl(db, path, syn_node_decl))

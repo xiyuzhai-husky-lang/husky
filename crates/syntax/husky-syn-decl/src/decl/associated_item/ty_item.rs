@@ -17,7 +17,7 @@ use husky_entity_taxonomy::TypeItemKind;
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemSynNodeDecl {
     AssociatedFn(TypeAssociatedFnSynNodeDecl),
@@ -34,7 +34,7 @@ impl From<TypeItemSynNodeDecl> for SynNodeDecl {
 }
 
 impl TypeItemSynNodeDecl {
-    pub fn syn_node_path(self, db: &dyn DeclDb) -> TypeItemSynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> TypeItemSynNodePath {
         match self {
             TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
@@ -44,7 +44,7 @@ impl TypeItemSynNodeDecl {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
         match self {
             TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.ast_idx(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.ast_idx(db),
@@ -54,7 +54,7 @@ impl TypeItemSynNodeDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
         match self {
             TypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TypeItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -64,7 +64,7 @@ impl TypeItemSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
+    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.expr_region(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.expr_region(db),
@@ -74,7 +74,7 @@ impl TypeItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         match self {
             TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),
@@ -88,7 +88,7 @@ impl TypeItemSynNodeDecl {
 impl HasNodeDecl for TypeItemSynNodePath {
     type NodeDecl = TypeItemSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         ty_item_syn_node_decl(db, self)
     }
 }
@@ -96,14 +96,14 @@ impl HasNodeDecl for TypeItemSynNodePath {
 impl HasNodeDecl for TypeItemSynNode {
     type NodeDecl = TypeItemSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         todo!()
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_item_syn_node_decl(
-    db: &dyn DeclDb,
+    db: &dyn SynDeclDb,
     syn_node_path: TypeItemSynNodePath,
 ) -> TypeItemSynNodeDecl {
     let module_path = syn_node_path.module_path(db);
@@ -177,7 +177,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemSynDecl {
     AssociatedFn(TypeAssociatedFnSynDecl),
@@ -194,7 +194,7 @@ impl From<TypeItemSynDecl> for Decl {
 }
 
 impl TypeItemSynDecl {
-    pub fn path(self, db: &dyn DeclDb) -> TypeItemPath {
+    pub fn path(self, db: &dyn SynDeclDb) -> TypeItemPath {
         match self {
             TypeItemSynDecl::AssociatedFn(decl) => decl.path(db),
             TypeItemSynDecl::MethodFn(decl) => decl.path(db),
@@ -204,7 +204,7 @@ impl TypeItemSynDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
         match self {
             TypeItemSynDecl::AssociatedFn(_) => todo!(),
             TypeItemSynDecl::MethodFn(_) => todo!(),
@@ -214,7 +214,7 @@ impl TypeItemSynDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
+    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             TypeItemSynDecl::AssociatedFn(decl) => decl.expr_region(db),
             TypeItemSynDecl::MethodFn(decl) => decl.expr_region(db),
@@ -226,7 +226,7 @@ impl TypeItemSynDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemDecls {
     AssociatedFn(SmallVecImpl<TypeAssociatedFnSynDecl>),
@@ -240,13 +240,16 @@ pub enum TypeItemDecls {
 impl HasSynDecl for TypeItemPath {
     type Decl = TypeItemSynDecl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         ty_item_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_item_syn_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemSynDecl> {
+pub(crate) fn ty_item_syn_decl(
+    db: &dyn SynDeclDb,
+    path: TypeItemPath,
+) -> DeclResult<TypeItemSynDecl> {
     match path.syn_node_path(db).syn_node_decl(db) {
         TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => {
             TypeAssociatedFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
@@ -265,7 +268,7 @@ pub(crate) fn ty_item_syn_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResul
 // impl HasDecl for TypeItemNodePath {
 //     type Decl = TypeItemDecl;
 
-//     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+//     fn decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
 //         todo!()
 //         // Err(&DeclError::Original(OriginalDeclError::Deprecated))
 //         // todo!("deprecated")
@@ -282,7 +285,7 @@ pub(crate) fn ty_item_syn_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResul
 // impl HasDecl for TypeItemNode {
 //     type Decl = TypeItemDecl;
 
-//     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+//     fn decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
 //         todo!()
 //         // Err(&DeclError::Original(OriginalDeclError::Deprecated))
 //         // todo!("deprecated")
@@ -299,7 +302,7 @@ pub(crate) fn ty_item_syn_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResul
 // impl HasItemDecls for TypeItemPath {
 //     type ItemDecls = TypeItemDecls;
 
-//     fn item_syn_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResult<'a, &'a Self::ItemDecls> {
+//     fn item_syn_decls<'a>(self, db: &'a dyn SynDeclDb) -> DeclResult<'a, &'a Self::ItemDecls> {
 //         todo!()
 //         // self.ty_path(db)
 //         //     .item_syn_decls_map(db)
@@ -314,7 +317,7 @@ pub(crate) fn ty_item_syn_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResul
 
 // #[salsa::tracked(jar = SynDeclJar, return_ref)]
 // pub(crate) fn ty_item_syn_decls_map(
-//     db: &dyn DeclDb,
+//     db: &dyn SynDeclDb,
 //     path: TypePath,
 // ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecls, ()>>> {
 //     let mut map = IdentPairMap::default();
@@ -361,7 +364,7 @@ pub(crate) fn ty_item_syn_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResul
 
 //     fn item_syn_decls_map<'a>(
 //         self,
-//         db: &'a dyn DeclDb,
+//         db: &'a dyn SynDeclDb,
 //     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]> {
 //         match ty_item_syn_decls_map(db, self) {
 //             Ok(ty_item_syn_decls_map) => Ok(ty_item_syn_decls_map),

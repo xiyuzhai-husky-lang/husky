@@ -2,7 +2,7 @@ use super::*;
 use husky_syn_expr::SynExprIdx;
 use parsec::{SeparatedSmallList, TryParseFromStream};
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TupleStructTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
@@ -19,7 +19,7 @@ pub struct TupleStructTypeSynNodeDecl {
 }
 
 impl TupleStructTypeSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
                 .as_ref()
@@ -46,7 +46,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for TupleStructRightPa
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TupleStructTypeSynDecl {
     #[id]
     pub path: TypePath,
@@ -60,7 +60,7 @@ pub struct TupleStructTypeSynDecl {
 impl TupleStructTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TypePath,
         syn_node_decl: TupleStructTypeSynNodeDecl,
     ) -> DeclResult<Self> {

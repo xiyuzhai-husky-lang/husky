@@ -18,7 +18,7 @@ pub enum ModuleItemHirDecl {
 }
 
 impl ModuleItemHirDecl {
-    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [GenericParameterHirDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
         match self {
             ModuleItemHirDecl::Type(decl) => decl.generic_parameters(db),
             ModuleItemHirDecl::Fugitive(decl) => decl.generic_parameters(db),

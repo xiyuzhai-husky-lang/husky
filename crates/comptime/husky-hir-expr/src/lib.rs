@@ -3,6 +3,8 @@ mod region;
 
 pub use self::region::*;
 
+use self::db::*;
+
 pub type HirExprIdx = ();
 
 #[derive(Debug, PartialEq, Eq)]

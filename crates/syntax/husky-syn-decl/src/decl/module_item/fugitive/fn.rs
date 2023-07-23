@@ -1,7 +1,7 @@
 use super::*;
 use husky_token::{CurryToken, EolToken};
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct FnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
@@ -20,7 +20,7 @@ pub struct FnSynNodeDecl {
 }
 
 impl FnSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
                 .as_ref()
@@ -78,7 +78,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct FnSynDecl {
     #[id]
     pub path: FugitivePath,
@@ -92,7 +92,7 @@ pub struct FnSynDecl {
 
 impl FnSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: FugitivePath,
         syn_node_decl: FnSynNodeDecl,
     ) -> DeclResult<Self> {

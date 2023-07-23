@@ -1,14 +1,14 @@
 mod associated_fn;
+mod associated_ty;
 mod associated_val;
 mod memoized_field;
 mod method_fn;
-mod method_function;
 
 pub use self::associated_fn::*;
+pub use self::associated_ty::*;
 pub use self::associated_val::*;
 pub use self::memoized_field::*;
 pub use self::method_fn::*;
-pub use self::method_function::*;
 
 use super::*;
 
@@ -16,9 +16,42 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TypeItemHirDecl {
     AssociatedFn(TypeAssociatedFnHirDecl),
+    AssociatedType(TypeAssociatedTypeHirDecl),
+    AssociatedVal(TypeAssociatedValHirDecl),
     MethodFn(TypeMethodFnHirDecl),
-    MethodFunction(TypeMethodFunctionHirDecl),
     MemoizedField(TypeMemoizedFieldHirDecl),
+}
+
+impl TypeItemHirDecl {
+    pub fn path(self, db: &dyn HirDeclDb) -> TypeItemPath {
+        match self {
+            TypeItemHirDecl::AssociatedFn(decl) => decl.path(db),
+            TypeItemHirDecl::MethodFn(decl) => decl.path(db),
+            TypeItemHirDecl::AssociatedType(_) => todo!(),
+            TypeItemHirDecl::AssociatedVal(_) => todo!(),
+            TypeItemHirDecl::MemoizedField(decl) => decl.path(db),
+        }
+    }
+
+    pub fn generic_parameters<'a>(self, _db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
+        match self {
+            TypeItemHirDecl::AssociatedFn(_) => todo!(),
+            TypeItemHirDecl::MethodFn(_) => todo!(),
+            TypeItemHirDecl::AssociatedType(_) => todo!(),
+            TypeItemHirDecl::AssociatedVal(_) => todo!(),
+            TypeItemHirDecl::MemoizedField(_) => todo!(),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+        match self {
+            TypeItemHirDecl::AssociatedFn(decl) => decl.expr_region(db),
+            TypeItemHirDecl::MethodFn(decl) => decl.expr_region(db),
+            TypeItemHirDecl::AssociatedType(decl) => decl.expr_region(db),
+            TypeItemHirDecl::AssociatedVal(decl) => decl.expr_region(db),
+            TypeItemHirDecl::MemoizedField(decl) => decl.expr_region(db),
+        }
+    }
 }
 
 impl HasHirDecl for TypeItemPath {

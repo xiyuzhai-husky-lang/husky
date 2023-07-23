@@ -1,7 +1,7 @@
 use super::*;
 use husky_print_utils::p;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct ValSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
@@ -16,7 +16,7 @@ pub struct ValSynNodeDecl {
 }
 
 impl ValSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.return_ty(db)
                 .as_ref()
@@ -64,7 +64,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct ValSynDecl {
     #[id]
     pub path: FugitivePath,
@@ -75,7 +75,7 @@ pub struct ValSynDecl {
 
 impl ValSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: FugitivePath,
         syn_node_decl: ValSynNodeDecl,
     ) -> DeclResult<Self> {

@@ -2,6 +2,7 @@ use super::*;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct TypeMethodFnHirDecl {
+    pub path: TypeItemPath,
     pub self_ty: EtherealTerm,
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,

@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct ExternTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
@@ -11,7 +11,7 @@ pub struct ExternTypeSynNodeDecl {
 }
 
 impl ExternTypeSynNodeDecl {
-    pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
         todo!()
         // self.implicit_parameter_decl_list(db)
         //     .as_ref()
@@ -19,7 +19,7 @@ impl ExternTypeSynNodeDecl {
         //     .unwrap_or(&[])
     }
 
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
                 .as_ref()
@@ -56,7 +56,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct ExternTypeSynDecl {
     #[id]
     pub path: TypePath,
@@ -68,7 +68,7 @@ pub struct ExternTypeSynDecl {
 impl ExternTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TypePath,
         syn_node_decl: ExternTypeSynNodeDecl,
     ) -> DeclResult<Self> {

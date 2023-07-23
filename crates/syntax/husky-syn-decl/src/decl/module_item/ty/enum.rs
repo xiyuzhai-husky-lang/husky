@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct EnumTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
@@ -11,7 +11,7 @@ pub struct EnumTypeSynNodeDecl {
 }
 
 impl EnumTypeSynNodeDecl {
-    pub fn generic_parameters(self, db: &dyn DeclDb) -> &[GenericParameterDecl] {
+    pub fn generic_parameters(self, db: &dyn SynDeclDb) -> &[GenericParameterDecl] {
         todo!()
         // self.implicit_parameter_decl_list(db)
         //     .as_ref()
@@ -19,7 +19,7 @@ impl EnumTypeSynNodeDecl {
         //     .unwrap_or(&[])
     }
 
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
                 .as_ref()
@@ -57,7 +57,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct EnumTypeSynDecl {
     #[id]
     pub path: TypePath,
@@ -69,7 +69,7 @@ pub struct EnumTypeSynDecl {
 impl EnumTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TypePath,
         syn_node_decl: EnumTypeSynNodeDecl,
     ) -> DeclResult<Self> {

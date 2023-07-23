@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeAssociatedValSynNodeDecl {
     #[id]
     pub id: TypeItemSynNodePath,
@@ -10,7 +10,7 @@ pub struct TypeAssociatedValSynNodeDecl {
 }
 
 impl TypeAssociatedValSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         // ad hoc
         Default::default()
     }
@@ -18,7 +18,7 @@ impl TypeAssociatedValSynNodeDecl {
 
 impl<'a> DeclParser<'a> {}
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeAssociatedValSynDecl {
     #[id]
     pub path: TypeItemPath,
@@ -27,7 +27,7 @@ pub struct TypeAssociatedValSynDecl {
 
 impl TypeAssociatedValSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TypeItemPath,
         syn_node_decl: TypeAssociatedValSynNodeDecl,
     ) -> DeclResult<Self> {

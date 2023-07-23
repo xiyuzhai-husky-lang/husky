@@ -4,7 +4,7 @@ use parsec::{parse_separated_list2, parse_separated_small_list2};
 pub(crate) type ExplicitParameterDeclPatterns = SmallVec<[SpecificParameterDecl; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[derive(Getters)]
 pub struct SelfParameterAndExplicitParameters<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LeftParenthesisToken,

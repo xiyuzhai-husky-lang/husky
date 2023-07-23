@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitSynNodeDecl {
     #[id]
     pub syn_node_path: TraitSynNodePath,
@@ -11,7 +11,7 @@ pub struct TraitSynNodeDecl {
 }
 
 impl TraitSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
                 .as_ref()
@@ -24,14 +24,14 @@ impl TraitSynNodeDecl {
 impl HasNodeDecl for TraitSynNodePath {
     type NodeDecl = TraitSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         trai_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_syn_node_decl(
-    db: &dyn DeclDb,
+    db: &dyn SynDeclDb,
     syn_node_path: TraitSynNodePath,
 ) -> TraitSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
@@ -72,7 +72,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct TraitSynDecl {
     #[id]
     pub path: TraitPath,
@@ -84,7 +84,7 @@ pub struct TraitSynDecl {
 
 impl TraitSynDecl {
     fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TraitPath,
         syn_node_decl: TraitSynNodeDecl,
     ) -> DeclResult<TraitSynDecl> {
@@ -109,13 +109,13 @@ impl TraitSynDecl {
 impl HasSynDecl for TraitPath {
     type Decl = TraitSynDecl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         trai_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_syn_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitSynDecl> {
+pub(crate) fn trai_syn_decl(db: &dyn SynDeclDb, path: TraitPath) -> DeclResult<TraitSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
     TraitSynDecl::from_node_decl(db, path, syn_node_decl)
 }

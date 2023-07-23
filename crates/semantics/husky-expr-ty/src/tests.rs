@@ -15,7 +15,7 @@ use husky_ethereal_term::EtherealTermJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_print_utils::p;
-use husky_syn_decl::{DeclDb, SynDeclJar};
+use husky_syn_decl::{SynDeclDb, SynDeclJar};
 use husky_syn_decr::SynDecrJar;
 use husky_syn_expr::SynExprJar;
 use husky_term_prelude::TermPreludeJar;
