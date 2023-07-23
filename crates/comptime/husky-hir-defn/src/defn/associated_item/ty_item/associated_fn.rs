@@ -4,16 +4,16 @@ use super::*;
 pub struct TypeAssociatedFnHirDefn {
     #[id]
     pub path: TypeItemPath,
-    pub decl: TypeAssociatedFnHirDecl,
+    pub hir_decl: TypeAssociatedFnHirDecl,
     pub body: Option<HirExprIdx>,
-    pub expr_region: HirExprRegion,
+    pub hir_expr_region: HirExprRegion,
 }
 
 impl TypeAssociatedFnHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
         path: TypeItemPath,
-        decl: TypeAssociatedFnHirDecl,
+        hir_decl: TypeAssociatedFnHirDecl,
     ) -> TypeAssociatedFnHirDefn {
         todo!()
         // let TypeItemHirNodeDefn::AssociatedFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
@@ -22,9 +22,9 @@ impl TypeAssociatedFnHirDefn {
         // Ok(TypeAssociatedFnHirDefn::new_inner(
         //     db,
         //     path,
-        //     decl,
+        //     hir_decl,
         //     syn_node_defn.body(db),
-        //     syn_node_defn.expr_region(db),
+        //     syn_node_defn.hir_expr_region(db),
         // ))
     }
 }

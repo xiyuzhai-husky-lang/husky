@@ -24,25 +24,25 @@ pub enum HirDefn {
 }
 
 impl HirDefn {
-    pub fn decl(self, db: &dyn HirDefnDb) -> HirDecl {
+    pub fn hir_decl(self, db: &dyn HirDefnDb) -> HirDecl {
         match self {
-            HirDefn::Submodule(defn) => HirDecl::Submodule(defn.decl()),
-            HirDefn::ModuleItem(defn) => defn.decl(db).into(),
-            HirDefn::TypeVariant(defn) => defn.hir_decl(db).into(),
-            HirDefn::ImplBlock(decl) => decl.into(),
-            HirDefn::AssociatedItem(defn) => defn.decl(db).into(),
+            HirDefn::Submodule(hir_defn) => HirDecl::Submodule(hir_defn.hir_decl()),
+            HirDefn::ModuleItem(hir_defn) => hir_defn.hir_decl(db).into(),
+            HirDefn::TypeVariant(hir_defn) => hir_defn.hir_decl(db).into(),
+            HirDefn::ImplBlock(hir_decl) => hir_decl.into(),
+            HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
     pub fn generic_parameters<'a>(self, db: &'a dyn HirDefnDb) -> &'a [EtherealGenericParameter] {
-        self.decl(db).generic_parameters(db)
+        self.hir_decl(db).generic_parameters(db)
     }
 
-    pub fn expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
+    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {
         match self {
             HirDefn::Submodule(_) => None,
-            HirDefn::ModuleItem(defn) => defn.expr_region(db),
-            HirDefn::AssociatedItem(defn) => defn.expr_region(db),
+            HirDefn::ModuleItem(hir_defn) => hir_defn.hir_expr_region(db),
+            HirDefn::AssociatedItem(hir_defn) => hir_defn.hir_expr_region(db),
             HirDefn::TypeVariant(_defn) => None,
             HirDefn::ImplBlock(_) => None,
         }
@@ -53,11 +53,11 @@ impl HirDefn {
     pub fn path(self, db: &dyn HirDefnDb) -> Option<EntityPath> {
         todo!()
         // match self {
-        //     HirDefn::Type(defn) => Some(defn.path(db).into()),
-        //     HirDefn::Trait(defn) => Some(defn.path(db).into()),
-        //     HirDefn::Fugitive(defn) => Some(defn.path(db).into()),
-        //     HirDefn::AssociatedItem(defn) => defn.path(db).map(|path| path.into()),
-        //     HirDefn::Variant(defn) => Some(defn.path(db).into()),
+        //     HirDefn::Type(hir_defn) => Some(hir_defn.path(db).into()),
+        //     HirDefn::Trait(hir_defn) => Some(hir_defn.path(db).into()),
+        //     HirDefn::Fugitive(hir_defn) => Some(hir_defn.path(db).into()),
+        //     HirDefn::AssociatedItem(hir_defn) => hir_defn.path(db).map(|path| path.into()),
+        //     HirDefn::Variant(hir_defn) => Some(hir_defn.path(db).into()),
         //     HirDefn::ImplBlock(_) => None,
         // }
     }

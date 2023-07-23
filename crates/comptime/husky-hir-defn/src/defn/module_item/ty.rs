@@ -27,29 +27,29 @@ pub enum TypeHirDefn {
 }
 
 impl TypeHirDefn {
-    pub fn decl(self, db: &dyn HirDefnDb) -> TypeHirDecl {
+    pub fn hir_decl(self, db: &dyn HirDefnDb) -> TypeHirDecl {
         match self {
-            TypeHirDefn::Enum(defn) => defn.decl(db).into(),
-            TypeHirDefn::UnitStruct(defn) => defn.decl(db).into(),
-            TypeHirDefn::TupleStruct(defn) => defn.decl(db).into(),
-            TypeHirDefn::PropsStruct(defn) => defn.decl(db).into(),
-            TypeHirDefn::Extern(defn) => defn.decl(db).into(),
-            TypeHirDefn::Union(defn) => defn.decl(db).into(),
+            TypeHirDefn::Enum(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeHirDefn::UnitStruct(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeHirDefn::TupleStruct(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeHirDefn::PropsStruct(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeHirDefn::Extern(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeHirDefn::Union(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
     pub fn path(self, db: &dyn HirDefnDb) -> TypePath {
         todo!()
         // match self {
-        //     TypeHirDefn::Enum(defn) => defn.path(db),
-        //     TypeHirDefn::Inductive(defn) => defn.path(db),
-        //     TypeHirDefn::Record(defn) => defn.path(db),
-        //     TypeHirDefn::UnitStruct(defn) => defn.path(db),
-        //     TypeHirDefn::TupleStruct(defn) => defn.path(db),
-        //     TypeHirDefn::PropsStruct(defn) => defn.path(db),
-        //     TypeHirDefn::Structure(defn) => defn.path(db),
-        //     TypeHirDefn::Extern(defn) => defn.path(db),
-        //     TypeHirDefn::Union(defn) => defn.path(db),
+        //     TypeHirDefn::Enum(hir_defn) => hir_defn.path(db),
+        //     TypeHirDefn::Inductive(hir_defn) => hir_defn.path(db),
+        //     TypeHirDefn::Record(hir_defn) => hir_defn.path(db),
+        //     TypeHirDefn::UnitStruct(hir_defn) => hir_defn.path(db),
+        //     TypeHirDefn::TupleStruct(hir_defn) => hir_defn.path(db),
+        //     TypeHirDefn::PropsStruct(hir_defn) => hir_defn.path(db),
+        //     TypeHirDefn::Structure(hir_defn) => hir_defn.path(db),
+        //     TypeHirDefn::Extern(hir_defn) => hir_defn.path(db),
+        //     TypeHirDefn::Union(hir_defn) => hir_defn.path(db),
         // }
     }
 }
@@ -65,15 +65,15 @@ impl HasHirDefn for TypePath {
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn ty_hir_defn(db: &dyn HirDefnDb, path: TypePath) -> TypeHirDefn {
     todo!()
-    // Ok(match path.decl(db)? {
-    //     TypeHirDecl::Enum(decl) => EnumTypeHirDefn::new(db, path, decl).into(),
-    //     TypeHirDecl::PropsStruct(decl) => PropsStructTypeHirDefn::new(db, path, decl).into(),
-    //     TypeHirDecl::TupleStruct(decl) => TupleStructTypeHirDefn::new(db, path, decl).into(),
-    //     TypeHirDecl::UnitStruct(decl) => UnitStructTypeHirDefn::new(db, path, decl).into(),
-    //     TypeHirDecl::Record(decl) => RecordTypeHirDefn::new(db, path, decl).into(),
-    //     TypeHirDecl::Inductive(decl) => InductiveTypeHirDefn::new(db, path, decl).into(),
-    //     TypeHirDecl::Structure(decl) => StructureTypeHirDefn::new(db, path, decl).into(),
-    //     TypeHirDecl::Extern(decl) => ExternTypeHirDefn::new(db, path, decl).into(),
-    //     TypeHirDecl::Union(decl) => UnionTypeHirDefn::new(db, path, decl).into(),
+    // Ok(match path.hir_decl(db)? {
+    //     TypeHirDecl::Enum(hir_decl) => EnumTypeHirDefn::new(db, path, hir_decl).into(),
+    //     TypeHirDecl::PropsStruct(hir_decl) => PropsStructTypeHirDefn::new(db, path, hir_decl).into(),
+    //     TypeHirDecl::TupleStruct(hir_decl) => TupleStructTypeHirDefn::new(db, path, hir_decl).into(),
+    //     TypeHirDecl::UnitStruct(hir_decl) => UnitStructTypeHirDefn::new(db, path, hir_decl).into(),
+    //     TypeHirDecl::Record(hir_decl) => RecordTypeHirDefn::new(db, path, hir_decl).into(),
+    //     TypeHirDecl::Inductive(hir_decl) => InductiveTypeHirDefn::new(db, path, hir_decl).into(),
+    //     TypeHirDecl::Structure(hir_decl) => StructureTypeHirDefn::new(db, path, hir_decl).into(),
+    //     TypeHirDecl::Extern(hir_decl) => ExternTypeHirDefn::new(db, path, hir_decl).into(),
+    //     TypeHirDecl::Union(hir_decl) => UnionTypeHirDefn::new(db, path, hir_decl).into(),
     // })
 }

@@ -4,15 +4,15 @@ use super::*;
 pub struct TraitForTypeAssociatedValHirDefn {
     #[id]
     pub path: TraitForTypeItemPath,
-    pub decl: TraitForTypeAssociatedValHirDecl,
-    pub expr_region: HirExprRegion,
+    pub hir_decl: TraitForTypeAssociatedValHirDecl,
+    pub hir_expr_region: HirExprRegion,
 }
 
 impl TraitForTypeAssociatedValHirDefn {
     pub(super) fn new(
         db: &dyn HirDefnDb,
         path: TraitForTypeItemPath,
-        decl: TraitForTypeAssociatedValHirDecl,
+        hir_decl: TraitForTypeAssociatedValHirDecl,
     ) -> Self {
         todo!()
     }

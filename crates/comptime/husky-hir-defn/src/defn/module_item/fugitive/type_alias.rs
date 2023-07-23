@@ -4,5 +4,5 @@ use super::*;
 pub struct TypeAliasHirDefn {
     #[id]
     pub path: FugitivePath,
-    pub expr_region: HirExprRegion,
+    pub hir_expr_region: HirExprRegion,
 }

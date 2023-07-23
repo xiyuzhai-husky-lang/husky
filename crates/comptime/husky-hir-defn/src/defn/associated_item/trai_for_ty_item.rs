@@ -21,12 +21,12 @@ pub enum TraitForTypeItemHirDefn {
 }
 
 impl TraitForTypeItemHirDefn {
-    pub fn decl(self, db: &dyn HirDefnDb) -> TraitForTypeItemHirDecl {
+    pub fn hir_decl(self, db: &dyn HirDefnDb) -> TraitForTypeItemHirDecl {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(defn) => defn.decl(db).into(),
-            TraitForTypeItemHirDefn::MethodFn(defn) => defn.decl(db).into(),
-            TraitForTypeItemHirDefn::AssociatedType(defn) => defn.decl(db).into(),
-            TraitForTypeItemHirDefn::AssociatedVal(defn) => defn.decl(db).into(),
+            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_decl(db).into(),
+            TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_decl(db).into(),
+            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.hir_decl(db).into(),
+            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_decl(db).into(),
         }
     }
 
@@ -34,12 +34,12 @@ impl TraitForTypeItemHirDefn {
         todo!()
     }
 
-    pub fn expr_region(self, db: &dyn HirDefnDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> HirExprRegion {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(defn) => defn.expr_region(db),
-            TraitForTypeItemHirDefn::MethodFn(defn) => defn.expr_region(db),
-            TraitForTypeItemHirDefn::AssociatedType(defn) => defn.expr_region(db),
-            TraitForTypeItemHirDefn::AssociatedVal(defn) => defn.expr_region(db),
+            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_expr_region(db),
+            TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_expr_region(db),
+            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.hir_expr_region(db),
+            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_expr_region(db),
         }
     }
 }
@@ -59,14 +59,14 @@ pub(crate) fn trai_for_ty_item_hir_defn(
 ) -> TraitForTypeItemHirDefn {
     match path.hir_decl(db) {
         TraitForTypeItemHirDecl::AssociatedFn(_) => todo!(),
-        TraitForTypeItemHirDecl::MethodFn(decl) => {
-            TraitForTypeMethodFnHirDefn::new(db, path, decl).into()
+        TraitForTypeItemHirDecl::MethodFn(hir_decl) => {
+            TraitForTypeMethodFnHirDefn::new(db, path, hir_decl).into()
         }
-        TraitForTypeItemHirDecl::AssociatedType(decl) => {
-            TraitForTypeAssociatedTypeHirDefn::new(db, path, decl).into()
+        TraitForTypeItemHirDecl::AssociatedType(hir_decl) => {
+            TraitForTypeAssociatedTypeHirDefn::new(db, path, hir_decl).into()
         }
-        TraitForTypeItemHirDecl::AssociatedVal(decl) => {
-            TraitForTypeAssociatedValHirDefn::new(db, path, decl).into()
+        TraitForTypeItemHirDecl::AssociatedVal(hir_decl) => {
+            TraitForTypeAssociatedValHirDefn::new(db, path, hir_decl).into()
         }
     }
 }

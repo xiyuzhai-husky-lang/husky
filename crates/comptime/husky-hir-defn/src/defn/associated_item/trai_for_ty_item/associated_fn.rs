@@ -4,6 +4,6 @@ use super::*;
 pub struct TraitForTypeAssociatedFnHirDefn {
     #[id]
     pub path: TraitForTypeItemPath,
-    pub decl: TraitForTypeAssociatedFnHirDecl,
-    pub expr_region: HirExprRegion,
+    pub hir_decl: TraitForTypeAssociatedFnHirDecl,
+    pub hir_expr_region: HirExprRegion,
 }

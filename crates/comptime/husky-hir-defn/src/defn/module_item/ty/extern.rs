@@ -4,5 +4,5 @@ use super::*;
 pub struct ExternTypeHirDefn {
     #[id]
     pub path: TypePath,
-    pub decl: ExternTypeHirDecl,
+    pub hir_decl: ExternTypeHirDecl,
 }

@@ -4,5 +4,5 @@ use super::*;
 pub struct EnumTupleVariantHirDefn {
     #[id]
     pub path: TypeVariantPath,
-    pub decl: EnumTupleTypeVariantHirDecl,
+    pub hir_decl: EnumTupleTypeVariantHirDecl,
 }

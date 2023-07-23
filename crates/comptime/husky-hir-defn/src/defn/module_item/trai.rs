@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitHirDefn {
     #[id]
     pub path: TraitPath,
-    pub decl: TraitHirDecl,
+    pub hir_decl: TraitHirDecl,
 }
 
 impl HasHirDefn for TraitPath {
@@ -18,6 +18,6 @@ impl HasHirDefn for TraitPath {
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn trai_hir_defn(db: &dyn HirDefnDb, path: TraitPath) -> TraitHirDefn {
     todo!()
-    // let decl = path.decl(db)?;
-    // (TraitHirDefn::new(db, path, decl))
+    // let hir_decl = path.hir_decl(db)?;
+    // (TraitHirDefn::new(db, path, hir_decl))
 }

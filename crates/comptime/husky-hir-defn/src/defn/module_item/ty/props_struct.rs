@@ -4,5 +4,5 @@ use super::*;
 pub struct PropsStructTypeHirDefn {
     #[id]
     pub path: TypePath,
-    pub decl: PropsStructTypeHirDecl,
+    pub hir_decl: PropsStructTypeHirDecl,
 }
