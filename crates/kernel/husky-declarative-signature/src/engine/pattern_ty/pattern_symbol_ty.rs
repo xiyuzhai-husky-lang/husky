@@ -22,7 +22,7 @@ impl PatternSymbolTypeInfo {
 }
 
 impl<'a> DeclarativeTermEngine<'a> {
-    pub(super) fn infer_pattern_symbol_tys(&mut self, pattern_expr: PatternExprIdx) {
+    pub(super) fn infer_pattern_symbol_tys(&mut self, pattern_expr: PatternSynExprIdx) {
         for (_, pattern_symbol) in self
             .expr_region_data
             .pattern_expr_region()
@@ -48,7 +48,7 @@ impl<'a> DeclarativeTermEngine<'a> {
         pattern_symbol: PatternSymbolIdx,
     ) -> DeclarativeTerm {
         match self.expr_region_data[pattern_symbol] {
-            PatternSymbol::Atom(pattern_expr) => self
+            PatternSynSymbol::Atom(pattern_expr) => self
                 .get_pattern_expr_ty(pattern_expr)
                 .expect("pattern expression type should be inferred at this point"),
         }

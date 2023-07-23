@@ -105,7 +105,7 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
                                         EntitySynNodePath::ModuleItem(
@@ -180,7 +180,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -196,7 +196,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -208,7 +208,7 @@ Ok(
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
@@ -225,7 +225,7 @@ Ok(
                                             },
                                             expr_idx: 0,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
@@ -303,7 +303,7 @@ Ok(
                         ),
                     ),
                     expr_region: SynExprRegion {
-                        data: ExprRegionData {
+                        data: SynExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
                                 EntitySynNodePath::ImplBlock(
@@ -354,7 +354,7 @@ Ok(
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_region: PatternExprRegion {
+                            pattern_expr_region: PatternSynExprRegion {
                                 pattern_expr_arena: Arena {
                                     data: [],
                                 },
@@ -370,7 +370,7 @@ Ok(
                                     data: [],
                                 },
                             },
-                            symbol_region: SymbolRegion {
+                            symbol_region: SynSymbolRegion {
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -382,7 +382,7 @@ Ok(
                                 pattern_ty_constraints: [],
                             },
                             roots: [
-                                ExprRoot {
+                                SynExprRoot {
                                     kind: SelfType,
                                     expr_idx: 0,
                                 },
@@ -496,10 +496,10 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
-                                            data: ExprRegionData {
+                                            data: SynExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
                                                     EntitySynNodePath::ImplBlock(
@@ -550,7 +550,7 @@ Ok(
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_region: PatternSynExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -566,7 +566,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SymbolRegion {
+                                                symbol_region: SynSymbolRegion {
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -578,7 +578,7 @@ Ok(
                                                     pattern_ty_constraints: [],
                                                 },
                                                 roots: [
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: SelfType,
                                                         expr_idx: 0,
                                                     },
@@ -642,7 +642,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -658,7 +658,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -670,7 +670,7 @@ Ok(
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 0,
                                         },
@@ -682,13 +682,13 @@ Ok(
                             5,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: Some(
                                                 SynExprRegion {
-                                                    data: ExprRegionData {
+                                                    data: SynExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             EntitySynNodePath::ImplBlock(
@@ -739,7 +739,7 @@ Ok(
                                                         stmt_arena: Arena {
                                                             data: [],
                                                         },
-                                                        pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_region: PatternSynExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
@@ -755,7 +755,7 @@ Ok(
                                                                 data: [],
                                                             },
                                                         },
-                                                        symbol_region: SymbolRegion {
+                                                        symbol_region: SynSymbolRegion {
                                                             inherited_symbol_arena: Arena {
                                                                 data: [],
                                                             },
@@ -767,7 +767,7 @@ Ok(
                                                             pattern_ty_constraints: [],
                                                         },
                                                         roots: [
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: SelfType,
                                                                 expr_idx: 0,
                                                             },
@@ -831,7 +831,7 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
@@ -847,7 +847,7 @@ Ok(
                                                     data: [],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -859,7 +859,7 @@ Ok(
                                                 pattern_ty_constraints: [],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 0,
                                                 },
@@ -939,7 +939,7 @@ Ok(
                                                 34,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 3,
                                                     comma_token_idx: None,
                                                 },
@@ -960,12 +960,12 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 4,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
@@ -981,7 +981,7 @@ Ok(
                                         data: [],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -993,11 +993,11 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 4,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 5,
                                     },
@@ -1125,10 +1125,10 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
-                                            data: ExprRegionData {
+                                            data: SynExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
                                                     EntitySynNodePath::ImplBlock(
@@ -1179,7 +1179,7 @@ Ok(
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_region: PatternSynExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -1195,7 +1195,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SymbolRegion {
+                                                symbol_region: SynSymbolRegion {
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -1207,7 +1207,7 @@ Ok(
                                                     pattern_ty_constraints: [],
                                                 },
                                                 roots: [
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: SelfType,
                                                         expr_idx: 0,
                                                     },
@@ -1296,10 +1296,10 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `pt`,
@@ -1320,7 +1320,7 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     0,
                                                 ),
                                             ],
@@ -1339,7 +1339,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1373,11 +1373,11 @@ Ok(
                                         ],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 0,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 1,
                                         },
@@ -1389,13 +1389,13 @@ Ok(
                             31,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: Some(
                                                 SynExprRegion {
-                                                    data: ExprRegionData {
+                                                    data: SynExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             EntitySynNodePath::ImplBlock(
@@ -1446,7 +1446,7 @@ Ok(
                                                         stmt_arena: Arena {
                                                             data: [],
                                                         },
-                                                        pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_region: PatternSynExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
@@ -1462,7 +1462,7 @@ Ok(
                                                                 data: [],
                                                             },
                                                         },
-                                                        symbol_region: SymbolRegion {
+                                                        symbol_region: SynSymbolRegion {
                                                             inherited_symbol_arena: Arena {
                                                                 data: [],
                                                             },
@@ -1474,7 +1474,7 @@ Ok(
                                                             pattern_ty_constraints: [],
                                                         },
                                                         roots: [
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: SelfType,
                                                                 expr_idx: 0,
                                                             },
@@ -1563,10 +1563,10 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `pt`,
@@ -1587,7 +1587,7 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             0,
                                                         ),
                                                     ],
@@ -1606,7 +1606,7 @@ Ok(
                                                     ],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -1640,11 +1640,11 @@ Ok(
                                                 ],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 0,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 1,
                                                 },
@@ -1742,7 +1742,7 @@ Ok(
                                                 65,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 4,
                                                     comma_token_idx: None,
                                                 },
@@ -1787,7 +1787,7 @@ Ok(
                                                 72,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 7,
                                                     comma_token_idx: None,
                                                 },
@@ -1887,7 +1887,7 @@ Ok(
                                                 93,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 15,
                                                     comma_token_idx: None,
                                                 },
@@ -1932,7 +1932,7 @@ Ok(
                                                 100,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 18,
                                                     comma_token_idx: None,
                                                 },
@@ -2025,7 +2025,7 @@ Ok(
                                                 116,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 25,
                                                     comma_token_idx: None,
                                                 },
@@ -2106,16 +2106,16 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 12,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 23,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 30,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     85,
@@ -2142,7 +2142,7 @@ Ok(
                                             ),
                                             initial_value: 16,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -2192,7 +2192,7 @@ Ok(
                                                 },
                                             ),
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     49,
@@ -2219,7 +2219,7 @@ Ok(
                                             ),
                                             initial_value: 1,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     57,
@@ -2246,7 +2246,7 @@ Ok(
                                             ),
                                             initial_value: 5,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -2298,10 +2298,10 @@ Ok(
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `ab`,
@@ -2310,7 +2310,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `ap`,
@@ -2319,7 +2319,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `bp`,
@@ -2344,13 +2344,13 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 0,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 1,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 2,
                                             ),
                                         ],
@@ -2383,7 +2383,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
                                             InheritedSymbol {
@@ -2457,31 +2457,31 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 1,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 5,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 12,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 16,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 23,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 30,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 31,
                                     },

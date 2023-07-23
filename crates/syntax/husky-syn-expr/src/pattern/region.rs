@@ -1,22 +1,22 @@
 use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
-pub struct PatternExprRegion {
-    pattern_expr_arena: PatternExprArena,
-    pattern_expr_contracts: PatternExprOrderedMap<Contract>,
-    pattern_infos: Vec<PatternExprInfo>,
+#[salsa::derive_debug_with_db(db = SynExprDb)]
+pub struct PatternSynExprRegion {
+    pattern_expr_arena: PatternSynExprArena,
+    pattern_expr_contracts: PatternSynExprOrderedMap<Contract>,
+    pattern_infos: Vec<PatternSynExprInfo>,
     pattern_symbol_arena: PatternSymbolArena,
-    pattern_symbol_maps: PatternExprOrderedMap<IdentPairMap<PatternSymbolIdx>>,
+    pattern_symbol_maps: PatternSynExprOrderedMap<IdentPairMap<PatternSymbolIdx>>,
     pattern_symbol_modifiers: PatternSymbolOrderedMap<SymbolModifier>,
 }
 
-impl PatternExprRegion {
+impl PatternSynExprRegion {
     pub fn alloc_one_pattern_expr(
         &mut self,
-        expr: PatternExpr,
-        env: PatternExprInfo,
-    ) -> PatternExprIdx {
+        expr: PatternSynExpr,
+        env: PatternSynExprInfo,
+    ) -> PatternSynExprIdx {
         // order matters
         let contract = expr.contract();
         let idx = self.pattern_expr_arena.alloc_one(expr);
@@ -32,28 +32,28 @@ impl PatternExprRegion {
     // expr must be allocated already
     fn collect_symbols(
         &mut self,
-        pattern_expr_idx: PatternExprIdx,
+        pattern_expr_idx: PatternSynExprIdx,
     ) -> IdentPairMap<PatternSymbolIdx> {
         let symbols: IdentPairMap<PatternSymbolIdx> =
             match self.pattern_expr_arena[pattern_expr_idx] {
-                PatternExpr::Literal(_) => Default::default(),
-                PatternExpr::Ident {
+                PatternSynExpr::Literal(_) => Default::default(),
+                PatternSynExpr::Ident {
                     ident_token,
                     symbol_modifier_keyword_group: contract,
                 } => IdentPairMap::new_one_element_map((
                     ident_token.ident(),
-                    self.alloc_new_symbol(PatternSymbol::Atom(pattern_expr_idx)),
+                    self.alloc_new_symbol(PatternSynSymbol::Atom(pattern_expr_idx)),
                 )),
-                PatternExpr::Entity(_) => todo!(),
-                PatternExpr::Tuple { name, fields } => todo!(),
-                PatternExpr::Struct { name, fields } => todo!(),
-                PatternExpr::OneOf { options } => todo!(),
-                PatternExpr::Binding {
+                PatternSynExpr::Entity(_) => todo!(),
+                PatternSynExpr::Tuple { name, fields } => todo!(),
+                PatternSynExpr::Struct { name, fields } => todo!(),
+                PatternSynExpr::OneOf { options } => todo!(),
+                PatternSynExpr::Binding {
                     ident_token,
                     asperand_token,
                     src,
                 } => todo!(),
-                PatternExpr::Range {
+                PatternSynExpr::Range {
                     start,
                     dot_dot_token,
                     end,
@@ -62,7 +62,7 @@ impl PatternExprRegion {
         symbols
     }
 
-    fn alloc_new_symbol(&mut self, symbol: PatternSymbol) -> PatternSymbolIdx {
+    fn alloc_new_symbol(&mut self, symbol: PatternSynSymbol) -> PatternSymbolIdx {
         let modifier = symbol.pattern_symbol_modifier(&self.pattern_expr_arena);
         let idx = self.pattern_symbol_arena.alloc_one(symbol);
         self.pattern_symbol_modifiers.insert_next(idx, modifier);
@@ -71,22 +71,22 @@ impl PatternExprRegion {
 
     pub fn pattern_exprs<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (PatternExprIdx, &'a PatternExpr)> + 'a {
+    ) -> impl Iterator<Item = (PatternSynExprIdx, &'a PatternSynExpr)> + 'a {
         self.pattern_expr_arena.indexed_iter()
     }
 
     pub fn pattern_expr_symbols(
         &self,
-        pattern_expr_idx: PatternExprIdx,
+        pattern_expr_idx: PatternSynExprIdx,
     ) -> &[(Ident, PatternSymbolIdx)] {
         &self.pattern_symbol_maps[pattern_expr_idx]
     }
 
-    pub fn pattern_info(&self, pattern_expr_idx: PatternExprIdx) -> PatternExprInfo {
+    pub fn pattern_info(&self, pattern_expr_idx: PatternSynExprIdx) -> PatternSynExprInfo {
         self.pattern_infos[pattern_expr_idx.raw()]
     }
 
-    pub fn pattern_expr_arena(&self) -> &PatternExprArena {
+    pub fn pattern_expr_arena(&self) -> &PatternSynExprArena {
         &self.pattern_expr_arena
     }
 
@@ -95,32 +95,32 @@ impl PatternExprRegion {
     }
 }
 
-impl std::ops::Index<PatternExprIdx> for PatternExprRegion {
-    type Output = PatternExpr;
+impl std::ops::Index<PatternSynExprIdx> for PatternSynExprRegion {
+    type Output = PatternSynExpr;
 
-    fn index(&self, index: PatternExprIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_arena[index]
     }
 }
 
-impl std::ops::Index<PatternSymbolIdx> for PatternExprRegion {
-    type Output = PatternSymbol;
+impl std::ops::Index<PatternSymbolIdx> for PatternSynExprRegion {
+    type Output = PatternSynSymbol;
 
     fn index(&self, index: PatternSymbolIdx) -> &Self::Output {
         &self.pattern_symbol_arena[index]
     }
 }
 
-impl std::ops::Index<&PatternSymbolIdx> for PatternExprRegion {
-    type Output = PatternSymbol;
+impl std::ops::Index<&PatternSymbolIdx> for PatternSynExprRegion {
+    type Output = PatternSynSymbol;
 
     fn index(&self, index: &PatternSymbolIdx) -> &Self::Output {
         &self.pattern_symbol_arena[index]
     }
 }
 
-impl ExprRegionData {
-    pub fn pattern_contract(&self, pattern_expr_idx: PatternExprIdx) -> Contract {
+impl SynExprRegionData {
+    pub fn pattern_contract(&self, pattern_expr_idx: PatternSynExprIdx) -> Contract {
         self.pattern_expr_region()
             .pattern_contract(pattern_expr_idx)
     }
@@ -131,8 +131,8 @@ impl ExprRegionData {
     }
 }
 
-impl PatternExprRegion {
-    fn pattern_contract(&self, pattern_expr_idx: PatternExprIdx) -> Contract {
+impl PatternSynExprRegion {
+    fn pattern_contract(&self, pattern_expr_idx: PatternSynExprIdx) -> Contract {
         self.pattern_expr_contracts[pattern_expr_idx]
     }
 

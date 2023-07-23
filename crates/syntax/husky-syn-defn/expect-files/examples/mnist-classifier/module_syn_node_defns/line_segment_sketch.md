@@ -203,7 +203,7 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
                                         EntitySynNodePath::ModuleItem(
@@ -460,7 +460,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -476,7 +476,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -488,7 +488,7 @@ Ok(
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
@@ -505,7 +505,7 @@ Ok(
                                             },
                                             expr_idx: 2,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
@@ -522,13 +522,13 @@ Ok(
                                             },
                                             expr_idx: 3,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: FieldBindInitialValue {
                                                 ty_expr_idx: 3,
                                             },
                                             expr_idx: 8,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
@@ -545,7 +545,7 @@ Ok(
                                             },
                                             expr_idx: 9,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: FieldBindInitialValue {
                                                 ty_expr_idx: 9,
                                             },
@@ -664,7 +664,7 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
                                         EntitySynNodePath::ModuleItem(
@@ -759,7 +759,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -775,7 +775,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -787,7 +787,7 @@ Ok(
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
@@ -804,7 +804,7 @@ Ok(
                                             },
                                             expr_idx: 1,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: PropsStructFieldType {
                                                 ident_token: IdentToken {
                                                     ident: Ident(
@@ -925,7 +925,7 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
                                         EntitySynNodePath::ModuleItem(
@@ -1025,10 +1025,10 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `u`,
@@ -1037,7 +1037,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `r`,
@@ -1060,10 +1060,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     0,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -1089,7 +1089,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -1143,15 +1143,15 @@ Ok(
                                         ],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 0,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 1,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 2,
                                         },
@@ -1163,10 +1163,10 @@ Ok(
                             52,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 EntitySynNodePath::ModuleItem(
@@ -1266,10 +1266,10 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `u`,
@@ -1278,7 +1278,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `r`,
@@ -1301,10 +1301,10 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             0,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             1,
                                                         ),
                                                     ],
@@ -1330,7 +1330,7 @@ Ok(
                                                     ],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -1384,15 +1384,15 @@ Ok(
                                                 ],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 0,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 1,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 2,
                                                 },
@@ -1962,7 +1962,7 @@ Ok(
                                                 453,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 46,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -1970,7 +1970,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 50,
                                                     comma_token_idx: None,
                                                 },
@@ -2007,7 +2007,7 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     383,
@@ -2034,7 +2034,7 @@ Ok(
                                             ),
                                             initial_value: 12,
                                         },
-                                        Stmt::Assert {
+                                        SynStmt::Assert {
                                             assert_token: AssertToken {
                                                 token_idx: TokenIdx(
                                                     407,
@@ -2042,7 +2042,7 @@ Ok(
                                             },
                                             condition: 15,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     411,
@@ -2069,7 +2069,7 @@ Ok(
                                             ),
                                             initial_value: 28,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     431,
@@ -2096,7 +2096,7 @@ Ok(
                                             ),
                                             initial_value: 34,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     441,
@@ -2123,15 +2123,15 @@ Ok(
                                             ),
                                             initial_value: 41,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 51,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `L`,
@@ -2140,7 +2140,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dr`,
@@ -2149,7 +2149,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dx`,
@@ -2158,7 +2158,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dy`,
@@ -2185,16 +2185,16 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 0,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 1,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 2,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 3,
                                             ),
                                         ],
@@ -2234,7 +2234,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
                                             InheritedSymbol {
@@ -2334,31 +2334,31 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 12,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: Condition,
                                         expr_idx: 15,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 28,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 34,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 41,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 51,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 52,
                                     },
@@ -2465,7 +2465,7 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
                                         EntitySynNodePath::ModuleItem(
@@ -2565,10 +2565,10 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `u`,
@@ -2577,7 +2577,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `r`,
@@ -2600,10 +2600,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     0,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -2629,7 +2629,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -2683,15 +2683,15 @@ Ok(
                                         ],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 0,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 1,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 2,
                                         },
@@ -2703,10 +2703,10 @@ Ok(
                             52,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 EntitySynNodePath::ModuleItem(
@@ -2806,10 +2806,10 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `u`,
@@ -2818,7 +2818,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `r`,
@@ -2841,10 +2841,10 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             0,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             1,
                                                         ),
                                                     ],
@@ -2870,7 +2870,7 @@ Ok(
                                                     ],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -2924,15 +2924,15 @@ Ok(
                                                 ],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 0,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 1,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 2,
                                                 },
@@ -3502,7 +3502,7 @@ Ok(
                                                 550,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 46,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -3510,7 +3510,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 50,
                                                     comma_token_idx: None,
                                                 },
@@ -3547,7 +3547,7 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     480,
@@ -3574,7 +3574,7 @@ Ok(
                                             ),
                                             initial_value: 12,
                                         },
-                                        Stmt::Assert {
+                                        SynStmt::Assert {
                                             assert_token: AssertToken {
                                                 token_idx: TokenIdx(
                                                     504,
@@ -3582,7 +3582,7 @@ Ok(
                                             },
                                             condition: 15,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     508,
@@ -3609,7 +3609,7 @@ Ok(
                                             ),
                                             initial_value: 28,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     528,
@@ -3636,7 +3636,7 @@ Ok(
                                             ),
                                             initial_value: 35,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     539,
@@ -3663,15 +3663,15 @@ Ok(
                                             ),
                                             initial_value: 41,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 51,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `L`,
@@ -3680,7 +3680,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dr`,
@@ -3689,7 +3689,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dx`,
@@ -3698,7 +3698,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dy`,
@@ -3725,16 +3725,16 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 0,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 1,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 2,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 3,
                                             ),
                                         ],
@@ -3774,7 +3774,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
                                             InheritedSymbol {
@@ -3874,31 +3874,31 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 12,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: Condition,
                                         expr_idx: 15,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 28,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 35,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 41,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 51,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 52,
                                     },
@@ -4022,7 +4022,7 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
                                         EntitySynNodePath::ModuleItem(
@@ -4154,10 +4154,10 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `ct`,
@@ -4166,7 +4166,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `start`,
@@ -4175,7 +4175,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `r`,
@@ -4200,13 +4200,13 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     0,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     1,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     2,
                                                 ),
                                             ],
@@ -4239,7 +4239,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -4313,19 +4313,19 @@ Ok(
                                         ],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 1,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 2,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 3,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 4,
                                         },
@@ -4337,10 +4337,10 @@ Ok(
                             114,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 EntitySynNodePath::ModuleItem(
@@ -4472,10 +4472,10 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `ct`,
@@ -4484,7 +4484,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `start`,
@@ -4493,7 +4493,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `r`,
@@ -4518,13 +4518,13 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             0,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             1,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             2,
                                                         ),
                                                     ],
@@ -4557,7 +4557,7 @@ Ok(
                                                     ],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -4631,19 +4631,19 @@ Ok(
                                                 ],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 1,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 2,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 3,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 4,
                                                 },
@@ -4741,7 +4741,7 @@ Ok(
                                                 594,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 2,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -4749,7 +4749,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 5,
                                                     comma_token_idx: None,
                                                 },
@@ -5013,7 +5013,7 @@ Ok(
                                                 637,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 24,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -5021,7 +5021,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 27,
                                                     comma_token_idx: None,
                                                 },
@@ -5135,7 +5135,7 @@ Ok(
                                                 660,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 37,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -5143,7 +5143,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 38,
                                                     comma_token_idx: None,
                                                 },
@@ -5189,7 +5189,7 @@ Ok(
                                                 670,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 41,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -5197,7 +5197,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 42,
                                                     comma_token_idx: None,
                                                 },
@@ -5270,7 +5270,7 @@ Ok(
                                                 688,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 48,
                                                     comma_token_idx: None,
                                                 },
@@ -5345,7 +5345,7 @@ Ok(
                                                 697,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 54,
                                                     comma_token_idx: None,
                                                 },
@@ -5599,7 +5599,7 @@ Ok(
                                                 736,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 77,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -5607,7 +5607,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 78,
                                                     comma_token_idx: None,
                                                 },
@@ -5653,7 +5653,7 @@ Ok(
                                                 745,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 81,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -5661,7 +5661,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 82,
                                                     comma_token_idx: None,
                                                 },
@@ -5706,7 +5706,7 @@ Ok(
                                                 754,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 85,
                                                     comma_token_idx: None,
                                                 },
@@ -5799,7 +5799,7 @@ Ok(
                                                 767,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 93,
                                                     comma_token_idx: None,
                                                 },
@@ -5949,7 +5949,7 @@ Ok(
                                                 783,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 103,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -5957,7 +5957,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 106,
                                                     comma_token_idx: None,
                                                 },
@@ -6087,13 +6087,13 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 22,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 30,
                                         },
-                                        Stmt::Return {
+                                        SynStmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
                                                     653,
@@ -6101,23 +6101,23 @@ Ok(
                                             },
                                             result: 35,
                                         },
-                                        Stmt::Break {
+                                        SynStmt::Break {
                                             break_token: BreakToken {
                                                 token_idx: TokenIdx(
                                                     718,
                                                 ),
                                             },
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 72,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 91,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 99,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     732,
@@ -6144,7 +6144,7 @@ Ok(
                                             ),
                                             initial_value: 79,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     741,
@@ -6171,7 +6171,7 @@ Ok(
                                             ),
                                             initial_value: 83,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -6199,7 +6199,7 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -6227,7 +6227,7 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     703,
@@ -6254,7 +6254,7 @@ Ok(
                                             ),
                                             initial_value: 61,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -6307,7 +6307,7 @@ Ok(
                                             ],
                                             else_branch: None,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -6335,13 +6335,13 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 101,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 109,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     582,
@@ -6368,7 +6368,7 @@ Ok(
                                             ),
                                             initial_value: 0,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     587,
@@ -6395,7 +6395,7 @@ Ok(
                                             ),
                                             initial_value: 6,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     601,
@@ -6422,7 +6422,7 @@ Ok(
                                             ),
                                             initial_value: 9,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     611,
@@ -6449,7 +6449,7 @@ Ok(
                                             ),
                                             initial_value: 12,
                                         },
-                                        Stmt::While {
+                                        SynStmt::While {
                                             while_token: WhileToken {
                                                 token_idx: TokenIdx(
                                                     617,
@@ -6473,7 +6473,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -6501,7 +6501,7 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     655,
@@ -6528,7 +6528,7 @@ Ok(
                                             ),
                                             initial_value: 39,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     665,
@@ -6555,7 +6555,7 @@ Ok(
                                             ),
                                             initial_value: 43,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     675,
@@ -6582,7 +6582,7 @@ Ok(
                                             ),
                                             initial_value: 44,
                                         },
-                                        Stmt::While {
+                                        SynStmt::While {
                                             while_token: WhileToken {
                                                 token_idx: TokenIdx(
                                                     680,
@@ -6606,7 +6606,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Stmt::Assert {
+                                        SynStmt::Assert {
                                             assert_token: AssertToken {
                                                 token_idx: TokenIdx(
                                                     790,
@@ -6614,7 +6614,7 @@ Ok(
                                             },
                                             condition: 112,
                                         },
-                                        Stmt::Return {
+                                        SynStmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
                                                     794,
@@ -6624,10 +6624,10 @@ Ok(
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -6644,7 +6644,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -6661,7 +6661,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `N`,
@@ -6670,7 +6670,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `max_end`,
@@ -6679,7 +6679,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -6696,7 +6696,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -6713,7 +6713,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -6730,7 +6730,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp_norm`,
@@ -6739,7 +6739,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp_right`,
@@ -6748,7 +6748,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp_left`,
@@ -6787,34 +6787,34 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 0,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 1,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 2,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 3,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 4,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 5,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 6,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 7,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 8,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 9,
                                             ),
                                         ],
@@ -6896,7 +6896,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
                                             InheritedSymbol {
@@ -7107,87 +7107,87 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 0,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 6,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 9,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 12,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 22,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 30,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: ReturnExpr,
                                         expr_idx: 35,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 39,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 43,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 44,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 61,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 72,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 79,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 83,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 91,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 99,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 101,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 109,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: Condition,
                                         expr_idx: 112,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: ReturnExpr,
                                         expr_idx: 113,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 114,
                                     },
@@ -7328,7 +7328,7 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
                                         EntitySynNodePath::ModuleItem(
@@ -7485,10 +7485,10 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `ct`,
@@ -7497,7 +7497,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `start0`,
@@ -7506,7 +7506,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `end`,
@@ -7515,7 +7515,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `r`,
@@ -7542,16 +7542,16 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     0,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     1,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     2,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     3,
                                                 ),
                                             ],
@@ -7591,7 +7591,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -7685,23 +7685,23 @@ Ok(
                                         ],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 1,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 2,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 3,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 4,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 5,
                                         },
@@ -7713,10 +7713,10 @@ Ok(
                             124,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 EntitySynNodePath::ModuleItem(
@@ -7873,10 +7873,10 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `ct`,
@@ -7885,7 +7885,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `start0`,
@@ -7894,7 +7894,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `end`,
@@ -7903,7 +7903,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `r`,
@@ -7930,16 +7930,16 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             0,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             1,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             2,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             3,
                                                         ),
                                                     ],
@@ -7979,7 +7979,7 @@ Ok(
                                                     ],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -8073,23 +8073,23 @@ Ok(
                                                 ],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 1,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 2,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 3,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 4,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 5,
                                                 },
@@ -8187,7 +8187,7 @@ Ok(
                                                 831,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 2,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -8195,7 +8195,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 5,
                                                     comma_token_idx: None,
                                                 },
@@ -8449,7 +8449,7 @@ Ok(
                                                 870,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 23,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -8457,7 +8457,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 26,
                                                     comma_token_idx: None,
                                                 },
@@ -8560,7 +8560,7 @@ Ok(
                                                 890,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 35,
                                                     comma_token_idx: None,
                                                 },
@@ -8606,7 +8606,7 @@ Ok(
                                                 898,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 38,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -8614,7 +8614,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 39,
                                                     comma_token_idx: None,
                                                 },
@@ -8660,7 +8660,7 @@ Ok(
                                                 908,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 42,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -8668,7 +8668,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 43,
                                                     comma_token_idx: None,
                                                 },
@@ -8781,7 +8781,7 @@ Ok(
                                                 929,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 50,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -8789,7 +8789,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 53,
                                                     comma_token_idx: None,
                                                 },
@@ -9003,7 +9003,7 @@ Ok(
                                                 969,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 72,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -9011,7 +9011,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 73,
                                                     comma_token_idx: None,
                                                 },
@@ -9057,7 +9057,7 @@ Ok(
                                                 978,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 76,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -9065,7 +9065,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 77,
                                                     comma_token_idx: None,
                                                 },
@@ -9110,7 +9110,7 @@ Ok(
                                                 987,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 80,
                                                     comma_token_idx: None,
                                                 },
@@ -9203,7 +9203,7 @@ Ok(
                                                 1000,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 88,
                                                     comma_token_idx: None,
                                                 },
@@ -9296,7 +9296,7 @@ Ok(
                                                 1013,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 96,
                                                     comma_token_idx: None,
                                                 },
@@ -9381,7 +9381,7 @@ Ok(
                                                 1029,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 103,
                                                     comma_token_idx: None,
                                                 },
@@ -9436,7 +9436,7 @@ Ok(
                                                 1038,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 107,
                                                     comma_token_idx: None,
                                                 },
@@ -9661,13 +9661,13 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 21,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 29,
                                         },
-                                        Stmt::Return {
+                                        SynStmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
                                                     886,
@@ -9675,23 +9675,23 @@ Ok(
                                             },
                                             result: 36,
                                         },
-                                        Stmt::Break {
+                                        SynStmt::Break {
                                             break_token: BreakToken {
                                                 token_idx: TokenIdx(
                                                     951,
                                                 ),
                                             },
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 67,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 86,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 94,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     965,
@@ -9718,7 +9718,7 @@ Ok(
                                             ),
                                             initial_value: 74,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     974,
@@ -9745,7 +9745,7 @@ Ok(
                                             ),
                                             initial_value: 78,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -9773,7 +9773,7 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -9801,14 +9801,14 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Break {
+                                        SynStmt::Break {
                                             break_token: BreakToken {
                                                 token_idx: TokenIdx(
                                                     1045,
                                                 ),
                                             },
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -9836,17 +9836,17 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 118,
                                         },
-                                        Stmt::Break {
+                                        SynStmt::Break {
                                             break_token: BreakToken {
                                                 token_idx: TokenIdx(
                                                     1050,
                                                 ),
                                             },
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     923,
@@ -9873,7 +9873,7 @@ Ok(
                                             ),
                                             initial_value: 54,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     936,
@@ -9900,7 +9900,7 @@ Ok(
                                             ),
                                             initial_value: 56,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -9953,7 +9953,7 @@ Ok(
                                             ],
                                             else_branch: None,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -9981,7 +9981,7 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -10031,7 +10031,7 @@ Ok(
                                                 },
                                             ),
                                         },
-                                        Stmt::Return {
+                                        SynStmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
                                                     1056,
@@ -10039,7 +10039,7 @@ Ok(
                                             },
                                             result: 122,
                                         },
-                                        Stmt::Return {
+                                        SynStmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
                                                     1060,
@@ -10047,7 +10047,7 @@ Ok(
                                             },
                                             result: 123,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     819,
@@ -10074,7 +10074,7 @@ Ok(
                                             ),
                                             initial_value: 0,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     824,
@@ -10101,7 +10101,7 @@ Ok(
                                             ),
                                             initial_value: 6,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     838,
@@ -10128,7 +10128,7 @@ Ok(
                                             ),
                                             initial_value: 11,
                                         },
-                                        Stmt::While {
+                                        SynStmt::While {
                                             while_token: WhileToken {
                                                 token_idx: TokenIdx(
                                                     850,
@@ -10152,7 +10152,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -10180,7 +10180,7 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     893,
@@ -10207,7 +10207,7 @@ Ok(
                                             ),
                                             initial_value: 40,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     903,
@@ -10234,7 +10234,7 @@ Ok(
                                             ),
                                             initial_value: 44,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     913,
@@ -10261,7 +10261,7 @@ Ok(
                                             ),
                                             initial_value: 45,
                                         },
-                                        Stmt::While {
+                                        SynStmt::While {
                                             while_token: WhileToken {
                                                 token_idx: TokenIdx(
                                                     918,
@@ -10285,7 +10285,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -10337,10 +10337,10 @@ Ok(
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -10357,7 +10357,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -10374,7 +10374,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `min_start`,
@@ -10383,7 +10383,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -10400,7 +10400,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -10417,7 +10417,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -10434,7 +10434,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp`,
@@ -10443,7 +10443,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp_norm`,
@@ -10452,7 +10452,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp_right`,
@@ -10461,7 +10461,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp_left`,
@@ -10500,34 +10500,34 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 0,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 1,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 2,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 3,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 4,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 5,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 6,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 7,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 8,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 9,
                                             ),
                                         ],
@@ -10609,7 +10609,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
                                             InheritedSymbol {
@@ -10829,83 +10829,83 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 0,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 6,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 11,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 21,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 29,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: ReturnExpr,
                                         expr_idx: 36,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 40,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 44,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 45,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 54,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 56,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 67,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 74,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 78,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 86,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 94,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 118,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: ReturnExpr,
                                         expr_idx: 122,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: ReturnExpr,
                                         expr_idx: 123,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 124,
                                     },
@@ -11012,7 +11012,7 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
                                         EntitySynNodePath::ModuleItem(
@@ -11132,10 +11132,10 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `ct`,
@@ -11144,7 +11144,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `r`,
@@ -11167,10 +11167,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     0,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -11196,7 +11196,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -11250,15 +11250,15 @@ Ok(
                                         ],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 1,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 2,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 5,
                                         },
@@ -11270,10 +11270,10 @@ Ok(
                             197,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: None,
                                             path: RegionPath::Decl(
                                                 EntitySynNodePath::ModuleItem(
@@ -11393,10 +11393,10 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `ct`,
@@ -11405,7 +11405,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `r`,
@@ -11428,10 +11428,10 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             0,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             1,
                                                         ),
                                                     ],
@@ -11457,7 +11457,7 @@ Ok(
                                                     ],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -11511,15 +11511,15 @@ Ok(
                                                 ],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 1,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 2,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 5,
                                                 },
@@ -11722,7 +11722,7 @@ Ok(
                                                 1118,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 13,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -11730,7 +11730,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 14,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -11738,7 +11738,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 15,
                                                     comma_token_idx: None,
                                                 },
@@ -11816,7 +11816,7 @@ Ok(
                                                 1131,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 21,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -11824,7 +11824,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 22,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -11832,7 +11832,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 23,
                                                     comma_token_idx: None,
                                                 },
@@ -12022,7 +12022,7 @@ Ok(
                                                 1177,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 37,
                                                     comma_token_idx: None,
                                                 },
@@ -12095,7 +12095,7 @@ Ok(
                                                 1190,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 42,
                                                     comma_token_idx: None,
                                                 },
@@ -12333,7 +12333,7 @@ Ok(
                                                 1216,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 55,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -12341,7 +12341,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 60,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -12349,7 +12349,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 61,
                                                     comma_token_idx: None,
                                                 },
@@ -12469,7 +12469,7 @@ Ok(
                                                 1241,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 70,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -12477,7 +12477,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 71,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -12485,7 +12485,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 72,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -12493,7 +12493,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 73,
                                                     comma_token_idx: None,
                                                 },
@@ -12571,7 +12571,7 @@ Ok(
                                                 1257,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 79,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -12579,7 +12579,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 80,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -12587,7 +12587,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 81,
                                                     comma_token_idx: None,
                                                 },
@@ -12803,7 +12803,7 @@ Ok(
                                                 1306,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 97,
                                                     comma_token_idx: None,
                                                 },
@@ -12848,7 +12848,7 @@ Ok(
                                                 1315,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 100,
                                                     comma_token_idx: None,
                                                 },
@@ -12921,7 +12921,7 @@ Ok(
                                                 1328,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 105,
                                                     comma_token_idx: None,
                                                 },
@@ -12994,7 +12994,7 @@ Ok(
                                                 1337,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 111,
                                                     comma_token_idx: None,
                                                 },
@@ -13087,7 +13087,7 @@ Ok(
                                                 1350,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 118,
                                                     comma_token_idx: None,
                                                 },
@@ -13283,7 +13283,7 @@ Ok(
                                                 1369,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 128,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -13291,7 +13291,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 131,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -13299,7 +13299,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 134,
                                                     comma_token_idx: None,
                                                 },
@@ -13432,7 +13432,7 @@ Ok(
                                                 1400,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 146,
                                                     comma_token_idx: None,
                                                 },
@@ -13974,7 +13974,7 @@ Ok(
                                                 1472,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 180,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -13982,7 +13982,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 185,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -13990,7 +13990,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 192,
                                                     comma_token_idx: None,
                                                 },
@@ -14150,7 +14150,7 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1196,
@@ -14177,13 +14177,13 @@ Ok(
                                             ),
                                             initial_value: 50,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 64,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 67,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1152,
@@ -14210,7 +14210,7 @@ Ok(
                                             ),
                                             initial_value: 31,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1160,
@@ -14237,7 +14237,7 @@ Ok(
                                             ),
                                             initial_value: 35,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -14265,7 +14265,7 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1356,
@@ -14292,10 +14292,10 @@ Ok(
                                             ),
                                             initial_value: 125,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 137,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1273,
@@ -14322,7 +14322,7 @@ Ok(
                                             ),
                                             initial_value: 89,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1282,
@@ -14349,7 +14349,7 @@ Ok(
                                             ),
                                             initial_value: 91,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1290,
@@ -14376,7 +14376,7 @@ Ok(
                                             ),
                                             initial_value: 93,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1298,
@@ -14403,7 +14403,7 @@ Ok(
                                             ),
                                             initial_value: 98,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -14431,13 +14431,13 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 144,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 76,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1250,
@@ -14464,7 +14464,7 @@ Ok(
                                             ),
                                             initial_value: 82,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -14514,13 +14514,13 @@ Ok(
                                                 },
                                             ),
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 147,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 18,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1125,
@@ -14547,7 +14547,7 @@ Ok(
                                             ),
                                             initial_value: 24,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1138,
@@ -14574,7 +14574,7 @@ Ok(
                                             ),
                                             initial_value: 25,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -14602,7 +14602,7 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -14630,13 +14630,13 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 150,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 155,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1454,
@@ -14663,10 +14663,10 @@ Ok(
                                             ),
                                             initial_value: 175,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 195,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1079,
@@ -14701,7 +14701,7 @@ Ok(
                                             ),
                                             initial_value: 3,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1089,
@@ -14728,7 +14728,7 @@ Ok(
                                             ),
                                             initial_value: 4,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1094,
@@ -14755,7 +14755,7 @@ Ok(
                                             ),
                                             initial_value: 5,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1099,
@@ -14782,7 +14782,7 @@ Ok(
                                             ),
                                             initial_value: 8,
                                         },
-                                        Stmt::While {
+                                        SynStmt::While {
                                             while_token: WhileToken {
                                                 token_idx: TokenIdx(
                                                     1110,
@@ -14806,7 +14806,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1411,
@@ -14833,7 +14833,7 @@ Ok(
                                             ),
                                             initial_value: 158,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1421,
@@ -14860,7 +14860,7 @@ Ok(
                                             ),
                                             initial_value: 163,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     1434,
@@ -14887,7 +14887,7 @@ Ok(
                                             ),
                                             initial_value: 166,
                                         },
-                                        Stmt::IfElse {
+                                        SynStmt::IfElse {
                                             if_branch: IfBranch {
                                                 if_token: IfToken {
                                                     token_idx: TokenIdx(
@@ -14915,15 +14915,15 @@ Ok(
                                             elif_branches: [],
                                             else_branch: None,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 196,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -14940,7 +14940,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -14957,7 +14957,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -14974,7 +14974,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -14991,7 +14991,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `ls_extend_end`,
@@ -15000,7 +15000,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -15017,7 +15017,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp_extend_end`,
@@ -15026,7 +15026,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp_previous`,
@@ -15035,7 +15035,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `N`,
@@ -15044,7 +15044,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -15061,7 +15061,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `ls_last`,
@@ -15070,7 +15070,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp_last`,
@@ -15079,7 +15079,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp`,
@@ -15088,7 +15088,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `dp1`,
@@ -15097,7 +15097,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `ls_last`,
@@ -15106,7 +15106,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `N`,
@@ -15115,7 +15115,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `first_line_segment_points_end`,
@@ -15124,7 +15124,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `last_line_segment`,
@@ -15133,7 +15133,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `last_line_segment`,
@@ -15190,61 +15190,61 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 0,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 1,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 2,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 3,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 4,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 5,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 6,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 7,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 8,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 9,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 10,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 11,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 12,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 13,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 14,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 15,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 16,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 17,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 18,
                                             ),
                                         ],
@@ -15389,7 +15389,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
                                             InheritedSymbol {
@@ -15754,131 +15754,131 @@ Ok(
                                     ],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtType,
                                         expr_idx: 2,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 3,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 4,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 5,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 8,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 18,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 24,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 25,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 31,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 35,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 50,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 64,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 67,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 76,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 82,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 89,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 91,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 93,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 98,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 125,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 137,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 144,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 147,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 150,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 155,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 158,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 163,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 166,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 175,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 195,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 196,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 197,
                                     },
@@ -15938,7 +15938,7 @@ Ok(
                         ),
                     ),
                     expr_region: SynExprRegion {
-                        data: ExprRegionData {
+                        data: SynExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
                                 EntitySynNodePath::ImplBlock(
@@ -16021,7 +16021,7 @@ Ok(
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_region: PatternExprRegion {
+                            pattern_expr_region: PatternSynExprRegion {
                                 pattern_expr_arena: Arena {
                                     data: [],
                                 },
@@ -16037,7 +16037,7 @@ Ok(
                                     data: [],
                                 },
                             },
-                            symbol_region: SymbolRegion {
+                            symbol_region: SynSymbolRegion {
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -16049,11 +16049,11 @@ Ok(
                                 pattern_ty_constraints: [],
                             },
                             roots: [
-                                ExprRoot {
+                                SynExprRoot {
                                     kind: Trait,
                                     expr_idx: 0,
                                 },
-                                ExprRoot {
+                                SynExprRoot {
                                     kind: SelfType,
                                     expr_idx: 1,
                                 },
@@ -16178,10 +16178,10 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
-                                            data: ExprRegionData {
+                                            data: SynExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
                                                     EntitySynNodePath::ImplBlock(
@@ -16264,7 +16264,7 @@ Ok(
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_region: PatternSynExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -16280,7 +16280,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SymbolRegion {
+                                                symbol_region: SynSymbolRegion {
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -16292,11 +16292,11 @@ Ok(
                                                     pattern_ty_constraints: [],
                                                 },
                                                 roots: [
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: Trait,
                                                         expr_idx: 0,
                                                     },
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: SelfType,
                                                         expr_idx: 1,
                                                     },
@@ -16340,7 +16340,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -16356,7 +16356,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -16375,13 +16375,13 @@ Ok(
                             5,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: Some(
                                                 SynExprRegion {
-                                                    data: ExprRegionData {
+                                                    data: SynExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             EntitySynNodePath::ImplBlock(
@@ -16464,7 +16464,7 @@ Ok(
                                                         stmt_arena: Arena {
                                                             data: [],
                                                         },
-                                                        pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_region: PatternSynExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
@@ -16480,7 +16480,7 @@ Ok(
                                                                 data: [],
                                                             },
                                                         },
-                                                        symbol_region: SymbolRegion {
+                                                        symbol_region: SynSymbolRegion {
                                                             inherited_symbol_arena: Arena {
                                                                 data: [],
                                                             },
@@ -16492,11 +16492,11 @@ Ok(
                                                             pattern_ty_constraints: [],
                                                         },
                                                         roots: [
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: Trait,
                                                                 expr_idx: 0,
                                                             },
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: SelfType,
                                                                 expr_idx: 1,
                                                             },
@@ -16540,7 +16540,7 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
@@ -16556,7 +16556,7 @@ Ok(
                                                     data: [],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -16724,12 +16724,12 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 4,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
@@ -16745,7 +16745,7 @@ Ok(
                                         data: [],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -16757,19 +16757,19 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: HtmlArgumentExpr,
                                         expr_idx: 1,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: HtmlArgumentExpr,
                                         expr_idx: 3,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 4,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 5,
                                     },
@@ -16833,7 +16833,7 @@ Ok(
                         ),
                     ),
                     expr_region: SynExprRegion {
-                        data: ExprRegionData {
+                        data: SynExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
                                 EntitySynNodePath::ImplBlock(
@@ -16884,7 +16884,7 @@ Ok(
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_region: PatternExprRegion {
+                            pattern_expr_region: PatternSynExprRegion {
                                 pattern_expr_arena: Arena {
                                     data: [],
                                 },
@@ -16900,7 +16900,7 @@ Ok(
                                     data: [],
                                 },
                             },
-                            symbol_region: SymbolRegion {
+                            symbol_region: SynSymbolRegion {
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -16912,7 +16912,7 @@ Ok(
                                 pattern_ty_constraints: [],
                             },
                             roots: [
-                                ExprRoot {
+                                SynExprRoot {
                                     kind: SelfType,
                                     expr_idx: 0,
                                 },
@@ -17051,10 +17051,10 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
-                                            data: ExprRegionData {
+                                            data: SynExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
                                                     EntitySynNodePath::ImplBlock(
@@ -17105,7 +17105,7 @@ Ok(
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_region: PatternSynExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -17121,7 +17121,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SymbolRegion {
+                                                symbol_region: SynSymbolRegion {
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -17133,7 +17133,7 @@ Ok(
                                                     pattern_ty_constraints: [],
                                                 },
                                                 roots: [
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: SelfType,
                                                         expr_idx: 0,
                                                     },
@@ -17279,10 +17279,10 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `ct`,
@@ -17291,7 +17291,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `from`,
@@ -17300,7 +17300,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `to`,
@@ -17325,13 +17325,13 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     0,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     1,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     2,
                                                 ),
                                             ],
@@ -17364,7 +17364,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -17438,19 +17438,19 @@ Ok(
                                         ],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 1,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 2,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 3,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 4,
                                         },
@@ -17462,13 +17462,13 @@ Ok(
                             12,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: Some(
                                                 SynExprRegion {
-                                                    data: ExprRegionData {
+                                                    data: SynExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             EntitySynNodePath::ImplBlock(
@@ -17519,7 +17519,7 @@ Ok(
                                                         stmt_arena: Arena {
                                                             data: [],
                                                         },
-                                                        pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_region: PatternSynExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
@@ -17535,7 +17535,7 @@ Ok(
                                                                 data: [],
                                                             },
                                                         },
-                                                        symbol_region: SymbolRegion {
+                                                        symbol_region: SynSymbolRegion {
                                                             inherited_symbol_arena: Arena {
                                                                 data: [],
                                                             },
@@ -17547,7 +17547,7 @@ Ok(
                                                             pattern_ty_constraints: [],
                                                         },
                                                         roots: [
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: SelfType,
                                                                 expr_idx: 0,
                                                             },
@@ -17693,10 +17693,10 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `ct`,
@@ -17705,7 +17705,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `from`,
@@ -17714,7 +17714,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `to`,
@@ -17739,13 +17739,13 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             0,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             1,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             2,
                                                         ),
                                                     ],
@@ -17778,7 +17778,7 @@ Ok(
                                                     ],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -17852,19 +17852,19 @@ Ok(
                                                 ],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 1,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 2,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 3,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 4,
                                                 },
@@ -18012,7 +18012,7 @@ Ok(
                                                 144,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 6,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -18020,7 +18020,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 9,
                                                     comma_token_idx: None,
                                                 },
@@ -18036,7 +18036,7 @@ Ok(
                                                 138,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 10,
                                                     comma_token_idx: None,
                                                 },
@@ -18073,7 +18073,7 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Assert {
+                                        SynStmt::Assert {
                                             assert_token: AssertToken {
                                                 token_idx: TokenIdx(
                                                     133,
@@ -18081,12 +18081,12 @@ Ok(
                                             },
                                             condition: 2,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 11,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
@@ -18102,7 +18102,7 @@ Ok(
                                         data: [],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
                                             InheritedSymbol {
@@ -18142,15 +18142,15 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: Condition,
                                         expr_idx: 2,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 11,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 12,
                                     },
@@ -18265,10 +18265,10 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
-                                            data: ExprRegionData {
+                                            data: SynExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
                                                     EntitySynNodePath::ImplBlock(
@@ -18319,7 +18319,7 @@ Ok(
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_region: PatternSynExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -18335,7 +18335,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SymbolRegion {
+                                                symbol_region: SynSymbolRegion {
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -18347,7 +18347,7 @@ Ok(
                                                     pattern_ty_constraints: [],
                                                 },
                                                 roots: [
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: SelfType,
                                                         expr_idx: 0,
                                                     },
@@ -18411,7 +18411,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -18427,7 +18427,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -18439,7 +18439,7 @@ Ok(
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 0,
                                         },
@@ -18451,13 +18451,13 @@ Ok(
                             5,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: Some(
                                                 SynExprRegion {
-                                                    data: ExprRegionData {
+                                                    data: SynExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             EntitySynNodePath::ImplBlock(
@@ -18508,7 +18508,7 @@ Ok(
                                                         stmt_arena: Arena {
                                                             data: [],
                                                         },
-                                                        pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_region: PatternSynExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
@@ -18524,7 +18524,7 @@ Ok(
                                                                 data: [],
                                                             },
                                                         },
-                                                        symbol_region: SymbolRegion {
+                                                        symbol_region: SynSymbolRegion {
                                                             inherited_symbol_arena: Arena {
                                                                 data: [],
                                                             },
@@ -18536,7 +18536,7 @@ Ok(
                                                             pattern_ty_constraints: [],
                                                         },
                                                         roots: [
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: SelfType,
                                                                 expr_idx: 0,
                                                             },
@@ -18600,7 +18600,7 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
@@ -18616,7 +18616,7 @@ Ok(
                                                     data: [],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -18628,7 +18628,7 @@ Ok(
                                                 pattern_ty_constraints: [],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 0,
                                                 },
@@ -18708,7 +18708,7 @@ Ok(
                                                 164,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 3,
                                                     comma_token_idx: None,
                                                 },
@@ -18729,12 +18729,12 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 4,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
@@ -18750,7 +18750,7 @@ Ok(
                                         data: [],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -18762,11 +18762,11 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 4,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 5,
                                     },
@@ -18826,7 +18826,7 @@ Ok(
                         ),
                     ),
                     expr_region: SynExprRegion {
-                        data: ExprRegionData {
+                        data: SynExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
                                 EntitySynNodePath::ImplBlock(
@@ -18909,7 +18909,7 @@ Ok(
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_region: PatternExprRegion {
+                            pattern_expr_region: PatternSynExprRegion {
                                 pattern_expr_arena: Arena {
                                     data: [],
                                 },
@@ -18925,7 +18925,7 @@ Ok(
                                     data: [],
                                 },
                             },
-                            symbol_region: SymbolRegion {
+                            symbol_region: SynSymbolRegion {
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -18937,11 +18937,11 @@ Ok(
                                 pattern_ty_constraints: [],
                             },
                             roots: [
-                                ExprRoot {
+                                SynExprRoot {
                                     kind: Trait,
                                     expr_idx: 0,
                                 },
-                                ExprRoot {
+                                SynExprRoot {
                                     kind: SelfType,
                                     expr_idx: 1,
                                 },
@@ -19076,10 +19076,10 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
-                                            data: ExprRegionData {
+                                            data: SynExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
                                                     EntitySynNodePath::ImplBlock(
@@ -19162,7 +19162,7 @@ Ok(
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_region: PatternSynExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -19178,7 +19178,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SymbolRegion {
+                                                symbol_region: SynSymbolRegion {
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -19190,11 +19190,11 @@ Ok(
                                                     pattern_ty_constraints: [],
                                                 },
                                                 roots: [
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: Trait,
                                                         expr_idx: 0,
                                                     },
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: SelfType,
                                                         expr_idx: 1,
                                                     },
@@ -19265,7 +19265,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -19281,7 +19281,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -19293,7 +19293,7 @@ Ok(
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 0,
                                         },
@@ -19305,13 +19305,13 @@ Ok(
                             3,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: Some(
                                                 SynExprRegion {
-                                                    data: ExprRegionData {
+                                                    data: SynExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             EntitySynNodePath::ImplBlock(
@@ -19394,7 +19394,7 @@ Ok(
                                                         stmt_arena: Arena {
                                                             data: [],
                                                         },
-                                                        pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_region: PatternSynExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
@@ -19410,7 +19410,7 @@ Ok(
                                                                 data: [],
                                                             },
                                                         },
-                                                        symbol_region: SymbolRegion {
+                                                        symbol_region: SynSymbolRegion {
                                                             inherited_symbol_arena: Arena {
                                                                 data: [],
                                                             },
@@ -19422,11 +19422,11 @@ Ok(
                                                             pattern_ty_constraints: [],
                                                         },
                                                         roots: [
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: Trait,
                                                                 expr_idx: 0,
                                                             },
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: SelfType,
                                                                 expr_idx: 1,
                                                             },
@@ -19497,7 +19497,7 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
@@ -19513,7 +19513,7 @@ Ok(
                                                     data: [],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -19525,7 +19525,7 @@ Ok(
                                                 pattern_ty_constraints: [],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 0,
                                                 },
@@ -19611,12 +19611,12 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 2,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
@@ -19632,7 +19632,7 @@ Ok(
                                         data: [],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -19644,11 +19644,11 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 2,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 3,
                                     },
@@ -19712,7 +19712,7 @@ Ok(
                         ),
                     ),
                     expr_region: SynExprRegion {
-                        data: ExprRegionData {
+                        data: SynExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
                                 EntitySynNodePath::ImplBlock(
@@ -19763,7 +19763,7 @@ Ok(
                             stmt_arena: Arena {
                                 data: [],
                             },
-                            pattern_expr_region: PatternExprRegion {
+                            pattern_expr_region: PatternSynExprRegion {
                                 pattern_expr_arena: Arena {
                                     data: [],
                                 },
@@ -19779,7 +19779,7 @@ Ok(
                                     data: [],
                                 },
                             },
-                            symbol_region: SymbolRegion {
+                            symbol_region: SynSymbolRegion {
                                 inherited_symbol_arena: Arena {
                                     data: [],
                                 },
@@ -19791,7 +19791,7 @@ Ok(
                                 pattern_ty_constraints: [],
                             },
                             roots: [
-                                ExprRoot {
+                                SynExprRoot {
                                     kind: SelfType,
                                     expr_idx: 0,
                                 },
@@ -19860,10 +19860,10 @@ Ok(
                             ),
                             expr: None,
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
-                                            data: ExprRegionData {
+                                            data: SynExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
                                                     EntitySynNodePath::ImplBlock(
@@ -19914,7 +19914,7 @@ Ok(
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_region: PatternSynExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -19930,7 +19930,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SymbolRegion {
+                                                symbol_region: SynSymbolRegion {
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -19942,7 +19942,7 @@ Ok(
                                                     pattern_ty_constraints: [],
                                                 },
                                                 roots: [
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: SelfType,
                                                         expr_idx: 0,
                                                     },
@@ -20019,7 +20019,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -20035,7 +20035,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -20047,7 +20047,7 @@ Ok(
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 2,
                                         },
@@ -20059,13 +20059,13 @@ Ok(
                             3,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: Some(
                                                 SynExprRegion {
-                                                    data: ExprRegionData {
+                                                    data: SynExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             EntitySynNodePath::ImplBlock(
@@ -20116,7 +20116,7 @@ Ok(
                                                         stmt_arena: Arena {
                                                             data: [],
                                                         },
-                                                        pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_region: PatternSynExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
@@ -20132,7 +20132,7 @@ Ok(
                                                                 data: [],
                                                             },
                                                         },
-                                                        symbol_region: SymbolRegion {
+                                                        symbol_region: SynSymbolRegion {
                                                             inherited_symbol_arena: Arena {
                                                                 data: [],
                                                             },
@@ -20144,7 +20144,7 @@ Ok(
                                                             pattern_ty_constraints: [],
                                                         },
                                                         roots: [
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: SelfType,
                                                                 expr_idx: 0,
                                                             },
@@ -20221,7 +20221,7 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
@@ -20237,7 +20237,7 @@ Ok(
                                                     data: [],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -20249,7 +20249,7 @@ Ok(
                                                 pattern_ty_constraints: [],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 2,
                                                 },
@@ -20301,7 +20301,7 @@ Ok(
                                                 215,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 1,
                                                     comma_token_idx: None,
                                                 },
@@ -20338,12 +20338,12 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 2,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
@@ -20359,7 +20359,7 @@ Ok(
                                         data: [],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -20371,11 +20371,11 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 2,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 3,
                                     },
@@ -20445,10 +20445,10 @@ Ok(
                             ),
                             expr: None,
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
-                                            data: ExprRegionData {
+                                            data: SynExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
                                                     EntitySynNodePath::ImplBlock(
@@ -20499,7 +20499,7 @@ Ok(
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_region: PatternSynExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -20515,7 +20515,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SymbolRegion {
+                                                symbol_region: SynSymbolRegion {
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -20527,7 +20527,7 @@ Ok(
                                                     pattern_ty_constraints: [],
                                                 },
                                                 roots: [
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: SelfType,
                                                         expr_idx: 0,
                                                     },
@@ -20591,7 +20591,7 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -20607,7 +20607,7 @@ Ok(
                                             data: [],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -20619,7 +20619,7 @@ Ok(
                                         pattern_ty_constraints: [],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 0,
                                         },
@@ -20631,13 +20631,13 @@ Ok(
                             57,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: Some(
                                                 SynExprRegion {
-                                                    data: ExprRegionData {
+                                                    data: SynExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             EntitySynNodePath::ImplBlock(
@@ -20688,7 +20688,7 @@ Ok(
                                                         stmt_arena: Arena {
                                                             data: [],
                                                         },
-                                                        pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_region: PatternSynExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
@@ -20704,7 +20704,7 @@ Ok(
                                                                 data: [],
                                                             },
                                                         },
-                                                        symbol_region: SymbolRegion {
+                                                        symbol_region: SynSymbolRegion {
                                                             inherited_symbol_arena: Arena {
                                                                 data: [],
                                                             },
@@ -20716,7 +20716,7 @@ Ok(
                                                             pattern_ty_constraints: [],
                                                         },
                                                         roots: [
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: SelfType,
                                                                 expr_idx: 0,
                                                             },
@@ -20780,7 +20780,7 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [],
                                                 },
@@ -20796,7 +20796,7 @@ Ok(
                                                     data: [],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -20808,7 +20808,7 @@ Ok(
                                                 pattern_ty_constraints: [],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 0,
                                                 },
@@ -20871,7 +20871,7 @@ Ok(
                                                 229,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 2,
                                                     comma_token_idx: None,
                                                 },
@@ -21070,7 +21070,7 @@ Ok(
                                                 279,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 20,
                                                     comma_token_idx: None,
                                                 },
@@ -21149,7 +21149,7 @@ Ok(
                                                 289,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 25,
                                                     comma_token_idx: None,
                                                 },
@@ -21224,7 +21224,7 @@ Ok(
                                                 299,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 31,
                                                     comma_token_idx: None,
                                                 },
@@ -21299,7 +21299,7 @@ Ok(
                                                 309,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 37,
                                                     comma_token_idx: None,
                                                 },
@@ -21374,7 +21374,7 @@ Ok(
                                                 319,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 43,
                                                     comma_token_idx: None,
                                                 },
@@ -21438,7 +21438,7 @@ Ok(
                                                 328,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 49,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -21446,7 +21446,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 50,
                                                     comma_token_idx: None,
                                                 },
@@ -21492,7 +21492,7 @@ Ok(
                                                 335,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 53,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -21500,7 +21500,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 54,
                                                     comma_token_idx: None,
                                                 },
@@ -21516,7 +21516,7 @@ Ok(
                                                 326,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 51,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -21524,7 +21524,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 55,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -21595,7 +21595,7 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     273,
@@ -21622,19 +21622,19 @@ Ok(
                                             ),
                                             initial_value: 22,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 28,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 34,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 40,
                                         },
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 46,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     223,
@@ -21661,7 +21661,7 @@ Ok(
                                             ),
                                             initial_value: 4,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     234,
@@ -21688,7 +21688,7 @@ Ok(
                                             ),
                                             initial_value: 6,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     241,
@@ -21715,7 +21715,7 @@ Ok(
                                             ),
                                             initial_value: 8,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     248,
@@ -21742,7 +21742,7 @@ Ok(
                                             ),
                                             initial_value: 10,
                                         },
-                                        Stmt::Let {
+                                        SynStmt::Let {
                                             let_token: LetToken {
                                                 token_idx: TokenIdx(
                                                     255,
@@ -21769,7 +21769,7 @@ Ok(
                                             ),
                                             initial_value: 12,
                                         },
-                                        Stmt::ForBetween {
+                                        SynStmt::ForBetween {
                                             for_token: StmtForToken {
                                                 token_idx: TokenIdx(
                                                     262,
@@ -21813,7 +21813,7 @@ Ok(
                                                 ),
                                             ),
                                         },
-                                        Stmt::Return {
+                                        SynStmt::Return {
                                             return_token: ReturnToken {
                                                 token_idx: TokenIdx(
                                                     324,
@@ -21823,10 +21823,10 @@ Ok(
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `start_point`,
@@ -21835,7 +21835,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -21852,7 +21852,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -21869,7 +21869,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -21886,7 +21886,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: Some(
                                                     Mut(
                                                         MutToken {
@@ -21903,7 +21903,7 @@ Ok(
                                                     ),
                                                 },
                                             },
-                                            PatternExpr::Ident {
+                                            PatternSynExpr::Ident {
                                                 symbol_modifier_keyword_group: None,
                                                 ident_token: IdentToken {
                                                     ident: `point`,
@@ -21934,22 +21934,22 @@ Ok(
                                     ],
                                     pattern_symbol_arena: Arena {
                                         data: [
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 0,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 1,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 2,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 3,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 4,
                                             ),
-                                            PatternSymbol::Atom(
+                                            PatternSynSymbol::Atom(
                                                 5,
                                             ),
                                         ],
@@ -22003,7 +22003,7 @@ Ok(
                                         ],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [],
                                     },
@@ -22142,51 +22142,51 @@ Ok(
                                     ],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 4,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 6,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 8,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 10,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 12,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: LetStmtInitialValue,
                                         expr_idx: 22,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 28,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 34,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 40,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 46,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: ReturnExpr,
                                         expr_idx: 56,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 57,
                                     },
@@ -22309,10 +22309,10 @@ Ok(
                                 ),
                             ),
                             expr_region: SynExprRegion {
-                                data: ExprRegionData {
+                                data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
-                                            data: ExprRegionData {
+                                            data: SynExprRegionData {
                                                 parent: None,
                                                 path: RegionPath::Decl(
                                                     EntitySynNodePath::ImplBlock(
@@ -22363,7 +22363,7 @@ Ok(
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: PatternExprRegion {
+                                                pattern_expr_region: PatternSynExprRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -22379,7 +22379,7 @@ Ok(
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: SymbolRegion {
+                                                symbol_region: SynSymbolRegion {
                                                     inherited_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -22391,7 +22391,7 @@ Ok(
                                                     pattern_ty_constraints: [],
                                                 },
                                                 roots: [
-                                                    ExprRoot {
+                                                    SynExprRoot {
                                                         kind: SelfType,
                                                         expr_idx: 0,
                                                     },
@@ -22512,10 +22512,10 @@ Ok(
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: PatternExprRegion {
+                                    pattern_expr_region: PatternSynExprRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `ct`,
@@ -22524,7 +22524,7 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                PatternExpr::Ident {
+                                                PatternSynExpr::Ident {
                                                     symbol_modifier_keyword_group: None,
                                                     ident_token: IdentToken {
                                                         ident: `r`,
@@ -22547,10 +22547,10 @@ Ok(
                                         ],
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     0,
                                                 ),
-                                                PatternSymbol::Atom(
+                                                PatternSynSymbol::Atom(
                                                     1,
                                                 ),
                                             ],
@@ -22576,7 +22576,7 @@ Ok(
                                             ],
                                         },
                                     },
-                                    symbol_region: SymbolRegion {
+                                    symbol_region: SynSymbolRegion {
                                         inherited_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -22630,15 +22630,15 @@ Ok(
                                         ],
                                     },
                                     roots: [
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 1,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ExplicitParameterType,
                                             expr_idx: 2,
                                         },
-                                        ExprRoot {
+                                        SynExprRoot {
                                             kind: ReturnType,
                                             expr_idx: 3,
                                         },
@@ -22650,13 +22650,13 @@ Ok(
                             7,
                         ),
                         expr_region: SynExprRegion {
-                            data: ExprRegionData {
+                            data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
-                                        data: ExprRegionData {
+                                        data: SynExprRegionData {
                                             parent: Some(
                                                 SynExprRegion {
-                                                    data: ExprRegionData {
+                                                    data: SynExprRegionData {
                                                         parent: None,
                                                         path: RegionPath::Decl(
                                                             EntitySynNodePath::ImplBlock(
@@ -22707,7 +22707,7 @@ Ok(
                                                         stmt_arena: Arena {
                                                             data: [],
                                                         },
-                                                        pattern_expr_region: PatternExprRegion {
+                                                        pattern_expr_region: PatternSynExprRegion {
                                                             pattern_expr_arena: Arena {
                                                                 data: [],
                                                             },
@@ -22723,7 +22723,7 @@ Ok(
                                                                 data: [],
                                                             },
                                                         },
-                                                        symbol_region: SymbolRegion {
+                                                        symbol_region: SynSymbolRegion {
                                                             inherited_symbol_arena: Arena {
                                                                 data: [],
                                                             },
@@ -22735,7 +22735,7 @@ Ok(
                                                             pattern_ty_constraints: [],
                                                         },
                                                         roots: [
-                                                            ExprRoot {
+                                                            SynExprRoot {
                                                                 kind: SelfType,
                                                                 expr_idx: 0,
                                                             },
@@ -22856,10 +22856,10 @@ Ok(
                                             stmt_arena: Arena {
                                                 data: [],
                                             },
-                                            pattern_expr_region: PatternExprRegion {
+                                            pattern_expr_region: PatternSynExprRegion {
                                                 pattern_expr_arena: Arena {
                                                     data: [
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `ct`,
@@ -22868,7 +22868,7 @@ Ok(
                                                                 ),
                                                             },
                                                         },
-                                                        PatternExpr::Ident {
+                                                        PatternSynExpr::Ident {
                                                             symbol_modifier_keyword_group: None,
                                                             ident_token: IdentToken {
                                                                 ident: `r`,
@@ -22891,10 +22891,10 @@ Ok(
                                                 ],
                                                 pattern_symbol_arena: Arena {
                                                     data: [
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             0,
                                                         ),
-                                                        PatternSymbol::Atom(
+                                                        PatternSynSymbol::Atom(
                                                             1,
                                                         ),
                                                     ],
@@ -22920,7 +22920,7 @@ Ok(
                                                     ],
                                                 },
                                             },
-                                            symbol_region: SymbolRegion {
+                                            symbol_region: SynSymbolRegion {
                                                 inherited_symbol_arena: Arena {
                                                     data: [],
                                                 },
@@ -22974,15 +22974,15 @@ Ok(
                                                 ],
                                             },
                                             roots: [
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 1,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ExplicitParameterType,
                                                     expr_idx: 2,
                                                 },
-                                                ExprRoot {
+                                                SynExprRoot {
                                                     kind: ReturnType,
                                                     expr_idx: 3,
                                                 },
@@ -23069,7 +23069,7 @@ Ok(
                                                 363,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 3,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -23077,7 +23077,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 4,
                                                     comma_token_idx: None,
                                                 },
@@ -23093,7 +23093,7 @@ Ok(
                                                 359,
                                             ),
                                             items: [
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 1,
                                                     comma_token_idx: Some(
                                                         TokenIdx(
@@ -23101,7 +23101,7 @@ Ok(
                                                         ),
                                                     ),
                                                 },
-                                                CommaListItem {
+                                                SynCommaListItem {
                                                     expr_idx: 5,
                                                     comma_token_idx: None,
                                                 },
@@ -23153,12 +23153,12 @@ Ok(
                                 },
                                 stmt_arena: Arena {
                                     data: [
-                                        Stmt::Eval {
+                                        SynStmt::Eval {
                                             expr_idx: 6,
                                         },
                                     ],
                                 },
-                                pattern_expr_region: PatternExprRegion {
+                                pattern_expr_region: PatternSynExprRegion {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
@@ -23174,7 +23174,7 @@ Ok(
                                         data: [],
                                     },
                                 },
-                                symbol_region: SymbolRegion {
+                                symbol_region: SynSymbolRegion {
                                     inherited_symbol_arena: Arena {
                                         data: [
                                             InheritedSymbol {
@@ -23205,11 +23205,11 @@ Ok(
                                     pattern_ty_constraints: [],
                                 },
                                 roots: [
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: EvalExpr,
                                         expr_idx: 6,
                                     },
-                                    ExprRoot {
+                                    SynExprRoot {
                                         kind: BlockExpr,
                                         expr_idx: 7,
                                     },

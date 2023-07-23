@@ -52,7 +52,7 @@ pub(crate) trait FluffyTermInstantiate: Copy {
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target;
 
@@ -60,7 +60,7 @@ pub(crate) trait FluffyTermInstantiate: Copy {
     fn instantiate_with_flag(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         instantiation: &mut FluffyTermInstantiation,
         flag: &mut bool,
     ) -> Self::Target
@@ -83,7 +83,7 @@ pub(crate) trait InstantiateRef {
     fn instantiate(
         &self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target;
 }
@@ -94,7 +94,7 @@ impl FluffyTermInstantiate for EtherealTerm {
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
         if instantiation.symbol_map.len() == 0 {
@@ -127,7 +127,7 @@ impl FluffyTermInstantiate for EtherealTermApplication {
     fn instantiate(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         instantiation: &mut FluffyTermInstantiation,
     ) -> Self::Target {
         let mut flag = false;

@@ -20,7 +20,7 @@ pub enum LiteralData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum PatternExprInfo {
+pub enum PatternSynExprInfo {
     Parameter,
     Let,
     Match,
@@ -28,8 +28,8 @@ pub enum PatternExprInfo {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
-pub enum PatternExpr {
+#[salsa::derive_debug_with_db(db = SynExprDb)]
+pub enum PatternSynExpr {
     /// example: `1`
     Literal(LiteralData),
     /// example: `a`
@@ -42,32 +42,32 @@ pub enum PatternExpr {
     /// example: `(a, b)`
     Tuple {
         name: Option<EntityPath>,
-        fields: PatternExprIdxRange,
+        fields: PatternSynExprIdxRange,
     },
     /// example: `C { .. }`
     Struct {
         name: Option<EntityPath>,
-        fields: PatternExprIdxRange,
+        fields: PatternSynExprIdxRange,
     },
     /// example: `A | B | C { .. }`
-    OneOf { options: PatternExprIdxRange },
+    OneOf { options: PatternSynExprIdxRange },
     /// example: `x @ 1..9`
     Binding {
         ident_token: IdentToken,
         asperand_token: AtToken,
         /// example: `1..9`
-        src: PatternExprIdx,
+        src: PatternSynExprIdx,
     },
     /// example: `1..9`
     Range {
-        start: PatternExprIdx,
+        start: PatternSynExprIdx,
         dot_dot_token: DotDotToken,
-        end: PatternExprIdx,
+        end: PatternSynExprIdx,
     },
 }
 
-pub(crate) type PatternExprArena = Arena<PatternExpr>;
-pub type PatternExprIdx = ArenaIdx<PatternExpr>;
-pub type PatternExprIdxRange = ArenaIdxRange<PatternExpr>;
-pub type PatternExprMap<V> = ArenaMap<PatternExpr, V>;
-pub type PatternExprOrderedMap<V> = ArenaOrderedMap<PatternExpr, V>;
+pub(crate) type PatternSynExprArena = Arena<PatternSynExpr>;
+pub type PatternSynExprIdx = ArenaIdx<PatternSynExpr>;
+pub type PatternSynExprIdxRange = ArenaIdxRange<PatternSynExpr>;
+pub type PatternSynExprMap<V> = ArenaMap<PatternSynExpr, V>;
+pub type PatternSynExprOrderedMap<V> = ArenaOrderedMap<PatternSynExpr, V>;

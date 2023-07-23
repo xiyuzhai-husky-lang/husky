@@ -7,11 +7,11 @@ use super::*;
 pub struct TupleFieldDeclPattern {
     decorators: Vec<FieldDecorator>,
     visibility: Option<FieldVisibilityExpr>,
-    ty: ExprIdx,
+    ty: SynExprIdx,
 }
 
 impl TupleFieldDeclPattern {
-    pub fn ty(&self) -> ExprIdx {
+    pub fn ty(&self) -> SynExprIdx {
         self.ty
     }
 }
@@ -21,7 +21,7 @@ impl<'a, 'b> parsec::TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Tupl
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> ExprResult<Option<Self>> {
+    ) -> SynExprResult<Option<Self>> {
         let decorators = parse_consecutive_list(ctx)?;
         let visibility = ctx.try_parse_option()?;
         let ty = ctx.parse_expr_expected2(

@@ -11,12 +11,12 @@ use salsa::DebugWithDb;
 
 pub(super) struct DeclarativeTermEngine<'a> {
     db: &'a dyn DeclarativeSignatureDb,
-    expr_region_data: &'a ExprRegionData,
+    expr_region_data: &'a SynExprRegionData,
     declarative_term_menu: &'a DeclarativeTermMenu,
     symbol_declarative_term_region: SymbolDeclarativeTermRegion,
-    expr_terms: ExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
+    expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     /// todo: change this to ordered
-    pattern_expr_ty_infos: PatternExprMap<PatternExprDeclarativeTypeInfo>,
+    pattern_expr_ty_infos: PatternSynExprMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
 }
 
@@ -52,8 +52,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                 parent_term_symbol_region,
                 expr_region_data.symbol_region(),
             ),
-            expr_terms: ExprMap::new(expr_region_data.expr_arena()),
-            pattern_expr_ty_infos: PatternExprMap::new(expr_region_data.pattern_expr_arena()),
+            expr_terms: SynExprMap::new(expr_region_data.expr_arena()),
+            pattern_expr_ty_infos: PatternSynExprMap::new(expr_region_data.pattern_expr_arena()),
             pattern_symbol_ty_infos: PatternSymbolMap::new(
                 expr_region_data
                     .pattern_expr_region()
@@ -137,8 +137,8 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     fn init_current_symbol_signatures_in_parenic_parameter(
         &mut self,
-        pattern_expr: PatternExprIdx,
-        ty: ExprIdx,
+        pattern_expr: PatternSynExprIdx,
+        ty: SynExprIdx,
         symbols: CurrentSymbolIdxRange,
     ) {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
@@ -220,7 +220,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     // infer the term for expr, assuming it hasn't been computed before
     fn infer_new_expr_term(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
     ) -> DeclarativeTermResult2<DeclarativeTerm> {
         let result = self.calc_expr_term(expr_idx);
         let result_export = match result {
@@ -232,7 +232,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     // cache the term for expr, assuming it hasn't been computed before
-    fn cache_new_expr_term(&mut self, expr_idx: ExprIdx) {
+    fn cache_new_expr_term(&mut self, expr_idx: SynExprIdx) {
         let result = self.calc_expr_term(expr_idx);
         self.save_expr_term(expr_idx, result)
     }
@@ -249,13 +249,13 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     fn save_expr_term(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         outcome: DeclarativeTermResult2<DeclarativeTerm>,
     ) {
         self.expr_terms.insert_new(expr_idx, outcome)
     }
 
-    fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
+    fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> DeclarativeTermResult2<DeclarativeTerm> {
         match self.expr_region_data.expr_arena()[expr_idx] {
             SynExpr::Literal(token_idx, literal) => match literal {
                 Literal::Unit => todo!(),

@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_expr::ExprIdx;
+use husky_syn_expr::SynExprIdx;
 use parsec::{SeparatedSmallList, TryParseFromStream};
 
 // todo: GADT

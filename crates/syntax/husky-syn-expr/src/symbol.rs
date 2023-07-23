@@ -14,7 +14,7 @@ use crate::*;
 use husky_entity_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum Symbol {
     PrincipalEntity(PrincipalEntityPath),
     Inherited(InheritedSymbolIdx, InheritedSymbolKind),
@@ -22,7 +22,7 @@ pub enum Symbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum ImplicitParameterSymbol {
     Lifetime { label_token: LifetimeLabelToken },
     Type { ident_token: IdentToken },
@@ -30,7 +30,7 @@ pub enum ImplicitParameterSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub struct InheritedSymbol {
     parent_symbol_idx: ParentSymbolIdx,
     modifier: SymbolModifier,
@@ -59,14 +59,14 @@ impl InheritedSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum InheritedSymbolKind {
     ImplicitParameter(InheritedImplicitParameterSymbol),
     ExplicitParameter { ident: Ident },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum InheritedImplicitParameterSymbol {
     Lifetime { label: Label },
     Type { ident: Ident },
@@ -74,7 +74,7 @@ pub enum InheritedImplicitParameterSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub struct CurrentSymbol {
     modifier: SymbolModifier,
     access_start: TokenIdx,
@@ -85,7 +85,7 @@ pub struct CurrentSymbol {
 
 impl CurrentSymbol {
     pub fn new(
-        pattern_expr_region: &PatternExprRegion,
+        pattern_expr_region: &PatternSynExprRegion,
         access_start: TokenIdx,
         access_end: Option<TokenIdxRangeEnd>,
         variant: CurrentSymbolVariant,
@@ -135,7 +135,7 @@ impl CurrentSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum CurrentSymbolKind {
     ImplicitParameter {
         implicit_parameter_kind: CurrentImplicitParameterSymbolKind,
@@ -149,11 +149,11 @@ pub enum CurrentSymbolKind {
     LetVariable {
         pattern_symbol_idx: PatternSymbolIdx,
     },
-    FrameVariable(ExprIdx),
+    FrameVariable(SynExprIdx),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum CurrentImplicitParameterSymbolKind {
     Type { ident_token: IdentToken },
     Lifetime { label_token: LifetimeLabelToken },
@@ -161,7 +161,7 @@ pub enum CurrentImplicitParameterSymbolKind {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum CurrentSymbolVariant {
     ImplicitParameter {
         implicit_parameter_variant: CurrentImplicitParameterSymbol,
@@ -180,12 +180,12 @@ pub enum CurrentSymbolVariant {
     },
     FrameVariable {
         ident: Ident,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
     },
 }
 
 impl CurrentSymbolVariant {
-    fn modifier(&self, pattern_expr_region: &PatternExprRegion) -> SymbolModifier {
+    fn modifier(&self, pattern_expr_region: &PatternSynExprRegion) -> SymbolModifier {
         match self {
             CurrentSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant,
@@ -206,7 +206,7 @@ impl CurrentSymbolVariant {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 #[non_exhaustive]
 pub enum CurrentImplicitParameterSymbol {
     Lifetime {
@@ -217,7 +217,7 @@ pub enum CurrentImplicitParameterSymbol {
     },
     Constant {
         ident_token: IdentToken,
-        ty_expr_idx: ExprIdx,
+        ty_expr_idx: SynExprIdx,
     },
 }
 

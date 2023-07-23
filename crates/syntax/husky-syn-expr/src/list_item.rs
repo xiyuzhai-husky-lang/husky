@@ -1,20 +1,20 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct CommaListItem {
-    expr_idx: ExprIdx,
+pub struct SynCommaListItem {
+    expr_idx: SynExprIdx,
     comma_token_idx: Option<TokenIdx>,
 }
 
-impl CommaListItem {
-    pub(crate) fn new(expr_idx: ExprIdx, comma_token_idx: Option<TokenIdx>) -> Self {
+impl SynCommaListItem {
+    pub(crate) fn new(expr_idx: SynExprIdx, comma_token_idx: Option<TokenIdx>) -> Self {
         Self {
             expr_idx,
             comma_token_idx,
         }
     }
 
-    pub fn expr_idx(self) -> ExprIdx {
+    pub fn expr_idx(self) -> SynExprIdx {
         self.expr_idx
     }
 
@@ -30,8 +30,8 @@ pub enum CallListItem {
     Keyed(KeyedCallListItem),
 }
 
-impl From<CommaListItem> for CallListItem {
-    fn from(item: CommaListItem) -> Self {
+impl From<SynCommaListItem> for CallListItem {
+    fn from(item: SynCommaListItem) -> Self {
         CallListItem::RegularOrVariadic(RegularOrVariadicCallListItem {
             argument_expr_idx: item.expr_idx,
             separator: match item.comma_token_idx {
@@ -43,7 +43,7 @@ impl From<CommaListItem> for CallListItem {
 }
 
 impl CallListItem {
-    pub fn new_regular(argument_expr_idx: ExprIdx, comma: Option<TokenIdx>) -> Self {
+    pub fn new_regular(argument_expr_idx: SynExprIdx, comma: Option<TokenIdx>) -> Self {
         CallListItem::RegularOrVariadic(RegularOrVariadicCallListItem {
             separator: match comma {
                 Some(comma_token_idx) => CallListSeparator::Comma(comma_token_idx),
@@ -74,7 +74,7 @@ impl CallListItem {
         }
     }
 
-    pub fn argument_expr_idx(&self) -> ExprIdx {
+    pub fn argument_expr_idx(&self) -> SynExprIdx {
         match self {
             CallListItem::RegularOrVariadic(RegularOrVariadicCallListItem {
                 argument_expr_idx,
@@ -102,19 +102,19 @@ fn call_list_item_field_alignment() {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct RegularOrVariadicCallListItem {
-    argument_expr_idx: ExprIdx,
+    argument_expr_idx: SynExprIdx,
     separator: CallListSeparator,
 }
 
 impl RegularOrVariadicCallListItem {
-    pub(crate) fn new(argument_expr_idx: ExprIdx, separator: CallListSeparator) -> Self {
+    pub(crate) fn new(argument_expr_idx: SynExprIdx, separator: CallListSeparator) -> Self {
         Self {
             argument_expr_idx,
             separator,
         }
     }
 
-    pub fn argument_expr_idx(&self) -> ExprIdx {
+    pub fn argument_expr_idx(&self) -> SynExprIdx {
         self.argument_expr_idx
     }
 
@@ -127,7 +127,7 @@ impl RegularOrVariadicCallListItem {
 pub struct KeyedCallListItem {
     key_token_idx: TokenIdx,
     key: Ident,
-    argument_expr_idx: ExprIdx,
+    argument_expr_idx: SynExprIdx,
     separator: CallListSeparator,
 }
 
@@ -135,7 +135,7 @@ impl KeyedCallListItem {
     pub(crate) fn new(
         key_token_idx: TokenIdx,
         key: Ident,
-        argument_expr_idx: ExprIdx,
+        argument_expr_idx: SynExprIdx,
         separator: CallListSeparator,
     ) -> Self {
         Self {
@@ -154,7 +154,7 @@ impl KeyedCallListItem {
         self.key
     }
 
-    pub fn argument_expr_idx(&self) -> ExprIdx {
+    pub fn argument_expr_idx(&self) -> SynExprIdx {
         self.argument_expr_idx
     }
 

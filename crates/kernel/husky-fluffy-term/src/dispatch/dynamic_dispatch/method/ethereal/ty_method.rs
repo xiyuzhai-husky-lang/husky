@@ -4,7 +4,7 @@ impl HasFluffyTypeMethodDispatch for EtherealTerm {
     fn ty_method_dispatch(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         ident_token: IdentToken,
     ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
         // todo: check scope
@@ -22,7 +22,7 @@ impl HasFluffyTypeMethodDispatch for EtherealTerm {
 
 fn ethereal_ty_ontology_path_ty_method_dispatch(
     engine: &mut impl FluffyTermEngine,
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
     ty_path: TypePath,
     ident_token: IdentToken,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
@@ -31,7 +31,7 @@ fn ethereal_ty_ontology_path_ty_method_dispatch(
 
 fn ethereal_term_application_ty_method_dispatch(
     engine: &mut impl FluffyTermEngine,
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
     ty_term: EtherealTermApplication,
     ident_token: IdentToken,
 ) -> FluffyTermMaybeResult<FluffyMethodDispatch> {
@@ -51,7 +51,7 @@ fn ethereal_term_application_ty_method_dispatch(
 
 fn ethereal_ty_method_dispatch_aux(
     engine: &mut impl FluffyTermEngine,
-    expr_idx: ExprIdx,
+    expr_idx: SynExprIdx,
     ty_path: TypePath,
     arguments: &[EtherealTerm],
     ident_token: IdentToken,

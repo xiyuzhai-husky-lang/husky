@@ -33,8 +33,8 @@ impl AllowSelfType {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
-pub struct SymbolRegion {
+#[salsa::derive_debug_with_db(db = SynExprDb)]
+pub struct SynSymbolRegion {
     inherited_symbol_arena: InheritedSymbolArena,
     current_symbol_arena: CurrentSymbolArena,
     allow_self_type: AllowSelfType,
@@ -46,22 +46,22 @@ pub struct SymbolRegion {
 pub enum PatternTypeConstraint {
     ImplicitTypeParameter,
     ExplicitRegularParameter {
-        pattern_expr_idx: PatternExprIdx,
-        ty_expr_idx: ExprIdx,
+        pattern_expr_idx: PatternSynExprIdx,
+        ty_expr_idx: SynExprIdx,
     },
     ExplicitVariadicParameter {
-        ty: ExprIdx,
+        ty: SynExprIdx,
     },
     LetVariables {
-        pattern: PatternExprIdx,
-        ty: ExprIdx,
+        pattern: PatternSynExprIdx,
+        ty: SynExprIdx,
     },
     FrameVariable,
 }
 
-impl SymbolRegion {
+impl SynSymbolRegion {
     pub(crate) fn new(
-        parent_symbol_region: Option<&SymbolRegion>,
+        parent_symbol_region: Option<&SynSymbolRegion>,
         allow_self_type: AllowSelfType,
         allow_self_value: AllowSelfValue,
     ) -> Self {
@@ -212,8 +212,8 @@ impl SymbolRegion {
 
     pub fn regular_parameter_pattern_ty_constraint(
         &self,
-        target: PatternExprIdx,
-    ) -> Option<ExprIdx> {
+        target: PatternSynExprIdx,
+    ) -> Option<SynExprIdx> {
         self.pattern_ty_constraints
             .iter()
             .find_map(|(pattern_ty_constraint, _)| match pattern_ty_constraint {
@@ -230,7 +230,7 @@ impl SymbolRegion {
     }
 }
 
-impl std::ops::Index<InheritedSymbolIdx> for SymbolRegion {
+impl std::ops::Index<InheritedSymbolIdx> for SynSymbolRegion {
     type Output = InheritedSymbol;
 
     fn index(&self, index: InheritedSymbolIdx) -> &Self::Output {
@@ -238,7 +238,7 @@ impl std::ops::Index<InheritedSymbolIdx> for SymbolRegion {
     }
 }
 
-impl std::ops::Index<CurrentSymbolIdx> for SymbolRegion {
+impl std::ops::Index<CurrentSymbolIdx> for SynSymbolRegion {
     type Output = CurrentSymbol;
 
     fn index(&self, index: CurrentSymbolIdx) -> &Self::Output {
@@ -263,24 +263,24 @@ impl From<InheritedSymbolIdx> for LocalSymbolIdx {
 impl LocalSymbolIdx {
     fn from_current_symbol_idx(
         current_symbol_idx: CurrentSymbolIdx,
-        symbol_region: &SymbolRegion,
+        symbol_region: &SynSymbolRegion,
     ) -> Self {
         Self(symbol_region.inherited_symbol_arena.len() + current_symbol_idx.raw())
     }
 }
 
 pub trait IntoLocalSymbolIdx: Copy {
-    fn into_local_symbol_idx(self, expr_region_data: &ExprRegionData) -> LocalSymbolIdx;
+    fn into_local_symbol_idx(self, expr_region_data: &SynExprRegionData) -> LocalSymbolIdx;
 }
 
 impl IntoLocalSymbolIdx for InheritedSymbolIdx {
-    fn into_local_symbol_idx(self, _: &ExprRegionData) -> LocalSymbolIdx {
+    fn into_local_symbol_idx(self, _: &SynExprRegionData) -> LocalSymbolIdx {
         self.into()
     }
 }
 
 impl IntoLocalSymbolIdx for CurrentSymbolIdx {
-    fn into_local_symbol_idx(self, expr_region_data: &ExprRegionData) -> LocalSymbolIdx {
+    fn into_local_symbol_idx(self, expr_region_data: &SynExprRegionData) -> LocalSymbolIdx {
         LocalSymbolIdx::from_current_symbol_idx(self, expr_region_data.symbol_region())
     }
 }

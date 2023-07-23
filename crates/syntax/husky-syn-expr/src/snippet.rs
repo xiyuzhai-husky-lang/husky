@@ -4,10 +4,10 @@ use husky_vfs::CratePath;
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]
 pub(crate) fn parse_expr_from_snippet(
-    db: &dyn ExprDb,
+    db: &dyn SynExprDb,
     crate_path: CratePath,
     snippet: Snippet,
-) -> PreludeResult<(SynExprRegion, Option<ExprIdx>)> {
+) -> PreludeResult<(SynExprRegion, Option<SynExprIdx>)> {
     let token_sheet_data = db.snippet_token_sheet_data(snippet);
     let mut expr_parser = ExprParser::new(
         db,

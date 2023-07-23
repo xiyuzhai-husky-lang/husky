@@ -23,17 +23,17 @@ pub(crate) struct ExprTypeEngine<'a> {
     entity_path_menu: &'a EntityPathMenu,
     term_menu: &'a EtherealTermMenu,
     token_sheet_data: &'a TokenSheetData,
-    expr_region_data: &'a ExprRegionData,
+    expr_region_data: &'a SynExprRegionData,
     declarative_term_region: &'a DeclarativeTermRegion,
     fluffy_term_region: FluffyTermRegion,
-    expr_ty_infos: ExprMap<ExprTypeInfo>,
-    extra_expr_errors: Vec<(ExprIdx, ExprTypeError)>,
-    expr_terms: ExprMap<ExprTermResult<FluffyTerm>>,
+    expr_ty_infos: SynExprMap<ExprTypeInfo>,
+    extra_expr_errors: Vec<(SynExprIdx, ExprTypeError)>,
+    expr_terms: SynExprMap<ExprTermResult<FluffyTerm>>,
     symbol_terms: SymbolMap<FluffyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
-    pattern_expr_ty_infos: PatternExprMap<PatternExprTypeInfo>,
+    pattern_expr_ty_infos: PatternSynExprMap<PatternExprTypeInfo>,
     pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
-    pattern_expr_contracts: PatternExprMap<Contract>,
+    pattern_expr_contracts: PatternSynExprMap<Contract>,
     return_ty: Option<EtherealTerm>,
     unveiler: Unveiler,
     self_ty: Option<EtherealTerm>,
@@ -52,7 +52,7 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
         &mut self.fluffy_term_region
     }
 
-    fn expr_region_data(&self) -> &'a ExprRegionData {
+    fn expr_region_data(&self) -> &'a SynExprRegionData {
         self.expr_region_data
     }
 
@@ -65,10 +65,10 @@ impl<'a> FluffyTermEngine<'a> for ExprTypeEngine<'a> {
     }
 }
 
-impl<'a> std::ops::Index<ExprIdx> for ExprTypeEngine<'a> {
+impl<'a> std::ops::Index<SynExprIdx> for ExprTypeEngine<'a> {
     type Output = SynExpr;
 
-    fn index(&self, index: ExprIdx) -> &Self::Output {
+    fn index(&self, index: SynExprIdx) -> &Self::Output {
         &self.expr_region_data[index]
     }
 }
@@ -114,9 +114,9 @@ impl<'a> ExprTypeEngine<'a> {
             fluffy_term_region: FluffyTermRegion::new(
                 parent_expr_ty_region.map(|r| r.fluffy_term_region()),
             ),
-            expr_ty_infos: ExprMap::new(expr_region_data.expr_arena()),
+            expr_ty_infos: SynExprMap::new(expr_region_data.expr_arena()),
             extra_expr_errors: vec![],
-            expr_terms: ExprMap::new(expr_region_data.expr_arena()),
+            expr_terms: SynExprMap::new(expr_region_data.expr_arena()),
             symbol_terms: SymbolMap::new(
                 parent_expr_ty_region
                     .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_terms()),
@@ -127,14 +127,16 @@ impl<'a> ExprTypeEngine<'a> {
                     .map(|parent_expr_ty_region| parent_expr_ty_region.symbol_tys()),
                 expr_region_data.symbol_region(),
             ),
-            pattern_expr_ty_infos: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
+            pattern_expr_ty_infos: PatternSynExprMap::new(pattern_expr_region.pattern_expr_arena()),
             pattern_symbol_ty_infos: PatternSymbolMap::new(
                 pattern_expr_region.pattern_symbol_arena(),
             ),
             return_ty,
             unveiler: Unveiler::new(db, return_ty),
             self_ty,
-            pattern_expr_contracts: PatternExprMap::new(pattern_expr_region.pattern_expr_arena()),
+            pattern_expr_contracts: PatternSynExprMap::new(
+                pattern_expr_region.pattern_expr_arena(),
+            ),
             trai_in_use_items_table: TraitInUseItemsTable::query(db, module_path),
         }
     }
@@ -196,7 +198,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn add_expr_ty_error(&mut self, expr_idx: ExprIdx, expr_ty_error: impl Into<ExprTypeError>) {
+    fn add_expr_ty_error(&mut self, expr_idx: SynExprIdx, expr_ty_error: impl Into<ExprTypeError>) {
         self.extra_expr_errors
             .push((expr_idx, expr_ty_error.into()))
     }
@@ -227,7 +229,7 @@ impl<'a> ExprTypeEngine<'a> {
         self.db
     }
 
-    pub(crate) fn expr_region_data(&self) -> &ExprRegionData {
+    pub(crate) fn expr_region_data(&self) -> &SynExprRegionData {
         self.expr_region_data
     }
 

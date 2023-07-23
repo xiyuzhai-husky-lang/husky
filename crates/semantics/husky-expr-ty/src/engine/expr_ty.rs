@@ -28,7 +28,7 @@ pub(crate) enum ExprTypeResolveProgress<E: ExpectFluffyTerm> {
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_new_expr_ty<E: ExpectFluffyTerm>(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> Option<FluffyTerm> {
         self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation);
@@ -38,7 +38,7 @@ impl<'a> ExprTypeEngine<'a> {
     /// infer the type of a new expression but don't need the result for now
     pub(super) fn infer_new_expr_ty_discarded<E: ExpectFluffyTerm>(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) {
         self.infer_new_expr_ty_aux(expr_idx, expr_ty_expectation);
@@ -47,7 +47,7 @@ impl<'a> ExprTypeEngine<'a> {
     #[inline(always)]
     pub(super) fn infer_new_expr_ty_for_outcome<E: ExpectFluffyTerm>(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> Option<E::Outcome>
     where
@@ -69,7 +69,7 @@ impl<'a> ExprTypeEngine<'a> {
     #[inline(always)]
     fn infer_new_expr_ty_aux<E: ExpectFluffyTerm>(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         expr_ty_expectation: E,
     ) -> OptionFluffyTermExpectationIdx {
         let ty_result = self.calc_expr_ty(expr_idx, &expr_ty_expectation);
@@ -87,13 +87,13 @@ impl<'a> ExprTypeEngine<'a> {
         expectation_idx
     }
 
-    fn save_new_expr_ty(&mut self, expr_idx: ExprIdx, info: ExprTypeInfo) {
+    fn save_new_expr_ty(&mut self, expr_idx: SynExprIdx, info: ExprTypeInfo) {
         self.expr_ty_infos.insert_new(expr_idx, info)
     }
 
     fn calc_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         expr_ty_expectation: &impl ExpectFluffyTerm,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.expr_region_data[expr_idx] {
@@ -390,9 +390,9 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_explicit_application(
         &mut self,
-        expr_idx: ExprIdx,
-        function_expr_idx: ExprIdx,
-        argument_expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
+        function_expr_idx: SynExprIdx,
+        argument_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         Ok((

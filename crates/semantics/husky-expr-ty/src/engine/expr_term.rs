@@ -5,7 +5,7 @@ mod prefix;
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn infer_new_expr_term(&mut self, expr_idx: ExprIdx) -> Option<FluffyTerm> {
+    pub(super) fn infer_new_expr_term(&mut self, expr_idx: SynExprIdx) -> Option<FluffyTerm> {
         #[cfg(test)]
         if self.expr_ty_infos.get(expr_idx).is_none() {
             print_debug_expr!(self, expr_idx);
@@ -17,11 +17,15 @@ impl<'a> ExprTypeEngine<'a> {
         term
     }
 
-    fn save_new_expr_term(&mut self, expr_idx: ExprIdx, term_result: ExprTermResult<FluffyTerm>) {
+    fn save_new_expr_term(
+        &mut self,
+        expr_idx: SynExprIdx,
+        term_result: ExprTermResult<FluffyTerm>,
+    ) {
         self.expr_terms.insert_new(expr_idx, term_result)
     }
 
-    fn calc_expr_term(&mut self, expr_idx: ExprIdx) -> ExprTermResult<FluffyTerm> {
+    fn calc_expr_term(&mut self, expr_idx: SynExprIdx) -> ExprTermResult<FluffyTerm> {
         match self.expr_region_data[expr_idx] {
             SynExpr::Literal(_, _) => todo!(),
             SynExpr::PrincipalEntityPath {
@@ -135,7 +139,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_entity_path_term(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         path: Option<PrincipalEntityPath>,
     ) -> ExprTermResult<FluffyTerm> {
         match path {

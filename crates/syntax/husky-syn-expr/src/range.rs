@@ -4,16 +4,16 @@ use husky_token::{HasTokenIdxRange, RangedTokenSheet, TokenIdxRange, TokenSheetD
 use husky_vfs::ModulePath;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb, jar = SynExprJar)]
+#[salsa::derive_debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct ExprRangeRegion {
     entity_path_expr_ranges: Vec<TokenIdxRange>,
     pattern_expr_ranges: Vec<TokenIdxRange>,
     expr_ranges: Vec<TokenIdxRange>,
-    stmt_ranges: StmtMap<TokenIdxRange>,
+    stmt_ranges: SynStmtMap<TokenIdxRange>,
 }
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]
-pub(crate) fn expr_range_region(db: &dyn ExprDb, expr_region: SynExprRegion) -> ExprRangeRegion {
+pub(crate) fn expr_range_region(db: &dyn SynExprDb, expr_region: SynExprRegion) -> ExprRangeRegion {
     SynExprRangeCalculator::new(db, expr_region).calc_all()
 }
 
@@ -31,29 +31,29 @@ impl std::ops::Index<PrincipalEntityPathExprIdx> for ExprRangeRegion {
     }
 }
 
-impl std::ops::Index<PatternExprIdx> for ExprRangeRegion {
+impl std::ops::Index<PatternSynExprIdx> for ExprRangeRegion {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: PatternExprIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.raw()]
     }
 }
 
-impl std::ops::Index<ExprIdx> for ExprRangeRegion {
+impl std::ops::Index<SynExprIdx> for ExprRangeRegion {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: ExprIdx) -> &Self::Output {
+    fn index(&self, index: SynExprIdx) -> &Self::Output {
         &self.expr_ranges[index.raw()]
     }
 }
 
 struct SynExprRangeCalculator<'a> {
     token_sheet_data: &'a TokenSheetData,
-    expr_region_data: &'a ExprRegionData,
+    expr_region_data: &'a SynExprRegionData,
     entity_path_expr_ranges: Vec<TokenIdxRange>,
     pattern_expr_ranges: Vec<TokenIdxRange>,
     expr_ranges: Vec<TokenIdxRange>,
-    stmt_ranges: StmtMap<TokenIdxRange>,
+    stmt_ranges: SynStmtMap<TokenIdxRange>,
 }
 
 impl<'a> std::ops::Index<PrincipalEntityPathExprIdx> for SynExprRangeCalculator<'a> {
@@ -72,48 +72,48 @@ impl<'a> std::ops::Index<&PrincipalEntityPathExprIdx> for SynExprRangeCalculator
     }
 }
 
-impl<'a> std::ops::Index<PatternExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<PatternSynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: PatternExprIdx) -> &Self::Output {
+    fn index(&self, index: PatternSynExprIdx) -> &Self::Output {
         &self.pattern_expr_ranges[index.raw()]
     }
 }
 
-impl<'a> std::ops::Index<ExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<SynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: ExprIdx) -> &Self::Output {
+    fn index(&self, index: SynExprIdx) -> &Self::Output {
         &self.expr_ranges[index.raw()]
     }
 }
 
-impl<'a> std::ops::Index<&ExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&SynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: &ExprIdx) -> &Self::Output {
+    fn index(&self, index: &SynExprIdx) -> &Self::Output {
         &self.expr_ranges[index.raw()]
     }
 }
 
-impl<'a> std::ops::Index<StmtIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<SynStmtIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: StmtIdx) -> &Self::Output {
+    fn index(&self, index: SynStmtIdx) -> &Self::Output {
         &self.stmt_ranges[index]
     }
 }
 
-impl<'a> std::ops::Index<&StmtIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&SynStmtIdx> for SynExprRangeCalculator<'a> {
     type Output = TokenIdxRange;
 
-    fn index(&self, index: &StmtIdx) -> &Self::Output {
+    fn index(&self, index: &SynStmtIdx) -> &Self::Output {
         &self.stmt_ranges[index]
     }
 }
 
 impl<'a> SynExprRangeCalculator<'a> {
-    fn new(db: &'a dyn ExprDb, expr_region: SynExprRegion) -> Self {
+    fn new(db: &'a dyn SynExprDb, expr_region: SynExprRegion) -> Self {
         let expr_region_data = expr_region.data(db);
         let region_path = expr_region_data.path();
         let token_sheet_data = region_path.token_sheet_data(db).expect("todo");
@@ -123,7 +123,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             entity_path_expr_ranges: Default::default(),
             pattern_expr_ranges: Default::default(),
             expr_ranges: Default::default(),
-            stmt_ranges: StmtMap::new(expr_region_data.stmt_arena()),
+            stmt_ranges: SynStmtMap::new(expr_region_data.stmt_arena()),
         }
     }
 
@@ -188,10 +188,10 @@ impl<'a> SynExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_pattern_expr_range(&self, expr: &PatternExpr) -> TokenIdxRange {
+    fn calc_pattern_expr_range(&self, expr: &PatternSynExpr) -> TokenIdxRange {
         match expr {
-            PatternExpr::Literal(_) => todo!(),
-            PatternExpr::Ident {
+            PatternSynExpr::Literal(_) => todo!(),
+            PatternSynExpr::Ident {
                 symbol_modifier_keyword_group,
                 ident_token,
             } => match symbol_modifier_keyword_group {
@@ -203,16 +203,16 @@ impl<'a> SynExprRangeCalculator<'a> {
                 }
                 None => TokenIdxRange::new_single(ident_token.token_idx()),
             },
-            PatternExpr::Entity(_) => todo!(),
-            PatternExpr::Tuple { name, fields } => todo!(),
-            PatternExpr::Struct { name, fields } => todo!(),
-            PatternExpr::OneOf { options } => todo!(),
-            PatternExpr::Binding {
+            PatternSynExpr::Entity(_) => todo!(),
+            PatternSynExpr::Tuple { name, fields } => todo!(),
+            PatternSynExpr::Struct { name, fields } => todo!(),
+            PatternSynExpr::OneOf { options } => todo!(),
+            PatternSynExpr::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            PatternExpr::Range {
+            PatternSynExpr::Range {
                 start,
                 dot_dot_token,
                 end,
@@ -354,23 +354,23 @@ impl<'a> SynExprRangeCalculator<'a> {
         }
     }
 
-    fn calc_block_range(&mut self, stmts: StmtIdxRange) -> TokenIdxRange {
+    fn calc_block_range(&mut self, stmts: SynStmtIdxRange) -> TokenIdxRange {
         for stmt in stmts {
             self.save_stmt_range(stmt);
         }
         self[stmts.start()].join(self[stmts.end() - 1])
     }
 
-    fn save_stmt_range(&mut self, stmt_idx: StmtIdx) {
+    fn save_stmt_range(&mut self, stmt_idx: SynStmtIdx) {
         let range = self.calc_stmt_range(stmt_idx);
         // after calculation, all the child statements must have already been computed and cached
         // so that self.stmt_ranges.len() is equal to stmt_idx.raw()
         self.stmt_ranges.insert_new(stmt_idx, range)
     }
 
-    fn calc_stmt_range(&mut self, stmt_idx: StmtIdx) -> TokenIdxRange {
+    fn calc_stmt_range(&mut self, stmt_idx: SynStmtIdx) -> TokenIdxRange {
         match self.expr_region_data[stmt_idx] {
-            Stmt::Let {
+            SynStmt::Let {
                 let_token,
                 ref let_variable_pattern,
                 ref assign_token,
@@ -381,7 +381,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 let end = self[initial_value].end();
                 TokenIdxRange::new(start, end)
             }
-            Stmt::Return {
+            SynStmt::Return {
                 return_token,
                 ref result,
             } => {
@@ -389,7 +389,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 let end = self[result].end();
                 TokenIdxRange::new(start, end)
             }
-            Stmt::Require {
+            SynStmt::Require {
                 require_token,
                 ref condition,
             } => {
@@ -397,7 +397,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 let end = self[condition].end();
                 TokenIdxRange::new(start, end)
             }
-            Stmt::Assert {
+            SynStmt::Assert {
                 assert_token,
                 ref condition,
             } => {
@@ -405,9 +405,9 @@ impl<'a> SynExprRangeCalculator<'a> {
                 let end = self[condition].end();
                 TokenIdxRange::new(start, end)
             }
-            Stmt::Break { break_token } => TokenIdxRange::new_single(break_token.token_idx()),
-            Stmt::Eval { expr_idx } => self[expr_idx],
-            Stmt::ForBetween {
+            SynStmt::Break { break_token } => TokenIdxRange::new_single(break_token.token_idx()),
+            SynStmt::Eval { expr_idx } => self[expr_idx],
+            SynStmt::ForBetween {
                 for_token,
                 ref particulars,
                 ref eol_colon,
@@ -426,12 +426,12 @@ impl<'a> SynExprRangeCalculator<'a> {
                 };
                 TokenIdxRange::new(start, end)
             }
-            Stmt::ForIn {
+            SynStmt::ForIn {
                 for_token,
                 ref block,
                 ..
             } => todo!(),
-            Stmt::ForExt {
+            SynStmt::ForExt {
                 forext_token,
                 /* todo: particulars */
                 ref eol_colon,
@@ -450,7 +450,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 };
                 TokenIdxRange::new(start, end)
             }
-            Stmt::While {
+            SynStmt::While {
                 while_token,
                 ref condition,
                 ref eol_colon,
@@ -469,7 +469,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 };
                 TokenIdxRange::new(start, end)
             }
-            Stmt::DoWhile {
+            SynStmt::DoWhile {
                 do_token,
                 ref condition,
                 ref eol_colon,
@@ -488,7 +488,7 @@ impl<'a> SynExprRangeCalculator<'a> {
                 };
                 TokenIdxRange::new(start, end)
             }
-            Stmt::IfElse {
+            SynStmt::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -536,11 +536,11 @@ impl<'a> SynExprRangeCalculator<'a> {
                     .unwrap_or(if_branch_end);
                 TokenIdxRange::new(start, end)
             }
-            Stmt::Match { match_token } => {
+            SynStmt::Match { match_token } => {
                 // ad hoc
                 TokenIdxRange::new_single(match_token.token_idx())
             }
-            Stmt::Err(_) => todo!(),
+            SynStmt::Err(_) => todo!(),
         }
     }
 }

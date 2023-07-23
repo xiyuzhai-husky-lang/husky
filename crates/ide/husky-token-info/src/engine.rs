@@ -239,7 +239,7 @@ struct InferContext<'a> {
     db: &'a dyn TokenInfoDb,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    expr_region_data: &'a ExprRegionData,
+    expr_region_data: &'a SynExprRegionData,
     expr_ty_region: &'a ExprTypeRegion,
     sheet: &'a mut TokenInfoSheet,
     expr_region: ExprRegionLeash,
@@ -266,7 +266,7 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn visit_expr(&mut self, expr_idx: ExprIdx, expr: &SynExpr) {
+    fn visit_expr(&mut self, expr_idx: SynExprIdx, expr: &SynExpr) {
         match expr {
             SynExpr::CurrentSymbol {
                 token_idx,
@@ -435,9 +435,9 @@ impl<'a> InferContext<'a> {
             | CurrentSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: pattern_symbol,
             } => match self.expr_region_data[pattern_symbol] {
-                PatternSymbol::Atom(pattern_expr_idx) => {
+                PatternSynSymbol::Atom(pattern_expr_idx) => {
                     match self.expr_region_data[pattern_expr_idx] {
-                        PatternExpr::Ident {
+                        PatternSynExpr::Ident {
                             ident_token,
                             symbol_modifier_keyword_group: _,
                         } => self.sheet.add(

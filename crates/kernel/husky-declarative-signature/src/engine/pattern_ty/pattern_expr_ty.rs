@@ -18,7 +18,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     pub(super) fn infer_pattern_expr_tys(
         &mut self,
-        pattern_expr: PatternExprIdx,
+        pattern_expr: PatternSynExprIdx,
         ty: DeclarativeTerm,
     ) {
         self.save_pattern_expr_ty(pattern_expr, ty);
@@ -26,26 +26,26 @@ impl<'a> DeclarativeTermEngine<'a> {
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn save_pattern_expr_ty(&mut self, pattern_expr_idx: PatternExprIdx, ty: DeclarativeTerm) {
+    fn save_pattern_expr_ty(&mut self, pattern_expr_idx: PatternSynExprIdx, ty: DeclarativeTerm) {
         self.pattern_expr_ty_infos
             .insert_new(pattern_expr_idx, PatternExprDeclarativeTypeInfo::new(ty))
     }
 
     /// subpattern expressions get its type from its parent
-    fn infer_subpattern_expr_tys(&mut self, pattern_expr_idx: PatternExprIdx) {
+    fn infer_subpattern_expr_tys(&mut self, pattern_expr_idx: PatternSynExprIdx) {
         match self.expr_region_data[pattern_expr_idx] {
-            PatternExpr::Literal(_) => todo!(),
-            PatternExpr::Ident { .. } => (), // there is no subpattern to infer
-            PatternExpr::Entity(_) => todo!(),
-            PatternExpr::Tuple { name, fields } => todo!(),
-            PatternExpr::Struct { name, fields } => todo!(),
-            PatternExpr::OneOf { options } => todo!(),
-            PatternExpr::Binding {
+            PatternSynExpr::Literal(_) => todo!(),
+            PatternSynExpr::Ident { .. } => (), // there is no subpattern to infer
+            PatternSynExpr::Entity(_) => todo!(),
+            PatternSynExpr::Tuple { name, fields } => todo!(),
+            PatternSynExpr::Struct { name, fields } => todo!(),
+            PatternSynExpr::OneOf { options } => todo!(),
+            PatternSynExpr::Binding {
                 ident_token,
                 asperand_token,
                 src,
             } => todo!(),
-            PatternExpr::Range {
+            PatternSynExpr::Range {
                 start,
                 dot_dot_token,
                 end,
@@ -55,7 +55,7 @@ impl<'a> DeclarativeTermEngine<'a> {
 
     pub(super) fn get_pattern_expr_ty(
         &self,
-        pattern_expr_idx: PatternExprIdx,
+        pattern_expr_idx: PatternSynExprIdx,
     ) -> Option<DeclarativeTerm> {
         self.pattern_expr_ty_infos
             .get(pattern_expr_idx)

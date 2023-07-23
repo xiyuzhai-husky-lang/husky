@@ -46,7 +46,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 }
                 self.take_complete_and_push_to_top(|this, finished_expr| {
                     if let Some(expr) = finished_expr {
-                        items.push(CommaListItem::new(this.alloc_expr(expr), None))
+                        items.push(SynCommaListItem::new(this.alloc_expr(expr), None))
                     }
                     match opr {
                         IncompleteCommaListOpr::UnitOrBracketedOrNewTuple => match items.last() {
@@ -98,7 +98,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         IncompleteCommaListOpr::NewLambdaHead => todo!(),
                         IncompleteCommaListOpr::FunctionApplicationOrCall { function } => {
                             // ad hoc
-                            let implicit_arguments: Option<ImplicitArgumentList> = None;
+                            let implicit_arguments: Option<SynImplicitArgumentList> = None;
                             SynExpr::FunctionApplicationOrCall {
                                 function,
                                 implicit_arguments,
@@ -127,7 +127,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                         IncompleteCommaListOpr::TemplateInstantiation { template } => {
                             SynExpr::TemplateInstantiation {
                                 template,
-                                implicit_arguments: ImplicitArgumentList::new(
+                                implicit_arguments: SynImplicitArgumentList::new(
                                     bra_token_idx,
                                     items,
                                     ket_token_idx,
@@ -310,7 +310,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             bra,
                             bra_token_idx,
                             items,
-                        } => items.push(CommaListItem::new(item, Some(comma_token_idx))),
+                        } => items.push(SynCommaListItem::new(item, Some(comma_token_idx))),
                         IncompleteExpr::CallList { items, .. } => items.push(
                             RegularOrVariadicCallListItem::new(
                                 item,

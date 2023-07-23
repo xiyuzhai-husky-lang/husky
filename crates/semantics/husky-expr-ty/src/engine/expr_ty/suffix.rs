@@ -8,8 +8,8 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_suffix_expr_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        opd: ExprIdx,
+        expr_idx: SynExprIdx,
+        opd: SynExprIdx,
         opr: SuffixOpr,
         final_destination: FinalDestination,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
@@ -34,7 +34,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_incr_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
+    fn calc_incr_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
         let opd_ty = self
             .infer_new_expr_ty(opd, ExpectAnyOriginal)
             .ok_or(DerivedExprTypeError::SuffixOperandTypeNotInferred)?;
@@ -82,7 +82,7 @@ impl<'a> ExprTypeEngine<'a> {
         Ok(self.term_menu.unit_ty_ontology().into())
     }
 
-    fn calc_decr_expr_ty(&mut self, opd: ExprIdx) -> ExprTypeResult<FluffyTerm> {
+    fn calc_decr_expr_ty(&mut self, opd: SynExprIdx) -> ExprTypeResult<FluffyTerm> {
         let opd_ty = self
             .infer_new_expr_ty(opd, ExpectAnyOriginal)
             .ok_or(DerivedExprTypeError::SuffixOperandTypeNotInferred)?;
@@ -132,7 +132,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_unveil_or_compose_with_option_expr_ty(
         &mut self,
-        opd: ExprIdx,
+        opd: SynExprIdx,
         expected_final_destination: FinalDestination,
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         match self.unveiler {
@@ -175,7 +175,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_ambiguous_suffix_expr_ty<D: std::fmt::Debug + Into<ExprDisambiguation>>(
         &mut self,
-        opd: ExprIdx,
+        opd: SynExprIdx,
         final_destination: FinalDestination,
         (true_suffix, true_suffix_f): (
             D,

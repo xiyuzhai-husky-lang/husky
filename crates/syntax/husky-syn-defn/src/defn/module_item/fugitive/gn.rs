@@ -5,7 +5,7 @@ pub struct GnSynNodeDefn {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     pub syn_node_decl: GnSynNodeDecl,
-    pub body: Option<ExprIdx>,
+    pub body: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
@@ -40,7 +40,7 @@ pub struct GnSynDefn {
     #[id]
     pub path: FugitivePath,
     pub decl: GnSynDecl,
-    pub body: Option<ExprIdx>,
+    pub body: Option<SynExprIdx>,
     pub expr_region: SynExprRegion,
 }
 

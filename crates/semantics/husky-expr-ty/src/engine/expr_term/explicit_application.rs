@@ -5,9 +5,9 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_explicit_application_expr_term(
         &mut self,
-        expr_idx: ExprIdx,
-        function: ExprIdx,
-        argument: ExprIdx,
+        expr_idx: SynExprIdx,
+        function: SynExprIdx,
+        argument: SynExprIdx,
     ) -> ExprTermResult<FluffyTerm> {
         // todo: implicit arguments
         let function = self

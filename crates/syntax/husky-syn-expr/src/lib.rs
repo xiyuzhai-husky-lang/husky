@@ -45,7 +45,7 @@ use snippet::*;
 #[cfg(test)]
 use tests::*;
 
-#[salsa::jar(db = ExprDb)]
+#[salsa::jar(db = SynExprDb)]
 pub struct SynExprJar(SynExprRegion, parse_expr_from_snippet, expr_range_region);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -79,7 +79,7 @@ impl BaseEntityPathInclination {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum SynExpr {
     Literal(TokenIdx, Literal),
     PrincipalEntityPath {
@@ -87,7 +87,7 @@ pub enum SynExpr {
         opt_path: Option<PrincipalEntityPath>,
     },
     ScopeResolution {
-        parent_expr_idx: ExprIdx,
+        parent_expr_idx: SynExprIdx,
         scope_resolution_token: ScopeResolutionToken,
         ident_token: IdentToken,
     },
@@ -112,23 +112,23 @@ pub enum SynExpr {
     SelfType(TokenIdx),
     SelfValue(TokenIdx),
     Binary {
-        lopd: ExprIdx,
+        lopd: SynExprIdx,
         opr: BinaryOpr,
         opr_token_idx: TokenIdx,
-        ropd: ExprIdx,
+        ropd: SynExprIdx,
     },
     Be {
-        src: ExprIdx,
+        src: SynExprIdx,
         be_token_idx: TokenIdx,
-        target: ExprResult<BeVariablesPattern>,
+        target: SynExprResult<BeVariablesPattern>,
     },
     Prefix {
         opr: PrefixOpr,
         opr_token_idx: TokenIdx,
-        opd: ExprIdx,
+        opd: SynExprIdx,
     },
     Suffix {
-        opd: ExprIdx,
+        opd: SynExprIdx,
         opr: SuffixOpr,
         opr_token_idx: TokenIdx,
     },
@@ -153,10 +153,10 @@ pub enum SynExpr {
     ///   - `f` is a curry function, this is an application of `f` upon zero element tuple `(,)`
     ///   - `f` is a Ritchie function, this is a Ritchie function call with zero element
     FunctionApplicationOrCall {
-        function: ExprIdx,
-        implicit_arguments: Option<ImplicitArgumentList>,
+        function: SynExprIdx,
+        implicit_arguments: Option<SynImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
-        items: SmallVec<[CommaListItem; 4]>,
+        items: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
     },
     /// function type or trait
@@ -164,42 +164,42 @@ pub enum SynExpr {
         ritchie_kind_token_idx: TokenIdx,
         ritchie_kind: RitchieKind,
         lpar_token: LeftParenthesisToken,
-        parameter_ty_items: SmallVec<[CommaListItem; 4]>,
+        parameter_ty_items: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
         light_arrow_token: Option<LightArrowToken>,
         /// it's guaranteed that `return_ty_expr` is some if and only if
         /// `light_arrow_token` is some
-        return_ty_expr: Option<ExprIdx>,
+        return_ty_expr: Option<SynExprIdx>,
     },
     FunctionCall {
-        function: ExprIdx,
-        implicit_arguments: Option<ImplicitArgumentList>,
+        function: SynExprIdx,
+        implicit_arguments: Option<SynImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
         items: SmallVec<[CallListItem; 4]>,
         rpar_token_idx: TokenIdx,
     },
     Field {
-        owner: ExprIdx,
+        owner: SynExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
     },
     MethodApplicationOrCall {
-        self_argument: ExprIdx,
+        self_argument: SynExprIdx,
         dot_token_idx: TokenIdx,
         ident_token: IdentToken,
-        implicit_arguments: Option<ImplicitArgumentList>,
+        implicit_arguments: Option<SynImplicitArgumentList>,
         lpar_token_idx: TokenIdx,
-        items: SmallVec<[CommaListItem; 4]>,
+        items: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
     },
     TemplateInstantiation {
-        template: ExprIdx,
-        implicit_arguments: ImplicitArgumentList,
+        template: SynExprIdx,
+        implicit_arguments: SynImplicitArgumentList,
     },
     // todo: implicit arguments
     ExplicitApplication {
-        function_expr_idx: ExprIdx,
-        argument_expr_idx: ExprIdx,
+        function_expr_idx: SynExprIdx,
+        argument_expr_idx: SynExprIdx,
     },
     Unit {
         lpar_token_idx: TokenIdx,
@@ -207,13 +207,13 @@ pub enum SynExpr {
     },
     Bracketed {
         lpar_token_idx: TokenIdx,
-        item: ExprIdx,
+        item: SynExprIdx,
         rpar_token_idx: TokenIdx,
     },
     NewTuple {
         lpar_token_idx: TokenIdx,
         /// guaranteed that items.len() > 0
-        items: SmallVec<[CommaListItem; 4]>,
+        items: SmallVec<[SynCommaListItem; 4]>,
         rpar_token_idx: TokenIdx,
     },
     /// there are two cases
@@ -221,14 +221,14 @@ pub enum SynExpr {
     /// - application `$owner [$items]` where `$owner` is of type `List _ -> S`
     /// the cases are determined by whether `$owner` is of curry type
     IndexOrCompositionWithList {
-        owner: ExprIdx,
+        owner: SynExprIdx,
         lbox_token_idx: TokenIdx,
-        items: SmallVec<[CommaListItem; 4]>,
+        items: SmallVec<[SynCommaListItem; 4]>,
         rbox_token_idx: TokenIdx,
     },
     List {
         lbox_token_idx: TokenIdx,
-        items: SmallVec<[CommaListItem; 4]>,
+        items: SmallVec<[SynCommaListItem; 4]>,
         rbox_token_idx: TokenIdx,
     },
     /// [:] means Slice
@@ -237,11 +237,11 @@ pub enum SynExpr {
     BoxColonList {
         lbox_token_idx: TokenIdx,
         colon_token_idx: TokenIdx,
-        items: SmallVec<[CommaListItem; 4]>,
+        items: SmallVec<[SynCommaListItem; 4]>,
         rbox_token_idx: TokenIdx,
     },
     Block {
-        stmts: StmtIdxRange,
+        stmts: SynStmtIdxRange,
     },
     // todo: handle container
     EmptyHtmlTag {
@@ -254,16 +254,16 @@ pub enum SynExpr {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct ImplicitArgumentList {
+pub struct SynImplicitArgumentList {
     langle: TokenIdx,
-    arguments: SmallVec<[CommaListItem; 4]>,
+    arguments: SmallVec<[SynCommaListItem; 4]>,
     rangle: TokenIdx,
 }
 
-impl ImplicitArgumentList {
+impl SynImplicitArgumentList {
     pub(crate) fn new(
         langle: TokenIdx,
-        arguments: SmallVec<[CommaListItem; 4]>,
+        arguments: SmallVec<[SynCommaListItem; 4]>,
         rangle: TokenIdx,
     ) -> Self {
         Self {
@@ -277,7 +277,7 @@ impl ImplicitArgumentList {
         self.langle
     }
 
-    pub fn arguments(&self) -> &[CommaListItem] {
+    pub fn arguments(&self) -> &[SynCommaListItem] {
         &self.arguments
     }
 
@@ -289,9 +289,9 @@ impl ImplicitArgumentList {
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 use vec_like::SmallVecMap;
 
-pub type ExprArena = Arena<SynExpr>;
-pub type ExprIdx = ArenaIdx<SynExpr>;
-pub type ExprIdxRange = ArenaIdxRange<SynExpr>;
-pub type ExprMap<V> = ArenaMap<SynExpr, V>;
+pub type SynExprArena = Arena<SynExpr>;
+pub type SynExprIdx = ArenaIdx<SynExpr>;
+pub type SynExprIdxRange = ArenaIdxRange<SynExpr>;
+pub type SynExprMap<V> = ArenaMap<SynExpr, V>;
 
 type Commas = SmallVec<[TokenIdx; 2]>;

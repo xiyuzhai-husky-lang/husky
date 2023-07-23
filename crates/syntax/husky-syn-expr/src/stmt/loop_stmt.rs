@@ -1,16 +1,16 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub struct ForBetweenParticulars {
     pub frame_var_token_idx: TokenIdx,
-    pub frame_var_expr_idx: ExprIdx,
+    pub frame_var_expr_idx: SynExprIdx,
     pub frame_var_ident: Ident,
     pub range: ForBetweenRange,
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub struct ForBetweenRange {
     pub initial_boundary: LoopBoundary,
     pub final_boundary: LoopBoundary,
@@ -19,10 +19,10 @@ pub struct ForBetweenRange {
 
 impl ForBetweenRange {
     pub fn new_without_defaults(
-        initial_bound: ExprIdx,
+        initial_bound: SynExprIdx,
         initial_comparison: BinaryComparisonOpr,
         final_comparison: BinaryComparisonOpr,
-        final_bound: ExprIdx,
+        final_bound: SynExprIdx,
     ) -> StmtResult<Self> {
         let (initial_boundary_kind, step) = match initial_comparison {
             BinaryComparisonOpr::Geq => (LoopBoundaryKind::UpperClosed, LoopStep::Constant(-1)),
@@ -58,7 +58,7 @@ impl ForBetweenRange {
 
     pub(crate) fn new_with_default_initial(
         comparison: BinaryComparisonOpr,
-        final_bound: ExprIdx,
+        final_bound: SynExprIdx,
     ) -> StmtResult<Self> {
         let final_boundary_kind = match comparison {
             // ill-formed: $frame_var >= $final_bound
@@ -82,7 +82,7 @@ impl ForBetweenRange {
     }
 
     pub(crate) fn new_with_default_final(
-        initial_bound: ExprIdx,
+        initial_bound: SynExprIdx,
         comparison: BinaryComparisonOpr,
     ) -> StmtResult<Self> {
         let initial_boundary_kind = match comparison {
@@ -134,7 +134,7 @@ fn check_compatible(
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LoopBoundary {
-    pub bound_expr: Option<ExprIdx>,
+    pub bound_expr: Option<SynExprIdx>,
     pub kind: LoopBoundaryKind,
 }
 

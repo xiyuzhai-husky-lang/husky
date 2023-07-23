@@ -3,8 +3,8 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_binary_shift_expr_ty(
         &mut self,
-        lopd: ExprIdx,
-        ropd: ExprIdx,
+        lopd: SynExprIdx,
+        ropd: SynExprIdx,
         opr: BinaryShiftOpr,
         menu: &EtherealTermMenu,
     ) -> ExprTypeResult<FluffyTerm> {
@@ -55,7 +55,10 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    pub(super) fn calc_num_ty_binary_shift_ropd_ty(&mut self, ropd: ExprIdx) -> ExprTypeResult<()> {
+    pub(super) fn calc_num_ty_binary_shift_ropd_ty(
+        &mut self,
+        ropd: SynExprIdx,
+    ) -> ExprTypeResult<()> {
         let Some(ropd_ty) = self.infer_new_expr_ty(ropd, ExpectAnyOriginal) else {
             Err(DerivedExprTypeError::BinaryShiftRightOperandTypeNotInferred)?
         };

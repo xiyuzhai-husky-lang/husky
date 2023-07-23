@@ -29,13 +29,13 @@ impl GenericParameterDecl {
 pub enum GenericParameterDeclPatternVariant {
     Type {
         ident_token: IdentToken,
-        traits: Option<(ColonToken, ExprIdx)>,
+        traits: Option<(ColonToken, SynExprIdx)>,
     },
     Constant {
         const_token: ConstToken,
         ident_token: IdentToken,
         colon_token: ColonToken,
-        ty_expr: ExprIdx,
+        ty_expr: SynExprIdx,
     },
     Lifetime {
         label_token: LifetimeLabelToken,
@@ -50,7 +50,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
-    ) -> ExprResult<Option<Self>> {
+    ) -> SynExprResult<Option<Self>> {
         let annotated_variance_token = ctx.try_parse_err_as_none();
         if let Some(ident_token) = ctx.try_parse_option::<IdentToken>()? {
             let access_start = ctx.save_state().next_token_idx();

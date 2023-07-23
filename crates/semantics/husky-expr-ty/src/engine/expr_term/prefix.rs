@@ -3,9 +3,9 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_prefix_expr_term(
         &mut self,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         opr: PrefixOpr,
-        opd: ExprIdx,
+        opd: SynExprIdx,
     ) -> ExprTermResult<FluffyTerm> {
         let Some(opd_term) = self.infer_new_expr_term(opd) else {
            return Err(DerivedExprTermError::PrefixOprTermNotInferred.into())

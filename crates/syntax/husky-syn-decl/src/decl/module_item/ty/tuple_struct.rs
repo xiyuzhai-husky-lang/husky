@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_expr::ExprIdx;
+use husky_syn_expr::SynExprIdx;
 use parsec::{SeparatedSmallList, TryParseFromStream};
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
@@ -78,5 +78,5 @@ impl TupleStructTypeSynDecl {
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct TupleStructFieldDecl {
-    ty: ExprIdx,
+    ty: SynExprIdx,
 }

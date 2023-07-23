@@ -8,69 +8,69 @@ use crate::*;
 use husky_token::*;
 use idx_arena::{map::ArenaMap, Arena, ArenaIdx, ArenaIdxRange};
 
-pub type StmtArena = Arena<Stmt>;
-pub type StmtIdx = ArenaIdx<Stmt>;
-pub type StmtIdxRange = ArenaIdxRange<Stmt>;
-pub type StmtMap<V> = ArenaMap<Stmt, V>;
+pub type SynStmtArena = Arena<SynStmt>;
+pub type SynStmtIdx = ArenaIdx<SynStmt>;
+pub type SynStmtIdxRange = ArenaIdxRange<SynStmt>;
+pub type SynStmtMap<V> = ArenaMap<SynStmt, V>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
-pub enum Stmt {
+#[salsa::derive_debug_with_db(db = SynExprDb)]
+pub enum SynStmt {
     Let {
         let_token: LetToken,
-        let_variable_pattern: ExprResult<LetVariableDecls>,
-        assign_token: ExprResult<EqToken>,
-        initial_value: ExprIdx,
+        let_variable_pattern: SynExprResult<LetVariableDecls>,
+        assign_token: SynExprResult<EqToken>,
+        initial_value: SynExprIdx,
     },
     Return {
         return_token: ReturnToken,
-        result: ExprIdx,
+        result: SynExprIdx,
     },
     Require {
         require_token: RequireToken,
-        condition: ExprIdx,
+        condition: SynExprIdx,
     },
     Assert {
         assert_token: AssertToken,
-        condition: ExprIdx,
+        condition: SynExprIdx,
     },
     Break {
         break_token: BreakToken,
     },
     Eval {
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
     },
     ForBetween {
         for_token: StmtForToken,
         particulars: ForBetweenParticulars,
         frame_var_symbol_idx: CurrentSymbolIdx,
-        eol_colon: ExprResult<EolToken>,
-        block: ExprResult<StmtIdxRange>,
+        eol_colon: SynExprResult<EolToken>,
+        block: SynExprResult<SynStmtIdxRange>,
     },
     ForIn {
         for_token: StmtForToken,
-        condition: ExprResult<ExprIdx>,
-        eol_colon: ExprResult<EolToken>,
-        block: ExprResult<StmtIdxRange>,
+        condition: SynExprResult<SynExprIdx>,
+        eol_colon: SynExprResult<EolToken>,
+        block: SynExprResult<SynStmtIdxRange>,
     },
     ForExt {
         forext_token: ForextToken,
-        expr: ExprIdx,
-        eol_colon: ExprResult<EolToken>,
-        block: ExprResult<StmtIdxRange>,
+        expr: SynExprIdx,
+        eol_colon: SynExprResult<EolToken>,
+        block: SynExprResult<SynStmtIdxRange>,
     },
     While {
         while_token: WhileToken,
-        condition: ExprResult<ExprIdx>,
-        eol_colon: ExprResult<EolToken>,
-        block: ExprResult<StmtIdxRange>,
+        condition: SynExprResult<SynExprIdx>,
+        eol_colon: SynExprResult<EolToken>,
+        block: SynExprResult<SynStmtIdxRange>,
     },
     DoWhile {
         do_token: DoToken,
         while_token: WhileToken,
-        condition: ExprResult<ExprIdx>,
-        eol_colon: ExprResult<EolToken>,
-        block: ExprResult<StmtIdxRange>,
+        condition: SynExprResult<SynExprIdx>,
+        eol_colon: SynExprResult<EolToken>,
+        block: SynExprResult<SynStmtIdxRange>,
     },
     IfElse {
         if_branch: IfBranch,
@@ -83,11 +83,11 @@ pub enum Stmt {
     Err(StmtError),
 }
 
-impl From<StmtResult<Stmt>> for Stmt {
-    fn from(value: StmtResult<Stmt>) -> Self {
+impl From<StmtResult<SynStmt>> for SynStmt {
+    fn from(value: StmtResult<SynStmt>) -> Self {
         match value {
             Ok(stmt) => stmt,
-            Err(err) => Stmt::Err(err),
+            Err(err) => SynStmt::Err(err),
         }
     }
 }
@@ -95,13 +95,13 @@ impl From<StmtResult<Stmt>> for Stmt {
 #[derive(Debug, PartialEq, Eq)]
 pub struct IfBranch {
     pub if_token: IfToken,
-    pub condition: ExprResult<ExprIdx>,
-    pub eol_colon: ExprResult<EolToken>,
-    pub block: ExprResult<StmtIdxRange>,
+    pub condition: SynExprResult<SynExprIdx>,
+    pub eol_colon: SynExprResult<EolToken>,
+    pub block: SynExprResult<SynStmtIdxRange>,
 }
 
 impl IfBranch {
-    pub fn condition(&self) -> Result<&ExprIdx, &ExprError> {
+    pub fn condition(&self) -> Result<&SynExprIdx, &ExprError> {
         self.condition.as_ref()
     }
 
@@ -109,7 +109,7 @@ impl IfBranch {
         self.eol_colon.as_ref()
     }
 
-    pub fn block(&self) -> Result<StmtIdxRange, &ExprError> {
+    pub fn block(&self) -> Result<SynStmtIdxRange, &ExprError> {
         self.block.as_ref().copied()
     }
 }
@@ -117,13 +117,13 @@ impl IfBranch {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ElifBranch {
     pub elif_token: ElifToken,
-    pub condition: ExprResult<ExprIdx>,
-    pub eol_colon: ExprResult<EolToken>,
-    pub block: ExprResult<StmtIdxRange>,
+    pub condition: SynExprResult<SynExprIdx>,
+    pub eol_colon: SynExprResult<EolToken>,
+    pub block: SynExprResult<SynStmtIdxRange>,
 }
 
 impl ElifBranch {
-    pub fn condition(&self) -> Result<&ExprIdx, &ExprError> {
+    pub fn condition(&self) -> Result<&SynExprIdx, &ExprError> {
         self.condition.as_ref()
     }
 
@@ -131,7 +131,7 @@ impl ElifBranch {
         self.eol_colon.as_ref()
     }
 
-    pub fn block(&self) -> Result<StmtIdxRange, &ExprError> {
+    pub fn block(&self) -> Result<SynStmtIdxRange, &ExprError> {
         self.block.as_ref().copied()
     }
 }
@@ -139,12 +139,12 @@ impl ElifBranch {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ElseBranch {
     pub else_token: ElseToken,
-    pub eol_colon: ExprResult<EolToken>,
-    pub block: ExprResult<StmtIdxRange>,
+    pub eol_colon: SynExprResult<EolToken>,
+    pub block: SynExprResult<SynStmtIdxRange>,
 }
 
 impl ElseBranch {
-    pub fn block(&self) -> Result<StmtIdxRange, &ExprError> {
+    pub fn block(&self) -> Result<SynStmtIdxRange, &ExprError> {
         self.block.as_ref().copied()
     }
 }

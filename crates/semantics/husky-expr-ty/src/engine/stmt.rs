@@ -5,7 +5,7 @@ use super::*;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn infer_new_block(
         &mut self,
-        stmts: StmtIdxRange,
+        stmts: SynStmtIdxRange,
         expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         for stmt in stmts.start()..(stmts.end() - 1) {
@@ -14,14 +14,14 @@ impl<'a> ExprTypeEngine<'a> {
         self.infer_new_last_stmt(stmts.end() - 1, expr_expectation)
     }
 
-    fn infer_new_nonlast_stmt(&mut self, stmt_idx: StmtIdx) {
+    fn infer_new_nonlast_stmt(&mut self, stmt_idx: SynStmtIdx) {
         let expect_unit = self.expect_unit();
         self.calc_stmt(stmt_idx, expect_unit);
     }
 
     fn infer_new_last_stmt(
         &mut self,
-        stmt_idx: StmtIdx,
+        stmt_idx: SynStmtIdx,
         expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         self.calc_stmt(stmt_idx, expr_expectation)
@@ -29,17 +29,17 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_stmt(
         &mut self,
-        stmt_idx: StmtIdx,
+        stmt_idx: SynStmtIdx,
         expr_expectation: impl ExpectFluffyTerm,
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[stmt_idx] {
-            Stmt::Let {
+            SynStmt::Let {
                 let_token,
                 ref let_variable_pattern,
                 initial_value,
                 ..
             } => self.calc_let_stmt(let_variable_pattern, initial_value),
-            Stmt::Return { result, .. } => {
+            SynStmt::Return { result, .. } => {
                 match self.return_ty {
                     Some(return_ty) => {
                         self.infer_new_expr_ty_discarded(
@@ -53,17 +53,17 @@ impl<'a> ExprTypeEngine<'a> {
                 };
                 Some(self.term_menu.never().into())
             }
-            Stmt::Require { condition, .. } => {
+            SynStmt::Require { condition, .. } => {
                 self.infer_new_expr_ty_discarded(condition, self.expect_argument_ty_bool());
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            Stmt::Assert { condition, .. } => {
+            SynStmt::Assert { condition, .. } => {
                 self.infer_new_expr_ty_discarded(condition, self.expect_argument_ty_bool());
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            Stmt::Break { .. } => Some(self.term_menu.never().into()),
-            Stmt::Eval { expr_idx } => self.infer_new_expr_ty(expr_idx, expr_expectation),
-            Stmt::ForBetween {
+            SynStmt::Break { .. } => Some(self.term_menu.never().into()),
+            SynStmt::Eval { expr_idx } => self.infer_new_expr_ty(expr_idx, expr_expectation),
+            SynStmt::ForBetween {
                 ref particulars,
                 frame_var_symbol_idx,
                 ref block,
@@ -111,12 +111,12 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            Stmt::ForIn {
+            SynStmt::ForIn {
                 ref condition,
                 ref block,
                 ..
             } => todo!(),
-            Stmt::ForExt { ref block, .. } => {
+            SynStmt::ForExt { ref block, .. } => {
                 // ad hoc: handle for ext particulars
                 if let Ok(block) = block {
                     let expr_expectation = self.expect_unit();
@@ -124,12 +124,12 @@ impl<'a> ExprTypeEngine<'a> {
                 }
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            Stmt::While {
+            SynStmt::While {
                 ref condition,
                 ref block,
                 ..
             }
-            | Stmt::DoWhile {
+            | SynStmt::DoWhile {
                 ref condition,
                 ref block,
                 ..
@@ -143,7 +143,7 @@ impl<'a> ExprTypeEngine<'a> {
                 });
                 Some(self.term_menu.unit_ty_ontology().into())
             }
-            Stmt::IfElse {
+            SynStmt::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -153,11 +153,11 @@ impl<'a> ExprTypeEngine<'a> {
                 else_branch.as_ref(),
                 expr_expectation,
             ),
-            Stmt::Match { .. } => {
+            SynStmt::Match { .. } => {
                 // todo: match
                 None
             }
-            Stmt::Err(_) => todo!(),
+            SynStmt::Err(_) => todo!(),
         }
     }
 
@@ -206,7 +206,11 @@ impl<Expectation: ExpectFluffyTerm> BranchTypes<Expectation> {
         }
     }
 
-    fn visit_branch(&mut self, engine: &mut ExprTypeEngine, block: &ExprResult<StmtIdxRange>) {
+    fn visit_branch(
+        &mut self,
+        engine: &mut ExprTypeEngine,
+        block: &SynExprResult<SynStmtIdxRange>,
+    ) {
         match block {
             Ok(stmts) => match engine.infer_new_block(*stmts, self.expr_expectation.clone()) {
                 Some(FluffyTerm::EntityPath(TermEntityPath::TypeOntology(path)))

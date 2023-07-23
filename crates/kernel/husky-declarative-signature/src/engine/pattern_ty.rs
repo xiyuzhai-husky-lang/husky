@@ -10,7 +10,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     /// only use this for explicit parameters
     pub(super) fn infer_pattern_tys_in_parenic_parameter(
         &mut self,
-        pattern_expr: PatternExprIdx,
+        pattern_expr: PatternSynExprIdx,
         ty: DeclarativeTerm,
     ) {
         self.infer_pattern_expr_tys(pattern_expr, ty);

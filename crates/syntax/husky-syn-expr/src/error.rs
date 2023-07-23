@@ -7,7 +7,7 @@ use parsec::*;
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum ExprError {
     #[error("original {0}")]
     Original(#[from] OriginalExprError),
@@ -22,7 +22,7 @@ impl From<TokenError> for ExprError {
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 // #[salsa::derive_debug_with_db(db = ExprDb)]
 pub enum OriginalExprError {
     #[error("expected `>`")]
@@ -233,13 +233,13 @@ impl IntoError for OriginalExprError {
 }
 
 #[derive(Error, Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprDb)]
+#[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum DerivedExprError {
     #[error("token error {0}")]
     Token(#[from] TokenError),
 }
 
-pub type ExprResult<T> = Result<T, ExprError>;
+pub type SynExprResult<T> = Result<T, ExprError>;
 pub type ExprResultRef<'a, T> = Result<T, &'a ExprError>;
 
 // impl<'a, 'b> FromAbsent<RightCurlyBraceToken, ExprParseContext<'a, 'b>> for OriginalExprError {

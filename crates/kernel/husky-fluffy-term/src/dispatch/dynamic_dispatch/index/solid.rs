@@ -4,7 +4,7 @@ impl SolidTerm {
     pub(super) fn disambiguate_index(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
     ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
         self.disambiguate_index_aux(engine, expr_idx, index_ty, Default::default())
@@ -13,7 +13,7 @@ impl SolidTerm {
     pub(super) fn disambiguate_index_aux(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
         mut indirections: FluffyIndirections,
     ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {

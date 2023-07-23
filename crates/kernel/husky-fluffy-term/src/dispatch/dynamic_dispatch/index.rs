@@ -13,7 +13,7 @@ impl FluffyTerm {
     pub fn dispatch_index(
         self,
         engine: &mut impl FluffyTermEngine,
-        expr_idx: ExprIdx,
+        expr_idx: SynExprIdx,
         index_ty: FluffyTerm,
     ) -> FluffyTermMaybeResult<FluffyIndexDispatch> {
         match self.nested() {

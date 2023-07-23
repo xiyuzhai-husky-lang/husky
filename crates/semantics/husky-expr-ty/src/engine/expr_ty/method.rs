@@ -4,11 +4,11 @@ use husky_token::IdentToken;
 impl<'a> ExprTypeEngine<'a> {
     pub(super) fn calc_method_application_or_call_ty(
         &mut self,
-        expr_idx: ExprIdx,
-        self_argument: ExprIdx,
+        expr_idx: SynExprIdx,
+        self_argument: SynExprIdx,
         ident_token: IdentToken,
-        implicit_arguments: Option<&ImplicitArgumentList>,
-        explicit_arguments: &[CommaListItem],
+        implicit_arguments: Option<&SynImplicitArgumentList>,
+        explicit_arguments: &[SynCommaListItem],
     ) -> ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)> {
         let Some(self_expr_ty) =
             self.infer_new_expr_ty( self_argument, ExpectAnyOriginal)
