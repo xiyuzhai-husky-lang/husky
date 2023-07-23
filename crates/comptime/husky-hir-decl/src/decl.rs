@@ -32,13 +32,13 @@ pub enum HirDecl {
 }
 
 impl HirDecl {
-    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [GenericParameterHirDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
         match self {
             HirDecl::Submodule(_) => todo!(),
             HirDecl::ModuleItem(decl) => decl.generic_parameters(db),
             HirDecl::ImplBlock(decl) => decl.generic_parameters(db),
             HirDecl::AssociatedItem(decl) => decl.generic_parameters(db),
-            HirDecl::TypeVariant(_decl) => &[],
+            HirDecl::TypeVariant(decl) => &[],
         }
     }
 

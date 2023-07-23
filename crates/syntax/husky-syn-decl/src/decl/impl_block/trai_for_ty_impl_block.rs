@@ -2,7 +2,7 @@ use super::*;
 use husky_print_utils::p;
 use salsa::DebugWithDb;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeImplBlockSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeImplBlockSynNodePath,
@@ -29,7 +29,7 @@ pub enum SelfTypeDecl {
 }
 
 impl TraitForTypeImplBlockSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
                 .as_ref()
@@ -43,14 +43,14 @@ impl TraitForTypeImplBlockSynNodeDecl {
 impl HasNodeDecl for TraitForTypeImplBlockSynNodePath {
     type NodeDecl = TraitForTypeImplBlockSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         trai_for_ty_impl_block_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_impl_block_syn_node_decl(
-    db: &dyn DeclDb,
+    db: &dyn SynDeclDb,
     syn_node_path: TraitForTypeImplBlockSynNodePath,
 ) -> TraitForTypeImplBlockSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
@@ -139,7 +139,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct TraitForTypeImplBlockSynDecl {
     #[id]
     pub path: TraitForTypeImplBlockPath,
@@ -153,14 +153,14 @@ pub struct TraitForTypeImplBlockSynDecl {
 impl HasSynDecl for TraitForTypeImplBlockPath {
     type Decl = TraitForTypeImplBlockSynDecl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         trai_for_ty_impl_block_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn trai_for_ty_impl_block_syn_decl(
-    db: &dyn DeclDb,
+    db: &dyn SynDeclDb,
     path: TraitForTypeImplBlockPath,
 ) -> DeclResult<TraitForTypeImplBlockSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
@@ -169,7 +169,7 @@ pub(crate) fn trai_for_ty_impl_block_syn_decl(
 
 impl TraitForTypeImplBlockSynDecl {
     fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TraitForTypeImplBlockPath,
         syn_node_decl: TraitForTypeImplBlockSynNodeDecl,
     ) -> DeclResult<Self> {

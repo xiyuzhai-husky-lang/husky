@@ -2,6 +2,7 @@ use super::*;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
 pub struct PropsStructHirDecl {
+    pub path: TypePath,
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,
     #[return_ref]

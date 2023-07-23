@@ -4,7 +4,7 @@ use parsec::parse_separated_small2_list_expected;
 pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[GenericParameterDecl; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 pub struct Generics {
     langle: LeftAngleBracketOrLessThanToken,
     generic_parameters: ImplicitParameterDeclPatterns,

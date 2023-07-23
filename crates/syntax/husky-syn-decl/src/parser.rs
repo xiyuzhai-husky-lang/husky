@@ -11,14 +11,14 @@ use husky_coword::Ident;
 use parsec::*;
 
 pub(crate) struct DeclParser<'a> {
-    db: &'a dyn DeclDb,
+    db: &'a dyn SynDeclDb,
     module_symbol_context: ModuleSymbolContext<'a>,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
 }
 
 impl<'a> DeclParser<'a> {
-    pub(crate) fn new(db: &'a dyn DeclDb, path: ModulePath) -> Self {
+    pub(crate) fn new(db: &'a dyn SynDeclDb, path: ModulePath) -> Self {
         let Ok(module_symbol_context) = db.module_symbol_context(path) else {
             use salsa::DebugWithDb;
             p!(path.debug(db));
@@ -52,7 +52,7 @@ impl<'a> DeclParser<'a> {
     }
 
     #[inline(always)]
-    pub(crate) fn db(&self) -> &'a dyn DeclDb {
+    pub(crate) fn db(&self) -> &'a dyn SynDeclDb {
         self.db
     }
 

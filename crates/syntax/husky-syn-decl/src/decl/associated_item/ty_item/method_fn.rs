@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
@@ -19,7 +19,7 @@ pub struct TypeMethodFnSynNodeDecl {
 }
 
 impl TypeMethodFnSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
                 .as_ref()
@@ -81,7 +81,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct TypeMethodFnSynDecl {
     #[id]
     pub path: TypeItemPath,
@@ -96,7 +96,7 @@ pub struct TypeMethodFnSynDecl {
 
 impl TypeMethodFnSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TypeItemPath,
         syn_node_decl: TypeMethodFnSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -126,7 +126,7 @@ impl TypeMethodFnSynDecl {
         ))
     }
 
-    pub fn impl_block_path(self, db: &dyn DeclDb) -> TypeImplBlockPath {
+    pub fn impl_block_path(self, db: &dyn SynDeclDb) -> TypeImplBlockPath {
         self.path(db).impl_block(db)
     }
 }

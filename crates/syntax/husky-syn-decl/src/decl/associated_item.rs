@@ -13,7 +13,7 @@ use husky_coword::Ident;
 use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum AssociatedItemSynNodeDecl {
     TypeItem(TypeItemSynNodeDecl),
@@ -23,7 +23,7 @@ pub enum AssociatedItemSynNodeDecl {
 }
 
 impl AssociatedItemSynNodeDecl {
-    pub fn syn_node_path(self, db: &dyn DeclDb) -> AssociatedItemSynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> AssociatedItemSynNodePath {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
                 syn_node_decl.syn_node_path(db).into()
@@ -40,7 +40,7 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.ast_idx(db),
             AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.ast_idx(db),
@@ -49,7 +49,7 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
                 syn_node_decl.generic_parameters(db)
@@ -62,7 +62,7 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
+    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.expr_region(db),
             AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.expr_region(db),
@@ -73,7 +73,7 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.errors(db),
             AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.errors(db),
@@ -84,7 +84,7 @@ impl AssociatedItemSynNodeDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum AssociatedItemSynDecl {
     TypeItem(TypeItemSynDecl),
@@ -93,7 +93,7 @@ pub enum AssociatedItemSynDecl {
 }
 
 impl AssociatedItemSynDecl {
-    pub fn path(self, db: &dyn DeclDb) -> AssociatedItemPath {
+    pub fn path(self, db: &dyn SynDeclDb) -> AssociatedItemPath {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.path(db).into(),
             AssociatedItemSynDecl::TraitItem(decl) => decl.path(db).into(),
@@ -101,7 +101,7 @@ impl AssociatedItemSynDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.generic_parameters(db),
             AssociatedItemSynDecl::TraitItem(decl) => decl.generic_parameters(db),
@@ -109,7 +109,7 @@ impl AssociatedItemSynDecl {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             AssociatedItemSynDecl::TypeItem(decl) => decl.expr_region(db),
             AssociatedItemSynDecl::TraitItem(decl) => decl.expr_region(db),
@@ -121,7 +121,7 @@ impl AssociatedItemSynDecl {
 impl HasSynDecl for AssociatedItemPath {
     type Decl = AssociatedItemSynDecl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         todo!()
         // associated_item_syn_decl(db, self).as_ref().copied()
     }
@@ -129,7 +129,7 @@ impl HasSynDecl for AssociatedItemPath {
 
 // #[salsa::tracked(jar = SynDeclJar, return_ref)]
 // pub(crate) fn associated_item_syn_decl(
-//     db: &dyn DeclDb,
+//     db: &dyn SynDeclDb,
 //     node: AssociatedItemNode,
 // ) -> DeclResult<AssociatedItemDecl> {
 //     let parser = DeclParseContext::new(db, node.module_path(db))?;
@@ -182,12 +182,12 @@ pub trait HasItemDeclsMap {
 
     fn item_syn_decls_map<'a>(
         self,
-        db: &'a dyn DeclDb,
+        db: &'a dyn SynDeclDb,
     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]>;
 }
 
 pub trait HasItemDecls {
     type ItemDecls;
 
-    fn item_syn_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResult<&'a Self::ItemDecls>;
+    fn item_syn_decls<'a>(self, db: &'a dyn SynDeclDb) -> DeclResult<&'a Self::ItemDecls>;
 }

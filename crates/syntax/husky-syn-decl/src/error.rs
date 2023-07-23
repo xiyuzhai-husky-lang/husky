@@ -8,7 +8,7 @@ use parsec::*;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 pub enum NodeDeclError {
     #[error("{0}")]
     Original(#[from] OriginalNodeDeclError),
@@ -41,7 +41,7 @@ impl From<ExprError> for NodeDeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 pub enum OriginalNodeDeclError {
     #[error("derived {0}")]
     Expr(#[from] OriginalExprError),
@@ -81,7 +81,7 @@ impl IntoError for OriginalNodeDeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 pub enum DerivedNodeDeclError {
     #[error("{0}")]
     ExprError(#[from] DerivedExprError),
@@ -90,7 +90,7 @@ pub enum DerivedNodeDeclError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 pub enum DeclError {
     #[error("declaration expression error")]
     Expr,

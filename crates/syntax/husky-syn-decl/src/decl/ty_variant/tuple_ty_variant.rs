@@ -3,7 +3,7 @@ use husky_syn_expr::SynExprIdx;
 use parsec::{SeparatedSmallList, TryParseFromStream};
 
 // todo: GADT
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TupleTypeVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
@@ -36,7 +36,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>>
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TupleTypeVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
@@ -46,7 +46,7 @@ pub struct TupleTypeVariantSynDecl {
 
 impl TupleTypeVariantSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TypeVariantPath,
         syn_node_decl: TupleTypeVariantSynNodeDecl,
     ) -> DeclResult<Self> {

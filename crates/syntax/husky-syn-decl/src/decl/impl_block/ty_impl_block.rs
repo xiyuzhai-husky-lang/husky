@@ -1,7 +1,7 @@
 use super::*;
 use husky_token::EolToken;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TypeImplBlockSynNodeDecl {
     #[id]
     pub syn_node_path: TypeImplBlockSynNodePath,
@@ -17,7 +17,7 @@ pub struct TypeImplBlockSynNodeDecl {
 }
 
 impl TypeImplBlockSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
                 .as_ref()
@@ -31,14 +31,14 @@ impl TypeImplBlockSynNodeDecl {
 impl HasNodeDecl for TypeImplBlockSynNode {
     type NodeDecl = TypeImplBlockSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         self.syn_node_path(db).syn_node_decl(db)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_impl_block_syn_node_decl(
-    db: &dyn DeclDb,
+    db: &dyn SynDeclDb,
     syn_node_path: TypeImplBlockSynNodePath,
 ) -> TypeImplBlockSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
@@ -100,12 +100,12 @@ impl<'a> DeclParser<'a> {
 impl HasNodeDecl for TypeImplBlockSynNodePath {
     type NodeDecl = TypeImplBlockSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         ty_impl_block_syn_node_decl(db, self)
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct TypeImplBlockSynDecl {
     #[id]
     pub path: TypeImplBlockPath,
@@ -123,7 +123,7 @@ impl From<TypeImplBlockSynDecl> for Decl {
 
 impl TypeImplBlockSynDecl {
     fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TypeImplBlockPath,
         syn_node_decl: TypeImplBlockSynNodeDecl,
     ) -> DeclResult<Self> {
@@ -149,14 +149,14 @@ impl TypeImplBlockSynDecl {
 impl HasSynDecl for TypeImplBlockPath {
     type Decl = TypeImplBlockSynDecl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         ty_impl_block_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
 pub(crate) fn ty_impl_block_syn_decl(
-    db: &dyn DeclDb,
+    db: &dyn SynDeclDb,
     // here use path instead of syn_node_path because salsa doesn't support use wrapper type by default
     // maybe add AsId carefully
     path: TypeImplBlockPath,

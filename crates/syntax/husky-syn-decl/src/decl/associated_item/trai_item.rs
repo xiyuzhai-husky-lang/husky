@@ -13,7 +13,7 @@ use super::*;
 use husky_ast::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TraitItemSynNodeDecl {
     AssociatedFn(TraitAssociatedFnSynNodeDecl),
@@ -23,7 +23,7 @@ pub enum TraitItemSynNodeDecl {
 }
 
 impl TraitItemSynNodeDecl {
-    pub fn syn_node_path(self, _db: &dyn DeclDb) -> TraitItemSynNodePath {
+    pub fn syn_node_path(self, _db: &dyn SynDeclDb) -> TraitItemSynNodePath {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -32,7 +32,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(decl) => decl.ast_idx(db),
             TraitItemSynNodeDecl::MethodFn(decl) => decl.ast_idx(db),
@@ -41,7 +41,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -50,7 +50,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, _db: &dyn DeclDb) -> SynExprRegion {
+    pub fn expr_region(self, _db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -59,7 +59,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -72,13 +72,13 @@ impl TraitItemSynNodeDecl {
 impl HasNodeDecl for TraitItemSynNodePath {
     type NodeDecl = TraitItemSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         todo!()
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TraitItemSynDecl {
     AssociatedFn(TraitAssociatedFnSynDecl),
@@ -88,7 +88,7 @@ pub enum TraitItemSynDecl {
 }
 
 impl TraitItemSynDecl {
-    pub fn path(self, _db: &dyn DeclDb) -> TraitItemPath {
+    pub fn path(self, _db: &dyn SynDeclDb) -> TraitItemPath {
         match self {
             TraitItemSynDecl::AssociatedFn(_) => todo!(),
             TraitItemSynDecl::MethodFn(_) => todo!(),
@@ -97,7 +97,7 @@ impl TraitItemSynDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
         match self {
             TraitItemSynDecl::AssociatedFn(_) => todo!(),
             TraitItemSynDecl::MethodFn(_) => todo!(),
@@ -106,7 +106,7 @@ impl TraitItemSynDecl {
         }
     }
 
-    pub fn expr_region(self, _db: &dyn DeclDb) -> SynExprRegion {
+    pub fn expr_region(self, _db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             TraitItemSynDecl::AssociatedFn(_) => todo!(),
             TraitItemSynDecl::MethodFn(_) => todo!(),
@@ -119,7 +119,7 @@ impl TraitItemSynDecl {
 impl HasSynDecl for TraitItemPath {
     type Decl = TraitItemSynDecl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         todo!()
     }
 }

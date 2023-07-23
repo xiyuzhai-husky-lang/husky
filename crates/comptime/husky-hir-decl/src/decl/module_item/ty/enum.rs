@@ -5,4 +5,5 @@ pub struct EnumHirDecl {
     pub path: TypePath,
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,
+    pub hir_expr_region: HirExprRegion,
 }

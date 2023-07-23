@@ -12,9 +12,10 @@ pub struct HirDeclJar(
     // - type items
     ty_item_hir_decl,
     TypeMethodFnHirDecl,
-    TypeMethodFunctionHirDecl,
     TypeMemoizedFieldHirDecl,
     TypeAssociatedFnHirDecl,
+    TypeAssociatedValHirDecl,
+    TypeAssociatedTypeHirDecl,
     // - trait items
     TraitAssociatedFnHirDecl,
     TraitMethodFnHirDecl,

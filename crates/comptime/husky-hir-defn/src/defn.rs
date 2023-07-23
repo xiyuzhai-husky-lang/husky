@@ -34,7 +34,7 @@ impl HirDefn {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn HirDefnDb) -> &'a [GenericParameterHirDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn HirDefnDb) -> &'a [EtherealGenericParameter] {
         self.decl(db).generic_parameters(db)
     }
 

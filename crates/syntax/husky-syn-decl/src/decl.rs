@@ -17,7 +17,7 @@ type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 
 /// A `NodeDecl` is a tolerant information-preserving declaration
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum SynNodeDecl {
     Submodule(SubmoduleSynNodeDecl),
@@ -28,7 +28,7 @@ pub enum SynNodeDecl {
 }
 
 impl SynNodeDecl {
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
         match self {
             SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.ast_idx(db),
             SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.ast_idx(db),
@@ -38,7 +38,7 @@ impl SynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> Option<SynExprRegion> {
+    pub fn expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
         match self {
             SynNodeDecl::Submodule(_) => None,
             SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.expr_region(db).into(),
@@ -48,7 +48,7 @@ impl SynNodeDecl {
         }
     }
 
-    pub fn syn_node_path(self, db: &dyn DeclDb) -> EntitySynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> EntitySynNodePath {
         match self {
             SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
             SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
@@ -58,7 +58,7 @@ impl SynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         match self {
             SynNodeDecl::Submodule(syn_node_decl) => syn_node_decl.errors(db),
             SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.errors(db),
@@ -71,7 +71,7 @@ impl SynNodeDecl {
 
 /// A `Decl` is a strict version, handy for subsequent processing
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum Decl {
     Submodule(SubmoduleSynDecl),
@@ -82,7 +82,7 @@ pub enum Decl {
 }
 
 impl Decl {
-    pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
         match self {
             Decl::Submodule(_) => todo!(),
             Decl::ModuleItem(decl) => decl.generic_parameters(db),
@@ -92,7 +92,7 @@ impl Decl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> Option<SynExprRegion> {
+    pub fn expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
         match self {
             Decl::Submodule(_) => None,
             Decl::ModuleItem(decl) => decl.expr_region(db).into(),
@@ -102,7 +102,7 @@ impl Decl {
         }
     }
 
-    pub fn path(self, db: &dyn DeclDb) -> EntityPath {
+    pub fn path(self, db: &dyn SynDeclDb) -> EntityPath {
         match self {
             Decl::Submodule(_) => todo!(),
             Decl::ModuleItem(decl) => decl.path(db).into(),
@@ -116,13 +116,13 @@ impl Decl {
 pub trait HasNodeDecl: Copy {
     type NodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl;
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl;
 }
 
 impl HasNodeDecl for EntitySynNodePath {
     type NodeDecl = SynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         match self {
             EntitySynNodePath::ModuleItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
             EntitySynNodePath::TypeVariant(_) => todo!(),
@@ -136,13 +136,13 @@ impl HasNodeDecl for EntitySynNodePath {
 pub trait HasSynDecl: Copy {
     type Decl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl>;
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl>;
 }
 
 impl HasSynDecl for EntityPath {
     type Decl = Decl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         match self {
             EntityPath::Module(path) => path.syn_decl(db).map(Into::into),
             EntityPath::ModuleItem(path) => path.syn_decl(db).map(Into::into),

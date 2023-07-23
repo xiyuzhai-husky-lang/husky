@@ -6,14 +6,14 @@ use husky_vfs::ModulePath;
 use salsa::DbWithJar;
 use vec_like::VecMapGetEntry;
 
-pub trait DeclDb: DbWithJar<SynDeclJar> + SynExprDb {
+pub trait SynDeclDb: DbWithJar<SynDeclJar> + SynExprDb {
     fn syn_node_decl_sheet(&self, module_path: ModulePath)
         -> EntitySynTreeResult<SynNodeDeclSheet>;
 
     fn syn_decl_sheet(&self, module_path: ModulePath) -> EntitySynTreeResult<SynDeclSheet>;
 }
 
-impl<Db> DeclDb for Db
+impl<Db> SynDeclDb for Db
 where
     Db: DbWithJar<SynDeclJar> + SynExprDb,
 {
@@ -29,7 +29,7 @@ where
     }
 }
 
-#[salsa::jar(db = DeclDb)]
+#[salsa::jar(db = SynDeclDb)]
 pub struct SynDeclJar(
     // decl
     // - submodule

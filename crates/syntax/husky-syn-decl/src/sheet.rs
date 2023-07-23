@@ -1,25 +1,25 @@
 use crate::*;
 use vec_like::VecPairMap;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SynNodeDeclSheet {
     #[return_ref]
     pub decls: Vec<(EntitySynNodePath, SynNodeDecl)>,
 }
 
 pub trait HasSynNodeDeclSheet: Copy {
-    fn syn_node_decl_sheet(self, db: &dyn DeclDb) -> EntitySynTreeResult<SynNodeDeclSheet>;
+    fn syn_node_decl_sheet(self, db: &dyn SynDeclDb) -> EntitySynTreeResult<SynNodeDeclSheet>;
 }
 
 impl HasSynNodeDeclSheet for ModulePath {
-    fn syn_node_decl_sheet(self, db: &dyn DeclDb) -> EntitySynTreeResult<SynNodeDeclSheet> {
+    fn syn_node_decl_sheet(self, db: &dyn SynDeclDb) -> EntitySynTreeResult<SynNodeDeclSheet> {
         syn_node_decl_sheet(db, self)
     }
 }
 
 // useful for diagnostics and testing
 #[salsa::tracked(jar = SynDeclJar)]
-pub fn syn_node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntitySynTreeResult<SynNodeDeclSheet> {
+pub fn syn_node_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTreeResult<SynNodeDeclSheet> {
     let entity_tree_sheet = db.entity_syn_tree_sheet(path)?;
     let mut decls: Vec<(EntitySynNodePath, SynNodeDecl)> = Default::default();
     for syn_node_path in entity_tree_sheet.major_entity_syn_node_paths() {
@@ -58,10 +58,10 @@ pub fn syn_node_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntitySynTreeRe
 fn syn_node_decl_sheet_works() {
     use tests::*;
 
-    DB::default().ast_expect_test_debug_with_db("syn_node_decl_sheet", DeclDb::syn_node_decl_sheet);
+    DB::default().ast_expect_test_debug_with_db("syn_node_decl_sheet", SynDeclDb::syn_node_decl_sheet);
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SynDeclSheet {
     #[return_ref]
     pub decls: Vec<(EntityPath, Decl)>,
@@ -69,7 +69,7 @@ pub struct SynDeclSheet {
 
 // only useful for testing purposes
 #[salsa::tracked(jar = SynDeclJar)]
-pub fn syn_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntitySynTreeResult<SynDeclSheet> {
+pub fn syn_decl_sheet(db: &dyn SynDeclDb, path: ModulePath) -> EntitySynTreeResult<SynDeclSheet> {
     // get decls through entity paths
     let entity_tree_sheet = db.entity_syn_tree_sheet(path)?;
     let mut decls: Vec<(EntityPath, Decl)> = Default::default();
@@ -107,5 +107,5 @@ pub fn syn_decl_sheet(db: &dyn DeclDb, path: ModulePath) -> EntitySynTreeResult<
 fn syn_decl_sheet_works() {
     use tests::*;
 
-    DB::default().ast_expect_test_debug_with_db("syn_decl_sheet", DeclDb::syn_decl_sheet);
+    DB::default().ast_expect_test_debug_with_db("syn_decl_sheet", SynDeclDb::syn_decl_sheet);
 }

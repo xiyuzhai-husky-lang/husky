@@ -2,7 +2,7 @@ use husky_print_utils::p;
 
 use super::*;
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeAssociatedTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
@@ -18,7 +18,7 @@ pub struct TraitForTypeAssociatedTypeSynNodeDecl {
 }
 
 impl TraitForTypeAssociatedTypeSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         // ad hoc
         Default::default()
     }
@@ -62,7 +62,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct TraitForTypeAssociatedTypeSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
@@ -74,7 +74,7 @@ pub struct TraitForTypeAssociatedTypeSynDecl {
 
 impl TraitForTypeAssociatedTypeSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TraitForTypeItemPath,
         syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl,
     ) -> DeclResult<Self> {

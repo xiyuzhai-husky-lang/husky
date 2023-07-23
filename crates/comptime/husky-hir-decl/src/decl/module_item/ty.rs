@@ -29,6 +29,45 @@ pub enum TypeHirDecl {
     Union(UnionHirDecl),
 }
 
+impl TypeHirDecl {
+    pub fn path(self, db: &dyn HirDeclDb) -> TypePath {
+        match self {
+            TypeHirDecl::Enum(decl) => decl.path(db),
+            TypeHirDecl::Inductive(decl) => decl.path(db),
+            TypeHirDecl::Record(decl) => decl.path(db),
+            TypeHirDecl::UnitStruct(decl) => decl.path(db),
+            TypeHirDecl::PropsStruct(decl) => decl.path(db),
+            TypeHirDecl::TupleStruct(decl) => decl.path(db),
+            TypeHirDecl::Extern(decl) => decl.path(db),
+            TypeHirDecl::Union(decl) => decl.path(db),
+        }
+    }
+
+    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
+        match self {
+            TypeHirDecl::Enum(decl) => decl.generic_parameters(db),
+            TypeHirDecl::UnitStruct(decl) => decl.generic_parameters(db),
+            TypeHirDecl::TupleStruct(decl) => decl.generic_parameters(db),
+            TypeHirDecl::PropsStruct(decl) => decl.generic_parameters(db),
+            TypeHirDecl::Record(decl) => decl.generic_parameters(db),
+            TypeHirDecl::Extern(decl) => decl.generic_parameters(db),
+            TypeHirDecl::Union(decl) => decl.generic_parameters(db),
+        }
+    }
+
+    pub fn expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+        match self {
+            TypeHirDecl::Enum(decl) => decl.expr_region(db),
+            TypeHirDecl::UnitStruct(decl) => decl.expr_region(db),
+            TypeHirDecl::TupleStruct(decl) => decl.expr_region(db),
+            TypeHirDecl::PropsStruct(decl) => decl.expr_region(db),
+            TypeHirDecl::Record(decl) => decl.expr_region(db),
+            TypeHirDecl::Extern(decl) => decl.expr_region(db),
+            TypeHirDecl::Union(decl) => decl.expr_region(db),
+        }
+    }
+}
+
 impl HasHirDecl for TypePath {
     type HirDecl = TypeHirDecl;
 

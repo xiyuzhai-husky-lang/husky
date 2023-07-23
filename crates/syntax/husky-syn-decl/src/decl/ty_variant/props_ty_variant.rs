@@ -3,7 +3,7 @@ use husky_token::{CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken};
 use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
 
 // todo: GADT
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct PropsTypeVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
@@ -48,7 +48,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantRi
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct PropsTypeVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
@@ -57,7 +57,7 @@ pub struct PropsTypeVariantSynDecl {
 
 impl PropsTypeVariantSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TypeVariantPath,
         syn_node_decl: PropsTypeVariantSynNodeDecl,
     ) -> DeclResult<Self> {

@@ -6,4 +6,4 @@ pub trait HirExprDb: salsa::DbWithJar<HirExprJar> + ExprTypeDb {}
 impl<Db> HirExprDb for Db where Db: salsa::DbWithJar<HirExprJar> + ExprTypeDb {}
 
 #[salsa::jar(db = HirExprDb)]
-pub struct HirExprJar();
+pub struct HirExprJar(HirExprRegion);

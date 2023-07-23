@@ -9,7 +9,7 @@ pub use self::ty::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum ModuleItemSynNodeDecl {
     Type(TypeSynNodeDecl),
@@ -18,7 +18,7 @@ pub enum ModuleItemSynNodeDecl {
 }
 
 impl ModuleItemSynNodeDecl {
-    pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
+    pub fn ast_idx(self, db: &dyn SynDeclDb) -> AstIdx {
         match self {
             ModuleItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.ast_idx(db),
             ModuleItemSynNodeDecl::Fugitive(syn_node_decl) => syn_node_decl.ast_idx(db),
@@ -26,7 +26,7 @@ impl ModuleItemSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
+    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             ModuleItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.expr_region(db).into(),
             ModuleItemSynNodeDecl::Fugitive(syn_node_decl) => syn_node_decl.expr_region(db).into(),
@@ -34,7 +34,7 @@ impl ModuleItemSynNodeDecl {
         }
     }
 
-    pub fn syn_node_path(self, db: &dyn DeclDb) -> EntitySynNodePath {
+    pub fn syn_node_path(self, db: &dyn SynDeclDb) -> EntitySynNodePath {
         match self {
             ModuleItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.syn_node_path(db).into(),
             ModuleItemSynNodeDecl::Fugitive(syn_node_decl) => {
@@ -44,7 +44,7 @@ impl ModuleItemSynNodeDecl {
         }
     }
 
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         match self {
             ModuleItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.errors(db),
             ModuleItemSynNodeDecl::Fugitive(syn_node_decl) => syn_node_decl.errors(db),
@@ -56,7 +56,7 @@ impl ModuleItemSynNodeDecl {
 impl HasNodeDecl for ModuleItemSynNodePath {
     type NodeDecl = ModuleItemSynNodeDecl;
 
-    fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
+    fn syn_node_decl<'a>(self, db: &'a dyn SynDeclDb) -> Self::NodeDecl {
         match self {
             ModuleItemSynNodePath::Trait(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
             ModuleItemSynNodePath::Type(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
@@ -68,7 +68,7 @@ impl HasNodeDecl for ModuleItemSynNodePath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclDb)]
+#[salsa::derive_debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum ModuleItemSynDecl {
     Type(TypeSynDecl),
@@ -77,7 +77,7 @@ pub enum ModuleItemSynDecl {
 }
 
 impl ModuleItemSynDecl {
-    pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
         match self {
             ModuleItemSynDecl::Type(decl) => decl.generic_parameters(db),
             ModuleItemSynDecl::Fugitive(decl) => decl.generic_parameters(db),
@@ -85,7 +85,7 @@ impl ModuleItemSynDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
+    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             ModuleItemSynDecl::Type(decl) => decl.expr_region(db).into(),
             ModuleItemSynDecl::Fugitive(decl) => decl.expr_region(db).into(),
@@ -93,7 +93,7 @@ impl ModuleItemSynDecl {
         }
     }
 
-    pub fn path(self, db: &dyn DeclDb) -> ModuleItemPath {
+    pub fn path(self, db: &dyn SynDeclDb) -> ModuleItemPath {
         match self {
             ModuleItemSynDecl::Type(decl) => decl.path(db).into(),
             ModuleItemSynDecl::Fugitive(decl) => decl.path(db).into(),
@@ -105,7 +105,7 @@ impl ModuleItemSynDecl {
 impl HasSynDecl for ModuleItemPath {
     type Decl = ModuleItemSynDecl;
 
-    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         match self {
             ModuleItemPath::Type(id) => id.syn_decl(db).map(Into::into),
             ModuleItemPath::Trait(id) => id.syn_decl(db).map(Into::into),

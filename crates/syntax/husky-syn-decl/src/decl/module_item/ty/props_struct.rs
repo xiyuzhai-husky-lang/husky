@@ -2,7 +2,7 @@ use super::*;
 use husky_token::{CommaToken, LeftCurlyBraceToken, RightCurlyBraceToken};
 use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct PropsStructTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
@@ -19,7 +19,7 @@ pub struct PropsStructTypeSynNodeDecl {
 }
 
 impl PropsStructTypeSynNodeDecl {
-    pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
+    pub fn errors(self, db: &dyn SynDeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
                 .as_ref()
@@ -63,7 +63,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsStructRightCu
     }
 }
 
-#[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
 pub struct PropsStructTypeSynDecl {
     #[id]
     pub path: TypePath,
@@ -76,7 +76,7 @@ pub struct PropsStructTypeSynDecl {
 
 impl PropsStructTypeSynDecl {
     pub(super) fn from_node_decl(
-        db: &dyn DeclDb,
+        db: &dyn SynDeclDb,
         path: TypePath,
         syn_node_decl: PropsStructTypeSynNodeDecl,
     ) -> DeclResult<Self> {

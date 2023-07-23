@@ -13,3 +13,23 @@ pub enum ImplBlockHirDecl {
     Type(TypeImplBlockHirDecl),
     TraitForType(TraitForTypeImplBlockHirDecl),
 }
+
+impl ImplBlockHirDecl {
+    pub fn path(self, db: &dyn HirDeclDb) -> ImplBlockPath {
+        match self {
+            ImplBlockHirDecl::Type(decl) => decl.path(db).into(),
+            ImplBlockHirDecl::TraitForType(_) => todo!(),
+        }
+    }
+
+    pub fn generic_parameters<'a>(self, _db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
+        todo!()
+    }
+
+    pub fn expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+        match self {
+            ImplBlockHirDecl::Type(decl) => decl.expr_region(db),
+            ImplBlockHirDecl::TraitForType(decl) => decl.expr_region(db),
+        }
+    }
+}
