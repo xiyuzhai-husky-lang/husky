@@ -28,7 +28,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> TypeNodeDecl {
+    ) -> TypeSynNodeDecl {
         let mut parser = self.expr_parser(
             syn_node_path,
             None,

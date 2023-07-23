@@ -38,16 +38,16 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
 ) -> DeclarativeSignatureResult<TraitForTypeItemDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        TraitForTypeItemDecl::AssociatedFn(decl) => {
+        TraitForTypeItemSynDecl::AssociatedFn(decl) => {
             trai_for_ty_associated_fn_declarative_signature_template(db, decl).map(Into::into)
         }
-        TraitForTypeItemDecl::MethodFn(decl) => {
+        TraitForTypeItemSynDecl::MethodFn(decl) => {
             trai_for_ty_method_fn_declarative_signature_template(db, decl).map(Into::into)
         }
-        TraitForTypeItemDecl::AssociatedType(decl) => {
+        TraitForTypeItemSynDecl::AssociatedType(decl) => {
             trai_for_ty_associated_ty_declarative_signature_template(db, decl).map(Into::into)
         }
-        TraitForTypeItemDecl::AssociatedVal(decl) => {
+        TraitForTypeItemSynDecl::AssociatedVal(decl) => {
             trai_for_ty_associated_val_declarative_signature_template(db, decl).map(Into::into)
         }
     }

@@ -24,7 +24,7 @@ pub enum SynNodeDecl {
     ModuleItem(ModuleItemSynNodeDecl),
     ImplBlock(ImplBlockSynNodeDecl),
     AssociatedItem(AssociatedItemSynNodeDecl),
-    TypeVariant(TypeVariantNodeDecl),
+    TypeVariant(TypeVariantSynNodeDecl),
 }
 
 impl SynNodeDecl {
@@ -75,10 +75,10 @@ impl SynNodeDecl {
 #[enum_class::from_variants]
 pub enum Decl {
     Submodule(SubmoduleSynDecl),
-    ModuleItem(ModuleItemDecl),
+    ModuleItem(ModuleItemSynDecl),
     ImplBlock(ImplBlockSynDecl),
     AssociatedItem(AssociatedItemSynDecl),
-    TypeVariant(TypeVariantDecl),
+    TypeVariant(TypeVariantSynDecl),
 }
 
 impl Decl {
@@ -97,7 +97,7 @@ impl Decl {
             Decl::Submodule(_) => None,
             Decl::ModuleItem(decl) => decl.expr_region(db).into(),
             Decl::ImplBlock(decl) => decl.expr_region(db).into(),
-            Decl::AssociatedItem(decl) => decl.expr_region(db).into(),
+            Decl::AssociatedItem(decl) => decl.syn_expr_region(db).into(),
             Decl::TypeVariant(_decl) => todo!(),
         }
     }

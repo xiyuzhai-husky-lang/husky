@@ -19,7 +19,7 @@ use vec_like::VecMapGetEntry;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TypeItemNodeDecl {
+pub enum TypeItemSynNodeDecl {
     AssociatedFn(TypeAssociatedFnSynNodeDecl),
     MethodFn(TypeMethodFnSynNodeDecl),
     AssociatedType(TypeAssociatedTypeSynNodeDecl),
@@ -27,66 +27,66 @@ pub enum TypeItemNodeDecl {
     MemoizedField(TypeMemoizedFieldSynNodeDecl),
 }
 
-impl From<TypeItemNodeDecl> for SynNodeDecl {
-    fn from(decl: TypeItemNodeDecl) -> Self {
+impl From<TypeItemSynNodeDecl> for SynNodeDecl {
+    fn from(decl: TypeItemSynNodeDecl) -> Self {
         SynNodeDecl::AssociatedItem(decl.into())
     }
 }
 
-impl TypeItemNodeDecl {
+impl TypeItemSynNodeDecl {
     pub fn syn_node_path(self, db: &dyn DeclDb) -> TypeItemSynNodePath {
         match self {
-            TypeItemNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeItemNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
-            TypeItemNodeDecl::AssociatedType(_) => todo!(),
-            TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-            TypeItemNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeItemSynNodeDecl::AssociatedType(_) => todo!(),
+            TypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
+            TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.syn_node_path(db),
         }
     }
 
     pub fn ast_idx(self, db: &dyn DeclDb) -> AstIdx {
         match self {
-            TypeItemNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeItemNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeItemNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeItemNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.ast_idx(db),
-            TypeItemNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.ast_idx(db),
+            TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.ast_idx(db),
         }
     }
 
     pub fn generic_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            TypeItemNodeDecl::AssociatedFn(_) => todo!(),
-            TypeItemNodeDecl::MethodFn(_) => todo!(),
-            TypeItemNodeDecl::AssociatedType(_) => todo!(),
-            TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-            TypeItemNodeDecl::MemoizedField(_) => todo!(),
+            TypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
+            TypeItemSynNodeDecl::MethodFn(_) => todo!(),
+            TypeItemSynNodeDecl::AssociatedType(_) => todo!(),
+            TypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
+            TypeItemSynNodeDecl::MemoizedField(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            TypeItemNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeItemNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeItemNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeItemNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeItemNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.expr_region(db),
         }
     }
 
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         match self {
-            TypeItemNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
-            TypeItemNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),
-            TypeItemNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.errors(db),
-            TypeItemNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.errors(db),
-            TypeItemNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.errors(db),
+            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.errors(db),
+            TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),
+            TypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.errors(db),
+            TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.errors(db),
+            TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.errors(db),
         }
     }
 }
 
 impl HasNodeDecl for TypeItemSynNodePath {
-    type NodeDecl = TypeItemNodeDecl;
+    type NodeDecl = TypeItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         ty_item_syn_node_decl(db, self)
@@ -94,7 +94,7 @@ impl HasNodeDecl for TypeItemSynNodePath {
 }
 
 impl HasNodeDecl for TypeItemSynNode {
-    type NodeDecl = TypeItemNodeDecl;
+    type NodeDecl = TypeItemSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         todo!()
@@ -105,14 +105,17 @@ impl HasNodeDecl for TypeItemSynNode {
 pub(crate) fn ty_item_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: TypeItemSynNodePath,
-) -> TypeItemNodeDecl {
+) -> TypeItemSynNodeDecl {
     let module_path = syn_node_path.module_path(db);
     let ctx = DeclParser::new(db, module_path);
     ctx.parse_ty_item_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_item_syn_node_decl(&self, syn_node_path: TypeItemSynNodePath) -> TypeItemNodeDecl {
+    fn parse_ty_item_syn_node_decl(
+        &self,
+        syn_node_path: TypeItemSynNodePath,
+    ) -> TypeItemSynNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
@@ -145,7 +148,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         ty_item_kind: TypeItemKind,
         saved_stream_state: TokenStreamState,
-    ) -> TypeItemNodeDecl {
+    ) -> TypeItemSynNodeDecl {
         match ty_item_kind {
             TypeItemKind::MethodFn => self
                 .parse_ty_method_node_decl(
@@ -176,7 +179,7 @@ impl<'a> DeclParser<'a> {
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
-pub enum TypeItemDecl {
+pub enum TypeItemSynDecl {
     AssociatedFn(TypeAssociatedFnSynDecl),
     MethodFn(TypeMethodFnSynDecl),
     AssociatedType(TypeAssociatedTypeSynDecl),
@@ -184,40 +187,40 @@ pub enum TypeItemDecl {
     MemoizedField(TypeMemoizedFieldSynDecl),
 }
 
-impl From<TypeItemDecl> for Decl {
-    fn from(decl: TypeItemDecl) -> Self {
+impl From<TypeItemSynDecl> for Decl {
+    fn from(decl: TypeItemSynDecl) -> Self {
         Decl::AssociatedItem(decl.into())
     }
 }
 
-impl TypeItemDecl {
+impl TypeItemSynDecl {
     pub fn path(self, db: &dyn DeclDb) -> TypeItemPath {
         match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.path(db),
-            TypeItemDecl::MethodFn(decl) => decl.path(db),
-            TypeItemDecl::AssociatedType(_) => todo!(),
-            TypeItemDecl::AssociatedVal(_) => todo!(),
-            TypeItemDecl::MemoizedField(decl) => decl.path(db),
+            TypeItemSynDecl::AssociatedFn(decl) => decl.path(db),
+            TypeItemSynDecl::MethodFn(decl) => decl.path(db),
+            TypeItemSynDecl::AssociatedType(_) => todo!(),
+            TypeItemSynDecl::AssociatedVal(_) => todo!(),
+            TypeItemSynDecl::MemoizedField(decl) => decl.path(db),
         }
     }
 
     pub fn generic_parameters<'a>(self, _db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         match self {
-            TypeItemDecl::AssociatedFn(_) => todo!(),
-            TypeItemDecl::MethodFn(_) => todo!(),
-            TypeItemDecl::AssociatedType(_) => todo!(),
-            TypeItemDecl::AssociatedVal(_) => todo!(),
-            TypeItemDecl::MemoizedField(_) => todo!(),
+            TypeItemSynDecl::AssociatedFn(_) => todo!(),
+            TypeItemSynDecl::MethodFn(_) => todo!(),
+            TypeItemSynDecl::AssociatedType(_) => todo!(),
+            TypeItemSynDecl::AssociatedVal(_) => todo!(),
+            TypeItemSynDecl::MemoizedField(_) => todo!(),
         }
     }
 
     pub fn expr_region(self, db: &dyn DeclDb) -> SynExprRegion {
         match self {
-            TypeItemDecl::AssociatedFn(decl) => decl.expr_region(db),
-            TypeItemDecl::MethodFn(decl) => decl.expr_region(db),
-            TypeItemDecl::AssociatedType(decl) => decl.expr_region(db),
-            TypeItemDecl::AssociatedVal(decl) => decl.expr_region(db),
-            TypeItemDecl::MemoizedField(decl) => decl.expr_region(db),
+            TypeItemSynDecl::AssociatedFn(decl) => decl.expr_region(db),
+            TypeItemSynDecl::MethodFn(decl) => decl.expr_region(db),
+            TypeItemSynDecl::AssociatedType(decl) => decl.expr_region(db),
+            TypeItemSynDecl::AssociatedVal(decl) => decl.expr_region(db),
+            TypeItemSynDecl::MemoizedField(decl) => decl.expr_region(db),
         }
     }
 }
@@ -235,7 +238,7 @@ pub enum TypeItemDecls {
 }
 
 impl HasSynDecl for TypeItemPath {
-    type Decl = TypeItemDecl;
+    type Decl = TypeItemSynDecl;
 
     fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         ty_item_syn_decl(db, self)
@@ -243,17 +246,17 @@ impl HasSynDecl for TypeItemPath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_item_syn_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemDecl> {
+pub(crate) fn ty_item_syn_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemSynDecl> {
     match path.syn_node_path(db).syn_node_decl(db) {
-        TypeItemNodeDecl::AssociatedFn(syn_node_decl) => {
+        TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => {
             TypeAssociatedFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
-        TypeItemNodeDecl::MethodFn(syn_node_decl) => {
+        TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
             TypeMethodFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
-        TypeItemNodeDecl::AssociatedType(_) => todo!(),
-        TypeItemNodeDecl::AssociatedVal(_) => todo!(),
-        TypeItemNodeDecl::MemoizedField(syn_node_decl) => {
+        TypeItemSynNodeDecl::AssociatedType(_) => todo!(),
+        TypeItemSynNodeDecl::AssociatedVal(_) => todo!(),
+        TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => {
             TypeMemoizedFieldSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
     }

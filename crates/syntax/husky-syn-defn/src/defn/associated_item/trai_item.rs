@@ -40,7 +40,7 @@ pub enum TraitItemSynDefn {
 }
 
 impl TraitItemSynDefn {
-    pub fn decl(self, _db: &dyn SynDefnDb) -> TraitItemDecl {
+    pub fn decl(self, _db: &dyn SynDefnDb) -> TraitItemSynDecl {
         todo!()
     }
 
@@ -67,9 +67,11 @@ pub(crate) fn trai_item_syn_defn(
 ) -> SynDefnResult<TraitItemSynDefn> {
     let decl = path.syn_decl(db)?;
     Ok(match decl {
-        TraitItemDecl::AssociatedFn(decl) => TraitAssociatedFnSynDefn::new(db, path, decl)?.into(),
-        TraitItemDecl::MethodFn(decl) => TraitMethodFnSynDefn::new(db, path, decl)?.into(),
-        TraitItemDecl::AssociatedType(_decl) => todo!(),
-        TraitItemDecl::AssociatedVal(_decl) => todo!(),
+        TraitItemSynDecl::AssociatedFn(decl) => {
+            TraitAssociatedFnSynDefn::new(db, path, decl)?.into()
+        }
+        TraitItemSynDecl::MethodFn(decl) => TraitMethodFnSynDefn::new(db, path, decl)?.into(),
+        TraitItemSynDecl::AssociatedType(_decl) => todo!(),
+        TraitItemSynDecl::AssociatedVal(_decl) => todo!(),
     })
 }
