@@ -57,7 +57,7 @@ impl TypeHirDefn {
 impl HasHirDefn for TypePath {
     type HirDefn = TypeHirDefn;
 
-    fn syn_defn(self, db: &dyn HirDefnDb) -> HirDefnResult<Self::HirDefn> {
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
         ty_defn(db, self)
     }
 }

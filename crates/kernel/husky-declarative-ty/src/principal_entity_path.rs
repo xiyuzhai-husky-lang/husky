@@ -10,7 +10,7 @@ pub use self::ty_constructor::*;
 pub use self::ty_instance_constructor::*;
 
 use crate::*;
-use husky_syn_decl::{HasDecl, TypeVariantDecl};
+use husky_syn_decl::{HasSynDecl, TypeVariantDecl};
 #[cfg(test)]
 use salsa::assert_eq_with_db;
 use utils::*;

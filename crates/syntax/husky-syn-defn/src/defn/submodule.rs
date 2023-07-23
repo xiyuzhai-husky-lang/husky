@@ -39,7 +39,7 @@ impl HasSynDefn for ModulePath {
 
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(SubmoduleDefn {
-            decl: self.decl(db)?,
+            decl: self.syn_decl(db)?,
         })
     }
 }

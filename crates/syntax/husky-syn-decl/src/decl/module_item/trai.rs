@@ -106,10 +106,10 @@ impl TraitSynDecl {
     }
 }
 
-impl HasDecl for TraitPath {
+impl HasSynDecl for TraitPath {
     type Decl = TraitSynDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         trai_syn_decl(db, self)
     }
 }

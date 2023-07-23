@@ -50,7 +50,7 @@ impl FugitiveDefn {
 impl HasHirDefn for FugitivePath {
     type HirDefn = FugitiveDefn;
 
-    fn syn_defn(self, db: &dyn HirDefnDb) -> HirDefnResult<Self::HirDefn> {
+    fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
         fugitive_syn_defn(db, self)
     }
 }

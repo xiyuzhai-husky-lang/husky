@@ -143,7 +143,7 @@ pub(crate) fn trai_for_ty_item_syn_defn(
     db: &dyn SynDefnDb,
     path: TraitForTypeItemPath,
 ) -> SynDefnResult<TraitForTypeItemSynDefn> {
-    Ok(match path.decl(db)? {
+    Ok(match path.syn_decl(db)? {
         TraitForTypeItemDecl::AssociatedFn(_) => todo!(),
         TraitForTypeItemDecl::MethodFn(decl) => {
             TraitForTypeMethodFnSynDefn::new(db, path, decl).into()

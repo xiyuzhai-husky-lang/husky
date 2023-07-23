@@ -102,14 +102,14 @@ impl ModuleItemDecl {
     }
 }
 
-impl HasDecl for ModuleItemPath {
+impl HasSynDecl for ModuleItemPath {
     type Decl = ModuleItemDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         match self {
-            ModuleItemPath::Type(id) => id.decl(db).map(Into::into),
-            ModuleItemPath::Trait(id) => id.decl(db).map(Into::into),
-            ModuleItemPath::Fugitive(id) => id.decl(db).map(Into::into),
+            ModuleItemPath::Type(id) => id.syn_decl(db).map(Into::into),
+            ModuleItemPath::Trait(id) => id.syn_decl(db).map(Into::into),
+            ModuleItemPath::Fugitive(id) => id.syn_decl(db).map(Into::into),
         }
     }
 }

@@ -76,7 +76,7 @@ pub(crate) fn ty_item_syn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: TypeItemPath,
 ) -> DeclarativeSignatureResult<TypeItemDeclarativeSignatureTemplate> {
-    let decl = path.decl(db)?;
+    let decl = path.syn_decl(db)?;
     match decl {
         TypeItemDecl::AssociatedFn(decl) => {
             ty_associated_fn_declarative_signature_template(db, decl).map(Into::into)

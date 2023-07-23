@@ -146,10 +146,10 @@ impl TypeImplBlockSynDecl {
     }
 }
 
-impl HasDecl for TypeImplBlockPath {
+impl HasSynDecl for TypeImplBlockPath {
     type Decl = TypeImplBlockSynDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         ty_impl_block_syn_decl(db, self)
     }
 }

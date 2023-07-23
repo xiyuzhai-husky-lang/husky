@@ -163,7 +163,7 @@ impl HasSynDefn for TypePath {
 
 #[salsa::tracked(jar = SynDefnJar)]
 pub(crate) fn ty_defn(db: &dyn SynDefnDb, path: TypePath) -> SynDefnResult<TypeDefn> {
-    Ok(match path.decl(db)? {
+    Ok(match path.syn_decl(db)? {
         TypeDecl::Enum(decl) => EnumTypeSynDefn::new(db, path, decl).into(),
         TypeDecl::PropsStruct(decl) => PropsStructTypeSynDefn::new(db, path, decl).into(),
         TypeDecl::TupleStruct(decl) => TupleStructTypeSynDefn::new(db, path, decl).into(),

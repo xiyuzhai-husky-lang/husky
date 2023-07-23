@@ -124,7 +124,7 @@ pub(crate) fn fugitive_syn_defn(
     db: &dyn SynDefnDb,
     path: FugitivePath,
 ) -> SynDefnResult<FugitiveDefn> {
-    Ok(match path.decl(db)? {
+    Ok(match path.syn_decl(db)? {
         FugitiveDecl::Fn(decl) => FnSynDefn::new(db, path, decl).into(),
         FugitiveDecl::Val(decl) => ValSynDefn::new(db, path, decl).into(),
         FugitiveDecl::Gn(decl) => GnSynDefn::new(db, path, decl).into(),

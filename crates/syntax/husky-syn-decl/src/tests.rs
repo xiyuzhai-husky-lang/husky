@@ -44,6 +44,6 @@ fn menu_entity_decl_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let entity_path_menu = db.entity_path_menu(toolchain);
-    let i32_ty_path_decl = entity_path_menu.i32_ty_path().decl(&db).unwrap();
+    let i32_ty_path_decl = entity_path_menu.i32_ty_path().syn_decl(&db).unwrap();
     salsa::assert_eq_with_db!(db, i32_ty_path_decl.generic_parameters(&db).len(), 0);
 }

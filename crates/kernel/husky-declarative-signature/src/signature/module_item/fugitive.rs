@@ -50,7 +50,7 @@ pub(crate) fn fugitive_syn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: FugitivePath,
 ) -> DeclarativeSignatureResult<FugitiveDeclarativeSignatureTemplate> {
-    let decl = path.decl(db)?;
+    let decl = path.syn_decl(db)?;
     match decl {
         FugitiveDecl::Fn(decl) => decl.declarative_signature_template(db).map(Into::into),
         FugitiveDecl::Val(decl) => decl.declarative_signature_template(db).map(Into::into),

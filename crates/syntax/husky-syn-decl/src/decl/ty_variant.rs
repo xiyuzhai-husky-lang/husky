@@ -154,10 +154,10 @@ impl TypeVariantDecl {
     }
 }
 
-impl HasDecl for TypeVariantPath {
+impl HasSynDecl for TypeVariantPath {
     type Decl = TypeVariantDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         ty_variant_syn_decl(db, self)
     }
 }

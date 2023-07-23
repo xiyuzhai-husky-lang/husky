@@ -50,10 +50,10 @@ impl SubmoduleSynDecl {
 
 // actually it only works for nonroot module path
 // but rust doesn't provide refinement type
-impl HasDecl for ModulePath {
+impl HasSynDecl for ModulePath {
     type Decl = SubmoduleSynDecl;
 
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         submodule_decl(db, self)
     }
 }

@@ -65,7 +65,7 @@ pub(crate) fn trai_item_syn_defn(
     db: &dyn SynDefnDb,
     path: TraitItemPath,
 ) -> SynDefnResult<TraitItemSynDefn> {
-    let decl = path.decl(db)?;
+    let decl = path.syn_decl(db)?;
     Ok(match decl {
         TraitItemDecl::AssociatedFn(decl) => TraitAssociatedFnSynDefn::new(db, path, decl)?.into(),
         TraitItemDecl::MethodFn(decl) => TraitMethodFnSynDefn::new(db, path, decl)?.into(),

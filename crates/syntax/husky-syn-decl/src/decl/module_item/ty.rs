@@ -345,11 +345,11 @@ impl TypeDecl {
     }
 }
 
-impl HasDecl for TypePath {
+impl HasSynDecl for TypePath {
     type Decl = TypeDecl;
 
     #[inline(always)]
-    fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         ty_decl(db, self)
     }
 }
@@ -364,5 +364,5 @@ fn ty_decl_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
     let menu = db.entity_path_menu(toolchain);
-    assert!(menu.never_ty_path().decl(&db).is_ok());
+    assert!(menu.never_ty_path().syn_decl(&db).is_ok());
 }
