@@ -76,8 +76,8 @@ pub(crate) struct RegionDiagnosticsContext<'a> {
 }
 
 impl<'a> RegionDiagnosticsContext<'a> {
-    pub(crate) fn new(db: &'a dyn DiagnosticsDb, expr_region: SynExprRegion) -> Self {
-        let expr_region_data = &expr_region.data(db);
+    pub(crate) fn new(db: &'a dyn DiagnosticsDb, syn_expr_region: SynExprRegion) -> Self {
+        let expr_region_data = &syn_expr_region.data(db);
         let module_path = expr_region_data.path().module_path(db);
         let ranged_token_sheet = db.ranged_token_sheet(module_path).unwrap();
         let token_sheet_data = ranged_token_sheet.token_sheet_data(db);
@@ -86,8 +86,8 @@ impl<'a> RegionDiagnosticsContext<'a> {
             token_sheet_data,
             ranged_token_sheet,
             expr_region_data,
-            expr_ty_region: db.expr_ty_region(expr_region),
-            expr_range_region: db.expr_range_region(expr_region),
+            expr_ty_region: db.expr_ty_region(syn_expr_region),
+            expr_range_region: db.expr_range_region(syn_expr_region),
         }
     }
 

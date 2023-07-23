@@ -95,7 +95,7 @@ Ok(
                                     },
                                 ),
                             ),
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -333,7 +333,7 @@ Ok(
                         body: Some(
                             93,
                         ),
-                        expr_region: SynExprRegion {
+                        syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {

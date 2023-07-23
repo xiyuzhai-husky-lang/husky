@@ -87,11 +87,11 @@ impl<'a> InferEngine<'a> {
 
     fn visit_node(&mut self, syn_node_defn: SynNodeDefn) {
         let syn_node_decl = syn_node_defn.syn_node_decl(self.db);
-        if let Some(expr_region) = syn_node_decl.expr_region(self.db) {
-            self.visit_expr_region(expr_region)
+        if let Some(syn_expr_region) = syn_node_decl.syn_expr_region(self.db) {
+            self.visit_expr_region(syn_expr_region)
         }
-        if let Some(expr_region) = syn_node_defn.expr_region(self.db) {
-            self.visit_expr_region(expr_region)
+        if let Some(syn_expr_region) = syn_node_defn.syn_expr_region(self.db) {
+            self.visit_expr_region(syn_expr_region)
         }
         let ast_idx = syn_node_defn.ast_idx(self.db);
         match self.ast_sheet[ast_idx] {
@@ -115,15 +115,15 @@ impl<'a> InferEngine<'a> {
         }
     }
 
-    fn visit_expr_region(&mut self, expr_region: SynExprRegion) {
+    fn visit_expr_region(&mut self, syn_expr_region: SynExprRegion) {
         InferContext {
             db: self.db,
             token_sheet_data: self.token_sheet_data,
             ast_sheet: self.ast_sheet,
             sheet: &mut self.sheet,
-            expr_region_data: expr_region.data(self.db),
-            expr_ty_region: self.db.expr_ty_region(expr_region),
-            expr_region: expr_region.into(),
+            expr_region_data: syn_expr_region.data(self.db),
+            expr_ty_region: self.db.expr_ty_region(syn_expr_region),
+            syn_expr_region: syn_expr_region.into(),
         }
         .visit_all()
     }
@@ -242,7 +242,7 @@ struct InferContext<'a> {
     expr_region_data: &'a SynExprRegionData,
     expr_ty_region: &'a ExprTypeRegion,
     sheet: &'a mut TokenInfoSheet,
-    expr_region: ExprRegionLeash,
+    syn_expr_region: ExprRegionLeash,
 }
 
 impl<'a> InferContext<'a> {
@@ -284,7 +284,7 @@ impl<'a> InferContext<'a> {
                 TokenInfo::CurrentSymbol {
                     current_symbol_idx: *current_symbol_idx,
                     current_symbol_kind: *current_symbol_kind,
-                    expr_region: self.expr_region,
+                    syn_expr_region: self.syn_expr_region,
                 },
             ),
             SynExpr::InheritedSymbol {
@@ -296,7 +296,7 @@ impl<'a> InferContext<'a> {
                 *token_idx,
                 TokenInfo::InheritedSymbol {
                     inherited_symbol_idx: *inherited_symbol_idx,
-                    expr_region: self.expr_region,
+                    syn_expr_region: self.syn_expr_region,
                     inherited_symbol_kind: *inherited_symbol_kind,
                 },
             ),
@@ -444,7 +444,7 @@ impl<'a> InferContext<'a> {
                             ident_token.token_idx(),
                             TokenInfo::CurrentSymbol {
                                 current_symbol_idx,
-                                expr_region: self.expr_region,
+                                syn_expr_region: self.syn_expr_region,
                                 current_symbol_kind,
                             },
                         ),
@@ -460,7 +460,7 @@ impl<'a> InferContext<'a> {
                     ident_token.token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
-                        expr_region: self.expr_region,
+                        syn_expr_region: self.syn_expr_region,
                         current_symbol_kind,
                     },
                 ),
@@ -468,7 +468,7 @@ impl<'a> InferContext<'a> {
                     label_token.token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
-                        expr_region: self.expr_region,
+                        syn_expr_region: self.syn_expr_region,
                         current_symbol_kind,
                     },
                 ),
@@ -476,7 +476,7 @@ impl<'a> InferContext<'a> {
                     ident_token.token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
-                        expr_region: self.expr_region,
+                        syn_expr_region: self.syn_expr_region,
                         current_symbol_kind,
                     },
                 ),
@@ -485,7 +485,7 @@ impl<'a> InferContext<'a> {
                 ident_token.token_idx(),
                 TokenInfo::CurrentSymbol {
                     current_symbol_idx,
-                    expr_region: self.expr_region,
+                    syn_expr_region: self.syn_expr_region,
                     current_symbol_kind,
                 },
             ),

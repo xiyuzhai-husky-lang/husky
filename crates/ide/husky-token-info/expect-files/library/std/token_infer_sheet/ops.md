@@ -37,7 +37,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,

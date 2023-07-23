@@ -15,7 +15,7 @@ pub struct TraitForTypeImplBlockSynNodeDecl {
     pub self_ty_decl: SelfTypeDecl,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -147,7 +147,7 @@ pub struct TraitForTypeImplBlockSynDecl {
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub trai_expr: TraitExpr,
     pub self_ty_decl: SelfTypeDecl,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl HasSynDecl for TraitForTypeImplBlockPath {
@@ -181,7 +181,7 @@ impl TraitForTypeImplBlockSynDecl {
             .unwrap_or_default();
         let trai_expr = syn_node_decl.trai_expr(db);
         let self_ty_decl = syn_node_decl.self_ty_decl(db);
-        let expr_region = syn_node_decl.expr_region(db);
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
         syn_node_decl.eol_colon(db).as_ref()?;
         Ok(Self::new(
             db,
@@ -189,7 +189,7 @@ impl TraitForTypeImplBlockSynDecl {
             generic_parameters,
             trai_expr,
             self_ty_decl,
-            expr_region,
+            syn_expr_region,
         ))
     }
 }

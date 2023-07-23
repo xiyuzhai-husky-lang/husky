@@ -1,9 +1,9 @@
 use super::*;
 
 impl HasSynNodeDefn for ImplBlockSynNodePath {
-    type NodeDefn = ImplBlockSynNodeDecl;
+    type SynNodeDefn = ImplBlockSynNodeDecl;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         self.syn_node_decl(db)
     }
 }

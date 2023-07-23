@@ -22,9 +22,9 @@ pub enum TraitItemSynNodeDefn {
 }
 
 impl HasSynNodeDefn for TraitItemSynNodePath {
-    type NodeDefn = TraitItemSynNodeDefn;
+    type SynNodeDefn = TraitItemSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         todo!()
     }
 }
@@ -47,7 +47,8 @@ impl TraitItemSynDefn {
     pub fn path(self, _db: &dyn SynDefnDb) -> AssociatedItemPath {
         todo!()
     }
-    pub fn expr_region(self, _db: &dyn SynDefnDb) -> SynExprRegion {
+
+    pub fn syn_expr_region(self, _db: &dyn SynDefnDb) -> SynExprRegion {
         todo!()
     }
 }

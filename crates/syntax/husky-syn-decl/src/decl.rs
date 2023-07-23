@@ -38,12 +38,12 @@ impl SynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
         match self {
             SynNodeDecl::Submodule(_) => None,
-            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.expr_region(db).into(),
-            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.expr_region(db).into(),
-            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.expr_region(db).into(),
+            SynNodeDecl::ModuleItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
+            SynNodeDecl::ImplBlock(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
+            SynNodeDecl::AssociatedItem(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
             SynNodeDecl::TypeVariant(_node_decl) => todo!(),
         }
     }
@@ -92,11 +92,11 @@ impl Decl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> Option<SynExprRegion> {
         match self {
             Decl::Submodule(_) => None,
-            Decl::ModuleItem(decl) => decl.expr_region(db).into(),
-            Decl::ImplBlock(decl) => decl.expr_region(db).into(),
+            Decl::ModuleItem(decl) => decl.syn_expr_region(db).into(),
+            Decl::ImplBlock(decl) => decl.syn_expr_region(db).into(),
             Decl::AssociatedItem(decl) => decl.syn_expr_region(db).into(),
             Decl::TypeVariant(_decl) => todo!(),
         }

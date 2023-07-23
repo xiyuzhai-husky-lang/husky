@@ -26,9 +26,11 @@ pub(crate) fn ty_impl_block_syn_declarative_signature_template(
     path: TypeImplBlockPath,
 ) -> DeclarativeSignatureResult<TypeImplBlockDeclarativeSignatureTemplate> {
     let decl = path.syn_decl(db)?;
-    let expr_region = decl.expr_region(db);
-    let declarative_term_region = declarative_term_region(db, expr_region);
-    let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
+    let syn_expr_region = decl.syn_expr_region(db);
+    let declarative_term_region = declarative_term_region(db, syn_expr_region);
+    let declarative_term_menu = db
+        .declarative_term_menu(syn_expr_region.toolchain(db))
+        .unwrap();
     let generic_parameters = DeclarativeGenericParameterTemplates::from_decl(
         decl.generic_parameters(db),
         &declarative_term_region,

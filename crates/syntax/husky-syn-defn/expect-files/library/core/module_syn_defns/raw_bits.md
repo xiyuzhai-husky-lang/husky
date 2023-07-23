@@ -8,7 +8,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::raw_bits::r32`, `Extern`),
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -79,7 +79,7 @@ Ok(
                     self_ty_expr: SelfTypeExpr {
                         expr: 0,
                     },
-                    expr_region: SynExprRegion {
+                    syn_expr_region: SynExprRegion {
                         data: SynExprRegionData {
                             parent: None,
                             path: RegionPath::Decl(
@@ -213,7 +213,7 @@ Ok(
                                     expr: 1,
                                 },
                             ),
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: Some(
                                         SynExprRegion {
@@ -475,7 +475,7 @@ Ok(
                             },
                         },
                         body: None,
-                        expr_region: SynExprRegion {
+                        syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {

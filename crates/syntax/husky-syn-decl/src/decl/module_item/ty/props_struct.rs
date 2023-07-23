@@ -15,7 +15,7 @@ pub struct PropsStructTypeSynNodeDecl {
     fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
     rcurl: NodeDeclResult<PropsStructRightCurlyBraceToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl PropsStructTypeSynNodeDecl {
@@ -71,7 +71,7 @@ pub struct PropsStructTypeSynDecl {
     pub generic_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldDeclPattern; 4]>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl PropsStructTypeSynDecl {
@@ -87,7 +87,13 @@ impl PropsStructTypeSynDecl {
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let fields = SmallVec::from(syn_node_decl.fields(db).as_ref()?.elements());
-        let expr_region = syn_node_decl.expr_region(db);
-        Ok(Self::new(db, path, generic_parameters, fields, expr_region))
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(
+            db,
+            path,
+            generic_parameters,
+            fields,
+            syn_expr_region,
+        ))
     }
 }

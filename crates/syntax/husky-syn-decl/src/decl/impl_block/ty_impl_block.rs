@@ -13,7 +13,7 @@ pub struct TypeImplBlockSynNodeDecl {
     pub self_ty_expr: SelfTypeExpr,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TypeImplBlockSynNodeDecl {
@@ -112,7 +112,7 @@ pub struct TypeImplBlockSynDecl {
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub self_ty_expr: SelfTypeExpr,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl From<TypeImplBlockSynDecl> for Decl {
@@ -134,14 +134,14 @@ impl TypeImplBlockSynDecl {
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let self_ty_expr = syn_node_decl.self_ty_expr(db);
-        let expr_region = syn_node_decl.expr_region(db);
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
         syn_node_decl.eol_colon(db).as_ref()?;
         Ok(Self::new(
             db,
             path,
             generic_parameters,
             self_ty_expr,
-            expr_region,
+            syn_expr_region,
         ))
     }
 }

@@ -5,7 +5,7 @@ pub struct GnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     pub ast_idx: AstIdx,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
     #[return_ref]
@@ -86,7 +86,7 @@ pub struct GnSynDecl {
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl GnSynDecl {
@@ -108,14 +108,14 @@ impl GnSynDecl {
             .map(Clone::clone)
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
-        let expr_region = syn_node_decl.expr_region(db);
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(GnSynDecl::new(
             db,
             path,
             generic_parameters,
             parenic_parameters,
             return_ty,
-            expr_region,
+            syn_expr_region,
         ))
     }
 }

@@ -15,7 +15,7 @@ pub struct TupleStructTypeSynNodeDecl {
         NodeDeclResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
     rpar: NodeDeclResult<TupleStructRightParenthesisToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TupleStructTypeSynNodeDecl {
@@ -54,7 +54,7 @@ pub struct TupleStructTypeSynDecl {
     pub generic_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
     pub fields: SmallVec<[TupleFieldDeclPattern; 4]>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TupleStructTypeSynDecl {
@@ -71,8 +71,14 @@ impl TupleStructTypeSynDecl {
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let fields = SmallVec::from(syn_node_decl.field_comma_list(db).as_ref()?.elements());
-        let expr_region = syn_node_decl.expr_region(db);
-        Ok(Self::new(db, path, generic_parameters, fields, expr_region))
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(
+            db,
+            path,
+            generic_parameters,
+            fields,
+            syn_expr_region,
+        ))
     }
 }
 

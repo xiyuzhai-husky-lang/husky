@@ -8,9 +8,9 @@ pub struct TraitSynNodeDefn {
 }
 
 impl HasSynNodeDefn for TraitSynNodePath {
-    type NodeDefn = TraitSynNodeDefn;
+    type SynNodeDefn = TraitSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         trai_syn_node_defn(db, self)
     }
 }

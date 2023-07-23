@@ -62,12 +62,14 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.expr_region(db),
-            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => syn_node_decl.expr_region(db),
+            AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
+                syn_node_decl.syn_expr_region(db)
+            }
             AssociatedItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => {
-                syn_node_decl.expr_region(db)
+                syn_node_decl.syn_expr_region(db)
             }
             AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
         }
@@ -111,9 +113,9 @@ impl AssociatedItemSynDecl {
 
     pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            AssociatedItemSynDecl::TypeItem(decl) => decl.expr_region(db),
-            AssociatedItemSynDecl::TraitItem(decl) => decl.expr_region(db),
-            AssociatedItemSynDecl::TraitForTypeItem(decl) => decl.expr_region(db),
+            AssociatedItemSynDecl::TypeItem(decl) => decl.syn_expr_region(db),
+            AssociatedItemSynDecl::TraitItem(decl) => decl.syn_expr_region(db),
+            AssociatedItemSynDecl::TraitForTypeItem(decl) => decl.syn_expr_region(db),
         }
     }
 }

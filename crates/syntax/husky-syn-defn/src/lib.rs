@@ -22,8 +22,8 @@ use salsa::DbWithJar;
 #[salsa::jar(db = SynDefnDb)]
 pub struct SynDefnJar(
     // type
-    ty_node_defn,
-    ty_defn,
+    ty_syn_node_defn,
+    ty_syn_defn,
     EnumTypeSynNodeDefn,
     EnumTypeSynDefn,
     UnitStructTypeSynNodeDefn,

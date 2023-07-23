@@ -15,12 +15,12 @@ pub enum TokenInfo {
     InheritedSymbol {
         inherited_symbol_idx: InheritedSymbolIdx,
         inherited_symbol_kind: InheritedSymbolKind,
-        expr_region: ExprRegionLeash,
+        syn_expr_region: ExprRegionLeash,
     },
     CurrentSymbol {
         current_symbol_idx: CurrentSynSymbolIdx,
         current_symbol_kind: CurrentSymbolKind,
-        expr_region: ExprRegionLeash,
+        syn_expr_region: ExprRegionLeash,
     },
     SelfType,
     SelfValue,

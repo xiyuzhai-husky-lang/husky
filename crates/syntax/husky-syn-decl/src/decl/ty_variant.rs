@@ -82,7 +82,7 @@ impl<'a> DeclParser<'a> {
                 syn_node_path
                     .parent_ty_node_path(db)
                     .syn_node_decl(db)
-                    .expr_region(db),
+                    .syn_expr_region(db),
             ),
             AllowSelfType::True,
             AllowSelfValue::False,

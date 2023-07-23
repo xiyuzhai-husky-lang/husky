@@ -46,7 +46,7 @@ Ok(
                                 },
                             ],
                             return_ty: None,
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -253,7 +253,7 @@ Ok(
                         body: Some(
                             12,
                         ),
-                        expr_region: SynExprRegion {
+                        syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
@@ -881,7 +881,7 @@ Ok(
                                 },
                             ],
                             return_ty: None,
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -1228,7 +1228,7 @@ Ok(
                         body: Some(
                             22,
                         ),
-                        expr_region: SynExprRegion {
+                        syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {
@@ -2205,7 +2205,7 @@ Ok(
                                     expr: 6,
                                 },
                             ),
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -2581,7 +2581,7 @@ Ok(
                         body: Some(
                             62,
                         ),
-                        expr_region: SynExprRegion {
+                        syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: Some(
                                     SynExprRegion {

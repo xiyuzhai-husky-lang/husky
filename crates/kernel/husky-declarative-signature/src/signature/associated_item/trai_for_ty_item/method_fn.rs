@@ -31,10 +31,12 @@ pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
             .self_ty(db)
             .term(),
     );
-    let expr_region = decl.expr_region(db);
-    let expr_region_data = expr_region.data(db);
-    let declarative_term_region = declarative_term_region(db, expr_region);
-    let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
+    let syn_expr_region = decl.syn_expr_region(db);
+    let expr_region_data = syn_expr_region.data(db);
+    let declarative_term_region = declarative_term_region(db, syn_expr_region);
+    let declarative_term_menu = db
+        .declarative_term_menu(syn_expr_region.toolchain(db))
+        .unwrap();
     let generic_parameters = DeclarativeGenericParameterTemplates::from_decl(
         decl.generic_parameters(db),
         declarative_term_region,

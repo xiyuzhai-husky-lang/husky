@@ -14,7 +14,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::basic::bool`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
@@ -85,7 +85,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::basic::never`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
@@ -156,7 +156,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::basic::unit`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
@@ -227,7 +227,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::basic::Trait`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
@@ -298,7 +298,7 @@ Ok(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::basic::Module`, `Extern`),
                                 generic_parameters: [],
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(

@@ -13,7 +13,7 @@ pub struct DeriveDecr {
     pub trai_exprs: Vec<TraitExpr>,
     pub commas: Vec<CommaToken>,
     pub rpar_token: RightParenthesisToken,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl DeriveDecr {

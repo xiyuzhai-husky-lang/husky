@@ -27,9 +27,11 @@ pub(crate) fn ty_memoized_field_declarative_signature_template(
     let impl_block_syn_declarative_signature_template = decl
         .impl_block_path(db)
         .declarative_signature_template(db)?;
-    let expr_region = decl.expr_region(db);
-    let declarative_term_region = declarative_term_region(db, expr_region);
-    let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
+    let syn_expr_region = decl.syn_expr_region(db);
+    let declarative_term_region = declarative_term_region(db, syn_expr_region);
+    let declarative_term_menu = db
+        .declarative_term_menu(syn_expr_region.toolchain(db))
+        .unwrap();
     let return_ty = match decl.return_ty(db) {
         Some(return_ty) => declarative_term_region.expr_term(return_ty.expr())?,
         None => declarative_term_menu.unit(),

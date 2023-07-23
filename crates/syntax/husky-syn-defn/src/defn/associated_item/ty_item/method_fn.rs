@@ -8,7 +8,7 @@ pub struct TypeMethodFnSynNodeDefn {
     pub syn_node_path: TypeItemSynNodePath,
     pub syn_node_decl: TypeMethodFnSynNodeDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TypeMethodFnSynNodeDefn {
@@ -20,7 +20,7 @@ impl TypeMethodFnSynNodeDefn {
         let mut parser = expr_parser(
             db,
             syn_node_path,
-            syn_node_decl.expr_region(db),
+            syn_node_decl.syn_expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -42,7 +42,7 @@ pub struct TypeMethodFnSynDefn {
     pub path: TypeItemPath,
     pub decl: TypeMethodFnSynDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TypeMethodFnSynDefn {
@@ -59,7 +59,7 @@ impl TypeMethodFnSynDefn {
             path,
             decl,
             syn_node_defn.body(db),
-            syn_node_defn.expr_region(db),
+            syn_node_defn.syn_expr_region(db),
         ))
     }
 }

@@ -94,22 +94,24 @@ impl<'a> HoverResultCalculator<'a> {
             TokenInfo::EntityNode(_, _) => format!(""),
             TokenInfo::CurrentSymbol {
                 current_symbol_idx,
-                expr_region,
+                syn_expr_region,
                 ..
             } => {
                 format!(
                     "{:#?}",
-                    expr_region.data(self.db).symbol_region()[*current_symbol_idx].debug(self.db)
+                    syn_expr_region.data(self.db).symbol_region()[*current_symbol_idx]
+                        .debug(self.db)
                 )
             }
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx,
-                expr_region,
+                syn_expr_region,
                 ..
             } => {
                 format!(
                     "{:#?}",
-                    expr_region.data(self.db).symbol_region()[*inherited_symbol_idx].debug(self.db)
+                    syn_expr_region.data(self.db).symbol_region()[*inherited_symbol_idx]
+                        .debug(self.db)
                 )
             }
             TokenInfo::Field => format!(""),

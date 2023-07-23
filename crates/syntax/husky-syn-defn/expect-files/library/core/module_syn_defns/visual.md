@@ -8,7 +8,7 @@ Ok(
                         path: TraitPath(`core::visual::Visualize`),
                         ast_idx: 1,
                         generic_parameters: [],
-                        expr_region: SynExprRegion {
+                        syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(
@@ -74,7 +74,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::visual::Html`, `Extern`),
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(

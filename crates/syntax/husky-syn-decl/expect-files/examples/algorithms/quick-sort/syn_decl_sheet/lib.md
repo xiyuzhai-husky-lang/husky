@@ -52,7 +52,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: None,
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
@@ -334,7 +334,7 @@ Ok(
                                     },
                                 ],
                                 return_ty: None,
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
@@ -760,7 +760,7 @@ Ok(
                                         expr: 6,
                                     },
                                 ),
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(

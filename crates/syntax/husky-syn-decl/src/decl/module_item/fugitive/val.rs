@@ -12,7 +12,7 @@ pub struct ValSynNodeDecl {
     #[return_ref]
     pub eq_token: NodeDeclResult<EqToken>,
     pub expr: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl ValSynNodeDecl {
@@ -70,7 +70,7 @@ pub struct ValSynDecl {
     pub path: FugitivePath,
     pub return_ty: Option<ReturnTypeExprBeforeEq>,
     pub expr: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl ValSynDecl {
@@ -81,7 +81,7 @@ impl ValSynDecl {
     ) -> DeclResult<Self> {
         let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);
-        let expr_region = syn_node_decl.expr_region(db);
-        Ok(ValSynDecl::new(db, path, val_ty, expr, expr_region))
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(ValSynDecl::new(db, path, val_ty, expr, syn_expr_region))
     }
 }

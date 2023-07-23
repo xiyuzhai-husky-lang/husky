@@ -18,9 +18,9 @@ pub(crate) fn defn_diagnostic_sheet(
     {
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for defn in defns.iter().copied() {
-            if let Some(expr_region) = defn.expr_region(db) {
+            if let Some(syn_expr_region) = defn.syn_expr_region(db) {
                 let mut region_collector =
-                    RegionDiagnosticsCollector::new(db, expr_region, &mut sheet_collector);
+                    RegionDiagnosticsCollector::new(db, syn_expr_region, &mut sheet_collector);
                 region_collector.visit_defn(defn)
             }
         }

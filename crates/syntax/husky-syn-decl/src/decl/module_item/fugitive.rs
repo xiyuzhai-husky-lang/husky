@@ -37,11 +37,11 @@ impl FugitiveSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            FugitiveSynNodeDecl::Fn(decl) => decl.expr_region(db),
-            FugitiveSynNodeDecl::Val(decl) => decl.expr_region(db),
-            FugitiveSynNodeDecl::Gn(decl) => decl.expr_region(db),
+            FugitiveSynNodeDecl::Fn(decl) => decl.syn_expr_region(db),
+            FugitiveSynNodeDecl::Val(decl) => decl.syn_expr_region(db),
+            FugitiveSynNodeDecl::Gn(decl) => decl.syn_expr_region(db),
         }
     }
 
@@ -156,11 +156,11 @@ impl FugitiveSynDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            FugitiveSynDecl::Fn(decl) => decl.expr_region(db),
-            FugitiveSynDecl::Val(decl) => decl.expr_region(db),
-            FugitiveSynDecl::Gn(decl) => decl.expr_region(db),
+            FugitiveSynDecl::Fn(decl) => decl.syn_expr_region(db),
+            FugitiveSynDecl::Val(decl) => decl.syn_expr_region(db),
+            FugitiveSynDecl::Gn(decl) => decl.syn_expr_region(db),
         }
     }
 

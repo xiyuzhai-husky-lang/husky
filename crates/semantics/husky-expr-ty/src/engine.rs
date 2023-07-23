@@ -74,8 +74,8 @@ impl<'a> std::ops::Index<SynExprIdx> for ExprTypeEngine<'a> {
 }
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(crate) fn new(db: &'a dyn ExprTypeDb, expr_region: SynExprRegion) -> Self {
-        let expr_region_data = expr_region.data(db);
+    pub(crate) fn new(db: &'a dyn ExprTypeDb, syn_expr_region: SynExprRegion) -> Self {
+        let expr_region_data = syn_expr_region.data(db);
         // todo: improve this
         let parent_expr_region = expr_region_data.parent();
         let module_path = expr_region_data.path().module_path(db);
@@ -100,7 +100,7 @@ impl<'a> ExprTypeEngine<'a> {
             .flatten();
         let symbol_region = expr_region_data.symbol_region();
         let pattern_expr_region = expr_region_data.pattern_expr_region();
-        let toolchain = expr_region.toolchain(db);
+        let toolchain = syn_expr_region.toolchain(db);
         let parent_expr_ty_region =
             parent_expr_region.map(|parent_expr_region| db.expr_ty_region(parent_expr_region));
         Self {
@@ -110,7 +110,7 @@ impl<'a> ExprTypeEngine<'a> {
             term_menu: db.ethereal_term_menu(toolchain),
             token_sheet_data: expr_region_data.path().token_sheet_data(db).unwrap(),
             expr_region_data,
-            declarative_term_region: db.declarative_term_region(expr_region),
+            declarative_term_region: db.declarative_term_region(syn_expr_region),
             fluffy_term_region: FluffyTermRegion::new(
                 parent_expr_ty_region.map(|r| r.fluffy_term_region()),
             ),

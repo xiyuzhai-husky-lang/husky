@@ -26,11 +26,13 @@ impl ModuleItemSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            ModuleItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.expr_region(db).into(),
-            ModuleItemSynNodeDecl::Fugitive(syn_node_decl) => syn_node_decl.expr_region(db).into(),
-            ModuleItemSynNodeDecl::Trait(syn_node_decl) => syn_node_decl.expr_region(db).into(),
+            ModuleItemSynNodeDecl::Type(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
+            ModuleItemSynNodeDecl::Fugitive(syn_node_decl) => {
+                syn_node_decl.syn_expr_region(db).into()
+            }
+            ModuleItemSynNodeDecl::Trait(syn_node_decl) => syn_node_decl.syn_expr_region(db).into(),
         }
     }
 
@@ -85,11 +87,11 @@ impl ModuleItemSynDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            ModuleItemSynDecl::Type(decl) => decl.expr_region(db).into(),
-            ModuleItemSynDecl::Fugitive(decl) => decl.expr_region(db).into(),
-            ModuleItemSynDecl::Trait(decl) => decl.expr_region(db).into(),
+            ModuleItemSynDecl::Type(decl) => decl.syn_expr_region(db).into(),
+            ModuleItemSynDecl::Fugitive(decl) => decl.syn_expr_region(db).into(),
+            ModuleItemSynDecl::Trait(decl) => decl.syn_expr_region(db).into(),
         }
     }
 

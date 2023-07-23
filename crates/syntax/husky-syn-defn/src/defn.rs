@@ -39,11 +39,11 @@ impl SynNodeDefn {
         self.syn_node_decl(db).ast_idx(db)
     }
 
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
             SynNodeDefn::Submodule(_) => None,
-            SynNodeDefn::ModuleItem(defn) => defn.expr_region(db),
-            SynNodeDefn::AssociatedItem(defn) => defn.expr_region(db),
+            SynNodeDefn::ModuleItem(defn) => defn.syn_expr_region(db),
+            SynNodeDefn::AssociatedItem(defn) => defn.syn_expr_region(db),
             SynNodeDefn::TypeVariant(_defn) => None,
             SynNodeDefn::ImplBlock(_) => None,
         }
@@ -51,15 +51,15 @@ impl SynNodeDefn {
 }
 
 pub trait HasSynNodeDefn: Copy {
-    type NodeDefn;
+    type SynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn;
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn;
 }
 
 impl HasSynNodeDefn for EntitySynNodePath {
-    type NodeDefn = SynNodeDefn;
+    type SynNodeDefn = SynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         match self {
             EntitySynNodePath::Submodule(path) => path.syn_node_defn(db).into(),
             EntitySynNodePath::ModuleItem(path) => path.syn_node_defn(db).into(),
@@ -134,11 +134,11 @@ impl Defn {
         self.decl(db).generic_parameters(db)
     }
 
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
             Defn::Submodule(_) => None,
-            Defn::ModuleItem(defn) => defn.expr_region(db),
-            Defn::AssociatedItem(defn) => defn.expr_region(db),
+            Defn::ModuleItem(defn) => defn.syn_expr_region(db),
+            Defn::AssociatedItem(defn) => defn.syn_expr_region(db),
             Defn::TypeVariant(_defn) => None,
             Defn::ImplBlock(_) => None,
         }

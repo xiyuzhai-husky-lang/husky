@@ -39,11 +39,11 @@ impl ImplBlockSynNodeDecl {
         todo!()
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            ImplBlockSynNodeDecl::Type(syn_node_decl) => syn_node_decl.expr_region(db),
-            ImplBlockSynNodeDecl::TraitForType(syn_node_decl) => syn_node_decl.expr_region(db),
-            ImplBlockSynNodeDecl::IllFormed(syn_node_decl) => syn_node_decl.expr_region(db),
+            ImplBlockSynNodeDecl::Type(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            ImplBlockSynNodeDecl::TraitForType(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            ImplBlockSynNodeDecl::IllFormed(syn_node_decl) => syn_node_decl.syn_expr_region(db),
         }
     }
 
@@ -94,10 +94,10 @@ impl ImplBlockSynDecl {
         todo!()
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            ImplBlockSynDecl::Type(decl) => decl.expr_region(db),
-            ImplBlockSynDecl::TraitForType(decl) => decl.expr_region(db),
+            ImplBlockSynDecl::Type(decl) => decl.syn_expr_region(db),
+            ImplBlockSynDecl::TraitForType(decl) => decl.syn_expr_region(db),
         }
     }
 }

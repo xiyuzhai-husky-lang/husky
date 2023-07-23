@@ -23,11 +23,11 @@ pub(crate) fn expr_ty_diagnostic_sheet(
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for defn in defns {
             let decl = defn.decl(db);
-            if let Some(expr_region) = decl.expr_region(db) {
-                collect_expr_ty_diagnostics(db, expr_region, &mut diagnostics);
+            if let Some(syn_expr_region) = decl.syn_expr_region(db) {
+                collect_expr_ty_diagnostics(db, syn_expr_region, &mut diagnostics);
             }
-            if let Some(expr_region) = defn.expr_region(db) {
-                collect_expr_ty_diagnostics(db, expr_region, &mut diagnostics);
+            if let Some(syn_expr_region) = defn.syn_expr_region(db) {
+                collect_expr_ty_diagnostics(db, syn_expr_region, &mut diagnostics);
             }
         }
     }
@@ -37,10 +37,10 @@ pub(crate) fn expr_ty_diagnostic_sheet(
 
 fn collect_expr_ty_diagnostics(
     db: &dyn DiagnosticsDb,
-    expr_region: SynExprRegion,
+    syn_expr_region: SynExprRegion,
     diagnostics: &mut Vec<Diagnostic>,
 ) {
-    let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, expr_region);
+    let ctx: RegionDiagnosticsContext = RegionDiagnosticsContext::new(db, syn_expr_region);
     let expr_ty_region = ctx.expr_ty_region();
     for (expr_idx, fluffy_term_result) in expr_ty_region.expr_fluffy_terms().key_value_iter() {
         match fluffy_term_result {

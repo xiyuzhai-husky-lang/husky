@@ -50,7 +50,7 @@ Ok(
                                         initialization: None,
                                     },
                                 ],
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(
@@ -218,7 +218,7 @@ Ok(
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -344,7 +344,7 @@ Ok(
                                         expr: 0,
                                     },
                                 ),
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
                                             SynExprRegion {
@@ -579,7 +579,7 @@ Ok(
                                         expr: 1,
                                     },
                                 ),
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: Some(
                                             SynExprRegion {

@@ -19,8 +19,8 @@ impl EnumTupleTypeVariantDeclarativeSignatureTemplate {
         parent_ty_template: EnumDeclarativeSignatureTemplate,
         decl: TupleTypeVariantSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
-        let expr_region = decl.expr_region(db);
-        let declarative_term_region = declarative_term_region(db, expr_region);
+        let syn_expr_region = decl.syn_expr_region(db);
+        let declarative_term_region = declarative_term_region(db, syn_expr_region);
         let fields = decl
             .fields(db)
             .iter()

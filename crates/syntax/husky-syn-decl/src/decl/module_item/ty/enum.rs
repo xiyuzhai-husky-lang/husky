@@ -7,7 +7,7 @@ pub struct EnumTypeSynNodeDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl EnumTypeSynNodeDecl {
@@ -63,7 +63,7 @@ pub struct EnumTypeSynDecl {
     pub path: TypePath,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl EnumTypeSynDecl {
@@ -79,7 +79,7 @@ impl EnumTypeSynDecl {
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let expr_region = syn_node_decl.expr_region(db);
-        Ok(Self::new(db, path, generic_parameters, expr_region))
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(db, path, generic_parameters, syn_expr_region))
     }
 }

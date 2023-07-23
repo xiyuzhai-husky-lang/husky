@@ -6,7 +6,7 @@ pub struct ValSynNodeDefn {
     pub syn_node_path: FugitiveSynNodePath,
     pub syn_node_decl: ValSynNodeDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl ValSynNodeDefn {
@@ -18,7 +18,7 @@ impl ValSynNodeDefn {
         let mut parser = expr_parser(
             db,
             syn_node_path,
-            syn_node_decl.expr_region(db),
+            syn_node_decl.syn_expr_region(db),
             AllowSelfType::False,
             AllowSelfValue::False,
         );
@@ -40,7 +40,7 @@ pub struct ValSynDefn {
     pub path: FugitivePath,
     pub decl: ValSynDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl ValSynDefn {
@@ -53,7 +53,7 @@ impl ValSynDefn {
             path,
             decl,
             syn_node_defn.body(db),
-            syn_node_defn.expr_region(db),
+            syn_node_defn.syn_expr_region(db),
         )
     }
 }

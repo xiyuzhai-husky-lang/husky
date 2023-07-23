@@ -64,13 +64,13 @@ impl TypeItemSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeItemSynNodeDecl::AssociatedFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeItemSynNodeDecl::AssociatedType(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeItemSynNodeDecl::AssociatedVal(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.syn_expr_region(db),
         }
     }
 
@@ -214,13 +214,13 @@ impl TypeItemSynDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            TypeItemSynDecl::AssociatedFn(decl) => decl.expr_region(db),
-            TypeItemSynDecl::MethodFn(decl) => decl.expr_region(db),
-            TypeItemSynDecl::AssociatedType(decl) => decl.expr_region(db),
-            TypeItemSynDecl::AssociatedVal(decl) => decl.expr_region(db),
-            TypeItemSynDecl::MemoizedField(decl) => decl.expr_region(db),
+            TypeItemSynDecl::AssociatedFn(decl) => decl.syn_expr_region(db),
+            TypeItemSynDecl::MethodFn(decl) => decl.syn_expr_region(db),
+            TypeItemSynDecl::AssociatedType(decl) => decl.syn_expr_region(db),
+            TypeItemSynDecl::AssociatedVal(decl) => decl.syn_expr_region(db),
+            TypeItemSynDecl::MemoizedField(decl) => decl.syn_expr_region(db),
         }
     }
 }

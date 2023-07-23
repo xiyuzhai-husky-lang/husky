@@ -7,7 +7,7 @@ pub struct UnionTypeSynNodeDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl UnionTypeSynNodeDecl {
@@ -27,7 +27,7 @@ pub struct UnionTypeSynDecl {
     pub path: TypePath,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl UnionTypeSynDecl {
