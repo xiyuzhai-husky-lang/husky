@@ -21,7 +21,7 @@ pub enum FugitiveHirDecl {
 }
 
 impl FugitiveHirDecl {
-    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
         match self {
             FugitiveHirDecl::Fn(decl) => decl.generic_parameters(db),
             FugitiveHirDecl::Val(_decl) => &[],
@@ -29,11 +29,11 @@ impl FugitiveHirDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
-            FugitiveHirDecl::Fn(decl) => decl.expr_region(db),
-            FugitiveHirDecl::Val(decl) => decl.expr_region(db),
-            FugitiveHirDecl::Gn(decl) => decl.expr_region(db),
+            FugitiveHirDecl::Fn(decl) => decl.hir_expr_region(db),
+            FugitiveHirDecl::Val(decl) => decl.hir_expr_region(db),
+            FugitiveHirDecl::Gn(decl) => decl.hir_expr_region(db),
         }
     }
 

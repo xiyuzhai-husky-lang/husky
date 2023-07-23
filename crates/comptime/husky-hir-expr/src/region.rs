@@ -1,4 +1,5 @@
 use crate::*;
 
-#[salsa::tracked(db = HirExprDb, jar = HirExprJar)]
+/// this is interned on purpose
+#[salsa::interned(db = HirExprDb, jar = HirExprJar)]
 pub struct HirExprRegion {}

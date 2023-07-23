@@ -36,11 +36,11 @@ impl AssociatedItemHirDecl {
         }
     }
 
-    pub fn syn_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
-            AssociatedItemHirDecl::TypeItem(decl) => decl.expr_region(db),
-            AssociatedItemHirDecl::TraitItem(decl) => decl.expr_region(db),
-            AssociatedItemHirDecl::TraitForTypeItem(decl) => decl.expr_region(db),
+            AssociatedItemHirDecl::TypeItem(decl) => decl.hir_expr_region(db),
+            AssociatedItemHirDecl::TraitItem(decl) => decl.hir_expr_region(db),
+            AssociatedItemHirDecl::TraitForTypeItem(decl) => decl.hir_expr_region(db),
         }
     }
 }

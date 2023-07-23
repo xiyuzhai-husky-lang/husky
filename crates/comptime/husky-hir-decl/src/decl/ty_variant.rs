@@ -17,6 +17,24 @@ pub enum TypeVariantHirDecl {
     Tuple(EnumTupleTypeVariantHirDecl),
 }
 
+impl TypeVariantHirDecl {
+    pub fn path(self, db: &dyn HirDeclDb) -> TypeVariantPath {
+        match self {
+            TypeVariantHirDecl::Props(_) => todo!(),
+            TypeVariantHirDecl::Unit(_) => todo!(),
+            TypeVariantHirDecl::Tuple(_) => todo!(),
+        }
+    }
+
+    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+        match self {
+            TypeVariantHirDecl::Props(_) => todo!(),
+            TypeVariantHirDecl::Unit(_) => todo!(),
+            TypeVariantHirDecl::Tuple(_) => todo!(),
+        }
+    }
+}
+
 impl HasHirDecl for TypeVariantPath {
     type HirDecl = TypeVariantHirDecl;
 

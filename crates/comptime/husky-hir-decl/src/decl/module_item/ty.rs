@@ -33,7 +33,6 @@ impl TypeHirDecl {
     pub fn path(self, db: &dyn HirDeclDb) -> TypePath {
         match self {
             TypeHirDecl::Enum(decl) => decl.path(db),
-            TypeHirDecl::Inductive(decl) => decl.path(db),
             TypeHirDecl::Record(decl) => decl.path(db),
             TypeHirDecl::UnitStruct(decl) => decl.path(db),
             TypeHirDecl::PropsStruct(decl) => decl.path(db),
@@ -55,15 +54,15 @@ impl TypeHirDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
+    pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
-            TypeHirDecl::Enum(decl) => decl.expr_region(db),
-            TypeHirDecl::UnitStruct(decl) => decl.expr_region(db),
-            TypeHirDecl::TupleStruct(decl) => decl.expr_region(db),
-            TypeHirDecl::PropsStruct(decl) => decl.expr_region(db),
-            TypeHirDecl::Record(decl) => decl.expr_region(db),
-            TypeHirDecl::Extern(decl) => decl.expr_region(db),
-            TypeHirDecl::Union(decl) => decl.expr_region(db),
+            TypeHirDecl::Enum(decl) => decl.hir_expr_region(db),
+            TypeHirDecl::UnitStruct(decl) => decl.hir_expr_region(db),
+            TypeHirDecl::TupleStruct(decl) => decl.hir_expr_region(db),
+            TypeHirDecl::PropsStruct(decl) => decl.hir_expr_region(db),
+            TypeHirDecl::Record(decl) => decl.hir_expr_region(db),
+            TypeHirDecl::Extern(decl) => decl.hir_expr_region(db),
+            TypeHirDecl::Union(decl) => decl.hir_expr_region(db),
         }
     }
 }

@@ -45,9 +45,9 @@ impl HirDecl {
     pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> Option<HirExprRegion> {
         match self {
             HirDecl::Submodule(_) => None,
-            HirDecl::ModuleItem(decl) => decl.expr_region(db).into(),
-            HirDecl::ImplBlock(decl) => decl.expr_region(db).into(),
-            HirDecl::AssociatedItem(decl) => decl.expr_region(db).into(),
+            HirDecl::ModuleItem(decl) => decl.hir_expr_region(db).into(),
+            HirDecl::ImplBlock(decl) => decl.hir_expr_region(db).into(),
+            HirDecl::AssociatedItem(decl) => decl.hir_expr_region(db).into(),
             HirDecl::TypeVariant(_decl) => todo!(),
         }
     }
