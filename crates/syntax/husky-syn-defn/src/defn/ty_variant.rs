@@ -24,9 +24,9 @@ impl TypeVariantSynNodeDefn {
 }
 
 impl HasSynNodeDefn for TypeVariantSynNodePath {
-    type NodeDefn = TypeVariantSynNodeDefn;
+    type SynNodeDefn = TypeVariantSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         todo!()
     }
 }

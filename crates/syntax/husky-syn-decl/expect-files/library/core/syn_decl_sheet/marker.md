@@ -14,7 +14,7 @@ Ok(
                             path: TraitPath(`core::marker::Copy`),
                             ast_idx: 0,
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -84,7 +84,7 @@ Ok(
                             path: TraitPath(`core::marker::Sized`),
                             ast_idx: 1,
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(

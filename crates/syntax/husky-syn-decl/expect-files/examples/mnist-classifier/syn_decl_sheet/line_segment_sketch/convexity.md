@@ -45,7 +45,7 @@ Ok(
                                         expr: 2,
                                     },
                                 ),
-                                expr_region: SynExprRegion {
+                                syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
                                         path: RegionPath::Decl(

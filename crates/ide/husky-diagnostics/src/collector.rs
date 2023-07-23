@@ -43,11 +43,11 @@ pub(crate) struct RegionDiagnosticsCollector<'a, 'b> {
 impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
     pub(crate) fn new(
         db: &'a dyn DiagnosticsDb,
-        expr_region: SynExprRegion,
+        syn_expr_region: SynExprRegion,
         sheet_collector: &'b mut ModuleDiagnosticsCollector<'a>,
     ) -> Self {
         Self {
-            context: RegionDiagnosticsContext::new(db, expr_region),
+            context: RegionDiagnosticsContext::new(db, syn_expr_region),
             sheet_collector,
         }
     }

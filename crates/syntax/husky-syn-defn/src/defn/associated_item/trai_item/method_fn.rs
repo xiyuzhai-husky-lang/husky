@@ -6,7 +6,7 @@ pub struct TraitMethodFnSynNodeDefn {
     pub syn_node_path: TraitItemSynNodePath,
     pub syn_node_decl: TraitMethodFnSynNodeDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
@@ -15,7 +15,7 @@ pub struct TraitMethodFnSynDefn {
     pub path: TraitItemPath,
     pub decl: TraitMethodFnSynDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitMethodFnSynDefn {
@@ -32,7 +32,7 @@ impl TraitMethodFnSynDefn {
             path,
             decl,
             syn_node_defn.body(db),
-            syn_node_defn.expr_region(db),
+            syn_node_defn.syn_expr_region(db),
         ))
     }
 }

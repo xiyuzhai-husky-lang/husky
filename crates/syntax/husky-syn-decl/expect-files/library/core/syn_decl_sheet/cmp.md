@@ -14,7 +14,7 @@ Ok(
                             path: TraitPath(`core::cmp::PartialEq`),
                             ast_idx: 0,
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -84,7 +84,7 @@ Ok(
                             path: TraitPath(`core::cmp::Eq`),
                             ast_idx: 1,
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -154,7 +154,7 @@ Ok(
                             path: TraitPath(`core::cmp::PartialOrd`),
                             ast_idx: 2,
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -224,7 +224,7 @@ Ok(
                             path: TraitPath(`core::cmp::Ord`),
                             ast_idx: 3,
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(

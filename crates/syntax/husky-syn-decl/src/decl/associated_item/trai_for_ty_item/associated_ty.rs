@@ -14,7 +14,7 @@ pub struct TraitForTypeAssociatedTypeSynNodeDecl {
     pub eq_token: NodeDeclResult<EqToken>,
     // todo: change this to NodeDeclResult??
     pub ty_term_expr_idx: SynExprIdx,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitForTypeAssociatedTypeSynNodeDecl {
@@ -37,7 +37,7 @@ impl<'a> DeclParser<'a> {
         let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
         let mut parser = self.expr_parser(
             node.syn_node_path(db),
-            Some(impl_block_syn_node_decl.expr_region(db)),
+            Some(impl_block_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::False,
         );
@@ -69,7 +69,7 @@ pub struct TraitForTypeAssociatedTypeSynDecl {
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub ty_term_expr_idx: SynExprIdx,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitForTypeAssociatedTypeSynDecl {
@@ -84,14 +84,14 @@ impl TraitForTypeAssociatedTypeSynDecl {
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let expr_region = syn_node_decl.expr_region(db);
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
         let ty_term_expr_idx = syn_node_decl.ty_term_expr_idx(db);
         Ok(TraitForTypeAssociatedTypeSynDecl::new(
             db,
             path,
             generic_parameters,
             ty_term_expr_idx,
-            expr_region,
+            syn_expr_region,
         ))
     }
 }

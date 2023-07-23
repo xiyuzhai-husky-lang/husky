@@ -66,17 +66,17 @@ impl TypeSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeSynNodeDecl::Structure(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeSynNodeDecl::Extern(syn_node_decl) => syn_node_decl.expr_region(db),
-            TypeSynNodeDecl::Union(syn_node_decl) => syn_node_decl.expr_region(db),
+            TypeSynNodeDecl::Enum(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeSynNodeDecl::UnitStruct(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeSynNodeDecl::TupleStruct(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeSynNodeDecl::PropsStruct(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeSynNodeDecl::Record(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeSynNodeDecl::Inductive(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeSynNodeDecl::Structure(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeSynNodeDecl::Extern(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeSynNodeDecl::Union(syn_node_decl) => syn_node_decl.syn_expr_region(db),
         }
     }
 
@@ -293,17 +293,17 @@ impl TypeSynDecl {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
-            TypeSynDecl::Enum(decl) => decl.expr_region(db),
-            TypeSynDecl::UnitStruct(decl) => decl.expr_region(db),
-            TypeSynDecl::TupleStruct(decl) => decl.expr_region(db),
-            TypeSynDecl::PropsStruct(decl) => decl.expr_region(db),
-            TypeSynDecl::Record(decl) => decl.expr_region(db),
-            TypeSynDecl::Inductive(decl) => decl.expr_region(db),
-            TypeSynDecl::Structure(decl) => decl.expr_region(db),
-            TypeSynDecl::Extern(decl) => decl.expr_region(db),
-            TypeSynDecl::Union(decl) => decl.expr_region(db),
+            TypeSynDecl::Enum(decl) => decl.syn_expr_region(db),
+            TypeSynDecl::UnitStruct(decl) => decl.syn_expr_region(db),
+            TypeSynDecl::TupleStruct(decl) => decl.syn_expr_region(db),
+            TypeSynDecl::PropsStruct(decl) => decl.syn_expr_region(db),
+            TypeSynDecl::Record(decl) => decl.syn_expr_region(db),
+            TypeSynDecl::Inductive(decl) => decl.syn_expr_region(db),
+            TypeSynDecl::Structure(decl) => decl.syn_expr_region(db),
+            TypeSynDecl::Extern(decl) => decl.syn_expr_region(db),
+            TypeSynDecl::Union(decl) => decl.syn_expr_region(db),
         }
     }
 

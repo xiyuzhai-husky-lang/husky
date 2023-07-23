@@ -97,7 +97,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -125,7 +125,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -133,7 +133,7 @@ Ok(
                 inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Method,
@@ -145,7 +145,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Field,
@@ -157,7 +157,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Field,
@@ -248,7 +248,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -276,7 +276,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -284,7 +284,7 @@ Ok(
                 inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Method,
@@ -296,7 +296,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Field,
@@ -308,7 +308,7 @@ Ok(
                 inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Field,
@@ -323,7 +323,7 @@ Ok(
                 inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Method,
@@ -356,7 +356,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -384,7 +384,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -392,7 +392,7 @@ Ok(
                 inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Method,
@@ -404,7 +404,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Field,
@@ -416,7 +416,7 @@ Ok(
                 inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Field,
@@ -432,7 +432,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::InheritedSymbol {
@@ -440,7 +440,7 @@ Ok(
                 inherited_symbol_kind: InheritedSymbolKind::ExplicitParameter {
                     ident: `cc`,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Method,
@@ -457,7 +457,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -466,7 +466,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -537,7 +537,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -553,7 +553,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 1,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -573,7 +573,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -591,7 +591,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -615,7 +615,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 3,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -623,7 +623,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -651,7 +651,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 4,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -662,7 +662,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -688,7 +688,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -696,7 +696,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 5,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Field,
@@ -706,7 +706,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 6,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -734,7 +734,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 2,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -745,7 +745,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -773,7 +773,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 7,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -813,7 +813,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 8,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -821,7 +821,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::LetVariable {
                     pattern_symbol_idx: 9,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(

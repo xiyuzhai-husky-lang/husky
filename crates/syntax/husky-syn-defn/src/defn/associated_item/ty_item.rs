@@ -53,29 +53,31 @@ impl TypeItemSynNodeDefn {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
             TypeItemSynNodeDefn::AssociatedFn(syn_node_defn) => {
-                syn_node_defn.expr_region(db).into()
+                syn_node_defn.syn_expr_region(db).into()
             }
-            TypeItemSynNodeDefn::MethodFn(syn_node_defn) => syn_node_defn.expr_region(db).into(),
+            TypeItemSynNodeDefn::MethodFn(syn_node_defn) => {
+                syn_node_defn.syn_expr_region(db).into()
+            }
             TypeItemSynNodeDefn::AssociatedType(syn_node_defn) => {
-                syn_node_defn.expr_region(db).into()
+                syn_node_defn.syn_expr_region(db).into()
             }
             TypeItemSynNodeDefn::AssociatedVal(syn_node_defn) => {
-                syn_node_defn.expr_region(db).into()
+                syn_node_defn.syn_expr_region(db).into()
             }
             TypeItemSynNodeDefn::MemoizedField(syn_node_defn) => {
-                syn_node_defn.expr_region(db).into()
+                syn_node_defn.syn_expr_region(db).into()
             }
         }
     }
 }
 
 impl HasSynNodeDefn for TypeItemSynNodePath {
-    type NodeDefn = TypeItemSynNodeDefn;
+    type SynNodeDefn = TypeItemSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         ty_item_syn_node_defn(db, self)
     }
 }
@@ -126,13 +128,13 @@ impl TypeItemSynDefn {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
-            TypeItemSynDefn::AssociatedFn(defn) => defn.expr_region(db).into(),
-            TypeItemSynDefn::MethodFn(defn) => defn.expr_region(db).into(),
-            TypeItemSynDefn::AssociatedType(defn) => defn.expr_region(db).into(),
-            TypeItemSynDefn::AssociatedVal(defn) => defn.expr_region(db).into(),
-            TypeItemSynDefn::MemoizedField(defn) => defn.expr_region(db).into(),
+            TypeItemSynDefn::AssociatedFn(defn) => defn.syn_expr_region(db).into(),
+            TypeItemSynDefn::MethodFn(defn) => defn.syn_expr_region(db).into(),
+            TypeItemSynDefn::AssociatedType(defn) => defn.syn_expr_region(db).into(),
+            TypeItemSynDefn::AssociatedVal(defn) => defn.syn_expr_region(db).into(),
+            TypeItemSynDefn::MemoizedField(defn) => defn.syn_expr_region(db).into(),
         }
     }
 }

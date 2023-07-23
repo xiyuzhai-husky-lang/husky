@@ -38,21 +38,21 @@ impl AssociatedItemSynNodeDefn {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
-            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => syn_node_defn.expr_region(db),
+            AssociatedItemSynNodeDefn::TypeItem(syn_node_defn) => syn_node_defn.syn_expr_region(db),
             AssociatedItemSynNodeDefn::TraitItem(_) => todo!(),
             AssociatedItemSynNodeDefn::TraitForTypeItem(syn_node_defn) => {
-                Some(syn_node_defn.expr_region(db))
+                Some(syn_node_defn.syn_expr_region(db))
             }
         }
     }
 }
 
 impl HasSynNodeDefn for AssociatedItemSynNodePath {
-    type NodeDefn = AssociatedItemSynNodeDefn;
+    type SynNodeDefn = AssociatedItemSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         match self {
             AssociatedItemSynNodePath::TypeItem(syn_node_path) => {
                 syn_node_path.syn_node_defn(db).into()
@@ -86,11 +86,11 @@ impl AssociatedItemSynDefn {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
-            AssociatedItemSynDefn::TypeItem(defn) => defn.expr_region(db),
+            AssociatedItemSynDefn::TypeItem(defn) => defn.syn_expr_region(db),
             AssociatedItemSynDefn::TraitItem(_) => todo!(),
-            AssociatedItemSynDefn::TraitForTypeItem(defn) => Some(defn.expr_region(db)),
+            AssociatedItemSynDefn::TraitForTypeItem(defn) => Some(defn.syn_expr_region(db)),
         }
     }
 

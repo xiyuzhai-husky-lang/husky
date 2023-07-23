@@ -16,7 +16,7 @@ pub struct TraitForTypeMethodFnSynNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitForTypeMethodFnSynNodeDecl {
@@ -51,7 +51,7 @@ impl<'a> DeclParser<'a> {
         let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
         let mut parser = self.expr_parser(
             node.syn_node_path(db),
-            Some(impl_block_syn_node_decl.expr_region(db)),
+            Some(impl_block_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -92,7 +92,7 @@ pub struct TraitForTypeMethodFnSynDecl {
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitForTypeMethodFnSynDecl {
@@ -115,7 +115,7 @@ impl TraitForTypeMethodFnSynDecl {
             .map(Clone::clone)
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
-        let expr_region = syn_node_decl.expr_region(db);
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(TraitForTypeMethodFnSynDecl::new(
             db,
             path,
@@ -123,7 +123,7 @@ impl TraitForTypeMethodFnSynDecl {
             self_parameter,
             parenic_parameters,
             return_ty,
-            expr_region,
+            syn_expr_region,
         ))
     }
 

@@ -30,10 +30,12 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeAssociatedFnSynDecl,
 ) -> DeclarativeSignatureResult<TypeAssociatedFnDeclarativeSignatureTemplate> {
-    let expr_region = decl.expr_region(db);
-    let expr_region_data = expr_region.data(db);
-    let declarative_term_region = declarative_term_region(db, expr_region);
-    let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
+    let syn_expr_region = decl.syn_expr_region(db);
+    let expr_region_data = syn_expr_region.data(db);
+    let declarative_term_region = declarative_term_region(db, syn_expr_region);
+    let declarative_term_menu = db
+        .declarative_term_menu(syn_expr_region.toolchain(db))
+        .unwrap();
     let impl_block = decl
         .path(db)
         .impl_block(db)

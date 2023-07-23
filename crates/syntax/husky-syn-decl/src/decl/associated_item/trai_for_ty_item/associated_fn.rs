@@ -14,7 +14,7 @@ pub struct TraitForTypeAssociatedFnSynNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitForTypeAssociatedFnSynNodeDecl {
@@ -45,7 +45,7 @@ pub struct TraitForTypeAssociatedFnSynDecl {
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitForTypeAssociatedFnSynDecl {

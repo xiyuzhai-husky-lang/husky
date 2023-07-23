@@ -6,7 +6,7 @@ pub struct FnSynNodeDefn {
     pub syn_node_path: FugitiveSynNodePath,
     pub syn_node_decl: FnSynNodeDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl FnSynNodeDefn {
@@ -19,7 +19,7 @@ impl FnSynNodeDefn {
         let mut parser = expr_parser(
             db,
             syn_node_path,
-            syn_node_decl.expr_region(db),
+            syn_node_decl.syn_expr_region(db),
             AllowSelfType::False,
             AllowSelfValue::False,
         );
@@ -41,7 +41,7 @@ pub struct FnSynDefn {
     pub path: FugitivePath,
     pub decl: FnSynDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl FnSynDefn {
@@ -54,7 +54,7 @@ impl FnSynDefn {
             path,
             decl,
             syn_node_defn.body(db),
-            syn_node_defn.expr_region(db),
+            syn_node_defn.syn_expr_region(db),
         )
     }
 }

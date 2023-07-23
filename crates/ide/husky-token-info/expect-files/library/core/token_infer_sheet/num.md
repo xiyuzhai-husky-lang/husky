@@ -245,7 +245,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -417,7 +417,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -588,7 +588,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -760,7 +760,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -932,7 +932,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -1104,7 +1104,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -1276,7 +1276,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -1448,7 +1448,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -1620,7 +1620,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -1792,7 +1792,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -1964,7 +1964,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -2136,7 +2136,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -2345,7 +2345,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -2517,7 +2517,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(

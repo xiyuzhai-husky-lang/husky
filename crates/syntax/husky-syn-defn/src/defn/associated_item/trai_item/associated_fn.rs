@@ -5,7 +5,7 @@ pub struct TraitAssociatedFnSynNodeDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     pub syn_node_decl: TraitAssociatedFnSynNodeDecl,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 #[salsa::tracked(db = SynDefnDb, jar = SynDefnJar, constructor = new_inner)]
@@ -13,7 +13,7 @@ pub struct TraitAssociatedFnSynDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
     pub decl: TraitAssociatedFnSynDecl,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitAssociatedFnSynDefn {
@@ -27,7 +27,7 @@ impl TraitAssociatedFnSynDefn {
         // let mut parser = expr_parser(
         //     db,
         //     syn_node_path,
-        //     Some(decl.expr_region(db)),
+        //     Some(decl.syn_expr_region(db)),
         //     AllowSelfType::True,
         //     AllowSelfValue::True,
         // );

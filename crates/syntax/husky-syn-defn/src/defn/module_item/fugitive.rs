@@ -39,19 +39,19 @@ impl FugitiveSynNodeDefn {
         // }
     }
 
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
         match self {
-            FugitiveSynNodeDefn::Fn(defn) => defn.expr_region(db),
-            FugitiveSynNodeDefn::Val(defn) => defn.expr_region(db),
-            FugitiveSynNodeDefn::Gn(defn) => defn.expr_region(db),
+            FugitiveSynNodeDefn::Fn(defn) => defn.syn_expr_region(db),
+            FugitiveSynNodeDefn::Val(defn) => defn.syn_expr_region(db),
+            FugitiveSynNodeDefn::Gn(defn) => defn.syn_expr_region(db),
         }
     }
 }
 
 impl HasSynNodeDefn for FugitiveSynNodePath {
-    type NodeDefn = FugitiveSynNodeDefn;
+    type SynNodeDefn = FugitiveSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         fugitive_syn_node_defn(db, self)
     }
 }
@@ -102,11 +102,11 @@ impl FugitiveSynDefn {
         //     FugitiveDefn::Gn(defn) => defn.path(db),
         // }
     }
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> SynExprRegion {
         match self {
-            FugitiveSynDefn::Fn(defn) => defn.expr_region(db),
-            FugitiveSynDefn::Val(defn) => defn.expr_region(db),
-            FugitiveSynDefn::Gn(defn) => defn.expr_region(db),
+            FugitiveSynDefn::Fn(defn) => defn.syn_expr_region(db),
+            FugitiveSynDefn::Val(defn) => defn.syn_expr_region(db),
+            FugitiveSynDefn::Gn(defn) => defn.syn_expr_region(db),
         }
     }
 }

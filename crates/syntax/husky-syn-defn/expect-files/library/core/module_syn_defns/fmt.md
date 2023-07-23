@@ -8,7 +8,7 @@ Ok(
                         path: TraitPath(`core::fmt::Debug`),
                         ast_idx: 0,
                         generic_parameters: [],
-                        expr_region: SynExprRegion {
+                        syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
                                 parent: None,
                                 path: RegionPath::Decl(

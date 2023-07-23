@@ -35,7 +35,7 @@ impl<'a> DecrParserFactory<'a> {
             DecrParent::Defn(path) => path
                 .syn_decl(self.db)
                 .ok()
-                .map(|decl| decl.expr_region(self.db))
+                .map(|decl| decl.syn_expr_region(self.db))
                 .flatten(),
         };
         ExprParser::new(

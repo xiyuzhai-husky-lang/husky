@@ -11,7 +11,7 @@ pub struct TypeMemoizedFieldSynNodeDecl {
     #[return_ref]
     pub eq_token: NodeDeclResult<EqToken>,
     pub expr: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TypeMemoizedFieldSynNodeDecl {
@@ -39,7 +39,7 @@ impl<'a> DeclParser<'a> {
         let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
         let mut parser = self.expr_parser(
             syn_node_path,
-            Some(impl_block_syn_node_decl.expr_region(db)),
+            Some(impl_block_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -72,7 +72,7 @@ pub struct TypeMemoizedFieldSynDecl {
     pub path: TypeItemPath,
     pub return_ty: Option<ReturnTypeExprBeforeEq>,
     pub expr: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TypeMemoizedFieldSynDecl {
@@ -83,8 +83,8 @@ impl TypeMemoizedFieldSynDecl {
     ) -> DeclResult<Self> {
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);
-        let expr_region = syn_node_decl.expr_region(db);
-        Ok(Self::new(db, path, return_ty, expr, expr_region))
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(db, path, return_ty, expr, syn_expr_region))
     }
 
     pub fn impl_block_path(self, db: &dyn SynDeclDb) -> TypeImplBlockPath {

@@ -24,11 +24,11 @@ pub(crate) fn expr_diagnostic_sheet(
         let _token_sheet_data = ranged_token_sheet.token_sheet_data(db);
         for defn in defns.iter().copied() {
             let decl = defn.decl(db);
-            if let Some(expr_region) = decl.expr_region(db) {
-                sheet_collector.collect_expr_diagnostics(expr_region);
+            if let Some(syn_expr_region) = decl.syn_expr_region(db) {
+                sheet_collector.collect_expr_diagnostics(syn_expr_region);
             }
-            if let Some(expr_region) = defn.expr_region(db) {
-                sheet_collector.collect_expr_diagnostics(expr_region);
+            if let Some(syn_expr_region) = defn.syn_expr_region(db) {
+                sheet_collector.collect_expr_diagnostics(syn_expr_region);
             }
         }
     }
@@ -36,8 +36,8 @@ pub(crate) fn expr_diagnostic_sheet(
 }
 
 impl<'a> ModuleDiagnosticsCollector<'a> {
-    fn collect_expr_diagnostics(&mut self, expr_region: SynExprRegion) {
-        let expr_region_data = expr_region.data(self.db());
+    fn collect_expr_diagnostics(&mut self, syn_expr_region: SynExprRegion) {
+        let expr_region_data = syn_expr_region.data(self.db());
         for expr in expr_region_data.expr_arena().data() {
             match expr {
                 SynExpr::Err(ExprError::Original(e)) => self.visit_atom(e),

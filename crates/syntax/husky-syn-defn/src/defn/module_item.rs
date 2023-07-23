@@ -28,18 +28,20 @@ impl ModuleItemSynNodeDefn {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
             ModuleItemSynNodeDefn::Type(_) | ModuleItemSynNodeDefn::Trait(_) => None,
-            ModuleItemSynNodeDefn::Fugitive(syn_node_defn) => Some(syn_node_defn.expr_region(db)),
+            ModuleItemSynNodeDefn::Fugitive(syn_node_defn) => {
+                Some(syn_node_defn.syn_expr_region(db))
+            }
         }
     }
 }
 
 impl HasSynNodeDefn for ModuleItemSynNodePath {
-    type NodeDefn = ModuleItemSynNodeDefn;
+    type SynNodeDefn = ModuleItemSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         match self {
             ModuleItemSynNodePath::Trait(syn_node_path) => syn_node_path.syn_node_defn(db).into(),
             ModuleItemSynNodePath::Type(syn_node_path) => syn_node_path.syn_node_defn(db).into(),
@@ -68,10 +70,10 @@ impl ModuleItemDefn {
         }
     }
 
-    pub fn expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
+    pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {
         match self {
             ModuleItemDefn::Type(_) | ModuleItemDefn::Trait(_) => None,
-            ModuleItemDefn::Fugitive(defn) => Some(defn.expr_region(db)),
+            ModuleItemDefn::Fugitive(defn) => Some(defn.syn_expr_region(db)),
         }
     }
 }

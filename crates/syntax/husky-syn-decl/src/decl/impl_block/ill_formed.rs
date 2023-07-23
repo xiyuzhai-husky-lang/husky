@@ -7,7 +7,7 @@ pub struct IllFormedImplBlockSynNodeDecl {
     #[id]
     pub syn_node_path: IllFormedImplBlockSynNodePath,
     pub ast_idx: AstIdx,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
     // ad hoc
 }
 

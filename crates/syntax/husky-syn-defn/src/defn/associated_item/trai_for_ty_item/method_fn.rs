@@ -6,7 +6,7 @@ pub struct TraitForTypeMethodFnSynNodeDefn {
     pub syn_node_path: TraitForTypeItemSynNodePath,
     pub syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitForTypeMethodFnSynNodeDefn {
@@ -18,7 +18,7 @@ impl TraitForTypeMethodFnSynNodeDefn {
         let mut parser = expr_parser(
             db,
             syn_node_path,
-            syn_node_decl.expr_region(db),
+            syn_node_decl.syn_expr_region(db),
             AllowSelfType::True,
             AllowSelfValue::True,
         );
@@ -46,7 +46,7 @@ pub struct TraitForTypeMethodFnSynDefn {
     pub path: TraitForTypeItemPath,
     pub decl: TraitForTypeMethodFnSynDecl,
     pub body: Option<SynExprIdx>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitForTypeMethodFnSynDefn {
@@ -63,7 +63,7 @@ impl TraitForTypeMethodFnSynDefn {
             path,
             decl,
             syn_node_defn.body(db),
-            syn_node_defn.expr_region(db),
+            syn_node_defn.syn_expr_region(db),
         )
     }
 }

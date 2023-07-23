@@ -67,8 +67,8 @@ fn ty_path_derive_decr_declarative_signature_templates_map(
     for decr in ty_path.decrs(db)? {
         match decr {
             Decr::Derive(derive_decr) => {
-                let expr_region = derive_decr.expr_region(db);
-                let declarative_term_region = declarative_term_region(db, expr_region);
+                let syn_expr_region = derive_decr.syn_expr_region(db);
+                let declarative_term_region = declarative_term_region(db, syn_expr_region);
                 for trai_expr in derive_decr.trai_exprs(db) {
                     let trai_term = declarative_term_region.expr_term(trai_expr.expr())?;
                     let template = DeriveDecrDeclarativeSignatureTemplate::new(db, trai_term);

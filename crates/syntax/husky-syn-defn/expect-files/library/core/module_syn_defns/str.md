@@ -8,7 +8,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::str::str`, `Extern`),
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(
@@ -75,7 +75,7 @@ Ok(
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::str::StringLiteral`, `Extern`),
                             generic_parameters: [],
-                            expr_region: SynExprRegion {
+                            syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: RegionPath::Decl(

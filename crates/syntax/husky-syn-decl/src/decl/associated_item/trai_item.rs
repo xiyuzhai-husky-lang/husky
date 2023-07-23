@@ -50,7 +50,7 @@ impl TraitItemSynNodeDecl {
         }
     }
 
-    pub fn expr_region(self, _db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, _db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             TraitItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -106,7 +106,7 @@ impl TraitItemSynDecl {
         }
     }
 
-    pub fn expr_region(self, _db: &dyn SynDeclDb) -> SynExprRegion {
+    pub fn syn_expr_region(self, _db: &dyn SynDeclDb) -> SynExprRegion {
         match self {
             TraitItemSynDecl::AssociatedFn(_) => todo!(),
             TraitItemSynDecl::MethodFn(_) => todo!(),

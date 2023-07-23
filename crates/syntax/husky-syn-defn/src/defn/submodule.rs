@@ -13,9 +13,9 @@ impl SubmoduleSynNodeDefn {
 }
 
 impl HasSynNodeDefn for SubmoduleSynNodePath {
-    type NodeDefn = SubmoduleSynNodeDefn;
+    type SynNodeDefn = SubmoduleSynNodeDefn;
 
-    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::NodeDefn {
+    fn syn_node_defn(self, db: &dyn SynDefnDb) -> Self::SynNodeDefn {
         SubmoduleSynNodeDefn {
             syn_node_decl: self.syn_node_decl(db),
         }

@@ -7,7 +7,7 @@ pub struct TraitSynNodeDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     implicit_parameter_decl_list: NodeDeclResult<Option<Generics>>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitSynNodeDecl {
@@ -79,7 +79,7 @@ pub struct TraitSynDecl {
     pub ast_idx: AstIdx,
     #[return_ref]
     pub generic_parameters: ImplicitParameterDeclPatterns,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TraitSynDecl {
@@ -95,13 +95,13 @@ impl TraitSynDecl {
             .as_ref()
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
-        let expr_region = syn_node_decl.expr_region(db);
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(TraitSynDecl::new(
             db,
             path,
             ast_idx,
             generic_parameters,
-            expr_region,
+            syn_expr_region,
         ))
     }
 }

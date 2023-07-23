@@ -14,7 +14,7 @@ pub struct TypeAssociatedFnSynNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TypeAssociatedFnSynNodeDecl {
@@ -51,7 +51,7 @@ impl<'a> DeclParser<'a> {
                 syn_node_path
                     .impl_block(db)
                     .syn_node_decl(db)
-                    .expr_region(db),
+                    .syn_expr_region(db),
             ),
             AllowSelfType::True,
             AllowSelfValue::True,
@@ -91,7 +91,7 @@ pub struct TypeAssociatedFnSynDecl {
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TypeAssociatedFnSynDecl {
@@ -113,14 +113,14 @@ impl TypeAssociatedFnSynDecl {
             .map(Clone::clone)
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
-        let expr_region = syn_node_decl.expr_region(db);
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(TypeAssociatedFnSynDecl::new(
             db,
             path,
             generic_parameters,
             parenic_parameters,
             return_ty,
-            expr_region,
+            syn_expr_region,
         ))
     }
 }

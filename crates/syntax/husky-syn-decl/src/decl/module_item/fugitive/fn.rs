@@ -16,7 +16,7 @@ pub struct FnSynNodeDecl {
     pub return_ty: NodeDeclResult<Option<ReturnTypeExprBeforeColon>>,
     #[return_ref]
     pub eol_colon: NodeDeclResult<EolToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl FnSynNodeDecl {
@@ -87,7 +87,7 @@ pub struct FnSynDecl {
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl FnSynDecl {
@@ -109,14 +109,14 @@ impl FnSynDecl {
             .map(Clone::clone)
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
-        let expr_region = syn_node_decl.expr_region(db);
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(FnSynDecl::new(
             db,
             path,
             generic_parameters,
             parenic_parameters,
             return_ty,
-            expr_region,
+            syn_expr_region,
         ))
     }
 }

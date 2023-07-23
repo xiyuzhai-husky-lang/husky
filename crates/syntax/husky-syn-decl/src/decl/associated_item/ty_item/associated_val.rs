@@ -6,7 +6,7 @@ pub struct TypeAssociatedValSynNodeDecl {
     pub id: TypeItemSynNodePath,
     pub node: TypeItemSynNode,
     pub ast_idx: AstIdx,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TypeAssociatedValSynNodeDecl {
@@ -22,7 +22,7 @@ impl<'a> DeclParser<'a> {}
 pub struct TypeAssociatedValSynDecl {
     #[id]
     pub path: TypeItemPath,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TypeAssociatedValSynDecl {

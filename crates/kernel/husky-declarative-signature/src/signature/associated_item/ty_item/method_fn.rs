@@ -36,9 +36,9 @@ pub fn ty_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMethodFnSynDecl,
 ) -> DeclarativeSignatureResult<TypeMethodFnDeclarativeSignatureTemplate> {
-    let expr_region = decl.expr_region(db);
-    let expr_region_data = expr_region.data(db);
-    let declarative_term_region = declarative_term_region(db, expr_region);
+    let syn_expr_region = decl.syn_expr_region(db);
+    let expr_region_data = syn_expr_region.data(db);
+    let declarative_term_region = declarative_term_region(db, syn_expr_region);
     let impl_block = decl
         .impl_block_path(db)
         .declarative_signature_template(db)?;
@@ -53,7 +53,9 @@ pub fn ty_method_fn_declarative_signature_template(
         None => Contract::None,
     };
     let self_parameter = DeclarativeTermRitchieRegularParameter::new(contract, self_ty);
-    let declarative_term_menu = db.declarative_term_menu(expr_region.toolchain(db)).unwrap();
+    let declarative_term_menu = db
+        .declarative_term_menu(syn_expr_region.toolchain(db))
+        .unwrap();
     let generic_parameters = DeclarativeGenericParameterTemplates::from_decl(
         decl.generic_parameters(db),
         declarative_term_region,

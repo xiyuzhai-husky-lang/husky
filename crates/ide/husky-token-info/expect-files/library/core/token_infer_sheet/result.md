@@ -85,7 +85,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -100,7 +100,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -127,7 +127,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -142,7 +142,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -157,7 +157,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
@@ -172,7 +172,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -213,7 +213,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
@@ -227,7 +227,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -249,7 +249,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
@@ -263,7 +263,7 @@ Ok(
                         },
                     },
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -307,7 +307,7 @@ Ok(
                         ident: `E2`,
                     },
                 ),
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::EntityNode(
@@ -348,7 +348,7 @@ Ok(
                 current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::Entity(
@@ -365,7 +365,7 @@ Ok(
                         ident: `T2`,
                     },
                 ),
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 3,
@@ -374,7 +374,7 @@ Ok(
                         ident: `E2`,
                     },
                 ),
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,
@@ -392,7 +392,7 @@ Ok(
                         ident: `T1`,
                     },
                 ),
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::InheritedSymbol {
                 inherited_symbol_idx: 2,
@@ -401,7 +401,7 @@ Ok(
                         ident: `E1`,
                     },
                 ),
-                expr_region: ExprRegionLeash(_),
+                syn_expr_region: ExprRegionLeash(_),
             },
             TokenInfo::None,
             TokenInfo::None,

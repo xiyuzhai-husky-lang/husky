@@ -14,7 +14,7 @@ pub struct TupleTypeVariantSynNodeDecl {
         NodeDeclResult<SeparatedSmallList<TupleFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
     rpar: NodeDeclResult<TupleTypeVariantRightParenthesisToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -41,7 +41,7 @@ pub struct TupleTypeVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
     pub fields: SmallVec<[TupleFieldDeclPattern; 4]>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl TupleTypeVariantSynDecl {
@@ -51,6 +51,11 @@ impl TupleTypeVariantSynDecl {
         syn_node_decl: TupleTypeVariantSynNodeDecl,
     ) -> DeclResult<Self> {
         let fields = SmallVec::from(syn_node_decl.field_comma_list(db).as_ref()?.elements());
-        Ok(Self::new(db, path, fields, syn_node_decl.expr_region(db)))
+        Ok(Self::new(
+            db,
+            path,
+            fields,
+            syn_node_decl.syn_expr_region(db),
+        ))
     }
 }

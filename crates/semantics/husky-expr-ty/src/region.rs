@@ -91,8 +91,11 @@ impl ExprTypeRegion {
 }
 
 #[salsa::tracked(jar = ExprTypeJar, return_ref)]
-pub(crate) fn expr_ty_region(db: &dyn ExprTypeDb, expr_region: SynExprRegion) -> ExprTypeRegion {
-    let mut engine = ExprTypeEngine::new(db, expr_region);
+pub(crate) fn expr_ty_region(
+    db: &dyn ExprTypeDb,
+    syn_expr_region: SynExprRegion,
+) -> ExprTypeRegion {
+    let mut engine = ExprTypeEngine::new(db, syn_expr_region);
     engine.infer_all();
     engine.finish()
 }

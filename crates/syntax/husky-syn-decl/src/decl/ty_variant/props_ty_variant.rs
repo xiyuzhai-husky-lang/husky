@@ -14,7 +14,7 @@ pub struct PropsTypeVariantSynNodeDecl {
     fields: NodeDeclResult<SeparatedSmallList<PropsFieldDeclPattern, CommaToken, 4, NodeDeclError>>,
     #[return_ref]
     rcurl: NodeDeclResult<PropsTypeVariantRightCurlyBraceToken>,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 /// we delegate a struct for this for better error message
@@ -52,7 +52,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantRi
 pub struct PropsTypeVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
-    pub expr_region: SynExprRegion,
+    pub syn_expr_region: SynExprRegion,
 }
 
 impl PropsTypeVariantSynDecl {
@@ -61,6 +61,6 @@ impl PropsTypeVariantSynDecl {
         path: TypeVariantPath,
         syn_node_decl: PropsTypeVariantSynNodeDecl,
     ) -> DeclResult<Self> {
-        Ok(Self::new(db, path, syn_node_decl.expr_region(db)))
+        Ok(Self::new(db, path, syn_node_decl.syn_expr_region(db)))
     }
 }
