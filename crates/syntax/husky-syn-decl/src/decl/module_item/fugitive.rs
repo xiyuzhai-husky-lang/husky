@@ -174,12 +174,12 @@ impl HasDecl for FugitivePath {
     type Decl = FugitiveDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        fugitive_decl(db, self)
+        fugitive_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn fugitive_decl(db: &dyn DeclDb, path: FugitivePath) -> DeclResult<FugitiveDecl> {
+pub(crate) fn fugitive_syn_decl(db: &dyn DeclDb, path: FugitivePath) -> DeclResult<FugitiveDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
     FugitiveDecl::from_node_decl(db, path, syn_node_decl)
 }

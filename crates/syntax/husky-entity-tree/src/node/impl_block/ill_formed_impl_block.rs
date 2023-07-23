@@ -32,7 +32,7 @@ impl IllFormedImplBlockSynNodePath {
         self.path.module_path(db)
     }
 
-    pub fn item_node_paths(self, db: &dyn EntitySynTreeDb) -> &[IllFormedItemSynNodePath] {
+    pub fn item_syn_node_paths(self, db: &dyn EntitySynTreeDb) -> &[IllFormedItemSynNodePath] {
         // ad hoc
         &[]
     }

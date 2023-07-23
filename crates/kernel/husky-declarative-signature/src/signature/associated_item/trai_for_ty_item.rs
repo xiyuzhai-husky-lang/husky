@@ -27,12 +27,12 @@ impl HasDeclarativeSignatureTemplate for TraitForTypeItemPath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        trai_for_ty_item_declarative_signature_from_decl(db, self)
+        trai_for_ty_item_syn_declarative_signature_from_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn trai_for_ty_item_declarative_signature_from_decl(
+pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
     db: &dyn DeclarativeSignatureDb,
     path: TraitForTypeItemPath,
 ) -> DeclarativeSignatureResult<TraitForTypeItemDeclarativeSignatureTemplate> {

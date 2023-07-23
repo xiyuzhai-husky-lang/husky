@@ -123,21 +123,21 @@ impl HasDecl for AssociatedItemPath {
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         todo!()
-        // associated_item_decl(db, self).as_ref().copied()
+        // associated_item_syn_decl(db, self).as_ref().copied()
     }
 }
 
 // #[salsa::tracked(jar = SynDeclJar, return_ref)]
-// pub(crate) fn associated_item_decl(
+// pub(crate) fn associated_item_syn_decl(
 //     db: &dyn DeclDb,
 //     node: AssociatedItemNode,
 // ) -> DeclResult<AssociatedItemDecl> {
 //     let parser = DeclParseContext::new(db, node.module_path(db))?;
-//     parser.parse_associated_item_decl(node)
+//     parser.parse_associated_item_syn_decl(node)
 // }
 
 impl<'a> DeclParser<'a> {
-    // fn parse_associated_item_decl(
+    // fn parse_associated_item_syn_decl(
     //     &self,
     //     node: AssociatedItemNode,
     // ) -> DeclResult<AssociatedItemDecl> {
@@ -154,7 +154,7 @@ impl<'a> DeclParser<'a> {
     //         } => match associated_item_kind {
     //             AssociatedItemKind::TraitItem(_) => todo!(),
     //             AssociatedItemKind::TypeItem(ty_item_kind) => self
-    //                 .parse_ty_item_decl(
+    //                 .parse_ty_item_syn_decl(
     //                     ty_item_kind,
     //                     ast_idx,
     //                     token_group_idx,
@@ -163,7 +163,7 @@ impl<'a> DeclParser<'a> {
     //                 )?
     //                 .into(),
     //             AssociatedItemKind::TraitForTypeItem(trai_item_kind) => self
-    //                 .parse_trai_for_ty_item_decl(
+    //                 .parse_trai_for_ty_item_syn_decl(
     //                     trai_item_kind,
     //                     ast_idx,
     //                     token_group_idx,
@@ -180,7 +180,7 @@ impl<'a> DeclParser<'a> {
 pub trait HasItemDeclsMap {
     type ItemDecls;
 
-    fn item_decls_map<'a>(
+    fn item_syn_decls_map<'a>(
         self,
         db: &'a dyn DeclDb,
     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]>;
@@ -189,5 +189,5 @@ pub trait HasItemDeclsMap {
 pub trait HasItemDecls {
     type ItemDecls;
 
-    fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResult<&'a Self::ItemDecls>;
+    fn item_syn_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResult<&'a Self::ItemDecls>;
 }

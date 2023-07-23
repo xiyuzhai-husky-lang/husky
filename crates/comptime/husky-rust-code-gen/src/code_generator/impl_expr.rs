@@ -134,8 +134,8 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 EagerOpnVariant::MethodCall { .. } => {
                     todo!()
-                    // let call_fugitive_decl = self.db.entity_call_fugitive_decl(*method_route).unwrap();
-                    // match call_fugitive_decl.output.contract() {
+                    // let call_fugitive_syn_decl = self.db.entity_call_fugitive_syn_decl(*method_route).unwrap();
+                    // match call_fugitive_syn_decl.output.contract() {
                     //     OutputModifier::Transfer => {
                     //         self.gen_expr(indent, &opds[0]);
                     //         self.write(".");

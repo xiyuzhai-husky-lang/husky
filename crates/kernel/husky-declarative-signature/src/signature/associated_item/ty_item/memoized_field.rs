@@ -24,7 +24,7 @@ pub(crate) fn ty_memoized_field_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     decl: TypeMemoizedFieldSynDecl,
 ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
-    let impl_block_declarative_signature_template = decl
+    let impl_block_syn_declarative_signature_template = decl
         .impl_block_path(db)
         .declarative_signature_template(db)?;
     let expr_region = decl.expr_region(db);
@@ -36,7 +36,7 @@ pub(crate) fn ty_memoized_field_declarative_signature_template(
     };
     Ok(TypeMemoizedFieldDeclarativeSignatureTemplate::new(
         db,
-        impl_block_declarative_signature_template,
+        impl_block_syn_declarative_signature_template,
         return_ty,
     ))
 }
@@ -96,9 +96,9 @@ pub(crate) fn ty_memoized_field_declarative_signature_template(
 //         DeclarativeSignatureResult<SmallVecImpl<TypeMemoizedFieldDeclarativeSignatureTemplate>>,
 //     >,
 // > {
-//     let item_decls_map = ty_path.item_decls_map(db)?;
+//     let item_syn_decls_map = ty_path.item_syn_decls_map(db)?;
 //     Ok(
-//         IdentPairMap::from_iter_assuming_no_repetitions(item_decls_map.iter().filter_map(
+//         IdentPairMap::from_iter_assuming_no_repetitions(item_syn_decls_map.iter().filter_map(
 //             |(ident, decls)| {
 //                 match decls {
 //                     Ok(TypeItemDecls::MemoizedField(decls)) => Some((

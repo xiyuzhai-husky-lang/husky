@@ -222,12 +222,12 @@ impl HasDecl for TraitForTypeItemPath {
     type Decl = TraitForTypeItemDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        trai_for_ty_item_decl(db, self)
+        trai_for_ty_item_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_for_ty_item_decl(
+pub(crate) fn trai_for_ty_item_syn_decl(
     db: &dyn DeclDb,
     path: TraitForTypeItemPath,
 ) -> DeclResult<TraitForTypeItemDecl> {

@@ -38,12 +38,12 @@ impl HasDeclarativeSignatureTemplate for TypeVariantPath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        ty_variant_declarative_signature_template(db, self)
+        ty_variant_syn_declarative_signature_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn ty_variant_declarative_signature_template(
+pub(crate) fn ty_variant_syn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: TypeVariantPath,
 ) -> DeclarativeSignatureResult<TypeVariantDeclarativeSignatureTemplate> {

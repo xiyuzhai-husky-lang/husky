@@ -154,12 +154,12 @@ impl HasDecl for TraitForTypeImplBlockPath {
     type Decl = TraitForTypeImplBlockSynDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        trai_for_ty_impl_block_decl(db, self)
+        trai_for_ty_impl_block_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_for_ty_impl_block_decl(
+pub(crate) fn trai_for_ty_impl_block_syn_decl(
     db: &dyn DeclDb,
     path: TraitForTypeImplBlockPath,
 ) -> DeclResult<TraitForTypeImplBlockSynDecl> {

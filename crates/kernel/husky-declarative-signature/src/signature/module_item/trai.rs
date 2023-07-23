@@ -15,12 +15,12 @@ impl HasDeclarativeSignatureTemplate for TraitPath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        trai_declarative_signature_template(db, self)
+        trai_syn_declarative_signature_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub fn trai_declarative_signature_template(
+pub fn trai_syn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: TraitPath,
 ) -> DeclarativeSignatureResult<TraitDeclarativeSignatureTemplate> {

@@ -113,7 +113,7 @@ impl HasDecl for ImplBlockPath {
     }
 }
 
-pub(crate) fn impl_block_decl(
+pub(crate) fn impl_block_syn_decl(
     db: &dyn DeclDb,
     impl_block: ImplBlockPath,
 ) -> DeclResult<ImplBlockSynDecl> {

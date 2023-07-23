@@ -25,18 +25,21 @@ impl HasNodeDecl for TraitSynNodePath {
     type NodeDecl = TraitSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        trai_node_decl(db, self)
+        trai_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_node_decl(db: &dyn DeclDb, syn_node_path: TraitSynNodePath) -> TraitSynNodeDecl {
+pub(crate) fn trai_syn_node_decl(
+    db: &dyn DeclDb,
+    syn_node_path: TraitSynNodePath,
+) -> TraitSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
-    parser.parse_trai_node_decl(syn_node_path)
+    parser.parse_trai_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_trai_node_decl(&self, syn_node_path: TraitSynNodePath) -> TraitSynNodeDecl {
+    fn parse_trai_syn_node_decl(&self, syn_node_path: TraitSynNodePath) -> TraitSynNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
@@ -45,7 +48,7 @@ impl<'a> DeclParser<'a> {
                 token_group_idx,
                 saved_stream_state,
                 ..
-            } => self.parse_trai_decl_aux(
+            } => self.parse_trai_syn_decl_aux(
                 ast_idx,
                 syn_node_path,
                 token_group_idx,
@@ -55,7 +58,7 @@ impl<'a> DeclParser<'a> {
         }
     }
 
-    fn parse_trai_decl_aux(
+    fn parse_trai_syn_decl_aux(
         &self,
         ast_idx: AstIdx,
         id: TraitSynNodePath,
@@ -107,12 +110,12 @@ impl HasDecl for TraitPath {
     type Decl = TraitSynDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        trai_decl(db, self)
+        trai_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitSynDecl> {
+pub(crate) fn trai_syn_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
     TraitSynDecl::from_node_decl(db, path, syn_node_decl)
 }
