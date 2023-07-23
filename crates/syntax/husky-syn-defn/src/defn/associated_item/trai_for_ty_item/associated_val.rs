@@ -21,7 +21,7 @@ impl TraitForTypeAssociatedValSynDefn {
         db: &dyn SynDefnDb,
         path: TraitForTypeItemPath,
         decl: TraitForTypeAssociatedValDecl,
-    ) -> DefnResult<Self> {
+    ) -> SynDefnResult<Self> {
         todo!()
     }
 }

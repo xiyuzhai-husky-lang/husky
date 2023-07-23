@@ -153,16 +153,16 @@ impl TypeDefn {
     }
 }
 
-impl HasDefn for TypePath {
-    type Defn = TypeDefn;
+impl HasSynDefn for TypePath {
+    type SynDefn = TypeDefn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         ty_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn ty_defn(db: &dyn SynDefnDb, path: TypePath) -> DefnResult<TypeDefn> {
+pub(crate) fn ty_defn(db: &dyn SynDefnDb, path: TypePath) -> SynDefnResult<TypeDefn> {
     Ok(match path.decl(db)? {
         TypeDecl::Enum(decl) => EnumTypeSynDefn::new(db, path, decl).into(),
         TypeDecl::PropsStruct(decl) => PropsStructTypeSynDefn::new(db, path, decl).into(),

@@ -8,10 +8,10 @@ impl HasSynNodeDefn for ImplBlockSynNodePath {
     }
 }
 
-impl HasDefn for ImplBlockPath {
-    type Defn = ImplBlockSynDecl;
+impl HasSynDefn for ImplBlockPath {
+    type SynDefn = ImplBlockSynDecl;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(self.decl(db)?)
     }
 }

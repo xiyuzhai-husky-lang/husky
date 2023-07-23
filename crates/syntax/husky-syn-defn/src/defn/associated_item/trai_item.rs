@@ -52,19 +52,19 @@ impl TraitItemSynDefn {
     }
 }
 
-impl HasDefn for TraitItemPath {
-    type Defn = TraitItemSynDefn;
+impl HasSynDefn for TraitItemPath {
+    type SynDefn = TraitItemSynDefn;
 
-    fn defn(self, db: &dyn SynDefnDb) -> DefnResult<Self::Defn> {
-        trai_item_defn(db, self)
+    fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
+        trai_item_syn_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDefnJar)]
-pub(crate) fn trai_item_defn(
+pub(crate) fn trai_item_syn_defn(
     db: &dyn SynDefnDb,
     path: TraitItemPath,
-) -> DefnResult<TraitItemSynDefn> {
+) -> SynDefnResult<TraitItemSynDefn> {
     let decl = path.decl(db)?;
     Ok(match decl {
         TraitItemDecl::AssociatedFn(decl) => TraitAssociatedFnSynDefn::new(db, path, decl)?.into(),
