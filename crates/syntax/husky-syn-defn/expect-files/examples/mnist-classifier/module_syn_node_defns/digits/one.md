@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValNodeDecl {
+                        syn_node_decl: ValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
@@ -486,7 +486,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValNodeDecl {
+                        syn_node_decl: ValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
@@ -6096,7 +6096,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
@@ -6801,7 +6801,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
@@ -7533,7 +7533,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),

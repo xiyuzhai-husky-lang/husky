@@ -1,5 +1,5 @@
 Ok(
-    NodeDeclSheet {
+    SynNodeDeclSheet {
         [salsa id]: 17,
         decls: [
             (
@@ -16,7 +16,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
-                            ExternTypeNodeDecl {
+                            ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::slice::Slice`, `Extern`),
@@ -165,7 +165,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Extern(
-                            ExternTypeNodeDecl {
+                            ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
@@ -314,7 +314,7 @@ Ok(
                 ),
                 SynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::Type(
-                        TypeImplBlockNodeDecl {
+                        TypeImplBlockSynNodeDecl {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath {
                                     module_path: `core::slice`,
@@ -555,7 +555,7 @@ Ok(
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MethodFn(
-                            TypeMethodFnNodeDecl {
+                            TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -905,7 +905,7 @@ Ok(
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MethodFn(
-                            TypeMethodFnNodeDecl {
+                            TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -1255,7 +1255,7 @@ Ok(
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MethodFn(
-                            TypeMethodFnNodeDecl {
+                            TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {

@@ -2,7 +2,7 @@ use super::*;
 use husky_print_utils::p;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct ValNodeDecl {
+pub struct ValSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     pub ast_idx: AstIdx,
@@ -15,7 +15,7 @@ pub struct ValNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl ValNodeDecl {
+impl ValSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.return_ty(db)
@@ -34,7 +34,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> ValNodeDecl {
+    ) -> ValSynNodeDecl {
         let mut parser = self.expr_parser(
             syn_node_path,
             None,
@@ -51,7 +51,7 @@ impl<'a> DeclParser<'a> {
         };
         let eq_token = ctx.try_parse_expected(OriginalNodeDeclError::ExpectEqTokenForVariable);
         let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
-        ValNodeDecl::new(
+        ValSynNodeDecl::new(
             self.db(),
             syn_node_path,
             ast_idx,
@@ -65,7 +65,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct ValDecl {
+pub struct ValSynDecl {
     #[id]
     pub path: FugitivePath,
     pub return_ty: Option<ReturnTypeExprBeforeEq>,
@@ -73,15 +73,15 @@ pub struct ValDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl ValDecl {
+impl ValSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: FugitivePath,
-        syn_node_decl: ValNodeDecl,
+        syn_node_decl: ValSynNodeDecl,
     ) -> DeclResult<Self> {
         let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);
         let expr_region = syn_node_decl.expr_region(db);
-        Ok(ValDecl::new(db, path, val_ty, expr, expr_region))
+        Ok(ValSynDecl::new(db, path, val_ty, expr, expr_region))
     }
 }

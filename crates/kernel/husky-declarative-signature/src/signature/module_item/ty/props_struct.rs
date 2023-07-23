@@ -20,7 +20,7 @@ impl PropsStructDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
         path: TypePath,
-        decl: PropsStructTypeDecl,
+        decl: PropsStructTypeSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let expr_region = decl.expr_region(db);
         let declarative_term_region = declarative_term_region(db, expr_region);

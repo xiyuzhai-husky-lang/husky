@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i8`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::i8`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -72,7 +72,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i16`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::i16`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -139,7 +139,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i32`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::i32`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -206,7 +206,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i64`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::i64`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -273,7 +273,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::i128`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::i128`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -340,7 +340,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::isize`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::isize`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -407,7 +407,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u8`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::u8`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -474,7 +474,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u16`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::u16`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -541,7 +541,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u32`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::u32`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -608,7 +608,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u64`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::u64`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -675,7 +675,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::u128`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::u128`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -742,7 +742,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::usize`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::usize`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -809,7 +809,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::f32`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::f32`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -876,7 +876,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::num::f64`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::num::f64`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -940,7 +940,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::i8`, `Extern`),
@@ -1053,7 +1053,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -1506,7 +1506,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -1703,7 +1703,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -2493,7 +2493,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::i16`, `Extern`),
@@ -2606,7 +2606,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -3059,7 +3059,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -3256,7 +3256,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -4046,7 +4046,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::i32`, `Extern`),
@@ -4159,7 +4159,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -4612,7 +4612,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -4809,7 +4809,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -5599,7 +5599,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::i64`, `Extern`),
@@ -5712,7 +5712,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -6165,7 +6165,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -6362,7 +6362,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -7152,7 +7152,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::i128`, `Extern`),
@@ -7265,7 +7265,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -7718,7 +7718,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -7915,7 +7915,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -8705,7 +8705,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::isize`, `Extern`),
@@ -8818,7 +8818,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -9271,7 +9271,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -9468,7 +9468,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -10258,7 +10258,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::u8`, `Extern`),
@@ -10371,7 +10371,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -10824,7 +10824,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -11021,7 +11021,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -11811,7 +11811,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::u16`, `Extern`),
@@ -11924,7 +11924,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -12377,7 +12377,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -12574,7 +12574,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -13364,7 +13364,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::u32`, `Extern`),
@@ -13477,7 +13477,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -13930,7 +13930,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -14127,7 +14127,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -14917,7 +14917,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::u64`, `Extern`),
@@ -15030,7 +15030,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -15483,7 +15483,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -15680,7 +15680,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -16470,7 +16470,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::u128`, `Extern`),
@@ -16583,7 +16583,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -17036,7 +17036,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -17233,7 +17233,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -18023,7 +18023,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -18136,7 +18136,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -18589,7 +18589,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -18786,7 +18786,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -19576,7 +19576,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -19689,7 +19689,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -20153,7 +20153,7 @@ Ok(
                             ident: `sqrt`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -20606,7 +20606,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -20803,7 +20803,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,
@@ -21593,7 +21593,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::num`,
                         ty_path: TypePath(`core::num::f64`, `Extern`),
@@ -21706,7 +21706,7 @@ Ok(
                             ident: `abs`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::num`,
@@ -22159,7 +22159,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::num`,
                         trai_path: TraitPath(`core::ops::Add`),
@@ -22356,7 +22356,7 @@ Ok(
                             ident: `add`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::num`,

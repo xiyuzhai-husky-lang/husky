@@ -17,7 +17,7 @@ impl EnumTupleTypeVariantDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
         parent_ty_template: EnumDeclarativeSignatureTemplate,
-        decl: TupleTypeVariantDecl,
+        decl: TupleTypeVariantSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let expr_region = decl.expr_region(db);
         let declarative_term_region = declarative_term_region(db, expr_region);

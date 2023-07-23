@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TraitForTypeMethodFnNodeDecl {
+pub struct TraitForTypeMethodFnSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     pub node: TraitForTypeItemSynNode,
@@ -19,7 +19,7 @@ pub struct TraitForTypeMethodFnNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TraitForTypeMethodFnNodeDecl {
+impl TraitForTypeMethodFnSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
@@ -46,7 +46,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> TraitForTypeMethodFnNodeDecl {
+    ) -> TraitForTypeMethodFnSynNodeDecl {
         let db = self.db();
         let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
         let mut parser = self.expr_parser(
@@ -67,7 +67,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
-        TraitForTypeMethodFnNodeDecl::new(
+        TraitForTypeMethodFnSynNodeDecl::new(
             db,
             node.syn_node_path(db),
             node,
@@ -83,7 +83,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TraitForTypeMethodFnDecl {
+pub struct TraitForTypeMethodFnSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
@@ -95,11 +95,11 @@ pub struct TraitForTypeMethodFnDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TraitForTypeMethodFnDecl {
+impl TraitForTypeMethodFnSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitForTypeItemPath,
-        syn_node_decl: TraitForTypeMethodFnNodeDecl,
+        syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
@@ -116,7 +116,7 @@ impl TraitForTypeMethodFnDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr_region = syn_node_decl.expr_region(db);
-        Ok(TraitForTypeMethodFnDecl::new(
+        Ok(TraitForTypeMethodFnSynDecl::new(
             db,
             path,
             generic_parameters,

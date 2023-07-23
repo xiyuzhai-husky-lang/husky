@@ -17,10 +17,10 @@ use husky_ast::*;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemNodeDecl {
-    AssociatedFn(TraitForTypeAssociatedFnNodeDecl),
-    MethodFn(TraitForTypeMethodFnNodeDecl),
-    AssociatedType(TraitForTypeAssociatedTypeNodeDecl),
-    AssociatedVal(TraitForTypeAssociatedValNodeDecl),
+    AssociatedFn(TraitForTypeAssociatedFnSynNodeDecl),
+    MethodFn(TraitForTypeMethodFnSynNodeDecl),
+    AssociatedType(TraitForTypeAssociatedTypeSynNodeDecl),
+    AssociatedVal(TraitForTypeAssociatedValSynNodeDecl),
 }
 
 impl From<TraitForTypeItemNodeDecl> for SynNodeDecl {
@@ -158,10 +158,10 @@ impl<'a> DeclParser<'a> {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDecl {
-    AssociatedFn(TraitForTypeAssociatedFnDecl),
-    MethodFn(TraitForTypeMethodFnDecl),
-    AssociatedType(TraitForTypeAssociatedTypeDecl),
-    AssociatedVal(TraitForTypeAssociatedValDecl),
+    AssociatedFn(TraitForTypeAssociatedFnSynDecl),
+    MethodFn(TraitForTypeMethodFnSynDecl),
+    AssociatedType(TraitForTypeAssociatedTypeSynDecl),
+    AssociatedVal(TraitForTypeAssociatedValSynDecl),
 }
 
 impl From<TraitForTypeItemDecl> for Decl {
@@ -178,13 +178,13 @@ impl TraitForTypeItemDecl {
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
             TraitForTypeItemNodeDecl::AssociatedFn(syn_node_decl) => {
-                TraitForTypeAssociatedFnDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitForTypeAssociatedFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TraitForTypeItemNodeDecl::MethodFn(syn_node_decl) => {
-                TraitForTypeMethodFnDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitForTypeMethodFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TraitForTypeItemNodeDecl::AssociatedType(syn_node_decl) => {
-                TraitForTypeAssociatedTypeDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitForTypeAssociatedTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TraitForTypeItemNodeDecl::AssociatedVal(_) => todo!(),
         })

@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 49,
         decls: [
             (
@@ -7,7 +7,7 @@ Ok(
                     `math::algebra`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `math::algebra`,
                         ast_idx: 0,
                     },
@@ -18,7 +18,7 @@ Ok(
                     `math::algebraic_geometry`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `math::algebraic_geometry`,
                         ast_idx: 1,
                     },
@@ -29,7 +29,7 @@ Ok(
                     `math::algebraic_topology`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `math::algebraic_topology`,
                         ast_idx: 2,
                     },
@@ -40,7 +40,7 @@ Ok(
                     `math::category_theory`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `math::category_theory`,
                         ast_idx: 3,
                     },
@@ -51,7 +51,7 @@ Ok(
                     `math::probability`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `math::probability`,
                         ast_idx: 4,
                     },

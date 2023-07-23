@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct InductiveTypeNodeDecl {
+pub struct InductiveTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
@@ -10,7 +10,7 @@ pub struct InductiveTypeNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl InductiveTypeNodeDecl {
+impl InductiveTypeSynNodeDecl {
     pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         todo!()
         // self.implicit_parameter_decl_list(db)
@@ -37,7 +37,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         variants: TypeVariants,
         saved_stream_state: TokenStreamState,
-    ) -> InductiveTypeNodeDecl {
+    ) -> InductiveTypeSynNodeDecl {
         let mut parser = self.expr_parser(
             syn_node_path,
             None,
@@ -46,7 +46,7 @@ impl<'a> DeclParser<'a> {
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let implicit_parameter_decl_list = ctx.try_parse_option();
-        InductiveTypeNodeDecl::new(
+        InductiveTypeSynNodeDecl::new(
             self.db(),
             syn_node_path,
             ast_idx,
@@ -57,7 +57,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct InductiveTypeDecl {
+pub struct InductiveTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
@@ -65,12 +65,12 @@ pub struct InductiveTypeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl InductiveTypeDecl {
+impl InductiveTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        syn_node_decl: InductiveTypeNodeDecl,
+        syn_node_decl: InductiveTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)

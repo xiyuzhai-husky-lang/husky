@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 38,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::PropsStruct(
-                            PropsStructTypeDecl {
+                            PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 generic_parameters: [],
                                 fields: [
@@ -252,7 +252,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [
@@ -651,7 +651,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::Type(
-                        TypeImplBlockDecl {
+                        TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::fermi`,
                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -769,7 +769,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MemoizedField(
-                            TypeMemoizedFieldDecl {
+                            TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::fermi`,
@@ -989,7 +989,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MemoizedField(
-                            TypeMemoizedFieldDecl {
+                            TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::fermi`,
@@ -1209,7 +1209,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MemoizedField(
-                            TypeMemoizedFieldDecl {
+                            TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::fermi`,

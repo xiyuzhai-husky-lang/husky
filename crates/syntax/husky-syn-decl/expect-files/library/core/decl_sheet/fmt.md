@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 6,
         decls: [
             (
@@ -10,7 +10,7 @@ Ok(
                 ),
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
-                        TraitDecl {
+                        TraitSynDecl {
                             path: TraitPath(`core::fmt::Debug`),
                             ast_idx: 0,
                             generic_parameters: [],

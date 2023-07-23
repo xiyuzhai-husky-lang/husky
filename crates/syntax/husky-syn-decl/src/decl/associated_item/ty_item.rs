@@ -20,11 +20,11 @@ use vec_like::VecMapGetEntry;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemNodeDecl {
-    AssociatedFn(TypeAssociatedFnNodeDecl),
-    MethodFn(TypeMethodFnNodeDecl),
-    AssociatedType(TypeAssociatedTypeNodeDecl),
-    AssociatedVal(TypeAssociatedValNodeDecl),
-    MemoizedField(TypeMemoizedFieldNodeDecl),
+    AssociatedFn(TypeAssociatedFnSynNodeDecl),
+    MethodFn(TypeMethodFnSynNodeDecl),
+    AssociatedType(TypeAssociatedTypeSynNodeDecl),
+    AssociatedVal(TypeAssociatedValSynNodeDecl),
+    MemoizedField(TypeMemoizedFieldSynNodeDecl),
 }
 
 impl From<TypeItemNodeDecl> for SynNodeDecl {
@@ -177,11 +177,11 @@ impl<'a> DeclParser<'a> {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemDecl {
-    AssociatedFn(TypeAssociatedFnDecl),
-    MethodFn(TypeMethodFnDecl),
-    AssociatedType(TypeAssociatedTypeDecl),
-    AssociatedVal(TypeAssociatedValDecl),
-    MemoizedField(TypeMemoizedFieldDecl),
+    AssociatedFn(TypeAssociatedFnSynDecl),
+    MethodFn(TypeMethodFnSynDecl),
+    AssociatedType(TypeAssociatedTypeSynDecl),
+    AssociatedVal(TypeAssociatedValSynDecl),
+    MemoizedField(TypeMemoizedFieldSynDecl),
 }
 
 impl From<TypeItemDecl> for Decl {
@@ -226,12 +226,12 @@ impl TypeItemDecl {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemDecls {
-    AssociatedFn(SmallVecImpl<TypeAssociatedFnDecl>),
-    MethodFn(SmallVecImpl<TypeMethodFnDecl>),
+    AssociatedFn(SmallVecImpl<TypeAssociatedFnSynDecl>),
+    MethodFn(SmallVecImpl<TypeMethodFnSynDecl>),
     MethodFunction(/* adhoc */),
-    AssociatedType(SmallVecImpl<TypeAssociatedTypeDecl>),
-    AssociatedVal(SmallVecImpl<TypeAssociatedValDecl>),
-    MemoizedField(SmallVecImpl<TypeMemoizedFieldDecl>),
+    AssociatedType(SmallVecImpl<TypeAssociatedTypeSynDecl>),
+    AssociatedVal(SmallVecImpl<TypeAssociatedValSynDecl>),
+    MemoizedField(SmallVecImpl<TypeMemoizedFieldSynDecl>),
 }
 
 impl HasDecl for TypeItemPath {
@@ -246,15 +246,15 @@ impl HasDecl for TypeItemPath {
 pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemDecl> {
     match path.syn_node_path(db).syn_node_decl(db) {
         TypeItemNodeDecl::AssociatedFn(syn_node_decl) => {
-            TypeAssociatedFnDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeAssociatedFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemNodeDecl::MethodFn(syn_node_decl) => {
-            TypeMethodFnDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeMethodFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemNodeDecl::AssociatedType(_) => todo!(),
         TypeItemNodeDecl::AssociatedVal(_) => todo!(),
         TypeItemNodeDecl::MemoizedField(syn_node_decl) => {
-            TypeMemoizedFieldDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeMemoizedFieldSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
     }
 }

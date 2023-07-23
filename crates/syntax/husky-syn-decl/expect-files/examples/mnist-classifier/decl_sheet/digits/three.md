@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 34,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -119,7 +119,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -310,7 +310,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [
@@ -524,7 +524,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [
@@ -738,7 +738,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [

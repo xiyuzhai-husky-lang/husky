@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct EnumTypeNodeDecl {
+pub struct EnumTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
@@ -10,7 +10,7 @@ pub struct EnumTypeNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl EnumTypeNodeDecl {
+impl EnumTypeSynNodeDecl {
     pub fn generic_parameters(self, db: &dyn DeclDb) -> &[GenericParameterDecl] {
         todo!()
         // self.implicit_parameter_decl_list(db)
@@ -37,7 +37,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         children: TypeVariants,
         saved_stream_state: TokenStreamState,
-    ) -> EnumTypeNodeDecl {
+    ) -> EnumTypeSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
             syn_node_path,
@@ -47,7 +47,7 @@ impl<'a> DeclParser<'a> {
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let generic_parameters = ctx.try_parse_option();
-        EnumTypeNodeDecl::new(
+        EnumTypeSynNodeDecl::new(
             db,
             syn_node_path,
             ast_idx,
@@ -58,7 +58,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct EnumTypeDecl {
+pub struct EnumTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
@@ -66,12 +66,12 @@ pub struct EnumTypeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl EnumTypeDecl {
+impl EnumTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        syn_node_decl: EnumTypeNodeDecl,
+        syn_node_decl: EnumTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)

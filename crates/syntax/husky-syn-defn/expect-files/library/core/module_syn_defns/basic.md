@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::bool`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::bool`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -72,7 +72,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::never`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::never`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -139,7 +139,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::unit`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::unit`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -206,7 +206,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::Trait`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::Trait`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -273,7 +273,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::basic::Module`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::Module`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {

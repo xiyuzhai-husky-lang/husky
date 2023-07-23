@@ -15,9 +15,9 @@ use husky_entity_taxonomy::{EntityKind, FugitiveKind};
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum FugitiveNodeDecl {
-    Fn(FnNodeDecl),
-    Val(ValNodeDecl),
-    Gn(GnNodeDecl),
+    Fn(FnSynNodeDecl),
+    Val(ValSynNodeDecl),
+    Gn(GnSynNodeDecl),
 }
 
 impl FugitiveNodeDecl {
@@ -120,9 +120,9 @@ impl<'a> DeclParser<'a> {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum FugitiveDecl {
-    Fn(FnDecl),
-    Val(ValDecl),
-    Gn(GnDecl),
+    Fn(FnSynDecl),
+    Val(ValSynDecl),
+    Gn(GnSynDecl),
     // todo: AliasType
 }
 
@@ -134,13 +134,13 @@ impl FugitiveDecl {
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
             FugitiveNodeDecl::Fn(syn_node_decl) => {
-                FnDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                FnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             FugitiveNodeDecl::Val(syn_node_decl) => {
-                ValDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                ValSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             FugitiveNodeDecl::Gn(syn_node_decl) => {
-                GnDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                GnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
     }

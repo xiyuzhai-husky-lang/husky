@@ -5,7 +5,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -386,7 +386,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -985,7 +985,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {

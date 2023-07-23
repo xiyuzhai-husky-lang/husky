@@ -2,7 +2,7 @@ Ok(
     [
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::array`,
                     ast_idx: 0,
                 },
@@ -10,7 +10,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::basic`,
                     ast_idx: 1,
                 },
@@ -18,7 +18,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::clone`,
                     ast_idx: 2,
                 },
@@ -26,7 +26,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::cmp`,
                     ast_idx: 3,
                 },
@@ -34,7 +34,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::default`,
                     ast_idx: 4,
                 },
@@ -42,7 +42,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::fmt`,
                     ast_idx: 5,
                 },
@@ -50,7 +50,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::list`,
                     ast_idx: 6,
                 },
@@ -58,7 +58,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::logic`,
                     ast_idx: 7,
                 },
@@ -66,7 +66,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::marker`,
                     ast_idx: 8,
                 },
@@ -74,7 +74,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::mem`,
                     ast_idx: 9,
                 },
@@ -82,7 +82,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::num`,
                     ast_idx: 10,
                 },
@@ -90,7 +90,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::ops`,
                     ast_idx: 11,
                 },
@@ -98,7 +98,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::option`,
                     ast_idx: 12,
                 },
@@ -106,7 +106,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::prelude`,
                     ast_idx: 13,
                 },
@@ -114,7 +114,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::raw_bits`,
                     ast_idx: 14,
                 },
@@ -122,7 +122,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::result`,
                     ast_idx: 15,
                 },
@@ -130,7 +130,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::slice`,
                     ast_idx: 16,
                 },
@@ -138,7 +138,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::str`,
                     ast_idx: 17,
                 },
@@ -146,7 +146,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `core::visual`,
                     ast_idx: 18,
                 },

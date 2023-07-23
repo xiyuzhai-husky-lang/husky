@@ -1,5 +1,5 @@
 Ok(
-    NodeDeclSheet {
+    SynNodeDeclSheet {
         [salsa id]: 49,
         decls: [
             (
@@ -12,7 +12,7 @@ Ok(
                     },
                 ),
                 SynNodeDecl::Submodule(
-                    SubmoduleNodeDecl {
+                    SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebra`,
@@ -33,7 +33,7 @@ Ok(
                     },
                 ),
                 SynNodeDecl::Submodule(
-                    SubmoduleNodeDecl {
+                    SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebraic_geometry`,
@@ -54,7 +54,7 @@ Ok(
                     },
                 ),
                 SynNodeDecl::Submodule(
-                    SubmoduleNodeDecl {
+                    SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::algebraic_topology`,
@@ -75,7 +75,7 @@ Ok(
                     },
                 ),
                 SynNodeDecl::Submodule(
-                    SubmoduleNodeDecl {
+                    SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::category_theory`,
@@ -96,7 +96,7 @@ Ok(
                     },
                 ),
                 SynNodeDecl::Submodule(
-                    SubmoduleNodeDecl {
+                    SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `math::probability`,

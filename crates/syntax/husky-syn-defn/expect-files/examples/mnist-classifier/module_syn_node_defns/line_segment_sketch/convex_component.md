@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
@@ -288,7 +288,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
-                TraitForTypeImplBlockNodeDecl {
+                TraitForTypeImplBlockSynNodeDecl {
                     syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch::convex_component`,
@@ -485,7 +485,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TraitForTypeMethodFnNodeDecl {
+                        syn_node_decl: TraitForTypeMethodFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {

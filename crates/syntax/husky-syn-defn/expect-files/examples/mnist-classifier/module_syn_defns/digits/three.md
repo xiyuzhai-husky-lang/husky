@@ -5,7 +5,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -452,7 +452,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -2385,7 +2385,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -3111,7 +3111,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -3837,7 +3837,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [

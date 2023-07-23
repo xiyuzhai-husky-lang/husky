@@ -8,7 +8,7 @@ pub struct TraitMethodFnDeclarativeSignatureTemplate {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TraitMethodFnDecl,
+    decl: TraitMethodFnSynDecl,
 ) -> DeclarativeSignatureResult<TraitMethodFnDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let _declarative_term_region = declarative_term_region(db, expr_region);

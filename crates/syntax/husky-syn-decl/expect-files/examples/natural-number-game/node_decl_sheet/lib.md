@@ -1,5 +1,5 @@
 Ok(
-    NodeDeclSheet {
+    SynNodeDeclSheet {
         [salsa id]: 47,
         decls: [
             (
@@ -16,7 +16,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Inductive(
-                            InductiveTypeNodeDecl {
+                            InductiveTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -100,7 +100,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Structure(
-                            StructureTypeNodeDecl {
+                            StructureTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -184,7 +184,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Structure(
-                            StructureTypeNodeDecl {
+                            StructureTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`natural_number_game::EvenNat`, `Structure`),
@@ -268,7 +268,7 @@ Ok(
                 ),
                 SynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::Type(
-                        TypeImplBlockNodeDecl {
+                        TypeImplBlockSynNodeDecl {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath {
                                     module_path: `natural_number_game`,

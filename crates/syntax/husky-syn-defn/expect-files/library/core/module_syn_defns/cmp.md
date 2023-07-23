@@ -4,7 +4,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::cmp::PartialEq`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`core::cmp::PartialEq`),
                         ast_idx: 0,
                         generic_parameters: [],
@@ -70,7 +70,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::cmp::Eq`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`core::cmp::Eq`),
                         ast_idx: 1,
                         generic_parameters: [],
@@ -136,7 +136,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::cmp::PartialOrd`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`core::cmp::PartialOrd`),
                         ast_idx: 2,
                         generic_parameters: [],
@@ -202,7 +202,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::cmp::Ord`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`core::cmp::Ord`),
                         ast_idx: 3,
                         generic_parameters: [],

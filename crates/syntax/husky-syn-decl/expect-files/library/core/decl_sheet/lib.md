@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 0,
         decls: [
             (
@@ -7,7 +7,7 @@ Ok(
                     `core::array`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::array`,
                         ast_idx: 0,
                     },
@@ -18,7 +18,7 @@ Ok(
                     `core::basic`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::basic`,
                         ast_idx: 1,
                     },
@@ -29,7 +29,7 @@ Ok(
                     `core::clone`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::clone`,
                         ast_idx: 2,
                     },
@@ -40,7 +40,7 @@ Ok(
                     `core::cmp`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::cmp`,
                         ast_idx: 3,
                     },
@@ -51,7 +51,7 @@ Ok(
                     `core::default`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::default`,
                         ast_idx: 4,
                     },
@@ -62,7 +62,7 @@ Ok(
                     `core::fmt`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::fmt`,
                         ast_idx: 5,
                     },
@@ -73,7 +73,7 @@ Ok(
                     `core::list`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::list`,
                         ast_idx: 6,
                     },
@@ -84,7 +84,7 @@ Ok(
                     `core::logic`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::logic`,
                         ast_idx: 7,
                     },
@@ -95,7 +95,7 @@ Ok(
                     `core::marker`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::marker`,
                         ast_idx: 8,
                     },
@@ -106,7 +106,7 @@ Ok(
                     `core::mem`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::mem`,
                         ast_idx: 9,
                     },
@@ -117,7 +117,7 @@ Ok(
                     `core::num`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::num`,
                         ast_idx: 10,
                     },
@@ -128,7 +128,7 @@ Ok(
                     `core::ops`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::ops`,
                         ast_idx: 11,
                     },
@@ -139,7 +139,7 @@ Ok(
                     `core::option`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::option`,
                         ast_idx: 12,
                     },
@@ -150,7 +150,7 @@ Ok(
                     `core::prelude`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::prelude`,
                         ast_idx: 13,
                     },
@@ -161,7 +161,7 @@ Ok(
                     `core::raw_bits`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::raw_bits`,
                         ast_idx: 14,
                     },
@@ -172,7 +172,7 @@ Ok(
                     `core::result`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::result`,
                         ast_idx: 15,
                     },
@@ -183,7 +183,7 @@ Ok(
                     `core::slice`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::slice`,
                         ast_idx: 16,
                     },
@@ -194,7 +194,7 @@ Ok(
                     `core::str`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::str`,
                         ast_idx: 17,
                     },
@@ -205,7 +205,7 @@ Ok(
                     `core::visual`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `core::visual`,
                         ast_idx: 18,
                     },

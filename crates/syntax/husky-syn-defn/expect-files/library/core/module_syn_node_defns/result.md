@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: EnumTypeNodeDecl {
+                        syn_node_decl: EnumTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::result::Result`, `Enum`),
@@ -181,7 +181,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
-                TraitForTypeImplBlockNodeDecl {
+                TraitForTypeImplBlockSynNodeDecl {
                     syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `core::result`,
@@ -713,7 +713,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TraitForTypeAssociatedTypeNodeDecl {
+                        syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
@@ -1931,7 +1931,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TraitForTypeMethodFnNodeDecl {
+                        syn_node_decl: TraitForTypeMethodFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {

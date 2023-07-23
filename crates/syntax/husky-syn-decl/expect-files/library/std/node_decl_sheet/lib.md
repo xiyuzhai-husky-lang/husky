@@ -1,5 +1,5 @@
 Ok(
-    NodeDeclSheet {
+    SynNodeDeclSheet {
         [salsa id]: 20,
         decls: [
             (
@@ -12,7 +12,7 @@ Ok(
                     },
                 ),
                 SynNodeDecl::Submodule(
-                    SubmoduleNodeDecl {
+                    SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `std::prelude`,
@@ -33,7 +33,7 @@ Ok(
                     },
                 ),
                 SynNodeDecl::Submodule(
-                    SubmoduleNodeDecl {
+                    SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `std::logic`,
@@ -54,7 +54,7 @@ Ok(
                     },
                 ),
                 SynNodeDecl::Submodule(
-                    SubmoduleNodeDecl {
+                    SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: `std::ops`,

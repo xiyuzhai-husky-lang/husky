@@ -1,5 +1,5 @@
 Ok(
-    NodeDeclSheet {
+    SynNodeDeclSheet {
         [salsa id]: 50,
         decls: [],
     },

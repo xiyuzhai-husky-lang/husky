@@ -19,7 +19,7 @@ pub enum AssociatedItemSynNodeDecl {
     TypeItem(TypeItemNodeDecl),
     TraitItem(TraitItemNodeDecl),
     TraitForTypeItem(TraitForTypeItemNodeDecl),
-    IllFormedItem(IllFormedItemNodeDecl),
+    IllFormedItem(IllFormedItemSynNodeDecl),
 }
 
 impl AssociatedItemSynNodeDecl {

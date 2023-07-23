@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 3,
         decls: [
             (
@@ -10,7 +10,7 @@ Ok(
                 ),
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
-                        TraitDecl {
+                        TraitSynDecl {
                             path: TraitPath(`core::clone::Clone`),
                             ast_idx: 2,
                             generic_parameters: [],
@@ -84,7 +84,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                        TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::clone`,
                                 trai_path: TraitPath(`core::clone::Clone`),
@@ -222,7 +222,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
+                            TraitForTypeMethodFnSynDecl {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::clone`,

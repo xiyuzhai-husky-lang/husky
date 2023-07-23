@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 19,
         decls: [
             (
@@ -10,7 +10,7 @@ Ok(
                 ),
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
-                        TraitDecl {
+                        TraitSynDecl {
                             path: TraitPath(`core::visual::Visualize`),
                             ast_idx: 1,
                             generic_parameters: [],
@@ -81,7 +81,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::visual::Html`, `Extern`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {

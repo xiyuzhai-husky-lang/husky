@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 47,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Inductive(
-                            InductiveTypeDecl {
+                            InductiveTypeSynDecl {
                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -82,7 +82,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Structure(
-                            StructureTypeDecl {
+                            StructureTypeSynDecl {
                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -153,7 +153,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Structure(
-                            StructureTypeDecl {
+                            StructureTypeSynDecl {
                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -227,7 +227,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::Type(
-                        TypeImplBlockDecl {
+                        TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
                                 module_path: `natural_number_game`,
                                 ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),

@@ -2,7 +2,7 @@ use super::*;
 use husky_token::EolToken;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TypeImplBlockNodeDecl {
+pub struct TypeImplBlockSynNodeDecl {
     #[id]
     pub syn_node_path: TypeImplBlockSynNodePath,
     pub ast_idx: AstIdx,
@@ -16,7 +16,7 @@ pub struct TypeImplBlockNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TypeImplBlockNodeDecl {
+impl TypeImplBlockSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
@@ -29,7 +29,7 @@ impl TypeImplBlockNodeDecl {
 }
 
 impl HasNodeDecl for TypeImplBlockSynNode {
-    type NodeDecl = TypeImplBlockNodeDecl;
+    type NodeDecl = TypeImplBlockSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         self.syn_node_path(db).syn_node_decl(db)
@@ -40,7 +40,7 @@ impl HasNodeDecl for TypeImplBlockSynNode {
 pub(crate) fn ty_impl_block_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: TypeImplBlockSynNodePath,
-) -> TypeImplBlockNodeDecl {
+) -> TypeImplBlockSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
     parser.parse_ty_impl_block_syn_node_decl(syn_node_path)
 }
@@ -49,7 +49,7 @@ impl<'a> DeclParser<'a> {
     fn parse_ty_impl_block_syn_node_decl(
         &self,
         syn_node_path: TypeImplBlockSynNodePath,
-    ) -> TypeImplBlockNodeDecl {
+    ) -> TypeImplBlockSynNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
@@ -68,7 +68,7 @@ impl<'a> DeclParser<'a> {
         node: TypeImplBlockSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-    ) -> TypeImplBlockNodeDecl {
+    ) -> TypeImplBlockSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
             syn_node_path,
@@ -81,7 +81,7 @@ impl<'a> DeclParser<'a> {
         let implicit_parameter_decl_list = ctx.try_parse_option();
         let ty = ctx.try_parse_option().unwrap().unwrap();
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
-        TypeImplBlockNodeDecl::new(
+        TypeImplBlockSynNodeDecl::new(
             db,
             syn_node_path,
             ast_idx,
@@ -96,7 +96,7 @@ impl<'a> DeclParser<'a> {
 }
 
 impl HasNodeDecl for TypeImplBlockSynNodePath {
-    type NodeDecl = TypeImplBlockNodeDecl;
+    type NodeDecl = TypeImplBlockSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         ty_impl_block_syn_node_decl(db, self)
@@ -104,7 +104,7 @@ impl HasNodeDecl for TypeImplBlockSynNodePath {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
-pub struct TypeImplBlockDecl {
+pub struct TypeImplBlockSynDecl {
     #[id]
     pub path: TypeImplBlockPath,
     #[return_ref]
@@ -113,17 +113,17 @@ pub struct TypeImplBlockDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl From<TypeImplBlockDecl> for Decl {
-    fn from(decl: TypeImplBlockDecl) -> Self {
+impl From<TypeImplBlockSynDecl> for Decl {
+    fn from(decl: TypeImplBlockSynDecl) -> Self {
         Decl::ImplBlock(decl.into())
     }
 }
 
-impl TypeImplBlockDecl {
+impl TypeImplBlockSynDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeImplBlockPath,
-        syn_node_decl: TypeImplBlockNodeDecl,
+        syn_node_decl: TypeImplBlockSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
@@ -145,7 +145,7 @@ impl TypeImplBlockDecl {
 }
 
 impl HasDecl for TypeImplBlockPath {
-    type Decl = TypeImplBlockDecl;
+    type Decl = TypeImplBlockSynDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         ty_impl_block_decl(db, self)
@@ -158,8 +158,8 @@ pub(crate) fn ty_impl_block_decl(
     // here use path instead of syn_node_path because salsa doesn't support use wrapper type by default
     // maybe add AsId carefully
     path: TypeImplBlockPath,
-) -> DeclResult<TypeImplBlockDecl> {
+) -> DeclResult<TypeImplBlockSynDecl> {
     let syn_node_path = path.syn_node_path(db);
     let syn_node_decl = syn_node_path.syn_node_decl(db);
-    TypeImplBlockDecl::from_node_decl(db, path, syn_node_decl)
+    TypeImplBlockSynDecl::from_node_decl(db, path, syn_node_decl)
 }

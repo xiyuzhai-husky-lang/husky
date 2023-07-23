@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 8,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::logic::Prop`, `Extern`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -82,7 +82,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Structure(
-                            StructureTypeDecl {
+                            StructureTypeSynDecl {
                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                 generic_parameters: [
                                     GenericParameterDecl {
@@ -307,7 +307,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Inductive(
-                            InductiveTypeDecl {
+                            InductiveTypeSynDecl {
                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                 generic_parameters: [
                                     GenericParameterDecl {

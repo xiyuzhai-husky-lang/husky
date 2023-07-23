@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 18,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::str::str`, `Extern`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -82,7 +82,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::str::StringLiteral`, `Extern`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {

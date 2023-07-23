@@ -9,7 +9,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Add`),
@@ -144,7 +144,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::AddAssign`),
@@ -279,7 +279,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitAnd`),
@@ -414,7 +414,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitAndAssign`),
@@ -549,7 +549,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitOr`),
@@ -684,7 +684,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitOrAssign`),
@@ -819,7 +819,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitXor`),
@@ -954,7 +954,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::BitXorAssign`),
@@ -1089,7 +1089,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Div`),
@@ -1224,7 +1224,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::DivAssign`),
@@ -1359,7 +1359,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Mul`),
@@ -1494,7 +1494,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::MulAssign`),
@@ -1629,7 +1629,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Neg`),
@@ -1707,7 +1707,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Not`),
@@ -1785,7 +1785,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Sub`),
@@ -1920,7 +1920,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::ops::Unveil`),
@@ -2056,7 +2056,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: EnumTypeNodeDecl {
+                        syn_node_decl: EnumTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::ops::ControlFlow`, `Enum`),

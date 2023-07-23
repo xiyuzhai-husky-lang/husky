@@ -5,7 +5,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -816,7 +816,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -2136,7 +2136,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`quick_sort::partition`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`quick_sort::partition`, `Fn`),
                             generic_parameters: [
                                 GenericParameterDecl {

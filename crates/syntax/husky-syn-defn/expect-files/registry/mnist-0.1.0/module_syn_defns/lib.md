@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`mnist::MnistLabel`, `Enum`),
-                        decl: EnumTypeDecl {
+                        decl: EnumTypeSynDecl {
                             path: TypePath(`mnist::MnistLabel`, `Enum`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -72,7 +72,7 @@ Ok(
                 TypeDefn::TupleStruct(
                     TupleStructTypeSynDefn {
                         path: TypePath(`mnist::BinaryImage28`, `Struct`),
-                        decl: TupleStructTypeDecl {
+                        decl: TupleStructTypeSynDecl {
                             path: TypePath(`mnist::BinaryImage28`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -206,7 +206,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist::input`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist::input`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {

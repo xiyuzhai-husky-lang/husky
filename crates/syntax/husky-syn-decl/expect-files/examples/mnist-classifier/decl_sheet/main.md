@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 25,
         decls: [
             (
@@ -7,7 +7,7 @@ Ok(
                     `mnist_classifier::connected_component`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `mnist_classifier::connected_component`,
                         ast_idx: 11,
                     },
@@ -18,7 +18,7 @@ Ok(
                     `mnist_classifier::raw_contour`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `mnist_classifier::raw_contour`,
                         ast_idx: 12,
                     },
@@ -29,7 +29,7 @@ Ok(
                     `mnist_classifier::geom2d`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `mnist_classifier::geom2d`,
                         ast_idx: 13,
                     },
@@ -40,7 +40,7 @@ Ok(
                     `mnist_classifier::line_segment_sketch`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `mnist_classifier::line_segment_sketch`,
                         ast_idx: 14,
                     },
@@ -51,7 +51,7 @@ Ok(
                     `mnist_classifier::fermi`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `mnist_classifier::fermi`,
                         ast_idx: 15,
                     },
@@ -62,7 +62,7 @@ Ok(
                     `mnist_classifier::digits`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `mnist_classifier::digits`,
                         ast_idx: 16,
                     },
@@ -73,7 +73,7 @@ Ok(
                     `mnist_classifier::major`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `mnist_classifier::major`,
                         ast_idx: 17,
                     },

@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 43,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::PropsStruct(
-                            PropsStructTypeDecl {
+                            PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                                 generic_parameters: [],
                                 fields: [
@@ -208,7 +208,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::Type(
-                        TypeImplBlockDecl {
+                        TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -326,7 +326,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::line_segment`,
@@ -548,7 +548,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::line_segment`,

@@ -15,7 +15,7 @@ pub struct TypeMethodFunctionDeclarativeSignatureTemplate {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn ty_method_function_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TypeMethodFnDecl,
+    decl: TypeMethodFnSynDecl,
 ) -> DeclarativeSignatureResult<TypeMethodFunctionDeclarativeSignatureTemplate> {
     // todo: overhaul
     // the following is blindly copied from method fn

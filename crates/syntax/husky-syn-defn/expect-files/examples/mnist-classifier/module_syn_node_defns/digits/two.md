@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValNodeDecl {
+                        syn_node_decl: ValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
@@ -486,7 +486,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
@@ -1191,7 +1191,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
@@ -1896,7 +1896,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
@@ -2601,7 +2601,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValNodeDecl {
+                        syn_node_decl: ValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),

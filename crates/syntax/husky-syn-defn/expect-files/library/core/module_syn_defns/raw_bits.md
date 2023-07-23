@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::raw_bits::r32`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::raw_bits::r32`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -69,7 +69,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::raw_bits`,
                         ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -182,7 +182,7 @@ Ok(
                             ident: `last_bits`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::raw_bits`,

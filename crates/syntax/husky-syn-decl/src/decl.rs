@@ -20,7 +20,7 @@ type SmallVecImpl<T> = smallvec::SmallVec<[T; 2]>;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum SynNodeDecl {
-    Submodule(SubmoduleNodeDecl),
+    Submodule(SubmoduleSynNodeDecl),
     ModuleItem(ModuleItemSynNodeDecl),
     ImplBlock(ImplBlockSynNodeDecl),
     AssociatedItem(AssociatedItemSynNodeDecl),
@@ -74,7 +74,7 @@ impl SynNodeDecl {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum Decl {
-    Submodule(SubmoduleDecl),
+    Submodule(SubmoduleSynDecl),
     ModuleItem(ModuleItemDecl),
     ImplBlock(ImplBlockSynDecl),
     AssociatedItem(AssociatedItemSynDecl),

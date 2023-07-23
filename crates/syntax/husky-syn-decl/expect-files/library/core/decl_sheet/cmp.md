@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 4,
         decls: [
             (
@@ -10,7 +10,7 @@ Ok(
                 ),
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
-                        TraitDecl {
+                        TraitSynDecl {
                             path: TraitPath(`core::cmp::PartialEq`),
                             ast_idx: 0,
                             generic_parameters: [],
@@ -80,7 +80,7 @@ Ok(
                 ),
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
-                        TraitDecl {
+                        TraitSynDecl {
                             path: TraitPath(`core::cmp::Eq`),
                             ast_idx: 1,
                             generic_parameters: [],
@@ -150,7 +150,7 @@ Ok(
                 ),
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
-                        TraitDecl {
+                        TraitSynDecl {
                             path: TraitPath(`core::cmp::PartialOrd`),
                             ast_idx: 2,
                             generic_parameters: [],
@@ -220,7 +220,7 @@ Ok(
                 ),
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
-                        TraitDecl {
+                        TraitSynDecl {
                             path: TraitPath(`core::cmp::Ord`),
                             ast_idx: 3,
                             generic_parameters: [],

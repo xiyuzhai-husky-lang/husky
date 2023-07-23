@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 32,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -119,7 +119,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [
@@ -333,7 +333,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -441,7 +441,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [
@@ -655,7 +655,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [
@@ -869,7 +869,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {

@@ -9,7 +9,7 @@ Ok(
                             disambiguator: 0,
                         },
                     },
-                    syn_node_decl: TraitNodeDecl {
+                    syn_node_decl: TraitSynNodeDecl {
                         syn_node_path: TraitSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
                                 path: TraitPath(`core::visual::Visualize`),
@@ -88,7 +88,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::visual::Html`, `Extern`),

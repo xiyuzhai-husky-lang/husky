@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitSynNodeDefn {
     #[id]
     pub syn_node_path: TraitSynNodePath,
-    pub syn_node_decl: TraitNodeDecl,
+    pub syn_node_decl: TraitSynNodeDecl,
 }
 
 impl HasSynNodeDefn for TraitSynNodePath {
@@ -28,7 +28,7 @@ pub(crate) fn trai_syn_node_defn(
 pub struct TraitSynDefn {
     #[id]
     pub path: TraitPath,
-    pub decl: TraitDecl,
+    pub decl: TraitSynDecl,
 }
 
 impl HasSynDefn for TraitPath {

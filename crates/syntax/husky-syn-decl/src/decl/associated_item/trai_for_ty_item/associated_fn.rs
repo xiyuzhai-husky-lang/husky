@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TraitForTypeAssociatedFnNodeDecl {
+pub struct TraitForTypeAssociatedFnSynNodeDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     pub ast_idx: AstIdx,
@@ -17,7 +17,7 @@ pub struct TraitForTypeAssociatedFnNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TraitForTypeAssociatedFnNodeDecl {
+impl TraitForTypeAssociatedFnSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
@@ -39,7 +39,7 @@ impl TraitForTypeAssociatedFnNodeDecl {
 impl<'a> DeclParser<'a> {}
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TraitForTypeAssociatedFnDecl {
+pub struct TraitForTypeAssociatedFnSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
@@ -48,11 +48,11 @@ pub struct TraitForTypeAssociatedFnDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TraitForTypeAssociatedFnDecl {
+impl TraitForTypeAssociatedFnSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitForTypeItemPath,
-        syn_node_decl: TraitForTypeAssociatedFnNodeDecl,
+        syn_node_decl: TraitForTypeAssociatedFnSynNodeDecl,
     ) -> DeclResult<Self> {
         todo!()
     }

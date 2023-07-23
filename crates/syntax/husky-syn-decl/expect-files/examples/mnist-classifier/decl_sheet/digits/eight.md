@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 27,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -119,7 +119,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -310,7 +310,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [

@@ -16,10 +16,10 @@ use husky_ast::*;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TraitItemNodeDecl {
-    AssociatedFn(TraitAssociatedFnNodeDecl),
-    MethodFn(TraitMethodFnNodeDecl),
-    AssociatedType(TraitAssociatedTypeNodeDecl),
-    AssociatedVal(TraitAssociatedValNodeDecl),
+    AssociatedFn(TraitAssociatedFnSynNodeDecl),
+    MethodFn(TraitMethodFnSynNodeDecl),
+    AssociatedType(TraitAssociatedTypeSynNodeDecl),
+    AssociatedVal(TraitAssociatedValSynNodeDecl),
 }
 
 impl TraitItemNodeDecl {
@@ -81,10 +81,10 @@ impl HasNodeDecl for TraitItemSynNodePath {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TraitItemDecl {
-    AssociatedFn(TraitAssociatedFnDecl),
-    MethodFn(TraitMethodFnDecl),
-    AssociatedType(TraitAssociatedTypeDecl),
-    AssociatedVal(TraitAssociatedValDecl),
+    AssociatedFn(TraitAssociatedFnSynDecl),
+    MethodFn(TraitMethodFnSynDecl),
+    AssociatedType(TraitAssociatedTypeSynDecl),
+    AssociatedVal(TraitAssociatedValSynDecl),
 }
 
 impl TraitItemDecl {

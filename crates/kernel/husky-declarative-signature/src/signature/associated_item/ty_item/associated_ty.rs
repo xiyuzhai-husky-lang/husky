@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeAssociatedTypeDeclarativeSignatureTemplate {}
 
-impl HasDeclarativeSignatureTemplate for TypeAssociatedTypeDecl {
+impl HasDeclarativeSignatureTemplate for TypeAssociatedTypeSynDecl {
     type DeclarativeSignatureTemplate = TypeAssociatedTypeDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
@@ -17,7 +17,7 @@ impl HasDeclarativeSignatureTemplate for TypeAssociatedTypeDecl {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn ty_associated_ty_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TypeAssociatedTypeDecl,
+    decl: TypeAssociatedTypeSynDecl,
 ) -> DeclarativeSignatureResult<TypeAssociatedTypeDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let _declarative_term_region = declarative_term_region(db, expr_region);

@@ -10,7 +10,7 @@ pub struct TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_for_ty_associated_ty_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TraitForTypeAssociatedTypeDecl,
+    decl: TraitForTypeAssociatedTypeSynDecl,
 ) -> DeclarativeSignatureResult<TraitForTypeAssociatedTypeDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);

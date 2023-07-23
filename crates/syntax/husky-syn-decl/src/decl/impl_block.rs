@@ -13,9 +13,9 @@ use husky_token::ImplToken;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynNodeDecl {
-    Type(TypeImplBlockNodeDecl),
-    TraitForType(TraitForTypeImplBlockNodeDecl),
-    IllFormed(IllFormedImplBlockNodeDecl),
+    Type(TypeImplBlockSynNodeDecl),
+    TraitForType(TraitForTypeImplBlockSynNodeDecl),
+    IllFormed(IllFormedImplBlockSynNodeDecl),
 }
 
 impl ImplBlockSynNodeDecl {
@@ -78,8 +78,8 @@ impl HasNodeDecl for ImplBlockSynNodePath {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynDecl {
-    Type(TypeImplBlockDecl),
-    TraitForType(TraitForTypeImplBlockDecl),
+    Type(TypeImplBlockSynDecl),
+    TraitForType(TraitForTypeImplBlockSynDecl),
 }
 
 impl ImplBlockSynDecl {

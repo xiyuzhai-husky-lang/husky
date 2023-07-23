@@ -2,7 +2,7 @@ use super::*;
 use husky_token::{CurryToken, EolToken};
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct FnNodeDecl {
+pub struct FnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     pub ast_idx: AstIdx,
@@ -19,7 +19,7 @@ pub struct FnNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl FnNodeDecl {
+impl FnSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
@@ -45,7 +45,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> FnNodeDecl {
+    ) -> FnSynNodeDecl {
         let mut parser = self.expr_parser(
             syn_node_path,
             None,
@@ -64,7 +64,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
-        FnNodeDecl::new(
+        FnSynNodeDecl::new(
             self.db(),
             syn_node_path,
             ast_idx,
@@ -79,7 +79,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct FnDecl {
+pub struct FnSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
@@ -90,11 +90,11 @@ pub struct FnDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl FnDecl {
+impl FnSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: FugitivePath,
-        syn_node_decl: FnNodeDecl,
+        syn_node_decl: FnSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
@@ -110,7 +110,7 @@ impl FnDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr_region = syn_node_decl.expr_region(db);
-        Ok(FnDecl::new(
+        Ok(FnSynDecl::new(
             db,
             path,
             generic_parameters,

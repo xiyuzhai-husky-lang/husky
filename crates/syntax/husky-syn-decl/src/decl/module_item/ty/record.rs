@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct RecordTypeNodeDecl {
+pub struct RecordTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
@@ -10,7 +10,7 @@ pub struct RecordTypeNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl RecordTypeNodeDecl {
+impl RecordTypeSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
@@ -22,7 +22,7 @@ impl RecordTypeNodeDecl {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct RecordTypeDecl {
+pub struct RecordTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
@@ -30,12 +30,12 @@ pub struct RecordTypeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl RecordTypeDecl {
+impl RecordTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        syn_node_decl: RecordTypeNodeDecl,
+        syn_node_decl: RecordTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)

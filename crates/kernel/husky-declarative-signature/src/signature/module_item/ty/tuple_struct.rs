@@ -18,7 +18,7 @@ impl TupleStructDeclarativeSignatureTemplate {
     pub fn from_decl(
         db: &dyn DeclarativeSignatureDb,
         path: TypePath,
-        decl: TupleStructTypeDecl,
+        decl: TupleStructTypeSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         let expr_region = decl.expr_region(db);
         let declarative_term_region = declarative_term_region(db, expr_region);

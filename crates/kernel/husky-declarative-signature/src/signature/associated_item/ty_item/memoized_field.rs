@@ -8,7 +8,7 @@ pub struct TypeMemoizedFieldDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for TypeMemoizedFieldDecl {
+impl HasDeclarativeSignatureTemplate for TypeMemoizedFieldSynDecl {
     type DeclarativeSignatureTemplate = TypeMemoizedFieldDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
@@ -22,7 +22,7 @@ impl HasDeclarativeSignatureTemplate for TypeMemoizedFieldDecl {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn ty_memoized_field_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TypeMemoizedFieldDecl,
+    decl: TypeMemoizedFieldSynDecl,
 ) -> DeclarativeSignatureResult<TypeMemoizedFieldDeclarativeSignatureTemplate> {
     let impl_block_declarative_signature_template = decl
         .impl_block_path(db)

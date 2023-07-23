@@ -1,5 +1,5 @@
 Ok(
-    NodeDeclSheet {
+    SynNodeDeclSheet {
         [salsa id]: 16,
         decls: [
             (
@@ -16,7 +16,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Enum(
-                            EnumTypeNodeDecl {
+                            EnumTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`core::result::Result`, `Enum`),
@@ -206,7 +206,7 @@ Ok(
                 ),
                 SynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::TraitForType(
-                        TraitForTypeImplBlockNodeDecl {
+                        TraitForTypeImplBlockSynNodeDecl {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `core::result`,
@@ -743,7 +743,7 @@ Ok(
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
                         TraitForTypeItemNodeDecl::AssociatedType(
-                            TraitForTypeAssociatedTypeNodeDecl {
+                            TraitForTypeAssociatedTypeSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {
@@ -1345,7 +1345,7 @@ Ok(
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
                         TraitForTypeItemNodeDecl::MethodFn(
-                            TraitForTypeMethodFnNodeDecl {
+                            TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {

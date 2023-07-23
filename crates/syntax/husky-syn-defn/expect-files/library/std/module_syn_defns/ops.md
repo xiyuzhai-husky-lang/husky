@@ -4,7 +4,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`std::ops::Add`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`std::ops::Add`),
                         ast_idx: 3,
                         generic_parameters: [

@@ -5,7 +5,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -386,7 +386,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -1734,7 +1734,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [

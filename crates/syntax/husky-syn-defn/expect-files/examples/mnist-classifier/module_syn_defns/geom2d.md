@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -195,7 +195,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -385,7 +385,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -575,7 +575,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -765,7 +765,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -959,7 +959,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -1146,7 +1146,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
                         ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1259,7 +1259,7 @@ Ok(
                             ident: `from_i_shift28`,
                             item_kind: AssociatedFn,
                         },
-                        decl: TypeAssociatedFnDecl {
+                        decl: TypeAssociatedFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -2277,7 +2277,7 @@ Ok(
                             ident: `vector`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -2846,7 +2846,7 @@ Ok(
                             ident: `to`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -3658,7 +3658,7 @@ Ok(
                             ident: `norm`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -4270,7 +4270,7 @@ Ok(
                             ident: `dist`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -4983,7 +4983,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
                         ty_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -5096,7 +5096,7 @@ Ok(
                             ident: `point`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -5665,7 +5665,7 @@ Ok(
                             ident: `to`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -6477,7 +6477,7 @@ Ok(
                             ident: `norm`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -7089,7 +7089,7 @@ Ok(
                             ident: `dot`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -7861,7 +7861,7 @@ Ok(
                             ident: `cross`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -8633,7 +8633,7 @@ Ok(
                             ident: `angle`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -9823,7 +9823,7 @@ Ok(
                             ident: `rotation_direction_to`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -10547,7 +10547,7 @@ Ok(
                             ident: `angle_to`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -12272,7 +12272,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
                         ty_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -12385,7 +12385,7 @@ Ok(
                             ident: `relative_range`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -13593,7 +13593,7 @@ Ok(
                             ident: `relative_point`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -14432,7 +14432,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
                         ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -14545,7 +14545,7 @@ Ok(
                             ident: `relative_bounding_box`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -15391,7 +15391,7 @@ Ok(
                             ident: `relative_point`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -16237,7 +16237,7 @@ Ok(
                             ident: `xmin`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -16751,7 +16751,7 @@ Ok(
                             ident: `xmax`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -17265,7 +17265,7 @@ Ok(
                             ident: `ymin`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -17779,7 +17779,7 @@ Ok(
                             ident: `ymax`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -18282,7 +18282,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::geom2d`,
                         ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -18395,7 +18395,7 @@ Ok(
                             ident: `xmin`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -18909,7 +18909,7 @@ Ok(
                             ident: `xmax`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -19423,7 +19423,7 @@ Ok(
                             ident: `ymin`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,
@@ -19937,7 +19937,7 @@ Ok(
                             ident: `ymax`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::geom2d`,

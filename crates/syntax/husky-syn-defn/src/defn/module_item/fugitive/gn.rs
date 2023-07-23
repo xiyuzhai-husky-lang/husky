@@ -4,7 +4,7 @@ use super::*;
 pub struct GnSynNodeDefn {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
-    pub syn_node_decl: GnNodeDecl,
+    pub syn_node_decl: GnSynNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -13,7 +13,7 @@ impl GnSynNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: FugitiveSynNodePath,
-        syn_node_decl: GnNodeDecl,
+        syn_node_decl: GnSynNodeDecl,
     ) -> Self {
         let syn_node_path = syn_node_decl.syn_node_path(db);
         let mut parser = expr_parser(
@@ -39,13 +39,13 @@ impl GnSynNodeDefn {
 pub struct GnSynDefn {
     #[id]
     pub path: FugitivePath,
-    pub decl: GnDecl,
+    pub decl: GnSynDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
 
 impl GnSynDefn {
-    pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: GnDecl) -> Self {
+    pub(super) fn new(db: &dyn SynDefnDb, path: FugitivePath, decl: GnSynDecl) -> Self {
         let FugitiveSynNodeDefn::Gn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()
         };

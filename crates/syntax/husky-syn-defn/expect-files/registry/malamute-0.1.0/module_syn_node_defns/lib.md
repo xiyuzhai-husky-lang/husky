@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: EnumTypeNodeDecl {
+                        syn_node_decl: EnumTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -223,7 +223,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: EnumTypeNodeDecl {
+                        syn_node_decl: EnumTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -436,7 +436,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: GnNodeDecl {
+                        syn_node_decl: GnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`malamute::narrow_down`, `Gn`),
@@ -1411,7 +1411,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
-                TraitForTypeImplBlockNodeDecl {
+                TraitForTypeImplBlockSynNodeDecl {
                     syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `malamute`,
@@ -1894,7 +1894,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TraitForTypeAssociatedTypeNodeDecl {
+                        syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {

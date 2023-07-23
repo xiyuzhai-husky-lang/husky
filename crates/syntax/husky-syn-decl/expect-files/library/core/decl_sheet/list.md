@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 7,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::list::List`, `Extern`),
                                 generic_parameters: [
                                     GenericParameterDecl {
@@ -132,7 +132,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::Type(
-                        TypeImplBlockDecl {
+                        TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
                                 module_path: `core::list`,
                                 ty_path: TypePath(`core::list::List`, `Extern`),
@@ -310,7 +310,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `core::list`,
@@ -590,7 +590,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `core::list`,
@@ -927,7 +927,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `core::list`,
@@ -1223,7 +1223,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `core::list`,
@@ -1519,7 +1519,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `core::list`,

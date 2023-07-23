@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 45,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -132,7 +132,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -247,7 +247,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -355,7 +355,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -483,7 +483,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -598,7 +598,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -713,7 +713,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {

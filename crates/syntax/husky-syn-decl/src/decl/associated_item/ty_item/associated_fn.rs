@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TypeAssociatedFnNodeDecl {
+pub struct TypeAssociatedFnSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
@@ -17,7 +17,7 @@ pub struct TypeAssociatedFnNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TypeAssociatedFnNodeDecl {
+impl TypeAssociatedFnSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
@@ -43,7 +43,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> TypeAssociatedFnNodeDecl {
+    ) -> TypeAssociatedFnSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
             syn_node_path,
@@ -68,7 +68,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
-        TypeAssociatedFnNodeDecl::new(
+        TypeAssociatedFnSynNodeDecl::new(
             db,
             syn_node_path,
             ast_idx,
@@ -83,7 +83,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
-pub struct TypeAssociatedFnDecl {
+pub struct TypeAssociatedFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
@@ -94,11 +94,11 @@ pub struct TypeAssociatedFnDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TypeAssociatedFnDecl {
+impl TypeAssociatedFnSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeItemPath,
-        syn_node_decl: TypeAssociatedFnNodeDecl,
+        syn_node_decl: TypeAssociatedFnSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
@@ -114,7 +114,7 @@ impl TypeAssociatedFnDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr_region = syn_node_decl.expr_region(db);
-        Ok(TypeAssociatedFnDecl::new(
+        Ok(TypeAssociatedFnSynDecl::new(
             db,
             path,
             generic_parameters,

@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::array::Array`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::array::Array`, `Extern`),
                             generic_parameters: [
                                 GenericParameterDecl {

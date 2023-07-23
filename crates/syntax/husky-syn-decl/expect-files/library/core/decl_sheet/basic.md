@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 2,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::basic::bool`, `Extern`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -82,7 +82,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::basic::never`, `Extern`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -153,7 +153,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::basic::unit`, `Extern`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -224,7 +224,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::basic::Trait`, `Extern`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -295,7 +295,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Extern(
-                            ExternTypeDecl {
+                            ExternTypeSynDecl {
                                 path: TypePath(`core::basic::Module`, `Extern`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {

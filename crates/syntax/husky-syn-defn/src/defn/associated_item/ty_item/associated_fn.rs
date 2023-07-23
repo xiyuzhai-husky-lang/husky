@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeAssociatedFnSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub syn_node_decl: TypeAssociatedFnNodeDecl,
+    pub syn_node_decl: TypeAssociatedFnSynNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -13,7 +13,7 @@ impl TypeAssociatedFnSynNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: TypeItemSynNodePath,
-        syn_node_decl: TypeAssociatedFnNodeDecl,
+        syn_node_decl: TypeAssociatedFnSynNodeDecl,
     ) -> Self {
         let mut parser = expr_parser(
             db,
@@ -44,7 +44,7 @@ impl TypeAssociatedFnSynNodeDefn {
 pub struct TypeAssociatedFnSynDefn {
     #[id]
     pub path: TypeItemPath,
-    pub decl: TypeAssociatedFnDecl,
+    pub decl: TypeAssociatedFnSynDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -53,7 +53,7 @@ impl TypeAssociatedFnSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TypeItemPath,
-        decl: TypeAssociatedFnDecl,
+        decl: TypeAssociatedFnSynDecl,
     ) -> DeclResult<TypeAssociatedFnSynDefn> {
         let TypeItemSynNodeDefn::AssociatedFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()

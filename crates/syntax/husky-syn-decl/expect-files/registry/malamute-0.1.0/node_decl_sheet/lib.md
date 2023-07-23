@@ -1,5 +1,5 @@
 Ok(
-    NodeDeclSheet {
+    SynNodeDeclSheet {
         [salsa id]: 48,
         decls: [
             (
@@ -16,7 +16,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Enum(
-                            EnumTypeNodeDecl {
+                            EnumTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -233,7 +233,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::Enum(
-                            EnumTypeNodeDecl {
+                            EnumTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -450,7 +450,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Gn(
-                            GnNodeDecl {
+                            GnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`malamute::narrow_down`, `Gn`),
@@ -1004,7 +1004,7 @@ Ok(
                 ),
                 SynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::TraitForType(
-                        TraitForTypeImplBlockNodeDecl {
+                        TraitForTypeImplBlockSynNodeDecl {
                             syn_node_path: TraitForTypeImplBlockSynNodePath {
                                 path: TraitForTypeImplBlockPath {
                                     module_path: `malamute`,
@@ -1492,7 +1492,7 @@ Ok(
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
                         TraitForTypeItemNodeDecl::AssociatedType(
-                            TraitForTypeAssociatedTypeNodeDecl {
+                            TraitForTypeAssociatedTypeSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TraitForTypeItemPath {

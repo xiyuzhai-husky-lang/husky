@@ -4,7 +4,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::clone::Clone`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`core::clone::Clone`),
                         ast_idx: 2,
                         generic_parameters: [],
@@ -68,7 +68,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::clone`,
                         trai_path: TraitPath(`core::clone::Clone`),
@@ -201,7 +201,7 @@ Ok(
                             ident: `clone`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::clone`,

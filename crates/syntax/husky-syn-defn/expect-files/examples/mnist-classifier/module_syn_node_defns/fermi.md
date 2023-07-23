@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -307,7 +307,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
@@ -1848,7 +1848,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::fermi`,
@@ -2006,7 +2006,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMemoizedFieldNodeDecl {
+                        syn_node_decl: TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -2864,7 +2864,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMemoizedFieldNodeDecl {
+                        syn_node_decl: TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -3722,7 +3722,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMemoizedFieldNodeDecl {
+                        syn_node_decl: TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {

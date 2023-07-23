@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitAssociatedTypeSynNodeDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
-    pub syn_node_decl: TraitAssociatedTypeNodeDecl,
+    pub syn_node_decl: TraitAssociatedTypeSynNodeDecl,
     pub expr_region: SynExprRegion,
 }
 
@@ -12,6 +12,6 @@ pub struct TraitAssociatedTypeSynNodeDefn {
 pub struct TraitAssociatedTypeSynDefn {
     #[id]
     pub path: TraitItemPath,
-    pub decl: TraitAssociatedTypeDecl,
+    pub decl: TraitAssociatedTypeSynDecl,
     pub expr_region: SynExprRegion,
 }

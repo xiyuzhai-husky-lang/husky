@@ -2,7 +2,7 @@ Ok(
     [
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `mnist_classifier::line_segment_sketch::concave_component`,
                     ast_idx: 159,
                 },
@@ -10,7 +10,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `mnist_classifier::line_segment_sketch::convex_component`,
                     ast_idx: 160,
                 },
@@ -18,7 +18,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `mnist_classifier::line_segment_sketch::convexity`,
                     ast_idx: 161,
                 },
@@ -26,7 +26,7 @@ Ok(
         ),
         Defn::Submodule(
             SubmoduleDefn {
-                decl: SubmoduleDecl {
+                decl: SubmoduleSynDecl {
                     path: `mnist_classifier::line_segment_sketch::line_segment`,
                     ast_idx: 162,
                 },
@@ -37,7 +37,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -473,7 +473,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -683,7 +683,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -2167,7 +2167,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -3651,7 +3651,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -6879,7 +6879,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -10531,7 +10531,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -15445,7 +15445,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -15613,7 +15613,7 @@ Ok(
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -16239,7 +16239,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -16352,7 +16352,7 @@ Ok(
                             ident: `new`,
                             item_kind: AssociatedFn,
                         },
-                        decl: TypeAssociatedFnDecl {
+                        decl: TypeAssociatedFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -17530,7 +17530,7 @@ Ok(
                             ident: `displacement`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -18063,7 +18063,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -18231,7 +18231,7 @@ Ok(
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -18842,7 +18842,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch`,
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -18955,7 +18955,7 @@ Ok(
                             ident: `concave_components`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -19511,7 +19511,7 @@ Ok(
                             ident: `bounding_box`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,
@@ -21293,7 +21293,7 @@ Ok(
                             ident: `new`,
                             item_kind: AssociatedFn,
                         },
-                        decl: TypeAssociatedFnDecl {
+                        decl: TypeAssociatedFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch`,

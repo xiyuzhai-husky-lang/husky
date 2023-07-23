@@ -5,7 +5,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {

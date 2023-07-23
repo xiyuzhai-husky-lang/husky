@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: InductiveTypeNodeDecl {
+                        syn_node_decl: InductiveTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`natural_number_game::Nat`, `Inductive`),
@@ -90,7 +90,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: StructureTypeNodeDecl {
+                        syn_node_decl: StructureTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`natural_number_game::OddNat`, `Structure`),
@@ -170,7 +170,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: StructureTypeNodeDecl {
+                        syn_node_decl: StructureTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`natural_number_game::EvenNat`, `Structure`),
@@ -242,7 +242,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `natural_number_game`,

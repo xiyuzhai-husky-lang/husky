@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -313,7 +313,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -471,7 +471,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -1112,7 +1112,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -1243,7 +1243,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -2552,7 +2552,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -5652,7 +5652,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::connected_component`,
                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -5820,7 +5820,7 @@ Ok(
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -6431,7 +6431,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::connected_component`,
                         ty_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
@@ -6544,7 +6544,7 @@ Ok(
                             ident: `raw_contours`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -7100,7 +7100,7 @@ Ok(
                             ident: `eff_holes`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -8192,7 +8192,7 @@ Ok(
                             ident: `max_hole_ilen`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -9273,7 +9273,7 @@ Ok(
                             ident: `max_row_span`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -10141,7 +10141,7 @@ Ok(
                             ident: `row_span_sum`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -10976,7 +10976,7 @@ Ok(
                             ident: `distribution`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -12869,7 +12869,7 @@ Ok(
                             ident: `upper_mass`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -13415,7 +13415,7 @@ Ok(
                             ident: `lower_mass`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -13961,7 +13961,7 @@ Ok(
                             ident: `top_k_row_span_sum`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,
@@ -15255,7 +15255,7 @@ Ok(
                             ident: `top_k_row_right_mass_sum`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::connected_component`,

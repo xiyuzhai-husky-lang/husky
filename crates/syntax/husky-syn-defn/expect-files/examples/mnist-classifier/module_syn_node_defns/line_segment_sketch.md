@@ -2,7 +2,7 @@ Ok(
     [
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                syn_node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -15,7 +15,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                syn_node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch::convex_component`,
@@ -28,7 +28,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                syn_node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch::convexity`,
@@ -41,7 +41,7 @@ Ok(
         ),
         SynNodeDefn::Submodule(
             SubmoduleSynNodeDefn {
-                syn_node_decl: SubmoduleNodeDecl {
+                syn_node_decl: SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
                             path: `mnist_classifier::line_segment_sketch::line_segment`,
@@ -62,7 +62,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
@@ -569,7 +569,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -839,7 +839,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
@@ -2379,7 +2379,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
@@ -3919,7 +3919,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
@@ -7208,7 +7208,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
@@ -10926,7 +10926,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
@@ -15891,7 +15891,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
-                TraitForTypeImplBlockNodeDecl {
+                TraitForTypeImplBlockSynNodeDecl {
                     syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch`,
@@ -16088,7 +16088,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TraitForTypeMethodFnNodeDecl {
+                        syn_node_decl: TraitForTypeMethodFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
@@ -16782,7 +16782,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch`,
@@ -16940,7 +16940,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeAssociatedFnNodeDecl {
+                        syn_node_decl: TypeAssociatedFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -18179,7 +18179,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -18779,7 +18779,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::TraitForType(
-                TraitForTypeImplBlockNodeDecl {
+                TraitForTypeImplBlockSynNodeDecl {
                     syn_node_path: TraitForTypeImplBlockSynNodePath {
                         path: TraitForTypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch`,
@@ -18976,7 +18976,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TraitForTypeMethodFnNodeDecl {
+                        syn_node_decl: TraitForTypeMethodFnSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TraitForTypeItemPath {
@@ -19661,7 +19661,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::line_segment_sketch`,
@@ -19819,7 +19819,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMemoizedFieldNodeDecl {
+                        syn_node_decl: TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -20404,7 +20404,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMemoizedFieldNodeDecl {
+                        syn_node_decl: TypeMemoizedFieldSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -22215,7 +22215,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeAssociatedFnNodeDecl {
+                        syn_node_decl: TypeAssociatedFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {

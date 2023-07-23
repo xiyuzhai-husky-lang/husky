@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn type_alias_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
-    decl: TypeAliasDecl,
+    decl: TypeAliasSynDecl,
 ) -> TypeAliasDeclarativeSignatureTemplate {
     let expr_region = decl.expr_region(db);
     let _declarative_term_region = declarative_term_region(db, expr_region);

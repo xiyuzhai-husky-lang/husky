@@ -1,5 +1,5 @@
 Ok(
-    NodeDeclSheet {
+    SynNodeDeclSheet {
         [salsa id]: 38,
         decls: [
             (
@@ -16,7 +16,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
                         TypeNodeDecl::PropsStruct(
-                            PropsStructTypeNodeDecl {
+                            PropsStructTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -317,7 +317,7 @@ Ok(
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Fugitive(
                         FugitiveNodeDecl::Fn(
-                            FnNodeDecl {
+                            FnSynNodeDecl {
                                 syn_node_path: FugitiveSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
@@ -769,7 +769,7 @@ Ok(
                 ),
                 SynNodeDecl::ImplBlock(
                     ImplBlockSynNodeDecl::Type(
-                        TypeImplBlockNodeDecl {
+                        TypeImplBlockSynNodeDecl {
                             syn_node_path: TypeImplBlockSynNodePath {
                                 path: TypeImplBlockPath {
                                     module_path: `mnist_classifier::fermi`,
@@ -932,7 +932,7 @@ Ok(
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MemoizedField(
-                            TypeMemoizedFieldNodeDecl {
+                            TypeMemoizedFieldSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -1181,7 +1181,7 @@ Ok(
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MemoizedField(
-                            TypeMemoizedFieldNodeDecl {
+                            TypeMemoizedFieldSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {
@@ -1430,7 +1430,7 @@ Ok(
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
                         TypeItemNodeDecl::MemoizedField(
-                            TypeMemoizedFieldNodeDecl {
+                            TypeMemoizedFieldSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
                                         path: TypeItemPath {

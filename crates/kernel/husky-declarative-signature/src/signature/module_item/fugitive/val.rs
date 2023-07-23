@@ -5,7 +5,7 @@ pub struct ValDeclarativeSignatureTemplate {
     pub initialization_ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for ValDecl {
+impl HasDeclarativeSignatureTemplate for ValSynDecl {
     type DeclarativeSignatureTemplate = ValDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
@@ -29,7 +29,7 @@ impl ValDeclarativeSignatureTemplate {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn val_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: ValDecl,
+    decl: ValSynDecl,
 ) -> DeclarativeSignatureResult<ValDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let declarative_term_region = declarative_term_region(db, expr_region);

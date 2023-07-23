@@ -5,7 +5,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -452,7 +452,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -1107,7 +1107,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -1762,7 +1762,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -2417,7 +2417,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {

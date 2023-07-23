@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`core::result::Result`, `Enum`),
-                        decl: EnumTypeDecl {
+                        decl: EnumTypeSynDecl {
                             path: TypePath(`core::result::Result`, `Enum`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -144,7 +144,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::result`,
                         trai_path: TraitPath(`core::ops::Unveil`),
@@ -613,7 +613,7 @@ Ok(
                             ident: `Continue`,
                             item_kind: AssociatedType,
                         },
-                        decl: TraitForTypeAssociatedTypeDecl {
+                        decl: TraitForTypeAssociatedTypeSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::result`,
@@ -1780,7 +1780,7 @@ Ok(
                             ident: `branch`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `core::result`,
