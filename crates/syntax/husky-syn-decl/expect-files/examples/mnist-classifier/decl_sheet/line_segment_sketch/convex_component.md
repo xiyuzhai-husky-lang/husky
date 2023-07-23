@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 41,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::PropsStruct(
-                            PropsStructTypeDecl {
+                            PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 generic_parameters: [],
                                 fields: [
@@ -244,7 +244,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                        TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch::convex_component`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
@@ -417,7 +417,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
+                            TraitForTypeMethodFnSynDecl {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::convex_component`,

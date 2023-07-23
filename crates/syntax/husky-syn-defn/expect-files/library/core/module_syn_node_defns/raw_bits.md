@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ExternTypeNodeDecl {
+                        syn_node_decl: ExternTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`core::raw_bits::r32`, `Extern`),
@@ -82,7 +82,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `core::raw_bits`,
@@ -240,7 +240,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {

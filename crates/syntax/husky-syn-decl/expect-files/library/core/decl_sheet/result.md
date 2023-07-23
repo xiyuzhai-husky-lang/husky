@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 16,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Enum(
-                            EnumTypeDecl {
+                            EnumTypeSynDecl {
                                 path: TypePath(`core::result::Result`, `Enum`),
                                 generic_parameters: [
                                     GenericParameterDecl {
@@ -160,7 +160,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                        TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `core::result`,
                                 trai_path: TraitPath(`core::ops::Unveil`),
@@ -634,7 +634,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::AssociatedType(
-                            TraitForTypeAssociatedTypeDecl {
+                            TraitForTypeAssociatedTypeSynDecl {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::result`,
@@ -1186,7 +1186,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
+                            TraitForTypeMethodFnSynDecl {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `core::result`,

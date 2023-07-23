@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 55,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Enum(
-                            EnumTypeDecl {
+                            EnumTypeSynDecl {
                                 path: TypePath(`mnist::MnistLabel`, `Enum`),
                                 generic_parameters: [],
                                 expr_region: SynExprRegion {
@@ -82,7 +82,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::TupleStruct(
-                            TupleStructTypeDecl {
+                            TupleStructTypeSynDecl {
                                 path: TypePath(`mnist::BinaryImage28`, `Struct`),
                                 generic_parameters: [],
                                 fields: [
@@ -220,7 +220,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist::input`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {

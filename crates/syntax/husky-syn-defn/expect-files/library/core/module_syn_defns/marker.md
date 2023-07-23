@@ -4,7 +4,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::marker::Copy`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`core::marker::Copy`),
                         ast_idx: 0,
                         generic_parameters: [],
@@ -70,7 +70,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::marker::Sized`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`core::marker::Sized`),
                         ast_idx: 1,
                         generic_parameters: [],

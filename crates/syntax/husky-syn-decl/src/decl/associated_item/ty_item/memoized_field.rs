@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TypeMemoizedFieldNodeDecl {
+pub struct TypeMemoizedFieldSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     pub ast_idx: AstIdx,
@@ -14,7 +14,7 @@ pub struct TypeMemoizedFieldNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TypeMemoizedFieldNodeDecl {
+impl TypeMemoizedFieldSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.return_ty(db)
@@ -33,7 +33,7 @@ impl<'a> DeclParser<'a> {
         token_group_idx: TokenGroupIdx,
         node: TypeItemSynNode,
         saved_stream_state: TokenStreamState,
-    ) -> TypeMemoizedFieldNodeDecl {
+    ) -> TypeMemoizedFieldSynNodeDecl {
         let db = self.db();
         let syn_node_path = node.syn_node_path(db);
         let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
@@ -53,7 +53,7 @@ impl<'a> DeclParser<'a> {
         };
         let eq_token = ctx.try_parse_expected(OriginalNodeDeclError::ExpectEqTokenForVariable);
         let expr = ctx.parse_expr_root(None, ExprRootKind::ValExpr);
-        TypeMemoizedFieldNodeDecl::new(
+        TypeMemoizedFieldSynNodeDecl::new(
             db,
             syn_node_path,
             ast_idx,
@@ -67,7 +67,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TypeMemoizedFieldDecl {
+pub struct TypeMemoizedFieldSynDecl {
     #[id]
     pub path: TypeItemPath,
     pub return_ty: Option<ReturnTypeExprBeforeEq>,
@@ -75,11 +75,11 @@ pub struct TypeMemoizedFieldDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TypeMemoizedFieldDecl {
+impl TypeMemoizedFieldSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeItemPath,
-        syn_node_decl: TypeMemoizedFieldNodeDecl,
+        syn_node_decl: TypeMemoizedFieldSynNodeDecl,
     ) -> DeclResult<Self> {
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);

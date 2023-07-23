@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 40,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::PropsStruct(
-                            PropsStructTypeDecl {
+                            PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                                 generic_parameters: [],
                                 fields: [
@@ -241,7 +241,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [
@@ -464,7 +464,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                        TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                                 trai_path: TraitPath(`core::visual::Visualize`),
@@ -637,7 +637,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::MethodFn(
-                            TraitForTypeMethodFnDecl {
+                            TraitForTypeMethodFnSynDecl {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -904,7 +904,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::Type(
-                        TypeImplBlockDecl {
+                        TypeImplBlockSynDecl {
                             path: TypeImplBlockPath {
                                 module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -1022,7 +1022,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MemoizedField(
-                            TypeMemoizedFieldDecl {
+                            TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1242,7 +1242,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MemoizedField(
-                            TypeMemoizedFieldDecl {
+                            TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1462,7 +1462,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MemoizedField(
-                            TypeMemoizedFieldDecl {
+                            TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1682,7 +1682,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MemoizedField(
-                            TypeMemoizedFieldDecl {
+                            TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -1902,7 +1902,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MemoizedField(
-                            TypeMemoizedFieldDecl {
+                            TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -2122,7 +2122,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MemoizedField(
-                            TypeMemoizedFieldDecl {
+                            TypeMemoizedFieldSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -2342,7 +2342,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -2564,7 +2564,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -2786,7 +2786,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -3008,7 +3008,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -3230,7 +3230,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -3452,7 +3452,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
                         TypeItemDecl::MethodFn(
-                            TypeMethodFnDecl {
+                            TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
                                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,

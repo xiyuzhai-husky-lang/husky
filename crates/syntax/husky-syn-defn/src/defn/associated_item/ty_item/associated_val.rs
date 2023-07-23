@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeAssociatedValSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub syn_node_decl: TypeAssociatedValNodeDecl,
+    pub syn_node_decl: TypeAssociatedValSynNodeDecl,
     pub expr_region: SynExprRegion,
 }
 
@@ -12,7 +12,7 @@ pub struct TypeAssociatedValSynNodeDefn {
 pub struct TypeAssociatedValSynDefn {
     #[id]
     pub path: TypeItemPath,
-    pub decl: TypeAssociatedValDecl,
+    pub decl: TypeAssociatedValSynDecl,
     pub expr_region: SynExprRegion,
 }
 
@@ -20,7 +20,7 @@ impl TypeAssociatedValSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TypeItemPath,
-        decl: TypeAssociatedValDecl,
+        decl: TypeAssociatedValSynDecl,
     ) -> SynDefnResult<Self> {
         todo!()
     }

@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 9,
         decls: [
             (
@@ -10,7 +10,7 @@ Ok(
                 ),
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
-                        TraitDecl {
+                        TraitSynDecl {
                             path: TraitPath(`core::marker::Copy`),
                             ast_idx: 0,
                             generic_parameters: [],
@@ -80,7 +80,7 @@ Ok(
                 ),
                 Decl::ModuleItem(
                     ModuleItemDecl::Trait(
-                        TraitDecl {
+                        TraitSynDecl {
                             path: TraitPath(`core::marker::Sized`),
                             ast_idx: 1,
                             generic_parameters: [],

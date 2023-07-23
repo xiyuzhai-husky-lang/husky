@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValNodeDecl {
+                        syn_node_decl: ValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
@@ -453,7 +453,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
@@ -1020,7 +1020,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValNodeDecl {
+                        syn_node_decl: ValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
@@ -1430,7 +1430,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValNodeDecl {
+                        syn_node_decl: ValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
@@ -1840,7 +1840,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValNodeDecl {
+                        syn_node_decl: ValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
@@ -4641,7 +4641,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
@@ -5346,7 +5346,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: FnNodeDecl {
+                        syn_node_decl: FnSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),

@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -242,7 +242,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -1732,7 +1732,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::fermi`,
                         ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
@@ -1845,7 +1845,7 @@ Ok(
                             ident: `norm`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::fermi`,
@@ -2674,7 +2674,7 @@ Ok(
                             ident: `rel_norm`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::fermi`,
@@ -3503,7 +3503,7 @@ Ok(
                             ident: `angle_change_norm`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::fermi`,

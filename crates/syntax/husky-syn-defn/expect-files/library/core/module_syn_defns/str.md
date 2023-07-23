@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::str::str`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::str::str`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -72,7 +72,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::str::StringLiteral`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::str::StringLiteral`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {

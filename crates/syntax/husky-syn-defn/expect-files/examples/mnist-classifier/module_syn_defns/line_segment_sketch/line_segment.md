@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -192,7 +192,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch::line_segment`,
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
@@ -305,7 +305,7 @@ Ok(
                             ident: `displacement`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::line_segment`,
@@ -849,7 +849,7 @@ Ok(
                             ident: `dist_to_point`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::line_segment`,

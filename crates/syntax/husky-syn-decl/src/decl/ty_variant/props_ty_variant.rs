@@ -4,7 +4,7 @@ use parsec::{parse_separated_list2, SeparatedSmallList, TryParseFromStream};
 
 // todo: GADT
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct PropsTypeVariantNodeDecl {
+pub struct PropsTypeVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,
@@ -49,17 +49,17 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for PropsTypeVariantRi
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct PropsTypeVariantDecl {
+pub struct PropsTypeVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
     pub expr_region: SynExprRegion,
 }
 
-impl PropsTypeVariantDecl {
+impl PropsTypeVariantSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeVariantPath,
-        syn_node_decl: PropsTypeVariantNodeDecl,
+        syn_node_decl: PropsTypeVariantSynNodeDecl,
     ) -> DeclResult<Self> {
         Ok(Self::new(db, path, syn_node_decl.expr_region(db)))
     }

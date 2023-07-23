@@ -4,7 +4,7 @@ use parsec::{SeparatedSmallList, TryParseFromStream};
 
 // todo: GADT
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TupleTypeVariantNodeDecl {
+pub struct TupleTypeVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
     pub ast_idx: AstIdx,
@@ -37,18 +37,18 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>>
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TupleTypeVariantDecl {
+pub struct TupleTypeVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,
     pub fields: SmallVec<[TupleFieldDeclPattern; 4]>,
     pub expr_region: SynExprRegion,
 }
 
-impl TupleTypeVariantDecl {
+impl TupleTypeVariantSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypeVariantPath,
-        syn_node_decl: TupleTypeVariantNodeDecl,
+        syn_node_decl: TupleTypeVariantSynNodeDecl,
     ) -> DeclResult<Self> {
         let fields = SmallVec::from(syn_node_decl.field_comma_list(db).as_ref()?.elements());
         Ok(Self::new(db, path, fields, syn_node_decl.expr_region(db)))

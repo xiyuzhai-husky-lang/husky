@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitMethodFnSynNodeDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
-    pub syn_node_decl: TraitMethodFnNodeDecl,
+    pub syn_node_decl: TraitMethodFnSynNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -13,7 +13,7 @@ pub struct TraitMethodFnSynNodeDefn {
 pub struct TraitMethodFnSynDefn {
     #[id]
     pub path: TraitItemPath,
-    pub decl: TraitMethodFnDecl,
+    pub decl: TraitMethodFnSynDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -22,7 +22,7 @@ impl TraitMethodFnSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TraitItemPath,
-        decl: TraitMethodFnDecl,
+        decl: TraitMethodFnSynDecl,
     ) -> SynDefnResult<Self> {
         let TraitItemSynNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()

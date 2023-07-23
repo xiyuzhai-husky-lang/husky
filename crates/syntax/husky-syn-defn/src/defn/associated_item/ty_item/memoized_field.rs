@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeMemoizedFieldSynNodeDefn {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
-    pub syn_node_decl: TypeMemoizedFieldNodeDecl,
+    pub syn_node_decl: TypeMemoizedFieldSynNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -13,7 +13,7 @@ impl TypeMemoizedFieldSynNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: TypeItemSynNodePath,
-        syn_node_decl: TypeMemoizedFieldNodeDecl,
+        syn_node_decl: TypeMemoizedFieldSynNodeDecl,
     ) -> TypeMemoizedFieldSynNodeDefn {
         let mut parser = expr_parser(
             db,
@@ -44,7 +44,7 @@ impl TypeMemoizedFieldSynNodeDefn {
 pub struct TypeMemoizedFieldSynDefn {
     #[id]
     pub path: TypeItemPath,
-    pub decl: TypeMemoizedFieldDecl,
+    pub decl: TypeMemoizedFieldSynDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -53,7 +53,7 @@ impl TypeMemoizedFieldSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TypeItemPath,
-        decl: TypeMemoizedFieldDecl,
+        decl: TypeMemoizedFieldSynDecl,
     ) -> DeclResult<TypeMemoizedFieldSynDefn> {
         let TypeItemSynNodeDefn::MemoizedField(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()

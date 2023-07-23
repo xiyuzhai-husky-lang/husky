@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::mem::Ref`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::Ref`, `Extern`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -162,7 +162,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::mem::RefMut`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::RefMut`, `Extern`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -319,7 +319,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::mem::Leash`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::Leash`, `Extern`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -430,7 +430,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `core::mem`,
                         trai_path: TraitPath(`core::marker::Copy`),

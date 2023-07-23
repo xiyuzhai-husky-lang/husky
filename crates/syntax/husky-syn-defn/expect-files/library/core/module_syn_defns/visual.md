@@ -4,7 +4,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::visual::Visualize`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`core::visual::Visualize`),
                         ast_idx: 1,
                         generic_parameters: [],
@@ -71,7 +71,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::visual::Html`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::visual::Html`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {

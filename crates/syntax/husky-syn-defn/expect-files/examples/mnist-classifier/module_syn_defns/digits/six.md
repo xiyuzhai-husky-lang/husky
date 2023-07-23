@@ -5,7 +5,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -386,7 +386,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -800,7 +800,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -4332,7 +4332,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -4987,7 +4987,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [

@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::logic::Prop`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::logic::Prop`, `Extern`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -72,7 +72,7 @@ Ok(
                 TypeDefn::Structure(
                     StructureTypeSynDefn {
                         path: TypePath(`core::logic::LogicAnd`, `Structure`),
-                        decl: StructureTypeDecl {
+                        decl: StructureTypeSynDecl {
                             path: TypePath(`core::logic::LogicAnd`, `Structure`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -293,7 +293,7 @@ Ok(
                 TypeDefn::Inductive(
                     InductiveTypeSynDefn {
                         path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                        decl: InductiveTypeDecl {
+                        decl: InductiveTypeSynDecl {
                             path: TypePath(`core::logic::LogicOr`, `Inductive`),
                             generic_parameters: [
                                 GenericParameterDecl {

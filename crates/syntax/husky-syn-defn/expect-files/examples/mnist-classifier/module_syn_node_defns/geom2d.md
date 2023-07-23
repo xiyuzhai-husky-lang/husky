@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -260,7 +260,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -510,7 +510,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -760,7 +760,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -1010,7 +1010,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1264,7 +1264,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: PropsStructTypeNodeDecl {
+                        syn_node_decl: PropsStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -1506,7 +1506,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::geom2d`,
@@ -1664,7 +1664,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeAssociatedFnNodeDecl {
+                        syn_node_decl: TypeAssociatedFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -2738,7 +2738,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -3379,7 +3379,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -4263,7 +4263,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -4947,7 +4947,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -5727,7 +5727,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::geom2d`,
@@ -5885,7 +5885,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -6524,7 +6524,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -7406,7 +7406,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -8090,7 +8090,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -8934,7 +8934,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -9778,7 +9778,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -11040,7 +11040,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -11836,7 +11836,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -13634,7 +13634,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::geom2d`,
@@ -13792,7 +13792,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -15072,7 +15072,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -15978,7 +15978,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::geom2d`,
@@ -16136,7 +16136,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -17054,7 +17054,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -17972,7 +17972,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -18558,7 +18558,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -19144,7 +19144,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -19730,7 +19730,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -20300,7 +20300,7 @@ Ok(
         ),
         SynNodeDefn::ImplBlock(
             ImplBlockSynNodeDecl::Type(
-                TypeImplBlockNodeDecl {
+                TypeImplBlockSynNodeDecl {
                     syn_node_path: TypeImplBlockSynNodePath {
                         path: TypeImplBlockPath {
                             module_path: `mnist_classifier::geom2d`,
@@ -20458,7 +20458,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -21044,7 +21044,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -21630,7 +21630,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {
@@ -22216,7 +22216,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TypeMethodFnNodeDecl {
+                        syn_node_decl: TypeMethodFnSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypeItemPath {

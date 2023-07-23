@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitAssociatedFnSynNodeDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
-    pub syn_node_decl: TraitAssociatedFnNodeDecl,
+    pub syn_node_decl: TraitAssociatedFnSynNodeDecl,
     pub expr_region: SynExprRegion,
 }
 
@@ -12,7 +12,7 @@ pub struct TraitAssociatedFnSynNodeDefn {
 pub struct TraitAssociatedFnSynDefn {
     #[id]
     pub syn_node_path: TraitItemSynNodePath,
-    pub decl: TraitAssociatedFnDecl,
+    pub decl: TraitAssociatedFnSynDecl,
     pub expr_region: SynExprRegion,
 }
 
@@ -20,7 +20,7 @@ impl TraitAssociatedFnSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TraitItemPath,
-        decl: TraitAssociatedFnDecl,
+        decl: TraitAssociatedFnSynDecl,
     ) -> DeclResult<TraitAssociatedFnSynDefn> {
         todo!()
         // let syn_node_path = decl.syn_node_path(db);

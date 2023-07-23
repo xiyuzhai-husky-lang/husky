@@ -18,7 +18,7 @@ pub struct TraitForTypeMethodFnDeclarativeSignatureTemplate {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub(crate) fn trai_for_ty_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TraitForTypeMethodFnDecl,
+    decl: TraitForTypeMethodFnSynDecl,
 ) -> DeclarativeSignatureResult<TraitForTypeMethodFnDeclarativeSignatureTemplate> {
     let self_parameter = DeclarativeTermRitchieRegularParameter::new(
         match decl.self_parameter(db) {

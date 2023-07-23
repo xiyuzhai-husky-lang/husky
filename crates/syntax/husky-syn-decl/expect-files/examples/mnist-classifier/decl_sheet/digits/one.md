@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 31,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -119,7 +119,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Val(
-                            ValDecl {
+                            ValSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 return_ty: Some(
                                     ReturnTypeExprBeforeEq {
@@ -310,7 +310,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [
@@ -524,7 +524,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [
@@ -738,7 +738,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
                                 generic_parameters: [],
                                 parenic_parameters: [

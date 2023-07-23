@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitForTypeMethodFnSynNodeDefn {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
-    pub syn_node_decl: TraitForTypeMethodFnNodeDecl,
+    pub syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -13,7 +13,7 @@ impl TraitForTypeMethodFnSynNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: TraitForTypeItemSynNodePath,
-        syn_node_decl: TraitForTypeMethodFnNodeDecl,
+        syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     ) -> Self {
         let mut parser = expr_parser(
             db,
@@ -44,7 +44,7 @@ impl TraitForTypeMethodFnSynNodeDefn {
 pub struct TraitForTypeMethodFnSynDefn {
     #[id]
     pub path: TraitForTypeItemPath,
-    pub decl: TraitForTypeMethodFnDecl,
+    pub decl: TraitForTypeMethodFnSynDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -53,7 +53,7 @@ impl TraitForTypeMethodFnSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TraitForTypeItemPath,
-        decl: TraitForTypeMethodFnDecl,
+        decl: TraitForTypeMethodFnSynDecl,
     ) -> TraitForTypeMethodFnSynDefn {
         let TraitForTypeItemSynNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()

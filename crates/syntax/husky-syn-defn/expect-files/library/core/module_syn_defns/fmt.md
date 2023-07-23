@@ -4,7 +4,7 @@ Ok(
             ModuleItemDefn::Trait(
                 TraitSynDefn {
                     path: TraitPath(`core::fmt::Debug`),
-                    decl: TraitDecl {
+                    decl: TraitSynDecl {
                         path: TraitPath(`core::fmt::Debug`),
                         ast_idx: 0,
                         generic_parameters: [],

@@ -3,11 +3,11 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 pub struct SubmoduleSynNodeDefn {
-    syn_node_decl: SubmoduleNodeDecl,
+    syn_node_decl: SubmoduleSynNodeDecl,
 }
 
 impl SubmoduleSynNodeDefn {
-    pub fn syn_node_decl(self) -> SubmoduleNodeDecl {
+    pub fn syn_node_decl(self) -> SubmoduleSynNodeDecl {
         self.syn_node_decl
     }
 }
@@ -25,11 +25,11 @@ impl HasSynNodeDefn for SubmoduleSynNodePath {
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 pub struct SubmoduleDefn {
-    decl: SubmoduleDecl,
+    decl: SubmoduleSynDecl,
 }
 
 impl SubmoduleDefn {
-    pub fn decl(self) -> SubmoduleDecl {
+    pub fn decl(self) -> SubmoduleSynDecl {
         self.decl
     }
 }

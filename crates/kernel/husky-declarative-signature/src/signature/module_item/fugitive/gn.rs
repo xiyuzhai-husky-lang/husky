@@ -9,7 +9,7 @@ pub struct GnDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for GnDecl {
+impl HasDeclarativeSignatureTemplate for GnSynDecl {
     type DeclarativeSignatureTemplate = GnDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
@@ -23,7 +23,7 @@ impl HasDeclarativeSignatureTemplate for GnDecl {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn gn_declarative_signature(
     db: &dyn DeclarativeSignatureDb,
-    decl: GnDecl,
+    decl: GnSynDecl,
 ) -> DeclarativeSignatureResult<GnDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);

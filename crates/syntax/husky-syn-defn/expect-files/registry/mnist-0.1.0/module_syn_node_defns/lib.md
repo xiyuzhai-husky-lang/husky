@@ -10,7 +10,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: EnumTypeNodeDecl {
+                        syn_node_decl: EnumTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist::MnistLabel`, `Enum`),
@@ -90,7 +90,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: TupleStructTypeNodeDecl {
+                        syn_node_decl: TupleStructTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: TypePath(`mnist::BinaryImage28`, `Struct`),
@@ -257,7 +257,7 @@ Ok(
                                 disambiguator: 0,
                             },
                         },
-                        syn_node_decl: ValNodeDecl {
+                        syn_node_decl: ValSynNodeDecl {
                             syn_node_path: FugitiveSynNodePath {
                                 maybe_ambiguous_path: MaybeAmbiguousPath {
                                     path: FugitivePath(`mnist::input`, `Val`),

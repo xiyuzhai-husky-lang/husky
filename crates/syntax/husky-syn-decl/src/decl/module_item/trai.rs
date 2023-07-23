@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TraitNodeDecl {
+pub struct TraitSynNodeDecl {
     #[id]
     pub syn_node_path: TraitSynNodePath,
     pub ast_idx: AstIdx,
@@ -10,7 +10,7 @@ pub struct TraitNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TraitNodeDecl {
+impl TraitSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
@@ -22,7 +22,7 @@ impl TraitNodeDecl {
 }
 
 impl HasNodeDecl for TraitSynNodePath {
-    type NodeDecl = TraitNodeDecl;
+    type NodeDecl = TraitSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         trai_node_decl(db, self)
@@ -30,13 +30,13 @@ impl HasNodeDecl for TraitSynNodePath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_node_decl(db: &dyn DeclDb, syn_node_path: TraitSynNodePath) -> TraitNodeDecl {
+pub(crate) fn trai_node_decl(db: &dyn DeclDb, syn_node_path: TraitSynNodePath) -> TraitSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
     parser.parse_trai_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_trai_node_decl(&self, syn_node_path: TraitSynNodePath) -> TraitNodeDecl {
+    fn parse_trai_node_decl(&self, syn_node_path: TraitSynNodePath) -> TraitSynNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);
         let ast_idx: AstIdx = node.ast_idx(db);
@@ -61,16 +61,16 @@ impl<'a> DeclParser<'a> {
         id: TraitSynNodePath,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> TraitNodeDecl {
+    ) -> TraitSynNodeDecl {
         let mut parser = self.expr_parser(id, None, AllowSelfType::True, AllowSelfValue::False);
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let generic_parameters = ctx.try_parse_option();
-        TraitNodeDecl::new(self.db(), id, ast_idx, generic_parameters, parser.finish())
+        TraitSynNodeDecl::new(self.db(), id, ast_idx, generic_parameters, parser.finish())
     }
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
-pub struct TraitDecl {
+pub struct TraitSynDecl {
     #[id]
     pub path: TraitPath,
     pub ast_idx: AstIdx,
@@ -79,12 +79,12 @@ pub struct TraitDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TraitDecl {
+impl TraitSynDecl {
     fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitPath,
-        syn_node_decl: TraitNodeDecl,
-    ) -> DeclResult<TraitDecl> {
+        syn_node_decl: TraitSynNodeDecl,
+    ) -> DeclResult<TraitSynDecl> {
         let ast_idx = syn_node_decl.ast_idx(db);
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
@@ -93,7 +93,7 @@ impl TraitDecl {
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let expr_region = syn_node_decl.expr_region(db);
-        Ok(TraitDecl::new(
+        Ok(TraitSynDecl::new(
             db,
             path,
             ast_idx,
@@ -104,7 +104,7 @@ impl TraitDecl {
 }
 
 impl HasDecl for TraitPath {
-    type Decl = TraitDecl;
+    type Decl = TraitSynDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
         trai_decl(db, self)
@@ -112,7 +112,7 @@ impl HasDecl for TraitPath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitDecl> {
+pub(crate) fn trai_decl(db: &dyn DeclDb, path: TraitPath) -> DeclResult<TraitSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
-    TraitDecl::from_node_decl(db, path, syn_node_decl)
+    TraitSynDecl::from_node_decl(db, path, syn_node_decl)
 }

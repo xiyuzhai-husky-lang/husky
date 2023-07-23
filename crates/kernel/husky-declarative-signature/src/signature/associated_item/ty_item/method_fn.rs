@@ -20,7 +20,7 @@ pub struct TypeMethodFnDeclarativeSignatureTemplate {
     pub return_ty: DeclarativeTerm,
 }
 
-impl HasDeclarativeSignatureTemplate for TypeMethodFnDecl {
+impl HasDeclarativeSignatureTemplate for TypeMethodFnSynDecl {
     type DeclarativeSignatureTemplate = TypeMethodFnDeclarativeSignatureTemplate;
 
     fn declarative_signature_template(
@@ -34,7 +34,7 @@ impl HasDeclarativeSignatureTemplate for TypeMethodFnDecl {
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
 pub fn ty_method_fn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
-    decl: TypeMethodFnDecl,
+    decl: TypeMethodFnSynDecl,
 ) -> DeclarativeSignatureResult<TypeMethodFnDeclarativeSignatureTemplate> {
     let expr_region = decl.expr_region(db);
     let expr_region_data = expr_region.data(db);

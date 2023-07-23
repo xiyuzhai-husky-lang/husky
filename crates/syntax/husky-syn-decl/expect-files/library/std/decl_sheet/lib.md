@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 20,
         decls: [
             (
@@ -7,7 +7,7 @@ Ok(
                     `std::prelude`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `std::prelude`,
                         ast_idx: 0,
                     },
@@ -18,7 +18,7 @@ Ok(
                     `std::logic`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `std::logic`,
                         ast_idx: 1,
                     },
@@ -29,7 +29,7 @@ Ok(
                     `std::ops`,
                 ),
                 Decl::Submodule(
-                    SubmoduleDecl {
+                    SubmoduleSynDecl {
                         path: `std::ops`,
                         ast_idx: 2,
                     },

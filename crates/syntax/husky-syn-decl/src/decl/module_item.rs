@@ -14,7 +14,7 @@ use super::*;
 pub enum ModuleItemSynNodeDecl {
     Type(TypeNodeDecl),
     Fugitive(FugitiveNodeDecl),
-    Trait(TraitNodeDecl),
+    Trait(TraitSynNodeDecl),
 }
 
 impl ModuleItemSynNodeDecl {
@@ -72,7 +72,7 @@ impl HasNodeDecl for ModuleItemSynNodePath {
 #[enum_class::from_variants]
 pub enum ModuleItemDecl {
     Type(TypeDecl),
-    Trait(TraitDecl),
+    Trait(TraitSynDecl),
     Fugitive(FugitiveDecl),
 }
 

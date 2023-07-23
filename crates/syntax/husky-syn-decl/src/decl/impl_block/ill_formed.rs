@@ -3,7 +3,7 @@ use husky_print_utils::p;
 use salsa::DebugWithDb;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct IllFormedImplBlockNodeDecl {
+pub struct IllFormedImplBlockSynNodeDecl {
     #[id]
     pub syn_node_path: IllFormedImplBlockSynNodePath,
     pub ast_idx: AstIdx,
@@ -11,7 +11,7 @@ pub struct IllFormedImplBlockNodeDecl {
     // ad hoc
 }
 
-impl IllFormedImplBlockNodeDecl {
+impl IllFormedImplBlockSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         // ad hoc
         SmallVec::default()
@@ -19,7 +19,7 @@ impl IllFormedImplBlockNodeDecl {
 }
 
 impl HasNodeDecl for IllFormedImplBlockSynNodePath {
-    type NodeDecl = IllFormedImplBlockNodeDecl;
+    type NodeDecl = IllFormedImplBlockSynNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
         ill_formed_impl_block_syn_node_decl(db, self)
@@ -30,7 +30,7 @@ impl HasNodeDecl for IllFormedImplBlockSynNodePath {
 pub(crate) fn ill_formed_impl_block_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: IllFormedImplBlockSynNodePath,
-) -> IllFormedImplBlockNodeDecl {
+) -> IllFormedImplBlockSynNodeDecl {
     let parser = DeclParser::new(db, syn_node_path.module_path(db));
     parser.parse_ill_formed_impl_block_syn_node_decl(syn_node_path)
 }
@@ -39,7 +39,7 @@ impl<'a> DeclParser<'a> {
     fn parse_ill_formed_impl_block_syn_node_decl(
         &self,
         syn_node_path: IllFormedImplBlockSynNodePath,
-    ) -> IllFormedImplBlockNodeDecl {
+    ) -> IllFormedImplBlockSynNodeDecl {
         let db = self.db();
         let node = syn_node_path.node(db);
         let ast_idx = node.ast_idx(db);
@@ -63,7 +63,7 @@ impl<'a> DeclParser<'a> {
         node: IllFormedImplBlockSynNode,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
-    ) -> IllFormedImplBlockNodeDecl {
+    ) -> IllFormedImplBlockSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
             node.syn_node_path(db),
@@ -71,6 +71,6 @@ impl<'a> DeclParser<'a> {
             AllowSelfType::True,
             AllowSelfValue::False,
         );
-        IllFormedImplBlockNodeDecl::new(db, syn_node_path, ast_idx, parser.finish())
+        IllFormedImplBlockSynNodeDecl::new(db, syn_node_path, ast_idx, parser.finish())
     }
 }

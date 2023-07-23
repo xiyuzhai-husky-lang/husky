@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`core::option::Option`, `Enum`),
-                        decl: EnumTypeDecl {
+                        decl: EnumTypeSynDecl {
                             path: TypePath(`core::option::Option`, `Enum`),
                             generic_parameters: [
                                 GenericParameterDecl {

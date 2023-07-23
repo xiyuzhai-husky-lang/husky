@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -231,7 +231,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -2021,7 +2021,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -2189,7 +2189,7 @@ Ok(
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -2800,7 +2800,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::line_segment_sketch::concave_component`,
                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
@@ -2913,7 +2913,7 @@ Ok(
                             ident: `norm`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -3413,7 +3413,7 @@ Ok(
                             ident: `rel_norm`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -3968,7 +3968,7 @@ Ok(
                             ident: `hausdorff_norm`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -5384,7 +5384,7 @@ Ok(
                             ident: `angle_change`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -6544,7 +6544,7 @@ Ok(
                             ident: `bounding_box`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -8361,7 +8361,7 @@ Ok(
                             ident: `relative_bounding_box`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -8915,7 +8915,7 @@ Ok(
                             ident: `line_segment`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -9602,7 +9602,7 @@ Ok(
                             ident: `start`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -10163,7 +10163,7 @@ Ok(
                             ident: `end`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -10724,7 +10724,7 @@ Ok(
                             ident: `displacement`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -11254,7 +11254,7 @@ Ok(
                             ident: `start_tangent`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,
@@ -11803,7 +11803,7 @@ Ok(
                             ident: `end_tangent`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::line_segment_sketch::concave_component`,

@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -215,7 +215,7 @@ Ok(
                 TypeDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
-                        decl: EnumTypeDecl {
+                        decl: EnumTypeSynDecl {
                             path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -282,7 +282,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -978,7 +978,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -1645,7 +1645,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -2341,7 +2341,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -3394,7 +3394,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -4279,7 +4279,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -5493,7 +5493,7 @@ Ok(
                 TypeDefn::PropsStruct(
                     PropsStructTypeSynDefn {
                         path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
-                        decl: PropsStructTypeDecl {
+                        decl: PropsStructTypeSynDecl {
                             path: TypePath(`mnist_classifier::raw_contour::StreakCache`, `Struct`),
                             generic_parameters: [],
                             fields: [
@@ -5683,7 +5683,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -6726,7 +6726,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -12733,7 +12733,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `mnist_classifier::raw_contour`,
                         trai_path: TraitPath(`core::visual::Visualize`),
@@ -12901,7 +12901,7 @@ Ok(
                             ident: `visualize`,
                             item_kind: MethodFn,
                         },
-                        decl: TraitForTypeMethodFnDecl {
+                        decl: TraitForTypeMethodFnSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `mnist_classifier::raw_contour`,
@@ -13544,7 +13544,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `mnist_classifier::raw_contour`,
                         ty_path: TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
@@ -13657,7 +13657,7 @@ Ok(
                             ident: `line_segment_sketch`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::raw_contour`,
@@ -14217,7 +14217,7 @@ Ok(
                             ident: `bounding_box`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::raw_contour`,
@@ -15975,7 +15975,7 @@ Ok(
                             ident: `relative_bounding_box`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::raw_contour`,
@@ -16566,7 +16566,7 @@ Ok(
                             ident: `contour_len`,
                             item_kind: MemoizedField,
                         },
-                        decl: TypeMemoizedFieldDecl {
+                        decl: TypeMemoizedFieldSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::raw_contour`,
@@ -18220,7 +18220,7 @@ Ok(
                             ident: `displacement`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `mnist_classifier::raw_contour`,

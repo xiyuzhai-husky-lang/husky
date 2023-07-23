@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 48,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Enum(
-                            EnumTypeDecl {
+                            EnumTypeSynDecl {
                                 path: TypePath(`malamute::OneVsAll`, `Enum`),
                                 generic_parameters: [
                                     GenericParameterDecl {
@@ -191,7 +191,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Enum(
-                            EnumTypeDecl {
+                            EnumTypeSynDecl {
                                 path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                 generic_parameters: [
                                     GenericParameterDecl {
@@ -371,7 +371,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Gn(
-                            GnDecl {
+                            GnSynDecl {
                                 path: FugitivePath(`malamute::narrow_down`, `Gn`),
                                 generic_parameters: [
                                     GenericParameterDecl {
@@ -836,7 +836,7 @@ Ok(
                 ),
                 Decl::ImplBlock(
                     ImplBlockSynDecl::TraitForType(
-                        TraitForTypeImplBlockDecl {
+                        TraitForTypeImplBlockSynDecl {
                             path: TraitForTypeImplBlockPath {
                                 module_path: `malamute`,
                                 trai_path: TraitPath(`core::ops::Unveil`),
@@ -1271,7 +1271,7 @@ Ok(
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
                         TraitForTypeItemDecl::AssociatedType(
-                            TraitForTypeAssociatedTypeDecl {
+                            TraitForTypeAssociatedTypeSynDecl {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {
                                         module_path: `malamute`,

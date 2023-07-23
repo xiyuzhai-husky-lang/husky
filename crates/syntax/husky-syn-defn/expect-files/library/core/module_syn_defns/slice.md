@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::slice::Slice`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::slice::Slice`, `Extern`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -119,7 +119,7 @@ Ok(
                 TypeDefn::Extern(
                     ExternTypeSynDefn {
                         path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
-                        decl: ExternTypeDecl {
+                        decl: ExternTypeSynDecl {
                             path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -230,7 +230,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `core::slice`,
                         ty_path: TypePath(`core::slice::CyclicSliceLeashed`, `Extern`),
@@ -403,7 +403,7 @@ Ok(
                             ident: `ilen`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::slice`,
@@ -995,7 +995,7 @@ Ok(
                             ident: `first`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::slice`,
@@ -1587,7 +1587,7 @@ Ok(
                             ident: `last`,
                             item_kind: MethodFn,
                         },
-                        decl: TypeMethodFnDecl {
+                        decl: TypeMethodFnSynDecl {
                             path: TypeItemPath {
                                 impl_block: TypeImplBlockPath {
                                     module_path: `core::slice`,

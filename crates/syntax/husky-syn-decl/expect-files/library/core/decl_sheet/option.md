@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 13,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Type(
                         TypeDecl::Enum(
-                            EnumTypeDecl {
+                            EnumTypeSynDecl {
                                 path: TypePath(`core::option::Option`, `Enum`),
                                 generic_parameters: [
                                     GenericParameterDecl {

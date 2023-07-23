@@ -12,9 +12,9 @@ use super::*;
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantNodeDecl {
-    Props(PropsTypeVariantNodeDecl),
-    Unit(UnitTypeVariantNodeDecl),
-    Tuple(TupleTypeVariantNodeDecl),
+    Props(PropsTypeVariantSynNodeDecl),
+    Unit(UnitTypeVariantSynNodeDecl),
+    Tuple(TupleTypeVariantSynNodeDecl),
 }
 
 impl TypeVariantNodeDecl {
@@ -93,7 +93,7 @@ impl<'a> DeclParser<'a> {
             Some(Token::Punctuation(Punctuation::LPAR)) => {
                 let field_comma_list = ctx.try_parse();
                 let rpar = ctx.try_parse();
-                TupleTypeVariantNodeDecl::new(
+                TupleTypeVariantSynNodeDecl::new(
                     db,
                     syn_node_path,
                     ast_idx,
@@ -106,7 +106,7 @@ impl<'a> DeclParser<'a> {
             }
             Some(Token::Punctuation(Punctuation::LCURL)) => todo!(),
             None => {
-                UnitTypeVariantNodeDecl::new(db, syn_node_path, ast_idx, parser.finish()).into()
+                UnitTypeVariantSynNodeDecl::new(db, syn_node_path, ast_idx, parser.finish()).into()
             }
             _ => todo!(),
         }
@@ -117,9 +117,9 @@ impl<'a> DeclParser<'a> {
 #[salsa::derive_debug_with_db(db = DeclDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantDecl {
-    Props(PropsTypeVariantDecl),
-    Unit(UnitTypeVariantDecl),
-    Tuple(TupleTypeVariantDecl),
+    Props(PropsTypeVariantSynDecl),
+    Unit(UnitTypeVariantSynDecl),
+    Tuple(TupleTypeVariantSynDecl),
 }
 
 impl TypeVariantDecl {
@@ -130,13 +130,13 @@ impl TypeVariantDecl {
     ) -> DeclResult<Self> {
         Ok(match syn_node_decl {
             TypeVariantNodeDecl::Props(syn_node_decl) => {
-                PropsTypeVariantDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                PropsTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeVariantNodeDecl::Unit(syn_node_decl) => {
-                UnitTypeVariantDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                UnitTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TypeVariantNodeDecl::Tuple(syn_node_decl) => {
-                TupleTypeVariantDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TupleTypeVariantSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
         })
     }

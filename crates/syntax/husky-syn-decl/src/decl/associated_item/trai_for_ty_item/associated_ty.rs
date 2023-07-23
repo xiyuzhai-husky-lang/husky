@@ -3,7 +3,7 @@ use husky_print_utils::p;
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TraitForTypeAssociatedTypeNodeDecl {
+pub struct TraitForTypeAssociatedTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
     pub node: TraitForTypeItemSynNode,
@@ -17,7 +17,7 @@ pub struct TraitForTypeAssociatedTypeNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TraitForTypeAssociatedTypeNodeDecl {
+impl TraitForTypeAssociatedTypeSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         // ad hoc
         Default::default()
@@ -32,7 +32,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> TraitForTypeAssociatedTypeNodeDecl {
+    ) -> TraitForTypeAssociatedTypeSynNodeDecl {
         let db = self.db();
         let impl_block_syn_node_decl = syn_node_path.impl_block(db).syn_node_decl(db);
         let mut parser = self.expr_parser(
@@ -49,7 +49,7 @@ impl<'a> DeclParser<'a> {
             OriginalExprError::ExpectedTypeTermForAssociatedType,
         );
         let generics = ctx.try_parse_option();
-        TraitForTypeAssociatedTypeNodeDecl::new(
+        TraitForTypeAssociatedTypeSynNodeDecl::new(
             db,
             node.syn_node_path(db),
             node,
@@ -63,7 +63,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct TraitForTypeAssociatedTypeDecl {
+pub struct TraitForTypeAssociatedTypeSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
@@ -72,11 +72,11 @@ pub struct TraitForTypeAssociatedTypeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl TraitForTypeAssociatedTypeDecl {
+impl TraitForTypeAssociatedTypeSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TraitForTypeItemPath,
-        syn_node_decl: TraitForTypeAssociatedTypeNodeDecl,
+        syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .generics(db)
@@ -86,7 +86,7 @@ impl TraitForTypeAssociatedTypeDecl {
             .unwrap_or_default();
         let expr_region = syn_node_decl.expr_region(db);
         let ty_term_expr_idx = syn_node_decl.ty_term_expr_idx(db);
-        Ok(TraitForTypeAssociatedTypeDecl::new(
+        Ok(TraitForTypeAssociatedTypeSynDecl::new(
             db,
             path,
             generic_parameters,

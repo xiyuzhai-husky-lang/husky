@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitForTypeAssociatedTypeSynNodeDefn {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
-    pub syn_node_decl: TraitForTypeAssociatedTypeNodeDecl,
+    pub syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl,
     pub body: Option<ExprIdx>,
     pub expr_region: SynExprRegion,
 }
@@ -13,7 +13,7 @@ impl TraitForTypeAssociatedTypeSynNodeDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         syn_node_path: TraitForTypeItemSynNodePath,
-        syn_node_decl: TraitForTypeAssociatedTypeNodeDecl,
+        syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl,
     ) -> Self {
         let syn_node_path = syn_node_decl.syn_node_path(db);
         let mut parser = expr_parser(
@@ -45,7 +45,7 @@ impl TraitForTypeAssociatedTypeSynNodeDefn {
 pub struct TraitForTypeAssociatedTypeSynDefn {
     #[id]
     pub path: TraitForTypeItemPath,
-    pub decl: TraitForTypeAssociatedTypeDecl,
+    pub decl: TraitForTypeAssociatedTypeSynDecl,
     pub expr_region: SynExprRegion,
 }
 
@@ -53,7 +53,7 @@ impl TraitForTypeAssociatedTypeSynDefn {
     pub(super) fn new(
         db: &dyn SynDefnDb,
         path: TraitForTypeItemPath,
-        decl: TraitForTypeAssociatedTypeDecl,
+        decl: TraitForTypeAssociatedTypeSynDecl,
     ) -> Self {
         let TraitForTypeItemSynNodeDefn::AssociatedType(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
             unreachable!()

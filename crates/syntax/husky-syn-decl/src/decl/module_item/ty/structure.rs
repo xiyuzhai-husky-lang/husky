@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct StructureTypeNodeDecl {
+pub struct StructureTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
@@ -10,7 +10,7 @@ pub struct StructureTypeNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl StructureTypeNodeDecl {
+impl StructureTypeSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
@@ -37,7 +37,7 @@ impl<'a> DeclParser<'a> {
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let generic_parameters = ctx.try_parse_option();
-        StructureTypeNodeDecl::new(
+        StructureTypeSynNodeDecl::new(
             self.db(),
             syn_node_path,
             ast_idx,
@@ -49,7 +49,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct StructureTypeDecl {
+pub struct StructureTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
@@ -57,12 +57,12 @@ pub struct StructureTypeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl StructureTypeDecl {
+impl StructureTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        syn_node_decl: StructureTypeNodeDecl,
+        syn_node_decl: StructureTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
@@ -71,7 +71,7 @@ impl StructureTypeDecl {
             .map(|list| list.generic_parameters().to_smallvec())
             .unwrap_or_default();
         let expr_region = syn_node_decl.expr_region(db);
-        Ok(StructureTypeDecl::new(
+        Ok(StructureTypeSynDecl::new(
             db,
             path,
             generic_parameters,

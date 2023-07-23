@@ -5,7 +5,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -419,7 +419,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::left_coordinate_max`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -936,7 +936,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -1317,7 +1317,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -1698,7 +1698,7 @@ Ok(
                 FugitiveDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
-                        decl: ValDecl {
+                        decl: ValSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
                             return_ty: Some(
                                 ReturnTypeExprBeforeEq {
@@ -4470,7 +4470,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::displacement_downwards`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [
@@ -5125,7 +5125,7 @@ Ok(
                 FugitiveDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
-                        decl: FnDecl {
+                        decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::four::cc_box_heights`, `Fn`),
                             generic_parameters: [],
                             parenic_parameters: [

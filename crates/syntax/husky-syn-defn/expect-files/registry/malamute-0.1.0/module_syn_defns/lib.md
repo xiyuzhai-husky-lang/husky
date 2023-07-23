@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`malamute::OneVsAll`, `Enum`),
-                        decl: EnumTypeDecl {
+                        decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::OneVsAll`, `Enum`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -181,7 +181,7 @@ Ok(
                 TypeDefn::Enum(
                     EnumTypeSynDefn {
                         path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                        decl: EnumTypeDecl {
+                        decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -357,7 +357,7 @@ Ok(
                 FugitiveDefn::Gn(
                     GnSynDefn {
                         path: FugitivePath(`malamute::narrow_down`, `Gn`),
-                        decl: GnDecl {
+                        decl: GnSynDecl {
                             path: FugitivePath(`malamute::narrow_down`, `Gn`),
                             generic_parameters: [
                                 GenericParameterDecl {
@@ -1252,7 +1252,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::TraitForType(
-                TraitForTypeImplBlockDecl {
+                TraitForTypeImplBlockSynDecl {
                     path: TraitForTypeImplBlockPath {
                         module_path: `malamute`,
                         trai_path: TraitPath(`core::ops::Unveil`),
@@ -1682,7 +1682,7 @@ Ok(
                             ident: `Output`,
                             item_kind: AssociatedType,
                         },
-                        decl: TraitForTypeAssociatedTypeDecl {
+                        decl: TraitForTypeAssociatedTypeSynDecl {
                             path: TraitForTypeItemPath {
                                 impl_block: TraitForTypeImplBlockPath {
                                     module_path: `malamute`,

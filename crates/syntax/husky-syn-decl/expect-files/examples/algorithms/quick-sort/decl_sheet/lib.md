@@ -1,5 +1,5 @@
 Ok(
-    DeclSheet {
+    SynDeclSheet {
         [salsa id]: 24,
         decls: [
             (
@@ -11,7 +11,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                                 generic_parameters: [
                                     GenericParameterDecl {
@@ -269,7 +269,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                                 generic_parameters: [
                                     GenericParameterDecl {
@@ -691,7 +691,7 @@ Ok(
                 Decl::ModuleItem(
                     ModuleItemDecl::Fugitive(
                         FugitiveDecl::Fn(
-                            FnDecl {
+                            FnSynDecl {
                                 path: FugitivePath(`quick_sort::partition`, `Fn`),
                                 generic_parameters: [
                                     GenericParameterDecl {

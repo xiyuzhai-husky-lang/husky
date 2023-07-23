@@ -5,7 +5,7 @@ Ok(
                 TypeDefn::Inductive(
                     InductiveTypeSynDefn {
                         path: TypePath(`natural_number_game::Nat`, `Inductive`),
-                        decl: InductiveTypeDecl {
+                        decl: InductiveTypeSynDecl {
                             path: TypePath(`natural_number_game::Nat`, `Inductive`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -72,7 +72,7 @@ Ok(
                 TypeDefn::Structure(
                     StructureTypeSynDefn {
                         path: TypePath(`natural_number_game::OddNat`, `Structure`),
-                        decl: StructureTypeDecl {
+                        decl: StructureTypeSynDecl {
                             path: TypePath(`natural_number_game::OddNat`, `Structure`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -139,7 +139,7 @@ Ok(
                 TypeDefn::Structure(
                     StructureTypeSynDefn {
                         path: TypePath(`natural_number_game::EvenNat`, `Structure`),
-                        decl: StructureTypeDecl {
+                        decl: StructureTypeSynDecl {
                             path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                             generic_parameters: [],
                             expr_region: SynExprRegion {
@@ -203,7 +203,7 @@ Ok(
         ),
         Defn::ImplBlock(
             ImplBlockSynDecl::Type(
-                TypeImplBlockDecl {
+                TypeImplBlockSynDecl {
                     path: TypeImplBlockPath {
                         module_path: `natural_number_game`,
                         ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),

@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct GnNodeDecl {
+pub struct GnSynNodeDecl {
     #[id]
     pub syn_node_path: FugitiveSynNodePath,
     pub ast_idx: AstIdx,
@@ -17,7 +17,7 @@ pub struct GnNodeDecl {
     pub eol_colon: NodeDeclResult<EolToken>,
 }
 
-impl GnNodeDecl {
+impl GnSynNodeDecl {
     pub fn errors(self, db: &dyn DeclDb) -> NodeDeclErrorRefs {
         SmallVec::from_iter(
             self.implicit_parameter_decl_list(db)
@@ -43,7 +43,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> GnNodeDecl {
+    ) -> GnSynNodeDecl {
         let mut parser = self.expr_parser(
             syn_node_path,
             None,
@@ -63,7 +63,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = ctx.try_parse_expected(OriginalNodeDeclError::ExpectedEolColon);
-        GnNodeDecl::new(
+        GnSynNodeDecl::new(
             self.db(),
             syn_node_path,
             ast_idx,
@@ -78,7 +78,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct GnDecl {
+pub struct GnSynDecl {
     #[id]
     pub path: FugitivePath,
     #[return_ref]
@@ -89,11 +89,11 @@ pub struct GnDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl GnDecl {
+impl GnSynDecl {
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: FugitivePath,
-        syn_node_decl: GnNodeDecl,
+        syn_node_decl: GnSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
@@ -109,7 +109,7 @@ impl GnDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr_region = syn_node_decl.expr_region(db);
-        Ok(GnDecl::new(
+        Ok(GnSynDecl::new(
             db,
             path,
             generic_parameters,

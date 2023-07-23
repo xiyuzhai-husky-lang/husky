@@ -10,7 +10,7 @@ impl EnumUnitTypeVariantDeclarativeSignatureTemplate {
     pub(super) fn from_decl(
         db: &dyn DeclarativeSignatureDb,
         parent_ty_template: EnumDeclarativeSignatureTemplate,
-        decl: UnitTypeVariantDecl,
+        decl: UnitTypeVariantSynDecl,
     ) -> DeclarativeSignatureResult<Self> {
         // todo: GADT
         Ok(EnumUnitTypeVariantDeclarativeSignatureTemplate::new(

@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar)]
-pub struct ExternTypeNodeDecl {
+pub struct ExternTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
     pub ast_idx: AstIdx,
@@ -10,7 +10,7 @@ pub struct ExternTypeNodeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl ExternTypeNodeDecl {
+impl ExternTypeSynNodeDecl {
     pub fn generic_parameters<'a>(self, db: &'a dyn DeclDb) -> &'a [GenericParameterDecl] {
         todo!()
         // self.implicit_parameter_decl_list(db)
@@ -37,7 +37,7 @@ impl<'a> DeclParser<'a> {
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         saved_stream_state: TokenStreamState,
-    ) -> ExternTypeNodeDecl {
+    ) -> ExternTypeSynNodeDecl {
         let mut parser = self.expr_parser(
             syn_node_path,
             None,
@@ -46,7 +46,7 @@ impl<'a> DeclParser<'a> {
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
         let generic_parameters = ctx.try_parse_option();
-        ExternTypeNodeDecl::new(
+        ExternTypeSynNodeDecl::new(
             self.db(),
             syn_node_path,
             ast_idx,
@@ -57,7 +57,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = DeclDb, jar = SynDeclJar, constructor = new)]
-pub struct ExternTypeDecl {
+pub struct ExternTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
@@ -65,12 +65,12 @@ pub struct ExternTypeDecl {
     pub expr_region: SynExprRegion,
 }
 
-impl ExternTypeDecl {
+impl ExternTypeSynDecl {
     #[inline(always)]
     pub(super) fn from_node_decl(
         db: &dyn DeclDb,
         path: TypePath,
-        syn_node_decl: ExternTypeNodeDecl,
+        syn_node_decl: ExternTypeSynNodeDecl,
     ) -> DeclResult<Self> {
         let generic_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
