@@ -806,7 +806,7 @@ Ok(
                                                             43,
                                                         ),
                                                         access_end: None,
-                                                        variant: CurrentSymbolVariant::ExplicitRegularParameter {
+                                                        variant: CurrentSynSymbolVariant::ExplicitRegularParameter {
                                                             ident: `pt`,
                                                             pattern_symbol_idx: 0,
                                                         },

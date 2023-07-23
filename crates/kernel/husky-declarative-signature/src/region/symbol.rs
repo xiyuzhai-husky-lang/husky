@@ -206,12 +206,12 @@ impl SymbolDeclarativeTermRegion {
         self.self_value_term
     }
 
-    fn parent_symbol_term(&self, parent_symbol_idx: ParentSymbolIdx) -> SymbolSignature {
+    fn parent_symbol_term(&self, parent_symbol_idx: ParentSynSymbolIdx) -> SymbolSignature {
         match parent_symbol_idx {
-            ParentSymbolIdx::Inherited(inherited_symbol_idx) => {
+            ParentSynSymbolIdx::Inherited(inherited_symbol_idx) => {
                 self.inherited_symbol_signature(inherited_symbol_idx)
             }
-            ParentSymbolIdx::Current(current_symbol_idx) => self
+            ParentSynSymbolIdx::Current(current_symbol_idx) => self
                 .current_symbol_signature(current_symbol_idx)
                 .expect("should exist"),
         }
@@ -219,7 +219,7 @@ impl SymbolDeclarativeTermRegion {
 
     pub fn inherited_symbol_signature(
         &self,
-        inherited_symbol_idx: InheritedSymbolIdx,
+        inherited_symbol_idx: InheritedSynSymbolIdx,
     ) -> SymbolSignature {
         self.symbol_signatures[inherited_symbol_idx]
     }

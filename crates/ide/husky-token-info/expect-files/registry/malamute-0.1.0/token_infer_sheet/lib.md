@@ -24,8 +24,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -40,8 +40,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
@@ -55,8 +55,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -95,8 +95,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -111,8 +111,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
@@ -126,8 +126,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -149,8 +149,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -165,8 +165,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
@@ -180,8 +180,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -221,8 +221,8 @@ Ok(
             ),
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -235,8 +235,8 @@ Ok(
             },
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
@@ -257,8 +257,8 @@ Ok(
             ),
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -271,8 +271,8 @@ Ok(
             },
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
@@ -343,8 +343,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -359,8 +359,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(
@@ -374,8 +374,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -393,7 +393,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 2,
-                current_symbol_kind: CurrentSymbolKind::ExplicitVariadicParameter {
+                current_symbol_kind: CurrentSynSymbolKind::ExplicitVariadicParameter {
                     ident_token: IdentToken {
                         ident: `f`,
                         token_idx: TokenIdx(
@@ -414,7 +414,7 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 3,
-                current_symbol_kind: CurrentSymbolKind::ExplicitRegularParameter {
+                current_symbol_kind: CurrentSynSymbolKind::ExplicitRegularParameter {
                     pattern_symbol_idx: 0,
                 },
                 syn_expr_region: ExprRegionLeash(_),
@@ -441,8 +441,8 @@ Ok(
             ),
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `Label`,
                             token_idx: TokenIdx(
@@ -455,8 +455,8 @@ Ok(
             },
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                         ident_token: IdentToken {
                             ident: `label`,
                             token_idx: TokenIdx(

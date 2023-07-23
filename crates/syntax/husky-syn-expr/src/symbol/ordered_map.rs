@@ -2,8 +2,8 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct SymbolOrderedMap<V> {
-    inherited_symbol_map: InheritedSymbolOrderedMap<V>,
-    current_symbol_map: CurrentSymbolOrderedMap<V>,
+    inherited_symbol_map: InheritedSynSymbolOrderedMap<V>,
+    current_symbol_map: CurrentSynSymbolOrderedMap<V>,
 }
 
 impl<V> SymbolOrderedMap<V> {
@@ -30,19 +30,19 @@ impl<V> SymbolOrderedMap<V> {
         self.current_symbol_map.insert_next(idx, v)
     }
 
-    pub fn inherited_symbol_map(&self) -> &InheritedSymbolOrderedMap<V> {
+    pub fn inherited_symbol_map(&self) -> &InheritedSynSymbolOrderedMap<V> {
         &self.inherited_symbol_map
     }
 
-    pub fn current_symbol_map(&self) -> &CurrentSymbolOrderedMap<V> {
+    pub fn current_symbol_map(&self) -> &CurrentSynSymbolOrderedMap<V> {
         &self.current_symbol_map
     }
 }
 
-impl<V> std::ops::Index<InheritedSymbolIdx> for SymbolOrderedMap<V> {
+impl<V> std::ops::Index<InheritedSynSymbolIdx> for SymbolOrderedMap<V> {
     type Output = V;
 
-    fn index(&self, index: InheritedSymbolIdx) -> &Self::Output {
+    fn index(&self, index: InheritedSynSymbolIdx) -> &Self::Output {
         &self.inherited_symbol_map[index]
     }
 }

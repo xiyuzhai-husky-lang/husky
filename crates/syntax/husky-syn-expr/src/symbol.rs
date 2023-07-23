@@ -17,8 +17,8 @@ use husky_entity_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 #[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum Symbol {
     PrincipalEntity(PrincipalEntityPath),
-    Inherited(InheritedSymbolIdx, InheritedSymbolKind),
-    Local(CurrentSynSymbolIdx, CurrentSymbolKind),
+    Inherited(InheritedSynSymbolIdx, InheritedSynSymbolKind),
+    Local(CurrentSynSymbolIdx, CurrentSynSymbolKind),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -31,43 +31,43 @@ pub enum ImplicitParameterSymbol {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = SynExprDb)]
-pub struct InheritedSymbol {
-    parent_symbol_idx: ParentSymbolIdx,
+pub struct InheritedSynSymbol {
+    parent_symbol_idx: ParentSynSymbolIdx,
     modifier: SymbolModifier,
-    kind: InheritedSymbolKind,
+    kind: InheritedSynSymbolKind,
 }
 
-impl InheritedSymbol {
-    pub fn kind(&self) -> InheritedSymbolKind {
+impl InheritedSynSymbol {
+    pub fn kind(&self) -> InheritedSynSymbolKind {
         self.kind
     }
 
-    pub fn parent_symbol_idx(&self) -> ParentSymbolIdx {
+    pub fn parent_symbol_idx(&self) -> ParentSynSymbolIdx {
         self.parent_symbol_idx
     }
 
     pub fn ident(&self) -> Option<Ident> {
         match self.kind {
-            InheritedSymbolKind::ImplicitParameter(kind) => match kind {
-                InheritedImplicitParameterSymbol::Lifetime { label } => None,
-                InheritedImplicitParameterSymbol::Type { ident }
-                | InheritedImplicitParameterSymbol::Constant { ident } => Some(ident),
+            InheritedSynSymbolKind::ImplicitParameter(kind) => match kind {
+                InheritedImplicitParameterSynSymbol::Lifetime { label } => None,
+                InheritedImplicitParameterSynSymbol::Type { ident }
+                | InheritedImplicitParameterSynSymbol::Constant { ident } => Some(ident),
             },
-            InheritedSymbolKind::ExplicitParameter { ident } => Some(ident),
+            InheritedSynSymbolKind::ExplicitParameter { ident } => Some(ident),
         }
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = SynExprDb)]
-pub enum InheritedSymbolKind {
-    ImplicitParameter(InheritedImplicitParameterSymbol),
+pub enum InheritedSynSymbolKind {
+    ImplicitParameter(InheritedImplicitParameterSynSymbol),
     ExplicitParameter { ident: Ident },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = SynExprDb)]
-pub enum InheritedImplicitParameterSymbol {
+pub enum InheritedImplicitParameterSynSymbol {
     Lifetime { label: Label },
     Type { ident: Ident },
     Constant { ident: Ident },
@@ -80,7 +80,7 @@ pub struct CurrentSynSymbol {
     access_start: TokenIdx,
     /// this is none only for lambda variable
     access_end: Option<TokenIdxRangeEnd>,
-    variant: CurrentSymbolVariant,
+    variant: CurrentSynSymbolVariant,
 }
 
 impl CurrentSynSymbol {
@@ -88,7 +88,7 @@ impl CurrentSynSymbol {
         pattern_expr_region: &PatternSynExprRegion,
         access_start: TokenIdx,
         access_end: Option<TokenIdxRangeEnd>,
-        variant: CurrentSymbolVariant,
+        variant: CurrentSynSymbolVariant,
     ) -> Self {
         Self {
             modifier: variant.modifier(pattern_expr_region),
@@ -102,28 +102,28 @@ impl CurrentSynSymbol {
         self.modifier
     }
 
-    pub fn kind(&self) -> CurrentSymbolKind {
+    pub fn kind(&self) -> CurrentSynSymbolKind {
         self.variant.kind()
     }
 
-    pub fn variant(&self) -> &CurrentSymbolVariant {
+    pub fn variant(&self) -> &CurrentSynSymbolVariant {
         &self.variant
     }
 
     pub fn ident(&self) -> Option<Ident> {
         match self.variant {
-            CurrentSymbolVariant::ImplicitParameter {
+            CurrentSynSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant:
                     CurrentImplicitParameterSymbol::Type { ident_token }
                     | CurrentImplicitParameterSymbol::Constant { ident_token, .. },
             }
-            | CurrentSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
+            | CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
                 Some(ident_token.ident())
             }
-            CurrentSymbolVariant::ExplicitRegularParameter { ident, .. }
-            | CurrentSymbolVariant::LetVariable { ident, .. }
-            | CurrentSymbolVariant::FrameVariable { ident, .. } => Some(ident),
-            CurrentSymbolVariant::ImplicitParameter {
+            CurrentSynSymbolVariant::ExplicitRegularParameter { ident, .. }
+            | CurrentSynSymbolVariant::LetVariable { ident, .. }
+            | CurrentSynSymbolVariant::FrameVariable { ident, .. } => Some(ident),
+            CurrentSynSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant: CurrentImplicitParameterSymbol::Lifetime { .. },
             } => None,
         }
@@ -136,25 +136,25 @@ impl CurrentSynSymbol {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = SynExprDb)]
-pub enum CurrentSymbolKind {
+pub enum CurrentSynSymbolKind {
     ImplicitParameter {
-        implicit_parameter_kind: CurrentImplicitParameterSymbolKind,
+        implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind,
     },
     ExplicitRegularParameter {
-        pattern_symbol_idx: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSynSymbolIdx,
     },
     ExplicitVariadicParameter {
         ident_token: IdentToken,
     },
     LetVariable {
-        pattern_symbol_idx: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSynSymbolIdx,
     },
     FrameVariable(SynExprIdx),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = SynExprDb)]
-pub enum CurrentImplicitParameterSymbolKind {
+pub enum CurrentImplicitParameterSynSymbolKind {
     Type { ident_token: IdentToken },
     Lifetime { label_token: LifetimeLabelToken },
     Constant { ident_token: IdentToken },
@@ -162,13 +162,13 @@ pub enum CurrentImplicitParameterSymbolKind {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = SynExprDb)]
-pub enum CurrentSymbolVariant {
+pub enum CurrentSynSymbolVariant {
     ImplicitParameter {
         implicit_parameter_variant: CurrentImplicitParameterSymbol,
     },
     ExplicitRegularParameter {
         ident: Ident,
-        pattern_symbol_idx: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSynSymbolIdx,
     },
     ExplicitVariadicParameter {
         symbol_modifier_keyword_group: Option<SymbolModifierKeywordGroup>,
@@ -176,7 +176,7 @@ pub enum CurrentSymbolVariant {
     },
     LetVariable {
         ident: Ident,
-        pattern_symbol_idx: PatternSymbolIdx,
+        pattern_symbol_idx: PatternSynSymbolIdx,
     },
     FrameVariable {
         ident: Ident,
@@ -184,23 +184,23 @@ pub enum CurrentSymbolVariant {
     },
 }
 
-impl CurrentSymbolVariant {
+impl CurrentSynSymbolVariant {
     fn modifier(&self, pattern_expr_region: &PatternSynExprRegion) -> SymbolModifier {
         match self {
-            CurrentSymbolVariant::ImplicitParameter {
+            CurrentSynSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant,
             } => SymbolModifier::Const,
-            CurrentSymbolVariant::ExplicitRegularParameter {
+            CurrentSynSymbolVariant::ExplicitRegularParameter {
                 pattern_symbol_idx, ..
             }
-            | CurrentSymbolVariant::LetVariable {
+            | CurrentSynSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
             } => pattern_expr_region.pattern_symbol_modifier(*pattern_symbol_idx),
-            CurrentSymbolVariant::ExplicitVariadicParameter {
+            CurrentSynSymbolVariant::ExplicitVariadicParameter {
                 symbol_modifier_keyword_group,
                 ..
             } => SymbolModifier::new(*symbol_modifier_keyword_group),
-            CurrentSymbolVariant::FrameVariable { ident, expr_idx } => SymbolModifier::None,
+            CurrentSynSymbolVariant::FrameVariable { ident, expr_idx } => SymbolModifier::None,
         }
     }
 }
@@ -222,51 +222,51 @@ pub enum CurrentImplicitParameterSymbol {
 }
 
 impl CurrentImplicitParameterSymbol {
-    fn bequeath(&self) -> InheritedImplicitParameterSymbol {
+    fn bequeath(&self) -> InheritedImplicitParameterSynSymbol {
         match self {
             CurrentImplicitParameterSymbol::Lifetime { label_token } => {
-                InheritedImplicitParameterSymbol::Lifetime {
+                InheritedImplicitParameterSynSymbol::Lifetime {
                     label: label_token.label(),
                 }
             }
             CurrentImplicitParameterSymbol::Type { ident_token } => {
-                InheritedImplicitParameterSymbol::Type {
+                InheritedImplicitParameterSynSymbol::Type {
                     ident: ident_token.ident(),
                 }
             }
             CurrentImplicitParameterSymbol::Constant {
                 ident_token,
                 ty_expr_idx,
-            } => InheritedImplicitParameterSymbol::Constant {
+            } => InheritedImplicitParameterSynSymbol::Constant {
                 ident: ident_token.ident(),
             },
         }
     }
 }
 
-impl CurrentSymbolVariant {
-    pub fn kind(&self) -> CurrentSymbolKind {
+impl CurrentSynSymbolVariant {
+    pub fn kind(&self) -> CurrentSynSymbolKind {
         match self {
-            CurrentSymbolVariant::ImplicitParameter {
+            CurrentSynSymbolVariant::ImplicitParameter {
                 implicit_parameter_variant,
-            } => CurrentSymbolKind::ImplicitParameter {
+            } => CurrentSynSymbolKind::ImplicitParameter {
                 implicit_parameter_kind: implicit_parameter_variant.kind(),
             },
-            CurrentSymbolVariant::ExplicitRegularParameter {
+            CurrentSynSymbolVariant::ExplicitRegularParameter {
                 pattern_symbol_idx, ..
-            } => CurrentSymbolKind::ExplicitRegularParameter {
+            } => CurrentSynSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
-            CurrentSymbolVariant::LetVariable {
+            CurrentSynSymbolVariant::LetVariable {
                 pattern_symbol_idx, ..
-            } => CurrentSymbolKind::LetVariable {
+            } => CurrentSynSymbolKind::LetVariable {
                 pattern_symbol_idx: *pattern_symbol_idx,
             },
-            CurrentSymbolVariant::FrameVariable { expr_idx, .. } => {
-                CurrentSymbolKind::FrameVariable(*expr_idx)
+            CurrentSynSymbolVariant::FrameVariable { expr_idx, .. } => {
+                CurrentSynSymbolKind::FrameVariable(*expr_idx)
             }
-            CurrentSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
-                CurrentSymbolKind::ExplicitVariadicParameter {
+            CurrentSynSymbolVariant::ExplicitVariadicParameter { ident_token, .. } => {
+                CurrentSynSymbolKind::ExplicitVariadicParameter {
                     ident_token: *ident_token,
                 }
             }
@@ -275,20 +275,20 @@ impl CurrentSymbolVariant {
 }
 
 impl CurrentImplicitParameterSymbol {
-    fn kind(&self) -> CurrentImplicitParameterSymbolKind {
+    fn kind(&self) -> CurrentImplicitParameterSynSymbolKind {
         match self {
             CurrentImplicitParameterSymbol::Type { ident_token } => {
-                CurrentImplicitParameterSymbolKind::Type {
+                CurrentImplicitParameterSynSymbolKind::Type {
                     ident_token: *ident_token,
                 }
             }
             CurrentImplicitParameterSymbol::Lifetime { label_token } => {
-                CurrentImplicitParameterSymbolKind::Lifetime {
+                CurrentImplicitParameterSynSymbolKind::Lifetime {
                     label_token: *label_token,
                 }
             }
             CurrentImplicitParameterSymbol::Constant { ident_token, .. } => {
-                CurrentImplicitParameterSymbolKind::Constant {
+                CurrentImplicitParameterSynSymbolKind::Constant {
                     ident_token: *ident_token,
                 }
             }
@@ -296,31 +296,31 @@ impl CurrentImplicitParameterSymbol {
     }
 }
 
-pub type InheritedSymbolArena = Arena<InheritedSymbol>;
-pub type InheritedSymbolIdx = ArenaIdx<InheritedSymbol>;
-pub type InheritedSymbolIdxRange = ArenaIdxRange<InheritedSymbol>;
-pub(crate) type InheritedSymbolMap<V> = ArenaMap<InheritedSymbol, V>;
-pub(crate) type InheritedSymbolOrderedMap<V> = ArenaOrderedMap<InheritedSymbol, V>;
+pub type InheritedSynSymbolArena = Arena<InheritedSynSymbol>;
+pub type InheritedSynSymbolIdx = ArenaIdx<InheritedSynSymbol>;
+pub type InheritedSynSymbolIdxRange = ArenaIdxRange<InheritedSynSymbol>;
+pub(crate) type InheritedSynSymbolMap<V> = ArenaMap<InheritedSynSymbol, V>;
+pub(crate) type InheritedSynSymbolOrderedMap<V> = ArenaOrderedMap<InheritedSynSymbol, V>;
 
-pub type CurrentSymbolArena = Arena<CurrentSynSymbol>;
+pub type CurrentSynSymbolArena = Arena<CurrentSynSymbol>;
 pub type CurrentSynSymbolIdx = ArenaIdx<CurrentSynSymbol>;
-pub type CurrentSymbolIdxRange = ArenaIdxRange<CurrentSynSymbol>;
-pub(crate) type CurrentSymbolMap<V> = ArenaMap<CurrentSynSymbol, V>;
-pub(crate) type CurrentSymbolOrderedMap<V> = ArenaOrderedMap<CurrentSynSymbol, V>;
+pub type CurrentSynSymbolIdxRange = ArenaIdxRange<CurrentSynSymbol>;
+pub(crate) type CurrentSynSymbolMap<V> = ArenaMap<CurrentSynSymbol, V>;
+pub(crate) type CurrentSynSymbolOrderedMap<V> = ArenaOrderedMap<CurrentSynSymbol, V>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ParentSymbolIdx {
-    Inherited(InheritedSymbolIdx),
+pub enum ParentSynSymbolIdx {
+    Inherited(InheritedSynSymbolIdx),
     Current(CurrentSynSymbolIdx),
 }
 
-impl From<InheritedSymbolIdx> for ParentSymbolIdx {
-    fn from(v: InheritedSymbolIdx) -> Self {
+impl From<InheritedSynSymbolIdx> for ParentSynSymbolIdx {
+    fn from(v: InheritedSynSymbolIdx) -> Self {
         Self::Inherited(v)
     }
 }
 
-impl From<CurrentSynSymbolIdx> for ParentSymbolIdx {
+impl From<CurrentSynSymbolIdx> for ParentSynSymbolIdx {
     fn from(v: CurrentSynSymbolIdx) -> Self {
         Self::Current(v)
     }

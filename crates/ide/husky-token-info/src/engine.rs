@@ -429,10 +429,10 @@ impl<'a> InferContext<'a> {
     ) {
         let current_symbol_kind = current_symbol.kind();
         match current_symbol_kind {
-            CurrentSymbolKind::LetVariable {
+            CurrentSynSymbolKind::LetVariable {
                 pattern_symbol_idx: pattern_symbol,
             }
-            | CurrentSymbolKind::ExplicitRegularParameter {
+            | CurrentSynSymbolKind::ExplicitRegularParameter {
                 pattern_symbol_idx: pattern_symbol,
             } => match self.expr_region_data[pattern_symbol] {
                 PatternSynSymbol::Atom(pattern_expr_idx) => {
@@ -452,11 +452,11 @@ impl<'a> InferContext<'a> {
                     }
                 }
             },
-            CurrentSymbolKind::FrameVariable(_) => (),
-            CurrentSymbolKind::ImplicitParameter {
+            CurrentSynSymbolKind::FrameVariable(_) => (),
+            CurrentSynSymbolKind::ImplicitParameter {
                 implicit_parameter_kind,
             } => match implicit_parameter_kind {
-                CurrentImplicitParameterSymbolKind::Type { ident_token } => self.sheet.add(
+                CurrentImplicitParameterSynSymbolKind::Type { ident_token } => self.sheet.add(
                     ident_token.token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
@@ -464,7 +464,7 @@ impl<'a> InferContext<'a> {
                         current_symbol_kind,
                     },
                 ),
-                CurrentImplicitParameterSymbolKind::Lifetime { label_token } => self.sheet.add(
+                CurrentImplicitParameterSynSymbolKind::Lifetime { label_token } => self.sheet.add(
                     label_token.token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
@@ -472,7 +472,7 @@ impl<'a> InferContext<'a> {
                         current_symbol_kind,
                     },
                 ),
-                CurrentImplicitParameterSymbolKind::Constant { ident_token } => self.sheet.add(
+                CurrentImplicitParameterSynSymbolKind::Constant { ident_token } => self.sheet.add(
                     ident_token.token_idx(),
                     TokenInfo::CurrentSymbol {
                         current_symbol_idx,
@@ -481,7 +481,7 @@ impl<'a> InferContext<'a> {
                     },
                 ),
             },
-            CurrentSymbolKind::ExplicitVariadicParameter { ident_token } => self.sheet.add(
+            CurrentSynSymbolKind::ExplicitVariadicParameter { ident_token } => self.sheet.add(
                 ident_token.token_idx(),
                 TokenInfo::CurrentSymbol {
                     current_symbol_idx,

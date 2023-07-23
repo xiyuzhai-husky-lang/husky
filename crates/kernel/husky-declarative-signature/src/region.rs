@@ -11,8 +11,9 @@ use crate::*;
 
 use husky_entity_tree::RegionPath;
 use husky_syn_expr::{
-    AllowSelfType, CurrentSynSymbolIdx, InheritedSymbolIdx, ParentSymbolIdx, PatternSymbolMap,
-    PatternSynExprIdx, PatternSynExprMap, SynExprIdx, SynExprMap, SynExprRegion, SynSymbolRegion,
+    AllowSelfType, CurrentSynSymbolIdx, InheritedSynSymbolIdx, ParentSynSymbolIdx,
+    PatternSynExprIdx, PatternSynExprMap, PatternSynSymbolMap, SynExprIdx, SynExprMap,
+    SynExprRegion, SynSymbolRegion,
 };
 
 /// preparation for generating signature
@@ -26,7 +27,7 @@ pub struct DeclarativeTermRegion {
     term_symbol_region: SymbolDeclarativeTermRegion,
     expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
     pattern_expr_ty_infos: PatternSynExprMap<PatternExprDeclarativeTypeInfo>,
-    pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
+    pattern_symbol_ty_infos: PatternSynSymbolMap<PatternSymbolTypeInfo>,
 }
 
 impl DeclarativeTermRegion {
@@ -35,7 +36,7 @@ impl DeclarativeTermRegion {
         term_symbol_region: SymbolDeclarativeTermRegion,
         expr_terms: SynExprMap<DeclarativeTermResult2<DeclarativeTerm>>,
         pattern_expr_ty_infos: PatternSynExprMap<PatternExprDeclarativeTypeInfo>,
-        pattern_symbol_ty_infos: PatternSymbolMap<PatternSymbolTypeInfo>,
+        pattern_symbol_ty_infos: PatternSynSymbolMap<PatternSymbolTypeInfo>,
     ) -> Self {
         Self {
             path,

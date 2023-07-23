@@ -79,7 +79,7 @@ impl<'a> SymbolContextMut<'a> {
         &mut self,
         variables: impl IntoIterator<Item = CurrentSynSymbol>,
         ty_constraint: Option<PatternTypeConstraint>,
-    ) -> CurrentSymbolIdxRange {
+    ) -> CurrentSynSymbolIdxRange {
         self.symbol_region.define_symbols(variables, ty_constraint)
     }
 

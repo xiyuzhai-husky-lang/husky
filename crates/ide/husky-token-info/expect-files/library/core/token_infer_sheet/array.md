@@ -25,8 +25,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 0,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Constant {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Constant {
                         ident_token: IdentToken {
                             ident: `L`,
                             token_idx: TokenIdx(
@@ -49,8 +49,8 @@ Ok(
             TokenInfo::None,
             TokenInfo::CurrentSymbol {
                 current_symbol_idx: 1,
-                current_symbol_kind: CurrentSymbolKind::ImplicitParameter {
-                    implicit_parameter_kind: CurrentImplicitParameterSymbolKind::Type {
+                current_symbol_kind: CurrentSynSymbolKind::ImplicitParameter {
+                    implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind::Type {
                         ident_token: IdentToken {
                             ident: `E`,
                             token_idx: TokenIdx(

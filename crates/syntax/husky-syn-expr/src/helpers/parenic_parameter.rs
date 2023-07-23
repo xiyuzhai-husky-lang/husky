@@ -36,7 +36,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
 pub enum SpecificParameterDecl {
     Regular {
         pattern: PatternSynExprIdx,
-        variables: CurrentSymbolIdxRange,
+        variables: CurrentSynSymbolIdxRange,
         colon: ColonToken,
         ty: SynExprIdx,
     },
@@ -80,7 +80,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSymbolVariant::ExplicitRegularParameter {
+                        CurrentSynSymbolVariant::ExplicitRegularParameter {
                             ident: *ident,
                             pattern_symbol_idx: *pattern_symbol_idx,
                         },
@@ -146,7 +146,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSymbolVariant::ExplicitVariadicParameter {
+                CurrentSynSymbolVariant::ExplicitVariadicParameter {
                     ident_token,
                     symbol_modifier_keyword_group,
                 },
