@@ -6,12 +6,12 @@ use super::*;
 #[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub struct GenericParameterDecl {
     annotated_variance_token: Option<VarianceToken>,
-    symbol: CurrentSymbolIdx,
+    symbol: CurrentSynSymbolIdx,
     variant: GenericParameterDeclPatternVariant,
 }
 
 impl GenericParameterDecl {
-    pub fn symbol(&self) -> ArenaIdx<CurrentSymbol> {
+    pub fn symbol(&self) -> ArenaIdx<CurrentSynSymbol> {
         self.symbol
     }
 
@@ -54,7 +54,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
         let annotated_variance_token = ctx.try_parse_err_as_none();
         if let Some(ident_token) = ctx.try_parse_option::<IdentToken>()? {
             let access_start = ctx.save_state().next_token_idx();
-            let parameter_symbol = CurrentSymbol::new(
+            let parameter_symbol = CurrentSynSymbol::new(
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
@@ -92,7 +92,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
         } else if let Some(label_token) = ctx.try_parse_option::<LifetimeLabelToken>()? {
             let access_start = ctx.save_state().next_token_idx();
             let symbols = ctx.define_symbols(
-                [CurrentSymbol::new(
+                [CurrentSynSymbol::new(
                     ctx.pattern_expr_region(),
                     access_start,
                     None,
@@ -129,7 +129,7 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
             let access_start = ctx.save_state().next_token_idx();
             let symbol = ctx
                 .define_symbols(
-                    [CurrentSymbol::new(
+                    [CurrentSynSymbol::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,

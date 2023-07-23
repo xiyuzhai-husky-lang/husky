@@ -424,8 +424,8 @@ impl<'a> InferContext<'a> {
 
     fn visit_current_symbol(
         &mut self,
-        current_symbol_idx: CurrentSymbolIdx,
-        current_symbol: &CurrentSymbol,
+        current_symbol_idx: CurrentSynSymbolIdx,
+        current_symbol: &CurrentSynSymbol,
     ) {
         let current_symbol_kind = current_symbol.kind();
         match current_symbol_kind {

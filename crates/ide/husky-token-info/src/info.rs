@@ -3,7 +3,7 @@ use husky_entity_path::EntityPath;
 use husky_entity_taxonomy::EntityKind;
 use husky_entity_tree::{OnceUseRuleIdx, OnceUseRuleState, UseExprIdx};
 use husky_syn_expr::{
-    CurrentSymbolIdx, CurrentSymbolKind, InheritedSymbolIdx, InheritedSymbolKind, SynExprRegion,
+    CurrentSymbolKind, CurrentSynSymbolIdx, InheritedSymbolIdx, InheritedSymbolKind, SynExprRegion,
 };
 
 #[derive(Debug, PartialEq, Eq)]
@@ -18,7 +18,7 @@ pub enum TokenInfo {
         expr_region: ExprRegionLeash,
     },
     CurrentSymbol {
-        current_symbol_idx: CurrentSymbolIdx,
+        current_symbol_idx: CurrentSynSymbolIdx,
         current_symbol_kind: CurrentSymbolKind,
         expr_region: ExprRegionLeash,
     },

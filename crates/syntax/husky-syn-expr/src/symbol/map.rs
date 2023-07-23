@@ -34,7 +34,7 @@ impl<V> SymbolMap<V> {
         }
     }
 
-    pub fn insert_new(&mut self, idx: CurrentSymbolIdx, v: V) {
+    pub fn insert_new(&mut self, idx: CurrentSynSymbolIdx, v: V) {
         self.current_symbol_map.insert_new(idx, v)
     }
 
@@ -55,10 +55,10 @@ impl<V> std::ops::Index<InheritedSymbolIdx> for SymbolMap<V> {
     }
 }
 
-impl<V> std::ops::Index<CurrentSymbolIdx> for SymbolMap<V> {
+impl<V> std::ops::Index<CurrentSynSymbolIdx> for SymbolMap<V> {
     type Output = V;
 
-    fn index(&self, index: CurrentSymbolIdx) -> &Self::Output {
+    fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
         &self.current_symbol_map[index]
     }
 }

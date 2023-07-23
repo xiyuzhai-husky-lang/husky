@@ -42,7 +42,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn infer_new_current_symbol_ty(&mut self, current_symbol_idx: CurrentSymbolIdx) {
+    fn infer_new_current_symbol_ty(&mut self, current_symbol_idx: CurrentSynSymbolIdx) {
         if let Some(ty) = self.calc_new_current_symbol_ty(current_symbol_idx) {
             let ty = SymbolType::new(self, current_symbol_idx, ty);
             self.symbol_tys.insert_new(current_symbol_idx, ty)
@@ -51,7 +51,7 @@ impl<'a> ExprTypeEngine<'a> {
 
     fn calc_new_current_symbol_ty(
         &mut self,
-        current_symbol_idx: idx_arena::ArenaIdx<CurrentSymbol>,
+        current_symbol_idx: idx_arena::ArenaIdx<CurrentSynSymbol>,
     ) -> Option<FluffyTerm> {
         match self.expr_region_data[current_symbol_idx].variant() {
             CurrentSymbolVariant::ImplicitParameter {

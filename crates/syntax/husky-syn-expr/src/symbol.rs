@@ -18,7 +18,7 @@ use husky_entity_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 pub enum Symbol {
     PrincipalEntity(PrincipalEntityPath),
     Inherited(InheritedSymbolIdx, InheritedSymbolKind),
-    Local(CurrentSymbolIdx, CurrentSymbolKind),
+    Local(CurrentSynSymbolIdx, CurrentSymbolKind),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -75,7 +75,7 @@ pub enum InheritedImplicitParameterSymbol {
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = SynExprDb)]
-pub struct CurrentSymbol {
+pub struct CurrentSynSymbol {
     modifier: SymbolModifier,
     access_start: TokenIdx,
     /// this is none only for lambda variable
@@ -83,7 +83,7 @@ pub struct CurrentSymbol {
     variant: CurrentSymbolVariant,
 }
 
-impl CurrentSymbol {
+impl CurrentSynSymbol {
     pub fn new(
         pattern_expr_region: &PatternSynExprRegion,
         access_start: TokenIdx,
@@ -302,16 +302,16 @@ pub type InheritedSymbolIdxRange = ArenaIdxRange<InheritedSymbol>;
 pub(crate) type InheritedSymbolMap<V> = ArenaMap<InheritedSymbol, V>;
 pub(crate) type InheritedSymbolOrderedMap<V> = ArenaOrderedMap<InheritedSymbol, V>;
 
-pub type CurrentSymbolArena = Arena<CurrentSymbol>;
-pub type CurrentSymbolIdx = ArenaIdx<CurrentSymbol>;
-pub type CurrentSymbolIdxRange = ArenaIdxRange<CurrentSymbol>;
-pub(crate) type CurrentSymbolMap<V> = ArenaMap<CurrentSymbol, V>;
-pub(crate) type CurrentSymbolOrderedMap<V> = ArenaOrderedMap<CurrentSymbol, V>;
+pub type CurrentSymbolArena = Arena<CurrentSynSymbol>;
+pub type CurrentSynSymbolIdx = ArenaIdx<CurrentSynSymbol>;
+pub type CurrentSymbolIdxRange = ArenaIdxRange<CurrentSynSymbol>;
+pub(crate) type CurrentSymbolMap<V> = ArenaMap<CurrentSynSymbol, V>;
+pub(crate) type CurrentSymbolOrderedMap<V> = ArenaOrderedMap<CurrentSynSymbol, V>;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ParentSymbolIdx {
     Inherited(InheritedSymbolIdx),
-    Current(CurrentSymbolIdx),
+    Current(CurrentSynSymbolIdx),
 }
 
 impl From<InheritedSymbolIdx> for ParentSymbolIdx {
@@ -320,8 +320,8 @@ impl From<InheritedSymbolIdx> for ParentSymbolIdx {
     }
 }
 
-impl From<CurrentSymbolIdx> for ParentSymbolIdx {
-    fn from(v: CurrentSymbolIdx) -> Self {
+impl From<CurrentSynSymbolIdx> for ParentSymbolIdx {
+    fn from(v: CurrentSynSymbolIdx) -> Self {
         Self::Current(v)
     }
 }

@@ -17,3 +17,5 @@ pub trait HasHirDecl {
 
     fn hir_decl(self, db: &dyn HirDeclDb) -> Self::HirDecl;
 }
+
+pub enum HirDecl {}

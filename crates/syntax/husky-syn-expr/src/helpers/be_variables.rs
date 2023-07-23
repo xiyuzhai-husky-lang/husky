@@ -27,7 +27,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {
-                CurrentSymbol::new(
+                CurrentSynSymbol::new(
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),

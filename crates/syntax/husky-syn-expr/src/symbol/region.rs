@@ -96,9 +96,9 @@ impl SynSymbolRegion {
     #[inline(always)]
     pub(crate) fn define_symbol(
         &mut self,
-        variable: CurrentSymbol,
+        variable: CurrentSynSymbol,
         ty_constraint: Option<PatternTypeConstraint>,
-    ) -> CurrentSymbolIdx {
+    ) -> CurrentSynSymbolIdx {
         let symbol = self.current_symbol_arena.alloc_one(variable);
         self.pattern_ty_constraints.extend(
             ty_constraint
@@ -111,7 +111,7 @@ impl SynSymbolRegion {
     #[inline(always)]
     pub(crate) fn define_symbols(
         &mut self,
-        variables: impl IntoIterator<Item = CurrentSymbol>,
+        variables: impl IntoIterator<Item = CurrentSynSymbol>,
         ty_constraint: Option<PatternTypeConstraint>,
     ) -> CurrentSymbolIdxRange {
         let symbols = self.current_symbol_arena.alloc_batch(variables);
@@ -156,11 +156,11 @@ impl SynSymbolRegion {
 
     pub fn current_symbol_indexed_iter<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (CurrentSymbolIdx, &'a CurrentSymbol)> + 'a {
+    ) -> impl Iterator<Item = (CurrentSynSymbolIdx, &'a CurrentSynSymbol)> + 'a {
         self.current_symbol_arena.indexed_iter()
     }
 
-    pub fn current_symbol_index_iter(&self) -> impl Iterator<Item = CurrentSymbolIdx> {
+    pub fn current_symbol_index_iter(&self) -> impl Iterator<Item = CurrentSynSymbolIdx> {
         self.current_symbol_arena.index_iter()
     }
 
@@ -238,10 +238,10 @@ impl std::ops::Index<InheritedSymbolIdx> for SynSymbolRegion {
     }
 }
 
-impl std::ops::Index<CurrentSymbolIdx> for SynSymbolRegion {
-    type Output = CurrentSymbol;
+impl std::ops::Index<CurrentSynSymbolIdx> for SynSymbolRegion {
+    type Output = CurrentSynSymbol;
 
-    fn index(&self, index: CurrentSymbolIdx) -> &Self::Output {
+    fn index(&self, index: CurrentSynSymbolIdx) -> &Self::Output {
         &self.current_symbol_arena[index]
     }
 }
@@ -262,7 +262,7 @@ impl From<InheritedSymbolIdx> for LocalSymbolIdx {
 
 impl LocalSymbolIdx {
     fn from_current_symbol_idx(
-        current_symbol_idx: CurrentSymbolIdx,
+        current_symbol_idx: CurrentSynSymbolIdx,
         symbol_region: &SynSymbolRegion,
     ) -> Self {
         Self(symbol_region.inherited_symbol_arena.len() + current_symbol_idx.raw())
@@ -279,7 +279,7 @@ impl IntoLocalSymbolIdx for InheritedSymbolIdx {
     }
 }
 
-impl IntoLocalSymbolIdx for CurrentSymbolIdx {
+impl IntoLocalSymbolIdx for CurrentSynSymbolIdx {
     fn into_local_symbol_idx(self, expr_region_data: &SynExprRegionData) -> LocalSymbolIdx {
         LocalSymbolIdx::from_current_symbol_idx(self, expr_region_data.symbol_region())
     }
