@@ -42,10 +42,10 @@ pub struct DeclarativeSignatureJar(
     UnionDeclarativeSignatureTemplate,
     // trait
     TraitDeclarativeSignatureTemplate,
-    trai_declarative_signature_template,
+    trai_syn_declarative_signature_template,
     // fugitive
     // fugitive_signature,
-    fugitive_declarative_signature_template,
+    fugitive_syn_declarative_signature_template,
     ValDeclarativeSignatureTemplate,
     val_declarative_signature_template,
     FnDeclarativeSignatureTemplate,
@@ -57,18 +57,18 @@ pub struct DeclarativeSignatureJar(
     // impl block
     // impl_block_signature_from_decl,
     TypeImplBlockDeclarativeSignatureTemplate,
-    ty_impl_block_declarative_signature_template,
+    ty_impl_block_syn_declarative_signature_template,
     TraitForTypeImplBlockDeclarativeSignatureTemplate,
-    trai_for_ty_impl_block_declarative_signature_template,
+    trai_for_ty_impl_block_syn_declarative_signature_template,
     // type variant
-    ty_variant_declarative_signature_template,
+    ty_variant_syn_declarative_signature_template,
     EnumUnitTypeVariantDeclarativeSignatureTemplate,
     EnumPropsTypeVariantDeclarativeSignatureTemplate,
     EnumTupleTypeVariantDeclarativeSignatureTemplate,
     // associated items
-    // associated_item_declarative_signature_from_decl,
+    // associated_item_syn_declarative_signature_from_decl,
     // type item
-    ty_item_declarative_signature_template,
+    ty_item_syn_declarative_signature_template,
     ty_associated_fn_declarative_signature_template,
     TypeAssociatedFnDeclarativeSignatureTemplate,
     ty_method_fn_declarative_signature_template,
@@ -82,7 +82,7 @@ pub struct DeclarativeSignatureJar(
     TypeMemoizedFieldDeclarativeSignatureTemplate,
     ty_memoized_field_declarative_signature_template,
     // trait item
-    trai_item_declarative_signature_template,
+    trai_item_syn_declarative_signature_template,
     TraitAssociatedFnDeclarativeSignatureTemplate,
     trai_associated_form_fn_declarative_signature_template,
     TraitMethodFnDeclarativeSignatureTemplate,
@@ -92,7 +92,7 @@ pub struct DeclarativeSignatureJar(
     TraitAssociatedValDeclarativeSignatureTemplate,
     trai_associated_val_declarative_signature_template,
     // type as trait item
-    trai_for_ty_item_declarative_signature_from_decl,
+    trai_for_ty_item_syn_declarative_signature_from_decl,
     TraitForTypeAssociatedFnDeclarativeSignatureTemplate,
     trai_for_ty_associated_fn_declarative_signature_template,
     TraitForTypeMethodFnDeclarativeSignatureTemplate,

@@ -31,12 +31,12 @@ impl HasDeclarativeSignatureTemplate for TraitForTypeImplBlockPath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        trai_for_ty_impl_block_declarative_signature_template(db, self)
+        trai_for_ty_impl_block_syn_declarative_signature_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn trai_for_ty_impl_block_declarative_signature_template(
+pub(crate) fn trai_for_ty_impl_block_syn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: TraitForTypeImplBlockPath,
 ) -> DeclarativeSignatureResult<TraitForTypeImplBlockDeclarativeSignatureTemplate> {

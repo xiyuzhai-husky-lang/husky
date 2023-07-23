@@ -55,7 +55,7 @@ impl ImplBlockSynNodePath {
         todo!()
     }
 
-    pub fn item_node_paths(self, db: &dyn EntitySynTreeDb) -> &[AssociatedItemPath] {
+    pub fn item_syn_node_paths(self, db: &dyn EntitySynTreeDb) -> &[AssociatedItemPath] {
         todo!()
     }
 }

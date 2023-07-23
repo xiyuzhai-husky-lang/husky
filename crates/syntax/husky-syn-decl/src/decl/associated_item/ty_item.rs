@@ -238,12 +238,12 @@ impl HasDecl for TypeItemPath {
     type Decl = TypeItemDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        ty_item_decl(db, self)
+        ty_item_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemDecl> {
+pub(crate) fn ty_item_syn_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<TypeItemDecl> {
     match path.syn_node_path(db).syn_node_decl(db) {
         TypeItemNodeDecl::AssociatedFn(syn_node_decl) => {
             TypeAssociatedFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
@@ -267,7 +267,7 @@ pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<Ty
 //         // Err(&DeclError::Original(OriginalDeclError::Deprecated))
 //         // todo!("deprecated")
 //         // self.parent_ty(db)
-//         //     .item_decls(db)
+//         //     .item_syn_decls(db)
 //         //     .map_err(|_| todo!())?
 //         //     .get_entry(self.ident(db))
 //         //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
@@ -284,7 +284,7 @@ pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<Ty
 //         // Err(&DeclError::Original(OriginalDeclError::Deprecated))
 //         // todo!("deprecated")
 //         // self.parent_ty(db)
-//         //     .item_decls(db)
+//         //     .item_syn_decls(db)
 //         //     .map_err(|_| todo!())?
 //         //     .get_entry(self.ident(db))
 //         //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
@@ -296,10 +296,10 @@ pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<Ty
 // impl HasItemDecls for TypeItemPath {
 //     type ItemDecls = TypeItemDecls;
 
-//     fn item_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResult<'a, &'a Self::ItemDecls> {
+//     fn item_syn_decls<'a>(self, db: &'a dyn DeclDb) -> DeclResult<'a, &'a Self::ItemDecls> {
 //         todo!()
 //         // self.ty_path(db)
-//         //     .item_decls_map(db)
+//         //     .item_syn_decls_map(db)
 //         //     .map_err(|_| todo!())?
 //         //     .get_entry(self.ident(db))
 //         //     .ok_or(&DeclError::Original(OriginalDeclError::NoSuchItem))?
@@ -310,7 +310,7 @@ pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<Ty
 // }
 
 // #[salsa::tracked(jar = SynDeclJar, return_ref)]
-// pub(crate) fn ty_item_decls_map(
+// pub(crate) fn ty_item_syn_decls_map(
 //     db: &dyn DeclDb,
 //     path: TypePath,
 // ) -> EntityTreeBundleResult<IdentPairMap<Result<TypeItemDecls, ()>>> {
@@ -356,12 +356,12 @@ pub(crate) fn ty_item_decl(db: &dyn DeclDb, path: TypeItemPath) -> DeclResult<Ty
 // impl HasItemDeclsMap for TypePath {
 //     type ItemDecls = TypeItemDecls;
 
-//     fn item_decls_map<'a>(
+//     fn item_syn_decls_map<'a>(
 //         self,
 //         db: &'a dyn DeclDb,
 //     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Result<Self::ItemDecls, ()>)]> {
-//         match ty_item_decls_map(db, self) {
-//             Ok(ty_item_decls_map) => Ok(ty_item_decls_map),
+//         match ty_item_syn_decls_map(db, self) {
+//             Ok(ty_item_syn_decls_map) => Ok(ty_item_syn_decls_map),
 //             Err(e) => Err(e),
 //         }
 //     }

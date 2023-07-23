@@ -41,12 +41,12 @@ impl HasDeclarativeSignatureTemplate for FugitivePath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        fugitive_declarative_signature_template(db, self)
+        fugitive_syn_declarative_signature_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn fugitive_declarative_signature_template(
+pub(crate) fn fugitive_syn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: FugitivePath,
 ) -> DeclarativeSignatureResult<FugitiveDeclarativeSignatureTemplate> {

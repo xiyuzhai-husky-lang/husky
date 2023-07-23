@@ -61,12 +61,12 @@ pub struct SynDeclJar(
     UnionTypeSynDecl,
     // - trait
     TraitSynNodeDecl,
-    trai_node_decl,
+    trai_syn_node_decl,
     TraitSynDecl,
-    trai_decl,
+    trai_syn_decl,
     // - form
     fugitive_syn_node_decl,
-    fugitive_decl,
+    fugitive_syn_decl,
     ValSynNodeDecl,
     ValSynDecl,
     FnSynNodeDecl,
@@ -79,16 +79,16 @@ pub struct SynDeclJar(
     TypeImplBlockSynNodeDecl,
     ty_impl_block_syn_node_decl,
     TypeImplBlockSynDecl,
-    ty_impl_block_decl,
+    ty_impl_block_syn_decl,
     TraitForTypeImplBlockSynNodeDecl,
     trai_for_ty_impl_block_syn_node_decl,
     TraitForTypeImplBlockSynDecl,
-    trai_for_ty_impl_block_decl,
+    trai_for_ty_impl_block_syn_decl,
     IllFormedImplBlockSynNodeDecl,
     ill_formed_impl_block_syn_node_decl,
     // - variant
-    ty_variant_node_decl,
-    ty_variant_decl,
+    ty_variant_syn_node_decl,
+    ty_variant_syn_decl,
     UnitTypeVariantSynNodeDecl,
     UnitTypeVariantSynDecl,
     PropsTypeVariantSynNodeDecl,
@@ -98,7 +98,7 @@ pub struct SynDeclJar(
     // - associated items
     // -- type item
     ty_item_syn_node_decl,
-    ty_item_decl,
+    ty_item_syn_decl,
     TypeAssociatedFnSynNodeDecl,
     TypeAssociatedFnSynDecl,
     TypeMethodFnSynNodeDecl,
@@ -120,7 +120,7 @@ pub struct SynDeclJar(
     TraitAssociatedValSynDecl,
     // -- trait for type item
     trai_for_ty_item_syn_node_decl,
-    trai_for_ty_item_decl,
+    trai_for_ty_item_syn_decl,
     TraitForTypeAssociatedFnSynNodeDecl,
     TraitForTypeAssociatedFnSynDecl,
     TraitForTypeMethodFnSynNodeDecl,
@@ -133,7 +133,7 @@ pub struct SynDeclJar(
     IllFormedItemSynNodeDecl,
     // sheet
     SynNodeDeclSheet,
-    node_decl_sheet,
+    syn_node_decl_sheet,
     SynDeclSheet,
-    decl_sheet,
+    syn_decl_sheet,
 );

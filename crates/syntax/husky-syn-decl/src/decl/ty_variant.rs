@@ -47,20 +47,20 @@ impl HasNodeDecl for TypeVariantSynNodePath {
     type NodeDecl = TypeVariantNodeDecl;
 
     fn syn_node_decl<'a>(self, db: &'a dyn DeclDb) -> Self::NodeDecl {
-        ty_variant_node_decl(db, self)
+        ty_variant_syn_node_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_variant_node_decl(
+pub(crate) fn ty_variant_syn_node_decl(
     db: &dyn DeclDb,
     syn_node_path: TypeVariantSynNodePath,
 ) -> TypeVariantNodeDecl {
-    DeclParser::new(db, syn_node_path.module_path(db)).parse_ty_variant_node_decl(syn_node_path)
+    DeclParser::new(db, syn_node_path.module_path(db)).parse_ty_variant_syn_node_decl(syn_node_path)
 }
 
 impl<'a> DeclParser<'a> {
-    fn parse_ty_variant_node_decl(
+    fn parse_ty_variant_syn_node_decl(
         &self,
         syn_node_path: TypeVariantSynNodePath,
     ) -> TypeVariantNodeDecl {
@@ -158,12 +158,12 @@ impl HasDecl for TypeVariantPath {
     type Decl = TypeVariantDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        ty_variant_decl(db, self)
+        ty_variant_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_variant_decl(
+pub(crate) fn ty_variant_syn_decl(
     db: &dyn DeclDb,
     path: TypeVariantPath,
 ) -> DeclResult<TypeVariantDecl> {

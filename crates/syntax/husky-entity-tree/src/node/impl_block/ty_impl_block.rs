@@ -65,7 +65,7 @@ impl TypeImplBlockSynNodePath {
     }
 
     #[inline(always)]
-    pub fn item_node_paths<'a>(
+    pub fn item_syn_node_paths<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> impl Iterator<Item = TypeItemSynNodePath> + 'a {

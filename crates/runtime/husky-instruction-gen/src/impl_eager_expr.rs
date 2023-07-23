@@ -678,10 +678,10 @@ impl<'a> InstructionSheetBuilder<'a> {
         } else {
             todo!()
             // let method_uid = self.db.entity_uid(method_route);
-            // let call_fugitive_decl = self.db.entity_call_fugitive_decl(method_route).unwrap();
+            // let call_fugitive_syn_decl = self.db.entity_call_fugitive_syn_decl(method_route).unwrap();
             // InstructionVariant::CallInterpreted {
             //     routine_uid: method_uid,
-            //     nargs: (call_fugitive_decl.primary_parameters.len() + 1)
+            //     nargs: (call_fugitive_syn_decl.primary_parameters.len() + 1)
             //         .try_into()
             //         .unwrap(),
             //     return_ty,

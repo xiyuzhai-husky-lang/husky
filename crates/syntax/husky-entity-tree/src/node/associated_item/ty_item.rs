@@ -163,7 +163,7 @@ pub(crate) fn ty_impl_block_items(
 pub trait HasItemNodePaths: Copy {
     type ItemNodePath;
 
-    fn item_node_paths<'a>(
+    fn item_syn_node_paths<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, Self::ItemNodePath)]>;
@@ -172,7 +172,7 @@ pub trait HasItemNodePaths: Copy {
 impl HasItemNodePaths for TypePath {
     type ItemNodePath = TypeItemSynNodePath;
 
-    fn item_node_paths<'a>(
+    fn item_syn_node_paths<'a>(
         self,
         db: &'a dyn EntitySynTreeDb,
     ) -> EntityTreeBundleResultRef<'a, &'a [(Ident, TypeItemSynNodePath)]> {
@@ -260,7 +260,7 @@ pub(crate) fn ty_item_paths_map(
         TypeItemKind,
         EntitySynTreeResult<SmallVec<[TypeItemPath; 1]>>,
     )> = Default::default();
-    for (ident, syn_node_path) in path.item_node_paths(db)?.iter().copied() {
+    for (ident, syn_node_path) in path.item_syn_node_paths(db)?.iter().copied() {
         if let Some(path) = syn_node_path.path(db) {
             let ty_item_kind = path.item_kind(db);
             paths.update_value_or_insert(

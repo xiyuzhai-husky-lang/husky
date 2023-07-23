@@ -14,11 +14,11 @@ pub(crate) fn decl_diagnostic_sheet(
     module_path: ModulePath,
 ) -> DeclDiagnosticSheet {
     let mut collector = ModuleDiagnosticsCollector::new(db, module_path);
-    if let (Ok(ranged_token_sheet), Ok(node_decl_sheet)) = (
+    if let (Ok(ranged_token_sheet), Ok(syn_node_decl_sheet)) = (
         db.ranged_token_sheet(module_path),
-        db.node_decl_sheet(module_path),
+        db.syn_node_decl_sheet(module_path),
     ) {
-        for (_, syn_node_decl) in node_decl_sheet.decls(db).iter().copied() {
+        for (_, syn_node_decl) in syn_node_decl_sheet.decls(db).iter().copied() {
             for error in syn_node_decl.errors(db) {
                 if let NodeDeclError::Original(error) = error {
                     collector.visit_atom(error)

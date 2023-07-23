@@ -24,7 +24,7 @@ impl<'a> RustCodeGenerator<'a> {
         // "#,
         //             entity_path
         //         ));
-        //         let call_fugitive_decl = self.db.entity_call_fugitive_decl(entity_path).unwrap();
+        //         let call_fugitive_syn_decl = self.db.entity_call_fugitive_syn_decl(entity_path).unwrap();
         //         self.gen_transfer_linkage(
         //             false, // ad hoc
         //             None,
@@ -36,7 +36,7 @@ impl<'a> RustCodeGenerator<'a> {
         //                 this.gen_entity_route(entity_path, EntityRouteRole::StaticCallRoute);
         //                 this.write("::__call__")
         //             },
-        //             &call_fugitive_decl,
+        //             &call_fugitive_syn_decl,
         //         );
         //         self.write("\n    ),");
     }

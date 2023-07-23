@@ -16,12 +16,12 @@ impl HasDeclarativeSignatureTemplate for TypeImplBlockPath {
         self,
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
-        ty_impl_block_declarative_signature_template(db, self)
+        ty_impl_block_syn_declarative_signature_template(db, self)
     }
 }
 
 #[salsa::tracked(jar = DeclarativeSignatureJar)]
-pub(crate) fn ty_impl_block_declarative_signature_template(
+pub(crate) fn ty_impl_block_syn_declarative_signature_template(
     db: &dyn DeclarativeSignatureDb,
     path: TypeImplBlockPath,
 ) -> DeclarativeSignatureResult<TypeImplBlockDeclarativeSignatureTemplate> {

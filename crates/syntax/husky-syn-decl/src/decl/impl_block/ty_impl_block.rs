@@ -57,12 +57,14 @@ impl<'a> DeclParser<'a> {
             Ast::ImplBlock {
                 token_group_idx,
                 items: _,
-            } => self.parse_ty_impl_block_decl_aux(syn_node_path, node, ast_idx, token_group_idx),
+            } => {
+                self.parse_ty_impl_block_syn_decl_aux(syn_node_path, node, ast_idx, token_group_idx)
+            }
             _ => unreachable!(),
         }
     }
 
-    fn parse_ty_impl_block_decl_aux(
+    fn parse_ty_impl_block_syn_decl_aux(
         &self,
         syn_node_path: TypeImplBlockSynNodePath,
         node: TypeImplBlockSynNode,
@@ -148,12 +150,12 @@ impl HasDecl for TypeImplBlockPath {
     type Decl = TypeImplBlockSynDecl;
 
     fn decl(self, db: &dyn DeclDb) -> DeclResult<Self::Decl> {
-        ty_impl_block_decl(db, self)
+        ty_impl_block_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_impl_block_decl(
+pub(crate) fn ty_impl_block_syn_decl(
     db: &dyn DeclDb,
     // here use path instead of syn_node_path because salsa doesn't support use wrapper type by default
     // maybe add AsId carefully
