@@ -9,7 +9,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::visual::Visualize`),
                             ast_idx: 1,
@@ -79,8 +79,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::visual::Html`, `Extern`),
                                 generic_parameters: [],

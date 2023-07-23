@@ -2,7 +2,7 @@ Ok(
     [
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                         decl: ValSynDecl {
@@ -383,7 +383,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                         decl: ValSynDecl {
@@ -764,7 +764,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                         decl: ValSynDecl {
@@ -3091,7 +3091,7 @@ Ok(
                                     },
                                     current_symbol_arena: Arena {
                                         data: [
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     47,
@@ -3108,7 +3108,7 @@ Ok(
                                                     pattern_symbol_idx: 0,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     51,
@@ -3125,7 +3125,7 @@ Ok(
                                                     pattern_symbol_idx: 1,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     53,
@@ -3142,7 +3142,7 @@ Ok(
                                                     pattern_symbol_idx: 2,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     66,
@@ -3159,7 +3159,7 @@ Ok(
                                                     pattern_symbol_idx: 3,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     68,
@@ -3176,7 +3176,7 @@ Ok(
                                                     pattern_symbol_idx: 4,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     79,
@@ -3193,7 +3193,7 @@ Ok(
                                                     pattern_symbol_idx: 5,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     81,
@@ -3210,7 +3210,7 @@ Ok(
                                                     pattern_symbol_idx: 6,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     91,
@@ -3227,7 +3227,7 @@ Ok(
                                                     pattern_symbol_idx: 7,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     112,
@@ -3244,7 +3244,7 @@ Ok(
                                                     pattern_symbol_idx: 8,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     123,
@@ -3261,7 +3261,7 @@ Ok(
                                                     pattern_symbol_idx: 9,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     134,
@@ -3278,7 +3278,7 @@ Ok(
                                                     pattern_symbol_idx: 10,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     142,
@@ -3295,7 +3295,7 @@ Ok(
                                                     pattern_symbol_idx: 11,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     152,
@@ -3312,7 +3312,7 @@ Ok(
                                                     pattern_symbol_idx: 12,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     163,
@@ -3329,7 +3329,7 @@ Ok(
                                                     pattern_symbol_idx: 13,
                                                 },
                                             },
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     188,
@@ -3462,7 +3462,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Fn(
+                FugitiveSynDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::nine::downmost`, `Fn`),
                         decl: FnSynDecl {
@@ -3626,7 +3626,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
                                                         214,
@@ -3811,7 +3811,7 @@ Ok(
                                                 },
                                                 current_symbol_arena: Arena {
                                                     data: [
-                                                        CurrentSymbol {
+                                                        CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
                                                                 214,
@@ -4068,7 +4068,7 @@ Ok(
                                     },
                                     current_symbol_arena: Arena {
                                         data: [
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     224,
@@ -4117,7 +4117,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Fn(
+                FugitiveSynDefn::Fn(
                     FnSynDefn {
                         path: FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Fn`),
                         decl: FnSynDecl {
@@ -4281,7 +4281,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: None,
                                                     access_start: TokenIdx(
                                                         243,
@@ -4466,7 +4466,7 @@ Ok(
                                                 },
                                                 current_symbol_arena: Arena {
                                                     data: [
-                                                        CurrentSymbol {
+                                                        CurrentSynSymbol {
                                                             modifier: None,
                                                             access_start: TokenIdx(
                                                                 243,
@@ -4811,7 +4811,7 @@ Ok(
                                     },
                                     current_symbol_arena: Arena {
                                         data: [
-                                            CurrentSymbol {
+                                            CurrentSynSymbol {
                                                 modifier: None,
                                                 access_start: TokenIdx(
                                                     253,

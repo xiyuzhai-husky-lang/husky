@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Inductive(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Inductive(
                             InductiveTypeSynDecl {
                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 generic_parameters: [],
@@ -80,8 +80,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Structure(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Structure(
                             StructureTypeSynDecl {
                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
                                 generic_parameters: [],
@@ -151,8 +151,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Structure(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Structure(
                             StructureTypeSynDecl {
                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
                                 generic_parameters: [],

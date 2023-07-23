@@ -13,7 +13,7 @@ impl TypeAssociatedTypeHirDefn {
         db: &dyn HirDefnDb,
         path: TypeItemPath,
         decl: TypeAssociatedTypeHirDecl,
-    ) -> HirDefnResult<Self> {
+    ) -> Self {
         todo!()
     }
 }

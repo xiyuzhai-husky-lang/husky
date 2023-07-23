@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::mem::Ref`, `Extern`),
                                 generic_parameters: [
@@ -102,7 +102,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             6,
@@ -119,7 +119,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             9,
@@ -170,8 +170,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::mem::RefMut`, `Extern`),
                                 generic_parameters: [
@@ -263,7 +263,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             17,
@@ -280,7 +280,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             20,
@@ -331,8 +331,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::mem::Leash`, `Extern`),
                                 generic_parameters: [
@@ -404,7 +404,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             28,
@@ -617,7 +617,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         33,

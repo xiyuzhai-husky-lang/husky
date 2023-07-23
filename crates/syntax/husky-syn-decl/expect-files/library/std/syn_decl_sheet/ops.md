@@ -9,7 +9,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`std::ops::Add`),
                             ast_idx: 3,
@@ -74,7 +74,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         10,

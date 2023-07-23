@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct UnitStructHirDecl {
+pub struct UnitStructTypeHirDecl {
     pub path: TypePath,
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,

@@ -203,7 +203,7 @@ Ok(
         ),
         Defn::ModuleItem(
             ModuleItemDefn::Fugitive(
-                FugitiveDefn::Val(
+                FugitiveSynDefn::Val(
                     ValSynDefn {
                         path: FugitivePath(`mnist::input`, `Val`),
                         decl: ValSynDecl {

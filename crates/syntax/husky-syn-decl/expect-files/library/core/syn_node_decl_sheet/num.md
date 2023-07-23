@@ -15,7 +15,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -99,7 +99,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -183,7 +183,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -267,7 +267,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -351,7 +351,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -435,7 +435,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -519,7 +519,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -603,7 +603,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -687,7 +687,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -771,7 +771,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -855,7 +855,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -939,7 +939,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1023,7 +1023,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1107,7 +1107,7 @@ Ok(
                 ),
                 SynNodeDecl::ModuleItem(
                     ModuleItemSynNodeDecl::Type(
-                        TypeNodeDecl::Extern(
+                        TypeSynNodeDecl::Extern(
                             ExternTypeSynNodeDecl {
                                 syn_node_path: TypeSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1354,7 +1354,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -1876,7 +1876,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -2280,7 +2280,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             52,
@@ -2500,7 +2500,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3022,7 +3022,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -3426,7 +3426,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             104,
@@ -3646,7 +3646,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4168,7 +4168,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -4574,7 +4574,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             155,
@@ -4794,7 +4794,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5316,7 +5316,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -5720,7 +5720,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             207,
@@ -5940,7 +5940,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -6462,7 +6462,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -6866,7 +6866,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             259,
@@ -7086,7 +7086,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -7608,7 +7608,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8012,7 +8012,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             311,
@@ -8232,7 +8232,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -8754,7 +8754,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -9158,7 +9158,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             363,
@@ -9378,7 +9378,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -9900,7 +9900,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -10304,7 +10304,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             415,
@@ -10524,7 +10524,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -11046,7 +11046,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -11450,7 +11450,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             467,
@@ -11670,7 +11670,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -12192,7 +12192,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -12596,7 +12596,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             519,
@@ -12816,7 +12816,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -13338,7 +13338,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -13742,7 +13742,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             571,
@@ -13962,7 +13962,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -14484,7 +14484,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -14888,7 +14888,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             623,
@@ -15108,7 +15108,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -15400,7 +15400,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -15922,7 +15922,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -16328,7 +16328,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             682,
@@ -16548,7 +16548,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TypeItem(
-                        TypeItemNodeDecl::MethodFn(
+                        TypeItemSynNodeDecl::MethodFn(
                             TypeMethodFnSynNodeDecl {
                                 syn_node_path: TypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -17070,7 +17070,7 @@ Ok(
                 ),
                 SynNodeDecl::AssociatedItem(
                     AssociatedItemSynNodeDecl::TraitForTypeItem(
-                        TraitForTypeItemNodeDecl::MethodFn(
+                        TraitForTypeItemSynNodeDecl::MethodFn(
                             TraitForTypeMethodFnSynNodeDecl {
                                 syn_node_path: TraitForTypeItemSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
@@ -17474,7 +17474,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             734,

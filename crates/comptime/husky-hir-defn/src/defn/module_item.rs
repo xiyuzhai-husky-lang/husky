@@ -38,10 +38,10 @@ impl HasHirDefn for ModuleItemPath {
     type HirDefn = ModuleItemHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        Ok(match self {
-            ModuleItemPath::Type(path) => path.hir_defn(db)?.into(),
-            ModuleItemPath::Fugitive(path) => path.hir_defn(db)?.into(),
-            ModuleItemPath::Trait(path) => path.hir_defn(db)?.into(),
-        })
+        match self {
+            ModuleItemPath::Type(path) => path.hir_defn(db).into(),
+            ModuleItemPath::Fugitive(path) => path.hir_defn(db).into(),
+            ModuleItemPath::Trait(path) => path.hir_defn(db).into(),
+        }
     }
 }

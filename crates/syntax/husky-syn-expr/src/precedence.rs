@@ -1,4 +1,4 @@
-use husky_opn_syntax::*;
+use husky_opr::*;
 
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Clone, Copy)]
 pub(crate) enum Precedence {

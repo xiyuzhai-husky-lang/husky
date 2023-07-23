@@ -9,7 +9,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::marker::Copy`),
                             ast_idx: 0,
@@ -79,7 +79,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::marker::Sized`),
                             ast_idx: 1,

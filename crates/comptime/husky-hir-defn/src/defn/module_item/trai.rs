@@ -11,12 +11,13 @@ impl HasHirDefn for TraitPath {
     type HirDefn = TraitHirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
-        trai_syn_defn(db, self)
+        trai_hir_defn(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-pub(crate) fn trai_syn_defn(db: &dyn HirDefnDb, path: TraitPath) -> HirDefnResult<TraitHirDefn> {
-    let decl = path.decl(db)?;
-    Ok(TraitHirDefn::new(db, path, decl))
+pub(crate) fn trai_hir_defn(db: &dyn HirDefnDb, path: TraitPath) -> TraitHirDefn {
+    todo!()
+    // let decl = path.decl(db)?;
+    // (TraitHirDefn::new(db, path, decl))
 }

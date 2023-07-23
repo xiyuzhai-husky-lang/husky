@@ -1,10 +1,10 @@
-mod props;
-mod tuple;
-mod unit;
+mod enum_props_ty_variant;
+mod enum_tuple_ty_variant;
+mod enum_unit_ty_variant;
 
-pub use self::props::*;
-pub use self::tuple::*;
-pub use self::unit::*;
+pub use self::enum_props_ty_variant::*;
+pub use self::enum_tuple_ty_variant::*;
+pub use self::enum_unit_ty_variant::*;
 
 use super::*;
 
@@ -12,13 +12,13 @@ use super::*;
 #[salsa::derive_debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantHirDefn {
-    Unit(UnitVariantHirDefn),
-    Tuple(TupleVariantHirDefn),
-    Props(PropsVariantHirDefn),
+    Unit(EnumUnitVariantHirDefn),
+    Tuple(EnumTupleVariantHirDefn),
+    Props(EnumPropsVariantHirDefn),
 }
 
 impl TypeVariantHirDefn {
-    pub fn decl(self, _db: &dyn HirDefnDb) -> Decl {
+    pub fn hir_decl(self, _db: &dyn HirDefnDb) -> HirDecl {
         todo!()
     }
 

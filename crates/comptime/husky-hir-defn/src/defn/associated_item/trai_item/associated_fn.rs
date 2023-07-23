@@ -13,7 +13,7 @@ impl TraitAssociatedFnHirDefn {
         db: &dyn HirDefnDb,
         path: TraitItemPath,
         decl: TraitAssociatedFnHirDecl,
-    ) -> DeclResult<TraitAssociatedFnHirDefn> {
+    ) -> TraitAssociatedFnHirDefn {
         todo!()
         // let syn_node_path = decl.syn_node_path(db);
         // let mut parser = expr_parser(

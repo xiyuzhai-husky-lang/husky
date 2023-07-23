@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_tree::EntityTreeError;
-use husky_opn_syntax::Bracket;
+use husky_opr::Bracket;
 use husky_token::*;
 use original_error::IntoError;
 use parsec::*;

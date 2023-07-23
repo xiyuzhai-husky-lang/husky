@@ -1,5 +1,5 @@
 use super::*;
-use husky_opn_syntax::Bracket;
+use husky_opr::Bracket;
 use husky_print_utils::p;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

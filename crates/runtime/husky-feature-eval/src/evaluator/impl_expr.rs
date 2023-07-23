@@ -3,7 +3,7 @@ use husky_coword::IdentPairMap;
 use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
 use husky_opn_semantics::ImplicitConversion;
-use husky_opn_syntax::BinaryPureClosedOpr;
+use husky_opr::BinaryPureClosedOpr;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_print_utils::{msg_once, p};
 use husky_text::HasSourceRange;

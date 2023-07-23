@@ -1,5 +1,5 @@
 use super::*;
-use husky_opn_syntax::{BinaryOpr, Bracket};
+use husky_opr::{BinaryOpr, Bracket};
 
 // punctuation in general
 

@@ -25,7 +25,7 @@
 // use husky_feature_gen::*;
 // use husky_init_syntax::*;
 // use husky_loop_syntax::*;
-// use husky_opn_syntax::*;
+// use husky_opr::*;
 // use husky_print_utils::p;
 // use EntityPath;
 // use husky_text::{HuskyText, TextQueryGroup};

@@ -2,7 +2,7 @@ mod error;
 
 pub use self::error::*;
 
-use husky_opn_syntax::Bracket;
+use husky_opr::Bracket;
 use husky_scope::Scope;
 use husky_token::*;
 use husky_vfs::{ModulePath, VfsDb};

@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Enum(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Enum(
                             EnumTypeSynDecl {
                                 path: TypePath(`core::option::Option`, `Enum`),
                                 generic_parameters: [
@@ -74,7 +74,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             10,

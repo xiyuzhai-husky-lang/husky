@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::logic::Prop`, `Extern`),
                                 generic_parameters: [],
@@ -80,8 +80,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Structure(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Structure(
                             StructureTypeSynDecl {
                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
                                 generic_parameters: [
@@ -228,7 +228,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             9,
@@ -245,7 +245,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             13,
@@ -305,8 +305,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Inductive(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Inductive(
                             InductiveTypeSynDecl {
                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),
                                 generic_parameters: [
@@ -453,7 +453,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             31,
@@ -470,7 +470,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             35,

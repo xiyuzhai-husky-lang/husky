@@ -31,7 +31,7 @@ husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-opr = { path = "../../kernel/husky-opr" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }

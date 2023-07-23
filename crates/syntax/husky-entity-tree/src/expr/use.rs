@@ -1,5 +1,5 @@
 use super::*;
-use husky_opn_syntax::BinaryOpr;
+use husky_opr::BinaryOpr;
 use husky_token::*;
 use original_error::IntoError;
 use parsec::{StreamParser, StreamWrapper, TryParseOptionFromStream};

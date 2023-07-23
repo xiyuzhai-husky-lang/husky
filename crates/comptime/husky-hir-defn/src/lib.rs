@@ -12,3 +12,4 @@ use husky_ethereal_term::*;
 use husky_hir_decl::*;
 use husky_hir_expr::*;
 use husky_syn_defn::*;
+use husky_vfs::*;

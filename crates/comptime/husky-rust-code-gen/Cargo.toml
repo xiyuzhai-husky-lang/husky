@@ -27,7 +27,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-opr = { path = "../../kernel/husky-opr" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 # vm

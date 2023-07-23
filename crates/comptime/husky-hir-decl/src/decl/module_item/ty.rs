@@ -20,13 +20,13 @@ use husky_entity_path::TypePath;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum TypeHirDecl {
-    Enum(EnumHirDecl),
-    PropsStruct(PropsStructHirDecl),
-    UnitStruct(UnitStructHirDecl),
-    TupleStruct(TupleStructHirDecl),
-    Record(RecordHirDecl),
-    Extern(ExternHirDecl),
-    Union(UnionHirDecl),
+    Enum(EnumTypeHirDecl),
+    PropsStruct(PropsStructTypeHirDecl),
+    UnitStruct(UnitStructTypeHirDecl),
+    TupleStruct(TupleStructTypeHirDecl),
+    Record(RecordTypeHirDecl),
+    Extern(ExternTypeHirDecl),
+    Union(UnionTypeHirDecl),
 }
 
 impl TypeHirDecl {

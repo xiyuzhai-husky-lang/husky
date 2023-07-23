@@ -32,7 +32,7 @@ husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-scope = { path = "../../kernel/husky-scope" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-opr = { path = "../../kernel/husky-opr" }
 husky-scope-expr = { path = "../../syntax/husky-scope-expr" }
 # infer
 husky-manifest = { path = "../../semantics/husky-manifest" }

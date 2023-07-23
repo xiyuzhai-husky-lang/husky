@@ -29,13 +29,13 @@ pub struct HirDeclJar(
     TraitForTypeMethodFnHirDecl,
     // ty
     ty_hir_decl,
-    EnumHirDecl,
-    ExternHirDecl,
-    RecordHirDecl,
-    PropsStructHirDecl,
-    TupleStructHirDecl,
-    UnionHirDecl,
-    UnitStructHirDecl,
+    EnumTypeHirDecl,
+    ExternTypeHirDecl,
+    RecordTypeHirDecl,
+    PropsStructTypeHirDecl,
+    TupleStructTypeHirDecl,
+    UnionTypeHirDecl,
+    UnitStructTypeHirDecl,
     // trai
     TraitHirDecl,
     // fugitive

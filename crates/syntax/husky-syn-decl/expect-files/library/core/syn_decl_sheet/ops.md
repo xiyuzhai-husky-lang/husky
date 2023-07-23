@@ -9,7 +9,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Add`),
                             ast_idx: 30,
@@ -74,7 +74,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         12,
@@ -118,7 +118,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::AddAssign`),
                             ast_idx: 32,
@@ -183,7 +183,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         41,
@@ -227,7 +227,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitAnd`),
                             ast_idx: 34,
@@ -292,7 +292,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         70,
@@ -336,7 +336,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitAndAssign`),
                             ast_idx: 36,
@@ -401,7 +401,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         99,
@@ -445,7 +445,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitOr`),
                             ast_idx: 38,
@@ -510,7 +510,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         124,
@@ -554,7 +554,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitOrAssign`),
                             ast_idx: 40,
@@ -619,7 +619,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         153,
@@ -663,7 +663,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitXor`),
                             ast_idx: 42,
@@ -728,7 +728,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         178,
@@ -772,7 +772,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitXorAssign`),
                             ast_idx: 44,
@@ -837,7 +837,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         207,
@@ -881,7 +881,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Div`),
                             ast_idx: 46,
@@ -946,7 +946,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         232,
@@ -990,7 +990,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::DivAssign`),
                             ast_idx: 48,
@@ -1055,7 +1055,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         261,
@@ -1099,7 +1099,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Mul`),
                             ast_idx: 50,
@@ -1164,7 +1164,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         286,
@@ -1208,7 +1208,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::MulAssign`),
                             ast_idx: 52,
@@ -1273,7 +1273,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         315,
@@ -1317,7 +1317,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Neg`),
                             ast_idx: 54,
@@ -1387,7 +1387,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Not`),
                             ast_idx: 56,
@@ -1457,7 +1457,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Sub`),
                             ast_idx: 58,
@@ -1522,7 +1522,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         388,
@@ -1566,7 +1566,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Unveil`),
                             ast_idx: 59,
@@ -1631,7 +1631,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         410,
@@ -1675,8 +1675,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Enum(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Enum(
                             EnumTypeSynDecl {
                                 path: TypePath(`core::ops::ControlFlow`, `Enum`),
                                 generic_parameters: [
@@ -1753,7 +1753,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             439,
@@ -1770,7 +1770,7 @@ Ok(
                                                             },
                                                         },
                                                     },
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             441,

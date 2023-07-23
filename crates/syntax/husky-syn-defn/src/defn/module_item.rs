@@ -56,7 +56,7 @@ impl HasSynNodeDefn for ModuleItemSynNodePath {
 pub enum ModuleItemDefn {
     Type(TypeDefn),
     Trait(TraitSynDefn),
-    Fugitive(FugitiveDefn),
+    Fugitive(FugitiveSynDefn),
 }
 
 impl ModuleItemDefn {

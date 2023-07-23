@@ -9,7 +9,7 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Trait(
+                    ModuleItemSynDecl::Trait(
                         TraitSynDecl {
                             path: TraitPath(`core::fmt::Debug`),
                             ast_idx: 0,

@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
-use husky_opn_syntax::Bracket;
+use husky_opr::Bracket;
 use husky_scope_expr::VisibilityExprResult;
 use husky_token::*;
 use parsec::StreamWrapper;

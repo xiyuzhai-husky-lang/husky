@@ -11,20 +11,17 @@ pub struct TypeMethodFnHirDefn {
 }
 
 impl TypeMethodFnHirDefn {
-    pub(super) fn new(
-        db: &dyn HirDefnDb,
-        path: TypeItemPath,
-        decl: TypeMethodFnHirDecl,
-    ) -> HirDefnResult<Self> {
-        let TypeItemHirNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
-            unreachable!()
-        };
-        Ok(TypeMethodFnHirDefn::new_inner(
-            db,
-            path,
-            decl,
-            syn_node_defn.body(db),
-            syn_node_defn.expr_region(db),
-        ))
+    pub(super) fn new(db: &dyn HirDefnDb, path: TypeItemPath, decl: TypeMethodFnHirDecl) -> Self {
+        todo!()
+        // let TypeItemHirNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
+        //     unreachable!()
+        // };
+        // Ok(TypeMethodFnHirDefn::new_inner(
+        //     db,
+        //     path,
+        //     decl,
+        //     syn_node_defn.body(db),
+        //     syn_node_defn.expr_region(db),
+        // ))
     }
 }

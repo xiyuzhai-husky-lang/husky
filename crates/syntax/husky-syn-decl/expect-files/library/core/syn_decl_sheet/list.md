@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::Extern(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::list::List`, `Extern`),
                                 generic_parameters: [
@@ -82,7 +82,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: Const,
                                                         access_start: TokenIdx(
                                                             6,
@@ -251,7 +251,7 @@ Ok(
                                         },
                                         current_symbol_arena: Arena {
                                             data: [
-                                                CurrentSymbol {
+                                                CurrentSynSymbol {
                                                     modifier: Const,
                                                     access_start: TokenIdx(
                                                         11,
@@ -309,7 +309,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
+                        TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -426,7 +426,7 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         11,
@@ -589,7 +589,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
+                        TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -728,7 +728,7 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         11,
@@ -870,7 +870,7 @@ Ok(
                                             },
                                             current_symbol_arena: Arena {
                                                 data: [
-                                                    CurrentSymbol {
+                                                    CurrentSynSymbol {
                                                         modifier: None,
                                                         access_start: TokenIdx(
                                                             31,
@@ -926,7 +926,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
+                        TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -1043,7 +1043,7 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         11,
@@ -1222,7 +1222,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
+                        TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -1339,7 +1339,7 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         11,
@@ -1518,7 +1518,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TypeItem(
-                        TypeItemDecl::MethodFn(
+                        TypeItemSynDecl::MethodFn(
                             TypeMethodFnSynDecl {
                                 path: TypeItemPath {
                                     impl_block: TypeImplBlockPath {
@@ -1648,7 +1648,7 @@ Ok(
                                                         },
                                                         current_symbol_arena: Arena {
                                                             data: [
-                                                                CurrentSymbol {
+                                                                CurrentSynSymbol {
                                                                     modifier: Const,
                                                                     access_start: TokenIdx(
                                                                         11,

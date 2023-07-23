@@ -3,7 +3,7 @@ mod pattern_ty;
 pub(crate) use self::pattern_ty::*;
 
 use crate::*;
-use husky_opn_syntax::{BinaryOpr, PrefixOpr};
+use husky_opr::{BinaryOpr, PrefixOpr};
 use husky_print_utils::p;
 use husky_syn_expr::*;
 use husky_token::{IntegerLikeLiteral, Literal, RangedTokenSheet, TokenSheetData};

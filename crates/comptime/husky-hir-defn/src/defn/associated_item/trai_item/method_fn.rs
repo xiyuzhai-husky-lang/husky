@@ -10,20 +10,17 @@ pub struct TraitMethodFnHirDefn {
 }
 
 impl TraitMethodFnHirDefn {
-    pub(super) fn new(
-        db: &dyn HirDefnDb,
-        path: TraitItemPath,
-        decl: TraitMethodFnHirDecl,
-    ) -> HirDefnResult<Self> {
-        let TraitItemHirNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
-            unreachable!()
-        };
-        Ok(TraitMethodFnHirDefn::new_inner(
-            db,
-            path,
-            decl,
-            syn_node_defn.body(db),
-            syn_node_defn.expr_region(db),
-        ))
+    pub(super) fn new(db: &dyn HirDefnDb, path: TraitItemPath, decl: TraitMethodFnHirDecl) -> Self {
+        todo!()
+        // let TraitItemHirNodeDefn::MethodFn(syn_node_defn) = path.syn_node_path(db).syn_node_defn(db) else {
+        //     unreachable!()
+        // };
+        // Ok(TraitMethodFnHirDefn::new_inner(
+        //     db,
+        //     path,
+        //     decl,
+        //     syn_node_defn.body(db),
+        //     syn_node_defn.expr_region(db),
+        // ))
     }
 }

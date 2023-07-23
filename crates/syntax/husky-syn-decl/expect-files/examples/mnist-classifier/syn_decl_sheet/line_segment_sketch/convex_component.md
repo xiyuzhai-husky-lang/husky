@@ -9,8 +9,8 @@ Ok(
                     ),
                 ),
                 Decl::ModuleItem(
-                    ModuleItemDecl::Type(
-                        TypeDecl::PropsStruct(
+                    ModuleItemSynDecl::Type(
+                        TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                 generic_parameters: [],
@@ -416,7 +416,7 @@ Ok(
                 ),
                 Decl::AssociatedItem(
                     AssociatedItemSynDecl::TraitForTypeItem(
-                        TraitForTypeItemDecl::MethodFn(
+                        TraitForTypeItemSynDecl::MethodFn(
                             TraitForTypeMethodFnSynDecl {
                                 path: TraitForTypeItemPath {
                                     impl_block: TraitForTypeImplBlockPath {

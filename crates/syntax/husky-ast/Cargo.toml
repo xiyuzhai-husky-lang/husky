@@ -31,7 +31,7 @@ husky-coword = { path = "../../kernel/husky-coword" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-scope = { path = "../../kernel/husky-scope" }
 # syntax
-husky-opn-syntax = { path = "../../syntax/husky-opn-syntax" }
+husky-opr = { path = "../../kernel/husky-opr" }
 husky-scope-expr = { path = "../../syntax/husky-scope-expr" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

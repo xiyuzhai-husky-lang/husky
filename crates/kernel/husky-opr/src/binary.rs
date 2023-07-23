@@ -3,10 +3,10 @@ mod logic;
 mod pure_closed;
 mod shift;
 
-pub use comparison::*;
-pub use logic::*;
-pub use pure_closed::*;
-pub use shift::*;
+pub use self::comparison::*;
+pub use self::logic::*;
+pub use self::pure_closed::*;
+pub use self::shift::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BinaryOpr {
