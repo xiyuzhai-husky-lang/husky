@@ -7,7 +7,7 @@ pub use self::trai::*;
 pub use self::ty::*;
 
 use super::*;
-use husky_item_path::ModuleItemPath;
+use husky_entity_path::ModuleItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntitySynTreeDb)]

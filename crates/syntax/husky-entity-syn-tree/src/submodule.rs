@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_item_path::ItemPath;
+use husky_entity_path::ItemPath;
 use husky_vfs::*;
 use vec_like::VecSet;
 

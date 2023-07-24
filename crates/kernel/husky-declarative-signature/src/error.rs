@@ -1,4 +1,4 @@
-use husky_item_tree::EntityTreeBundleError;
+use husky_entity_syn_tree::EntityTreeBundleError;
 use husky_syn_decr::DecrError;
 use husky_syn_expr::ExprError;
 use thiserror::Error;

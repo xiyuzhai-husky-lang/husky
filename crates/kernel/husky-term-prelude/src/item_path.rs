@@ -1,5 +1,5 @@
 use husky_coword::Ident;
-use husky_item_path::*;
+use husky_entity_path::*;
 
 use husky_vfs::Toolchain;
 use salsa::DisplayWithDb;

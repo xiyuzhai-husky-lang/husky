@@ -1,5 +1,5 @@
 use crate::*;
-use husky_item_taxonomy::EntityKind;
+use husky_entity_taxonomy::EntityKind;
 
 use monad::MonadT;
 use std::time::Instant;

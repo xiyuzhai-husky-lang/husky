@@ -27,7 +27,7 @@ use husky_declarative_term::DeclarativeTerm;
 use husky_declarative_ty::{
     ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
 };
-use husky_item_path::ItemPath;
+use husky_entity_path::ItemPath;
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

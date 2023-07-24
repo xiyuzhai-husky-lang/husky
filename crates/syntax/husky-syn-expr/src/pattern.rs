@@ -7,7 +7,7 @@ pub use self::symbol::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_item_path::ItemPath;
+use husky_entity_path::ItemPath;
 use husky_token::{AtToken, DotDotToken, IdentToken, TokenStream};
 use idx_arena::{ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;

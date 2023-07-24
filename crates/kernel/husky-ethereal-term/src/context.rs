@@ -2,7 +2,7 @@ mod entry;
 
 use crate::*;
 use entry::*;
-use husky_item_path::ItemPath;
+use husky_entity_path::ItemPath;
 use vec_like::{VecMap, VecPairMap, VecSet};
 
 #[derive(Default)]

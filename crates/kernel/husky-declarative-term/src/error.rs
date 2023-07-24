@@ -1,4 +1,4 @@
-use husky_item_path::{EntityPathError, ItemPath};
+use husky_entity_path::{EntityPathError, ItemPath};
 use std::sync::Arc;
 use thiserror::Error;
 

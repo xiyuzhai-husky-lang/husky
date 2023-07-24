@@ -14,7 +14,7 @@ pub use specs::*;
 
 use collect::*;
 use convert::*;
-use husky_item_tree::ItemSynTreeResult;
+use husky_entity_syn_tree::ItemSynTreeResult;
 use husky_token::*;
 use husky_token::{Keyword, StmtKeyword};
 use husky_token_info::*;

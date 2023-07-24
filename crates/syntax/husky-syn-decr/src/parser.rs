@@ -1,7 +1,7 @@
 use crate::*;
 use either::Either;
 use husky_ast::{AstSheet, DecrId, DecrParent};
-use husky_item_tree::{
+use husky_entity_syn_tree::{
     EntitySynTreeCrateBundle, EntitySynTreeSheet, ItemSynTreeResult, ModuleSymbolContext,
 };
 use husky_syn_decl::HasSynDecl;

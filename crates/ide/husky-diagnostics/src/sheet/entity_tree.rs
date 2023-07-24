@@ -1,5 +1,5 @@
 use super::*;
-use husky_item_tree::{
+use husky_entity_syn_tree::{
     EntityTreeError, IllFormedImplBlockSynNode, ImplBlockIllForm, MajorPathExprError,
     OnceUseRuleState, OriginalEntityTreeError, OriginalMajorPathExprError,
 };

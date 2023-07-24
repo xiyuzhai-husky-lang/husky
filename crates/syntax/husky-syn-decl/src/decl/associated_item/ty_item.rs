@@ -13,7 +13,7 @@ pub use self::method_fn::*;
 use super::*;
 use husky_ast::*;
 use husky_coword::{Ident, IdentPairMap};
-use husky_item_taxonomy::TypeItemKind;
+use husky_entity_taxonomy::TypeItemKind;
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

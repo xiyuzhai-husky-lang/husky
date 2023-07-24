@@ -1,6 +1,6 @@
 use crate::*;
 use husky_coword::Ident;
-use husky_item_tree::{ImplBlockSynNode, ItemSynTreeResult};
+use husky_entity_syn_tree::{ImplBlockSynNode, ItemSynTreeResult};
 use husky_print_utils::p;
 use husky_vfs::ModulePath;
 use salsa::DbWithJar;

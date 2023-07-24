@@ -24,8 +24,8 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
-husky-item-tree = { path = "../../syntax/husky-item-tree" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }

@@ -22,8 +22,8 @@ pub use self::specs::*;
 use self::parser::*;
 use either::*;
 use husky_coword::*;
-use husky_item_path::{ItemPath, TypeVariantPath};
-use husky_item_taxonomy::EntityKind;
+use husky_entity_path::{ItemPath, TypeVariantPath};
+use husky_entity_taxonomy::EntityKind;
 use husky_scope::Scope;
 use husky_scope_expr::VisibilityExpr;
 use husky_token::{

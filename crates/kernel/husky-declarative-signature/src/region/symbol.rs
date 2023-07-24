@@ -1,4 +1,4 @@
-use husky_item_tree::*;
+use husky_entity_syn_tree::*;
 use husky_syn_expr::*;
 
 use super::*;

@@ -9,7 +9,7 @@ pub use self::associated_val::*;
 pub use self::method_fn::*;
 
 use super::*;
-use husky_item_path::AssociatedItemPath;
+use husky_entity_path::AssociatedItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = HirDefnDb)]

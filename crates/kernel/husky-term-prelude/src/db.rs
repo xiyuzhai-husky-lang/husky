@@ -1,5 +1,5 @@
 use crate::*;
-use husky_item_path::EntityPathDb;
+use husky_entity_path::EntityPathDb;
 
 pub trait TermPreludeDb: salsa::DbWithJar<TermPreludeJar> + EntityPathDb {}
 

@@ -34,7 +34,7 @@ use either::*;
 use husky_coword::Ident;
 use husky_declarative_signature::*;
 use husky_declarative_term::*;
-use husky_item_path::*;
+use husky_entity_path::*;
 use husky_print_utils::p;
 use husky_term_prelude::*;
 use husky_vfs::*;

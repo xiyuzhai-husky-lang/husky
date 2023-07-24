@@ -12,7 +12,7 @@ salsa = { path = "../../abstraction/salsa" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-token = { path = "../../lex/husky-token" }
@@ -22,7 +22,7 @@ expect-test = "1.4.0"
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-coword = { path = "../../kernel/husky-coword" }

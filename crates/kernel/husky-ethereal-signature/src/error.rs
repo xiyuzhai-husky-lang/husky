@@ -1,6 +1,6 @@
 use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
-use husky_item_tree::EntityTreeBundleError;
+use husky_entity_syn_tree::EntityTreeBundleError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]

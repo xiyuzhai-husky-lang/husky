@@ -1,6 +1,6 @@
 [package]
 edition = "2021"
-name = "husky-item-tree"
+name = "husky-entity-syn-tree"
 version = "0.0.0"
 authors = ["Xiyu Zhai"]
 license = "MIT OR Apache-2.0"
@@ -27,8 +27,8 @@ husky-text = { path = "../../lex/husky-text" }
 husky-token = { path = "../../lex/husky-token" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-item-path = { path = "../../kernel/husky-item-path" }
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-scope = { path = "../../kernel/husky-scope" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }

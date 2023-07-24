@@ -19,7 +19,7 @@ pub use self::union::*;
 pub use self::unit_struct::*;
 
 use super::*;
-use husky_item_taxonomy::{EntityKind, TypeKind};
+use husky_entity_taxonomy::{EntityKind, TypeKind};
 use parsec::parse_separated_list2;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

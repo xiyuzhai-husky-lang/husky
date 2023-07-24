@@ -1,6 +1,6 @@
 use crate::*;
 use husky_ast::{Ast, AstSheet, AstTokenIdxRangeSheet};
-use husky_item_tree::{ItemSynTreeResult, ModuleSymbolContext};
+use husky_entity_syn_tree::{ItemSynTreeResult, ModuleSymbolContext};
 use husky_token::TokenSheetData;
 use vec_like::VecPairMap;
 

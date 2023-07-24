@@ -44,14 +44,14 @@ impl Upcast<dyn husky_item_semantics::EntityDefnQueryGroup> for DevRuntime {
     }
 }
 
-impl Upcast<dyn husky_item_tree::EntityTreeDb> for DevRuntime {
-    fn upcast(&self) -> &(dyn husky_item_tree::EntityTreeDb + 'static) {
+impl Upcast<dyn husky_entity_syn_tree::EntityTreeDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn husky_entity_syn_tree::EntityTreeDb + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_item_tree::EntityTreeDb> for DevRuntime {
-    fn upcast(&self) -> &(dyn husky_item_tree::EntityTreeDb + 'static) {
+impl Upcast<dyn husky_entity_syn_tree::EntityTreeDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn husky_entity_syn_tree::EntityTreeDb + 'static) {
         self
     }
 }

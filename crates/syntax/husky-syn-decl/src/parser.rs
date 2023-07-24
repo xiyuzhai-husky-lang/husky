@@ -1,8 +1,8 @@
 use crate::*;
 use husky_ast::*;
 
-use husky_item_taxonomy::*;
-use husky_item_tree::*;
+use husky_entity_syn_tree::*;
+use husky_entity_taxonomy::*;
 
 use husky_print_utils::p;
 use husky_token::*;

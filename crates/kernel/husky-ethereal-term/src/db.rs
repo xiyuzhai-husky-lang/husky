@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use crate::*;
 use husky_declarative_ty::DeclarativeTypeDb;
-use husky_item_path::EntityPathDb;
+use husky_entity_path::EntityPathDb;
 use husky_syn_decr::DecrDb;
 use salsa::DbWithJar;
 

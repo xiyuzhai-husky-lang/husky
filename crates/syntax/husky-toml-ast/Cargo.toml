@@ -25,6 +25,6 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 [dev-dependencies]
 expect-test = "1.4.0"
 # kernel
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }

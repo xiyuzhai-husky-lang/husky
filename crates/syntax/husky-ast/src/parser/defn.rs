@@ -1,5 +1,5 @@
-use husky_item_path::*;
-use husky_item_taxonomy::{
+use husky_entity_path::*;
+use husky_entity_taxonomy::{
     AssociatedItemKind, FugitiveKind, ModuleItemConnectionKind, ModuleItemKind, TraitItemKind,
     TypeItemKind, TypeKind,
 };

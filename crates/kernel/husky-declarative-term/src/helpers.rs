@@ -1,4 +1,4 @@
-use husky_item_path::TypePath;
+use husky_entity_path::TypePath;
 
 use crate::*;
 

@@ -23,7 +23,7 @@ use husky_coword::Ident;
 use husky_declarative_signature::{
     HasDeclarativeSignatureTemplate, TypeDeclarativeSignature, TypeDeclarativeSignatureTemplate,
 };
-use husky_item_path::TypePath;
+use husky_entity_path::TypePath;
 use husky_print_utils::p;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

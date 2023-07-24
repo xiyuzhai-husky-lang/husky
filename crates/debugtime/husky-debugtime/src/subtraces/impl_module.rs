@@ -1,6 +1,6 @@
 use crate::*;
+use husky_entity_taxonomy::EntityKind;
 use husky_ethereal_term::EtherealTerm;
-use husky_item_taxonomy::EntityKind;
 
 impl Debugtime {
     pub(super) fn module_subtraces(&mut self, trace: &Trace, module: EtherealTerm) -> Vec<TraceId> {

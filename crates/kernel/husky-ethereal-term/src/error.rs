@@ -1,8 +1,8 @@
 use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
 use husky_declarative_ty::DeclarativeTypeError;
-use husky_item_path::{EntityPathError, ItemPath};
-use husky_item_tree::{EntityTreeBundleError, EntityTreeError};
+use husky_entity_path::{EntityPathError, ItemPath};
+use husky_entity_syn_tree::{EntityTreeBundleError, EntityTreeError};
 use husky_syn_decl::NodeDeclError;
 use husky_syn_decr::DecrError;
 use maybe_result::MaybeResult;

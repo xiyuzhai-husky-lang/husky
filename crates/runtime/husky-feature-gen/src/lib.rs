@@ -13,7 +13,7 @@
 
 // pub use block::*;
 // pub use eval_id::*;
-// use husky_item_path::EntityPath;
+// use husky_entity_path::EntityPath;
 // use husky_opn_semantics::ImplicitConversion;
 // use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 // use husky_vm_primitive_value::PrimitiveValueData;

@@ -11,7 +11,7 @@
 
 // use husky_comptime::*;
 // use husky_eager_semantics::*;
-// use husky_item_path::EntityPath;
+// use husky_entity_path::EntityPath;
 // use husky_item_semantics::*;
 // use husky_feature_eval::EvalFeature;
 // use husky_feature_gen::*;

@@ -82,8 +82,8 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-binding-negotiator/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-binding/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-borrow-checker/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-item-path/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-item-taxonomy/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-entity-path/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-entity-taxonomy/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-package-path/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-platform/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/kernel/husky-qual/src" isTestSource="false" />
@@ -115,8 +115,8 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-syn-decl/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-syn-decr/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-syn-defn/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-item-path-expr/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-item-tree/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-entity-path-expr/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-entity-syn-tree/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-expr/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-formula/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-init-syntax/src" isTestSource="false" />

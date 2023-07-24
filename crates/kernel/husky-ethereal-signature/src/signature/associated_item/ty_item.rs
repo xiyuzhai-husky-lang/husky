@@ -4,8 +4,8 @@ mod memoized_field;
 mod method_fn;
 mod method_function;
 
-use husky_item_taxonomy::TypeItemKind;
-use husky_item_tree::HasItemPathsMap;
+use husky_entity_syn_tree::HasItemPathsMap;
+use husky_entity_taxonomy::TypeItemKind;
 
 pub use self::associated_fn::*;
 pub use self::associated_val::*;

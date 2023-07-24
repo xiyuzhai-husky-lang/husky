@@ -2,9 +2,9 @@ use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_syn_defn::*;
 
+use husky_entity_syn_tree::ParentUseExpr;
+use husky_entity_taxonomy::EntityKind;
 use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion, IndexOrComposeWithListExprDisambiguation};
-use husky_item_taxonomy::EntityKind;
-use husky_item_tree::ParentUseExpr;
 use husky_syn_expr::*;
 
 pub(crate) struct InferEngine<'a> {

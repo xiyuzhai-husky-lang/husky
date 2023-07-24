@@ -11,14 +11,14 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
 husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 # kernel
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-item-tree = { path = "../../syntax/husky-item-tree" }
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }

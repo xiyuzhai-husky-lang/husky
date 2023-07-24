@@ -3,7 +3,7 @@ pub(crate) use husky_ast::test_utils::*;
 use crate::*;
 use husky_ast::AstJar;
 use husky_coword::CowordJar;
-use husky_item_path::EntityPathJar;
+use husky_entity_path::EntityPathJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 

@@ -11,7 +11,7 @@ pub use self::region::*;
 use idx_arena::ordered_map::ArenaOrderedMap;
 
 use crate::*;
-use husky_item_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
+use husky_entity_syn_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::derive_debug_with_db(db = SynExprDb)]

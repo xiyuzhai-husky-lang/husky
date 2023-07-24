@@ -14,7 +14,7 @@ husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # syntax
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # vm
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
