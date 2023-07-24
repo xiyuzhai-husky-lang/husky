@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::Add`),
             ),
@@ -28,7 +28,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::AddAssign`),
             ),
@@ -56,7 +56,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::BitAnd`),
             ),
@@ -84,7 +84,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::BitAndAssign`),
             ),
@@ -112,7 +112,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::BitOr`),
             ),
@@ -140,7 +140,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::BitOrAssign`),
             ),
@@ -168,7 +168,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::BitXor`),
             ),
@@ -196,7 +196,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::BitXorAssign`),
             ),
@@ -224,7 +224,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::Div`),
             ),
@@ -252,7 +252,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::DivAssign`),
             ),
@@ -280,7 +280,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::Mul`),
             ),
@@ -308,7 +308,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::MulAssign`),
             ),
@@ -336,7 +336,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::Neg`),
             ),
@@ -354,7 +354,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::Not`),
             ),
@@ -372,7 +372,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::Sub`),
             ),
@@ -400,7 +400,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::ops::Unveil`),
             ),
@@ -428,7 +428,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`core::ops::ControlFlow`, `Enum`),
             ),

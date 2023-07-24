@@ -1,7 +1,7 @@
 use super::*;
 use fold::Indent;
 use husky_eager_semantics::{EagerExpr, EagerExprVariant, EagerOpnVariant};
-use husky_entity_taxonomy::FieldKind;
+use husky_item_taxonomy::FieldKind;
 
 use husky_opn_semantics::{EagerSuffixOpr, ImplicitConversion};
 use husky_primitive_literal_syntax::LiteralToken;
@@ -100,7 +100,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 // EagerOpnVariant::RoutineCall(_routine) => {
                 //     todo!()
-                //     // self.gen_entity_route(routine.route, EntityRouteRole::Caller);
+                //     // self.gen_item_route(routine.route, EntityRouteRole::Caller);
                 //     // self.write("(");
                 //     // self.gen_arguments(indent, opds);
                 //     // if self.db.needs_eval_context(routine.route) {
@@ -134,7 +134,7 @@ impl<'a> RustCodeGenerator<'a> {
                 }
                 EagerOpnVariant::MethodCall { .. } => {
                     todo!()
-                    // let call_fugitive_syn_decl = self.db.entity_call_fugitive_syn_decl(*method_route).unwrap();
+                    // let call_fugitive_syn_decl = self.db.item_call_fugitive_syn_decl(*method_route).unwrap();
                     // match call_fugitive_syn_decl.output.contract() {
                     //     OutputModifier::Transfer => {
                     //         self.gen_expr(indent, &opds[0]);
@@ -142,7 +142,7 @@ impl<'a> RustCodeGenerator<'a> {
                     //         self.write(&method_ident.ident);
                     //         // ad hoc
                     //         if method_ident.ident.as_str() == "pop_with_largest_opt_f32" {
-                    //             let elem_ty = method_route.parent().entity_route_argument(0);
+                    //             let elem_ty = method_route.parent().item_route_argument(0);
                     //             if self.db.is_copyable(elem_ty).unwrap() {
                     //                 self.write("_copyable")
                     //             } else {
@@ -229,11 +229,11 @@ impl<'a> RustCodeGenerator<'a> {
             },
             EagerExprVariant::Lambda(_, _) => todo!(),
             EagerExprVariant::EnumKindLiteral(value) => {
-                self.gen_entity_route(value, EntityRouteRole::Other)
+                self.gen_item_route(value, EntityRouteRole::Other)
             }
             EagerExprVariant::EntityFeature { .. } => {
                 todo!()
-                // self.gen_entity_route(route, EntityRouteRole::Caller);
+                // self.gen_item_route(route, EntityRouteRole::Caller);
                 // self.write("(__ctx)")
             }
             EagerExprVariant::EntityThickFp { .. } => {
@@ -248,9 +248,9 @@ impl<'a> RustCodeGenerator<'a> {
                 // } else {
                 //     self.write("__new_base(")
                 // }
-                // self.gen_entity_route(route, EntityRouteRole::FpValue);
+                // self.gen_item_route(route, EntityRouteRole::FpValue);
                 // self.write(" as ");
-                // self.gen_entity_route(
+                // self.gen_item_route(
                 //     ty,
                 //     EntityRouteRole::StaticThinFpTyDecl { needs_eval_context },
                 // );
@@ -295,7 +295,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     opds: &Vec<Arc<EagerExpr>>,
     //     type_call: &CallFugitiveDecl,
     // ) {
-    //     self.gen_entity_route(ty, EntityRouteRole::Caller);
+    //     self.gen_item_route(ty, EntityRouteRole::Caller);
     //     self.write("::");
     //     self.write("__call__(");
     //     self.gen_arguments(indent, opds);
@@ -321,7 +321,7 @@ impl<'a> RustCodeGenerator<'a> {
     // ) {
     //     self.write("{\n");
     //     self.indent(indent + 8);
-    //     let ty_defn = self.db.entity_defn(ty).unwrap();
+    //     let ty_defn = self.db.item_defn(ty).unwrap();
     //     let ty_members = match ty_defn.variant {
     //         EntityDefnVariant::EtherealTerm { ref ty_members, .. } => ty_members,
     //         _ => panic!(),
@@ -332,7 +332,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         self.write("let __this_");
     //         self.write(&parameter.ident);
     //         self.write(": ");
-    //         self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
+    //         self.gen_item_route(parameter.ty(), EntityRouteRole::Decl);
     //         self.write(" = ");
     //         self.gen_binding(expr);
     //         self.gen_expr(indent, expr);
@@ -348,7 +348,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             } => match field_variant {
     //                 FieldDefnVariant::StructDefault { default } => {
     //                     self.write(": ");
-    //                     self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
+    //                     self.gen_item_route(parameter.ty(), EntityRouteRole::Decl);
     //                     self.write(" = ");
     //                     self.exec_within_context(
     //                         RustCodeGenContext::ThisFieldWithPrefix { prefix: "__this_" },
@@ -362,7 +362,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         }
     //         self.newline_indented(indent + 8);
     //     }
-    //     self.gen_entity_route(ty, EntityRouteRole::Caller);
+    //     self.gen_item_route(ty, EntityRouteRole::Caller);
     //     self.write("::");
     //     self.write("__call__(");
     //     for (i, parameter) in type_call.primary_parameters.iter().enumerate() {
@@ -410,7 +410,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         __feature,
     //         Ok(__Register::new_box::<"#,
     //             );
-    //             self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(">(");
     //             self.gen_expr(indent, result);
     //             self.write(&format!(
@@ -431,7 +431,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         __feature,
     //         Ok(__Register::new_eval_ref::<"#,
     //             );
-    //             self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(r#">(&("#);
     //             self.gen_expr(indent, result);
     //             self.write(&format!(
@@ -466,7 +466,7 @@ impl<'a> RustCodeGenerator<'a> {
     //     __uid,
     //     Ok(__Register::new_box::<"#,
     //             );
-    //             self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(r#">("#);
     //             self.gen_expr(indent, result);
     //             self.write(format!(
@@ -489,7 +489,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                     false => "",
     //                 }
     //             ));
-    //             self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
+    //             self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(r#">(&("#);
     //             self.gen_expr(indent, result);
     //             self.write(format!(
@@ -577,7 +577,7 @@ impl<'a> RustCodeGenerator<'a> {
             EagerSuffixOpr::Decr => self.write(" -= 1"),
             EagerSuffixOpr::AsTy(ty) => {
                 self.write(" as ");
-                self.gen_entity_route(ty.route, EntityRouteRole::Other)
+                self.gen_item_route(ty.route, EntityRouteRole::Other)
             }
             EagerSuffixOpr::BePattern(_) => todo!(),
             EagerSuffixOpr::Unveil => panic!("shouldn't be handled here"),

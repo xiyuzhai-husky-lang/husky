@@ -80,7 +80,7 @@ impl TermMenu0 {
         // let sort = db.it_term(TermAtom::new_category(TermCategory::Sort).into());
         // let universe1 = db.it_term(TermAtom::new_universe(1).into());
         let vfs_path_menu = db.vfs_path_menu(toolchain);
-        let entity_path_menu = db.entity_path_menu(toolchain);
+        let item_path_menu = db.item_path_menu(toolchain);
         let universe0 = TermUniverse::new(0);
         let universe1 = TermUniverse::new(1);
         TermMenu0 {
@@ -90,96 +90,80 @@ impl TermMenu0 {
             universe1,
             prop: TermCategory::new(universe0),
             ty0: TermCategory::new(universe1),
-            core_ops_add: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_add_trai_path().into(),
-            ),
+            core_ops_add: EtherealTerm::EntityPath(item_path_menu.core_ops_add_trai_path().into()),
             // start here
-            // EtherealTerm::Entity(entity_path_menu.core_ops_())
+            // EtherealTerm::Entity(item_path_menu.core_ops_())
             core_ops_add_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_add_assign_trai_path().into(),
+                item_path_menu.core_ops_add_assign_trai_path().into(),
             ),
             core_ops_bit_and: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_bit_and_trai_path().into(),
+                item_path_menu.core_ops_bit_and_trai_path().into(),
             ),
             core_ops_bit_and_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_bit_and_assign_trai_path().into(),
+                item_path_menu.core_ops_bit_and_assign_trai_path().into(),
             ),
             core_ops_bit_or: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_bit_or_trai_path().into(),
+                item_path_menu.core_ops_bit_or_trai_path().into(),
             ),
             core_ops_bit_or_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_bit_or_assign_trai_path().into(),
+                item_path_menu.core_ops_bit_or_assign_trai_path().into(),
             ),
             core_ops_bit_xor: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_bit_xor_trai_path().into(),
+                item_path_menu.core_ops_bit_xor_trai_path().into(),
             ),
             core_ops_bit_xor_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_bit_xor_assign_trai_path().into(),
+                item_path_menu.core_ops_bit_xor_assign_trai_path().into(),
             ),
-            core_ops_div: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_div_trai_path().into(),
-            ),
+            core_ops_div: EtherealTerm::EntityPath(item_path_menu.core_ops_div_trai_path().into()),
             core_ops_div_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_div_assign_trai_path().into(),
+                item_path_menu.core_ops_div_assign_trai_path().into(),
             ),
-            core_ops_mul: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_mul_trai_path().into(),
-            ),
+            core_ops_mul: EtherealTerm::EntityPath(item_path_menu.core_ops_mul_trai_path().into()),
             core_ops_mul_assign: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_mul_assign_trai_path().into(),
+                item_path_menu.core_ops_mul_assign_trai_path().into(),
             ),
-            core_ops_neg: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_neg_trai_path().into(),
-            ),
-            core_ops_not: EtherealTerm::EntityPath(
-                entity_path_menu.core_ops_not_trai_path().into(),
-            ),
-            option_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.option_ty_path())
+            core_ops_neg: EtherealTerm::EntityPath(item_path_menu.core_ops_neg_trai_path().into()),
+            core_ops_not: EtherealTerm::EntityPath(item_path_menu.core_ops_not_trai_path().into()),
+            option_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.option_ty_path())
                 .into(),
-            slice_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.slice_ty_path())
+            slice_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.slice_ty_path()).into(),
+            str_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.str_ty_path()).into(),
+            ref_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.ref_ty_path()).into(),
+            list_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.list_ty_path()).into(),
+            array_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.array_ty_path()).into(),
+            leash_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.leash_ty_path()).into(),
+            unit: TermEntityPath::TypeOntology(item_path_menu.unit_ty_path()).into(),
+            never: TermEntityPath::TypeOntology(item_path_menu.never_ty_path()).into(),
+            bool_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.bool_ty_path()).into(),
+            trai_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.trai_ty_path()).into(),
+            lifetime_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.lifetime_ty_path())
                 .into(),
-            str_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.str_ty_path()).into(),
-            ref_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.ref_ty_path()).into(),
-            list_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.list_ty_path()).into(),
-            array_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.array_ty_path())
+            module_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.module_ty_path())
                 .into(),
-            leash_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.leash_ty_path())
-                .into(),
-            unit: TermEntityPath::TypeOntology(entity_path_menu.unit_ty_path()).into(),
-            never: TermEntityPath::TypeOntology(entity_path_menu.never_ty_path()).into(),
-            bool_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.bool_ty_path()).into(),
-            trai_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.trai_ty_path()).into(),
-            lifetime_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.lifetime_ty_path())
-                .into(),
-            module_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.module_ty_path())
-                .into(),
-            i8_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i8_ty_path()).into(),
-            i16_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i16_ty_path()).into(),
-            i32_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i32_ty_path()).into(),
-            i64_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i64_ty_path()).into(),
-            i128_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.i128_ty_path()).into(),
-            isize_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.isize_ty_path())
-                .into(),
-            u8_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u8_ty_path()).into(),
-            u16_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u16_ty_path()).into(),
-            u32_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u32_ty_path()).into(),
-            u64_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u64_ty_path()).into(),
-            u128_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.u128_ty_path()).into(),
-            usize_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.usize_ty_path())
-                .into(),
-            f32_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.f32_ty_path()).into(),
-            f64_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.f64_ty_path()).into(),
-            r8_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r8_ty_path()).into(),
-            r16_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r16_ty_path()).into(),
-            r32_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r32_ty_path()).into(),
-            r64_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r64_ty_path()).into(),
-            r128_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.r128_ty_path()).into(),
-            rsize_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.rsize_ty_path())
-                .into(),
-            html_ty_ontology: TermEntityPath::TypeOntology(entity_path_menu.html_ty_path()).into(),
-            clone_trai: TermEntityPath::Trait(entity_path_menu.clone_trai_path()).into(),
-            copy_trai: TermEntityPath::Trait(entity_path_menu.copy_trai_path()).into(),
-            default_trai: TermEntityPath::Trait(entity_path_menu.default_trai_path()).into(),
+            i8_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.i8_ty_path()).into(),
+            i16_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.i16_ty_path()).into(),
+            i32_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.i32_ty_path()).into(),
+            i64_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.i64_ty_path()).into(),
+            i128_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.i128_ty_path()).into(),
+            isize_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.isize_ty_path()).into(),
+            u8_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.u8_ty_path()).into(),
+            u16_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.u16_ty_path()).into(),
+            u32_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.u32_ty_path()).into(),
+            u64_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.u64_ty_path()).into(),
+            u128_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.u128_ty_path()).into(),
+            usize_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.usize_ty_path()).into(),
+            f32_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.f32_ty_path()).into(),
+            f64_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.f64_ty_path()).into(),
+            r8_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.r8_ty_path()).into(),
+            r16_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.r16_ty_path()).into(),
+            r32_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.r32_ty_path()).into(),
+            r64_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.r64_ty_path()).into(),
+            r128_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.r128_ty_path()).into(),
+            rsize_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.rsize_ty_path()).into(),
+            html_ty_ontology: TermEntityPath::TypeOntology(item_path_menu.html_ty_path()).into(),
+            clone_trai: TermEntityPath::Trait(item_path_menu.clone_trai_path()).into(),
+            copy_trai: TermEntityPath::Trait(item_path_menu.copy_trai_path()).into(),
+            default_trai: TermEntityPath::Trait(item_path_menu.default_trai_path()).into(),
         }
     }
 

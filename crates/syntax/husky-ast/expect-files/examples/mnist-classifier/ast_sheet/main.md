@@ -82,7 +82,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `connected_component`,
                         token_idx: TokenIdx(
@@ -97,10 +97,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 27,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 27,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -118,7 +120,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `raw_contour`,
                         token_idx: TokenIdx(
@@ -133,10 +135,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 47,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 47,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -154,7 +158,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `geom2d`,
                         token_idx: TokenIdx(
@@ -169,10 +173,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 40,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 40,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -190,7 +196,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `line_segment_sketch`,
                         token_idx: TokenIdx(
@@ -205,10 +211,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 41,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 41,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -226,7 +234,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `fermi`,
                         token_idx: TokenIdx(
@@ -241,10 +249,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 39,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 39,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -262,7 +272,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `digits`,
                         token_idx: TokenIdx(
@@ -277,10 +287,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 28,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 28,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -298,7 +310,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `major`,
                         token_idx: TokenIdx(
@@ -313,10 +325,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 46,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 46,
+                                },
+                            ),
                         ),
                     },
                 },

@@ -44,7 +44,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {

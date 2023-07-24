@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
             ),
@@ -31,7 +31,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Fn`),
             ),
@@ -62,7 +62,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
@@ -96,7 +96,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath {
                     impl_block: TraitForTypeImplBlockPath {
@@ -139,7 +139,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
                     Id {
@@ -162,7 +162,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -194,7 +194,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -226,7 +226,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -258,7 +258,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -290,7 +290,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -322,7 +322,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -354,7 +354,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -397,7 +397,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -440,7 +440,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -483,7 +483,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -526,7 +526,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -569,7 +569,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {

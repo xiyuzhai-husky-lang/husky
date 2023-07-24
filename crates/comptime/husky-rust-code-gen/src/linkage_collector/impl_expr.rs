@@ -64,7 +64,7 @@ impl<'a> LinkageCollector<'a> {
     //     // match expr.variant {
     //     //     LazyExprVariant::Variable { .. } => (),
     //     //     LazyExprVariant::PrimitiveLiteral(_) => (),
-    //     //     LazyExprVariant::EnumLiteral { entity_path } => self.insert(entity_path.parent()),
+    //     //     LazyExprVariant::EnumLiteral { item_path } => self.insert(item_path.parent()),
     //     //     LazyExprVariant::Bracketed(ref bracketed_expr) => {
     //     //         self.collect_from_lazy_expr(bracketed_expr)
     //     //     }
@@ -90,7 +90,7 @@ impl<'a> LinkageCollector<'a> {
     //     //     LazyExprVariant::Lambda(_, _) => todo!(),
     //     //     LazyExprVariant::ThisValue { .. } => todo!(),
     //     //     LazyExprVariant::ThisField { .. } => todo!(),
-    //     //     LazyExprVariant::EntityFeature { entity_path } => self.insert(entity_path),
+    //     //     LazyExprVariant::EntityFeature { item_path } => self.insert(item_path),
     //     //     LazyExprVariant::BePattern { .. } => (),
     //     // }
     // }

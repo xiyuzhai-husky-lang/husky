@@ -14,13 +14,13 @@ enum-class = { path = "../../abstraction/enum-class" }
 vec-like = { path = "../../abstraction/vec-like" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-item-path = { path = "../../kernel/husky-item-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-decr = { path = "../../syntax/husky-syn-decr" }

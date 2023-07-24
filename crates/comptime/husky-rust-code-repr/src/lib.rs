@@ -1,5 +1,5 @@
-#[cfg(feature = "entity_path")]
-pub mod entity_path;
+#[cfg(feature = "item_path")]
+pub mod item_path;
 #[cfg(feature = "query")]
 pub mod query;
 #[cfg(feature = "registration")]

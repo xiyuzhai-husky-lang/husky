@@ -40,7 +40,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `one`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntitySynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `mnist_classifier::digits::one`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 3;\n\ntoken_line_group_idx = 1\n\ntoken = Token::Ident(\n    `one`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntitySynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `mnist_classifier::digits::one`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -100,7 +100,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `four`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntitySynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `mnist_classifier::digits::four`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 9;\n\ntoken_line_group_idx = 4\n\ntoken = Token::Ident(\n    `four`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntitySynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `mnist_classifier::digits::four`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(
@@ -160,7 +160,7 @@ Ok(
                         contents: Markup(
                             MarkupContent {
                                 kind: Markdown,
-                                value: "\ntoken_idx = 15;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntitySynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: `mnist_classifier::digits::eight`,\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
+                                value: "\ntoken_idx = 15;\n\ntoken_line_group_idx = 7\n\ntoken = Token::Ident(\n    `eight`,\n);\n\ntoken_info = TokenInfo::EntityNode(\n    EntitySynNodePath::Submodule(\n        SubmoduleSynNodePath {\n            maybe_ambiguous_path: MaybeAmbiguousPath {\n                path: SubmodulePath(\n                    `mnist_classifier::digits::eight`,\n                ),\n                disambiguator: 0,\n            },\n        },\n    ),\n    Module,\n);\n\n\n",
                             },
                         ),
                         range: Some(

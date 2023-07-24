@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_tree::{EntitySynTreeBundleResult, HasItemPaths};
+use husky_item_tree::{EntitySynTreeBundleResult, HasItemPaths};
 use smallvec::SmallVec;
 use vec_like::{SmallVecPairMap, VecMapGetEntry};
 

@@ -90,7 +90,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -340,7 +340,7 @@ Ok(
                             expr_arena: Arena {
                                 data: [
                                     SynExpr::PrincipalEntityPath {
-                                        entity_path_expr: 2,
+                                        item_path_expr: 2,
                                         opt_path: Some(
                                             PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Trait(
@@ -350,7 +350,7 @@ Ok(
                                         ),
                                     },
                                     SynExpr::PrincipalEntityPath {
-                                        entity_path_expr: 3,
+                                        item_path_expr: 3,
                                         opt_path: Some(
                                             PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
@@ -406,7 +406,7 @@ Ok(
                                         argument_expr_idx: 5,
                                     },
                                     SynExpr::PrincipalEntityPath {
-                                        entity_path_expr: 4,
+                                        item_path_expr: 4,
                                         opt_path: Some(
                                             PrincipalEntityPath::ModuleItem(
                                                 ModuleItemPath::Type(
@@ -459,7 +459,7 @@ Ok(
                                     },
                                 ],
                             },
-                            principal_entity_path_expr_arena: Arena {
+                            principal_item_path_expr_arena: Arena {
                                 data: [
                                     PrincipalEntityPathExpr::Root {
                                         path_name_token: PathNameToken::CrateRoot(
@@ -473,7 +473,7 @@ Ok(
                                             `core`,
                                         ),
                                     },
-                                    PrincipalEntityPathExpr::Subentity {
+                                    PrincipalEntityPathExpr::Subitem {
                                         parent: 0,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
@@ -494,7 +494,7 @@ Ok(
                                             ),
                                         ),
                                     },
-                                    PrincipalEntityPathExpr::Subentity {
+                                    PrincipalEntityPathExpr::Subitem {
                                         parent: 1,
                                         scope_resolution_token: ScopeResolutionToken(
                                             TokenIdx(
@@ -806,7 +806,7 @@ Ok(
                                                 expr_arena: Arena {
                                                     data: [
                                                         SynExpr::PrincipalEntityPath {
-                                                            entity_path_expr: 2,
+                                                            item_path_expr: 2,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Trait(
@@ -816,7 +816,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            entity_path_expr: 3,
+                                                            item_path_expr: 3,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
@@ -872,7 +872,7 @@ Ok(
                                                             argument_expr_idx: 5,
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            entity_path_expr: 4,
+                                                            item_path_expr: 4,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
@@ -925,7 +925,7 @@ Ok(
                                                         },
                                                     ],
                                                 },
-                                                principal_entity_path_expr_arena: Arena {
+                                                principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
                                                             path_name_token: PathNameToken::CrateRoot(
@@ -939,7 +939,7 @@ Ok(
                                                                 `core`,
                                                             ),
                                                         },
-                                                        PrincipalEntityPathExpr::Subentity {
+                                                        PrincipalEntityPathExpr::Subitem {
                                                             parent: 0,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
@@ -960,7 +960,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         },
-                                                        PrincipalEntityPathExpr::Subentity {
+                                                        PrincipalEntityPathExpr::Subitem {
                                                             parent: 1,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
@@ -1195,7 +1195,7 @@ Ok(
                                             },
                                         ],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -1315,7 +1315,7 @@ Ok(
                                                         expr_arena: Arena {
                                                             data: [
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    entity_path_expr: 2,
+                                                                    item_path_expr: 2,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Trait(
@@ -1325,7 +1325,7 @@ Ok(
                                                                     ),
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    entity_path_expr: 3,
+                                                                    item_path_expr: 3,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
@@ -1381,7 +1381,7 @@ Ok(
                                                                     argument_expr_idx: 5,
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    entity_path_expr: 4,
+                                                                    item_path_expr: 4,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
@@ -1434,7 +1434,7 @@ Ok(
                                                                 },
                                                             ],
                                                         },
-                                                        principal_entity_path_expr_arena: Arena {
+                                                        principal_item_path_expr_arena: Arena {
                                                             data: [
                                                                 PrincipalEntityPathExpr::Root {
                                                                     path_name_token: PathNameToken::CrateRoot(
@@ -1448,7 +1448,7 @@ Ok(
                                                                         `core`,
                                                                     ),
                                                                 },
-                                                                PrincipalEntityPathExpr::Subentity {
+                                                                PrincipalEntityPathExpr::Subitem {
                                                                     parent: 0,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
@@ -1469,7 +1469,7 @@ Ok(
                                                                         ),
                                                                     ),
                                                                 },
-                                                                PrincipalEntityPathExpr::Subentity {
+                                                                PrincipalEntityPathExpr::Subitem {
                                                                     parent: 1,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
@@ -1704,7 +1704,7 @@ Ok(
                                                     },
                                                 ],
                                             },
-                                            principal_entity_path_expr_arena: Arena {
+                                            principal_item_path_expr_arena: Arena {
                                                 data: [],
                                             },
                                             stmt_arena: Arena {
@@ -1821,7 +1821,7 @@ Ok(
                                 expr_arena: Arena {
                                     data: [],
                                 },
-                                principal_entity_path_expr_arena: Arena {
+                                principal_item_path_expr_arena: Arena {
                                     data: [],
                                 },
                                 stmt_arena: Arena {
@@ -2072,7 +2072,7 @@ Ok(
                                                 expr_arena: Arena {
                                                     data: [
                                                         SynExpr::PrincipalEntityPath {
-                                                            entity_path_expr: 2,
+                                                            item_path_expr: 2,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Trait(
@@ -2082,7 +2082,7 @@ Ok(
                                                             ),
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            entity_path_expr: 3,
+                                                            item_path_expr: 3,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
@@ -2138,7 +2138,7 @@ Ok(
                                                             argument_expr_idx: 5,
                                                         },
                                                         SynExpr::PrincipalEntityPath {
-                                                            entity_path_expr: 4,
+                                                            item_path_expr: 4,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::ModuleItem(
                                                                     ModuleItemPath::Type(
@@ -2191,7 +2191,7 @@ Ok(
                                                         },
                                                     ],
                                                 },
-                                                principal_entity_path_expr_arena: Arena {
+                                                principal_item_path_expr_arena: Arena {
                                                     data: [
                                                         PrincipalEntityPathExpr::Root {
                                                             path_name_token: PathNameToken::CrateRoot(
@@ -2205,7 +2205,7 @@ Ok(
                                                                 `core`,
                                                             ),
                                                         },
-                                                        PrincipalEntityPathExpr::Subentity {
+                                                        PrincipalEntityPathExpr::Subitem {
                                                             parent: 0,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
@@ -2226,7 +2226,7 @@ Ok(
                                                                 ),
                                                             ),
                                                         },
-                                                        PrincipalEntityPathExpr::Subentity {
+                                                        PrincipalEntityPathExpr::Subitem {
                                                             parent: 1,
                                                             scope_resolution_token: ScopeResolutionToken(
                                                                 TokenIdx(
@@ -2448,7 +2448,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                entity_path_expr: 0,
+                                                item_path_expr: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
@@ -2490,7 +2490,7 @@ Ok(
                                                 argument_expr_idx: 3,
                                             },
                                             SynExpr::PrincipalEntityPath {
-                                                entity_path_expr: 1,
+                                                item_path_expr: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
@@ -2533,7 +2533,7 @@ Ok(
                                             },
                                         ],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
@@ -2739,7 +2739,7 @@ Ok(
                                                         expr_arena: Arena {
                                                             data: [
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    entity_path_expr: 2,
+                                                                    item_path_expr: 2,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Trait(
@@ -2749,7 +2749,7 @@ Ok(
                                                                     ),
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    entity_path_expr: 3,
+                                                                    item_path_expr: 3,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
@@ -2805,7 +2805,7 @@ Ok(
                                                                     argument_expr_idx: 5,
                                                                 },
                                                                 SynExpr::PrincipalEntityPath {
-                                                                    entity_path_expr: 4,
+                                                                    item_path_expr: 4,
                                                                     opt_path: Some(
                                                                         PrincipalEntityPath::ModuleItem(
                                                                             ModuleItemPath::Type(
@@ -2858,7 +2858,7 @@ Ok(
                                                                 },
                                                             ],
                                                         },
-                                                        principal_entity_path_expr_arena: Arena {
+                                                        principal_item_path_expr_arena: Arena {
                                                             data: [
                                                                 PrincipalEntityPathExpr::Root {
                                                                     path_name_token: PathNameToken::CrateRoot(
@@ -2872,7 +2872,7 @@ Ok(
                                                                         `core`,
                                                                     ),
                                                                 },
-                                                                PrincipalEntityPathExpr::Subentity {
+                                                                PrincipalEntityPathExpr::Subitem {
                                                                     parent: 0,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
@@ -2893,7 +2893,7 @@ Ok(
                                                                         ),
                                                                     ),
                                                                 },
-                                                                PrincipalEntityPathExpr::Subentity {
+                                                                PrincipalEntityPathExpr::Subitem {
                                                                     parent: 1,
                                                                     scope_resolution_token: ScopeResolutionToken(
                                                                         TokenIdx(
@@ -3115,7 +3115,7 @@ Ok(
                                             expr_arena: Arena {
                                                 data: [
                                                     SynExpr::PrincipalEntityPath {
-                                                        entity_path_expr: 0,
+                                                        item_path_expr: 0,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
@@ -3157,7 +3157,7 @@ Ok(
                                                         argument_expr_idx: 3,
                                                     },
                                                     SynExpr::PrincipalEntityPath {
-                                                        entity_path_expr: 1,
+                                                        item_path_expr: 1,
                                                         opt_path: Some(
                                                             PrincipalEntityPath::ModuleItem(
                                                                 ModuleItemPath::Type(
@@ -3200,7 +3200,7 @@ Ok(
                                                     },
                                                 ],
                                             },
-                                            principal_entity_path_expr_arena: Arena {
+                                            principal_item_path_expr_arena: Arena {
                                                 data: [
                                                     PrincipalEntityPathExpr::Root {
                                                         path_name_token: PathNameToken::Ident(
@@ -3417,7 +3417,7 @@ Ok(
                                         },
                                     ],
                                 },
-                                principal_entity_path_expr_arena: Arena {
+                                principal_item_path_expr_arena: Arena {
                                     data: [],
                                 },
                                 stmt_arena: Arena {

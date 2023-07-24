@@ -140,13 +140,13 @@ A common pitfall is that one use `git branch stable` instead of `git checkout or
     //     let module_husky_code_snapshot_dir = husky_code_snapshot_path.with_extension("");
     //     mkdir(&module_rust_code_gen_dir);
     //     mkdir(&module_husky_code_snapshot_dir);
-    //     for subentity in module.subentities.iter() {
-    //         let subentity_name = subentity.ident.as_str();
+    //     for subitem in module.subentities.iter() {
+    //         let subitem_name = subitem.ident.as_str();
     //         self.compile_maybe_module(
     //             comptime,
-    //             module_rust_code_gen_dir.join(format!("{subentity_name}.rs")),
-    //             &module_husky_code_snapshot_dir.join(format!("{subentity_name}.hsy")),
-    //             subentity,
+    //             module_rust_code_gen_dir.join(format!("{subitem_name}.rs")),
+    //             &module_husky_code_snapshot_dir.join(format!("{subitem_name}.hsy")),
+    //             subitem,
     //         )
     //     }
     // }

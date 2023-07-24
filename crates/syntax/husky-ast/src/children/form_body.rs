@@ -15,10 +15,8 @@ impl NormalAstChildren for FugitiveBody {
     const ALLOW_STMT: AstResult<()> = Ok(());
 
     #[inline(always)]
-    fn determine_entity_kind(
-        entity_keyword_group: EntityKindKeywordGroup,
-    ) -> AstResult<EntityKind> {
-        let module_item_kind = match entity_keyword_group {
+    fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
+        let module_item_kind = match item_keyword_group {
             EntityKindKeywordGroup::Mod(_) => Err(OriginalAstError::UnexpectedModInsideForm)?,
             EntityKindKeywordGroup::Fn(_) => FugitiveKind::Fn.into(),
             EntityKindKeywordGroup::ConstFn(_, _) => todo!(),

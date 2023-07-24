@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
             ),
@@ -18,7 +18,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
             ),
@@ -36,7 +36,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::uparc`, `Fn`),
             ),
@@ -67,7 +67,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::downarc`, `Fn`),
             ),
@@ -98,7 +98,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::three::back`, `Fn`),
             ),

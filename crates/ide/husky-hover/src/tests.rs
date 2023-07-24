@@ -8,12 +8,12 @@ use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
 use husky_declarative_ty::DeclarativeTypeJar;
-use husky_entity_path::EntityPathJar;
-use husky_entity_tree::{EntitySynTreeJar, EntitySynTreeResult};
 use husky_ethereal_signature::EtherealSignatureJar;
 use husky_ethereal_term::EtherealTermJar;
 use husky_expr_ty::ExprTypeJar;
 use husky_fluffy_term::FluffyTermJar;
+use husky_item_path::EntityPathJar;
+use husky_item_tree::{EntitySynTreeJar, ItemSynTreeResult};
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_syn_decl::SynDeclJar;
@@ -66,7 +66,7 @@ fn hover_result_works() {
     const N: usize = 20;
     DB::default().ast_expect_test_debug(
         "hover_result",
-        |db, module_path| -> EntitySynTreeResult<Vec<(TokenIdx, Option<HoverResult>)>> {
+        |db, module_path| -> ItemSynTreeResult<Vec<(TokenIdx, Option<HoverResult>)>> {
             let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
             let len = ranged_token_sheet.len();
             let step = (len / N).max(1);

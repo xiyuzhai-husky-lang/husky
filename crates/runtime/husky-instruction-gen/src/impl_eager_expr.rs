@@ -145,7 +145,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     )),
         //     EagerExprVariant::EntityFeature { route } => self.push_instruction(Instruction::new(
         //         InstructionVariant::EntityFeature {
-        //             feature_uid: self.db.entity_uid(route),
+        //             feature_uid: self.db.item_uid(route),
         //             ty: expr.intrinsic_ty(),
         //         },
         //         expr.clone(),
@@ -153,7 +153,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     EagerExprVariant::EntityThickFp { route } => self.push_instruction(Instruction::new(
         //         InstructionVariant::PushEntityFp {
         //             opt_linkage: self.db.routine_linkage(route),
-        //             opt_instruction_sheet: self.db.entity_instruction_sheet(route),
+        //             opt_instruction_sheet: self.db.item_instruction_sheet(route),
         //             ty: expr.intrinsic_ty(),
         //         },
         //         expr.clone(),
@@ -209,7 +209,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         } else {
         //             self.push_instruction(Instruction::new(
         //                 InstructionVariant::CallInterpreted {
-        //                     routine_uid: self.db.entity_uid(routine.route),
+        //                     routine_uid: self.db.item_uid(routine.route),
         //                     nargs: opds.len().try_into().unwrap(),
         //                     return_ty: expr.intrinsic_ty(),
         //                     discard,
@@ -283,7 +283,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         // no discard
         //         todo!()
         //         // assert!(!discard);
-        //         // let ty_defn = self.db.entity_defn(ranged_ty.route).unwrap();
+        //         // let ty_defn = self.db.item_defn(ranged_ty.route).unwrap();
         //         // let instruction_variant = match ty_defn.variant {
         //         //     EntityDefnVariant::EtherealTerm {
         //         //         ty_kind: kind,
@@ -677,8 +677,8 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
         } else {
             todo!()
-            // let method_uid = self.db.entity_uid(method_route);
-            // let call_fugitive_syn_decl = self.db.entity_call_fugitive_syn_decl(method_route).unwrap();
+            // let method_uid = self.db.item_uid(method_route);
+            // let call_fugitive_syn_decl = self.db.item_call_fugitive_syn_decl(method_route).unwrap();
             // InstructionVariant::CallInterpreted {
             //     routine_uid: method_uid,
             //     nargs: (call_fugitive_syn_decl.primary_parameters.len() + 1)

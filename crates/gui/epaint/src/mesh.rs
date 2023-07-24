@@ -169,7 +169,7 @@ impl Mesh {
 
     /// Rectangle with a texture and color.
     pub fn add_rect_with_uv(&mut self, rect: Rect, uv: Rect, color: Color32) {
-        #![allow(clippy::identity_op)]
+        #![allow(clippy::iditem_op)]
 
         let idx = self.vertices.len() as u32;
         self.add_triangle(idx + 0, idx + 1, idx + 2);

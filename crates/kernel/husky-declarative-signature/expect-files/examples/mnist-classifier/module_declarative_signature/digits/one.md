@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
             ),
@@ -18,7 +18,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
@@ -36,7 +36,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::one::upmost`, `Fn`),
             ),
@@ -67,7 +67,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::one::downmost`, `Fn`),
             ),
@@ -98,7 +98,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::one::hat`, `Fn`),
             ),

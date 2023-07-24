@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_tree::EntityTreeError;
+use husky_item_tree::EntityTreeError;
 use husky_opr::Bracket;
 use husky_token::*;
 use original_error::IntoError;
@@ -120,7 +120,7 @@ pub enum OriginalExprError {
     #[error("unrecognized identifier")]
     UnrecognizedIdent { token_idx: TokenIdx, ident: Ident },
     #[error("unrecognized identifier")]
-    UnresolvedSubentity { token_idx: TokenIdx, ident: Ident },
+    UnresolvedSubitem { token_idx: TokenIdx, ident: Ident },
     #[error("SelfTypeNotAllowed")]
     SelfTypeNotAllowed(TokenIdx),
     #[error("SelfValueNotAllowed")]
@@ -208,7 +208,7 @@ impl OriginalExprError {
             }
             | OriginalExprError::UnexpectedSheba(token_idx)
             | OriginalExprError::UnrecognizedIdent { token_idx, .. }
-            | OriginalExprError::UnresolvedSubentity { token_idx, .. }
+            | OriginalExprError::UnresolvedSubitem { token_idx, .. }
             | OriginalExprError::SelfTypeNotAllowed(token_idx)
             | OriginalExprError::SelfValueNotAllowed(token_idx)
             | OriginalExprError::ExpectedIdentAfterDot {

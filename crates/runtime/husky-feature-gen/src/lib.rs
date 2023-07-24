@@ -13,7 +13,7 @@
 
 // pub use block::*;
 // pub use eval_id::*;
-// use husky_entity_path::EntityPath;
+// use husky_item_path::EntityPath;
 // use husky_opn_semantics::ImplicitConversion;
 // use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 // use husky_vm_primitive_value::PrimitiveValueData;
@@ -25,7 +25,7 @@
 // pub use query::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, TrainModel};
 // pub use repr::*;
 
-// use husky_entity_semantics::EntityDefnQueryGroup;
+// use husky_item_semantics::EntityDefnQueryGroup;
 // use husky_coword::{IdentPairMap, Ident};
 // use husky_opr::*;
 // use husky_print_utils::*;
@@ -96,7 +96,7 @@
 //         opds: Vec<FeatureItd>,
 //     },
 //     EntityFeature {
-//         entity_path: EntityPath,
+//         item_path: EntityPath,
 //         uid: EntityUid,
 //     },
 //     RecordTypeCall {

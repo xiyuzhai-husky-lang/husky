@@ -60,5 +60,5 @@ inductive TraceVariant
       (argument: EagerExpr)
       (history : History)
     | CallHead
-      (entity : EntityDefn)
+      (item : EntityDefn)
       (tokens : List TraceTokenData)

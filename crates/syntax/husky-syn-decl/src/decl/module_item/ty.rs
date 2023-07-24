@@ -19,7 +19,7 @@ pub use self::union::*;
 pub use self::unit_struct::*;
 
 use super::*;
-use husky_entity_taxonomy::{EntityKind, TypeKind};
+use husky_item_taxonomy::{EntityKind, TypeKind};
 use parsec::parse_separated_list2;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -118,14 +118,14 @@ impl<'a> DeclParser<'a> {
             Ast::Defn {
                 token_group_idx,
                 block: DefnBlock::Type { path, variants },
-                entity_kind,
+                item_kind,
                 saved_stream_state,
                 ..
             } => self.parse_ty_node_decl_aux(
                 syn_node_path,
                 ast_idx,
                 path.ty_kind(self.db()),
-                entity_kind,
+                item_kind,
                 token_group_idx,
                 variants,
                 saved_stream_state,
@@ -139,7 +139,7 @@ impl<'a> DeclParser<'a> {
         syn_node_path: TypeSynNodePath,
         ast_idx: AstIdx,
         type_kind: TypeKind,
-        _entity_kind: EntityKind,
+        _item_kind: EntityKind,
         token_group_idx: TokenGroupIdx,
         variants: Option<TypeVariants>,
         saved_stream_state: TokenStreamState,
@@ -363,6 +363,6 @@ pub(crate) fn ty_decl(db: &dyn SynDeclDb, path: TypePath) -> DeclResult<TypeSynD
 fn ty_decl_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let menu = db.entity_path_menu(toolchain);
+    let menu = db.item_path_menu(toolchain);
     assert!(menu.never_ty_path().syn_decl(&db).is_ok());
 }

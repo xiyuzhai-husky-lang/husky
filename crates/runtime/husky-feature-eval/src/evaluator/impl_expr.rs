@@ -1,7 +1,7 @@
 use crate::*;
 use husky_coword::IdentPairMap;
-use husky_entity_semantics::{CallFormSource, EntityDefnVariant};
 use husky_feature_gen::*;
+use husky_item_semantics::{CallFormSource, EntityDefnVariant};
 use husky_opn_semantics::ImplicitConversion;
 use husky_opr::BinaryPureClosedOpr;
 use husky_pattern_semantics::{PurePattern, PurePatternVariant};

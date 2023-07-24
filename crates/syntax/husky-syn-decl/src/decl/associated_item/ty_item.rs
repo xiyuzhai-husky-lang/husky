@@ -13,7 +13,7 @@ pub use self::method_fn::*;
 use super::*;
 use husky_ast::*;
 use husky_coword::{Ident, IdentPairMap};
-use husky_entity_taxonomy::TypeItemKind;
+use husky_item_taxonomy::TypeItemKind;
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -122,7 +122,7 @@ impl<'a> DeclParser<'a> {
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
-                entity_kind:
+                item_kind:
                     EntityKind::AssociatedItem {
                         associated_item_kind: AssociatedItemKind::TypeItem(item_kind),
                     },

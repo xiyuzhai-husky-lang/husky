@@ -1,10 +1,10 @@
 mod abstraction;
 mod application;
-mod as_trai_subentity;
+mod as_trai_item;
 mod constraint;
 mod curry;
+mod item;
 mod ritchie;
-mod subentity;
 mod symbol;
 mod variable;
 
@@ -12,11 +12,11 @@ use std::fmt::{Debug, Display};
 
 pub use self::abstraction::*;
 pub use self::application::*;
-pub use self::as_trai_subentity::*;
+pub use self::as_trai_item::*;
 pub use self::constraint::*;
 pub use self::curry::*;
+pub use self::item::*;
 pub use self::ritchie::*;
-pub use self::subentity::*;
 pub use self::symbol::*;
 pub use self::variable::*;
 
@@ -27,7 +27,7 @@ use husky_declarative_term::DeclarativeTerm;
 use husky_declarative_ty::{
     ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
 };
-use husky_entity_path::EntityPath;
+use husky_item_path::ItemPath;
 use salsa::{DebugWithDb, DisplayWithDb};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -35,7 +35,7 @@ use salsa::{DebugWithDb, DisplayWithDb};
 pub enum EtherealTerm {
     /// atoms
     ///
-    /// literal: 1,1.0, true, false; variable, entityPath
+    /// literal: 1,1.0, true, false; variable, itemPath
     Literal(TermLiteral),
     Symbol(EtherealTermSymbol),
     Variable(EtherealTermVariable),
@@ -64,9 +64,9 @@ pub enum EtherealTerm {
     /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
     Application(EtherealTermApplication),
     /// ::<ident>
-    Subentity(EtherealTermSubentity),
+    Subitem(EtherealTermSubitem),
     /// (<type> as <trait>)::<ident>
-    AsTraitSubentity(EtherealTermAsTraitSubentity),
+    AsTraitSubitem(EtherealTermAsTraitSubitem),
     /// <type> : <trait>
     TraitConstraint(EtherealTermTraitConstraint),
 }
@@ -225,16 +225,12 @@ impl EtherealTerm {
                     ty_expectation,
                 )?
             }
-            DeclarativeTerm::Subentity(declarative_term) => {
-                EtherealTermSubentity::from_declarative(db, declarative_term, ty_expectation)?
+            DeclarativeTerm::Subitem(declarative_term) => {
+                EtherealTermSubitem::from_declarative(db, declarative_term, ty_expectation)?
             }
-            DeclarativeTerm::AsTraitSubentity(declarative_term) => {
-                EtherealTermAsTraitSubentity::from_declarative(
-                    db,
-                    declarative_term,
-                    ty_expectation,
-                )?
-                .into()
+            DeclarativeTerm::AsTraitSubitem(declarative_term) => {
+                EtherealTermAsTraitSubitem::from_declarative(db, declarative_term, ty_expectation)?
+                    .into()
             }
             DeclarativeTerm::TraitConstraint(declarative_term) => {
                 EtherealTermTraitConstraint::from_declarative(db, declarative_term, ty_expectation)?
@@ -280,8 +276,8 @@ impl EtherealTerm {
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(_) => todo!(),
-            EtherealTerm::Subentity(_) => todo!(),
-            EtherealTerm::AsTraitSubentity(_) => todo!(),
+            EtherealTerm::Subitem(_) => todo!(),
+            EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }
@@ -308,8 +304,8 @@ impl EtherealTerm {
             EtherealTerm::Ritchie(term) => term.reduce(db).into(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => term.reduce(db),
-            EtherealTerm::Subentity(_) => todo!(),
-            EtherealTerm::AsTraitSubentity(_) => todo!(),
+            EtherealTerm::Subitem(_) => todo!(),
+            EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }
@@ -329,8 +325,8 @@ impl EtherealTerm {
         //     EtherealTerm::Curry(term) => term.substitute(db, substitution).into(),
         //     EtherealTerm::Abstraction(term) => term.substitute(db, substitution).into(),
         //     EtherealTerm::Application(term) => term.substitute(db, substitution).into(),
-        //     EtherealTerm::Subentity(term) => term.substitute(db, substitution).into(),
-        //     EtherealTerm::AsTraitSubentity(term) => term.substitute(db, substitution).into(),
+        //     EtherealTerm::Subitem(term) => term.substitute(db, substitution).into(),
+        //     EtherealTerm::AsTraitSubitem(term) => term.substitute(db, substitution).into(),
         //     EtherealTerm::TraitConstraint(term) => term.substitute(db, substitution).into(),
         //     EtherealTerm::Ritchie(_) => todo!(),
         // }
@@ -371,8 +367,8 @@ pub(crate) fn ethereal_term_from_declarative_term_explicit_application_or_ritchi
             DeclarativeTerm::Abstraction(_) => todo!(),
             DeclarativeTerm::ExplicitApplication(_) => todo!(),
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::Subentity(_) => todo!(),
-            DeclarativeTerm::AsTraitSubentity(_) => todo!(),
+            DeclarativeTerm::Subitem(_) => todo!(),
+            DeclarativeTerm::AsTraitSubitem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
@@ -511,8 +507,8 @@ impl EtherealTerm {
             EtherealTerm::Ritchie(term) => term.show_with_db_fmt(f, db, ctx),
             EtherealTerm::Abstraction(term) => term.show_with_db_fmt(f, db, ctx),
             EtherealTerm::Application(term) => term.show_with_db_fmt(f, db, ctx),
-            EtherealTerm::Subentity(term) => term.show_with_db_fmt(f, db, ctx),
-            EtherealTerm::AsTraitSubentity(term) => term.show_with_db_fmt(f, db, ctx),
+            EtherealTerm::Subitem(term) => term.show_with_db_fmt(f, db, ctx),
+            EtherealTerm::AsTraitSubitem(term) => term.show_with_db_fmt(f, db, ctx),
             EtherealTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
         }
     }
@@ -537,8 +533,8 @@ impl EtherealTermInstantiate for EtherealTerm {
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => term.instantiate(db, instantiation),
-            EtherealTerm::Subentity(_) => todo!(),
-            EtherealTerm::AsTraitSubentity(_) => todo!(),
+            EtherealTerm::Subitem(_) => todo!(),
+            EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }

@@ -63,7 +63,7 @@ impl DeclarativeTermMenu0 {
         // let sort = db.it_term(DeclarativeTermAtom::new_category(TermCategory::Sort).into());
         // let universe1 = db.it_term(DeclarativeTermAtom::new_universe(1).into());
         let _vfs_path_menu = db.vfs_path_menu(toolchain);
-        let entity_path_menu = db.entity_path_menu(toolchain);
+        let item_path_menu = db.item_path_menu(toolchain);
         let universe0 = TermUniverse::new(0);
         let universe1 = TermUniverse::new(1);
         DeclarativeTermMenu0 {
@@ -74,71 +74,69 @@ impl DeclarativeTermMenu0 {
             prop: TermCategory::new(universe0),
             ty0: TermCategory::new(universe1),
             core_ops_add: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_add_trai_path().into(),
+                item_path_menu.core_ops_add_trai_path().into(),
             ),
             // start here
-            // DeclarativeTerm::Entity(entity_path_menu.core_ops_())
+            // DeclarativeTerm::Entity(item_path_menu.core_ops_())
             core_ops_add_assign: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_add_assign_trai_path().into(),
+                item_path_menu.core_ops_add_assign_trai_path().into(),
             ),
             core_ops_bit_and: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_bit_and_trai_path().into(),
+                item_path_menu.core_ops_bit_and_trai_path().into(),
             ),
             core_ops_bit_and_assign: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_bit_and_assign_trai_path().into(),
+                item_path_menu.core_ops_bit_and_assign_trai_path().into(),
             ),
             core_ops_bit_or: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_bit_or_trai_path().into(),
+                item_path_menu.core_ops_bit_or_trai_path().into(),
             ),
             core_ops_bit_or_assign: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_bit_or_assign_trai_path().into(),
+                item_path_menu.core_ops_bit_or_assign_trai_path().into(),
             ),
             core_ops_bit_xor: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_bit_xor_trai_path().into(),
+                item_path_menu.core_ops_bit_xor_trai_path().into(),
             ),
             core_ops_bit_xor_assign: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_bit_xor_assign_trai_path().into(),
+                item_path_menu.core_ops_bit_xor_assign_trai_path().into(),
             ),
             core_ops_div: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_div_trai_path().into(),
+                item_path_menu.core_ops_div_trai_path().into(),
             ),
             core_ops_div_assign: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_div_assign_trai_path().into(),
+                item_path_menu.core_ops_div_assign_trai_path().into(),
             ),
             core_ops_mul: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_mul_trai_path().into(),
+                item_path_menu.core_ops_mul_trai_path().into(),
             ),
             core_ops_mul_assign: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_mul_assign_trai_path().into(),
+                item_path_menu.core_ops_mul_assign_trai_path().into(),
             ),
             core_ops_neg: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_neg_trai_path().into(),
+                item_path_menu.core_ops_neg_trai_path().into(),
             ),
             core_ops_not: DeclarativeTerm::EntityPath(
-                entity_path_menu.core_ops_not_trai_path().into(),
+                item_path_menu.core_ops_not_trai_path().into(),
             ),
-            option_ty_path: DeclarativeTermEntityPath::Type(entity_path_menu.option_ty_path())
-                .into(),
-            slice_ty_path: DeclarativeTermEntityPath::Type(entity_path_menu.slice_ty_path()).into(),
-            str_ty_path: DeclarativeTermEntityPath::Type(entity_path_menu.str_ty_path()).into(),
-            ref_ty_path: DeclarativeTermEntityPath::Type(entity_path_menu.ref_ty_path()).into(),
-            list_ty: DeclarativeTermEntityPath::Type(entity_path_menu.list_ty_path()).into(),
-            unit: DeclarativeTermEntityPath::Type(entity_path_menu.unit_ty_path()).into(),
-            never: DeclarativeTermEntityPath::Type(entity_path_menu.never_ty_path()).into(),
-            bool: DeclarativeTermEntityPath::Type(entity_path_menu.bool_ty_path()).into(),
-            trai_ty: DeclarativeTermEntityPath::Type(entity_path_menu.trai_ty_path()).into(),
-            leash_ty_path: entity_path_menu.leash_ty_path().into(),
-            lifetime_ty: DeclarativeTermEntityPath::Type(entity_path_menu.lifetime_ty_path())
-                .into(),
-            module: DeclarativeTermEntityPath::Type(entity_path_menu.module_ty_path()).into(),
-            i8: DeclarativeTermEntityPath::Type(entity_path_menu.i8_ty_path()).into(),
-            i16: DeclarativeTermEntityPath::Type(entity_path_menu.i16_ty_path()).into(),
-            i32: DeclarativeTermEntityPath::Type(entity_path_menu.i32_ty_path()).into(),
-            i64: DeclarativeTermEntityPath::Type(entity_path_menu.i64_ty_path()).into(),
-            f32: DeclarativeTermEntityPath::Type(entity_path_menu.f32_ty_path()).into(),
-            f64: DeclarativeTermEntityPath::Type(entity_path_menu.f64_ty_path()).into(),
-            r32: DeclarativeTermEntityPath::Type(entity_path_menu.r32_ty_path()).into(),
-            r64: DeclarativeTermEntityPath::Type(entity_path_menu.r64_ty_path()).into(),
+            option_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.option_ty_path()).into(),
+            slice_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.slice_ty_path()).into(),
+            str_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.str_ty_path()).into(),
+            ref_ty_path: DeclarativeTermEntityPath::Type(item_path_menu.ref_ty_path()).into(),
+            list_ty: DeclarativeTermEntityPath::Type(item_path_menu.list_ty_path()).into(),
+            unit: DeclarativeTermEntityPath::Type(item_path_menu.unit_ty_path()).into(),
+            never: DeclarativeTermEntityPath::Type(item_path_menu.never_ty_path()).into(),
+            bool: DeclarativeTermEntityPath::Type(item_path_menu.bool_ty_path()).into(),
+            trai_ty: DeclarativeTermEntityPath::Type(item_path_menu.trai_ty_path()).into(),
+            leash_ty_path: item_path_menu.leash_ty_path().into(),
+            lifetime_ty: DeclarativeTermEntityPath::Type(item_path_menu.lifetime_ty_path()).into(),
+            module: DeclarativeTermEntityPath::Type(item_path_menu.module_ty_path()).into(),
+            i8: DeclarativeTermEntityPath::Type(item_path_menu.i8_ty_path()).into(),
+            i16: DeclarativeTermEntityPath::Type(item_path_menu.i16_ty_path()).into(),
+            i32: DeclarativeTermEntityPath::Type(item_path_menu.i32_ty_path()).into(),
+            i64: DeclarativeTermEntityPath::Type(item_path_menu.i64_ty_path()).into(),
+            f32: DeclarativeTermEntityPath::Type(item_path_menu.f32_ty_path()).into(),
+            f64: DeclarativeTermEntityPath::Type(item_path_menu.f64_ty_path()).into(),
+            r32: DeclarativeTermEntityPath::Type(item_path_menu.r32_ty_path()).into(),
+            r64: DeclarativeTermEntityPath::Type(item_path_menu.r64_ty_path()).into(),
         }
     }
 

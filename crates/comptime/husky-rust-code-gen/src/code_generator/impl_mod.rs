@@ -2,28 +2,28 @@ use super::*;
 
 impl<'a> RustCodeGenerator<'a> {
     pub(crate) fn gen_mod_rs_content(&mut self, subentities: &[Arc<EntityDefn>]) {
-        for entity in subentities.iter() {
-            match entity.variant {
+        for item in subentities.iter() {
+            match item.variant {
                 EntityDefnVariant::Module { .. } => {
                     self.write("pub(crate) mod ");
-                    self.write(&entity.ident);
+                    self.write(&item.ident);
                     self.write(";\n");
                 }
                 EntityDefnVariant::Feature { ref defn_repr } => {
-                    self.gen_val_defn(entity.base_route, defn_repr)
+                    self.gen_val_defn(item.base_route, defn_repr)
                 }
                 EntityDefnVariant::Func {
                     ref parameters,
                     output,
                     ref stmts,
                     ..
-                } => self.gen_func_defn(0, entity.base_route, parameters, output.route, stmts),
+                } => self.gen_func_defn(0, item.base_route, parameters, output.route, stmts),
                 EntityDefnVariant::Proc {
                     ref parameters,
                     output,
                     ref stmts,
                     ..
-                } => self.gen_proc_defn(0, entity.base_route, parameters, output.route, stmts),
+                } => self.gen_proc_defn(0, item.base_route, parameters, output.route, stmts),
                 EntityDefnVariant::EtherealTerm {
                     ref ty_members,
                     ref variants,
@@ -32,11 +32,11 @@ impl<'a> RustCodeGenerator<'a> {
                     ..
                 } => match kind {
                     TyKind::Enum => {
-                        self.gen_enum_defn(entity.base_route, entity.ident.custom(), variants)
+                        self.gen_enum_defn(item.base_route, item.ident.custom(), variants)
                     }
                     TyKind::Struct => self.gen_struct_defn(
-                        entity.base_route,
-                        entity.ident.custom(),
+                        item.base_route,
+                        item.ident.custom(),
                         ty_members,
                         trait_impls,
                     ),

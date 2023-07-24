@@ -3,7 +3,7 @@ Ok(
         [salsa id]: 6,
         decls: [
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::fmt::Debug`),
                     ),
@@ -32,7 +32,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {

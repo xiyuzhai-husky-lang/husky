@@ -1,4 +1,4 @@
-use husky_entity_tree::*;
+use husky_item_tree::*;
 use husky_syn_expr::*;
 
 use super::*;
@@ -120,14 +120,10 @@ impl SymbolDeclarativeTermRegion {
                 ))) => Some(self.new_self_ty_term_parameter_symbol(db)),
                 RegionPath::Decl(EntitySynNodePath::ModuleItem(ModuleItemSynNodePath::Type(
                     ty_node_path,
-                ))) => Some(
-                    self.ty_defn_self_ty_term(
-                        db,
-                        ty_node_path
-                            .path(db)
-                            .expect("should have valid entity path"),
-                    ),
-                ),
+                ))) => Some(self.ty_defn_self_ty_term(
+                    db,
+                    ty_node_path.path(db).expect("should have valid item path"),
+                )),
                 RegionPath::Decl(EntitySynNodePath::ImplBlock(syn_node_path)) => {
                     match syn_node_path {
                         ImplBlockSynNodePath::TypeImplBlock(syn_node_path) => {

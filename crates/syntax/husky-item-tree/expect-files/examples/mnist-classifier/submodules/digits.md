@@ -1,0 +1,34 @@
+Ok(
+    [
+        SubmodulePath(
+            `mnist_classifier::digits::zero`,
+        ),
+        SubmodulePath(
+            `mnist_classifier::digits::one`,
+        ),
+        SubmodulePath(
+            `mnist_classifier::digits::six`,
+        ),
+        SubmodulePath(
+            `mnist_classifier::digits::three`,
+        ),
+        SubmodulePath(
+            `mnist_classifier::digits::four`,
+        ),
+        SubmodulePath(
+            `mnist_classifier::digits::five`,
+        ),
+        SubmodulePath(
+            `mnist_classifier::digits::seven`,
+        ),
+        SubmodulePath(
+            `mnist_classifier::digits::eight`,
+        ),
+        SubmodulePath(
+            `mnist_classifier::digits::nine`,
+        ),
+        SubmodulePath(
+            `mnist_classifier::digits::two`,
+        ),
+    ],
+)

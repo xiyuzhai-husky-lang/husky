@@ -1,6 +1,6 @@
 DiagnosticSheet {
     [salsa id]: 35,
-    entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
+    item_tree_diagnostic_sheet: EntityTreeDiagnosticSheet {
         diagnostics: [],
     },
     token_diagnostic_sheet: TokenDiagnosticSheet {

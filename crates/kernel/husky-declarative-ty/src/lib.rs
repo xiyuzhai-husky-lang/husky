@@ -4,7 +4,7 @@ mod db;
 mod error;
 mod field;
 mod method;
-mod principal_entity_path;
+mod principal_item_path;
 mod term;
 #[cfg(test)]
 mod tests;
@@ -14,7 +14,7 @@ pub use self::db::*;
 pub use self::error::*;
 pub use self::field::*;
 pub use self::method::*;
-pub use self::principal_entity_path::*;
+pub use self::principal_item_path::*;
 pub use self::term::*;
 
 #[cfg(test)]
@@ -23,7 +23,7 @@ use self::variance::*;
 use husky_coword::*;
 use husky_declarative_signature::*;
 use husky_declarative_term::*;
-use husky_entity_path::*;
+use husky_item_path::*;
 use husky_syn_decl::HasSynDecl;
 use husky_term_prelude::*;
 use map_collect::*;
@@ -36,15 +36,15 @@ pub struct DeclarativeTypeJar(
     form_path_declarative_ty,
     ty_implicit_parameter_variances,
     ty_implicit_parameter_variance_reprs,
-    declarative_ty_entity_variance_crate_dependencies,
-    trai_entity_variances,
-    trai_entity_variance_reprs,
-    trai_entity_variance_crate_dependencies,
-    form_entity_variances,
-    form_entity_variance_reprs,
-    form_entity_variance_crate_dependencies,
-    ty_item_entity_variances,
-    ty_item_entity_variance_reprs,
+    declarative_ty_item_variance_crate_dependencies,
+    trai_item_variances,
+    trai_item_variance_reprs,
+    trai_item_variance_crate_dependencies,
+    form_item_variances,
+    form_item_variance_reprs,
+    form_item_variance_crate_dependencies,
+    ty_item_item_variances,
+    ty_item_item_variance_reprs,
     application_expansion_salsa,
     EtherealApplicationArguments,
     ty_path_ty_method_declarative_ty,

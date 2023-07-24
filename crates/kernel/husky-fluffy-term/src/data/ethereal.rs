@@ -38,8 +38,8 @@ pub(super) fn ethereal_term_data<'a>(
         EtherealTerm::Ritchie(term) => term_ritchie_fluffy_data(db, term).as_ref(),
         EtherealTerm::Abstraction(_) => todo!(),
         EtherealTerm::Application(term) => term_application_fluffy_data(db, term).as_ref(),
-        EtherealTerm::Subentity(_) => todo!(),
-        EtherealTerm::AsTraitSubentity(_) => todo!(),
+        EtherealTerm::Subitem(_) => todo!(),
+        EtherealTerm::AsTraitSubitem(_) => todo!(),
         EtherealTerm::TraitConstraint(_) => todo!(),
     }
 }

@@ -29,9 +29,9 @@ impl<'a> ExprTypeEngine<'a> {
         match self.expr_region_data[expr_idx] {
             SynExpr::Literal(_, _) => todo!(),
             SynExpr::PrincipalEntityPath {
-                entity_path_expr,
+                item_path_expr,
                 opt_path,
-            } => self.calc_entity_path_term(expr_idx, opt_path),
+            } => self.calc_item_path_term(expr_idx, opt_path),
             SynExpr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,
@@ -137,7 +137,7 @@ impl<'a> ExprTypeEngine<'a> {
         }
     }
 
-    fn calc_entity_path_term(
+    fn calc_item_path_term(
         &mut self,
         expr_idx: SynExprIdx,
         path: Option<PrincipalEntityPath>,

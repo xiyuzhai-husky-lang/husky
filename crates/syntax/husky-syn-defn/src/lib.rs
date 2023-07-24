@@ -12,11 +12,11 @@ pub use self::error::*;
 
 use self::collector::*;
 use husky_ast::*;
-use husky_entity_path::*;
-use husky_entity_tree::*;
+use husky_item_path::*;
+use husky_item_tree::*;
 use husky_syn_decl::*;
 use husky_syn_expr::*;
-use husky_vfs::ModulePath;
+use husky_vfs::{ModulePath, SubmodulePath};
 use salsa::DbWithJar;
 
 #[salsa::jar(db = SynDefnDb)]

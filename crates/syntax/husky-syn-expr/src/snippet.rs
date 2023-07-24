@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
+use husky_item_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 use husky_vfs::CratePath;
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]

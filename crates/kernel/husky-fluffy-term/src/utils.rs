@@ -137,8 +137,8 @@ fn curry_destination(db: &dyn EtherealTermDb, term: EtherealTerm) -> EtherealTer
         EtherealTerm::Ritchie(_) => todo!(),
         EtherealTerm::Abstraction(_) => todo!(),
         EtherealTerm::Application(_) => term,
-        EtherealTerm::Subentity(_) => todo!(),
-        EtherealTerm::AsTraitSubentity(_) => todo!(),
+        EtherealTerm::Subitem(_) => todo!(),
+        EtherealTerm::AsTraitSubitem(_) => todo!(),
         EtherealTerm::TraitConstraint(_) => todo!(),
     }
 }

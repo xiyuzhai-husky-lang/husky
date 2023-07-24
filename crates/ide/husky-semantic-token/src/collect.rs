@@ -1,5 +1,5 @@
-use husky_entity_taxonomy::{EntityKind, ModuleItemConnectionKind, ModuleItemKind, TypeKind};
-use husky_entity_tree::OnceUseRuleState;
+use husky_item_taxonomy::{EntityKind, ModuleItemConnectionKind, ModuleItemKind, TypeKind};
+use husky_item_tree::OnceUseRuleState;
 use husky_syn_expr::{CurrentSynSymbolKind, InheritedSynSymbolKind};
 
 use crate::*;
@@ -7,7 +7,7 @@ use crate::*;
 pub(crate) fn collect_semantic_tokens(
     db: &dyn SemanticTokenDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<RangedSemanticToken>> {
+) -> ItemSynTreeResult<Vec<RangedSemanticToken>> {
     let ranged_token_sheet = db.ranged_token_sheet(module_path)?;
     let _token_sheet_data = db.token_sheet_data(module_path)?;
     let token_infer_sheet = db.token_info_sheet(module_path)?;
@@ -36,8 +36,8 @@ fn token_to_semantic_token(
             Token::Literal(_) => SemanticToken::Literal,
             Token::Error(_) => return None,
         },
-        TokenInfo::Entity(path) => SemanticToken::Entity(path.entity_kind(db)),
-        TokenInfo::EntityNode(path, entity_kind) => SemanticToken::Entity(*entity_kind),
+        TokenInfo::Entity(path) => SemanticToken::Entity(path.item_kind(db)),
+        TokenInfo::EntityNode(path, item_kind) => SemanticToken::Entity(*item_kind),
         TokenInfo::CurrentSymbol {
             current_symbol_kind,
             ..
@@ -70,7 +70,7 @@ fn token_to_semantic_token(
         TokenInfo::UseExpr { state, .. } => match state {
             OnceUseRuleState::Resolved {
                 original_symbol: Some(original_symbol),
-            } => SemanticToken::Entity(original_symbol.path(db).entity_kind(db)),
+            } => SemanticToken::Entity(original_symbol.path(db).item_kind(db)),
             _ => return None,
         },
         TokenInfo::UseExprStar => SemanticToken::Special,

@@ -50,7 +50,7 @@ impl HirDefn {
 }
 
 impl HirDefn {
-    pub fn path(self, db: &dyn HirDefnDb) -> Option<EntityPath> {
+    pub fn path(self, db: &dyn HirDefnDb) -> Option<ItemPath> {
         todo!()
         // match self {
         //     HirDefn::Type(hir_defn) => Some(hir_defn.path(db).into()),
@@ -69,16 +69,16 @@ pub trait HasHirDefn: Copy {
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn;
 }
 
-impl HasHirDefn for EntityPath {
+impl HasHirDefn for ItemPath {
     type HirDefn = HirDefn;
 
     fn hir_defn(self, db: &dyn HirDefnDb) -> Self::HirDefn {
         match self {
-            EntityPath::Module(path) => path.hir_defn(db).into(),
-            EntityPath::ModuleItem(path) => path.hir_defn(db).into(),
-            EntityPath::ImplBlock(path) => path.hir_defn(db).into(),
-            EntityPath::AssociatedItem(path) => path.hir_defn(db).into(),
-            EntityPath::TypeVariant(_) => todo!(),
+            ItemPath::Submodule(path) => path.hir_defn(db).into(),
+            ItemPath::ModuleItem(path) => path.hir_defn(db).into(),
+            ItemPath::ImplBlock(path) => path.hir_defn(db).into(),
+            ItemPath::AssociatedItem(path) => path.hir_defn(db).into(),
+            ItemPath::TypeVariant(_) => todo!(),
         }
     }
 }
@@ -86,7 +86,7 @@ impl HasHirDefn for EntityPath {
 #[salsa::tracked(jar = HirDefnJar, return_ref)]
 pub(crate) fn module_hir_defns(db: &dyn HirDefnDb, module_path: ModulePath) -> Vec<HirDefn> {
     todo!()
-    // module_entity_paths(db, module_path)
+    // module_item_paths(db, module_path)
     //     .as_ref()?
     //     .iter()
     //     .copied()

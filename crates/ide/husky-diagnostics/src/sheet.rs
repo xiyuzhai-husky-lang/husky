@@ -6,20 +6,20 @@ mod expr;
 mod expr_ty;
 mod token;
 
-pub(crate) use ast::*;
-pub(crate) use decl::*;
-pub(crate) use defn::*;
-pub(crate) use entity_tree::*;
-pub(crate) use expr::*;
-pub(crate) use expr_ty::*;
+pub(crate) use self::ast::*;
+pub(crate) use self::decl::*;
+pub(crate) use self::defn::*;
+pub(crate) use self::entity_tree::*;
+pub(crate) use self::expr::*;
+pub(crate) use self::expr_ty::*;
+pub(crate) use self::token::*;
 use husky_print_utils::p;
-pub(crate) use token::*;
 
 use crate::*;
 
 #[salsa::tracked(db = DiagnosticsDb, jar = DiagnosticsJar)]
 pub struct DiagnosticSheet {
-    pub entity_tree_diagnostic_sheet: EntityTreeDiagnosticSheet,
+    pub item_tree_diagnostic_sheet: EntityTreeDiagnosticSheet,
     pub token_diagnostic_sheet: TokenDiagnosticSheet,
     pub ast_diagnostic_sheet: AstDiagnosticSheet,
     pub expr_diagnostic_sheet: ExprDiagnosticSheet,
@@ -32,7 +32,7 @@ pub struct DiagnosticSheet {
 pub(crate) fn diagnostic_sheet(db: &dyn DiagnosticsDb, module_path: ModulePath) -> DiagnosticSheet {
     DiagnosticSheet::new(
         db,
-        entity_tree_diagnostic_sheet(db, module_path),
+        item_tree_diagnostic_sheet(db, module_path),
         token_diagnostic_sheet(db, module_path),
         ast_diagnostic_sheet(db, module_path),
         expr_diagnostic_sheet(db, module_path),
@@ -47,7 +47,7 @@ impl DiagnosticSheet {
         self,
         db: &'a dyn DiagnosticsDb,
     ) -> impl Iterator<Item = &'a Diagnostic> + 'a {
-        self.entity_tree_diagnostic_sheet(db)
+        self.item_tree_diagnostic_sheet(db)
             .diagnostics(db)
             .iter()
             .chain(self.token_diagnostic_sheet(db).diagnostics(db).iter())

@@ -1,4 +1,4 @@
-use husky_entity_semantics::CallFormSource;
+use husky_item_semantics::CallFormSource;
 
 use super::*;
 
@@ -20,7 +20,7 @@ impl<'a> RustCodeGenerator<'a> {
         //     ParameterModifier::MemberAccess => todo!(),
         //     ParameterModifier::TempRef => todo!(),
         // }
-        // self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
+        // self.gen_item_route(parameter.ty(), EntityRouteRole::Decl);
     }
 
     pub(crate) fn gen_call_form_source(&mut self, source: &CallFormSource) {

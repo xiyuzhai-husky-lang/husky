@@ -28,20 +28,19 @@ impl<'a> Graph for VarianceGraph<'a> {
 }
 
 impl<'a> VarianceGraph<'a> {
-    pub(super) fn new(db: &'a dyn DeclarativeTypeDb, path: EntityPath) -> VarianceResult<Self> {
-        let Ok(entity_variance_reprs) = entity_variance_reprs(db, path)
-            else {
-                todo!()
-            };
+    pub(super) fn new(db: &'a dyn DeclarativeTypeDb, path: ItemPath) -> VarianceResult<Self> {
+        let Ok(item_variance_reprs) = item_variance_reprs(db, path) else {
+            todo!()
+        };
         let mut ids: VecSet<VarianceId> = Default::default();
-        let nodes = entity_variance_reprs
+        let nodes = item_variance_reprs
             .iter()
             .map(|repr| VarianceGraphNode::new(&mut ids, repr))
             .collect();
         let mut this = Self {
             ids,
             nodes,
-            original_len: entity_variance_reprs.len(),
+            original_len: item_variance_reprs.len(),
         };
         this.init();
         Ok(this)

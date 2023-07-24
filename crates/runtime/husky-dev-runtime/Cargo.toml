@@ -27,10 +27,10 @@ husky-coword = { path = "../../kernel/husky-coword" }
 husky-token = { path = "../../lex/husky-token" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-syn-fmt = { path = "../../syntax/husky-syn-fmt" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
 # infer
 # comptime
 husky-layout = { path = "../../comptime/husky-layout" }

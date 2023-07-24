@@ -1,7 +1,7 @@
 use crate::*;
 use husky_coword::RootBuiltinIdent;
-use husky_entity_semantics::{Visualizer, VisualizerVariant};
 use husky_ethereal_term::EtherealTerm;
+use husky_item_semantics::{Visualizer, VisualizerVariant};
 use husky_vm::__VMResult;
 
 pub(crate) fn visual_feature_lazy_block(

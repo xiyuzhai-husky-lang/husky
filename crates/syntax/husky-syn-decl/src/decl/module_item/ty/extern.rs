@@ -87,7 +87,7 @@ impl ExternTypeSynDecl {
 fn extern_ty_decl_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let entity_path_menu = db.entity_path_menu(toolchain);
-    let array_ty_decl = entity_path_menu.array_ty_path().syn_decl(&db).unwrap();
+    let item_path_menu = db.item_path_menu(toolchain);
+    let array_ty_decl = item_path_menu.array_ty_path().syn_decl(&db).unwrap();
     assert_eq!(array_ty_decl.generic_parameters(&db).len(), 2);
 }

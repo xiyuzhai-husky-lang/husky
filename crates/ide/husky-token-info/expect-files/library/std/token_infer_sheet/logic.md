@@ -11,7 +11,7 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::UniversalPrelude {
-                            entity_path: PrincipalEntityPath::Module(
+                            item_path: PrincipalEntityPath::Module(
                                 `core`,
                             ),
                         },
@@ -27,7 +27,7 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::PackageDependency {
-                            entity_path: PrincipalEntityPath::Module(
+                            item_path: PrincipalEntityPath::Module(
                                 `core::logic`,
                             ),
                         },

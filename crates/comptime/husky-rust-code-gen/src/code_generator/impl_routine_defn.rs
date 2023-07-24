@@ -1,7 +1,7 @@
 use fold::Indent;
 use husky_eager_semantics::{FuncStmt, ProcStmt};
-use husky_entity_semantics::DefinitionRepr;
 use husky_ethereal_term::EtherealTerm;
+use husky_item_semantics::DefinitionRepr;
 
 use super::*;
 
@@ -36,7 +36,7 @@ impl<'a> RustCodeGenerator<'a> {
                 false => "",
             },
         ));
-        self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
+        self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
         if is_output_option {
             self.write(">")
         }
@@ -76,7 +76,7 @@ impl<'a> RustCodeGenerator<'a> {
                 false => "",
             },
         ));
-        self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
+        self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
         if is_output_option {
             self.write(">")
         }
@@ -110,10 +110,10 @@ impl<'a> RustCodeGenerator<'a> {
         todo!()
         // let needs_eval_context: bool = self.db.needs_eval_context(base_route);
         // let needs_eval_ref = (needs_eval_context
-        //     || self.db.entity_route_variant_contains_eval_ref(base_route))
+        //     || self.db.item_route_variant_contains_eval_ref(base_route))
         //     && !self
         //         .db
-        //         .entity_route_variant_contains_eval_ref(base_route.parent());
+        //         .item_route_variant_contains_eval_ref(base_route.parent());
         // self.write("\n");
         // self.indent(indent);
         // self.write("pub(crate) fn ");
@@ -142,7 +142,7 @@ impl<'a> RustCodeGenerator<'a> {
         //         ParameterModifier::MemberAccess => todo!(),
         //         ParameterModifier::TempRef => todo!(),
         //     }
-        //     self.gen_entity_route(parameter.ty(), EntityRouteRole::Decl);
+        //     self.gen_item_route(parameter.ty(), EntityRouteRole::Decl);
         // }
         // msg_once!("todo: keyword arguments, variadics");
         // if needs_eval_context {
@@ -152,7 +152,7 @@ impl<'a> RustCodeGenerator<'a> {
         //     self.write("__ctx: &dyn __EvalContext<'eval>");
         // }
         // self.write(") -> ");
-        // self.gen_entity_route(output, EntityRouteRole::Decl);
+        // self.gen_item_route(output, EntityRouteRole::Decl);
         // self.write(" {\n");
         // self.gen_proc_stmts(stmts);
         // self.indent(indent);
@@ -169,10 +169,10 @@ impl<'a> RustCodeGenerator<'a> {
     ) {
         let needs_eval_context: bool = self.db.needs_eval_context(base_route);
         let needs_eval_ref = needs_eval_context
-            || self.db.entity_route_variant_contains_eval_ref(base_route)
+            || self.db.item_route_variant_contains_eval_ref(base_route)
                 && !self
                     .db
-                    .entity_route_variant_contains_eval_ref(base_route.parent());
+                    .item_route_variant_contains_eval_ref(base_route.parent());
         self.indent(indent);
         self.write("pub(crate) fn ");
         let ident = base_route.ident();
@@ -195,7 +195,7 @@ impl<'a> RustCodeGenerator<'a> {
             self.write("__ctx: &dyn __EvalContext<'eval>");
         }
         self.write(") -> ");
-        self.gen_entity_route(output, EntityRouteRole::Decl);
+        self.gen_item_route(output, EntityRouteRole::Decl);
         self.write(" {\n");
         self.gen_func_stmts(stmts);
         self.indent(indent);

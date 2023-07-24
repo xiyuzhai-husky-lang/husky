@@ -3,78 +3,106 @@ Ok(
         [salsa id]: 25,
         decls: [
             (
-                EntityPath::Module(
-                    `mnist_classifier::connected_component`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `mnist_classifier::connected_component`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `mnist_classifier::connected_component`,
+                        path: SubmodulePath(
+                            `mnist_classifier::connected_component`,
+                        ),
                         ast_idx: 11,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `mnist_classifier::raw_contour`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `mnist_classifier::raw_contour`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `mnist_classifier::raw_contour`,
+                        path: SubmodulePath(
+                            `mnist_classifier::raw_contour`,
+                        ),
                         ast_idx: 12,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `mnist_classifier::geom2d`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `mnist_classifier::geom2d`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `mnist_classifier::geom2d`,
+                        path: SubmodulePath(
+                            `mnist_classifier::geom2d`,
+                        ),
                         ast_idx: 13,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `mnist_classifier::line_segment_sketch`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `mnist_classifier::line_segment_sketch`,
+                        path: SubmodulePath(
+                            `mnist_classifier::line_segment_sketch`,
+                        ),
                         ast_idx: 14,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `mnist_classifier::fermi`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `mnist_classifier::fermi`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `mnist_classifier::fermi`,
+                        path: SubmodulePath(
+                            `mnist_classifier::fermi`,
+                        ),
                         ast_idx: 15,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `mnist_classifier::digits`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `mnist_classifier::digits`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `mnist_classifier::digits`,
+                        path: SubmodulePath(
+                            `mnist_classifier::digits`,
+                        ),
                         ast_idx: 16,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `mnist_classifier::major`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `mnist_classifier::major`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `mnist_classifier::major`,
+                        path: SubmodulePath(
+                            `mnist_classifier::major`,
+                        ),
                         ast_idx: 17,
                     },
                 ),

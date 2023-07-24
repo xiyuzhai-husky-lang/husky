@@ -4,7 +4,7 @@ pub use derive::*;
 
 use crate::*;
 use husky_ast::{AstIdx, DecrId};
-use husky_entity_tree::{EntitySynTreeResult, HasSynNodePath};
+use husky_item_tree::{HasSynNodePath, ItemSynTreeResult};
 use husky_print_utils::p;
 use husky_scope::ReferenceModulePath;
 use salsa::DebugWithDb;
@@ -18,7 +18,7 @@ pub enum Decr {
 impl Decr {
     fn new(
         db: &dyn DecrDb,
-        entity_path: EntityPath,
+        item_path: ItemPath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         decr_id: DecrId,
@@ -28,7 +28,7 @@ impl Decr {
         Ok(if decr_ident == coword_menu.derive_ident() {
             Decr::Derive(DeriveDecr::new(
                 db,
-                entity_path,
+                item_path,
                 ast_idx,
                 token_group_idx,
                 decr_id,

@@ -18,7 +18,7 @@ use crate::*;
 use disambiguate_token::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
-use husky_entity_tree::*;
+use husky_item_tree::*;
 use husky_token::Token;
 use husky_token::TokenStream;
 use husky_vfs::{ModulePath, Toolchain};
@@ -32,7 +32,7 @@ macro_rules! report {
     ($self: expr) => {{
         p!(
             $self.stack,
-            $self.parser.entity_path.debug($self.db()) // $self.token_stream.text_range()
+            $self.parser.item_path.debug($self.db()) // $self.token_stream.text_range()
         );
     }};
 }
@@ -48,7 +48,7 @@ pub struct ExprParser<'a> {
     parent_expr_region: Option<SynExprRegion>,
     symbol_context: SymbolContextMut<'a>,
     expr_arena: SynExprArena,
-    principal_entity_path_expr_arena: PrincipalEntityPathSynExprArena,
+    principal_item_path_expr_arena: PrincipalEntityPathSynExprArena,
     pattern_expr_region: PatternSynExprRegion,
     stmt_arena: SynStmtArena,
     expr_roots: Vec<SynExprRoot>,
@@ -79,7 +79,7 @@ impl<'a> ExprParser<'a> {
                 allow_self_value,
             ),
             expr_arena: Default::default(),
-            principal_entity_path_expr_arena: Default::default(),
+            principal_item_path_expr_arena: Default::default(),
             pattern_expr_region: Default::default(),
             stmt_arena: Default::default(),
             expr_roots: vec![],
@@ -92,7 +92,7 @@ impl<'a> ExprParser<'a> {
             self.parent_expr_region,
             self.path,
             self.expr_arena,
-            self.principal_entity_path_expr_arena,
+            self.principal_item_path_expr_arena,
             self.pattern_expr_region,
             self.stmt_arena,
             self.expr_roots,
@@ -188,10 +188,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             self.env_stack.set(env);
         }
         loop {
-            let Some((token_idx, token)) = self.token_stream.next_indexed()
-                else {
-                    break
-                };
+            let Some((token_idx, token)) = self.token_stream.next_indexed() else {
+                break;
+            };
             match self.disambiguate_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
@@ -219,10 +218,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             self.env_stack.set(env);
         }
         loop {
-            let Some((token_idx, token)) = self.token_stream.next_indexed()
-                else {
-                    break
-                };
+            let Some((token_idx, token)) = self.token_stream.next_indexed() else {
+                break;
+            };
             match self.disambiguate_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {
@@ -252,10 +250,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
             self.env_stack.set(env);
         }
         loop {
-            let Some((token_idx, token)) = self.token_stream.next_indexed()
-                else {
-                    break
-                };
+            let Some((token_idx, token)) = self.token_stream.next_indexed() else {
+                break;
+            };
             match self.disambiguate_token(token_idx, token) {
                 ControlFlow::Continue(resolved_token) => self.accept_token(resolved_token),
                 ControlFlow::Break(_) => {

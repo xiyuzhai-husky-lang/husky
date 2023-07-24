@@ -75,8 +75,8 @@ fn calc_declarative_term_symbols(
             declarative_term_application_symbols(db, declarative_term)
         }
         DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
-        DeclarativeTerm::Subentity(_) => todo!(),
-        DeclarativeTerm::AsTraitSubentity(_) => todo!(),
+        DeclarativeTerm::Subitem(_) => todo!(),
+        DeclarativeTerm::AsTraitSubitem(_) => todo!(),
         DeclarativeTerm::TraitConstraint(_) => todo!(),
         DeclarativeTerm::LeashOrBitNot(_) => todo!(),
         DeclarativeTerm::List(_) => todo!(),

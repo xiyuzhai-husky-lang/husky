@@ -92,7 +92,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Inductive,
                         ),
@@ -177,7 +177,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Structure,
                         ),
@@ -219,7 +219,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Structure,
                         ),

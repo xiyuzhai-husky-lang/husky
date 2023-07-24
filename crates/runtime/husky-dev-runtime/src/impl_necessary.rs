@@ -1,5 +1,5 @@
 use husky_data_viewer::DataViewerDb;
-use husky_entity_semantics::StoreEntityRoute;
+use husky_item_semantics::StoreEntityRoute;
 use husky_vm::InterpreterQueryGroup;
 use upcast::Upcast;
 
@@ -20,14 +20,14 @@ impl Upcast<dyn InstructionDb> for DevRuntime {
 }
 
 impl InterpreterQueryGroup for DevRuntime {
-    fn entity_opt_instruction_sheet_by_uid(
+    fn item_opt_instruction_sheet_by_uid(
         &self,
         uid: husky_vm::EntityUid,
     ) -> Option<Arc<husky_vm::InstructionSheet>> {
         todo!()
-        // let entity_path = self.entity_route_by_uid(uid);
-        // self.entity_instruction_sheet(entity_path)
-        // self.comptime.entity_opt_instruction_sheet_by_uid(uid)
+        // let item_path = self.item_route_by_uid(uid);
+        // self.item_instruction_sheet(item_path)
+        // self.comptime.item_opt_instruction_sheet_by_uid(uid)
     }
 }
 

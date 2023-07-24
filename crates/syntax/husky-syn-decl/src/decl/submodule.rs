@@ -33,7 +33,7 @@ pub(crate) fn submodule_syn_node_decl(
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SubmoduleSynDecl {
     #[id]
-    pub path: ModulePath,
+    pub path: SubmodulePath,
     pub ast_idx: AstIdx,
 }
 
@@ -41,7 +41,7 @@ impl SubmoduleSynDecl {
     #[inline(always)]
     fn from_node_decl(
         db: &dyn SynDeclDb,
-        path: ModulePath,
+        path: SubmodulePath,
         syn_node_decl: SubmoduleSynNodeDecl,
     ) -> Self {
         Self::new(db, path, syn_node_decl.ast_idx(db))
@@ -50,7 +50,7 @@ impl SubmoduleSynDecl {
 
 // actually it only works for nonroot module path
 // but rust doesn't provide refinement type
-impl HasSynDecl for ModulePath {
+impl HasSynDecl for SubmodulePath {
     type Decl = SubmoduleSynDecl;
 
     fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
@@ -59,7 +59,10 @@ impl HasSynDecl for ModulePath {
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn submodule_decl(db: &dyn SynDeclDb, path: ModulePath) -> DeclResult<SubmoduleSynDecl> {
+pub(crate) fn submodule_decl(
+    db: &dyn SynDeclDb,
+    path: SubmodulePath,
+) -> DeclResult<SubmoduleSynDecl> {
     let syn_node_path = path.syn_node_path(db);
     let syn_node_decl = syn_node_path.syn_node_decl(db);
     Ok(SubmoduleSynDecl::from_node_decl(db, path, syn_node_decl))

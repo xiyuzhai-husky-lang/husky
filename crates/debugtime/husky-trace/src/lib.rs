@@ -11,8 +11,8 @@
 
 // use husky_comptime::*;
 // use husky_eager_semantics::*;
-// use husky_entity_path::EntityPath;
-// use husky_entity_semantics::*;
+// use husky_item_path::EntityPath;
+// use husky_item_semantics::*;
 // use husky_feature_eval::EvalFeature;
 // use husky_feature_gen::*;
 // use EntityPath;
@@ -35,12 +35,12 @@
 // pub enum TraceVariant {
 //     Main(FeatureRepr),
 //     Module {
-//         entity_path: EntityPath,
+//         item_path: EntityPath,
 //         file: DiffPath,
 //         range: TextRange,
 //     },
 //     EntityFeature {
-//         entity_path: EntityPath,
+//         item_path: EntityPath,
 //         repr: FeatureRepr,
 //     },
 //     FeatureStmt(Arc<FeatureLazyStmt>),
@@ -88,7 +88,7 @@
 //         history: Arc<History<'static>>,
 //     },
 //     CallHead {
-//         entity: Arc<EntityDefn>,
+//         item: Arc<EntityDefn>,
 //     },
 // }
 
@@ -96,7 +96,7 @@
 //     pub fn input(db: &dyn FeatureGenQueryGroup) -> Self {
 //         todo!()
 //         // TraceVariant::EntityFeature {
-//         //     entity_path: db.intern_entity_route(EntityRoute {
+//         //     item_path: db.intern_item_route(EntityRoute {
 //         //         variant: EntityRouteVariant::TargetInputValue,
 //         //         temporal_arguments: Default::default(),
 //         //         spatial_arguments: Default::default(),

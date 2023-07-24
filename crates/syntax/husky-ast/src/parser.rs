@@ -6,7 +6,7 @@ mod utils;
 
 use self::indent::Indent;
 use crate::*;
-use husky_entity_path::DisambiguatorRegistry;
+use husky_item_path::DisambiguatorRegistry;
 use husky_print_utils::p;
 use husky_token::*;
 use parsec::{HasStreamState, StreamParser, TryParseOptionFromStream};
@@ -26,7 +26,7 @@ pub(crate) struct AstParser<'a> {
 
 pub(crate) trait NormalAstChildren {
     const ALLOW_STMT: AstResult<()>;
-    fn determine_entity_kind(_: EntityKindKeywordGroup) -> AstResult<EntityKind>;
+    fn determine_item_kind(_: EntityKindKeywordGroup) -> AstResult<EntityKind>;
 }
 
 impl<'a> HasStreamState for AstParser<'a> {

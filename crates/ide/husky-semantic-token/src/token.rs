@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_taxonomy::*;
+use husky_item_taxonomy::*;
 use husky_text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -59,7 +59,7 @@ impl SemanticToken {
             SemanticToken::Variable => ext::SemanticTokenType::VARIABLE,
             SemanticToken::ThisValue => ext::SemanticTokenType::VARIABLE,
             SemanticToken::FrameVariable => ext::SemanticTokenType::VARIABLE,
-            SemanticToken::Entity(entity_kind) => match entity_kind {
+            SemanticToken::Entity(item_kind) => match item_kind {
                 EntityKind::Module => ext::SemanticTokenType::NAMESPACE,
                 EntityKind::ModuleItem {
                     module_item_kind,

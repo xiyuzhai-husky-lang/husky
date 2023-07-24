@@ -107,8 +107,8 @@ impl SymbolType {
                     TermFunctionReduced::Other(_) => todo!(),
                 }
             }
-            FluffyTerm::Subentity(_) => todo!(),
-            FluffyTerm::AsTraitSubentity(_) => todo!(),
+            FluffyTerm::Subitem(_) => todo!(),
+            FluffyTerm::AsTraitSubitem(_) => todo!(),
             FluffyTerm::TraitConstraint(_) => todo!(),
             FluffyTerm::Solid(_) => todo!(),
             FluffyTerm::Hollow(_) => {

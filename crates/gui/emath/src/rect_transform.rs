@@ -13,7 +13,7 @@ pub struct RectTransform {
 }
 
 impl RectTransform {
-    pub fn identity(from_and_to: Rect) -> Self {
+    pub fn iditem(from_and_to: Rect) -> Self {
         Self::from_to(from_and_to, from_and_to)
     }
 

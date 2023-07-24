@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_taxonomy::{EntityKind, FugitiveKind, ModuleItemKind};
+use husky_item_taxonomy::{EntityKind, FugitiveKind, ModuleItemKind};
 use husky_print_utils::p;
 use husky_token::Punctuation;
 use salsa::DebugWithDb;
@@ -23,7 +23,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 Keyword::Pronoun(pronoun) => match pronoun {
                     PronounKeyword::Crate => {
                         let crate_root_path = self.parser.crate_root_path;
-                        DisambiguatedToken::AtomicExpr(self.parse_principal_entity_path_expr(
+                        DisambiguatedToken::AtomicExpr(self.parse_principal_item_path_expr(
                             CrateToken::new(token_idx).into(),
                             crate_root_path.into(),
                         ))
@@ -98,12 +98,12 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                 PunctuationMapped::LaOrLt => match self.top_expr() {
                     TopExprRef::Incomplete(_) => todo!(),
                     TopExprRef::Finished(expr) => {
-                        match expr.base_entity_path(self.db(), &self.parser.expr_arena) {
+                        match expr.base_item_path(self.db(), &self.parser.expr_arena) {
                             BaseEntityPath::Uncertain {
                                 inclination: BaseEntityPathInclination::TypeOrVariant,
                             } => DisambiguatedToken::Bra(token_idx, Bracket::TemplateAngle),
-                            BaseEntityPath::Some(entity_path) => {
-                                match entity_path.entity_kind(self.db()) {
+                            BaseEntityPath::Some(item_path) => {
+                                match item_path.item_kind(self.db()) {
                                     EntityKind::Module => todo!(),
                                     EntityKind::ModuleItem {
                                         module_item_kind,
@@ -303,13 +303,13 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     punctuation: BinaryOpr::ScopeResolution,
                     lopd,
                     ..
-                } => match lopd.base_entity_path(self.db(), &self.parser.expr_arena) {
+                } => match lopd.base_item_path(self.db(), &self.parser.expr_arena) {
                     BaseEntityPath::None => {
                         p!(token_idx, self.parser.path.debug(self.db()));
                         match lopd {
                             SynExpr::Literal(_, _) => todo!(),
                             SynExpr::PrincipalEntityPath {
-                                entity_path_expr,
+                                item_path_expr,
                                 opt_path,
                             } => todo!(),
                             SynExpr::ScopeResolution {
@@ -456,7 +456,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     }
                     BaseEntityPath::Uncertain { .. } => {
                         return DisambiguatedToken::AtomicExpr(SynExpr::Err(
-                            OriginalExprError::UnresolvedSubentity { token_idx, ident }.into(),
+                            OriginalExprError::UnresolvedSubitem { token_idx, ident }.into(),
                         ))
                     }
                     BaseEntityPath::Err => todo!(),
@@ -476,9 +476,9 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                     //     token_idx,
                     //     symbol_idx: variable_idx,
                     // },
-                    Symbol::PrincipalEntity(entity_path) => self.parse_principal_entity_path_expr(
+                    Symbol::PrincipalEntity(item_path) => self.parse_principal_item_path_expr(
                         IdentToken::new(ident, token_idx).into(),
-                        entity_path,
+                        item_path,
                     ),
                     Symbol::Inherited(inherited_symbol_idx, inherited_symbol_kind) => {
                         SynExpr::InheritedSymbol {
@@ -495,7 +495,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
                             current_symbol_idx,
                             current_symbol_kind,
                         }
-                    } //  Expr::EntityPath(entity_path),
+                    } //  Expr::EntityPath(item_path),
                 },
                 None => {
                     SynExpr::Err(OriginalExprError::UnrecognizedIdent { token_idx, ident }.into())

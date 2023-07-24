@@ -1,5 +1,5 @@
-use husky_entity_path::*;
-use husky_entity_taxonomy::{
+use husky_item_path::*;
+use husky_item_taxonomy::{
     AssociatedItemKind, FugitiveKind, ModuleItemConnectionKind, ModuleItemKind, TraitItemKind,
     TypeItemKind, TypeKind,
 };
@@ -37,12 +37,12 @@ impl<'a> AstParser<'a> {
             self.token_sheet
                 .token_group_token_stream(token_group_idx, state),
         );
-        let (entity_kind, ident_token, is_generic, saved_stream_state) =
+        let (item_kind, ident_token, is_generic, saved_stream_state) =
             aux_parser.parse_head::<C>()?;
         let ident = ident_token.ident();
-        let block = match entity_kind {
+        let block = match item_kind {
             EntityKind::Module => DefnBlock::Submodule {
-                path: ModulePath::new_child(self.db, self.module_path, ident).into(),
+                path: ModulePath::new_child(self.db, self.module_path, ident),
             },
             EntityKind::ModuleItem {
                 module_item_kind,
@@ -97,7 +97,7 @@ impl<'a> AstParser<'a> {
             is_generic,
             token_group_idx,
             block,
-            entity_kind,
+            item_kind,
             saved_stream_state,
         })
     }
@@ -121,7 +121,7 @@ impl<'a> AstParser<'a> {
         let mut ty_variants = vec![];
         loop {
             let state = self.token_groups.state();
-            let Some((token_group_idx, _)) = self.token_groups.next() else{
+            let Some((token_group_idx, _)) = self.token_groups.next() else {
                 break;
             };
             // todo: change the api of `self.token_groups.next()`
@@ -134,7 +134,7 @@ impl<'a> AstParser<'a> {
             );
             let Ok(Some(vertical_token)) = aux_parser.try_parse_option::<VerticalToken>() else {
                 self.token_groups.rollback(state);
-                break
+                break;
             };
             ty_variants.push(
                 match aux_parser.try_parse_expected::<IdentToken, _>(
@@ -162,13 +162,13 @@ impl<'a> BasicAuxAstParser<'a> {
     fn parse_head<C: NormalAstChildren>(
         mut self,
     ) -> AstResult<(EntityKind, IdentToken, bool, TokenStreamState)> {
-        let entity_keyword_group =
+        let item_keyword_group =
             self.try_parse_expected(OriginalAstError::ExpectedEntityKeywordGroup)?;
         let ident: IdentToken = self.try_parse_expected(OriginalAstError::ExpectedIdent)?;
         let is_generic = self.parse_is_generic();
-        let entity_kind = C::determine_entity_kind(entity_keyword_group)?;
+        let item_kind = C::determine_item_kind(item_keyword_group)?;
         Ok((
-            entity_kind,
+            item_kind,
             ident,
             is_generic,
             self.finish_with_saved_stream_state(),

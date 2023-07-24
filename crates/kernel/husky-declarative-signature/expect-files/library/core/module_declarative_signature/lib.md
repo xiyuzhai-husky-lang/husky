@@ -1,151 +1,189 @@
 [
     (
-        EntityPath::Module(
-            `core::array`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::array`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::basic`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::basic`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::clone`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::clone`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::cmp`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::cmp`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::default`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::default`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::fmt`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::fmt`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::list`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::list`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::logic`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::logic`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::marker`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::marker`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::mem`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::mem`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::num`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::num`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::ops`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::ops`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::option`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::option`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::prelude`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::prelude`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::raw_bits`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::raw_bits`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::result`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::result`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::slice`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::slice`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::str`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::str`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `core::visual`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `core::visual`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,

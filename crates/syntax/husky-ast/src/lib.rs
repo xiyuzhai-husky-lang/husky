@@ -22,8 +22,8 @@ pub use self::specs::*;
 use self::parser::*;
 use either::*;
 use husky_coword::*;
-use husky_entity_path::{EntityPath, TypeVariantPath};
-use husky_entity_taxonomy::EntityKind;
+use husky_item_path::{ItemPath, TypeVariantPath};
+use husky_item_taxonomy::EntityKind;
 use husky_scope::Scope;
 use husky_scope_expr::VisibilityExpr;
 use husky_token::{
@@ -74,7 +74,7 @@ pub enum Ast {
     Defn {
         token_group_idx: TokenGroupIdx,
         visibility_expr: VisibilityExpr,
-        entity_kind: EntityKind,
+        item_kind: EntityKind,
         ident_token: IdentToken,
         is_generic: bool,
         saved_stream_state: TokenStreamState,

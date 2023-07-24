@@ -1,5 +1,5 @@
-use husky_entity_semantics::DefinitionRepr;
 use husky_instruction_gen::{new_func_instruction_sheet, new_proc_instruction_sheet};
+use husky_item_semantics::DefinitionRepr;
 use husky_linkage_table::ResolveLinkage;
 use husky_vm::__Register;
 use EntityPath;
@@ -140,7 +140,7 @@ impl FeatureRepr {
         //                     },
         //                     None => Feature::EntityFeature {
         //                         route: *route,
-        //                         uid: db.entity_uid(*route),
+        //                         uid: db.item_uid(*route),
         //                     },
         //                 })
         //             },
@@ -180,7 +180,7 @@ impl FeatureRepr {
         //                     },
         //                     None => Feature::EntityFeature {
         //                         route: *route,
-        //                         uid: db.entity_uid(*route),
+        //                         uid: db.item_uid(*route),
         //                     },
         //                 })
         //             },

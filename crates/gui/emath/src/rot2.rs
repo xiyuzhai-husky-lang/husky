@@ -25,16 +25,16 @@ pub struct Rot2 {
     c: f32,
 }
 
-/// Identity rotation
+/// Iditem rotation
 impl Default for Rot2 {
-    /// Identity rotation
+    /// Iditem rotation
     fn default() -> Self {
         Self { s: 0.0, c: 1.0 }
     }
 }
 
 impl Rot2 {
-    /// The identity rotation: nothing rotates
+    /// The iditem rotation: nothing rotates
     pub const IDENTITY: Self = Self { s: 0.0, c: 1.0 };
 
     /// Angle is clockwise in radians.

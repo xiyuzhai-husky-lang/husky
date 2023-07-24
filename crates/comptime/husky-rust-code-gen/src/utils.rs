@@ -1,9 +1,9 @@
 use crate::*;
 
-pub(crate) fn is_defn_static(_db: &dyn RustTranspileDb, _entity_path: EtherealTerm) -> bool {
+pub(crate) fn is_defn_static(_db: &dyn RustTranspileDb, _item_path: EtherealTerm) -> bool {
     todo!()
-    // let entity_path = entity_path.intrinsic();
-    // match entity_path.variant {
+    // let item_path = item_path.intrinsic();
+    // match item_path.variant {
     //     EntityRouteVariant::Root { .. } => true,
     //     EntityRouteVariant::Package { .. } => false,
     //     EntityRouteVariant::Child { parent, .. } => db.is_defn_static(parent),
@@ -20,14 +20,14 @@ pub(crate) fn is_defn_static(_db: &dyn RustTranspileDb, _entity_path: EtherealTe
 
 pub(crate) fn contains_spatial_parameters(
     _db: &dyn RustTranspileDb,
-    _entity_path: EtherealTerm,
+    _item_path: EtherealTerm,
 ) -> bool {
     todo!()
-    // let entity_path = entity_path.intrinsic();
-    // if entity_path.spatial_arguments.len() > 0 {
+    // let item_path = item_path.intrinsic();
+    // if item_path.spatial_arguments.len() > 0 {
     //     return true;
     // }
-    // match entity_path.variant {
+    // match item_path.variant {
     //     EntityRouteVariant::Root { .. } => false,
     //     EntityRouteVariant::Package { .. } => false,
     //     EntityRouteVariant::Child { parent, .. } => db.contains_spatial_parameters(parent),

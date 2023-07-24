@@ -1,26 +1,23 @@
 use crate::*;
-use husky_entity_path::EntityPath;
+use husky_item_path::ItemPath;
 
 pub trait InstructionDb {
-    fn entity_instruction_sheet(&self, entity_path: EntityPath) -> Option<Arc<InstructionSheet>>;
+    fn item_instruction_sheet(&self, item_path: ItemPath) -> Option<Arc<InstructionSheet>>;
     fn method_opt_instruction_sheet(
         &self,
         member_route: EtherealTerm,
     ) -> Option<Arc<InstructionSheet>>;
-    fn dataset_config_instruction_sheet(
-        &self,
-        target_entrance: EntityPath,
-    ) -> Arc<InstructionSheet>;
-    fn enum_literal_to_i32(&self, entity_path: EntityPath) -> i32;
+    fn dataset_config_instruction_sheet(&self, target_entrance: ItemPath) -> Arc<InstructionSheet>;
+    fn enum_literal_to_i32(&self, item_path: ItemPath) -> i32;
 }
 
-fn entity_instruction_sheet(
+fn item_instruction_sheet(
     _db: &dyn InstructionDb,
-    _entity_path: EntityPath,
+    _item_path: ItemPath,
 ) -> Option<Arc<InstructionSheet>> {
     todo!()
-    // let entity_defn = db.entity_defn(route).unwrap();
-    // match entity_defn.variant {
+    // let item_defn = db.item_defn(route).unwrap();
+    // match item_defn.variant {
     //     EntityDefnVariant::Module { .. } => todo!(),
     //     EntityDefnVariant::Feature { .. } => todo!(),
     //     EntityDefnVariant::Func {
@@ -85,8 +82,8 @@ fn method_opt_instruction_sheet(
 ) -> Option<Arc<InstructionSheet>> {
     todo!()
     // let ty = member_route.parent();
-    // let entity_defn = db.entity_defn(ty).unwrap();
-    // match entity_defn.variant {
+    // let item_defn = db.item_defn(ty).unwrap();
+    // match item_defn.variant {
     //     EntityDefnVariant::EtherealTerm { .. } => {
     //         let method_defn = db.member_defn(member_route);
     //         match method_defn.variant {
@@ -118,14 +115,14 @@ fn method_opt_instruction_sheet(
 
 fn dataset_config_instruction_sheet(
     _db: &dyn InstructionDb,
-    _target_entrance: EntityPath,
+    _target_entrance: ItemPath,
 ) -> Arc<InstructionSheet> {
     todo!()
     // let package = db.package(target_entrance).unwrap();
     // new_func_instruction_sheet(db, vec![].into_iter(), &package.config.dataset.stmts, false)
 }
 
-fn enum_literal_to_i32(_db: &dyn InstructionDb, _entity_path: EntityPath) -> i32 {
+fn enum_literal_to_i32(_db: &dyn InstructionDb, _item_path: ItemPath) -> i32 {
     todo!()
     // let ty_decl = db.ty_decl(route.parent()).unwrap();
     // ty_decl

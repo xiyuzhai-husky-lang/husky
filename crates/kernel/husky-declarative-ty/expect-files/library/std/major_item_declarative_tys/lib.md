@@ -1,0 +1,32 @@
+[
+    (
+        ItemPath::Submodule(
+            SubmodulePath(
+                `std::prelude`,
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Module`),
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            SubmodulePath(
+                `std::logic`,
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Module`),
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            SubmodulePath(
+                `std::ops`,
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Module`),
+        ),
+    ),
+]

@@ -31,7 +31,7 @@ use crate::{
 pub struct Ui {
     /// ID of this ui.
     /// Generated based on id of parent ui together with
-    /// another source of child identity (e.g. window title).
+    /// another source of child iditem (e.g. window title).
     /// Acts like a namespace for child uis.
     /// Should be unique and persist predictably from one frame to next
     /// so it can be used as a source for storing state (e.g. window position, or if a collapsing header is open).
@@ -113,7 +113,7 @@ impl Ui {
 
     // -------------------------------------------------
 
-    /// A unique identity of this [`Ui`].
+    /// A unique iditem of this [`Ui`].
     #[inline]
     pub fn id(&self) -> Id {
         self.id

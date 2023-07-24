@@ -3,9 +3,9 @@ mod category;
 mod contract;
 mod curry;
 mod db;
-mod entity_path;
 mod error;
 mod final_destination;
+mod item_path;
 mod literal;
 mod modifier;
 mod universe;
@@ -14,14 +14,14 @@ pub use self::category::*;
 pub use self::contract::*;
 pub use self::curry::*;
 pub use self::db::*;
-pub use self::entity_path::*;
 pub use self::error::*;
 pub use self::final_destination::*;
+pub use self::item_path::*;
 pub use self::literal::*;
 pub use self::modifier::*;
 pub use self::universe::*;
 
-use husky_entity_path::*;
+use husky_item_path::*;
 
 #[salsa::jar(db = TermPreludeDb)]
 pub struct TermPreludeJar(

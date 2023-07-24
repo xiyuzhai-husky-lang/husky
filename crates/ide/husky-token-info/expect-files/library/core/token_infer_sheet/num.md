@@ -24,11 +24,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::ops`,
+                            submodule_path: SubmodulePath(
+                                `core::ops`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::ops`,
+                                        path: SubmodulePath(
+                                            `core::ops`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },

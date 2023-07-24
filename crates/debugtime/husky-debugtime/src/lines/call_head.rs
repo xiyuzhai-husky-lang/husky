@@ -3,27 +3,27 @@ use husky_coword::Ident;
 use super::*;
 
 impl<'a> TraceLineGenerator<'a> {
-    pub(super) fn gen_call_head_lines<'eval>(&mut self, entity: &EntityDefn) {
-        match entity.variant {
+    pub(super) fn gen_call_head_lines<'eval>(&mut self, item: &EntityDefn) {
+        match item.variant {
             EntityDefnVariant::Func { ref parameters, .. } => self.gen_call_head_lines_aux(
-                &self.runtime().text(entity.file).unwrap(),
+                &self.runtime().text(item.file).unwrap(),
                 "func ",
-                entity.ident,
+                item.ident,
                 parameters,
             ),
             EntityDefnVariant::Proc { ref parameters, .. } => self.gen_call_head_lines_aux(
-                &self.runtime().text(entity.file).unwrap(),
+                &self.runtime().text(item.file).unwrap(),
                 "proc ",
-                entity.ident,
+                item.ident,
                 parameters,
             ),
             EntityDefnVariant::Module { .. } => todo!(),
             EntityDefnVariant::Feature { .. } => todo!(),
             EntityDefnVariant::Function { .. } => todo!(),
             EntityDefnVariant::Method { ref parameters, .. } => self.gen_call_head_lines_aux(
-                &self.runtime().text(entity.file).unwrap(),
+                &self.runtime().text(item.file).unwrap(),
                 "func ",
-                entity.ident,
+                item.ident,
                 parameters,
             ),
             EntityDefnVariant::EtherealTerm { .. } => todo!(),

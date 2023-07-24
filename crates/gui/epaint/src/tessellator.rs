@@ -3,7 +3,7 @@
 //! This module converts lines, circles, text and more represented by [`Shape`]
 //! into textured triangles represented by [`Mesh`].
 
-#![allow(clippy::identity_op)]
+#![allow(clippy::iditem_op)]
 
 use crate::texture_atlas::PreparedDisc;
 use crate::*;

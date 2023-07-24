@@ -12,5 +12,5 @@ xxhash-rust = { version = "0.8.5", features = ["const_xxh3", "xxh3"] }
 
 [features]
 query = ["dep:salsa"]
-entity_path = ["query", "dep:husky-ethereal-term"]
+item_path = ["query", "dep:husky-ethereal-term"]
 registration = []

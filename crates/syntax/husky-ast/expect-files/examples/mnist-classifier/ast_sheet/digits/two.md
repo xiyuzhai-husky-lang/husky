@@ -340,7 +340,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Fugitive(
                             Val,
                         ),
@@ -388,7 +388,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -436,7 +436,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -484,7 +484,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -555,7 +555,7 @@ Ok(
                             ),
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Fugitive(
                             Val,
                         ),

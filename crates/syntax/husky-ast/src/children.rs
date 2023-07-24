@@ -13,8 +13,8 @@ pub use self::ty_items::*;
 pub use self::ty_variants::*;
 
 use crate::*;
-use husky_entity_path::*;
-use husky_entity_taxonomy::*;
+use husky_item_path::*;
+use husky_item_taxonomy::*;
 use husky_token::*;
 use parsec::*;
 
@@ -26,7 +26,7 @@ pub enum DefnBlock {
         body: Option<FugitiveBody>,
     },
     Submodule {
-        path: ModulePath,
+        path: SubmodulePath,
     },
     Type {
         path: TypePath,
@@ -59,7 +59,7 @@ impl DefnBlock {
 
     /// only for non-associated entities
     #[inline(always)]
-    pub fn entity_path(self) -> Option<EntityPath> {
+    pub fn item_path(self) -> Option<ItemPath> {
         match self {
             DefnBlock::Fugitive { path, body } => Some(path.into()),
             DefnBlock::Submodule { path } => Some(path.into()),

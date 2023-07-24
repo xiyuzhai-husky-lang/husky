@@ -64,7 +64,7 @@ impl<'a> TraceLineGenerator<'a> {
                 LazyExprVariant::Opn { opn_kind, ref opds } => todo!(),
                 //  match opn_kind {
                 //     LazyOpnKind::FunctionRoutineCall(ranged_route) => self
-                //         .feature_entity_call_tokens(
+                //         .feature_item_call_tokens(
                 //             expr.expr.file,
                 //             ranged_route,
                 //             feature_opds,
@@ -94,7 +94,7 @@ impl<'a> TraceLineGenerator<'a> {
             FeatureLazyExprVariant::ModelCall { ref opds, .. } => match expr.expr.variant {
                 LazyExprVariant::Opn { opn_kind, .. } => todo!(),
                 // match opn_kind {
-                //     LazyOpnKind::FunctionModelCall(route) => self.feature_entity_call_tokens(
+                //     LazyOpnKind::FunctionModelCall(route) => self.feature_item_call_tokens(
                 //         expr.expr.file,
                 //         route,
                 //         opds,
@@ -218,7 +218,7 @@ impl<'a> TraceLineGenerator<'a> {
         }
     }
 
-    fn feature_entity_call_tokens(
+    fn feature_item_call_tokens(
         &mut self,
         file: DiffPath,
         ranged_scope: EtherealTerm,

@@ -16,12 +16,12 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # kernel
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-item-path = { path = "../../kernel/husky-item-path" }
 husky-scope = { path = "../../kernel/husky-scope" }
 # syntax
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

@@ -1,38 +1,46 @@
 [
     (
-        EntityPath::Module(
-            `mnist_classifier::line_segment_sketch::concave_component`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::line_segment_sketch::concave_component`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::line_segment_sketch::convex_component`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::line_segment_sketch::convex_component`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::line_segment_sketch::convexity`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::line_segment_sketch::convexity`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::line_segment_sketch::line_segment`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::line_segment_sketch::line_segment`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
             ),
@@ -67,7 +75,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
             ),
@@ -98,7 +106,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
             ),
@@ -135,7 +143,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
             ),
@@ -172,7 +180,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
             ),
@@ -215,7 +223,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
             ),
@@ -264,7 +272,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
             ),
@@ -301,7 +309,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
@@ -335,7 +343,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath {
                     impl_block: TraitForTypeImplBlockPath {
@@ -378,7 +386,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
                     Id {
@@ -401,7 +409,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -453,7 +461,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -496,7 +504,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
@@ -530,7 +538,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath {
                     impl_block: TraitForTypeImplBlockPath {
@@ -573,7 +581,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
                     Id {
@@ -596,7 +604,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -628,7 +636,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -660,7 +668,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {

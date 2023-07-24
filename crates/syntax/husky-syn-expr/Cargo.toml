@@ -23,15 +23,15 @@ enum-class = { path = "../../abstraction/enum-class" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
 # syntax
 husky-opr = { path = "../../kernel/husky-opr" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }

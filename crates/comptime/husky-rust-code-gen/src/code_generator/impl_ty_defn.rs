@@ -1,5 +1,5 @@
 use husky_coword::{Ident, RootBuiltinIdent};
-use husky_entity_semantics::{
+use husky_item_semantics::{
     CallFormSource, DefinitionRepr, EnumVariantDefnVariant, FieldDefnVariant, TraitImplDefn,
 };
 
@@ -51,7 +51,7 @@ impl From<i32> for {tyname} {{
                 r#"
             {i} => "#
             ));
-            self.gen_entity_route(variant.base_route, EntityRouteRole::Decl);
+            self.gen_item_route(variant.base_route, EntityRouteRole::Decl);
             self.write(",")
         }
         self.write(
@@ -61,7 +61,7 @@ impl From<i32> for {tyname} {{
     }
 }"#,
         );
-        let ty_contains_eval_ref = self.db.entity_route_variant_contains_eval_ref(base_route);
+        let ty_contains_eval_ref = self.db.item_route_variant_contains_eval_ref(base_route);
         self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
     }
 
@@ -75,7 +75,7 @@ impl From<i32> for {tyname} {{
         self.write("#[derive(Debug, Clone, PartialEq)]\n");
         self.result += "pub(crate) struct ";
         self.result += tyname.as_str();
-        let ty_contains_eval_ref = self.db.entity_route_variant_contains_eval_ref(base_route);
+        let ty_contains_eval_ref = self.db.item_route_variant_contains_eval_ref(base_route);
         if ty_contains_eval_ref {
             self.write("<'eval>")
         }
@@ -97,7 +97,7 @@ impl From<i32> for {tyname} {{
                     self.result += "    pub(crate) ";
                     self.result += &member.ident;
                     self.result += ": ";
-                    self.gen_entity_route(ty, EntityRouteRole::Decl);
+                    self.gen_item_route(ty, EntityRouteRole::Decl);
                     self.write(",\n");
                 }
                 _ => break,
@@ -162,7 +162,7 @@ impl From<i32> for {tyname} {{
                         }
                         self.write(&ty_member.ident);
                         self.write(": ");
-                        self.gen_entity_route(field_ty, EntityRouteRole::Decl)
+                        self.gen_item_route(field_ty, EntityRouteRole::Decl)
                     }
                     FieldDefnVariant::StructDerivedEager { .. }
                     | FieldDefnVariant::StructDerivedLazy { .. } => break,
@@ -267,7 +267,7 @@ impl From<i32> for {tyname} {{
                     self.gen_parameter(parameter)
                 }
                 self.write(") -> ");
-                self.gen_entity_route(return_ty.route, EntityRouteRole::Decl);
+                self.gen_item_route(return_ty.route, EntityRouteRole::Decl);
                 self.write(" {\n");
                 self.gen_call_form_source(source);
                 self.write("    }\n");
@@ -309,13 +309,13 @@ impl From<i32> for {tyname} {{
                             todo!()
                         }
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
-                        self.gen_entity_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
+                        self.gen_item_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
                         let mangled_return_ty_vtable =
                             self.db.mangled_intrinsic_ty_vtable(return_ty.route);
                         self.write(&format!(
                             r#" {{
-    let __uid = entity_uid!(__ctx, "{route:?}");
+    let __uid = item_uid!(__ctx, "{route:?}");
     if let Some(__result) = __ctx.opt_cached_lazy_field(
         self as *const _ as *const std::ffi::c_void,
         __uid
@@ -348,13 +348,13 @@ impl From<i32> for {tyname} {{
                             todo!()
                         }
                         self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
-                        self.gen_entity_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
+                        self.gen_item_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
                         let mangled_return_ty_vtable =
                             self.db.mangled_intrinsic_ty_vtable(return_ty.route);
                         self.write(&format!(
                             r#" {{
-    let __uid = entity_uid!(__ctx, "{route:?}");
+    let __uid = item_uid!(__ctx, "{route:?}");
     if let Some(__result) = __ctx.opt_cached_lazy_field(
         self as *const _ as *const std::ffi::c_void,
         __uid

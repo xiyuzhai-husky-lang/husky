@@ -16,7 +16,7 @@
 // use husky_check_utils::*;
 // use husky_compiler::CompilerInstance;
 // use husky_diagnostics::DiagnosticsDb;
-// use husky_entity_semantics::EntityRouteStore;
+// use husky_item_semantics::EntityRouteStore;
 // use husky_feature_eval::*;
 // use husky_feature_eval::{EvalFeature, Session};
 // use husky_feature_gen::FeatureInterner;
@@ -38,11 +38,11 @@
 //     // comptime
 //     husky_path::FileQueryStorage,
 //     husky_token_sheet::TokenQueryGroupStorage,
-//     husky_entity_tree::ScopeQueryGroupStorage,
+//     husky_item_tree::ScopeQueryGroupStorage,
 //     husky_text::TextQueryGroupStorage,
 //     husky_ast::AstQueryGroupStorage,
 //     husky_syn_fmt::FormatQueryGroupStorage,
-//     husky_entity_semantics::EntityQueryGroupStorage,
+//     husky_item_semantics::EntityQueryGroupStorage,
 //     husky_package_semantics::PackageQueryGroupStorage,
 //     husky_diagnostics::DiagnosticsDbGroupStorage,
 //     husky_rust_code_gen::RustGenQueryStorage,
@@ -54,7 +54,7 @@
 //     config: RuntimeConfig,
 //     live_docs: ASafeRwLock<IndexMap<DiffPath, ASafeRwLock<String>>>,
 //     linkage_table: LinkageTable,
-//     entity_route_store: EntityRouteStore,
+//     item_route_store: EntityRouteStore,
 // }
 
 // #[derive(Debug)]
@@ -75,8 +75,8 @@
 //         //     word_interner: Default::default(),
 //         //     live_docs: Default::default(),
 //         //     linkage_table: LinkageTable::new(config.comptime.linkage_table.clone()),
-//         //     entity_route_store: Default::default(),
-//         //     entity_route_interner: Default::default(),
+//         //     item_route_store: Default::default(),
+//         //     item_route_interner: Default::default(),
 //         //     // config
 //         //     config,
 //         // };

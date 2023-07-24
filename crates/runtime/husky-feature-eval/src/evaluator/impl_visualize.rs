@@ -1,7 +1,7 @@
 use super::FeatureEvaluator;
 use husky_check_utils::should_eq;
-use husky_entity_semantics::{EntityDefnQueryGroup, VisualTy, Visualizer, VisualizerVariant};
 use husky_feature_gen::*;
+use husky_item_semantics::{EntityDefnQueryGroup, VisualTy, Visualizer, VisualizerVariant};
 use husky_trace_protocol::VisualData;
 use husky_vm::*;
 use std::sync::Arc;

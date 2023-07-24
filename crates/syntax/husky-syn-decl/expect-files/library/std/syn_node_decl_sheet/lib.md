@@ -6,7 +6,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `std::prelude`,
+                            path: SubmodulePath(
+                                `std::prelude`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -15,7 +17,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `std::prelude`,
+                                path: SubmodulePath(
+                                    `std::prelude`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -27,7 +31,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `std::logic`,
+                            path: SubmodulePath(
+                                `std::logic`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -36,7 +42,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `std::logic`,
+                                path: SubmodulePath(
+                                    `std::logic`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -48,7 +56,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `std::ops`,
+                            path: SubmodulePath(
+                                `std::ops`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -57,7 +67,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `std::ops`,
+                                path: SubmodulePath(
+                                    `std::ops`,
+                                ),
                                 disambiguator: 0,
                             },
                         },

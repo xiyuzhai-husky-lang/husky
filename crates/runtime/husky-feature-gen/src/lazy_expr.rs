@@ -10,8 +10,8 @@ use EntityPath;
 use husky_vm::{__Linkage, __Register, __RegistrableSafe, __VirtualEnum};
 
 use husky_coword::RootBuiltinIdent;
-use husky_entity_semantics::*;
 use husky_ethereal_term::EtherealTerm;
+use husky_item_semantics::*;
 use husky_lazy_semantics::*;
 use husky_vm::{Binding, InstructionSheet, __ResolvedLinkage, __VMResult};
 use std::sync::Arc;
@@ -142,7 +142,7 @@ pub enum FeatureLazyExprVariant {
     EvalInput,
     NewRecord {
         ty: EtherealTerm,
-        entity: Arc<EntityDefn>,
+        item: Arc<EntityDefn>,
         opds: Vec<Arc<FeatureLazyExpr>>,
     },
     NewVecFromList {
@@ -301,15 +301,15 @@ impl<'a> FeatureExprBuilder<'a> {
         //     }
         //     LazyExprVariant::Opn { opn_kind, ref opds } => self.compile_opn(opn_kind, opds, &expr),
         //     LazyExprVariant::Lambda(_, _) => todo!(),
-        //     LazyExprVariant::EnumLiteral { entity_path } => (
+        //     LazyExprVariant::EnumLiteral { item_path } => (
         //         FeatureLazyExprVariant::Literal(
         //             __VirtualEnum {
-        //                 kind_idx: self.db.enum_literal_to_i32(entity_path),
+        //                 kind_idx: self.db.enum_literal_to_i32(item_path),
         //             }
         //             .to_register(),
         //         ),
         //         self.feature_interner
-        //             .intern(Feature::EnumLiteral(entity_path)),
+        //             .intern(Feature::EnumLiteral(item_path)),
         //     ),
         //     LazyExprVariant::ThisValue { .. } => (
         //         FeatureLazyExprVariant::ThisValue {
@@ -325,17 +325,17 @@ impl<'a> FeatureExprBuilder<'a> {
         //         let this_repr = self.opt_this.clone().unwrap();
         //         self.compile_field_access(field_ident, this_repr, field_binding)
         //     }
-        //     LazyExprVariant::EntityFeature { entity_path } => todo!(),
-        //     // match entity_path.variant {
+        //     LazyExprVariant::EntityFeature { item_path } => todo!(),
+        //     // match item_path.variant {
         //     //     EntityRouteVariant::Root { .. } | EntityRouteVariant::Package { .. } => panic!(),
         //     //     EntityRouteVariant::Child { .. } => {
-        //     //         let uid = self.db.entity_uid(entity_path);
+        //     //         let uid = self.db.item_uid(item_path);
         //     //         let feature = self.feature_interner.intern(Feature::EntityFeature {
-        //     //             route: entity_path,
+        //     //             route: item_path,
         //     //             uid,
         //     //         });
         //     //         let variant = FeatureLazyExprVariant::EntityFeature {
-        //     //             repr: self.db.entity_feature_repr(entity_path),
+        //     //             repr: self.db.item_feature_repr(item_path),
         //     //         };
         //     //         (variant, feature)
         //     //     }

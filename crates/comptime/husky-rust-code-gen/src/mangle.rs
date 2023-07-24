@@ -2,47 +2,47 @@ use super::*;
 
 pub(crate) fn mangled_intrinsic_ty(
     _db: &dyn RustTranspileDb,
-    _entity_path: EtherealTerm,
+    _item_path: EtherealTerm,
 ) -> Arc<String> {
     todo!()
-    // db.mangled_ty(entity_path.intrinsic())
+    // db.mangled_ty(item_path.intrinsic())
 }
 
-pub(crate) fn mangled_ty(_db: &dyn RustTranspileDb, _entity_path: EtherealTerm) -> Arc<String> {
+pub(crate) fn mangled_ty(_db: &dyn RustTranspileDb, _item_path: EtherealTerm) -> Arc<String> {
     todo!()
     // msg_once!("ad hoc");
-    // Arc::new(if entity_path.spatial_arguments.len() > 0 {
-    //     let mut result = entity_path.ident().as_str().to_string();
+    // Arc::new(if item_path.spatial_arguments.len() > 0 {
+    //     let mut result = item_path.ident().as_str().to_string();
     //     w!(result; "_");
-    //     for subroute in entity_path.spatial_arguments.iter() {
-    //         let subroute = subroute.take_entity_route();
+    //     for subroute in item_path.spatial_arguments.iter() {
+    //         let subroute = subroute.take_item_route();
     //         write!(result, "_{}", db.mangled_ty(subroute)).unwrap();
     //     }
     //     result
     // } else {
-    //     entity_path.ident().as_str().to_string()
+    //     item_path.ident().as_str().to_string()
     // })
 }
 
 pub(crate) fn mangled_intrinsic_ty_vtable(
     _db: &dyn RustTranspileDb,
-    _entity_path: EtherealTerm,
+    _item_path: EtherealTerm,
 ) -> Arc<String> {
     todo!()
-    // db.mangled_ty_vtable(entity_path.intrinsic())
+    // db.mangled_ty_vtable(item_path.intrinsic())
 }
 pub(crate) fn mangled_ty_vtable(
     _db: &dyn RustTranspileDb,
-    _entity_path: EtherealTerm,
+    _item_path: EtherealTerm,
 ) -> Arc<String> {
     todo!()
-    // Arc::new(match entity_path {
+    // Arc::new(match item_path {
     //     EtherealTerm::Root(_) => {
-    //         format!("__{}_VTABLE", entity_path.ident().as_str().to_uppercase())
+    //         format!("__{}_VTABLE", item_path.ident().as_str().to_uppercase())
     //     }
     //     EtherealTerm::Custom(_) => format!(
     //         "__{}_VTABLE",
-    //         &db.mangled_ty(entity_path).to_case(Case::UpperSnake)
+    //         &db.mangled_ty(item_path).to_case(Case::UpperSnake)
     //     ),
     // })
 }

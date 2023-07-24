@@ -1,4 +1,4 @@
-use husky_entity_path::{EntityPath, EntityPathError};
+use husky_item_path::{EntityPathError, ItemPath};
 use std::sync::Arc;
 use thiserror::Error;
 
@@ -12,8 +12,8 @@ pub enum DeclarativeTermError {
     UniverseOverflow,
     #[error("monad is not input")]
     MonadIsNotInput,
-    #[error("no decl for entity path")]
-    NoDeclForEntityPath { entity_path: EntityPath },
+    #[error("no decl for item path")]
+    NoDeclForEntityPath { item_path: ItemPath },
     // #[error("data store disconnected")]
     // Disconnect(#[from] io::Error),
     // #[error("the data for key `{0}` is not available")]

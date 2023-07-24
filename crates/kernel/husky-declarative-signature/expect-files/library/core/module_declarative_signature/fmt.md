@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::fmt::Debug`),
             ),

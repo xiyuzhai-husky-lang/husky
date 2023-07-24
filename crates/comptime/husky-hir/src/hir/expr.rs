@@ -14,7 +14,7 @@ use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 
 pub enum ExprHir {
     Literal(LiteralHir),
-    EntityPath(EntityPath),
+    EntityPath(ItemPath),
     InheritedSymbol,
     CurrentSymbol,
     FrameVarDecl,

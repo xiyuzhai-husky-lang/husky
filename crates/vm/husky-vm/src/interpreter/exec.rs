@@ -143,7 +143,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
         //             discard,
         //         } => {
         //             let instruction_sheet =
-        //                 self.db.entity_opt_instruction_sheet_by_uid(routine_uid);
+        //                 self.db.item_opt_instruction_sheet_by_uid(routine_uid);
         //             let result = self.call_interpreted(&instruction_sheet.unwrap(), nargs, discard);
         //             match mode {
         //                 Mode::Fast | Mode::TrackMutation => (),

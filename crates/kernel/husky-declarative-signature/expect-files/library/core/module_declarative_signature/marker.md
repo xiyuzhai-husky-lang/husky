@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::marker::Copy`),
             ),
@@ -18,7 +18,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::marker::Sized`),
             ),

@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_entity_tree::EntitySynTreeResult;
+use husky_item_tree::ItemSynTreeResult;
 use husky_text::{FilePosition, RangeInfo, TextPosition};
 use husky_token_info::TokenInfoDb;
 
@@ -9,7 +9,7 @@ pub trait HoverDb: salsa::DbWithJar<HoverJar> + TokenInfoDb {
         &self,
         module_path: ModulePath,
         position: TextPosition,
-    ) -> EntitySynTreeResult<Option<HoverResult>>;
+    ) -> ItemSynTreeResult<Option<HoverResult>>;
 
     fn goto_implementation(
         &self,
@@ -29,10 +29,11 @@ where
         &self,
         module_path: ModulePath,
         pos: TextPosition,
-    ) -> EntitySynTreeResult<Option<HoverResult>> {
+    ) -> ItemSynTreeResult<Option<HoverResult>> {
         let ranged_token_sheet = self.ranged_token_sheet(module_path)?;
-        let Some(token_idx) = ranged_token_sheet.search_token_by_position(pos)
-                else { return Ok(None) };
+        let Some(token_idx) = ranged_token_sheet.search_token_by_position(pos) else {
+            return Ok(None);
+        };
         calc_hover_result(self, module_path, token_idx)
     }
 

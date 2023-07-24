@@ -19,8 +19,8 @@ impl EtherealTerm {
             EtherealTerm::Ritchie(_) => todo!(),
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(_) => todo!(),
-            EtherealTerm::Subentity(_) => todo!(),
-            EtherealTerm::AsTraitSubentity(_) => todo!(),
+            EtherealTerm::Subitem(_) => todo!(),
+            EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         }
     }

@@ -20,7 +20,7 @@ use husky_vfs::Toolchain;
 pub(crate) struct ExprTypeEngine<'a> {
     db: &'a dyn ExprTypeDb,
     toolchain: Toolchain,
-    entity_path_menu: &'a EntityPathMenu,
+    item_path_menu: &'a EntityPathMenu,
     term_menu: &'a EtherealTermMenu,
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a SynExprRegionData,
@@ -106,7 +106,7 @@ impl<'a> ExprTypeEngine<'a> {
         Self {
             db,
             toolchain,
-            entity_path_menu: db.entity_path_menu(toolchain),
+            item_path_menu: db.item_path_menu(toolchain),
             term_menu: db.ethereal_term_menu(toolchain),
             token_sheet_data: expr_region_data.path().token_sheet_data(db).unwrap(),
             expr_region_data,
@@ -233,8 +233,8 @@ impl<'a> ExprTypeEngine<'a> {
         self.expr_region_data
     }
 
-    pub(crate) fn entity_path_menu(&self) -> &EntityPathMenu {
-        self.entity_path_menu
+    pub(crate) fn item_path_menu(&self) -> &EntityPathMenu {
+        self.item_path_menu
     }
 
     pub(crate) fn toolchain(&self) -> Toolchain {

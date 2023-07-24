@@ -52,7 +52,7 @@ impl ExprStack {
 }
 
 impl SynExpr {
-    pub fn base_entity_path(&self, db: &dyn SynExprDb, arena: &SynExprArena) -> BaseEntityPath {
+    pub fn base_item_path(&self, db: &dyn SynExprDb, arena: &SynExprArena) -> BaseEntityPath {
         match self {
             SynExpr::Literal(_, _) => BaseEntityPath::None,
             SynExpr::PrincipalEntityPath { opt_path: path, .. } => match *path {
@@ -76,7 +76,7 @@ impl SynExpr {
                 match &arena[lopd] {
                     SynExpr::Literal(_, _) => todo!(),
                     SynExpr::PrincipalEntityPath {
-                        entity_path_expr,
+                        item_path_expr,
                         opt_path,
                     } => todo!(),
                     SynExpr::ScopeResolution {
@@ -232,8 +232,8 @@ impl SynExpr {
                 argument_expr_idx: argument,
             } => todo!(),
             SynExpr::FunctionApplicationOrCall { .. } => todo!(),
-            // although unit is a valid entity,
-            // but unit doesn't contains any subentity, so effectively none
+            // although unit is a valid item,
+            // but unit doesn't contains any subitem, so effectively none
             // ad hoc
             SynExpr::Unit { .. } => BaseEntityPath::None,
             SynExpr::NewTuple {
@@ -243,7 +243,7 @@ impl SynExpr {
                 ..
             } => todo!(),
             SynExpr::List { .. } => BaseEntityPath::None,
-            SynExpr::Bracketed { item, .. } => arena[item].base_entity_path(db, arena),
+            SynExpr::Bracketed { item, .. } => arena[item].base_item_path(db, arena),
             SynExpr::Err(e) => BaseEntityPath::Uncertain {
                 inclination: match e {
                     ExprError::Original(OriginalExprError::UnrecognizedIdent { ident, .. }) => {
@@ -254,7 +254,7 @@ impl SynExpr {
                 },
             },
             SynExpr::TemplateInstantiation { template, .. } => {
-                arena[template].base_entity_path(db, arena)
+                arena[template].base_item_path(db, arena)
             }
             SynExpr::Block { stmts } => BaseEntityPath::None,
             SynExpr::Be {
@@ -271,7 +271,7 @@ impl SynExpr {
                 lbox_token_idx,
                 items: indices,
                 rbox_token_idx,
-            } => arena[owner].base_entity_path(db, arena),
+            } => arena[owner].base_item_path(db, arena),
             SynExpr::EmptyHtmlTag { .. } => BaseEntityPath::Err,
             SynExpr::FunctionCall { .. } => todo!(),
             SynExpr::Ritchie { .. } => todo!(),

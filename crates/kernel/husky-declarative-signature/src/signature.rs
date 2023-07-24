@@ -33,7 +33,7 @@ pub trait HasDeclarativeSignatureTemplate: Copy {
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate>;
 }
 
-impl HasDeclarativeSignatureTemplate for EntityPath {
+impl HasDeclarativeSignatureTemplate for ItemPath {
     type DeclarativeSignatureTemplate = SignatureTemplate;
 
     fn declarative_signature_template(
@@ -41,11 +41,11 @@ impl HasDeclarativeSignatureTemplate for EntityPath {
         db: &dyn DeclarativeSignatureDb,
     ) -> DeclarativeSignatureResult<Self::DeclarativeSignatureTemplate> {
         Ok(match self {
-            EntityPath::Module(_) => SignatureTemplate::Module,
-            EntityPath::ModuleItem(path) => path.declarative_signature_template(db)?.into(),
-            EntityPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
-            EntityPath::TypeVariant(path) => path.declarative_signature_template(db)?.into(),
-            EntityPath::ImplBlock(path) => path.declarative_signature_template(db)?.into(),
+            ItemPath::Submodule(_) => SignatureTemplate::Module,
+            ItemPath::ModuleItem(path) => path.declarative_signature_template(db)?.into(),
+            ItemPath::AssociatedItem(path) => path.declarative_signature_template(db)?.into(),
+            ItemPath::TypeVariant(path) => path.declarative_signature_template(db)?.into(),
+            ItemPath::ImplBlock(path) => path.declarative_signature_template(db)?.into(),
         })
     }
 }

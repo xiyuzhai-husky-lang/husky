@@ -1,39 +1,49 @@
 [
     (
-        EntityPath::Module(
-            `math::algebra`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::algebra`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `math::algebraic_geometry`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::algebraic_geometry`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `math::algebraic_topology`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::algebraic_topology`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `math::category_theory`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::category_theory`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `math::probability`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `math::probability`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,

@@ -28,11 +28,11 @@ pub enum OriginalAstError {
     StandaloneElif,
     #[error("standalone else")]
     StandaloneElse,
-    #[error("expected entity keyword")]
+    #[error("expected item keyword")]
     ExpectedEntityKeyword,
-    #[error("expected decorator or entity keyword")]
+    #[error("expected decorator or item keyword")]
     ExpectedDecoratorOrEntityKeyword,
-    #[error("expected entity keyword group")]
+    #[error("expected item keyword group")]
     ExpectedEntityKeywordGroup(TokenStreamState),
     #[error("expected identifier")]
     ExpectedIdent(TokenStreamState),

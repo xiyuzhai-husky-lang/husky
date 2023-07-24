@@ -43,7 +43,7 @@ fn ty_data_viewer(_db: &dyn DataViewerDb, _ty: EtherealTerm) -> Arc<HuskyDataVie
     //             .unwrap()
     //             .transfer(),
     //         index: comptime.index_linkage(vec![ty, RootBuiltinIdent::I32.into()]),
-    //         elem_ty: ty.entity_route_argument(0),
+    //         elem_ty: ty.item_route_argument(0),
     //     },
     //     TyKind::Slice => todo!(),
     //     TyKind::CyclicSlice => HuskyDataViewer::CyclicSlice {
@@ -54,7 +54,7 @@ fn ty_data_viewer(_db: &dyn DataViewerDb, _ty: EtherealTerm) -> Arc<HuskyDataVie
     //             .field_linkage_resolved(ty, comptime.it_coword("end").custom(), Binding::Copy)
     //             .unwrap(),
     //         index: comptime.index_linkage(vec![ty, RootBuiltinIdent::I32.into()]),
-    //         elem_ty: ty.entity_route_argument(0),
+    //         elem_ty: ty.item_route_argument(0),
     //     },
     //     TyKind::Array => todo!(),
     //     TyKind::Tuple => todo!(),

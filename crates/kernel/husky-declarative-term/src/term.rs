@@ -1,29 +1,29 @@
 mod abstraction;
-mod as_trai_subentity;
+mod as_trai_subitem;
 mod constraint;
 mod curry;
-mod entity_path;
 mod explicit_application;
 mod explicit_application_or_ritchie_call;
+mod item_path;
 mod list;
 mod literal;
 mod ritchie;
-mod subentity;
+mod subitem;
 mod symbol;
 mod variable;
 mod wrapper;
 
 pub use self::abstraction::*;
-pub use self::as_trai_subentity::*;
+pub use self::as_trai_subitem::*;
 pub use self::constraint::*;
 pub use self::curry::*;
-pub use self::entity_path::*;
 pub use self::explicit_application::*;
 pub use self::explicit_application_or_ritchie_call::*;
+pub use self::item_path::*;
 pub use self::list::*;
 pub use self::literal::*;
 pub use self::ritchie::*;
-pub use self::subentity::*;
+pub use self::subitem::*;
 pub use self::symbol::*;
 pub use self::variable::*;
 pub use self::wrapper::*;
@@ -36,7 +36,7 @@ use std::fmt::Debug;
 pub enum DeclarativeTerm {
     /// atoms
     ///
-    /// literal: 1,1.0, true, false; variable, entityPath
+    /// literal: 1,1.0, true, false; variable, itemPath
     Literal(DeclarativeTermLiteral),
     Symbol(DeclarativeTermSymbol),
     /// variables are those appearing in lambda expression
@@ -67,9 +67,9 @@ pub enum DeclarativeTerm {
     ExplicitApplication(DeclarativeTermExplicitApplication),
     ExplicitApplicationOrRitchieCall(DeclarativeTermExplicitApplicationOrRitchieCall),
     /// ::<ident>
-    Subentity(DeclarativeTermSubentity),
+    Subitem(DeclarativeTermSubitem),
     /// (<type> as <trait>)::<ident>
-    AsTraitSubentity(DeclarativeTermAsTraitSubentity),
+    AsTraitSubitem(DeclarativeTermAsTraitSubitem),
     /// <type> : <trait>
     TraitConstraint(DeclarativeTermTraitConstraint),
     /// `~`
@@ -138,8 +138,8 @@ impl DeclarativeTerm {
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(term) => {
                 term.show_with_db_fmt(f, db, ctx)
             }
-            DeclarativeTerm::Subentity(term) => term.show_with_db_fmt(f, db, ctx),
-            DeclarativeTerm::AsTraitSubentity(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::Subitem(term) => term.show_with_db_fmt(f, db, ctx),
+            DeclarativeTerm::AsTraitSubitem(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::TraitConstraint(term) => term.show_with_db_fmt(f, db, ctx),
             DeclarativeTerm::LeashOrBitNot(_) => f.write_str("~"),
             DeclarativeTerm::List(term) => term.show_with_db_fmt(f, db, ctx),

@@ -5,8 +5,8 @@ use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
-use husky_entity_path::EntityPathJar;
-use husky_entity_tree::EntitySynTreeJar;
+use husky_item_path::EntityPathJar;
+use husky_item_tree::EntitySynTreeJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_syn_decr::SynDecrJar;
@@ -46,7 +46,7 @@ impl salsa::Database for DB {}
 fn module_declarative_signature_templates(
     db: &DB,
     module_path: ModulePath,
-) -> Vec<(EntityPath, DeclarativeSignatureResult<SignatureTemplate>)> {
+) -> Vec<(ItemPath, DeclarativeSignatureResult<SignatureTemplate>)> {
     let Ok(syn_decl_sheet) = syn_decl_sheet(db, module_path) else {
         return vec![];
     };
@@ -70,18 +70,18 @@ fn module_declarative_signature_templates_works() {
 fn menu_ty_declarative_signature_templates_works() {
     let db = DB::default();
     let toolchain = db.dev_toolchain().unwrap();
-    let entity_path_menu = db.entity_path_menu(toolchain);
+    let item_path_menu = db.item_path_menu(toolchain);
     let ty_paths = vec![
-        entity_path_menu.i16_ty_path(),
-        entity_path_menu.i32_ty_path(),
-        entity_path_menu.i64_ty_path(),
-        entity_path_menu.u8_ty_path(),
-        entity_path_menu.u16_ty_path(),
-        entity_path_menu.u32_ty_path(),
-        entity_path_menu.u64_ty_path(),
-        entity_path_menu.f32_ty_path(),
-        entity_path_menu.f64_ty_path(),
-        entity_path_menu.trai_ty_path(),
+        item_path_menu.i16_ty_path(),
+        item_path_menu.i32_ty_path(),
+        item_path_menu.i64_ty_path(),
+        item_path_menu.u8_ty_path(),
+        item_path_menu.u16_ty_path(),
+        item_path_menu.u32_ty_path(),
+        item_path_menu.u64_ty_path(),
+        item_path_menu.f32_ty_path(),
+        item_path_menu.f64_ty_path(),
+        item_path_menu.trai_ty_path(),
     ];
 
     // Iterate over the type paths and assert that they are Ok

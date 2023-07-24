@@ -18,7 +18,7 @@ pub use indicator::FeatureEvalIndicator;
 pub use sheet::*;
 
 use crate::*;
-use husky_entity_semantics::*;
+use husky_item_semantics::*;
 use husky_trace_protocol::SampleId;
 use husky_vm::{EntityUid, VMConfig, __EvalContext, __Register};
 use husky_vm::{__VMResult, c_void};
@@ -33,9 +33,9 @@ pub struct FeatureEvaluator<'a, 'eval: 'a> {
 }
 
 impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
-    fn entity_uid(&self, entity_route_text: &str) -> u64 {
-        let route = self.db.parse_route_from_text(entity_route_text);
-        self.db.entity_uid(route).raw()
+    fn item_uid(&self, item_route_text: &str) -> u64 {
+        let route = self.db.parse_route_from_text(item_route_text);
+        self.db.item_uid(route).raw()
     }
 
     fn opt_cached_lazy_field(
@@ -84,7 +84,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     fn feature_ptr(&self, feature_route_text: &str) -> usize {
         todo!()
         // let route = self.db.parse_route_from_text(feature_route_text);
-        // let uid = self.db.entity_uid(route);
+        // let uid = self.db.item_uid(route);
         // unsafe {
         //     self.db
         //         .feature_interner()
@@ -97,7 +97,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     fn eval_feature_from_uid(&self, uid_raw: u64) -> __VMResult<__Register<'eval>> {
         todo!()
         // let uid = unsafe { EntityUid::from_declarative(uid_raw) };
-        // let route = self.db.entity_route_by_uid(uid);
+        // let route = self.db.item_route_by_uid(uid);
         // let feature = self
         //     .db
         //     .feature_interner()
@@ -105,7 +105,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         // if let Some(result) = self.sheet.cached_value(EvalKey::Feature(feature)) {
         //     result
         // } else {
-        //     let repr = self.db.entity_feature_repr(route);
+        //     let repr = self.db.item_feature_repr(route);
         //     self.eval_feature_repr_cached(&repr)
         // }
     }

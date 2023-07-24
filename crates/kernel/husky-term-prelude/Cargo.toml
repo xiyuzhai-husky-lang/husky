@@ -9,6 +9,6 @@ ordered-float = "3.0.0"
 thiserror.workspace = true
 salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-item-path = { path = "../../kernel/husky-item-path" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 husky-coword = { path = "../../kernel/husky-coword" }

@@ -1,4 +1,4 @@
-use husky_entity_path::TypePath;
+use husky_item_path::TypePath;
 use vec_like::AsVecMapEntry;
 
 use super::*;

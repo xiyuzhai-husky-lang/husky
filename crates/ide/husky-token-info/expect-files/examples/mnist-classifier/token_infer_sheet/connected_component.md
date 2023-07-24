@@ -24,11 +24,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::raw_contour`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::raw_contour`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::raw_contour`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },

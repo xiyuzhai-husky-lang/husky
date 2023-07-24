@@ -1,7 +1,7 @@
 use crate::helpers::DeclarativeTermFamily;
 
 use super::*;
-use husky_entity_path::TypePath;
+use husky_item_path::TypePath;
 
 // todo: change to ty_final_destinations: Vec<DeclarativeTermSymbolTypeResult<TypeFinalDestination>>,
 // DeclarativeTerm won't work

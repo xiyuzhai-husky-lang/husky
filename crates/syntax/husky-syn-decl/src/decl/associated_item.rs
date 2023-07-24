@@ -10,7 +10,7 @@ pub use self::ty_item::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
+use husky_item_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = SynDeclDb)]
@@ -147,7 +147,7 @@ impl<'a> DeclParser<'a> {
     //     Ok(match self.ast_sheet()[ast_idx] {
     //         Ast::Defn {
     //             token_group_idx,
-    //             entity_kind:
+    //             item_kind:
     //                 EntityKind::AssociatedItem {
     //                     associated_item_kind,
     //                 },

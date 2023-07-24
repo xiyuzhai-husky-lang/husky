@@ -92,8 +92,8 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_func_case_pattern(subpattern)
                 }
             }
-            FuncStmtPatternVariant::EnumLiteral(entity_path) => {
-                self.gen_entity_route(entity_path, EntityRouteRole::Other)
+            FuncStmtPatternVariant::EnumLiteral(item_path) => {
+                self.gen_item_route(item_path, EntityRouteRole::Other)
             }
         }
     }
@@ -112,8 +112,8 @@ impl<'a> RustCodeGenerator<'a> {
                     self.gen_proc_case_pattern(subpattern)
                 }
             }
-            ProcStmtPatternVariant::EnumLiteral(entity_path) => {
-                self.gen_entity_route(entity_path, EntityRouteRole::Other)
+            ProcStmtPatternVariant::EnumLiteral(item_path) => {
+                self.gen_item_route(item_path, EntityRouteRole::Other)
             }
         }
     }

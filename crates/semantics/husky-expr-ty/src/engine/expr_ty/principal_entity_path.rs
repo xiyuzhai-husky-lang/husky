@@ -5,7 +5,7 @@ use husky_ethereal_signature::{
 use super::*;
 
 impl<'a> ExprTypeEngine<'a> {
-    pub(super) fn calc_principal_entity_path_expr_ty(
+    pub(super) fn calc_principal_item_path_expr_ty(
         &mut self,
         path: Option<PrincipalEntityPath>,
         expr_ty_expectation: &impl ExpectFluffyTerm,

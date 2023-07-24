@@ -16,7 +16,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `array`,
                         token_idx: TokenIdx(
@@ -31,10 +31,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 2,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 2,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -52,7 +54,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `basic`,
                         token_idx: TokenIdx(
@@ -67,10 +69,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 3,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 3,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -88,7 +92,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `clone`,
                         token_idx: TokenIdx(
@@ -103,10 +107,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 4,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 4,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -124,7 +130,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `cmp`,
                         token_idx: TokenIdx(
@@ -139,10 +145,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 5,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 5,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -160,7 +168,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `default`,
                         token_idx: TokenIdx(
@@ -175,10 +183,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 6,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 6,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -196,7 +206,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `fmt`,
                         token_idx: TokenIdx(
@@ -211,10 +221,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 7,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 7,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -232,7 +244,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `list`,
                         token_idx: TokenIdx(
@@ -247,10 +259,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 8,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 8,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -268,7 +282,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `logic`,
                         token_idx: TokenIdx(
@@ -283,10 +297,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 9,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 9,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -304,7 +320,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `marker`,
                         token_idx: TokenIdx(
@@ -319,10 +335,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 10,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 10,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -340,7 +358,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `mem`,
                         token_idx: TokenIdx(
@@ -355,10 +373,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 11,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 11,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -376,7 +396,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `num`,
                         token_idx: TokenIdx(
@@ -391,10 +411,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 12,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 12,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -412,7 +434,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
@@ -427,10 +449,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 13,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -448,7 +472,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `option`,
                         token_idx: TokenIdx(
@@ -463,10 +487,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 14,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 14,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -484,7 +510,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `prelude`,
                         token_idx: TokenIdx(
@@ -499,10 +525,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 15,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -520,7 +548,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `raw_bits`,
                         token_idx: TokenIdx(
@@ -535,10 +563,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 16,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 16,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -556,7 +586,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `result`,
                         token_idx: TokenIdx(
@@ -571,10 +601,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 17,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 17,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -592,7 +624,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `slice`,
                         token_idx: TokenIdx(
@@ -607,10 +639,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 18,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 18,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -628,7 +662,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `str`,
                         token_idx: TokenIdx(
@@ -643,10 +677,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 19,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 19,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -664,7 +700,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `visual`,
                         token_idx: TokenIdx(
@@ -679,10 +715,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 20,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 20,
+                                },
+                            ),
                         ),
                     },
                 },

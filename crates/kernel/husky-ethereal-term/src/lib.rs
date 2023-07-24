@@ -34,7 +34,7 @@ use either::*;
 use husky_coword::Ident;
 use husky_declarative_signature::*;
 use husky_declarative_term::*;
-use husky_entity_path::*;
+use husky_item_path::*;
 use husky_print_utils::p;
 use husky_term_prelude::*;
 use husky_vfs::*;
@@ -75,10 +75,10 @@ pub struct EtherealTermJar(
     reduce_term_application,
     // - application expansion
     EtherealApplicationArguments,
-    // subentity
-    EtherealTermSubentity,
-    // as trait subentity
-    EtherealTermAsTraitSubentity,
+    // subitem
+    EtherealTermSubitem,
+    // as trait subitem
+    EtherealTermAsTraitSubitem,
     // trait constraint
     EtherealTermTraitConstraint,
     term_menu,

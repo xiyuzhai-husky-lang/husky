@@ -1,4 +1,4 @@
-use husky_entity_semantics::{EntityDefnVariant, FieldDefnVariant};
+use husky_item_semantics::{EntityDefnVariant, FieldDefnVariant};
 
 use crate::*;
 use std::sync::Arc;
@@ -32,10 +32,8 @@ pub(crate) fn expr_record_field<'eval>(
             record_field_repr(db, repr.clone(), field_ident)
         }
         FeatureLazyExprVariant::NewRecord {
-            ref entity,
-            ref opds,
-            ..
-        } => match entity.variant {
+            ref item, ref opds, ..
+        } => match item.variant {
             EntityDefnVariant::EtherealTerm { ref ty_members, .. } => {
                 if let Some((idx, type_member)) = ty_members.iget_entry(field_ident) {
                     match type_member.variant {

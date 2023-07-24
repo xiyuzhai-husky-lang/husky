@@ -24,11 +24,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::line_segment_sketch`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::line_segment_sketch`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -72,11 +76,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::line_segment_sketch`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::line_segment_sketch`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -104,11 +112,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::line_segment_sketch::line_segment`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch::line_segment`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::line_segment_sketch::line_segment`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::line_segment_sketch::line_segment`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -152,11 +164,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::line_segment_sketch`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::line_segment_sketch`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -184,11 +200,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::line_segment_sketch::convexity`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch::convexity`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::line_segment_sketch::convexity`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::line_segment_sketch::convexity`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -232,11 +252,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::geom2d`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::geom2d`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::geom2d`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::geom2d`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },

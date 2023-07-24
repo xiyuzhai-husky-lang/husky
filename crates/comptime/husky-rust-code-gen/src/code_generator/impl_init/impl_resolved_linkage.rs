@@ -31,7 +31,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                     todo!()
     //                 } else {
     //                     self.write("&");
-    //                     self.gen_entity_route(this_ty, EntityRouteRole::Decl);
+    //                     self.gen_item_route(this_ty, EntityRouteRole::Decl);
     //                     self.write(&format!(" = __arguments[0].downcast_temp_ref(&__registration__::{mangled_this_ty_vtable});"))
     //                 }
     //             }
@@ -47,7 +47,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                     todo!()
     //                 } else {
     //                     self.write("&'eval ");
-    //                     self.gen_entity_route(this_ty.deref_route(), EntityRouteRole::Decl);
+    //                     self.gen_item_route(this_ty.deref_route(), EntityRouteRole::Decl);
     //                     self.write(&format!(" = __arguments[0].downcast_eval_ref(&__registration__::{mangled_this_ty_vtable});"))
     //                 }
     //             }
@@ -58,7 +58,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 let __this: "#
     //                 ));
     //                 self.write("&mut ");
-    //                 self.gen_entity_route(this_ty, EntityRouteRole::Decl);
+    //                 self.gen_item_route(this_ty, EntityRouteRole::Decl);
     //                 self.write(&format!(
     //                     " = unsafe {{ __arb_ref(&__arguments[0]) }}.downcast_temp_mut(&__registration__::{mangled_this_ty_vtable});"
     //                 ))
@@ -76,7 +76,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             r#"
     //                 let {parameter_name}: "#
     //         ));
-    //         self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
+    //         self.gen_item_route(parameter_ty, EntityRouteRole::Decl);
     //         self.write(&format!(" = todo!();"))
     //     }
     //     self.gen_variadics_downcast(decl);
@@ -100,7 +100,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             }
     //             RegMemoryKind::BoxCopyable | RegMemoryKind::BoxNonCopyable => {
     //                 self.write("__Register::new_box::<");
-    //                 self.gen_entity_route(
+    //                 self.gen_item_route(
     //                     canonical_return_ty.intrinsic_ty(),
     //                     EntityRouteRole::Decl,
     //                 );
@@ -122,7 +122,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         CanonicalTyKind::Leash => todo!(),
     //         CanonicalTyKind::OptionalLeash => {
     //             self.write("__Register::new_opt_eval_ref::<");
-    //             self.gen_entity_route(canonical_return_ty.intrinsic_ty(), EntityRouteRole::Decl);
+    //             self.gen_item_route(canonical_return_ty.intrinsic_ty(), EntityRouteRole::Decl);
     //             self.write(">(");
     //         }
     //         CanonicalTyKind::TempRefMut => todo!(),
@@ -213,7 +213,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 match self.db.is_copyable(variadic_ty).unwrap() {
     //                     true => {
     //                         if variadic_ty.is_option() {
-    //                             let variadic_ty = variadic_ty.entity_route_argument(0);
+    //                             let variadic_ty = variadic_ty.item_route_argument(0);
     //                             if variadic_ty.is_eval_ref() {
     //                                 self.write(&format!(
     //                                 r#"
@@ -301,7 +301,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             ParameterModifier::TempRef => todo!(),
     //             ParameterModifier::TempRefMut => self.write("&'static mut "),
     //         }
-    //         self.gen_entity_route(this_ty, EntityRouteRole::StaticDecl)
+    //         self.gen_item_route(this_ty, EntityRouteRole::StaticDecl)
     //     }
     //     for (i, parameter) in decl.primary_parameters.iter().enumerate() {
     //         if decl.opt_this_liason.is_some() || i > 0 {
@@ -326,7 +326,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             ParameterModifier::TempRef => todo!(),
     //             ParameterModifier::TempRefMut => todo!(),
     //         }
-    //         self.gen_entity_route(parameter.ty(), EntityRouteRole::StaticDecl)
+    //         self.gen_item_route(parameter.ty(), EntityRouteRole::StaticDecl)
     //     }
     //     for (i, parameter) in decl.keyword_parameters.iter().enumerate() {
     //         if decl.opt_this_liason.is_some() || i + decl.primary_parameters.len() > 0 {
@@ -347,7 +347,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             ParameterModifier::TempRef => todo!(),
     //             ParameterModifier::TempRefMut => todo!(),
     //         }
-    //         self.gen_entity_route(parameter.ty(), EntityRouteRole::StaticDecl)
+    //         self.gen_item_route(parameter.ty(), EntityRouteRole::StaticDecl)
     //     }
     //     match decl.variadic_parameters {
     //         VariadicParametersDecl::None => (),
@@ -361,7 +361,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 self.write(", ")
     //             }
     //             self.write("Vec<");
-    //             self.gen_entity_route(parameter_decl.ty(), EntityRouteRole::StaticDecl);
+    //             self.gen_item_route(parameter_decl.ty(), EntityRouteRole::StaticDecl);
     //             self.write(">")
     //         }
     //     }
@@ -376,6 +376,6 @@ impl<'a> RustCodeGenerator<'a> {
     //         self.write("&dyn __EvalContext<'static>")
     //     }
     //     self.write(") -> ");
-    //     self.gen_entity_route(decl.output.ty(), EntityRouteRole::StaticDecl)
+    //     self.gen_item_route(decl.output.ty(), EntityRouteRole::StaticDecl)
     // }
 }

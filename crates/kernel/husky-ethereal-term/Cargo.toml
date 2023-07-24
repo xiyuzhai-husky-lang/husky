@@ -22,15 +22,15 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" } 
+husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }
 husky-scope = { path = "../../kernel/husky-scope" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-decr = { path = "../../syntax/husky-syn-decr" }
 # utils

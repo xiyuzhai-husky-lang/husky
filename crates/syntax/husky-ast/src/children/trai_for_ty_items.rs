@@ -16,10 +16,8 @@ impl NormalAstChildren for TraitForTypeItems {
     ));
 
     #[inline(always)]
-    fn determine_entity_kind(
-        entity_keyword_group: EntityKindKeywordGroup,
-    ) -> AstResult<EntityKind> {
-        let trait_item_kind = match entity_keyword_group {
+    fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
+        let trait_item_kind = match item_keyword_group {
             EntityKindKeywordGroup::Mod(_) => todo!(),
             EntityKindKeywordGroup::Fn(_) => TraitItemKind::MethodFn,
             EntityKindKeywordGroup::ConstFn(_, _) => todo!(),

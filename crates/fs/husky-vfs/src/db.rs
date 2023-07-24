@@ -223,7 +223,7 @@ where
                     {
                         collect_probable_modules(
                             db,
-                            ModulePath::new_child(db, parent, ident),
+                            ModulePath::new_child(db, parent, ident).into(),
                             &path,
                             modules,
                         )?
@@ -240,7 +240,7 @@ where
                         };
                         if push_flag {
                             if let Some(ident) = db.it_ident_borrowed(file_stem) {
-                                modules.push(ModulePath::new_child(db, parent, ident))
+                                modules.push(ModulePath::new_child(db, parent, ident).into())
                             }
                         }
                     }

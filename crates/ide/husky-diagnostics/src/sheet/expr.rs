@@ -50,10 +50,10 @@ impl<'a> ModuleDiagnosticsCollector<'a> {
                 _ => (),
             }
         }
-        for entity_path_expr in expr_region_data.principal_entity_path_expr_arena().data() {
-            match entity_path_expr {
+        for item_path_expr in expr_region_data.principal_item_path_expr_arena().data() {
+            match item_path_expr {
                 PrincipalEntityPathExpr::Root { .. } => (),
-                PrincipalEntityPathExpr::Subentity {
+                PrincipalEntityPathExpr::Subitem {
                     ident_token, path, ..
                 } => {
                     match ident_token {
@@ -148,11 +148,11 @@ impl Diagnose for OriginalExprError {
             } => {
                 format!("Syntax Error: unrecognized identifier")
             }
-            OriginalExprError::UnresolvedSubentity {
+            OriginalExprError::UnresolvedSubitem {
                 token_idx: _,
                 ident: _,
             } => {
-                format!("Syntax Error: unresolved subentity")
+                format!("Syntax Error: unresolved subitem")
             }
             OriginalExprError::ExpectedLetVariablesType(_) => {
                 format!("Syntax Error: expected let variables type")
@@ -213,7 +213,7 @@ impl Diagnose for OriginalPrincipalEntityPathExprError {
                 token_idx: _,
                 error,
             } => {
-                format!("entity tree error {:?}", error.debug(ctx.db()))
+                format!("item tree error {:?}", error.debug(ctx.db()))
             }
             OriginalPrincipalEntityPathExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
         }

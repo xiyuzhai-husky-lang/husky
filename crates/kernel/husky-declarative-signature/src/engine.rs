@@ -41,7 +41,7 @@ impl<'a> DeclarativeTermEngine<'a> {
     ) -> Self {
         let toolchain = syn_expr_region.toolchain(db);
         // ad hoc
-        let _entity_path_menu = db.entity_path_menu(toolchain);
+        let _item_path_menu = db.item_path_menu(toolchain);
         let declarative_term_menu = db.declarative_term_menu(toolchain).unwrap();
         let expr_region_data = &syn_expr_region.data(db);
         Self {
@@ -91,7 +91,8 @@ impl<'a> DeclarativeTermEngine<'a> {
                         .expect("ty constraint should match with current symbols");
                     let CurrentSynSymbolVariant::ImplicitParameter {
                         implicit_parameter_variant,
-                    } = current_symbol.variant() else {
+                    } = current_symbol.variant()
+                    else {
                         unreachable!()
                     };
                     let ty = match implicit_parameter_variant {
@@ -144,14 +145,15 @@ impl<'a> DeclarativeTermEngine<'a> {
         let Ok(ty) = self.infer_new_expr_term(ty) else {
             for symbol in symbols {
                 let modifier = self.expr_region_data[symbol].modifier();
-                self.symbol_declarative_term_region.add_new_parenic_parameter_symbol_signature(
-                    self.db,
-                    symbol,
-                    modifier,
-                    Err(DeclarativeTermSymbolTypeErrorKind::SignatureDeclarativeTermError),
-                )
+                self.symbol_declarative_term_region
+                    .add_new_parenic_parameter_symbol_signature(
+                        self.db,
+                        symbol,
+                        modifier,
+                        Err(DeclarativeTermSymbolTypeErrorKind::SignatureDeclarativeTermError),
+                    )
             }
-            return
+            return;
         };
         self.infer_pattern_tys_in_parenic_parameter(pattern_expr, ty);
         for symbol in symbols {
@@ -290,7 +292,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 Literal::Bool(_) => todo!(),
             },
             SynExpr::PrincipalEntityPath {
-                entity_path_expr: _,
+                item_path_expr: _,
                 opt_path,
             } => match opt_path {
                 Some(path) => Ok(DeclarativeTerm::EntityPath(match path {
@@ -342,10 +344,16 @@ impl<'a> DeclarativeTermEngine<'a> {
                 lopd, opr, ropd, ..
             } => {
                 let Ok(lopd) = self.infer_new_expr_term(lopd) else {
-                    return Err(DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix.into());
+                    return Err(
+                        DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix
+                            .into(),
+                    );
                 };
                 let Ok(ropd) = self.infer_new_expr_term(ropd) else {
-                    return Err(DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix.into());
+                    return Err(
+                        DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix
+                            .into(),
+                    );
                 };
                 match opr {
                     BinaryOpr::Closed(_) => todo!(),
@@ -376,7 +384,10 @@ impl<'a> DeclarativeTermEngine<'a> {
                 opd,
             } => {
                 let Ok(opd) = self.infer_new_expr_term(opd) else {
-                    return Err(DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix.into());
+                    return Err(
+                        DerivedDeclarativeTermError2::CannotInferOperandDeclarativeTermInPrefix
+                            .into(),
+                    );
                 };
                 let tmpl = match opr {
                     PrefixOpr::Minus => todo!(),
@@ -414,7 +425,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 let Ok(function) = self.infer_new_expr_term(function) else {
                     return Err(
                         DerivedDeclarativeTermError2::CannotInferArgumentDeclarativeTermInApplication.into()
-                    )
+                    );
                 };
                 let generic_arguments = match generic_arguments {
                     Some(generic_arguments) => generic_arguments
@@ -448,7 +459,7 @@ impl<'a> DeclarativeTermEngine<'a> {
                 let Ok(argument) = self.infer_new_expr_term(argument) else {
                     Err(DerivedDeclarativeTermError2::CannotInferArgumentDeclarativeTermInApplication)?
                 };
-                let Ok( function) = self.infer_new_expr_term(function) else {
+                let Ok(function) = self.infer_new_expr_term(function) else {
                     Err(DerivedDeclarativeTermError2::CannotInferFunctionDeclarativeTermInApplication)?
                 };
                 Ok(DeclarativeTermExplicitApplication::new(self.db, function, argument).into())

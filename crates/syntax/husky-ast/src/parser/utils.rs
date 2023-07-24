@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_taxonomy::{ModuleItemKind, TypeKind};
+use husky_item_taxonomy::{ModuleItemKind, TypeKind};
 use husky_opr::Bracket;
 use husky_scope_expr::VisibilityExprResult;
 use husky_token::*;
@@ -9,13 +9,13 @@ use std::iter::Peekable;
 pub(super) trait AstTokenParseContext<'a>: TokenStreamParser<'a> {
     fn module_path(&self) -> ModulePath;
 
-    fn take_entity_kind_keyword(&mut self) -> AstResult<EntityKindKeywordGroup> {
+    fn take_item_kind_keyword(&mut self) -> AstResult<EntityKindKeywordGroup> {
         let (idx, token) = self
             .borrow_mut()
             .next_indexed()
             .ok_or(OriginalAstError::ExpectedEntityKeyword)?;
         Ok(match token {
-            // self.take_entity_kind_keyword()?,
+            // self.take_item_kind_keyword()?,
             Token::Keyword(kw) => todo!(),
             // kw,
             _ => return Err(OriginalAstError::ExpectedEntityKeyword.into()),
@@ -23,9 +23,9 @@ pub(super) trait AstTokenParseContext<'a>: TokenStreamParser<'a> {
     }
 
     fn parse_is_generic(&mut self) -> bool {
-        let Some (token) = &self
-            .token_stream_mut()
-            .peek() else { return false };
+        let Some(token) = &self.token_stream_mut().peek() else {
+            return false;
+        };
         match token {
             Token::Punctuation(Punctuation::LA_OR_LT) => true,
             _ => false,
