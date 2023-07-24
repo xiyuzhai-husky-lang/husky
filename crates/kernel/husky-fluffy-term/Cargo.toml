@@ -17,8 +17,8 @@ maybe-result = { path = "../../abstraction/maybe-result" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # kernel
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" } 
+husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-coword = { path = "../../kernel/husky-coword" }
@@ -27,7 +27,7 @@ husky-scope = { path = "../../kernel/husky-scope" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 # syntax
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

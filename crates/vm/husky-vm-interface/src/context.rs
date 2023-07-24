@@ -5,7 +5,7 @@ use std::{
 };
 
 pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
-    fn entity_uid(&self, entity_route_text: &str) -> u64;
+    fn item_uid(&self, item_route_text: &str) -> u64;
 
     fn opt_cached_lazy_field(
         &self,
@@ -30,7 +30,7 @@ pub trait __EvalContext<'eval>: RefUnwindSafe + UnwindSafe {
 
     fn feature_ptr(&self, feature_route_text: &str) -> usize;
 
-    fn eval_feature_from_uid(&self, feature_entity_uid: u64) -> __VMResult<__Register<'eval>>;
+    fn eval_feature_from_uid(&self, feature_item_uid: u64) -> __VMResult<__Register<'eval>>;
 
     fn target_input(&self) -> &__Register<'eval>;
 }
@@ -52,16 +52,16 @@ macro_rules! feature_ptr {
 }
 
 #[macro_export]
-macro_rules! entity_uid {
+macro_rules! item_uid {
     ($ctx: ident, $text: expr) => {{
         unsafe {
             static mut __OPT_ENTITY_UID: Option<u64> = None;
-            if let Some(__entity_uid) = __OPT_ENTITY_UID {
-                __entity_uid
+            if let Some(__item_uid) = __OPT_ENTITY_UID {
+                __item_uid
             } else {
-                let __entity_uid = $ctx.entity_uid($text);
-                __OPT_ENTITY_UID = Some(__entity_uid);
-                __entity_uid
+                let __item_uid = $ctx.item_uid($text);
+                __OPT_ENTITY_UID = Some(__item_uid);
+                __item_uid
             }
         }
     }};

@@ -28,8 +28,8 @@ pub enum FluffyTerm {
     Ritchie(EtherealTermRitchie),
     Abstraction(EtherealTermAbstraction),
     Application(EtherealTermApplication),
-    Subentity(EtherealTermSubentity),
-    AsTraitSubentity(EtherealTermAsTraitSubentity),
+    Subitem(EtherealTermSubitem),
+    AsTraitSubitem(EtherealTermAsTraitSubitem),
     TraitConstraint(EtherealTermTraitConstraint),
     /// terms with determined local lifetimes and places, without undetermined arguments
     Solid(SolidTerm),

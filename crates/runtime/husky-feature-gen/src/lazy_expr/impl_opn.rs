@@ -1,6 +1,6 @@
 use super::*;
 
-use husky_entity_semantics::EntityDefnVariant;
+use husky_item_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
 use husky_vm::{Binding, __root::__NEQ_LINKAGE};
 use husky_vm::{__Linkage, __root::__EQ_LINKAGE};
@@ -25,7 +25,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //     }
         //     LazyOpnKind::Prefix(_) => todo!(),
         //     LazyOpnKind::FunctionModelCall(routine) => {
-        //         let uid = self.db.entity_uid(routine.route);
+        //         let uid = self.db.item_uid(routine.route);
         //         let opds = opds
         //             .iter()
         //             .map(|opd| self.new_expr(opd.clone()))
@@ -35,7 +35,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //             uid,
         //             inputs: opds.iter().map(|expr| expr.feature).collect(),
         //         });
-        //         let model_defn = self.db.entity_defn(routine.route).unwrap();
+        //         let model_defn = self.db.item_defn(routine.route).unwrap();
         //         let internal = match model_defn.variant {
         //             EntityDefnVariant::Function {
         //                 source: CallFormSource::Static(__Linkage::Model(model)),
@@ -55,7 +55,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //         (kind, feature)
         //     }
         //     LazyOpnKind::FunctionRoutineCall(routine) => {
-        //         let uid = self.db.entity_uid(routine.route);
+        //         let uid = self.db.item_uid(routine.route);
         //         let opds = opds
         //             .iter()
         //             .map(|opd| self.new_expr(opd.clone()))
@@ -65,13 +65,13 @@ impl<'a> FeatureExprBuilder<'a> {
         //             uid,
         //             inputs: opds.iter().map(|expr| expr.feature).collect(),
         //         });
-        //         let routine_defn = self.db.entity_defn(routine.route).unwrap();
+        //         let routine_defn = self.db.item_defn(routine.route).unwrap();
         //         let opt_linkage = self.db.routine_linkage(routine.route);
         //         let kind = FeatureLazyExprVariant::RoutineCall {
         //             opt_linkage,
         //             opds,
         //             has_this: false,
-        //             opt_instruction_sheet: self.db.entity_instruction_sheet(routine.route),
+        //             opt_instruction_sheet: self.db.item_instruction_sheet(routine.route),
         //             routine_defn,
         //         };
         //         (kind, feature)
@@ -100,7 +100,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //     LazyOpnKind::Index { element_binding } => self.compile_index(opds, element_binding),
         //     LazyOpnKind::StructCall(_) => todo!(),
         //     LazyOpnKind::RecordCall(ty) => {
-        //         let uid = self.db.entity_uid(ty.route);
+        //         let uid = self.db.item_uid(ty.route);
         //         let opds = opds
         //             .iter()
         //             .map(|opd| self.new_expr(opd.clone()))
@@ -112,7 +112,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //         });
         //         let kind = FeatureLazyExprVariant::NewRecord {
         //             ty,
-        //             entity: self.db.entity_defn(ty.route).unwrap(),
+        //             item: self.db.item_defn(ty.route).unwrap(),
         //             opds,
         //         };
         //         (kind, feature)
@@ -288,7 +288,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //     opds: opds.iter().map(|opd| opd.feature).collect(),
         // });
         // let self_expr = &opds[0].expr;
-        // let this_ty_defn = self.db.entity_defn(self_expr.intrinsic_ty()).unwrap();
+        // let this_ty_defn = self.db.item_defn(self_expr.intrinsic_ty()).unwrap();
         // let member_idx = self.db.member_idx(method_route);
         // let method_defn = this_ty_defn.method(member_idx);
         // let kind = match method_defn.variant {
@@ -300,7 +300,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //         routine_defn: method_defn.clone(),
         //     },
         //     _ => panic!(
-        //         "unexpected entity variant {:?} for method `{method_route}`",
+        //         "unexpected item variant {:?} for method `{method_route}`",
         //         method_defn.variant
         //     ),
         // };
@@ -343,9 +343,9 @@ impl<'a> FeatureExprBuilder<'a> {
         //     }
         //     FieldKind::StructMemo { .. } => {
         //         let this_ty = this.ty();
-        //         let this_ty_defn = self.db.entity_defn(this_ty).unwrap();
+        //         let this_ty_defn = self.db.item_defn(this_ty).unwrap();
         //         let lazy_field_route = self.db.subroute(this_ty, field_ident.ident, thin_vec![]);
-        //         let field_uid = self.db.entity_uid(lazy_field_route);
+        //         let field_uid = self.db.item_uid(lazy_field_route);
         //         match this_ty_defn.variant {
         //             EntityDefnVariant::EtherealTerm { ref ty_members, .. } => {
         //                 match ty_members.get_entry(field_ident.ident).unwrap().variant {
@@ -394,10 +394,10 @@ impl<'a> FeatureExprBuilder<'a> {
         //         )
         //     }
         //     FieldKind::RecordProperty => {
-        //         let this_ty_defn = self.db.entity_defn(this.ty()).unwrap();
+        //         let this_ty_defn = self.db.item_defn(this.ty()).unwrap();
         //         let field_uid =
         //             self.db
-        //                 .entity_uid(self.db.intern_entity_route(EntityRoute::subroute(
+        //                 .item_uid(self.db.intern_item_route(EntityRoute::subroute(
         //                     this.ty(),
         //                     field_ident.ident,
         //                     thin_vec![],

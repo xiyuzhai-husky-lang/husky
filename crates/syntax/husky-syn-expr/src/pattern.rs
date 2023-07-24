@@ -7,7 +7,7 @@ pub use self::symbol::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_path::EntityPath;
+use husky_item_path::ItemPath;
 use husky_token::{AtToken, DotDotToken, IdentToken, TokenStream};
 use idx_arena::{ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use ordered_float::NotNan;
@@ -38,15 +38,15 @@ pub enum PatternSynExpr {
         ident_token: IdentToken,
     },
     /// example: `A::B`
-    Entity(EntityPath),
+    Entity(ItemPath),
     /// example: `(a, b)`
     Tuple {
-        name: Option<EntityPath>,
+        name: Option<ItemPath>,
         fields: PatternSynExprIdxRange,
     },
     /// example: `C { .. }`
     Struct {
-        name: Option<EntityPath>,
+        name: Option<ItemPath>,
         fields: PatternSynExprIdxRange,
     },
     /// example: `A | B | C { .. }`

@@ -31,7 +31,7 @@ impl From<DerivedPrincipalEntityPathExprError> for PrincipalEntityPathExprError 
 #[derive(Debug, Error, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = SynExprDb)]
 pub enum OriginalPrincipalEntityPathExprError {
-    #[error("entity tree")]
+    #[error("item tree")]
     EntityTree {
         token_idx: TokenIdx,
         error: EntityTreeError,

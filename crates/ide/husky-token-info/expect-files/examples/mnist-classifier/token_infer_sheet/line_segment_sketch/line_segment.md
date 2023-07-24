@@ -24,11 +24,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::geom2d`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::geom2d`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::geom2d`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::geom2d`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },

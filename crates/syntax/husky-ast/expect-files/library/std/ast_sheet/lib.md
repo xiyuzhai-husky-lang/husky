@@ -16,7 +16,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `prelude`,
                         token_idx: TokenIdx(
@@ -31,10 +31,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 24,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 24,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -52,7 +54,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `logic`,
                         token_idx: TokenIdx(
@@ -67,10 +69,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 22,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 22,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -88,7 +92,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
@@ -103,10 +107,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 23,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 23,
+                                },
+                            ),
                         ),
                     },
                 },

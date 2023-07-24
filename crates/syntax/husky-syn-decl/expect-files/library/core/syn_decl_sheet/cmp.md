@@ -3,7 +3,7 @@ Ok(
         [salsa id]: 4,
         decls: [
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::cmp::PartialEq`),
                     ),
@@ -32,7 +32,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -73,7 +73,7 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::cmp::Eq`),
                     ),
@@ -102,7 +102,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -143,7 +143,7 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::cmp::PartialOrd`),
                     ),
@@ -172,7 +172,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -213,7 +213,7 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::cmp::Ord`),
                     ),
@@ -242,7 +242,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {

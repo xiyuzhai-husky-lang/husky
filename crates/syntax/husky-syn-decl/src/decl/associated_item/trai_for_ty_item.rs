@@ -104,7 +104,7 @@ impl<'a> DeclParser<'a> {
         match self.ast_sheet()[ast_idx] {
             Ast::Defn {
                 token_group_idx,
-                entity_kind:
+                item_kind:
                     EntityKind::AssociatedItem {
                         associated_item_kind: AssociatedItemKind::TraitForTypeItem(item_kind),
                     },

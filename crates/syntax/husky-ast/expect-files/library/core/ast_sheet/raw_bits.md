@@ -16,7 +16,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
                         ),
@@ -63,7 +63,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
                         ),

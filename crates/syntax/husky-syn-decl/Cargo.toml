@@ -18,16 +18,16 @@ parsec = { path = "../../abstraction/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-item-path = { path = "../../kernel/husky-item-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-opr = { path = "../../kernel/husky-opr" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 
@@ -35,7 +35,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
-husky-term-prelude = { path ="../../kernel/husky-term-prelude" }
+husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # lex
 husky-toml-token = { path = "../../lex/husky-toml-token" }
 # semantics

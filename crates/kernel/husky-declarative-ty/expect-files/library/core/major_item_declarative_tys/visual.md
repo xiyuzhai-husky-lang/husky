@@ -1,0 +1,22 @@
+[
+    (
+        ItemPath::ModuleItem(
+            ModuleItemPath::Trait(
+                TraitPath(`core::visual::Visualize`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`core::basic::Trait`),
+        ),
+    ),
+    (
+        ItemPath::ModuleItem(
+            ModuleItemPath::Type(
+                TypePath(`core::visual::Html`, `Extern`),
+            ),
+        ),
+        Ok(
+            DeclarativeTerm(`Type`),
+        ),
+    ),
+]

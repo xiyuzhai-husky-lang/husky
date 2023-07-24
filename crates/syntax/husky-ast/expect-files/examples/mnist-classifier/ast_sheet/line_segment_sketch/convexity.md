@@ -205,7 +205,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),

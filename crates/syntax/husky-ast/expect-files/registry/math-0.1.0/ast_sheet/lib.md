@@ -16,7 +16,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `algebra`,
                         token_idx: TokenIdx(
@@ -31,10 +31,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 51,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 51,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -52,7 +54,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `algebraic_geometry`,
                         token_idx: TokenIdx(
@@ -67,10 +69,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 52,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 52,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -88,7 +92,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `algebraic_topology`,
                         token_idx: TokenIdx(
@@ -103,10 +107,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 53,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 53,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -124,7 +130,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `category_theory`,
                         token_idx: TokenIdx(
@@ -139,10 +145,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 54,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 54,
+                                },
+                            ),
                         ),
                     },
                 },
@@ -160,7 +168,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: Module,
+                    item_kind: Module,
                     ident_token: IdentToken {
                         ident: `probability`,
                         token_idx: TokenIdx(
@@ -175,10 +183,12 @@ Ok(
                         drained: true,
                     },
                     block: Submodule {
-                        path: ModulePath(
-                            Id {
-                                value: 55,
-                            },
+                        path: SubmodulePath(
+                            ModulePath(
+                                Id {
+                                    value: 55,
+                                },
+                            ),
                         ),
                     },
                 },

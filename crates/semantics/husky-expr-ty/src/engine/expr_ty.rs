@@ -102,9 +102,9 @@ impl<'a> ExprTypeEngine<'a> {
                 self.calc_literal_expr_ty(expr_idx, literal_token_idx, expr_ty_expectation),
             )),
             SynExpr::PrincipalEntityPath {
-                entity_path_expr,
+                item_path_expr,
                 opt_path: path,
-            } => self.calc_principal_entity_path_expr_ty(path, expr_ty_expectation),
+            } => self.calc_principal_item_path_expr_ty(path, expr_ty_expectation),
             SynExpr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,

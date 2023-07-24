@@ -2,9 +2,9 @@ use crate::*;
 use husky_ast::{Ast, AstSheet};
 use husky_syn_defn::*;
 
-use husky_entity_taxonomy::EntityKind;
-use husky_entity_tree::ParentUseExpr;
 use husky_expr_ty::{ExprDisambiguation, ExprTypeRegion, IndexOrComposeWithListExprDisambiguation};
+use husky_item_taxonomy::EntityKind;
+use husky_item_tree::ParentUseExpr;
 use husky_syn_expr::*;
 
 pub(crate) struct InferEngine<'a> {
@@ -12,37 +12,34 @@ pub(crate) struct InferEngine<'a> {
     module_path: ModulePath,
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
-    entity_tree_presheet: &'a EntitySynTreePresheet,
-    entity_tree_sheet: &'a EntitySynTreeSheet,
+    item_tree_presheet: &'a EntitySynTreePresheet,
+    item_tree_sheet: &'a EntitySynTreeSheet,
     module_symbol_context: ModuleSymbolContext<'a>,
     sheet: TokenInfoSheet,
 }
 
 impl<'a> InferEngine<'a> {
-    pub(crate) fn new(
-        db: &'a dyn TokenInfoDb,
-        module_path: ModulePath,
-    ) -> EntitySynTreeResult<Self> {
+    pub(crate) fn new(db: &'a dyn TokenInfoDb, module_path: ModulePath) -> ItemSynTreeResult<Self> {
         let token_sheet_data = &db.token_sheet_data(module_path)?;
         Ok(Self {
             db,
             module_path,
             token_sheet_data,
             ast_sheet: db.ast_sheet(module_path)?,
-            entity_tree_presheet: db.entity_syn_tree_presheet(module_path)?,
-            entity_tree_sheet: db.entity_syn_tree_sheet(module_path)?,
+            item_tree_presheet: db.item_syn_tree_presheet(module_path)?,
+            item_tree_sheet: db.item_syn_tree_sheet(module_path)?,
             sheet: TokenInfoSheet::new(token_sheet_data),
             module_symbol_context: db.module_symbol_context(module_path)?,
         })
     }
 
-    pub(crate) fn visit_all(mut self) -> EntitySynTreeResult<TokenInfoSheet> {
+    pub(crate) fn visit_all(mut self) -> ItemSynTreeResult<TokenInfoSheet> {
         self.visit_nodes()?;
         self.visit_once_use_rules();
         Ok(self.sheet)
     }
 
-    fn visit_nodes(&mut self) -> EntitySynTreeResult<()> {
+    fn visit_nodes(&mut self) -> ItemSynTreeResult<()> {
         for syn_node_defn in self.module_path.node_defns(self.db)?.iter().copied() {
             self.visit_node(syn_node_defn)
         }
@@ -50,14 +47,14 @@ impl<'a> InferEngine<'a> {
     }
 
     fn visit_once_use_rules(&mut self) {
-        for (rule_idx, rule) in self.entity_tree_sheet.once_use_rule_indexed_iter() {
+        for (rule_idx, rule) in self.item_tree_sheet.once_use_rule_indexed_iter() {
             self.visit_once_use_rule(rule, rule_idx);
         }
     }
 
     fn visit_once_use_rule(&mut self, rule: &OnceUseRule, rule_idx: OnceUseRuleIdx) {
         let use_expr_idx = rule.use_expr_idx();
-        let use_expr = &self.entity_tree_presheet[use_expr_idx];
+        let use_expr = &self.item_tree_presheet[use_expr_idx];
         match use_expr {
             UseExpr::All { star_token } => self
                 .sheet
@@ -97,11 +94,11 @@ impl<'a> InferEngine<'a> {
         match self.ast_sheet[ast_idx] {
             Ast::Defn {
                 ident_token,
-                entity_kind,
+                item_kind,
                 ..
             } => self.sheet.add(
                 ident_token.token_idx(),
-                TokenInfo::EntityNode(syn_node_decl.syn_node_path(self.db), entity_kind),
+                TokenInfo::EntityNode(syn_node_decl.syn_node_path(self.db), item_kind),
             ),
             Ast::ImplBlock { .. } => (),
             _ => unreachable!(),
@@ -250,12 +247,12 @@ impl<'a> InferContext<'a> {
         for (expr_idx, expr) in self.expr_region_data.expr_arena().indexed_iter() {
             self.visit_expr(expr_idx, expr)
         }
-        for entity_path_expr in self
+        for item_path_expr in self
             .expr_region_data
-            .principal_entity_path_expr_arena()
+            .principal_item_path_expr_arena()
             .iter()
         {
-            self.visit_entity_path_expr(entity_path_expr)
+            self.visit_item_path_expr(item_path_expr)
         }
         for (current_symbol_idx, current_symbol) in self
             .expr_region_data
@@ -401,8 +398,8 @@ impl<'a> InferContext<'a> {
         }
     }
 
-    fn visit_entity_path_expr(&mut self, entity_path_expr: &PrincipalEntityPathExpr) {
-        match entity_path_expr {
+    fn visit_item_path_expr(&mut self, item_path_expr: &PrincipalEntityPathExpr) {
+        match item_path_expr {
             PrincipalEntityPathExpr::Root {
                 principal_entity_path,
                 path_name_token,
@@ -411,14 +408,14 @@ impl<'a> InferContext<'a> {
                 path_name_token.token_idx(),
                 TokenInfo::Entity((*principal_entity_path).into()),
             ),
-            PrincipalEntityPathExpr::Subentity {
+            PrincipalEntityPathExpr::Subitem {
                 path: Ok(path),
                 ident_token: Ok(ident_token),
                 ..
             } => self
                 .sheet
                 .add(ident_token.token_idx(), TokenInfo::Entity((*path).into())),
-            PrincipalEntityPathExpr::Subentity { .. } => (),
+            PrincipalEntityPathExpr::Subitem { .. } => (),
         }
     }
 

@@ -3,7 +3,7 @@ Ok(
         [salsa id]: 55,
         decls: [
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`mnist::MnistLabel`, `Enum`),
                     ),
@@ -32,7 +32,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [],
                                         },
-                                        principal_entity_path_expr_arena: Arena {
+                                        principal_item_path_expr_arena: Arena {
                                             data: [],
                                         },
                                         stmt_arena: Arena {
@@ -74,7 +74,7 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`mnist::BinaryImage28`, `Struct`),
                     ),
@@ -134,7 +134,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    entity_path_expr: 0,
+                                                    item_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -149,7 +149,7 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        principal_entity_path_expr_arena: Arena {
+                                        principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(
@@ -212,7 +212,7 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Fugitive(
                         FugitivePath(`mnist::input`, `Val`),
                     ),
@@ -246,7 +246,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    entity_path_expr: 0,
+                                                    item_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -257,7 +257,7 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        principal_entity_path_expr_arena: Arena {
+                                        principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(

@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
             ),
@@ -39,7 +39,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
             ),
@@ -66,7 +66,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Fn`),
             ),
@@ -97,7 +97,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
             ),
@@ -124,7 +124,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Fn`),
             ),
@@ -161,7 +161,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Fn`),
             ),
@@ -192,7 +192,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
@@ -226,7 +226,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath {
                     impl_block: TraitForTypeImplBlockPath {
@@ -269,7 +269,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
                     Id {
@@ -292,7 +292,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -324,7 +324,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -356,7 +356,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -388,7 +388,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -420,7 +420,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -452,7 +452,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -484,7 +484,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -516,7 +516,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -548,7 +548,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -598,7 +598,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {

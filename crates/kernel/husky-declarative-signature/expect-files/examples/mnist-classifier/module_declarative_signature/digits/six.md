@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
             ),
@@ -18,7 +18,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
             ),
@@ -36,7 +36,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
@@ -54,7 +54,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
             ),
@@ -85,7 +85,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
             ),

@@ -1,10 +1,10 @@
-mod entity_kind;
+mod item_kind;
 mod symbol_modifier;
 
-pub use self::entity_kind::*;
+pub use self::item_kind::*;
 pub use self::symbol_modifier::*;
 
-use husky_entity_taxonomy::TypeKind;
+use husky_item_taxonomy::TypeKind;
 
 use super::*;
 

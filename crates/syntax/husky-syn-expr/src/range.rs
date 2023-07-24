@@ -6,7 +6,7 @@ use husky_vfs::ModulePath;
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::derive_debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct ExprRangeRegion {
-    entity_path_expr_ranges: Vec<TokenIdxRange>,
+    item_path_expr_ranges: Vec<TokenIdxRange>,
     pattern_expr_ranges: Vec<TokenIdxRange>,
     expr_ranges: Vec<TokenIdxRange>,
     stmt_ranges: SynStmtMap<TokenIdxRange>,
@@ -27,7 +27,7 @@ impl std::ops::Index<PrincipalEntityPathExprIdx> for ExprRangeRegion {
     type Output = TokenIdxRange;
 
     fn index(&self, index: PrincipalEntityPathExprIdx) -> &Self::Output {
-        &self.entity_path_expr_ranges[index.raw()]
+        &self.item_path_expr_ranges[index.raw()]
     }
 }
 
@@ -50,7 +50,7 @@ impl std::ops::Index<SynExprIdx> for ExprRangeRegion {
 struct SynExprRangeCalculator<'a> {
     token_sheet_data: &'a TokenSheetData,
     expr_region_data: &'a SynExprRegionData,
-    entity_path_expr_ranges: Vec<TokenIdxRange>,
+    item_path_expr_ranges: Vec<TokenIdxRange>,
     pattern_expr_ranges: Vec<TokenIdxRange>,
     expr_ranges: Vec<TokenIdxRange>,
     stmt_ranges: SynStmtMap<TokenIdxRange>,
@@ -60,7 +60,7 @@ impl<'a> std::ops::Index<PrincipalEntityPathExprIdx> for SynExprRangeCalculator<
     type Output = TokenIdxRange;
 
     fn index(&self, index: PrincipalEntityPathExprIdx) -> &Self::Output {
-        &self.entity_path_expr_ranges[index.raw()]
+        &self.item_path_expr_ranges[index.raw()]
     }
 }
 
@@ -68,7 +68,7 @@ impl<'a> std::ops::Index<&PrincipalEntityPathExprIdx> for SynExprRangeCalculator
     type Output = TokenIdxRange;
 
     fn index(&self, index: &PrincipalEntityPathExprIdx) -> &Self::Output {
-        &self.entity_path_expr_ranges[index.raw()]
+        &self.item_path_expr_ranges[index.raw()]
     }
 }
 
@@ -120,7 +120,7 @@ impl<'a> SynExprRangeCalculator<'a> {
         SynExprRangeCalculator {
             token_sheet_data,
             expr_region_data,
-            entity_path_expr_ranges: Default::default(),
+            item_path_expr_ranges: Default::default(),
             pattern_expr_ranges: Default::default(),
             expr_ranges: Default::default(),
             stmt_ranges: SynStmtMap::new(expr_region_data.stmt_arena()),
@@ -129,18 +129,15 @@ impl<'a> SynExprRangeCalculator<'a> {
 
     fn calc_all(mut self) -> ExprRangeRegion {
         // order matters
-        self.entity_path_expr_ranges.reserve(
-            self.expr_region_data
-                .principal_entity_path_expr_arena()
-                .len(),
-        );
-        for entity_path_expr in self
+        self.item_path_expr_ranges
+            .reserve(self.expr_region_data.principal_item_path_expr_arena().len());
+        for item_path_expr in self
             .expr_region_data
-            .principal_entity_path_expr_arena()
+            .principal_item_path_expr_arena()
             .iter()
         {
-            self.entity_path_expr_ranges
-                .push(self.calc_entity_path_expr_range(entity_path_expr))
+            self.item_path_expr_ranges
+                .push(self.calc_item_path_expr_range(item_path_expr))
         }
         self.pattern_expr_ranges
             .reserve(self.expr_region_data.pattern_expr_arena().len());
@@ -159,20 +156,20 @@ impl<'a> SynExprRangeCalculator<'a> {
             self.expr_ranges.len()
         );
         ExprRangeRegion {
-            entity_path_expr_ranges: self.entity_path_expr_ranges,
+            item_path_expr_ranges: self.item_path_expr_ranges,
             pattern_expr_ranges: self.pattern_expr_ranges,
             expr_ranges: self.expr_ranges,
             stmt_ranges: self.stmt_ranges,
         }
     }
 
-    fn calc_entity_path_expr_range(&self, expr: &PrincipalEntityPathExpr) -> TokenIdxRange {
+    fn calc_item_path_expr_range(&self, expr: &PrincipalEntityPathExpr) -> TokenIdxRange {
         match expr {
             PrincipalEntityPathExpr::Root {
                 path_name_token,
-                principal_entity_path: entity_path,
+                principal_entity_path: item_path,
             } => TokenIdxRange::new_single(path_name_token.token_idx()),
-            PrincipalEntityPathExpr::Subentity {
+            PrincipalEntityPathExpr::Subitem {
                 parent,
                 scope_resolution_token,
                 ident_token,
@@ -230,9 +227,9 @@ impl<'a> SynExprRangeCalculator<'a> {
             | SynExpr::SelfValue(token_idx) => TokenIdxRange::new_single(*token_idx),
             SynExpr::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             SynExpr::PrincipalEntityPath {
-                entity_path_expr,
-                opt_path: entity_path,
-            } => self[*entity_path_expr],
+                item_path_expr,
+                opt_path: item_path,
+            } => self[*item_path_expr],
             SynExpr::ScopeResolution {
                 parent_expr_idx,
                 scope_resolution_token,

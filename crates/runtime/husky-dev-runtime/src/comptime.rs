@@ -1,6 +1,6 @@
 use crate::*;
 use husky_diagnostics::DiagnosticsDb;
-use husky_entity_semantics::{EntityRouteStore, StoreEntityRoute};
+use husky_item_semantics::{EntityRouteStore, StoreEntityRoute};
 use husky_linkage_table::LinkageTable;
 use husky_static_defn::ResolveStaticRootDefn;
 use upcast::Upcast;
@@ -38,20 +38,20 @@ impl EntityTreeDb for DevRuntime {}
 
 impl AstDb for DevRuntime {}
 
-impl Upcast<dyn husky_entity_semantics::EntityDefnQueryGroup> for DevRuntime {
-    fn upcast(&self) -> &(dyn husky_entity_semantics::EntityDefnQueryGroup + 'static) {
+impl Upcast<dyn husky_item_semantics::EntityDefnQueryGroup> for DevRuntime {
+    fn upcast(&self) -> &(dyn husky_item_semantics::EntityDefnQueryGroup + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_tree::EntityTreeDb> for DevRuntime {
-    fn upcast(&self) -> &(dyn husky_entity_tree::EntityTreeDb + 'static) {
+impl Upcast<dyn husky_item_tree::EntityTreeDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn husky_item_tree::EntityTreeDb + 'static) {
         self
     }
 }
 
-impl Upcast<dyn husky_entity_tree::EntityTreeDb> for DevRuntime {
-    fn upcast(&self) -> &(dyn husky_entity_tree::EntityTreeDb + 'static) {
+impl Upcast<dyn husky_item_tree::EntityTreeDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn husky_item_tree::EntityTreeDb + 'static) {
         self
     }
 }
@@ -63,8 +63,8 @@ impl ResolveLinkage for DevRuntime {
 }
 
 impl StoreEntityRoute for DevRuntime {
-    fn entity_route_store(&self) -> &EntityRouteStore {
-        &self.entity_route_store
+    fn item_route_store(&self) -> &EntityRouteStore {
+        &self.item_route_store
     }
 }
 

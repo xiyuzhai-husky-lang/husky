@@ -13,7 +13,7 @@ pub fn declarative_term_declarative_ty(
         DeclarativeTerm::Literal(_) => todo!(),
         DeclarativeTerm::Symbol(_) => todo!(),
         DeclarativeTerm::Variable(_) => todo!(),
-        DeclarativeTerm::EntityPath(path) => declarative_term_entity_path_declarative_ty(db, path),
+        DeclarativeTerm::EntityPath(path) => declarative_term_item_path_declarative_ty(db, path),
         DeclarativeTerm::Category(cat) => cat.ty().map(Into::into).map_err(|_e| todo!()),
         DeclarativeTerm::Universe(_) => todo!(),
         DeclarativeTerm::Curry(_) => todo!(),
@@ -26,8 +26,8 @@ pub fn declarative_term_declarative_ty(
             application_declarative_term_declarative_ty(db, declarative_term)
         }
         DeclarativeTerm::ExplicitApplicationOrRitchieCall(_declarative_ty) => todo!(),
-        DeclarativeTerm::Subentity(_) => todo!(),
-        DeclarativeTerm::AsTraitSubentity(_) => todo!(),
+        DeclarativeTerm::Subitem(_) => todo!(),
+        DeclarativeTerm::AsTraitSubitem(_) => todo!(),
         DeclarativeTerm::TraitConstraint(_) => todo!(),
         DeclarativeTerm::LeashOrBitNot(_) => todo!(),
         DeclarativeTerm::List(_) => todo!(),

@@ -1,55 +1,69 @@
 [
     (
-        EntityPath::Module(
-            `mnist_classifier::connected_component`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::connected_component`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::raw_contour`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::raw_contour`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::geom2d`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::geom2d`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::line_segment_sketch`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::line_segment_sketch`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::fermi`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::fermi`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::major`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::major`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,

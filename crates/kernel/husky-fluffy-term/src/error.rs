@@ -1,6 +1,6 @@
 use crate::*;
-use husky_entity_tree::EntityTreeError;
 use husky_ethereal_signature::EtherealSignatureError;
+use husky_item_tree::EntityTreeError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]

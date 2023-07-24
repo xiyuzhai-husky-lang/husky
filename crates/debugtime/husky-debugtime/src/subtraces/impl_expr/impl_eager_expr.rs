@@ -37,10 +37,10 @@ impl Debugtime {
         //     EagerOpnVariant::Prefix { .. } => todo!(),
         //     EagerOpnVariant::Suffix { .. } => todo!(),
         //     EagerOpnVariant::RoutineCall(route) => {
-        //         let routine_defn = self.runtime().entity_defn(route.route).unwrap();
+        //         let routine_defn = self.runtime().item_defn(route.route).unwrap();
         //         let instruction_sheet = self
         //             .runtime()
-        //             .entity_instruction_sheet(route.route)
+        //             .item_instruction_sheet(route.route)
         //             .unwrap();
         //         self.routine_call_subtraces(
         //             parent,
@@ -66,10 +66,10 @@ impl Debugtime {
         //     EagerOpnVariant::TypeCall { .. } => todo!(),
         //     EagerOpnVariant::Field { .. } => todo!(),
         //     EagerOpnVariant::MethodCall { method_route, .. } => {
-        //         let routine_defn = self.runtime().entity_defn(*method_route).unwrap();
+        //         let routine_defn = self.runtime().item_defn(*method_route).unwrap();
         //         let instruction_sheet = self
         //             .runtime()
-        //             .entity_instruction_sheet(*method_route)
+        //             .item_instruction_sheet(*method_route)
         //             .unwrap();
         //         self.routine_call_subtraces(
         //             parent,

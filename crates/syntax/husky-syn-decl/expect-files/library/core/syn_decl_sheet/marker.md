@@ -3,7 +3,7 @@ Ok(
         [salsa id]: 9,
         decls: [
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::marker::Copy`),
                     ),
@@ -32,7 +32,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -73,7 +73,7 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::marker::Sized`),
                     ),
@@ -102,7 +102,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {

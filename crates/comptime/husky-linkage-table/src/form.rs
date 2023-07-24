@@ -27,25 +27,25 @@ pub enum LinkageForm {
 //     fn instantiate(&self, ctx: &InstantiationContext) -> Self::Target {
 //         match self {
 //             LinkageForm::VecConstructor { element_ty } => LinkageForm::VecConstructor {
-//                 element_ty: element_ty.instantiate(ctx).take_entity_route(),
+//                 element_ty: element_ty.instantiate(ctx).take_item_route(),
 //             },
 //             LinkageForm::TypeCall { ty } => LinkageForm::TypeCall {
-//                 ty: ty.instantiate(ctx).take_entity_route(),
+//                 ty: ty.instantiate(ctx).take_item_route(),
 //             },
 //             LinkageForm::Routine { routine } => LinkageForm::Routine {
-//                 routine: routine.instantiate(ctx).take_entity_route(),
+//                 routine: routine.instantiate(ctx).take_item_route(),
 //             },
 //             LinkageForm::Index { opd_tys } => LinkageForm::Index {
 //                 opd_tys: opd_tys
 //                     .iter()
-//                     .map(|opd_ty| opd_ty.instantiate(ctx).take_entity_route())
+//                     .map(|opd_ty| opd_ty.instantiate(ctx).take_item_route())
 //                     .collect(),
 //             },
 //             LinkageForm::StructFieldAccess {
 //                 this_ty,
 //                 field_ident,
 //             } => LinkageForm::StructFieldAccess {
-//                 this_ty: this_ty.instantiate(ctx).take_entity_route(),
+//                 this_ty: this_ty.instantiate(ctx).take_item_route(),
 //                 field_ident: *field_ident,
 //             },
 //         }

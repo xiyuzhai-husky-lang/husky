@@ -20,7 +20,7 @@
 // use husky_defn_head::Parameter;
 // use husky_dev_runtime::*;
 // use husky_eager_semantics::*;
-// use husky_entity_semantics::*;
+// use husky_item_semantics::*;
 // use husky_feature_eval::EvalFeature;
 // use husky_feature_gen::*;
 // use husky_init_syntax::*;

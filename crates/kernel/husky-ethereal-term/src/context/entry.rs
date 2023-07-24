@@ -1,4 +1,4 @@
-use husky_entity_path::{ModuleItemPath, TypePath};
+use husky_item_path::{ModuleItemPath, TypePath};
 use vec_like::AsVecMapEntry;
 
 use super::*;

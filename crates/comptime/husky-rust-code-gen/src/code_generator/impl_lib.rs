@@ -15,7 +15,7 @@ impl<'a> RustCodeGenerator<'a> {
         //     __ctx: &'a dyn __EvalContext<'eval>
         // ) -> &'a "#,
         //         ));
-        //         self.gen_entity_route(target_parameter_ty, EntityRouteRole::Decl);
+        //         self.gen_item_route(target_parameter_ty, EntityRouteRole::Decl);
         //         let mangled_target_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(target_parameter_ty);
         //         self.write(&format!(
         //             r#" {{

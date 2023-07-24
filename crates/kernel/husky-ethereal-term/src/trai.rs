@@ -2,7 +2,7 @@ use crate::*;
 use husky_declarative_signature::{
     HasDeclarativeSignatureTemplate, TypeDeclarativeSignatureTemplate,
 };
-use husky_entity_tree::TraitForTypeImplBlockNode;
+use husky_item_tree::TraitForTypeImplBlockNode;
 use husky_syn_decr::{Decr, HasDecrs};
 use smallvec::SmallVec;
 
@@ -85,7 +85,7 @@ pub(crate) fn trai_side_trai_for_ty_impl_blocks_aux<'a>(
     db: &'a dyn EtherealTermDb,
     trai_path: TraitPath,
 ) -> EtherealTermResult<SmallVec<[TraitForTypeImplTemplate; 2]>> {
-    db.entity_tree_bundle(trai_path.crate_path(db))?
+    db.item_tree_bundle(trai_path.crate_path(db))?
         .trai_for_ty_impl_block_paths_filtered_by_trai_path(db, trai_path)
         .map(|impl_block| impl_block.template(db))
         .collect()
@@ -113,7 +113,7 @@ pub(crate) fn ty_side_trai_for_ty_impl_blocks_aux<'a>(
         TraitForTypeImplTemplate::collect_from_decr(db, ty_path, decr, &mut templates)?
     }
     for path in db
-        .entity_tree_bundle(ty_path.crate_path(db))?
+        .item_tree_bundle(ty_path.crate_path(db))?
         .trai_for_ty_impl_block_paths_filtered_by_ty_path(db, ty_path)
     {
         templates.push(path.template(db)?)

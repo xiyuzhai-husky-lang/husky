@@ -103,7 +103,7 @@ impl<'a> TraceLineGenerator<'a> {
         //         ref expr,
         //         ref history,
         //     } => self.gen_eager_expr_tokens(expr, history, ExprTokenConfig::expr(self.has_parent)),
-        //     TraceVariant::CallHead { ref entity, .. } => self.gen_call_head_lines(entity),
+        //     TraceVariant::CallHead { ref item, .. } => self.gen_call_head_lines(item),
         //     TraceVariant::LoopFrame {
         //         ref loop_frame_data,
         //         ..

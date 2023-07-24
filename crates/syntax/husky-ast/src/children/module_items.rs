@@ -9,10 +9,8 @@ impl NormalAstChildren for ModuleItems {
     ));
 
     #[inline(always)]
-    fn determine_entity_kind(
-        entity_keyword_group: EntityKindKeywordGroup,
-    ) -> AstResult<EntityKind> {
-        let module_item_kind: ModuleItemKind = match entity_keyword_group {
+    fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
+        let module_item_kind: ModuleItemKind = match item_keyword_group {
             EntityKindKeywordGroup::Mod(_) => return Ok(EntityKind::Module),
             EntityKindKeywordGroup::Fn(_) => FugitiveKind::Fn.into(),
             EntityKindKeywordGroup::ConstFn(_, _) => todo!(),

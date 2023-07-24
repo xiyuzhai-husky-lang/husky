@@ -10,6 +10,50 @@ pub struct ModulePath {
     pub data: ModulePathData,
 }
 
+/// wrapper type that guarantees that the inner field is a submodule
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+#[salsa::derive_debug_with_db(db = VfsDb)]
+pub struct SubmodulePath(ModulePath);
+
+impl salsa::AsId for SubmodulePath {
+    fn as_id(self) -> salsa::Id {
+        self.inner().as_id()
+    }
+
+    fn from_id(id: salsa::Id) -> Self {
+        Self(ModulePath::from_id(id))
+    }
+}
+
+impl<DB> salsa::salsa_struct::SalsaStructInDb<DB> for SubmodulePath
+where
+    DB: ?Sized + salsa::DbWithJar<VfsJar>,
+{
+    fn register_dependent_fn(_db: &DB, _index: salsa::routes::IngredientIndex) {}
+}
+
+impl SubmodulePath {
+    /// returns the natural casting
+    /// not the parent
+    pub fn inner(self) -> ModulePath {
+        self.0
+    }
+}
+
+impl From<SubmodulePath> for ModulePath {
+    fn from(path: SubmodulePath) -> Self {
+        path.0
+    }
+}
+
+impl std::ops::Deref for SubmodulePath {
+    type Target = ModulePath;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
 impl ModulePath {
     pub fn starts_with(self, db: &dyn VfsDb, parent: ModulePath) -> bool {
         self.module_ancestry(db).contains(parent)
@@ -38,8 +82,8 @@ impl ModulePath {
         Self::new(db, ModulePathData::Root(crate_path))
     }
 
-    pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Ident) -> Self {
-        Self::new(db, ModulePathData::Child { parent, ident })
+    pub fn new_child(db: &dyn VfsDb, parent: ModulePath, ident: Ident) -> SubmodulePath {
+        SubmodulePath(Self::new(db, ModulePathData::Child { parent, ident }))
     }
 
     pub fn toolchain(self, db: &dyn VfsDb) -> Toolchain {
@@ -93,23 +137,38 @@ fn module_path_partial_ord_works() {
     let db = DB::default();
     let path_menu = db.dev_path_menu().unwrap();
 
-    assert!(path_menu.core_root().with_db(&db) > (path_menu.core_num()).with_db(&db));
-    assert!(!(path_menu.core_root().with_db(&db) == (path_menu.core_num()).with_db(&db)));
-    assert!(!(path_menu.core_root().with_db(&db) < (path_menu.core_num()).with_db(&db)));
-    assert!(!(path_menu.core_root().with_db(&db) <= (path_menu.core_num()).with_db(&db)));
-    assert!(path_menu.core_root().with_db(&db) >= (path_menu.core_num()).with_db(&db));
-    assert!(path_menu.core_root().with_db(&db) != (path_menu.core_num()).with_db(&db));
+    assert!(path_menu.core_root().with_db(&db) > (path_menu.core_num().inner()).with_db(&db));
+    assert!(!(path_menu.core_root().with_db(&db) == (path_menu.core_num().inner()).with_db(&db)));
+    assert!(!(path_menu.core_root().with_db(&db) < (path_menu.core_num().inner()).with_db(&db)));
+    assert!(!(path_menu.core_root().with_db(&db) <= (path_menu.core_num().inner()).with_db(&db)));
+    assert!(path_menu.core_root().with_db(&db) >= (path_menu.core_num().inner()).with_db(&db));
+    assert!(path_menu.core_root().with_db(&db) != (path_menu.core_num().inner()).with_db(&db));
 
-    assert!(!(path_menu.core_prelude().with_db(&db) > path_menu.core_num().with_db(&db)));
-    assert!(!(path_menu.core_prelude().with_db(&db) == path_menu.core_num().with_db(&db)));
-    assert!(!(path_menu.core_prelude().with_db(&db) < path_menu.core_num().with_db(&db)));
-    assert!(!(path_menu.core_prelude().with_db(&db) <= path_menu.core_num().with_db(&db)));
-    assert!(!(path_menu.core_prelude().with_db(&db) >= path_menu.core_num().with_db(&db)));
+    assert!(
+        !(path_menu.core_prelude().inner().with_db(&db)
+            > path_menu.core_num().inner().with_db(&db))
+    );
+    assert!(
+        !(path_menu.core_prelude().inner().with_db(&db)
+            == path_menu.core_num().inner().with_db(&db))
+    );
+    assert!(
+        !(path_menu.core_prelude().inner().with_db(&db)
+            < path_menu.core_num().inner().with_db(&db))
+    );
+    assert!(
+        !(path_menu.core_prelude().inner().with_db(&db)
+            <= path_menu.core_num().inner().with_db(&db))
+    );
+    assert!(
+        !(path_menu.core_prelude().inner().with_db(&db)
+            >= path_menu.core_num().inner().with_db(&db))
+    );
     assert!(path_menu.core_prelude().with_db(&db) != path_menu.core_num().with_db(&db));
 
     assert_ne!(
-        path_menu.std().with_db(&db),
-        path_menu.core_ops().with_db(&db),
+        path_menu.std_root().with_db(&db),
+        path_menu.core_ops().inner().with_db(&db),
     )
 }
 
@@ -189,7 +248,7 @@ fn module_path_debug_with_db_works() {
     let path_menu = db.dev_path_menu().unwrap();
     t(
         &db,
-        path_menu.core_num(),
+        path_menu.core_num().inner(),
         salsa::DebugFormatLevel::root(),
         "`core::num`",
     );
@@ -201,7 +260,7 @@ fn module_path_debug_with_db_works() {
     );
     t(
         &db,
-        path_menu.std(),
+        path_menu.std_root(),
         salsa::DebugFormatLevel::root(),
         "`std`",
     );
@@ -210,13 +269,15 @@ fn module_path_debug_with_db_works() {
     "#]]
     .assert_debug_eq(&path_menu.core_root().debug(&db));
     expect_test::expect![[r#"
-        `core::num`
+        SubmodulePath(
+            `core::num`,
+        )
     "#]]
     .assert_debug_eq(&path_menu.core_num().debug(&db));
     expect_test::expect![[r#"
         `std`
     "#]]
-    .assert_debug_eq(&path_menu.std().debug(&db));
+    .assert_debug_eq(&path_menu.std_root().debug(&db));
 }
 
 impl<Db: VfsDb + ?Sized> salsa::DebugWithDb<Db> for ModulePath {

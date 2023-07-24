@@ -1,7 +1,7 @@
 mod impl_func_stmt;
 mod impl_proc_stmt;
 
-use husky_entity_semantics::EntityDefn;
+use husky_item_semantics::EntityDefn;
 
 use super::*;
 
@@ -58,11 +58,7 @@ impl Debugtime {
         )
     }
 
-    pub(crate) fn new_call_head_trace(
-        &mut self,
-        parent: &Trace,
-        entity: Arc<EntityDefn>,
-    ) -> TraceId {
-        return self.new_trace(Some(parent.id()), 0, TraceVariant::CallHead { entity });
+    pub(crate) fn new_call_head_trace(&mut self, parent: &Trace, item: Arc<EntityDefn>) -> TraceId {
+        return self.new_trace(Some(parent.id()), 0, TraceVariant::CallHead { item });
     }
 }

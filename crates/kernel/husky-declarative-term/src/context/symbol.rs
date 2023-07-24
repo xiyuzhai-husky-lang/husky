@@ -1,4 +1,4 @@
-use husky_entity_path::TypePath;
+use husky_item_path::TypePath;
 use vec_like::AsVecMapEntry;
 
 use super::*;
@@ -183,8 +183,8 @@ fn symbol_show_kind(
     symbol: DeclarativeTermSymbol,
     db: &dyn DeclarativeTermDb,
 ) -> DeclarativeTermSymbolShowKind {
-    let Ok(ty) = symbol. ty(db) else {
-        return DeclarativeTermSymbolShowKind::Other
+    let Ok(ty) = symbol.ty(db) else {
+        return DeclarativeTermSymbolShowKind::Other;
     };
     match ty {
         DeclarativeTerm::EntityPath(DeclarativeTermEntityPath::Type(ty))

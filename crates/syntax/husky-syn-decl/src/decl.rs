@@ -102,7 +102,7 @@ impl Decl {
         }
     }
 
-    pub fn path(self, db: &dyn SynDeclDb) -> EntityPath {
+    pub fn path(self, db: &dyn SynDeclDb) -> ItemPath {
         match self {
             Decl::Submodule(_) => todo!(),
             Decl::ModuleItem(decl) => decl.path(db).into(),
@@ -139,16 +139,16 @@ pub trait HasSynDecl: Copy {
     fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl>;
 }
 
-impl HasSynDecl for EntityPath {
+impl HasSynDecl for ItemPath {
     type Decl = Decl;
 
     fn syn_decl(self, db: &dyn SynDeclDb) -> DeclResult<Self::Decl> {
         match self {
-            EntityPath::Module(path) => path.syn_decl(db).map(Into::into),
-            EntityPath::ModuleItem(path) => path.syn_decl(db).map(Into::into),
-            EntityPath::AssociatedItem(path) => path.syn_decl(db).map(Into::into),
-            EntityPath::TypeVariant(path) => path.syn_decl(db).map(Into::into),
-            EntityPath::ImplBlock(path) => path.syn_decl(db).map(Into::into),
+            ItemPath::Submodule(path) => path.syn_decl(db).map(Into::into),
+            ItemPath::ModuleItem(path) => path.syn_decl(db).map(Into::into),
+            ItemPath::AssociatedItem(path) => path.syn_decl(db).map(Into::into),
+            ItemPath::TypeVariant(path) => path.syn_decl(db).map(Into::into),
+            ItemPath::ImplBlock(path) => path.syn_decl(db).map(Into::into),
         }
     }
 }

@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`core::logic::Prop`, `Extern`),
             ),
@@ -20,7 +20,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`core::logic::LogicAnd`, `Structure`),
             ),
@@ -59,7 +59,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`core::logic::LogicOr`, `Inductive`),
             ),

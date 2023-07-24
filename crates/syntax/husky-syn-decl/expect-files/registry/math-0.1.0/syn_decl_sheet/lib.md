@@ -3,56 +3,76 @@ Ok(
         [salsa id]: 49,
         decls: [
             (
-                EntityPath::Module(
-                    `math::algebra`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `math::algebra`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `math::algebra`,
+                        path: SubmodulePath(
+                            `math::algebra`,
+                        ),
                         ast_idx: 0,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `math::algebraic_geometry`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `math::algebraic_geometry`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `math::algebraic_geometry`,
+                        path: SubmodulePath(
+                            `math::algebraic_geometry`,
+                        ),
                         ast_idx: 1,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `math::algebraic_topology`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `math::algebraic_topology`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `math::algebraic_topology`,
+                        path: SubmodulePath(
+                            `math::algebraic_topology`,
+                        ),
                         ast_idx: 2,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `math::category_theory`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `math::category_theory`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `math::category_theory`,
+                        path: SubmodulePath(
+                            `math::category_theory`,
+                        ),
                         ast_idx: 3,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `math::probability`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `math::probability`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `math::probability`,
+                        path: SubmodulePath(
+                            `math::probability`,
+                        ),
                         ast_idx: 4,
                     },
                 ),

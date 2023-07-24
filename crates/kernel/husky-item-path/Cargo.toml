@@ -1,0 +1,26 @@
+[package]
+name = "husky-item-path"
+version = "0.1.0"
+edition = "2021"
+description = "husky item path"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+thiserror.workspace = true
+expect-test = "1.4.0"
+url = "2.3.1"
+optional = "0.5.0"
+once_cell = "1.16.0"
+either = "1.8.1"
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+enum-class = { path = "../../abstraction/enum-class" }
+vec-like = { path = "../../abstraction/vec-like" }
+# kernel
+husky-vfs = { path = "../../fs/husky-vfs" }
+husky-coword = { path = "../../kernel/husky-coword" }
+husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+
+[dev-dependencies]
+expect-test = "1.4.0"
+husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }

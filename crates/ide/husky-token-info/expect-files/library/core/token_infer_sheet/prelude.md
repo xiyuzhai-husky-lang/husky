@@ -25,11 +25,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::basic`,
+                            submodule_path: SubmodulePath(
+                                `core::basic`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::basic`,
+                                        path: SubmodulePath(
+                                            `core::basic`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -72,11 +76,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::num`,
+                            submodule_path: SubmodulePath(
+                                `core::num`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::num`,
+                                        path: SubmodulePath(
+                                            `core::num`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -119,11 +127,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::raw_bits`,
+                            submodule_path: SubmodulePath(
+                                `core::raw_bits`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::raw_bits`,
+                                        path: SubmodulePath(
+                                            `core::raw_bits`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -166,11 +178,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::fmt`,
+                            submodule_path: SubmodulePath(
+                                `core::fmt`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::fmt`,
+                                        path: SubmodulePath(
+                                            `core::fmt`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -213,11 +229,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::visual`,
+                            submodule_path: SubmodulePath(
+                                `core::visual`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::visual`,
+                                        path: SubmodulePath(
+                                            `core::visual`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -260,11 +280,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::marker`,
+                            submodule_path: SubmodulePath(
+                                `core::marker`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::marker`,
+                                        path: SubmodulePath(
+                                            `core::marker`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -307,11 +331,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::clone`,
+                            submodule_path: SubmodulePath(
+                                `core::clone`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::clone`,
+                                        path: SubmodulePath(
+                                            `core::clone`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -354,11 +382,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::option`,
+                            submodule_path: SubmodulePath(
+                                `core::option`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::option`,
+                                        path: SubmodulePath(
+                                            `core::option`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -401,11 +433,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::cmp`,
+                            submodule_path: SubmodulePath(
+                                `core::cmp`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::cmp`,
+                                        path: SubmodulePath(
+                                            `core::cmp`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -448,11 +484,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `core::slice`,
+                            submodule_path: SubmodulePath(
+                                `core::slice`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `core::slice`,
+                                        path: SubmodulePath(
+                                            `core::slice`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },

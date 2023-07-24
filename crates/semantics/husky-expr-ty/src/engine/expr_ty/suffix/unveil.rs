@@ -45,7 +45,7 @@ pub(crate) enum Unveiler {
 impl Unveiler {
     pub(crate) fn new(db: &dyn ExprTypeDb, return_ty: Option<EtherealTerm>) -> Self {
         let Some(return_ty) = return_ty else {
-            return Unveiler::ErrUnableToInferReturnTypeForUnveiling
+            return Unveiler::ErrUnableToInferReturnTypeForUnveiling;
         };
         match Self::new_aux(db, return_ty) {
             MaybeResult::JustOk(unveiler) => unveiler,
@@ -114,8 +114,8 @@ fn unveil_impl_block_signature_templates(
             ty_ontology_application_unveil_impl_block_signature_templates(db, path)
                 .just_ok_as_ref2()
         }
-        EtherealTerm::Subentity(_) => todo!(),
-        EtherealTerm::AsTraitSubentity(_) => todo!(),
+        EtherealTerm::Subitem(_) => todo!(),
+        EtherealTerm::AsTraitSubitem(_) => todo!(),
         EtherealTerm::TraitConstraint(_) => todo!(),
     }
 }
@@ -162,10 +162,10 @@ fn unveil_impl_block_signature_templates_aux(
 ) -> EtherealSignatureMaybeResult<
     SmallVec<[TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated; 2]>,
 > {
-    let entity_path_menu = db.entity_path_menu(ty_path.toolchain(db));
+    let item_path_menu = db.item_path_menu(ty_path.toolchain(db));
     let templates = ty_side_trai_for_ty_impl_block_signature_templates(
         db,
-        entity_path_menu.core_ops_unveil_trai_path(),
+        item_path_menu.core_ops_unveil_trai_path(),
         ty_path,
     )?;
     JustOk(

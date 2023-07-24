@@ -45,26 +45,24 @@ pub enum DerivedVarianceError {
     TypeItemNotFound,
 }
 
-pub(crate) fn entity_variances(
+pub(crate) fn item_variances(
     db: &dyn DeclarativeTypeDb,
-    path: EntityPath,
+    path: ItemPath,
 ) -> VarianceResultRef<&[Variance]> {
     match path {
-        EntityPath::Module(_) => Ok(&[]),
-        EntityPath::ModuleItem(path) => match path {
+        ItemPath::Submodule(_) => Ok(&[]),
+        ItemPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => ty_implicit_parameter_variances(db, path)
                 .as_ref()
                 .map(Vec::as_ref),
-            ModuleItemPath::Trait(path) => {
-                trai_entity_variances(db, path).as_ref().map(Vec::as_ref)
-            }
+            ModuleItemPath::Trait(path) => trai_item_variances(db, path).as_ref().map(Vec::as_ref),
             ModuleItemPath::Fugitive(path) => {
-                form_entity_variances(db, path).as_ref().map(Vec::as_ref)
+                form_item_variances(db, path).as_ref().map(Vec::as_ref)
             }
         },
-        EntityPath::AssociatedItem(_) => todo!(),
-        EntityPath::TypeVariant(_) => todo!(),
-        EntityPath::ImplBlock(_) => todo!(),
+        ItemPath::AssociatedItem(_) => todo!(),
+        ItemPath::TypeVariant(_) => todo!(),
+        ItemPath::ImplBlock(_) => todo!(),
     }
 }
 
@@ -73,36 +71,36 @@ pub(crate) fn ty_implicit_parameter_variances(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
 ) -> VarianceResult<Vec<Variance>> {
-    calc_entity_variances(db, path)
+    calc_item_variances(db, path)
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn trai_entity_variances(
+pub(crate) fn trai_item_variances(
     db: &dyn DeclarativeTypeDb,
     path: TraitPath,
 ) -> VarianceResult<Vec<Variance>> {
-    calc_entity_variances(db, path)
+    calc_item_variances(db, path)
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn form_entity_variances(
+pub(crate) fn form_item_variances(
     db: &dyn DeclarativeTypeDb,
     path: FugitivePath,
 ) -> VarianceResult<Vec<Variance>> {
-    calc_entity_variances(db, path)
+    calc_item_variances(db, path)
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn ty_item_entity_variances(
+pub(crate) fn ty_item_item_variances(
     db: &dyn DeclarativeTypeDb,
     path: TypeItemPath,
 ) -> VarianceResult<Vec<Variance>> {
-    calc_entity_variances(db, path)
+    calc_item_variances(db, path)
 }
 
-fn calc_entity_variances(
+fn calc_item_variances(
     db: &dyn DeclarativeTypeDb,
-    path: impl Into<EntityPath>,
+    path: impl Into<ItemPath>,
 ) -> VarianceResult<Vec<Variance>> {
     let mut graph = VarianceGraph::new(db, path.into())?;
     graph.propagate(1000).unwrap();

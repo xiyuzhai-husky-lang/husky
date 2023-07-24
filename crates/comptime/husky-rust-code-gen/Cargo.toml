@@ -24,8 +24,8 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 husky-opr = { path = "../../kernel/husky-opr" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
@@ -34,7 +34,7 @@ husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 husky-vm-binding = { path = "../../vm/husky-vm-binding" }
 # comptime
 husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features = [
-    "entity_path",
+    "item_path",
     "registration"
 ] }
 husky-layout = { path = "../../comptime/husky-layout" }

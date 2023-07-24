@@ -1,7 +1,7 @@
 mod impl_resolved_linkage;
 mod impl_ty_linkage_entries;
 
-use husky_entity_semantics::{DefinitionRepr, FieldDefnVariant};
+use husky_item_semantics::{DefinitionRepr, FieldDefnVariant};
 
 use husky_coword::RootBuiltinIdent;
 
@@ -22,11 +22,11 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
         todo!();
         // let main_module = self.db.module(self.target_entrance).unwrap();
-        // let entity_link_dependees = self.db.entity_link_dependees(main_module);
-        // for entity_path in entity_link_dependees.iter() {
-        //     if !entity_path.contains_any() {
-        //         let entity_defn = self.db.entity_defn(*entity_path).unwrap();
-        //         self.gen_linkage_entry(*entity_path, &entity_defn);
+        // let item_link_dependees = self.db.item_link_dependees(main_module);
+        // for item_path in item_link_dependees.iter() {
+        //     if !item_path.contains_any() {
+        //         let item_defn = self.db.item_defn(*item_path).unwrap();
+        //         self.gen_linkage_entry(*item_path, &item_defn);
         //     }
         // }
         self.write(
@@ -36,14 +36,14 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         );
     }
 
-    fn gen_linkage_entry(&mut self, _entity_route: EtherealTerm, _entity_defn: &EntityDefn) {
+    fn gen_linkage_entry(&mut self, _item_route: EtherealTerm, _item_defn: &EntityDefn) {
         todo!()
-        //     if self.db.is_defn_static(entity_path)
-        //         && !self.db.contains_spatial_parameters(entity_path)
+        //     if self.db.is_defn_static(item_path)
+        //         && !self.db.contains_spatial_parameters(item_path)
         //     {
         //         return;
         //     }
-        //     match entity_defn.variant {
+        //     match item_defn.variant {
         //         EntityDefnVariant::Module { .. } => (),
         //         EntityDefnVariant::Feature { ref defn_repr } => match **defn_repr {
         //             DefinitionRepr::LazyExpr { .. } => (),
@@ -57,23 +57,23 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //         },
         //         EntityDefnVariant::Function { .. } => todo!(),
         //         EntityDefnVariant::Method { .. } => {
-        //             self.gen_method_linkage_entry(entity_path);
+        //             self.gen_method_linkage_entry(item_path);
         //         }
         //         EntityDefnVariant::Func { .. } => {
         //             self.write(&format!(
         //                 r#"
         // (
         //     __StaticLinkageKey::Routine {{
-        //         route: "{entity_path}",
+        //         route: "{item_path}",
         //     }},"#,
         //             ));
-        //             let call_fugitive_syn_decl = self.db.entity_call_fugitive_syn_decl(entity_path).unwrap();
+        //             let call_fugitive_syn_decl = self.db.item_call_fugitive_syn_decl(item_path).unwrap();
         //             msg_once!("keyword_parameters");
         //             self.gen_transfer_linkage(
-        //                 self.db.needs_eval_context(entity_path),
+        //                 self.db.needs_eval_context(item_path),
         //                 None,
-        //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::Caller),
-        //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::StaticCallRoute),
+        //                 |this| this.gen_item_route(item_path, EntityRouteRole::Caller),
+        //                 |this| this.gen_item_route(item_path, EntityRouteRole::StaticCallRoute),
         //                 &call_fugitive_syn_decl,
         //             );
         //             self.write(
@@ -86,16 +86,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                 r#"
         // (
         //     __StaticLinkageKey::Routine {{
-        //         route: "{entity_path}",
+        //         route: "{item_path}",
         //     }},"#,
         //             ));
-        //             let call_fugitive_syn_decl = self.db.entity_call_fugitive_syn_decl(entity_path).unwrap();
+        //             let call_fugitive_syn_decl = self.db.item_call_fugitive_syn_decl(item_path).unwrap();
         //             msg_once!("keyword_parameters");
         //             self.gen_transfer_linkage(
-        //                 self.db.needs_eval_context(entity_path),
+        //                 self.db.needs_eval_context(item_path),
         //                 None,
-        //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::Caller),
-        //                 |this| this.gen_entity_route(entity_path, EntityRouteRole::StaticCallRoute),
+        //                 |this| this.gen_item_route(item_path, EntityRouteRole::Caller),
+        //                 |this| this.gen_item_route(item_path, EntityRouteRole::StaticCallRoute),
         //                 &call_fugitive_syn_decl,
         //             );
         //             self.write(
@@ -110,7 +110,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //             ..
         //         } => match ty_kind {
         //             TyKind::Record => (),
-        //             _ => self.gen_ty_linkages(opt_type_call, entity_path, members),
+        //             _ => self.gen_ty_linkages(opt_type_call, item_path, members),
         //         },
         //         EntityDefnVariant::Trait { .. } => todo!(),
         //         EntityDefnVariant::EnumVariant { .. } => todo!(),
@@ -123,19 +123,19 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //     }
     }
 
-    fn gen_method_linkage_entry(&mut self, _entity_route: EtherealTerm) {
+    fn gen_method_linkage_entry(&mut self, _item_route: EtherealTerm) {
         todo!()
         //     self.write(
         //         r#"
         // ("#,
         //     );
-        //     match entity_path.variant {
+        //     match item_path.variant {
         //         EntityRouteVariant::Child { parent, .. } => {
         //             self.write(&format!(
         //                 r#"
-        //     __StaticLinkageKey::Routine {{ route: "{entity_path}" }},"#,
+        //     __StaticLinkageKey::Routine {{ route: "{item_path}" }},"#,
         //             ));
-        //             let call_fugitive_syn_decl = self.db.entity_call_fugitive_syn_decl(entity_path).unwrap();
+        //             let call_fugitive_syn_decl = self.db.item_call_fugitive_syn_decl(item_path).unwrap();
         //             let this_liason = call_fugitive_syn_decl.this_liason();
         //             match this_liason {
         //                 ParameterModifier::MemberAccess => {
@@ -143,8 +143,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                         r#"
         //     method_elem_linkage!("#
         //                     ));
-        //                     self.gen_entity_route(entity_path.parent(), EntityRouteRole::Decl);
-        //                     let method_name = entity_path.ident().as_str();
+        //                     self.gen_item_route(item_path.parent(), EntityRouteRole::Decl);
+        //                     let method_name = item_path.ident().as_str();
         //                     let mangled_intrinsic_ty_vtable =
         //                         self.db.mangled_intrinsic_ty_vtable(parent);
         //                     let mangled_return_ty_vtable = self
@@ -156,8 +156,8 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                 }
         //                 _ => {
         //                     let method_name_extra =
-        //                         if entity_path.ident().as_str() == "pop_with_largest_opt_f32" {
-        //                             let elem_ty = entity_path.parent().entity_route_argument(0);
+        //                         if item_path.ident().as_str() == "pop_with_largest_opt_f32" {
+        //                             let elem_ty = item_path.parent().item_route_argument(0);
         //                             if self.db.is_copyable(elem_ty).unwrap() {
         //                                 "_copyable"
         //                             } else {
@@ -167,16 +167,16 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //                             ""
         //                         };
         //                     self.gen_transfer_linkage(
-        //                         self.db.needs_eval_context(entity_path),
-        //                         Some((this_liason, entity_path.parent())),
+        //                         self.db.needs_eval_context(item_path),
+        //                         Some((this_liason, item_path.parent())),
         //                         |this| {
-        //                             this.write(&format!("__this.{}", entity_path.ident().as_str()));
+        //                             this.write(&format!("__this.{}", item_path.ident().as_str()));
         //                             // ad hoc
         //                             this.write(method_name_extra)
         //                         },
         //                         |this| {
-        //                             this.gen_entity_route(
-        //                                 entity_path,
+        //                             this.gen_item_route(
+        //                                 item_path,
         //                                 EntityRouteRole::StaticCallRoute,
         //                             )
         //                         },
@@ -186,7 +186,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //             }
         //         }
         //         EntityRouteVariant::TraitForTypeMember { ty, trai, .. } => {
-        //             if trai.variant == self.db.entity_route_menu().std_ops_index_trai.variant {
+        //             if trai.variant == self.db.item_route_menu().std_ops_index_trai.variant {
         //                 let this_ty_decl = self.db.ty_decl(ty).unwrap();
         //                 let trai_impl = this_ty_decl.trait_impl(trai).unwrap();
         //                 let elem_ty = match trai_impl.member_impls()[0] {
@@ -211,11 +211,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         //     );
     }
 
-    fn gen_eager_feature_linkage_entry(
-        &mut self,
-        entity_path: EntityPath,
-        return_ty: EtherealTerm,
-    ) {
+    fn gen_eager_feature_linkage_entry(&mut self, item_path: EntityPath, return_ty: EtherealTerm) {
         self.write(&format!(
             r#"
     (
@@ -228,9 +224,9 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 false => "",
             }
         ));
-        self.gen_entity_route(route, EntityRouteRole::Caller);
+        self.gen_item_route(route, EntityRouteRole::Caller);
         self.write(", ");
-        self.gen_entity_route(return_ty.intrinsic(), EntityRouteRole::Decl);
+        self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
         self.write(", __registration__::");
         self.write(&self.db.mangled_intrinsic_ty_vtable(return_ty));
         self.write(
@@ -252,7 +248,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
                 _ => panic!(),
             },
             _ => {
-                let route_menu = self.db.entity_route_menu();
+                let route_menu = self.db.item_route_menu();
                 if ty.variant == route_menu.std_slice_cyclic_slice.variant {
                     "immutable"
                 } else {
@@ -279,13 +275,13 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
         let mangled_intrinsic_ty_vtable = self.db.mangled_intrinsic_ty_vtable(ty);
         let mangled_intrinsic_elem_ty_vtable = self.db.mangled_intrinsic_ty_vtable(elem_ty);
         let intrinsic_elem_ty = elem_ty.intrinsic();
-        self.gen_entity_route(ty, EntityRouteRole::Decl);
+        self.gen_item_route(ty, EntityRouteRole::Decl);
         self.write(format!(
             r#",
             __registration__::{mangled_intrinsic_ty_vtable},
             "#
         ));
-        self.gen_entity_route(intrinsic_elem_ty, EntityRouteRole::Decl);
+        self.gen_item_route(intrinsic_elem_ty, EntityRouteRole::Decl);
         self.write(format!(
             r#",
             __registration__::{mangled_intrinsic_elem_ty_vtable}
@@ -343,7 +339,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //         r#"
     //                 let {parameter_name}: "#
     //     ));
-    //     self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
+    //     self.gen_item_route(parameter_ty, EntityRouteRole::Decl);
     //     let maybe_opt = match parameter_ty.is_option() {
     //         true => "opt_",
     //         false => "",
@@ -405,7 +401,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //         r#"
     //                 let {parameter_name}: "#
     //     ));
-    //     self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
+    //     self.gen_item_route(parameter_ty, EntityRouteRole::Decl);
     //     let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
     //     self.write(&format!(
     //         " = unsafe {{ __arb_ref(&__arguments[{i}]) }}.downcast_move(&__registration__::{mangled_parameter_ty_vtable});"
@@ -419,7 +415,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //         r#"
     //                 let {parameter_name}: &"#
     //     ));
-    //     self.gen_entity_route(parameter_ty, EntityRouteRole::Decl);
+    //     self.gen_item_route(parameter_ty, EntityRouteRole::Decl);
     //     let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
     //     self.write(&format!(
     //         " = __arguments[{i}].downcast_temp_ref(&__registration__::{mangled_parameter_ty_vtable});"
@@ -434,7 +430,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //                 let {parameter_name}: &'eval "#
     //     ));
     //     let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
-    //     self.gen_entity_route(parameter_ty.intrinsic(), EntityRouteRole::Decl);
+    //     self.gen_item_route(parameter_ty.intrinsic(), EntityRouteRole::Decl);
     //     self.write(&format!(" = __arguments[{i}].downcast_eval_ref(&__registration__::{mangled_parameter_ty_vtable});"))
     // }
     // fn gen_parameter_downcast_opt_eval_ref(&mut self, i: usize, parameter: &ParameterDecl) {
@@ -445,7 +441,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
     //                 let {parameter_name}: Option<&'eval "#
     //     ));
     //     let mangled_parameter_ty_vtable = self.db.mangled_intrinsic_ty_vtable(parameter_ty);
-    //     self.gen_entity_route(parameter_ty.intrinsic(), EntityRouteRole::Decl);
+    //     self.gen_item_route(parameter_ty.intrinsic(), EntityRouteRole::Decl);
     //     self.write(&format!("> = __arguments[{i}].downcast_opt_eval_ref(&__registration__::{mangled_parameter_ty_vtable});"))
     // }
 }

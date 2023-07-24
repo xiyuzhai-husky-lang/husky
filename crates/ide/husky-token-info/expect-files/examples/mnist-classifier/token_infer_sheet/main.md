@@ -6,7 +6,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::connected_component`,
+                            path: SubmodulePath(
+                                `mnist_classifier::connected_component`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -18,7 +20,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::raw_contour`,
+                            path: SubmodulePath(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -30,7 +34,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::geom2d`,
+                            path: SubmodulePath(
+                                `mnist_classifier::geom2d`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -42,7 +48,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::line_segment_sketch`,
+                            path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -54,7 +62,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::fermi`,
+                            path: SubmodulePath(
+                                `mnist_classifier::fermi`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -66,7 +76,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -78,7 +90,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::major`,
+                            path: SubmodulePath(
+                                `mnist_classifier::major`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -108,11 +122,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::major`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::major`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::major`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::major`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -156,11 +174,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::digits`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::digits`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::digits`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::digits`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -204,11 +226,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::fermi`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::fermi`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::fermi`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::fermi`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -253,11 +279,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::raw_contour`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::raw_contour`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::raw_contour`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::raw_contour`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -301,11 +331,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::line_segment_sketch`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::line_segment_sketch`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::line_segment_sketch`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::line_segment_sketch`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -349,11 +383,15 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::Submodule {
-                            submodule_path: `mnist_classifier::connected_component`,
+                            submodule_path: SubmodulePath(
+                                `mnist_classifier::connected_component`,
+                            ),
                             node: SubmoduleSynNode {
                                 syn_node_path: SubmoduleSynNodePath {
                                     maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: `mnist_classifier::connected_component`,
+                                        path: SubmodulePath(
+                                            `mnist_classifier::connected_component`,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -383,7 +421,7 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::PackageDependency {
-                            entity_path: PrincipalEntityPath::Module(
+                            item_path: PrincipalEntityPath::Module(
                                 `malamute`,
                             ),
                         },
@@ -401,7 +439,7 @@ Ok(
                 state: OnceUseRuleState::Resolved {
                     original_symbol: Some(
                         EntitySymbol::PackageDependency {
-                            entity_path: PrincipalEntityPath::Module(
+                            item_path: PrincipalEntityPath::Module(
                                 `mnist`,
                             ),
                         },

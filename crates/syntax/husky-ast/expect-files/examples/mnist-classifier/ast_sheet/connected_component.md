@@ -40,7 +40,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TraitForTypeItem(
                             MethodFn,
                         ),
@@ -567,7 +567,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MemoizedField,
                         ),
@@ -609,7 +609,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MemoizedField,
                         ),
@@ -651,7 +651,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MemoizedField,
                         ),
@@ -693,7 +693,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MemoizedField,
                         ),
@@ -735,7 +735,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MemoizedField,
                         ),
@@ -777,7 +777,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MemoizedField,
                         ),
@@ -819,7 +819,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MemoizedField,
                         ),
@@ -861,7 +861,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MemoizedField,
                         ),
@@ -903,7 +903,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
                         ),
@@ -945,7 +945,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: AssociatedItem {
+                    item_kind: AssociatedItem {
                         associated_item_kind: TypeItem(
                             MethodFn,
                         ),
@@ -1316,7 +1316,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
                         ),
@@ -1358,7 +1358,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
                         ),
@@ -1400,7 +1400,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -1448,7 +1448,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Struct,
                         ),
@@ -1518,7 +1518,7 @@ Ok(
                         ),
                         variant: Protected,
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),
@@ -1566,7 +1566,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Fugitive(
                             Fn,
                         ),

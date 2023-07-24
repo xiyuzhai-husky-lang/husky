@@ -6,7 +6,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::zero`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::zero`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -15,7 +17,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::zero`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::zero`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -27,7 +31,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::one`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::one`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -36,7 +42,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::one`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::one`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -48,7 +56,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::six`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::six`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -57,7 +67,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::six`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::six`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -69,7 +81,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::three`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::three`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -78,7 +92,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::three`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::three`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -90,7 +106,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::four`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::four`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -99,7 +117,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::four`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::four`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -111,7 +131,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::five`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::five`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -120,7 +142,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::five`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::five`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -132,7 +156,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::seven`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::seven`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -141,7 +167,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::seven`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::seven`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -153,7 +181,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::eight`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::eight`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -162,7 +192,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::eight`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::eight`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -174,7 +206,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::nine`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::nine`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -183,7 +217,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::nine`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::nine`,
+                                ),
                                 disambiguator: 0,
                             },
                         },
@@ -195,7 +231,9 @@ Ok(
                 EntitySynNodePath::Submodule(
                     SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `mnist_classifier::digits::two`,
+                            path: SubmodulePath(
+                                `mnist_classifier::digits::two`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -204,7 +242,9 @@ Ok(
                     SubmoduleSynNodeDecl {
                         syn_node_path: SubmoduleSynNodePath {
                             maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: `mnist_classifier::digits::two`,
+                                path: SubmodulePath(
+                                    `mnist_classifier::digits::two`,
+                                ),
                                 disambiguator: 0,
                             },
                         },

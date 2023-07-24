@@ -34,7 +34,7 @@ impl SubmoduleDefn {
     }
 }
 
-impl HasSynDefn for ModulePath {
+impl HasSynDefn for SubmodulePath {
     type SynDefn = SubmoduleDefn;
 
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {

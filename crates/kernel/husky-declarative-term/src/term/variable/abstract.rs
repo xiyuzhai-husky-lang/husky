@@ -1,4 +1,4 @@
-use husky_entity_path::TypePath;
+use husky_item_path::TypePath;
 
 use crate::helpers::DeclarativeTermFamily;
 
@@ -102,8 +102,8 @@ impl DeclarativeTerm {
                 t(term.argument(db))
             }
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::Subentity(_) => todo!(),
-            DeclarativeTerm::AsTraitSubentity(_) => todo!(),
+            DeclarativeTerm::Subitem(_) => todo!(),
+            DeclarativeTerm::AsTraitSubitem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
@@ -165,8 +165,8 @@ impl DeclarativeTerm {
             )
             .into(),
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::Subentity(_) => todo!(),
-            DeclarativeTerm::AsTraitSubentity(_) => todo!(),
+            DeclarativeTerm::Subitem(_) => todo!(),
+            DeclarativeTerm::AsTraitSubitem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),
@@ -195,7 +195,7 @@ impl VariableRegistry {
         ty_family: DeclarativeTermFamily,
     ) -> Self {
         let Some(variables) = variables else {
-            return Default::default()
+            return Default::default();
         };
         let mut next = 0;
         for variable in variables.unaccounted_variables(db).iter().copied() {

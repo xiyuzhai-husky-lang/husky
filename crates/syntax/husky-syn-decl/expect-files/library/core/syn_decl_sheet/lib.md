@@ -3,210 +3,286 @@ Ok(
         [salsa id]: 0,
         decls: [
             (
-                EntityPath::Module(
-                    `core::array`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::array`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::array`,
+                        path: SubmodulePath(
+                            `core::array`,
+                        ),
                         ast_idx: 0,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::basic`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::basic`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::basic`,
+                        path: SubmodulePath(
+                            `core::basic`,
+                        ),
                         ast_idx: 1,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::clone`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::clone`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::clone`,
+                        path: SubmodulePath(
+                            `core::clone`,
+                        ),
                         ast_idx: 2,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::cmp`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::cmp`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::cmp`,
+                        path: SubmodulePath(
+                            `core::cmp`,
+                        ),
                         ast_idx: 3,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::default`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::default`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::default`,
+                        path: SubmodulePath(
+                            `core::default`,
+                        ),
                         ast_idx: 4,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::fmt`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::fmt`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::fmt`,
+                        path: SubmodulePath(
+                            `core::fmt`,
+                        ),
                         ast_idx: 5,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::list`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::list`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::list`,
+                        path: SubmodulePath(
+                            `core::list`,
+                        ),
                         ast_idx: 6,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::logic`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::logic`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::logic`,
+                        path: SubmodulePath(
+                            `core::logic`,
+                        ),
                         ast_idx: 7,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::marker`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::marker`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::marker`,
+                        path: SubmodulePath(
+                            `core::marker`,
+                        ),
                         ast_idx: 8,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::mem`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::mem`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::mem`,
+                        path: SubmodulePath(
+                            `core::mem`,
+                        ),
                         ast_idx: 9,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::num`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::num`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::num`,
+                        path: SubmodulePath(
+                            `core::num`,
+                        ),
                         ast_idx: 10,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::ops`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::ops`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::ops`,
+                        path: SubmodulePath(
+                            `core::ops`,
+                        ),
                         ast_idx: 11,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::option`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::option`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::option`,
+                        path: SubmodulePath(
+                            `core::option`,
+                        ),
                         ast_idx: 12,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::prelude`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::prelude`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::prelude`,
+                        path: SubmodulePath(
+                            `core::prelude`,
+                        ),
                         ast_idx: 13,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::raw_bits`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::raw_bits`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::raw_bits`,
+                        path: SubmodulePath(
+                            `core::raw_bits`,
+                        ),
                         ast_idx: 14,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::result`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::result`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::result`,
+                        path: SubmodulePath(
+                            `core::result`,
+                        ),
                         ast_idx: 15,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::slice`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::slice`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::slice`,
+                        path: SubmodulePath(
+                            `core::slice`,
+                        ),
                         ast_idx: 16,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::str`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::str`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::str`,
+                        path: SubmodulePath(
+                            `core::str`,
+                        ),
                         ast_idx: 17,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `core::visual`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `core::visual`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `core::visual`,
+                        path: SubmodulePath(
+                            `core::visual`,
+                        ),
                         ast_idx: 18,
                     },
                 ),

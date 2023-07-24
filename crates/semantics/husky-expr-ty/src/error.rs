@@ -5,9 +5,9 @@ pub use self::pattern::*;
 pub use self::term::*;
 
 use crate::*;
-use husky_entity_path::EntityPathError;
 use husky_ethereal_signature::EtherealSignatureError;
 use husky_ethereal_term::EtherealTermError;
+use husky_item_path::EntityPathError;
 use husky_syn_expr::SynExprIdx;
 use husky_token::IdentToken;
 use original_error::IntoError;
@@ -108,7 +108,7 @@ pub enum DerivedExprTypeError {
     TypeInfoError,
     #[error("expr error")]
     ExprError,
-    #[error("entity type error")]
+    #[error("item type error")]
     EntityTypeError,
     #[error("boxList application first argument error")]
     BoxListApplicationFirstArgumentError,
@@ -150,7 +150,7 @@ pub enum DerivedExprTypeError {
     SelfTypeNotInferredForSelfValue,
     #[error("unresolved local term")]
     UnresolvedLocalTerm,
-    #[error("entity path error")]
+    #[error("item path error")]
     EntityPathError,
     #[error("final destination")]
     FinalDestination,

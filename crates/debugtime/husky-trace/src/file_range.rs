@@ -14,7 +14,7 @@ impl TraceVariant {
             }
             TraceVariant::FuncStmt { stmt, .. } => (stmt.file, stmt.range),
             TraceVariant::EagerExpr { expr, .. } => (expr.file, expr.range),
-            TraceVariant::CallHead { entity, .. } => (entity.file, entity.range),
+            TraceVariant::CallHead { item, .. } => (item.file, item.range),
             TraceVariant::ProcStmt { stmt, .. } => (stmt.file, stmt.range),
             TraceVariant::LoopFrame { loop_stmt, .. } => (loop_stmt.file, loop_stmt.range),
             TraceVariant::ProcBranch { branch, .. } => (branch.file, branch.range),

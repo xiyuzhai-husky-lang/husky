@@ -1,4 +1,4 @@
-use husky_entity_tree::RegionPath;
+use husky_item_tree::RegionPath;
 use parsec::{parse_separated_list, parse_separated_list2, StreamParser};
 
 use super::*;
@@ -19,7 +19,7 @@ pub struct DeriveDecr {
 impl DeriveDecr {
     pub(super) fn new(
         db: &dyn DecrDb,
-        path: EntityPath,
+        path: ItemPath,
         ast_idx: AstIdx,
         token_group_idx: TokenGroupIdx,
         decr_id: DecrId,

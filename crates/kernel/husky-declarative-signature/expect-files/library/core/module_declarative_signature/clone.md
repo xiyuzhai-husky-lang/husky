@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::clone::Clone`),
             ),
@@ -18,7 +18,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
@@ -48,7 +48,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath {
                     impl_block: TraitForTypeImplBlockPath {

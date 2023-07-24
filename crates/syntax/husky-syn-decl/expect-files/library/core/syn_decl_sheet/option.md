@@ -3,7 +3,7 @@ Ok(
         [salsa id]: 13,
         decls: [
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Type(
                         TypePath(`core::option::Option`, `Enum`),
                     ),
@@ -46,7 +46,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [],
                                         },
-                                        principal_entity_path_expr_arena: Arena {
+                                        principal_item_path_expr_arena: Arena {
                                             data: [],
                                         },
                                         stmt_arena: Arena {

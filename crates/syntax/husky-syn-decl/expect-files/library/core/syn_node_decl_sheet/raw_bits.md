@@ -45,7 +45,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [],
                                         },
-                                        principal_entity_path_expr_arena: Arena {
+                                        principal_item_path_expr_arena: Arena {
                                             data: [],
                                         },
                                         stmt_arena: Arena {
@@ -169,7 +169,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                entity_path_expr: 0,
+                                                item_path_expr: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Type(
@@ -180,7 +180,7 @@ Ok(
                                             },
                                         ],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
@@ -381,7 +381,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                entity_path_expr: 0,
+                                                                item_path_expr: 0,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Type(
@@ -392,7 +392,7 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    principal_entity_path_expr_arena: Arena {
+                                                    principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
@@ -473,7 +473,7 @@ Ok(
                                         expr_arena: Arena {
                                             data: [
                                                 SynExpr::PrincipalEntityPath {
-                                                    entity_path_expr: 0,
+                                                    item_path_expr: 0,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -483,7 +483,7 @@ Ok(
                                                     ),
                                                 },
                                                 SynExpr::PrincipalEntityPath {
-                                                    entity_path_expr: 1,
+                                                    item_path_expr: 1,
                                                     opt_path: Some(
                                                         PrincipalEntityPath::ModuleItem(
                                                             ModuleItemPath::Type(
@@ -494,7 +494,7 @@ Ok(
                                                 },
                                             ],
                                         },
-                                        principal_entity_path_expr_arena: Arena {
+                                        principal_item_path_expr_arena: Arena {
                                             data: [
                                                 PrincipalEntityPathExpr::Root {
                                                     path_name_token: PathNameToken::Ident(

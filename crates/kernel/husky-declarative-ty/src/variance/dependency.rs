@@ -5,7 +5,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct VarianceId {
-    path: EntityPath,
+    path: ItemPath,
     idx: u8,
 }
 
@@ -13,14 +13,14 @@ impl VarianceId {
     pub(super) fn new(
         db: &dyn DeclarativeTypeDb,
         crate_path: CratePath,
-        path: EntityPath,
+        path: ItemPath,
         idx: u8,
     ) -> Option<Self> {
         (crate_path == path.crate_path(db)).then_some(Self { path, idx })
     }
 }
 
-pub(crate) fn entity_variance_crate_dependencies(
+pub(crate) fn item_variance_crate_dependencies(
     db: &dyn DeclarativeTypeDb,
     id: VarianceId,
 ) -> VarianceResultRef<&[VarianceId]> {
@@ -29,32 +29,30 @@ pub(crate) fn entity_variance_crate_dependencies(
         .as_ref()
         .unwrap();
     match id.path {
-        EntityPath::Module(_) => todo!(),
-        EntityPath::ModuleItem(path) => match path {
+        ItemPath::Submodule(_) => todo!(),
+        ItemPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => {
-                declarative_ty_entity_variance_crate_dependencies(db, path, id.idx)
+                declarative_ty_item_variance_crate_dependencies(db, path, id.idx)
                     .as_ref()
                     .map(|t| t.as_ref())
             }
-            ModuleItemPath::Trait(path) => {
-                trai_entity_variance_crate_dependencies(db, path, id.idx)
-                    .as_ref()
-                    .map(|t| t.as_ref())
-            }
+            ModuleItemPath::Trait(path) => trai_item_variance_crate_dependencies(db, path, id.idx)
+                .as_ref()
+                .map(|t| t.as_ref()),
             ModuleItemPath::Fugitive(path) => {
-                form_entity_variance_crate_dependencies(db, path, id.idx)
+                form_item_variance_crate_dependencies(db, path, id.idx)
                     .as_ref()
                     .map(|t| t.as_ref())
             }
         },
-        EntityPath::AssociatedItem(_) => todo!(),
-        EntityPath::TypeVariant(_) => todo!(),
-        EntityPath::ImplBlock(_) => todo!(),
+        ItemPath::AssociatedItem(_) => todo!(),
+        ItemPath::TypeVariant(_) => todo!(),
+        ItemPath::ImplBlock(_) => todo!(),
     }
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn declarative_ty_entity_variance_crate_dependencies(
+pub(crate) fn declarative_ty_item_variance_crate_dependencies(
     db: &dyn DeclarativeTypeDb,
     path: TypePath,
     _idx: u8,
@@ -79,7 +77,7 @@ pub(crate) fn declarative_ty_entity_variance_crate_dependencies(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn trai_entity_variance_crate_dependencies(
+pub(crate) fn trai_item_variance_crate_dependencies(
     _db: &dyn DeclarativeTypeDb,
     _path: TraitPath,
     _idx: u8,
@@ -88,7 +86,7 @@ pub(crate) fn trai_entity_variance_crate_dependencies(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn form_entity_variance_crate_dependencies(
+pub(crate) fn form_item_variance_crate_dependencies(
     db: &dyn DeclarativeTypeDb,
     path: FugitivePath,
     _idx: u8,

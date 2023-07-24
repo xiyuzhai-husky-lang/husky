@@ -44,10 +44,10 @@ impl Diagnose for (TokenGroupIdx, &OriginalAstError) {
             OriginalAstError::StandaloneElif => format!("Syntax Error: standalone elif"),
             OriginalAstError::StandaloneElse => format!("Syntax Error: standalone else"),
             OriginalAstError::ExpectedEntityKeyword => {
-                format!("Syntax Error: expected entity keyword")
+                format!("Syntax Error: expected item keyword")
             }
             OriginalAstError::ExpectedDecoratorOrEntityKeyword => {
-                format!("Syntax Error: expected decorator or entity keyword")
+                format!("Syntax Error: expected decorator or item keyword")
             }
             OriginalAstError::ExpectedIdent(_) => format!("Syntax Error: expected identifier"),
             OriginalAstError::ExpectNothing => format!("Syntax Error: expected nothing"),

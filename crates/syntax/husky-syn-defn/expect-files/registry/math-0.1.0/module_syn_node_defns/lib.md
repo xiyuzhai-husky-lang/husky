@@ -5,7 +5,9 @@ Ok(
                 syn_node_decl: SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `math::algebra`,
+                            path: SubmodulePath(
+                                `math::algebra`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -18,7 +20,9 @@ Ok(
                 syn_node_decl: SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `math::algebraic_geometry`,
+                            path: SubmodulePath(
+                                `math::algebraic_geometry`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -31,7 +35,9 @@ Ok(
                 syn_node_decl: SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `math::algebraic_topology`,
+                            path: SubmodulePath(
+                                `math::algebraic_topology`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -44,7 +50,9 @@ Ok(
                 syn_node_decl: SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `math::category_theory`,
+                            path: SubmodulePath(
+                                `math::category_theory`,
+                            ),
                             disambiguator: 0,
                         },
                     },
@@ -57,7 +65,9 @@ Ok(
                 syn_node_decl: SubmoduleSynNodeDecl {
                     syn_node_path: SubmoduleSynNodePath {
                         maybe_ambiguous_path: MaybeAmbiguousPath {
-                            path: `math::probability`,
+                            path: SubmodulePath(
+                                `math::probability`,
+                            ),
                             disambiguator: 0,
                         },
                     },

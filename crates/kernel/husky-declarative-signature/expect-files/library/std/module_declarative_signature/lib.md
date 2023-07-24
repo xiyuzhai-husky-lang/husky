@@ -1,23 +1,29 @@
 [
     (
-        EntityPath::Module(
-            `std::prelude`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `std::prelude`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `std::logic`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `std::logic`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `std::ops`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `std::ops`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,

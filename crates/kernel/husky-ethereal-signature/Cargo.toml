@@ -15,12 +15,12 @@ enum-class = { path = "../../abstraction/enum-class" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-item-path = { path = "../../kernel/husky-item-path" }
 husky-declarative-signature = { path = "../../kernel/husky-declarative-signature" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-entity-taxonomy = {path = "../../kernel/husky-entity-taxonomy"}
+husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
 # syntax
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-syn-decr = { path = "../../syntax/husky-syn-decr" }
 # utils
-husky-print-utils = { path= "../../utils/husky-print-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }

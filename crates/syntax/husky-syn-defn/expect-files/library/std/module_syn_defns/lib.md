@@ -3,7 +3,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `std::prelude`,
+                    path: SubmodulePath(
+                        `std::prelude`,
+                    ),
                     ast_idx: 0,
                 },
             },
@@ -11,7 +13,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `std::logic`,
+                    path: SubmodulePath(
+                        `std::logic`,
+                    ),
                     ast_idx: 1,
                 },
             },
@@ -19,7 +23,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `std::ops`,
+                    path: SubmodulePath(
+                        `std::ops`,
+                    ),
                     ast_idx: 2,
                 },
             },

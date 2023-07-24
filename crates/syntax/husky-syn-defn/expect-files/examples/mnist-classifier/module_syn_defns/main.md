@@ -3,7 +3,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `mnist_classifier::connected_component`,
+                    path: SubmodulePath(
+                        `mnist_classifier::connected_component`,
+                    ),
                     ast_idx: 11,
                 },
             },
@@ -11,7 +13,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `mnist_classifier::raw_contour`,
+                    path: SubmodulePath(
+                        `mnist_classifier::raw_contour`,
+                    ),
                     ast_idx: 12,
                 },
             },
@@ -19,7 +23,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `mnist_classifier::geom2d`,
+                    path: SubmodulePath(
+                        `mnist_classifier::geom2d`,
+                    ),
                     ast_idx: 13,
                 },
             },
@@ -27,7 +33,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `mnist_classifier::line_segment_sketch`,
+                    path: SubmodulePath(
+                        `mnist_classifier::line_segment_sketch`,
+                    ),
                     ast_idx: 14,
                 },
             },
@@ -35,7 +43,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `mnist_classifier::fermi`,
+                    path: SubmodulePath(
+                        `mnist_classifier::fermi`,
+                    ),
                     ast_idx: 15,
                 },
             },
@@ -43,7 +53,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `mnist_classifier::digits`,
+                    path: SubmodulePath(
+                        `mnist_classifier::digits`,
+                    ),
                     ast_idx: 16,
                 },
             },
@@ -51,7 +63,9 @@ Ok(
         Defn::Submodule(
             SubmoduleDefn {
                 decl: SubmoduleSynDecl {
-                    path: `mnist_classifier::major`,
+                    path: SubmodulePath(
+                        `mnist_classifier::major`,
+                    ),
                     ast_idx: 17,
                 },
             },

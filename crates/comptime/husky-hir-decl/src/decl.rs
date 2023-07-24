@@ -52,7 +52,7 @@ impl HirDecl {
         }
     }
 
-    pub fn path(self, db: &dyn HirDeclDb) -> EntityPath {
+    pub fn path(self, db: &dyn HirDeclDb) -> ItemPath {
         match self {
             HirDecl::Submodule(_) => todo!(),
             HirDecl::ModuleItem(decl) => decl.path(db).into(),

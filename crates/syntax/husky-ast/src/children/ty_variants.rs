@@ -26,7 +26,7 @@ impl<'a> TryParseOptionFromStreamWithContext<AstParser<'a>> for TypeVariants {
     }
 }
 
-// let ast_ctx_kind = AstContextKind::inside_defn(entity_kind, entity_path);
+// let ast_ctx_kind = AstContextKind::inside_defn(item_kind, item_path);
 // let (body, body_kind) = {
 //     let body = self.parse_asts(ctx.subcontext(ast_ctx_kind));
 //     match body.last() {

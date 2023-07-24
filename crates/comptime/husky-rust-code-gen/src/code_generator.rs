@@ -1,5 +1,5 @@
 // mod context;
-// mod gen_entity_route;
+// mod gen_item_route;
 // mod impl_expr;
 // mod impl_init;
 // mod impl_lib;
@@ -18,7 +18,7 @@ pub(crate) struct RustCodeGenerator<'a> {
     db: &'a dyn RustTranspileDb,
     result: String,
     target_entrance: DiffPath,
-    // entity_route_uses: LocalStack<EtherealTerm>,
+    // item_route_uses: LocalStack<EtherealTerm>,
     // context: RustCodeGenContext,
 }
 
@@ -28,16 +28,16 @@ impl<'a> RustCodeGenerator<'a> {
         // let target_entrance = db
         //     .module_target_entrance(db.module_file(module).unwrap())
         //     .unwrap();
-        // let entity_defn = db.entity_defn(module).unwrap();
+        // let item_defn = db.item_defn(module).unwrap();
         // let mut symbols = LocalStack::new();
-        // for entity_defn in entity_defn.subentities.iter() {
-        //     symbols.push(entity_defn.base_route)
+        // for item_defn in item_defn.subentities.iter() {
+        //     symbols.push(item_defn.base_route)
         // }
         // Self {
         //     db,
         //     target_entrance: target_entrance,
         //     result: Default::default(),
-        //     entity_route_uses: symbols,
+        //     item_route_uses: symbols,
         //     context: RustCodeGenContext::Normal,
         // }
     }
@@ -50,8 +50,8 @@ impl<'a> RustCodeGenerator<'a> {
         // let mut symbols = LocalStack::new();
         // let package = db.package(target_entrance).unwrap();
         // if use_crate_all {
-        //     for entity_defn in package.subentities.iter() {
-        //         symbols.push(entity_defn.base_route)
+        //     for item_defn in package.subentities.iter() {
+        //         symbols.push(item_defn.base_route)
         //     }
         // }
         todo!()
@@ -59,7 +59,7 @@ impl<'a> RustCodeGenerator<'a> {
         //     db,
         //     target_entrance: target_entrance,
         //     result: Default::default(),
-        //     entity_route_uses: symbols,
+        //     item_route_uses: symbols,
         //     context: RustCodeGenContext::Normal,
         // }
     }

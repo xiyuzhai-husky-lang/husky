@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`core::raw_bits::r32`, `Extern`),
             ),
@@ -20,7 +20,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
                     Id {
@@ -43,7 +43,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {

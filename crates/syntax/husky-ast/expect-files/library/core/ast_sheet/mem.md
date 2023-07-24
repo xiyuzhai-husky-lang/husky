@@ -16,7 +16,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
                         ),
@@ -58,7 +58,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
                         ),
@@ -100,7 +100,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Type(
                             Extern,
                         ),

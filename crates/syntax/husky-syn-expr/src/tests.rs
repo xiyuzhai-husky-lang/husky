@@ -5,8 +5,8 @@ use husky_ast::AstJar;
 use husky_corgi_config::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
-use husky_entity_path::EntityPathJar;
-use husky_entity_tree::*;
+use husky_item_path::EntityPathJar;
+use husky_item_tree::*;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_term_prelude::TermPreludeJar;
@@ -76,7 +76,7 @@ fn parse_expr_works() {
                         ),
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -157,7 +157,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -231,7 +231,7 @@ fn parse_expr_works() {
                         ),
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -305,7 +305,7 @@ fn parse_expr_works() {
                         ),
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -376,7 +376,7 @@ fn parse_expr_works() {
                         ),
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -470,7 +470,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -563,7 +563,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -671,7 +671,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -789,7 +789,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -882,7 +882,7 @@ fn parse_expr_works() {
     //                     },
     //                 ],
     //             },
-    //             entity_path_expr_arena: Arena {
+    //             item_path_expr_arena: Arena {
     //                 data: [],
     //             },
     //             pattern_expr_arena: Arena {
@@ -945,7 +945,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -1051,7 +1051,7 @@ fn parse_expr_works() {
                         },
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {
@@ -1158,7 +1158,7 @@ fn parse_application_expr_works() {
                         },
                     ],
                 },
-                principal_entity_path_expr_arena: Arena {
+                principal_item_path_expr_arena: Arena {
                     data: [],
                 },
                 stmt_arena: Arena {

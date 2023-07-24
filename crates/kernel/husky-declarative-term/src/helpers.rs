@@ -1,4 +1,4 @@
-use husky_entity_path::TypePath;
+use husky_item_path::TypePath;
 
 use crate::*;
 
@@ -26,8 +26,8 @@ impl DeclarativeTerm {
             DeclarativeTerm::Abstraction(_) => todo!(),
             DeclarativeTerm::ExplicitApplication(term) => term.function(db).family(db),
             DeclarativeTerm::ExplicitApplicationOrRitchieCall(_) => todo!(),
-            DeclarativeTerm::Subentity(_) => todo!(),
-            DeclarativeTerm::AsTraitSubentity(_) => todo!(),
+            DeclarativeTerm::Subitem(_) => todo!(),
+            DeclarativeTerm::AsTraitSubitem(_) => todo!(),
             DeclarativeTerm::TraitConstraint(_) => todo!(),
             DeclarativeTerm::LeashOrBitNot(_) => todo!(),
             DeclarativeTerm::List(_) => todo!(),

@@ -104,14 +104,14 @@ pub(crate) fn resolve_module_path(
                             resolve_module_path(db,toolchain, lib_path)?,
                             db.it_ident_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
-                        )
+                        ).into()
                     } else if let main_path = parent.join("main.hsy") && main_path.exists() {
                         ModulePath::new_child(
                             db,
                             resolve_module_path(db, toolchain,main_path)?,
                             db.it_ident_borrowed(file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
-                         )
+                         ).into()
                     } else {
                         todo!()
                     }
@@ -128,6 +128,7 @@ pub(crate) fn resolve_module_path(
             db.it_ident_borrowed(file_stem)
                 .ok_or(VfsError::ModulePathResolveFailure)?,
         )
+        .into()
     })
 }
 
@@ -136,9 +137,9 @@ fn resolve_module_path_works() {
     DB::default().vfs_plain_test("resolve-module-path", |db, module_path| {
         let abs_path = module_diff_path(db, module_path).unwrap();
         let toolchain = module_path.toolchain(db);
-        let entity_path_resolved = db
+        let item_path_resolved = db
             .resolve_module_path(toolchain, abs_path.path(db))
             .unwrap();
-        assert_eq!(module_path, entity_path_resolved)
+        assert_eq!(module_path, item_path_resolved)
     })
 }

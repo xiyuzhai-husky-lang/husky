@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
             ),
@@ -31,7 +31,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TypeImplBlock(
                 TypeImplBlockPath(
                     Id {
@@ -54,7 +54,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {
@@ -97,7 +97,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TypeItem(
                 TypeItemPath {
                     impl_block: TypeImplBlockPath {

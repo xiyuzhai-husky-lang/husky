@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`quick_sort::quick_sort`, `Fn`),
             ),
@@ -41,7 +41,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
             ),
@@ -94,7 +94,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`quick_sort::partition`, `Fn`),
             ),

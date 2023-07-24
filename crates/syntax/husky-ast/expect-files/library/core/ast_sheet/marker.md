@@ -16,7 +16,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },
@@ -56,7 +56,7 @@ Ok(
                             },
                         },
                     },
-                    entity_kind: ModuleItem {
+                    item_kind: ModuleItem {
                         module_item_kind: Trait,
                         connection: Connected,
                     },

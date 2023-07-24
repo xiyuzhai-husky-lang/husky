@@ -11,7 +11,7 @@ pub use info::*;
 pub use sheet::*;
 
 use engine::*;
-use husky_entity_tree::*;
+use husky_item_tree::*;
 use husky_token::*;
 use husky_vfs::*;
 
@@ -22,6 +22,6 @@ pub struct TokenInfoJar(token_info_sheet);
 fn token_info_sheet(
     db: &dyn TokenInfoDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<TokenInfoSheet> {
+) -> ItemSynTreeResult<TokenInfoSheet> {
     InferEngine::new(db, module_path)?.visit_all()
 }

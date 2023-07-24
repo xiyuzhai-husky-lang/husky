@@ -7,8 +7,8 @@ use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::CowordJar;
 use husky_declarative_signature::DeclarativeSignatureJar;
 use husky_declarative_term::DeclarativeTermJar;
-use husky_entity_path::EntityPathJar;
-use husky_entity_tree::{EntitySynTreeDb, EntitySynTreeJar};
+use husky_item_path::EntityPathJar;
+use husky_item_tree::{EntitySynTreeDb, EntitySynTreeJar};
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_syn_decl::SynDeclJar;
@@ -47,19 +47,19 @@ pub(crate) struct DB {
 
 impl salsa::Database for DB {}
 
-fn major_entity_declarative_tys(
+fn major_item_declarative_tys(
     db: &DB,
     module_path: ModulePath,
-) -> Vec<(EntityPath, DeclarativeTypeResult<DeclarativeTerm>)> {
-    let Ok(entity_tree_sheet) = db.entity_syn_tree_sheet(module_path) else {
+) -> Vec<(ItemPath, DeclarativeTypeResult<DeclarativeTerm>)> {
+    let Ok(item_tree_sheet) = db.item_syn_tree_sheet(module_path) else {
         return vec![];
     };
-    entity_tree_sheet
-        .major_entity_paths(db)
+    item_tree_sheet
+        .major_paths(db)
         .map(|path| {
             (
                 path.into(),
-                entity_path_declarative_ty(
+                item_path_declarative_ty(
                     db,
                     TypePathDisambiguation::OntologyConstructor,
                     path.into(),
@@ -70,7 +70,7 @@ fn major_entity_declarative_tys(
 }
 
 #[test]
-fn entity_declarative_tys_works() {
+fn item_declarative_tys_works() {
     DB::default()
-        .ast_expect_test_debug_with_db("major_entity_declarative_tys", major_entity_declarative_tys)
+        .ast_expect_test_debug_with_db("major_item_declarative_tys", major_item_declarative_tys)
 }

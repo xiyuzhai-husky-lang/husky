@@ -4,7 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 smallvec.workspace = true
 thiserror.workspace = true
@@ -14,9 +13,9 @@ enum-class = { path = "../../abstraction/enum-class" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-item-path = { path = "../../kernel/husky-item-path" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 # comptime
-husky-hir-expr = { path = "../../comptime/husky-hir-expr"}
+husky-hir-expr = { path = "../../comptime/husky-hir-expr" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }

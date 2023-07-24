@@ -71,11 +71,11 @@ impl HasSynNodeDefn for EntitySynNodePath {
 }
 
 pub trait HasNodeDefns: Copy {
-    fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]>;
+    fn node_defns(self, db: &dyn SynDefnDb) -> ItemSynTreeResult<&[SynNodeDefn]>;
 }
 
 impl HasNodeDefns for ModulePath {
-    fn node_defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[SynNodeDefn]> {
+    fn node_defns(self, db: &dyn SynDefnDb) -> ItemSynTreeResult<&[SynNodeDefn]> {
         Ok(module_syn_node_defns(db, self).as_ref()?)
     }
 }
@@ -84,8 +84,8 @@ impl HasNodeDefns for ModulePath {
 pub(crate) fn module_syn_node_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<SynNodeDefn>> {
-    Ok(module_entity_syn_node_paths(db, module_path)
+) -> ItemSynTreeResult<Vec<SynNodeDefn>> {
+    Ok(module_item_syn_node_paths(db, module_path)
         .as_ref()?
         .iter()
         .copied()
@@ -146,7 +146,7 @@ impl Defn {
 }
 
 impl Defn {
-    pub fn path(self, db: &dyn SynDefnDb) -> Option<EntityPath> {
+    pub fn path(self, db: &dyn SynDefnDb) -> Option<ItemPath> {
         todo!()
         // match self {
         //     Defn::Type(defn) => Some(defn.path(db).into()),
@@ -165,26 +165,26 @@ pub trait HasSynDefn: Copy {
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn>;
 }
 
-impl HasSynDefn for EntityPath {
+impl HasSynDefn for ItemPath {
     type SynDefn = Defn;
 
     fn syn_defn(self, db: &dyn SynDefnDb) -> SynDefnResult<Self::SynDefn> {
         Ok(match self {
-            EntityPath::Module(path) => path.syn_defn(db)?.into(),
-            EntityPath::ModuleItem(path) => path.syn_defn(db)?.into(),
-            EntityPath::ImplBlock(path) => path.syn_defn(db)?.into(),
-            EntityPath::AssociatedItem(path) => path.syn_defn(db)?.into(),
-            EntityPath::TypeVariant(_) => todo!(),
+            ItemPath::Submodule(path) => path.syn_defn(db)?.into(),
+            ItemPath::ModuleItem(path) => path.syn_defn(db)?.into(),
+            ItemPath::ImplBlock(path) => path.syn_defn(db)?.into(),
+            ItemPath::AssociatedItem(path) => path.syn_defn(db)?.into(),
+            ItemPath::TypeVariant(_) => todo!(),
         })
     }
 }
 
 pub trait HasDefns: Copy {
-    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[Defn]>;
+    fn defns(self, db: &dyn SynDefnDb) -> ItemSynTreeResult<&[Defn]>;
 }
 
 impl HasDefns for ModulePath {
-    fn defns(self, db: &dyn SynDefnDb) -> EntitySynTreeResult<&[Defn]> {
+    fn defns(self, db: &dyn SynDefnDb) -> ItemSynTreeResult<&[Defn]> {
         Ok(module_syn_defns(db, self).as_ref()?)
     }
 }
@@ -193,8 +193,8 @@ impl HasDefns for ModulePath {
 pub(crate) fn module_syn_defns(
     db: &dyn SynDefnDb,
     module_path: ModulePath,
-) -> EntitySynTreeResult<Vec<Defn>> {
-    Ok(module_entity_paths(db, module_path)
+) -> ItemSynTreeResult<Vec<Defn>> {
+    Ok(module_item_paths(db, module_path)
         .as_ref()?
         .iter()
         .copied()

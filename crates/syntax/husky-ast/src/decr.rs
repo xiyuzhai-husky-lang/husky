@@ -11,7 +11,7 @@ pub struct DecrId {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum DecrParent {
-    Defn(EntityPath),
+    Defn(ItemPath),
 }
 
 impl DecrId {
@@ -82,7 +82,7 @@ impl AstSheet {
                 DefnBlock::Trait { path, items } => todo!(),
                 DefnBlock::AssociatedItem { body } => todo!(),
             }),
-            // Some(entity_path) => entity_path,
+            // Some(item_path) => item_path,
             // None => return Err(invalid_parent()),
             _ => todo!(),
         };

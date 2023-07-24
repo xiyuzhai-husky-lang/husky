@@ -27,13 +27,13 @@ husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ast = { path = "../../syntax/husky-ast" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
 husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }

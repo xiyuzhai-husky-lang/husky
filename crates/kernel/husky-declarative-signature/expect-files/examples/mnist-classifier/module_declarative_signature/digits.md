@@ -1,79 +1,99 @@
 [
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::zero`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::zero`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::one`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::one`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::six`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::six`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::three`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::three`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::four`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::four`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::five`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::five`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::seven`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::seven`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::eight`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::eight`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::nine`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::nine`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,
         ),
     ),
     (
-        EntityPath::Module(
-            `mnist_classifier::digits::two`,
+        ItemPath::Submodule(
+            SubmodulePath(
+                `mnist_classifier::digits::two`,
+            ),
         ),
         Ok(
             SignatureTemplate::Module,

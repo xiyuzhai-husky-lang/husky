@@ -3,7 +3,7 @@ Ok(
         [salsa id]: 3,
         decls: [
             (
-                EntityPath::ModuleItem(
+                ItemPath::ModuleItem(
                     ModuleItemPath::Trait(
                         TraitPath(`core::clone::Clone`),
                     ),
@@ -32,7 +32,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [],
                                     },
                                     stmt_arena: Arena {
@@ -73,7 +73,7 @@ Ok(
                 ),
             ),
             (
-                EntityPath::ImplBlock(
+                ItemPath::ImplBlock(
                     TraitForTypeImplBlock(
                         TraitForTypeImplBlockPath(
                             Id {
@@ -132,7 +132,7 @@ Ok(
                                     expr_arena: Arena {
                                         data: [
                                             SynExpr::PrincipalEntityPath {
-                                                entity_path_expr: 0,
+                                                item_path_expr: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::ModuleItem(
                                                         ModuleItemPath::Trait(
@@ -143,7 +143,7 @@ Ok(
                                             },
                                         ],
                                     },
-                                    principal_entity_path_expr_arena: Arena {
+                                    principal_item_path_expr_arena: Arena {
                                         data: [
                                             PrincipalEntityPathExpr::Root {
                                                 path_name_token: PathNameToken::Ident(
@@ -205,7 +205,7 @@ Ok(
                 ),
             ),
             (
-                EntityPath::AssociatedItem(
+                ItemPath::AssociatedItem(
                     AssociatedItemPath::TraitForTypeItem(
                         TraitForTypeItemPath {
                             impl_block: TraitForTypeImplBlockPath {
@@ -264,7 +264,7 @@ Ok(
                                                     expr_arena: Arena {
                                                         data: [
                                                             SynExpr::PrincipalEntityPath {
-                                                                entity_path_expr: 0,
+                                                                item_path_expr: 0,
                                                                 opt_path: Some(
                                                                     PrincipalEntityPath::ModuleItem(
                                                                         ModuleItemPath::Trait(
@@ -275,7 +275,7 @@ Ok(
                                                             },
                                                         ],
                                                     },
-                                                    principal_entity_path_expr_arena: Arena {
+                                                    principal_item_path_expr_arena: Arena {
                                                         data: [
                                                             PrincipalEntityPathExpr::Root {
                                                                 path_name_token: PathNameToken::Ident(
@@ -363,7 +363,7 @@ Ok(
                                                 ),
                                             ],
                                         },
-                                        principal_entity_path_expr_arena: Arena {
+                                        principal_item_path_expr_arena: Arena {
                                             data: [],
                                         },
                                         stmt_arena: Arena {

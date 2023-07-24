@@ -2,8 +2,8 @@ mod adv;
 
 use crate::*;
 use husky_coword::CowordJar;
-use husky_entity_path::EntityPathJar;
 use husky_expect_test_snippets_utils::*;
+use husky_item_path::EntityPathJar;
 use husky_vfs::*;
 use salsa::{Database, DebugWithDb, Storage};
 

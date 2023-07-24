@@ -24,7 +24,7 @@ pub struct DiagnosticsJar(
     DiagnosticSheet,
     diagnostic_sheet,
     EntityTreeDiagnosticSheet,
-    entity_tree_diagnostic_sheet,
+    item_tree_diagnostic_sheet,
     AstDiagnosticSheet,
     ast_diagnostic_sheet,
     TokenDiagnosticSheet,

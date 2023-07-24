@@ -5,7 +5,7 @@ mod table;
 
 pub use config::*;
 pub use form::*;
-use husky_entity_path::EntityPath;
+use husky_item_path::ItemPath;
 pub use key::*;
 pub use table::*;
 
@@ -24,13 +24,13 @@ pub trait ResolveLinkage {
         todo!()
         // if let Some(linkage) = self
         //     .linkage_table()
-        //     .element_access(opd_tys.map(|ty| self.entity_uid(*ty)))
+        //     .element_access(opd_tys.map(|ty| self.item_uid(*ty)))
         // {
         //     linkage
         // } else {
-        //     let this_ty_defn = self.entity_defn(opd_tys[0]).unwrap();
+        //     let this_ty_defn = self.item_defn(opd_tys[0]).unwrap();
         //     let std_ops_index_trai = self.route_call(
-        //         self.entity_route_menu().std_ops_index_trai,
+        //         self.item_route_menu().std_ops_index_trai,
         //         thin_vec![SpatialArgument::EntityRoute(opd_tys[1])],
         //     );
         //     let index_trai_impl = this_ty_defn.trait_impl(std_ops_index_trai).unwrap();
@@ -60,11 +60,11 @@ pub trait ResolveLinkage {
         // }
         // if let Some(linkage) = self
         //     .linkage_table()
-        //     .field_linkage_source(self.entity_uid(this_ty), field_ident)
+        //     .field_linkage_source(self.item_uid(this_ty), field_ident)
         // {
         //     return Some(linkage);
         // }
-        // let this_ty_defn = self.entity_defn(this_ty).unwrap();
+        // let this_ty_defn = self.item_defn(this_ty).unwrap();
         // let ty_field_defn = this_ty_defn.field(field_ident);
         // match ty_field_defn.variant {
         //     EntityDefnVariant::TyField { opt_linkage, .. } => opt_linkage,
@@ -89,11 +89,11 @@ pub trait ResolveLinkage {
         //     || {
         //         if let Some(linkage) = self
         //             .linkage_table()
-        //             .routine_linkage(self.entity_uid(method_route))
+        //             .routine_linkage(self.item_uid(method_route))
         //         {
         //             Some(linkage)
         //         } else {
-        //             let method_defn = self.entity_defn(method_route).unwrap();
+        //             let method_defn = self.item_defn(method_route).unwrap();
         //             match method_defn.variant {
         //                 EntityDefnVariant::Builtin => todo!(),
         //                 EntityDefnVariant::Method { ref opt_source, .. } => {
@@ -125,7 +125,7 @@ pub trait ResolveLinkage {
         //                         //             CallFormSource::Static(linkage_source) => Some(*linkage_source),
         //                         //         };
         //                         //     }
-        //                         //     let trai_syn_defn = self.entity_defn(*trai).unwrap();
+        //                         //     let trai_syn_defn = self.item_defn(*trai).unwrap();
         //                         //     match trai_syn_defn.variant {
         //                         //         EntityDefnVariant::Trait {
         //                         //             ref generic_parameters,
@@ -175,7 +175,7 @@ pub trait ResolveLinkage {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
-        //     || match self.entity_source(routine).unwrap() {
+        //     || match self.item_source(routine).unwrap() {
         //         EntitySource::StaticModuleItem(static_defn) => match static_defn.variant {
         //             EntityStaticDefnVariant::Function { linkage, .. } => Some(linkage),
         //             _ => todo!(),
@@ -189,7 +189,7 @@ pub trait ResolveLinkage {
         //         EntitySource::WithinBuiltinModule => todo!(),
         //         EntitySource::WithinModule { .. } => self
         //             .linkage_table()
-        //             .routine_linkage(self.entity_uid(routine)),
+        //             .routine_linkage(self.item_uid(routine)),
         //         EntitySource::Module { .. } => todo!(),
         //         EntitySource::TargetInput => todo!(),
         //         EntitySource::Any { .. } => todo!(),
@@ -205,10 +205,10 @@ pub trait ResolveLinkage {
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
         //     || {
-        //         if let Some(linkage) = self.linkage_table().type_call_linkage(self.entity_uid(ty)) {
+        //         if let Some(linkage) = self.linkage_table().type_call_linkage(self.item_uid(ty)) {
         //             return Some(linkage);
         //         }
-        //         let type_defn = self.entity_defn(ty).unwrap();
+        //         let type_defn = self.item_defn(ty).unwrap();
         //         match type_defn.variant {
         //             EntityDefnVariant::EtherealTerm {
         //                 ref opt_type_call, ..
@@ -223,13 +223,13 @@ pub trait ResolveLinkage {
         // )
     }
 
-    fn feature_eager_block_linkage(&self, _entity_path: EntityPath) -> Option<__Linkage> {
+    fn feature_eager_block_linkage(&self, _item_path: ItemPath) -> Option<__Linkage> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
         //     || {
         //         self.linkage_table()
-        //             .feature_eager_block_linkage(self.entity_uid(route))
+        //             .feature_eager_block_linkage(self.item_uid(route))
         //     },
         //     || format!("eager block for feature `{route}`"),
         // )

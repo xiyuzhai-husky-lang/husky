@@ -13,7 +13,7 @@
 /// This implies that the [`Id`]s must be unique.
 ///
 /// For simple things like sliders and buttons that don't have any memory and
-/// doesn't move we can use the location of the widget as a source of identity.
+/// doesn't move we can use the location of the widget as a source of iditem.
 /// For instance, a slider only needs a unique and persistent ID while you are
 /// dragging the slider. As long as it is still while moving, that is fine.
 ///

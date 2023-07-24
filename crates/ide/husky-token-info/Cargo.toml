@@ -11,18 +11,18 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
 husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 # kernel
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-item-path = { path = "../../kernel/husky-item-path" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 husky-text = { path = "../../lex/husky-text" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-entity-tree = { path = "../../syntax/husky-entity-tree" }
+husky-item-tree = { path = "../../syntax/husky-item-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
-husky-print-utils = {path = "../../utils/husky-print-utils"}
+husky-print-utils = { path = "../../utils/husky-print-utils" }
 
 [dev-dependencies]
 # fs

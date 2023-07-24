@@ -146,8 +146,8 @@ impl EtherealTerm {
             }
             EtherealTerm::Abstraction(_) => todo!(),
             EtherealTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
-            EtherealTerm::Subentity(_) => todo!(),
-            EtherealTerm::AsTraitSubentity(_) => todo!(),
+            EtherealTerm::Subitem(_) => todo!(),
+            EtherealTerm::AsTraitSubitem(_) => todo!(),
             EtherealTerm::TraitConstraint(_) => todo!(),
         })
     }

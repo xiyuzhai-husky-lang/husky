@@ -15,7 +15,7 @@ pub use self::union::*;
 pub use self::unit_struct::*;
 
 use super::*;
-use husky_entity_path::TypePath;
+use husky_item_path::TypePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]

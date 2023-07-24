@@ -8,7 +8,7 @@ pub(crate) use self::solid::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_tree::{TraitInUseItemRecord, TraitInUseItemsWithGivenIdent};
+use husky_item_tree::{TraitInUseItemRecord, TraitInUseItemsWithGivenIdent};
 use husky_token::IdentToken;
 
 impl MemberSignature for MethodFluffySignature {

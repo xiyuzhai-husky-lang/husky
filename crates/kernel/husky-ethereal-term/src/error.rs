@@ -1,8 +1,8 @@
 use crate::*;
 use husky_declarative_signature::DeclarativeSignatureError;
 use husky_declarative_ty::DeclarativeTypeError;
-use husky_entity_path::{EntityPath, EntityPathError};
-use husky_entity_tree::{EntityTreeBundleError, EntityTreeError};
+use husky_item_path::{EntityPathError, ItemPath};
+use husky_item_tree::{EntityTreeBundleError, EntityTreeError};
 use husky_syn_decl::NodeDeclError;
 use husky_syn_decr::DecrError;
 use maybe_result::MaybeResult;
@@ -20,8 +20,8 @@ pub enum EtherealTermError {
     UniverseOverflow,
     #[error("EtherealTerm Error: monad is not input")]
     MonadIsNotInput,
-    #[error("EtherealTerm Error: no decl for entity path")]
-    NoDeclForEntityPath { entity_path: EntityPath },
+    #[error("EtherealTerm Error: no decl for item path")]
+    NoDeclForEntityPath { item_path: ItemPath },
     #[error("EntityPathError")]
     EntityPathError,
     #[error("DeclarativeTypeError")]

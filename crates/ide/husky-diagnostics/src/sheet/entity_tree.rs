@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_tree::{
+use husky_item_tree::{
     EntityTreeError, IllFormedImplBlockSynNode, ImplBlockIllForm, MajorPathExprError,
     OnceUseRuleState, OriginalEntityTreeError, OriginalMajorPathExprError,
 };
@@ -12,20 +12,20 @@ pub struct EntityTreeDiagnosticSheet {
 }
 
 #[salsa::tracked(jar = DiagnosticsJar)]
-pub(crate) fn entity_tree_diagnostic_sheet(
+pub(crate) fn item_tree_diagnostic_sheet(
     db: &dyn DiagnosticsDb,
     module_path: ModulePath,
 ) -> EntityTreeDiagnosticSheet {
     let mut diagnostics = vec![];
     let ctx = SheetDiagnosticsContext::new(db, module_path);
-    if let Ok(entity_tree_sheet) = db.entity_syn_tree_sheet(module_path) {
-        for e in entity_tree_sheet.errors() {
+    if let Ok(item_tree_sheet) = db.item_syn_tree_sheet(module_path) {
+        for e in item_tree_sheet.errors() {
             match e {
                 EntityTreeError::Original(e) => diagnostics.push(e.to_diagnostic(&ctx)),
                 EntityTreeError::Derived(_) => (),
             }
         }
-        for ill_formed_impl_block in entity_tree_sheet.all_ill_formed_impl_block_syn_nodes() {
+        for ill_formed_impl_block in item_tree_sheet.all_ill_formed_impl_block_syn_nodes() {
             diagnostics.push(ill_formed_impl_block.to_diagnostic(&ctx))
         }
     }
@@ -39,7 +39,7 @@ impl Diagnose for OriginalEntityTreeError {
     fn message(&self, db: &Self::Context<'_>) -> String {
         match self {
             OriginalEntityTreeError::UnresolvedRootIdent(_) => format!("unresolved identifier"),
-            OriginalEntityTreeError::NoVisibleSubentity => format!("NoSubentity"),
+            OriginalEntityTreeError::NoVisibleSubitem => format!("NoSubitem"),
             OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => {
                 format!("EntitySymbolAlreadyDefined")
             }
@@ -59,7 +59,7 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::UnresolvedRootIdent(ident_token) => {
                 ctx.token_idx_text_range(ident_token.token_idx())
             }
-            OriginalEntityTreeError::NoVisibleSubentity => todo!(),
+            OriginalEntityTreeError::NoVisibleSubitem => todo!(),
             OriginalEntityTreeError::EntitySymbolAlreadyDefined { old, new } => {
                 ctx.token_idx_text_range(new.ident_token(ctx.db()).token_idx())
             }
@@ -80,12 +80,12 @@ impl Diagnose for IllFormedImplBlockSynNode {
                 MajorPathExprError::Original(e) => match e {
                     OriginalMajorPathExprError::UnrecognizedIdent(ident_token) => {
                         format!(
-                            "Syntax Error: unrecognized identifier `{}` for major entity path",
+                            "Syntax Error: unrecognized identifier `{}` for major item path",
                             ident_token.ident().data(ctx.db())
                         )
                     }
                     OriginalMajorPathExprError::ExpectedName(_) => format!("expected identifier",),
-                    OriginalMajorPathExprError::NoSuchSubentity => todo!(),
+                    OriginalMajorPathExprError::NoSuchSubitem => todo!(),
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },
@@ -116,7 +116,7 @@ impl Diagnose for IllFormedImplBlockSynNode {
                             false => ctx.token_idx_text_range(token_stream_state.next_token_idx()),
                         }
                     }
-                    OriginalMajorPathExprError::NoSuchSubentity => todo!(),
+                    OriginalMajorPathExprError::NoSuchSubitem => todo!(),
                 },
                 MajorPathExprError::Derived(_) => todo!(),
             },

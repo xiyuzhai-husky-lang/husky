@@ -24,25 +24,25 @@ impl VarianceRepr {
     }
 }
 
-pub(crate) fn entity_variance_reprs(
+pub(crate) fn item_variance_reprs(
     db: &dyn DeclarativeTypeDb,
-    path: EntityPath,
+    path: ItemPath,
 ) -> VarianceResultRef<&[VarianceRepr]> {
     let _declarative_term_menu = db.declarative_term_menu(path.toolchain(db)).unwrap();
     match path {
-        EntityPath::Module(_) => todo!(),
-        EntityPath::ModuleItem(path) => match path {
+        ItemPath::Submodule(_) => todo!(),
+        ItemPath::ModuleItem(path) => match path {
             ModuleItemPath::Type(path) => ty_implicit_parameter_variance_reprs(db, path),
-            ModuleItemPath::Trait(path) => trai_entity_variance_reprs(db, path),
-            ModuleItemPath::Fugitive(path) => form_entity_variance_reprs(db, path),
+            ModuleItemPath::Trait(path) => trai_item_variance_reprs(db, path),
+            ModuleItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
         },
-        EntityPath::AssociatedItem(path) => match path {
-            AssociatedItemPath::TypeItem(path) => ty_item_entity_variance_reprs(db, path),
+        ItemPath::AssociatedItem(path) => match path {
+            AssociatedItemPath::TypeItem(path) => ty_item_item_variance_reprs(db, path),
             AssociatedItemPath::TraitItem(_) => todo!(),
             AssociatedItemPath::TraitForTypeItem(_) => todo!(),
         },
-        EntityPath::TypeVariant(_) => todo!(),
-        EntityPath::ImplBlock(_) => todo!(),
+        ItemPath::TypeVariant(_) => todo!(),
+        ItemPath::ImplBlock(_) => todo!(),
     }
     .as_ref()
     .map(|t| t.as_ref())
@@ -93,7 +93,7 @@ pub(crate) fn ty_implicit_parameter_variance_reprs(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn trai_entity_variance_reprs(
+pub(crate) fn trai_item_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: TraitPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
@@ -120,7 +120,7 @@ pub(crate) fn trai_entity_variance_reprs(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn form_entity_variance_reprs(
+pub(crate) fn form_item_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: FugitivePath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
@@ -146,7 +146,7 @@ pub(crate) fn form_entity_variance_reprs(
 }
 
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
-pub(crate) fn ty_item_entity_variance_reprs(
+pub(crate) fn ty_item_item_variance_reprs(
     db: &dyn DeclarativeTypeDb,
     path: TypeItemPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {

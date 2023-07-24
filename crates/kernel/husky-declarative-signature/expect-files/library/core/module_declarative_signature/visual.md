@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Trait(
                 TraitPath(`core::visual::Visualize`),
             ),
@@ -18,7 +18,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`core::visual::Html`, `Extern`),
             ),

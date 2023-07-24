@@ -1,6 +1,6 @@
 [
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`malamute::OneVsAll`, `Enum`),
             ),
@@ -40,7 +40,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Type(
                 TypePath(`malamute::OneVsAllResult`, `Enum`),
             ),
@@ -80,7 +80,7 @@
         ),
     ),
     (
-        EntityPath::ModuleItem(
+        ItemPath::ModuleItem(
             ModuleItemPath::Fugitive(
                 FugitivePath(`malamute::narrow_down`, `Gn`),
             ),
@@ -140,7 +140,7 @@
         ),
     ),
     (
-        EntityPath::ImplBlock(
+        ItemPath::ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
                     Id {
@@ -191,7 +191,7 @@
         ),
     ),
     (
-        EntityPath::AssociatedItem(
+        ItemPath::AssociatedItem(
             AssociatedItemPath::TraitForTypeItem(
                 TraitForTypeItemPath {
                     impl_block: TraitForTypeImplBlockPath {

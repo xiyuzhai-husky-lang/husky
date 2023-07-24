@@ -1,8 +1,8 @@
 use crate::*;
 use either::Either;
 use husky_ast::{AstSheet, DecrId, DecrParent};
-use husky_entity_tree::{
-    EntitySynTreeCrateBundle, EntitySynTreeResult, EntitySynTreeSheet, ModuleSymbolContext,
+use husky_item_tree::{
+    EntitySynTreeCrateBundle, EntitySynTreeSheet, ItemSynTreeResult, ModuleSymbolContext,
 };
 use husky_syn_decl::HasSynDecl;
 use husky_vfs::ModulePath;
@@ -15,7 +15,7 @@ pub(crate) struct DecrParserFactory<'a> {
 }
 
 impl<'a> DecrParserFactory<'a> {
-    pub(crate) fn new(db: &'a dyn DecrDb, path: ModulePath) -> EntitySynTreeResult<Self> {
+    pub(crate) fn new(db: &'a dyn DecrDb, path: ModulePath) -> ItemSynTreeResult<Self> {
         let module_symbol_context = db.module_symbol_context(path)?;
         Ok(Self {
             db,

@@ -3,34 +3,46 @@ Ok(
         [salsa id]: 20,
         decls: [
             (
-                EntityPath::Module(
-                    `std::prelude`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `std::prelude`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `std::prelude`,
+                        path: SubmodulePath(
+                            `std::prelude`,
+                        ),
                         ast_idx: 0,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `std::logic`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `std::logic`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `std::logic`,
+                        path: SubmodulePath(
+                            `std::logic`,
+                        ),
                         ast_idx: 1,
                     },
                 ),
             ),
             (
-                EntityPath::Module(
-                    `std::ops`,
+                ItemPath::Submodule(
+                    SubmodulePath(
+                        `std::ops`,
+                    ),
                 ),
                 Decl::Submodule(
                     SubmoduleSynDecl {
-                        path: `std::ops`,
+                        path: SubmodulePath(
+                            `std::ops`,
+                        ),
                         ast_idx: 2,
                     },
                 ),
