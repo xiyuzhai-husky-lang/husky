@@ -1,6 +1,6 @@
 use crate::*;
 
-use husky_item_tree::ItemSynTreeResult;
+use husky_entity_syn_tree::ItemSynTreeResult;
 use husky_text::{FilePosition, RangeInfo, TextPosition};
 use husky_token_info::TokenInfoDb;
 

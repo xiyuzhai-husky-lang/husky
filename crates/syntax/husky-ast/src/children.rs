@@ -13,8 +13,8 @@ pub use self::ty_items::*;
 pub use self::ty_variants::*;
 
 use crate::*;
-use husky_item_path::*;
-use husky_item_taxonomy::*;
+use husky_entity_path::*;
+use husky_entity_taxonomy::*;
 use husky_token::*;
 use parsec::*;
 

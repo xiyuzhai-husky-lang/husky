@@ -18,7 +18,7 @@ use crate::*;
 use disambiguate_token::*;
 use expr_stack::*;
 use husky_ast::{Ast, AstIdxRange, AstSheet};
-use husky_item_tree::*;
+use husky_entity_syn_tree::*;
 use husky_token::Token;
 use husky_token::TokenStream;
 use husky_vfs::{ModulePath, Toolchain};

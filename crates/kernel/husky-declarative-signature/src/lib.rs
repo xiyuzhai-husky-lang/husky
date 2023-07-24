@@ -17,7 +17,7 @@ pub use self::signature::*;
 
 use husky_coword::*;
 use husky_declarative_term::*;
-use husky_item_path::*;
+use husky_entity_path::*;
 use husky_syn_decl::*;
 use husky_term_prelude::*;
 use smallvec::*;

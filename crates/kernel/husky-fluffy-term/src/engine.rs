@@ -1,4 +1,4 @@
-use husky_item_tree::{EntityTreeResultRef, TraitInUseItemsTable};
+use husky_entity_syn_tree::{EntityTreeResultRef, TraitInUseItemsTable};
 
 use super::*;
 

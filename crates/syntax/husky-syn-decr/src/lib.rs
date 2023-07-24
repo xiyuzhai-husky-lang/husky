@@ -9,7 +9,7 @@ pub use self::decr::*;
 pub use self::error::*;
 
 use self::parser::*;
-use husky_item_path::*;
+use husky_entity_path::*;
 use husky_syn_expr::*;
 use husky_token::*;
 

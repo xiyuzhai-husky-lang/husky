@@ -1,6 +1,6 @@
 use super::*;
 use husky_coword::IdentPairMap;
-use husky_item_taxonomy::TypeKind;
+use husky_entity_taxonomy::TypeKind;
 
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]
 pub struct TypeVariantSynNodePath {

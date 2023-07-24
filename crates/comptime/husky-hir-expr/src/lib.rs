@@ -15,7 +15,7 @@ pub use self::symbol::*;
 
 use self::db::*;
 use husky_coword::*;
-use husky_item_path::*;
+use husky_entity_path::*;
 use husky_opr::*;
 use husky_term_prelude::*;
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};

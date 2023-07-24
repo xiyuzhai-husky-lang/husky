@@ -5,7 +5,7 @@ mod table;
 
 pub use config::*;
 pub use form::*;
-use husky_item_path::ItemPath;
+use husky_entity_path::ItemPath;
 pub use key::*;
 pub use table::*;
 

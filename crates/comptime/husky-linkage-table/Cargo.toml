@@ -16,12 +16,12 @@ map-collect = { path = "../../abstraction/map-collect" }
 upcast = { path = "../../abstraction/upcast" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-item-tree = { path = "../../syntax/husky-item-tree" }
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 sync-utils = { path = "../../utils/husky-sync-utils" }
 husky-check-utils = { path = "../../utils/husky-check-utils" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 # kernel
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [

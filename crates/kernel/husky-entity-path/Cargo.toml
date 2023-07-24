@@ -1,5 +1,5 @@
 [package]
-name = "husky-item-path"
+name = "husky-entity-path"
 version = "0.1.0"
 edition = "2021"
 description = "husky item path"
@@ -19,7 +19,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 # kernel
 husky-vfs = { path = "../../fs/husky-vfs" }
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 
 [dev-dependencies]
 expect-test = "1.4.0"

@@ -17,13 +17,13 @@ husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-fluffy-term = { path = "../../kernel/husky-fluffy-term" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-text = { path = "../../lex/husky-text", features = ["lsp_support"] }
-husky-item-tree = { path = "../../syntax/husky-item-tree" }
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-scope-expr = { path = "../../syntax/husky-scope-expr" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
@@ -37,7 +37,7 @@ husky-print-utils = { path = "../../utils/husky-print-utils" }
 [dev-dependencies]
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }

@@ -1,4 +1,4 @@
-use husky_item_tree::RegionPath;
+use husky_entity_syn_tree::RegionPath;
 use parsec::{parse_separated_list, parse_separated_list2, StreamParser};
 
 use super::*;

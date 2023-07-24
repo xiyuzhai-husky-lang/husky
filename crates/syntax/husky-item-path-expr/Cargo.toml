@@ -1,5 +1,5 @@
 [package]
-name = "husky-item-path-expr"
+name = "husky-entity-path-expr"
 version = "0.1.0"
 edition = "2021"
 

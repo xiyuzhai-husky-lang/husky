@@ -32,8 +32,8 @@ pub use self::stmt::*;
 pub use self::symbol::*;
 
 use husky_coword::*;
-use husky_item_path::{EntityPath, ItemPath, PrincipalEntityPath};
-use husky_item_tree::*;
+use husky_entity_path::{EntityPath, ItemPath, PrincipalEntityPath};
+use husky_entity_syn_tree::*;
 use husky_opr::*;
 use husky_term_prelude::*;
 use husky_text::*;

@@ -21,7 +21,7 @@ pub use self::literal::*;
 pub use self::modifier::*;
 pub use self::universe::*;
 
-use husky_item_path::*;
+use husky_entity_path::*;
 
 #[salsa::jar(db = TermPreludeDb)]
 pub struct TermPreludeJar(

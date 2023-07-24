@@ -13,7 +13,7 @@ enum-class = { path = "../../abstraction/enum-class" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 # comptime
 husky-hir-expr = { path = "../../comptime/husky-hir-expr" }

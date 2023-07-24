@@ -3,8 +3,8 @@ mod error;
 pub use self::error::*;
 
 use crate::*;
-use husky_item_path::MajorEntityPath;
-use husky_item_tree::EntityTreeError;
+use husky_entity_path::MajorEntityPath;
+use husky_entity_syn_tree::EntityTreeError;
 use parsec::StreamParser;
 use thiserror::Error;
 

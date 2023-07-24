@@ -1,4 +1,4 @@
-use husky_item_path::*;
+use husky_entity_path::*;
 use salsa::DisplayWithDb;
 
 use super::*;

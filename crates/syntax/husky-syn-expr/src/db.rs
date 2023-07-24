@@ -1,5 +1,5 @@
 use crate::*;
-use husky_item_tree::EntitySynTreeDb;
+use husky_entity_syn_tree::EntitySynTreeDb;
 
 pub trait SynExprDb: salsa::DbWithJar<SynExprJar> + EntitySynTreeDb {
     fn expr_range_region(&self, expr_region: SynExprRegion) -> &ExprRangeRegion;

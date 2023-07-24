@@ -15,13 +15,13 @@ husky-vfs = { path = "../../fs/husky-vfs" }
 # infer
 husky-manifest = { path = "../../semantics/husky-manifest" }
 # kernel
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-item-tree = { path = "../../syntax/husky-item-tree" }
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 # utils

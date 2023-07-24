@@ -11,7 +11,7 @@ pub use info::*;
 pub use sheet::*;
 
 use engine::*;
-use husky_item_tree::*;
+use husky_entity_syn_tree::*;
 use husky_token::*;
 use husky_vfs::*;
 

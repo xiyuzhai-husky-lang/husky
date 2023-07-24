@@ -1,4 +1,4 @@
-use husky_item_tree::EntityTreeError;
+use husky_entity_syn_tree::EntityTreeError;
 use husky_syn_expr::ExprError;
 use husky_token::{TokenError, TokenIdx, TokenStreamState};
 use husky_vfs::VfsError;

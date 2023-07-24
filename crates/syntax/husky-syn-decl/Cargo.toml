@@ -18,16 +18,16 @@ parsec = { path = "../../abstraction/parsec" }
 # fs
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
 # syntax
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-opr = { path = "../../kernel/husky-opr" }
-husky-item-tree = { path = "../../syntax/husky-item-tree" }
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-ast = { path = "../../syntax/husky-ast" }
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # utils
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 

@@ -15,8 +15,8 @@ husky-declarative-signature = { path = "../../kernel/husky-declarative-signature
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
-husky-item-path = { path = "../../kernel/husky-item-path" }
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # lex
 husky-token = { path = "../../lex/husky-token" }
@@ -35,5 +35,5 @@ husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 husky-manifest = { path = "../../semantics/husky-manifest" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }
-husky-item-tree = { path = "../../syntax/husky-item-tree" }
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }

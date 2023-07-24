@@ -1,5 +1,5 @@
 use crate::*;
-use husky_item_path::ItemPath;
+use husky_entity_path::ItemPath;
 
 pub trait InstructionDb {
     fn item_instruction_sheet(&self, item_path: ItemPath) -> Option<Arc<InstructionSheet>>;

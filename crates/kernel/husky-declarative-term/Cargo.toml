@@ -18,7 +18,7 @@ enum-class = { path = "../../abstraction/enum-class" }
 husky-vfs = { path = "../../fs/husky-vfs" }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 # lex
 husky-token = { path = "../../lex/husky-token" }

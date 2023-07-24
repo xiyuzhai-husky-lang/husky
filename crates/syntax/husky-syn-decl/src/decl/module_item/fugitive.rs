@@ -9,7 +9,7 @@ pub use self::ti::*;
 pub use self::val::*;
 
 use super::*;
-use husky_item_taxonomy::{EntityKind, FugitiveKind};
+use husky_entity_taxonomy::{EntityKind, FugitiveKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = SynDeclDb)]

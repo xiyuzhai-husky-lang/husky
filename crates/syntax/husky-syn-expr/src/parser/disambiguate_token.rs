@@ -1,5 +1,5 @@
 use super::*;
-use husky_item_taxonomy::{EntityKind, FugitiveKind, ModuleItemKind};
+use husky_entity_taxonomy::{EntityKind, FugitiveKind, ModuleItemKind};
 use husky_print_utils::p;
 use husky_token::Punctuation;
 use salsa::DebugWithDb;

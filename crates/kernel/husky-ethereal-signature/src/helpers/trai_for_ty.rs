@@ -1,4 +1,4 @@
-use husky_item_tree::{
+use husky_entity_syn_tree::{
     trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     ty_side_trai_for_ty_impl_block_paths_map,

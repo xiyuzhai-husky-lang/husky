@@ -1,4 +1,4 @@
-use husky_item_tree::ImplBlockSynNode;
+use husky_entity_syn_tree::ImplBlockSynNode;
 
 use crate::*;
 

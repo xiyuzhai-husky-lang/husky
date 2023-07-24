@@ -17,9 +17,9 @@ husky-token = { path = "../../lex/husky-token" }
 # infer
 husky-token-info = { path = "../../ide/husky-token-info" }
 # kernel
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # syntax
-husky-item-tree = { path = "../../syntax/husky-item-tree" }
+husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-syn-decl = { path = "../../syntax/husky-syn-decl" }
 husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
@@ -29,7 +29,7 @@ husky-syn-defn = { path = "../../syntax/husky-syn-defn" }
 husky-vfs = { path = "../../fs/husky-vfs", features = ["test-utils"] }
 # kernel
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
 husky-declarative-term = { path = "../../kernel/husky-declarative-term" }
 husky-declarative-ty = { path = "../../kernel/husky-declarative-ty" }

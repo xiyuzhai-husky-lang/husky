@@ -5,9 +5,9 @@ pub use self::pattern::*;
 pub use self::term::*;
 
 use crate::*;
+use husky_entity_path::EntityPathError;
 use husky_ethereal_signature::EtherealSignatureError;
 use husky_ethereal_term::EtherealTermError;
-use husky_item_path::EntityPathError;
 use husky_syn_expr::SynExprIdx;
 use husky_token::IdentToken;
 use original_error::IntoError;

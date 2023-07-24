@@ -11,7 +11,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-syn-expr = { path = "../../syntax/husky-syn-expr" }
 husky-print-utils = { path = "../../utils/husky-print-utils" }
 husky-opr = { path = "../../kernel/husky-opr" }
-husky-item-taxonomy = { path = "../../kernel/husky-item-taxonomy" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 
 # infer
 [dev-dependencies]

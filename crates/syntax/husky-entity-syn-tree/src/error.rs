@@ -1,6 +1,6 @@
 use crate::{EntitySynNode, EntitySynTreeDb, EntityTreeBundleError, PreludeError};
 use husky_ast::AstIdx;
-use husky_item_path::{EntityPathError, TypePath};
+use husky_entity_path::{EntityPathError, TypePath};
 use husky_manifest::ManifestError;
 use husky_token::{IdentToken, TokenIdx};
 use husky_vfs::{ModulePath, ToolchainError, VfsError};

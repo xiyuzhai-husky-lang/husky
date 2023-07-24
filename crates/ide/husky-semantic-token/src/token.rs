@@ -1,5 +1,5 @@
 use crate::*;
-use husky_item_taxonomy::*;
+use husky_entity_taxonomy::*;
 use husky_text::TextRange;
 
 #[derive(Debug, Clone, PartialEq, Eq)]

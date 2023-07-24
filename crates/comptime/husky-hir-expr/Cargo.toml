@@ -17,7 +17,7 @@ vec-like = { path = "../../abstraction/vec-like" }
 husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
 # kernel
 husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-item-path = { path = "../../kernel/husky-item-path" }
+husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-coword = { path = "../../kernel/husky-coword" }
 husky-opr = { path = "../../kernel/husky-opr" }
 

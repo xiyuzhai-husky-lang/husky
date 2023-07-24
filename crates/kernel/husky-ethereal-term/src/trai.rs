@@ -2,7 +2,7 @@ use crate::*;
 use husky_declarative_signature::{
     HasDeclarativeSignatureTemplate, TypeDeclarativeSignatureTemplate,
 };
-use husky_item_tree::TraitForTypeImplBlockNode;
+use husky_entity_syn_tree::TraitForTypeImplBlockNode;
 use husky_syn_decr::{Decr, HasDecrs};
 use smallvec::SmallVec;
 

@@ -1,5 +1,5 @@
 use super::*;
-use husky_item_taxonomy::TypeKind;
+use husky_entity_taxonomy::TypeKind;
 use husky_print_utils::p;
 
 #[salsa::interned(db = EntitySynTreeDb, jar = EntitySynTreeJar, constructor = new_inner)]

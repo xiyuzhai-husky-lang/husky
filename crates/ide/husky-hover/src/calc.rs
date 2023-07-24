@@ -1,4 +1,4 @@
-use husky_item_tree::ItemSynTreeResult;
+use husky_entity_syn_tree::ItemSynTreeResult;
 use husky_text::TextRange;
 
 use husky_token::{RangedTokenSheet, Token, TokenGroupIdx, TokenSheetData};
