@@ -1,4 +1,4 @@
-use husky_feature_eval::Session;
+use husky_eval::Session;
 
 pub enum HuskyRuntimeVariant {
     None,

@@ -1,7 +1,5 @@
 use crate::*;
-use husky_feature_gen::{
-    FeatureDomainIndicator, FeatureLazyExpr, FeatureLazyExprVariant, TrainModel,
-};
+use husky_val_repr::{FeatureDomainIndicator, FeatureLazyExpr, FeatureLazyExprVariant, TrainModel};
 use husky_vm::{GenericArgument, __Register, __VMError};
 
 impl TrainModel for DevRuntime {

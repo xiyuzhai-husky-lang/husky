@@ -1,19 +1,19 @@
 use crate::*;
-use husky_feature_eval::FeatureEvaluator;
+use husky_eval::FeatureEvaluator;
 
 impl Debugtime {
     pub fn feature_repr_subtraces(
         &mut self,
         parent: &Trace,
-        feature_repr: &FeatureRepr,
+        feature_repr: &ValRepr,
     ) -> Option<Vec<TraceId>> {
         match feature_repr {
-            FeatureRepr::Value { .. } => todo!(),
-            FeatureRepr::LazyExpr(_) => todo!(),
-            FeatureRepr::LazyBody(block) => Some(self.feature_lazy_block_subtraces(parent, block)),
-            FeatureRepr::FuncBody(block) => self.feature_func_block_subtraces(parent, block),
-            FeatureRepr::ProcBody(block) => self.feature_proc_block_subtraces(parent, block),
-            FeatureRepr::TargetInput { .. } => None,
+            ValRepr::Value { .. } => todo!(),
+            ValRepr::LazyExpr(_) => todo!(),
+            ValRepr::LazyBody(block) => Some(self.feature_lazy_block_subtraces(parent, block)),
+            ValRepr::FuncBody(block) => self.feature_func_block_subtraces(parent, block),
+            ValRepr::ProcBody(block) => self.feature_proc_block_subtraces(parent, block),
+            ValRepr::TargetInput { .. } => None,
         }
     }
 

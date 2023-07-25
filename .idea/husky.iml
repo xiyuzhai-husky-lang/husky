@@ -104,8 +104,8 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/robotics/husky-drake-geometry/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-data-viewer/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-dev-runtime/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-feature-eval/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-feature-gen/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-eval/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-val-repr/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-feature-protocol/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-instruction-gen/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-accessibility/src" isTestSource="false" />

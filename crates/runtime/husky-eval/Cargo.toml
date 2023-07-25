@@ -1,0 +1,41 @@
+[package]
+name = "husky-eval"
+version = "0.0.0"
+description = "TBD"
+license = "MIT OR Apache-2.0"
+edition = "2021"
+rust-version = "1.56"
+
+[lib]
+
+[dependencies]
+serde = { version = "1.0.106", features = ["derive"] }
+serde_json = { version = "1.0.48", features = ["preserve_order"] }
+lsp-types = { version = "0.93", features = ["proposed"] }
+indexmap = "1.8.1"
+# abstraction
+salsa = { path = "../../abstraction/salsa" }
+cyclic-slice = { path = "../../abstraction/cyclic-slice" }
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+upcast = { path = "../../abstraction/upcast" }
+map-collect = { path = "../../abstraction/map-collect" }
+idx-arena = { path = "../../abstraction/idx-arena" }
+husky-text = { path = "../../lex/husky-text" }
+husky-coword = { path = "../../kernel/husky-coword" }
+husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
+husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
+husky-ast = { path = "../../syntax/husky-ast" }
+husky-vm = { path = "../../vm/husky-vm" }
+husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
+husky-val-repr = { path = "../husky-val-repr" }
+husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
+wild-utils = { path = "../../utils/husky-wild-utils" }
+husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
+husky-data-viewer = { path = "../husky-data-viewer" }
+husky-opr = { path = "../../kernel/husky-opr" }
+
+[dev-dependencies]
+husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

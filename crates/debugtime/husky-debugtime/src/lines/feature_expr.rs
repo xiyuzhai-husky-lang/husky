@@ -179,12 +179,12 @@ impl<'a> TraceLineGenerator<'a> {
     fn gen_feature_eager_field_tokens(
         &mut self,
         config: ExprTokenConfig,
-        this: &FeatureRepr,
+        this: &ValRepr,
         field_ident: RangedIdent,
         opt_associated_trace_id: Option<TraceId>,
     ) {
         match this {
-            FeatureRepr::LazyExpr(this) => {
+            ValRepr::LazyExpr(this) => {
                 self.gen_feature_expr(this, config.subexpr());
                 self.render_special_token(".", None, Some(field_ident.range.start));
                 self.render_ident_token(field_ident.ident.as_str(), opt_associated_trace_id, None)
@@ -199,13 +199,13 @@ impl<'a> TraceLineGenerator<'a> {
 
     fn gen_feature_lazy_field_tokens(
         &mut self,
-        this: &FeatureRepr,
+        this: &ValRepr,
         field_ident: RangedIdent,
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) {
         match this {
-            FeatureRepr::LazyExpr(this) => {
+            ValRepr::LazyExpr(this) => {
                 self.gen_feature_expr(this, config.subexpr());
                 self.render_special_token(".", None, Some(field_ident.range.start));
                 self.render_ident_token(field_ident.ident.as_str(), opt_associated_trace_id, None);

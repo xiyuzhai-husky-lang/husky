@@ -22,9 +22,9 @@ husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # runtime
-husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
+husky-eval = { path = "../../runtime/husky-eval" }
 husky-dev-runtime = { path = "../../runtime/husky-dev-runtime" }
-husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
+husky-val-repr = { path = "../../runtime/husky-val-repr" }
 # syntax
 husky-text = { path = "../../lex/husky-text" }
 husky-ast = { path = "../../syntax/husky-ast" }

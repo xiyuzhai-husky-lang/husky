@@ -6,7 +6,7 @@ use super::*;
 impl HuskyDevtime {
     pub(crate) fn feature_repr_specific_figure(
         &self,
-        repr: &FeatureRepr,
+        repr: &ValRepr,
     ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
         match self
             .runtime()
@@ -19,7 +19,7 @@ impl HuskyDevtime {
 
     pub(super) fn feature_repr_generic_figure(
         &self,
-        repr: &FeatureRepr,
+        repr: &ValRepr,
     ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
         // const COLUMN_HEIGHT: u32 = 5;
         let ty = repr.ty();
@@ -79,7 +79,7 @@ impl HuskyDevtime {
 
     fn feature_repr_partitioned_samples<T>(
         &self,
-        repr: &FeatureRepr,
+        repr: &ValRepr,
         transform_visual_data: impl Fn(VisualData) -> T,
     ) -> Result<Vec<(Partition, Vec<(SampleId, T)>)>, (SampleId, __VMError)> {
         let session = self.runtime().session();

@@ -21,8 +21,8 @@
 // use husky_dev_runtime::*;
 // use husky_eager_semantics::*;
 // use husky_item_semantics::*;
-// use husky_feature_eval::EvalFeature;
-// use husky_feature_gen::*;
+// use husky_eval::EvalFeature;
+// use husky_val_repr::*;
 // use husky_init_syntax::*;
 // use husky_loop_syntax::*;
 // use husky_opr::*;
