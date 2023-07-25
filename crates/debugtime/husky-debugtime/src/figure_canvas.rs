@@ -9,9 +9,9 @@ mod utils;
 use crate::*;
 use husky_comptime::*;
 use husky_eager_semantics::{EagerExpr, FuncStmt, FuncStmtVariant, ProcStmt, ProcStmtVariant};
-use husky_feature_eval::EvalFeature;
-use husky_feature_gen::{FeatureLazyExpr, FeatureLazyStmt, FeatureLazyStmtVariant};
+use husky_eval::EvalFeature;
 use husky_text::TextQueryGroup;
+use husky_val_repr::{FeatureLazyExpr, FeatureLazyStmt, FeatureLazyStmtVariant};
 use husky_vm::{History, HistoryEntry, MutationData, MutationDataVariant};
 
 impl Debugtime {

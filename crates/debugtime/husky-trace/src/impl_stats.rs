@@ -38,7 +38,7 @@ impl TraceVariant {
 fn feature_repr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     partitions: &Partitions,
-    repr: &FeatureRepr,
+    repr: &ValRepr,
     opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
 ) -> __VMResult<Option<TraceStats>> {
     feature_opt_stats(

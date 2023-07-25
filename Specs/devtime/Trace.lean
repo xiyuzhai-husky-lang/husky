@@ -11,14 +11,14 @@ inductive Animal
 
 inductive TraceVariant
     | Main
-      (repr : FeatureRepr)
+      (repr : ValRepr)
     | Module
       (route : EntityRoutePtr)
       (file: FilePtr)
       (range : TextRange)
     | EntityFeature
       (route : EntityRoutePtr)
-      (repr : FeatureRepr)
+      (repr : ValRepr)
     | FeatureStmt
       (stmt : FeatureLazyStmt)
     | FeatureBranch

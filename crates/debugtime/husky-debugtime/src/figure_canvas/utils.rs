@@ -22,7 +22,7 @@ impl Debugtime {
             .dev()
             .cache_temp_value(feature, sample_id, value);
         eval_time.visualize_feature(
-            FeatureRepr::Value {
+            ValRepr::Value {
                 value,
                 ty,
                 file,

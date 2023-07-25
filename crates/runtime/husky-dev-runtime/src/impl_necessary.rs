@@ -8,7 +8,7 @@ use crate::*;
 impl salsa::Database for DevRuntime {}
 
 impl InternFeature for DevRuntime {
-    fn feature_interner(&self) -> &husky_feature_gen::FeatureInterner {
+    fn feature_interner(&self) -> &husky_val_repr::FeatureInterner {
         &self.feature_interner
     }
 }
@@ -37,8 +37,8 @@ impl Upcast<dyn InterpreterQueryGroup> for DevRuntime {
     }
 }
 
-impl Upcast<dyn FeatureGenQueryGroup> for DevRuntime {
-    fn upcast(&self) -> &(dyn FeatureGenQueryGroup + 'static) {
+impl Upcast<dyn ValReprDb> for DevRuntime {
+    fn upcast(&self) -> &(dyn ValReprDb + 'static) {
         self
     }
 }

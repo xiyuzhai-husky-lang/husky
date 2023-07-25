@@ -26,12 +26,12 @@ impl TraceVariant {
         //     | TraceVariant::Module { .. }
         //     | TraceVariant::FeatureBranch(_) => true,
         //     TraceVariant::EntityFeature { repr, .. } => match repr {
-        //         FeatureRepr::Value { .. } => false,
-        //         FeatureRepr::LazyExpr(_) => false,
-        //         FeatureRepr::LazyBody(_) => true,
-        //         FeatureRepr::FuncBody(_) => true,
-        //         FeatureRepr::ProcBody(_) => true,
-        //         FeatureRepr::TargetInput { .. } => false,
+        //         ValRepr::Value { .. } => false,
+        //         ValRepr::LazyExpr(_) => false,
+        //         ValRepr::LazyBody(_) => true,
+        //         ValRepr::FuncBody(_) => true,
+        //         ValRepr::ProcBody(_) => true,
+        //         ValRepr::TargetInput { .. } => false,
         //     },
         //     TraceVariant::FeatureExpr(expr) => match expr.variant {
         //         FeatureLazyExprVariant::Literal(_)

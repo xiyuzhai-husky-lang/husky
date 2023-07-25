@@ -1,7 +1,7 @@
 // use crate::*;
 // use husky_comptime::ComptimeConfig;
 // use husky_dev_runtime::RuntimeConfig;
-// use husky_feature_eval::EvaluatorConfig;
+// use husky_eval::EvaluatorConfig;
 // use husky_linkage_table::LinkageTableConfig;
 // use husky_root_static_defn::__resolve_root_defn;
 // use husky_vm::VMConfig;

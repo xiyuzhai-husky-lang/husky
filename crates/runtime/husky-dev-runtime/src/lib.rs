@@ -9,7 +9,7 @@
 
 // pub use hot_reload::{HuskyRuntimeHotReloadM, HuskyRuntimeHotReloadR};
 // pub use husky_comptime::*;
-// pub use husky_feature_gen::{FeatureGenQueryGroup, FeatureGenQueryGroupStorage, InternFeature};
+// pub use husky_val_repr::{ValReprDb, FeatureGenQueryGroupStorage, InternFeature};
 // pub use husky_instruction_gen::InstructionDb;
 // pub use query::*;
 
@@ -17,9 +17,9 @@
 // use husky_compiler::CompilerInstance;
 // use husky_diagnostics::DiagnosticsDb;
 // use husky_item_semantics::EntityRouteStore;
-// use husky_feature_eval::*;
-// use husky_feature_eval::{EvalFeature, Session};
-// use husky_feature_gen::FeatureInterner;
+// use husky_eval::*;
+// use husky_eval::{EvalFeature, Session};
+// use husky_val_repr::FeatureInterner;
 // use husky_linkage_table::LinkageTable;
 // use husky_path::{FileQueryGroup, DiffPath};
 // use husky_print_utils::*;
@@ -32,7 +32,7 @@
 // use variant::*;
 
 // #[salsa::database(
-//     husky_feature_gen::FeatureGenQueryGroupStorage,
+//     husky_val_repr::FeatureGenQueryGroupStorage,
 //     husky_instruction_gen::InstructionDbStorage,
 //     husky_data_viewer::DataViewerDbStorage,
 //     // comptime

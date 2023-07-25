@@ -39,8 +39,8 @@ husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
 # runtime
-husky-feature-gen = { path = "../../runtime/husky-feature-gen" }
-husky-feature-eval = { path = "../../runtime/husky-feature-eval" }
+husky-val-repr = { path = "../../runtime/husky-val-repr" }
+husky-eval = { path = "../../runtime/husky-eval" }
 husky-instruction-gen = { path = "../../runtime/husky-instruction-gen" }
 husky-data-viewer = { path = "../../runtime/husky-data-viewer" }
 # devtime
