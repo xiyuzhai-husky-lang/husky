@@ -56,13 +56,13 @@ impl TypeHirDecl {
 
     pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
-            TypeHirDecl::Enum(decl) => decl.hir_expr_region(db),
-            TypeHirDecl::UnitStruct(decl) => decl.hir_expr_region(db),
-            TypeHirDecl::TupleStruct(decl) => decl.hir_expr_region(db),
-            TypeHirDecl::PropsStruct(decl) => decl.hir_expr_region(db),
-            TypeHirDecl::Record(decl) => decl.hir_expr_region(db),
-            TypeHirDecl::Extern(decl) => decl.hir_expr_region(db),
-            TypeHirDecl::Union(decl) => decl.hir_expr_region(db),
+            TypeHirDecl::Enum(decl) => decl.hir_expr_region(db).into(),
+            TypeHirDecl::UnitStruct(decl) => decl.hir_expr_region(db).into(),
+            TypeHirDecl::TupleStruct(decl) => decl.hir_expr_region(db).into(),
+            TypeHirDecl::PropsStruct(decl) => decl.hir_expr_region(db).into(),
+            TypeHirDecl::Record(decl) => decl.hir_expr_region(db).into(),
+            TypeHirDecl::Extern(decl) => decl.hir_expr_region(db).into(),
+            TypeHirDecl::Union(decl) => decl.hir_expr_region(db).into(),
         }
     }
 }

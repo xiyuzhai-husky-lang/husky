@@ -30,10 +30,10 @@ use husky_entity_syn_tree::RegionPath;
 // use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 // use husky_vm_primitive_value::PrimitiveValueData;
 // use husky_xml_syntax::HtmlTagKind;
-// pub use intern::{FeatureInterner, FeatureItd, InternFeature};
+// pub use intern::{FeatureInterner, Val, InternFeature};
 // pub use lazy_branch::*;
 // pub use lazy_expr::*;
-// pub use lazy_stmt::{ValStmt, FeatureLazyStmtVariant};
+// pub use lazy_stmt::{ValStmt, ValStmtData};
 // pub use query::{ValReprDb, FeatureGenQueryGroupStorage, TrainModel};
 // pub use repr::*;
 
@@ -51,7 +51,7 @@ use husky_entity_syn_tree::RegionPath;
 // pub struct ValSymbol {
 //     varname: Ident,
 //     value: ValExpr,
-//     feature: FeatureItd,
+//     feature: Val,
 // }
 
 // #[derive(Debug, Hash, PartialEq, Eq, Clone)]
@@ -60,52 +60,52 @@ use husky_entity_syn_tree::RegionPath;
 //     PrimitiveLiteral(PrimitiveValueData),
 //     EnumLiteral(EtherealTerm),
 //     Assert {
-//         condition: FeatureItd,
+//         condition: Val,
 //     },
 //     Require {
-//         condition: FeatureItd,
+//         condition: Val,
 //     },
 //     ReturnUnveil {
-//         result: FeatureItd,
+//         result: Val,
 //         implicit_conversion: ImplicitConversion,
 //     },
-//     Cascade(Vec<FeatureItd>),
+//     Cascade(Vec<Val>),
 //     PrimitiveBinaryOpr {
 //         opr: BinaryPureClosedOpr,
-//         lopd: FeatureItd,
-//         ropd: FeatureItd,
+//         lopd: Val,
+//         ropd: Val,
 //     },
 //     CustomBinaryOpr {
 //         opr: BinaryPureClosedOpr,
-//         lopd: FeatureItd,
-//         ropd: FeatureItd,
+//         lopd: Val,
+//         ropd: Val,
 //     },
 //     FunctionCall {
 //         func: EtherealTerm,
 //         uid: EntityUid,
-//         inputs: Vec<FeatureItd>,
+//         inputs: Vec<Val>,
 //     },
 //     Branches {
 //         branches: Vec<BranchedFeature>,
 //     },
 //     FieldAccess {
-//         this: FeatureItd,
+//         this: Val,
 //         field_ident: Ident,
 //     },
 //     Index {
-//         opds: Vec<FeatureItd>,
+//         opds: Vec<Val>,
 //     },
 //     IndexFixed {
-//         this: FeatureItd,
+//         this: Val,
 //         index: usize,
 //     },
 //     CyclicIndexFixed {
-//         this: FeatureItd,
+//         this: Val,
 //         index: i32,
 //     },
 //     MethodCall {
 //         method_ident: Ident,
-//         opds: Vec<FeatureItd>,
+//         opds: Vec<Val>,
 //     },
 //     EntityFeature {
 //         item_path: EntityPath,
@@ -114,49 +114,49 @@ use husky_entity_syn_tree::RegionPath;
 //     RecordTypeCall {
 //         ty: EtherealTerm,
 //         uid: EntityUid,
-//         opds: Vec<FeatureItd>,
+//         opds: Vec<Val>,
 //     },
 //     HtmlFromValue {
-//         value: FeatureItd,
+//         value: Val,
 //     },
 //     HtmlFromTag {
 //         tag_kind: HtmlTagKind,
-//         props: IdentPairMap<FeatureItd>,
+//         props: IdentPairMap<Val>,
 //     },
 //     Temp {
 //         uid: TempFeatureUid,
 //     },
 //     ArrivalAfterStmtNotReturn {
-//         stmt: FeatureItd,
+//         stmt: Val,
 //         // without opt_stmt_arrival_indicator, there will be clash
-//         opt_stmt_arrival_indicator: Option<FeatureItd>,
+//         opt_stmt_arrival_indicator: Option<Val>,
 //     },
 //     ArrivalAfterConditionNotMet {
-//         opt_parent: Option<FeatureItd>,
-//         condition: FeatureItd,
+//         opt_parent: Option<Val>,
+//         condition: Val,
 //     },
 //     ArrivalIfConditionMet {
-//         opt_parent: Option<FeatureItd>,
-//         condition: FeatureItd,
+//         opt_parent: Option<Val>,
+//         condition: Val,
 //     },
 //     NewVecFromList {
-//         elements: Vec<FeatureItd>,
+//         elements: Vec<Val>,
 //     },
-//     PurePatternPrimitiveLiteral(FeatureItd),
+//     PurePatternPrimitiveLiteral(Val),
 //     PurePatternOneOf {
-//         subpatterns: Vec<FeatureItd>,
+//         subpatterns: Vec<Val>,
 //     },
-//     PurePatternEnumLiteral(FeatureItd),
+//     PurePatternEnumLiteral(Val),
 //     PurePatternSome,
 //     PurePatternNone,
 //     BePattern {
-//         this: FeatureItd,
-//         expr_pattern: FeatureItd,
+//         this: Val,
+//         expr_pattern: Val,
 //     },
 // }
 
 // impl Feature {
-//     pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<ValStmt>]) -> FeatureItd {
+//     pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<ValStmt>]) -> Val {
 //         let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
 //         if stmt_features.len() == 1 {
 //             stmt_features[0]
@@ -165,7 +165,7 @@ use husky_entity_syn_tree::RegionPath;
 //         }
 //     }
 
-//     pub fn intern_expr_pattern(interner: &FeatureInterner, patt: &PurePattern) -> FeatureItd {
+//     pub fn intern_expr_pattern(interner: &FeatureInterner, patt: &PurePattern) -> Val {
 //         match patt.variant {
 //             PurePatternVariant::PrimitiveLiteral(_) => todo!(),
 //             PurePatternVariant::OneOf { .. } => todo!(),
@@ -178,8 +178,8 @@ use husky_entity_syn_tree::RegionPath;
 
 // #[derive(Debug, Hash, PartialEq, Eq, Clone)]
 // pub struct BranchedFeature {
-//     condition: Option<FeatureItd>,
-//     block: FeatureItd,
+//     condition: Option<Val>,
+//     block: Val,
 // }
 
 // impl From<&Feature> for Feature {

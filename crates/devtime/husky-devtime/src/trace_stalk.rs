@@ -31,21 +31,19 @@ impl Debugtime {
                 repr.ty(),
             ),
             TraceVariant::FeatureStmt(ref stmt) => match stmt.variant {
-                FeatureLazyStmtVariant::Init { ref value, .. } => {
-                    self.trace_stalk_from_expr(value, sample_id)
-                }
-                FeatureLazyStmtVariant::Assert { ref condition } => {
+                ValStmtData::Init { ref value, .. } => self.trace_stalk_from_expr(value, sample_id),
+                ValStmtData::Assert { ref condition } => {
                     self.trace_stalk_from_expr(condition, sample_id)
                 }
-                FeatureLazyStmtVariant::Require { ref condition, .. } => {
+                ValStmtData::Require { ref condition, .. } => {
                     self.trace_stalk_from_expr(condition, sample_id)
                 }
-                FeatureLazyStmtVariant::Return { ref result }
-                | FeatureLazyStmtVariant::ReturnUnveil { ref result, .. } => {
+                ValStmtData::Return { ref result }
+                | ValStmtData::ReturnUnveil { ref result, .. } => {
                     self.trace_stalk_from_expr(result, sample_id)
                 }
-                FeatureLazyStmtVariant::ConditionFlow { .. } => panic!(),
-                FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
+                ValStmtData::ConditionFlow { .. } => panic!(),
+                ValStmtData::ReturnHtml { .. } => todo!(),
             },
             TraceVariant::FeatureBranch(_) => Default::default(),
             TraceVariant::FeatureExpr(ref expr) => self.trace_stalk_from_expr(expr, sample_id),

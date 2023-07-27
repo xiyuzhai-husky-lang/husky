@@ -5,5 +5,5 @@ pub struct TraitHirDecl {
     pub path: TraitPath,
     #[return_ref]
     pub generic_parameters: EtherealGenericParameters,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }

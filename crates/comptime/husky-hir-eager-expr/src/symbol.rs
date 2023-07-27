@@ -6,7 +6,7 @@ pub struct InheritedHirSymbol {}
 pub struct InheritedHirSymbolKind {}
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = HirExprDb)]
+#[salsa::derive_debug_with_db(db = HirEagerExprDb)]
 pub struct CurrentHirSymbol {
     modifier: SymbolModifier,
     variant: CurrentHirSymbolVariant,

@@ -15,7 +15,7 @@ impl<'a> FeatureExprBuilder<'a> {
         opn_kind: LazyOpnKind,
         opds: &[Arc<LazyExpr>],
         expr: &Arc<LazyExpr>,
-    ) -> (FeatureLazyExprVariant, FeatureItd) {
+    ) -> (FeatureLazyExprVariant, Val) {
         todo!()
         // match opn_kind {
         //     LazyOpnKind::Binary { opr, this } => {
@@ -141,7 +141,7 @@ impl<'a> FeatureExprBuilder<'a> {
         lopd: ValExpr,
         opr: BinaryPureClosedOpr,
         ropd: ValExpr,
-    ) -> (FeatureLazyExprVariant, FeatureItd) {
+    ) -> (FeatureLazyExprVariant, Val) {
         todo!()
         // match this {
         //     EtherealTerm::Root(RootBuiltinIdentifier::Void)
@@ -230,7 +230,7 @@ impl<'a> FeatureExprBuilder<'a> {
         lopd: ValExpr,
         opr: BinaryPureClosedOpr,
         ropd: ValExpr,
-    ) -> (FeatureLazyExprVariant, FeatureItd) {
+    ) -> (FeatureLazyExprVariant, Val) {
         todo!()
         // let (opt_instruction_sheet, opt_linkage) = match opr {
         //     BinaryComparisonOpr::Eq => (None, Some(__EQ_LINKAGE)),
@@ -277,7 +277,7 @@ impl<'a> FeatureExprBuilder<'a> {
         _method_ident: RangedIdentifier,
         _method_route: EtherealTerm,
         _opds: &[Arc<LazyExpr>],
-    ) -> (FeatureLazyExprVariant, FeatureItd) {
+    ) -> (FeatureLazyExprVariant, Val) {
         todo!()
         // let opds = opds
         //     .iter()
@@ -312,7 +312,7 @@ impl<'a> FeatureExprBuilder<'a> {
         _field_ident: RangedIdentifier,
         _this: ValRepr,
         _field_binding: Binding,
-    ) -> (FeatureLazyExprVariant, FeatureItd) {
+    ) -> (FeatureLazyExprVariant, Val) {
         todo!()
         // let this_ty = this.ty();
         // let this_ty_decl = self.db.ty_decl(this_ty.intrinsic()).unwrap();
@@ -446,7 +446,7 @@ impl<'a> FeatureExprBuilder<'a> {
         &self,
         opds: &[Arc<LazyExpr>],
         element_binding: Binding,
-    ) -> (FeatureLazyExprVariant, FeatureItd) {
+    ) -> (FeatureLazyExprVariant, Val) {
         let opds: Vec<_> = opds.iter().map(|opd| self.new_expr(opd.clone())).collect();
         let feature = self.feature_interner.intern(Feature::Index {
             opds: opds.map(|opd| opd.feature),

@@ -3,7 +3,7 @@ use std::convert::Infallible;
 use super::*;
 
 #[derive(PartialEq, Eq, Clone)]
-pub enum FeatureLazyStmtVariant {
+pub enum ValStmtData {
     Init {
         varname: Ident,
         value: ValExpr,
@@ -31,7 +31,7 @@ pub enum FeatureLazyStmtVariant {
     },
 }
 
-impl std::fmt::Debug for FeatureLazyStmtVariant {
+impl std::fmt::Debug for ValStmtData {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::Init {
@@ -55,22 +55,20 @@ impl std::fmt::Debug for FeatureLazyStmtVariant {
     }
 }
 
-impl FeatureLazyStmtVariant {
-    pub(super) fn opt_feature(&self, feature_interner: &FeatureInterner) -> Option<FeatureItd> {
+impl ValStmtData {
+    pub(super) fn opt_feature(&self, feature_interner: &FeatureInterner) -> Option<Val> {
         match self {
-            FeatureLazyStmtVariant::Init { .. } => None,
-            FeatureLazyStmtVariant::Assert { condition } => {
-                Some(feature_interner.intern(Feature::Assert {
-                    condition: condition.feature,
-                }))
-            }
-            FeatureLazyStmtVariant::Require { condition, .. } => {
+            ValStmtData::Init { .. } => None,
+            ValStmtData::Assert { condition } => Some(feature_interner.intern(Feature::Assert {
+                condition: condition.feature,
+            })),
+            ValStmtData::Require { condition, .. } => {
                 Some(feature_interner.intern(Feature::Require {
                     condition: condition.feature,
                 }))
             }
-            FeatureLazyStmtVariant::Return { result } => Some(result.feature),
-            FeatureLazyStmtVariant::ReturnUnveil {
+            ValStmtData::Return { result } => Some(result.feature),
+            ValStmtData::ReturnUnveil {
                 result,
                 implicit_conversion,
                 ..
@@ -78,8 +76,8 @@ impl FeatureLazyStmtVariant {
                 result: result.feature,
                 implicit_conversion: *implicit_conversion,
             })),
-            FeatureLazyStmtVariant::ReturnHtml { result } => Some(result.feature),
-            FeatureLazyStmtVariant::ConditionFlow { branches } => Some(
+            ValStmtData::ReturnHtml { result } => Some(result.feature),
+            ValStmtData::ConditionFlow { branches } => Some(
                 feature_interner.intern(Feature::Branches {
                     branches: branches
                         .iter()

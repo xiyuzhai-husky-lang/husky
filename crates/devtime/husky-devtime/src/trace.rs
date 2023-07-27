@@ -12,22 +12,22 @@ impl Debugtime {
         stmt: Arc<ValStmt>,
     ) -> Vec<TraceId> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { .. }
-            | FeatureLazyStmtVariant::Assert { .. }
-            | FeatureLazyStmtVariant::Require { .. }
-            | FeatureLazyStmtVariant::Return { .. }
-            | FeatureLazyStmtVariant::ReturnUnveil { .. } => {
+            ValStmtData::Init { .. }
+            | ValStmtData::Assert { .. }
+            | ValStmtData::Require { .. }
+            | ValStmtData::Return { .. }
+            | ValStmtData::ReturnUnveil { .. } => {
                 vec![self.new_trace(
                     Some(parent.id()),
                     stmt.indent,
                     TraceVariant::FeatureStmt(stmt),
                 )]
             }
-            FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => branches
+            ValStmtData::ConditionFlow { ref branches, .. } => branches
                 .iter()
                 .map(|branch| self.feature_branch_trace(parent, stmt.indent, branch.clone()))
                 .collect(),
-            FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
+            ValStmtData::ReturnHtml { .. } => todo!(),
         }
     }
 

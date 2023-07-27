@@ -57,20 +57,20 @@ fn feature_stmt_opt_stats<'eval>(
 ) -> __VMResult<Option<TraceStats>> {
     todo!()
     // match stmt.variant {
-    //     FeatureLazyStmtVariant::Init { .. } | FeatureLazyStmtVariant::Assert { .. } => Ok(None),
-    //     FeatureLazyStmtVariant::Require { return_context, .. }
-    //     | FeatureLazyStmtVariant::ReturnUnveil { return_context, .. } => feature_opt_stats(
+    //     ValStmtData::Init { .. } | ValStmtData::Assert { .. } => Ok(None),
+    //     ValStmtData::Require { return_context, .. }
+    //     | ValStmtData::ReturnUnveil { return_context, .. } => feature_opt_stats(
     //         db,
     //         partitions,
     //         return_context.return_ty(),
     //         |sample_id| db.eval_feature_stmt(stmt, sample_id),
     //         stmt.opt_arrival_indicator.as_ref(),
     //     ),
-    //     FeatureLazyStmtVariant::Return { ref result } => {
+    //     ValStmtData::Return { ref result } => {
     //         feature_expr_opt_stats(db, partitions, result)
     //     }
-    //     FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
-    //     FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
+    //     ValStmtData::ReturnHtml { .. } => todo!(),
+    //     ValStmtData::ConditionFlow { .. } => todo!(),
     // }
 }
 

@@ -5,7 +5,7 @@ pub struct TraitForTypeAssociatedTypeHirDefn {
     #[id]
     pub path: TraitForTypeItemPath,
     pub hir_decl: TraitForTypeAssociatedTypeHirDecl,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }
 
 impl TraitForTypeAssociatedTypeHirDefn {

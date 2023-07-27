@@ -18,7 +18,7 @@ pub enum FeatureLazyBranchVariant {
 #[derive(PartialEq, Eq, Clone)]
 pub struct ValDomain {
     pub variant: ValDomainData,
-    pub feature: FeatureItd,
+    pub feature: Val,
 }
 
 impl std::fmt::Debug for ValDomain {

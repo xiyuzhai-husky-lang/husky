@@ -6,7 +6,7 @@ pub struct TypeAssociatedFnHirDefn {
     pub path: TypeItemPath,
     pub hir_decl: TypeAssociatedFnHirDecl,
     pub body: Option<HirExprIdx>,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }
 
 impl TypeAssociatedFnHirDefn {

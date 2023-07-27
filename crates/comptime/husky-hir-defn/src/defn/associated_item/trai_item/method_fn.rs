@@ -6,7 +6,7 @@ pub struct TraitMethodFnHirDefn {
     pub path: TraitItemPath,
     pub hir_decl: TraitMethodFnHirDecl,
     pub body: Option<HirExprIdx>,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }
 
 impl TraitMethodFnHirDefn {

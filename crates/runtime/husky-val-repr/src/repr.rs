@@ -17,7 +17,7 @@ pub enum ValRepr {
     //     ty: EtherealTerm,
     //     file: DiffPath,
     //     range: TextRange,
-    //     feature: FeatureItd,
+    //     feature: Val,
     // },
     LazyBody(ValBlock),
     FuncBody(Arc<FeatureFuncBody>),
@@ -25,7 +25,7 @@ pub enum ValRepr {
     TargetInput {
         main_file: DiffPath,
         ty: EtherealTerm,
-        feature: FeatureItd,
+        feature: Val,
     },
 }
 
@@ -63,7 +63,7 @@ impl ValRepr {
         //     ValRepr::TargetInput { ty, .. } => *ty,
         // }
     }
-    pub fn feature(&self) -> FeatureItd {
+    pub fn feature(&self) -> Val {
         match self {
             ValRepr::Value { feature, .. } => *feature,
             ValRepr::LazyExpr(expr) => expr.feature,

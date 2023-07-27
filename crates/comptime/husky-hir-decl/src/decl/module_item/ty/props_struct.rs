@@ -7,7 +7,7 @@ pub struct PropsStructTypeHirDecl {
     pub generic_parameters: EtherealGenericParameters,
     #[return_ref]
     pub fields: SmallVec<[RegularFieldHirDecl; 4]>,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

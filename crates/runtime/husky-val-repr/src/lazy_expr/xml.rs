@@ -5,7 +5,7 @@ use husky_lazy_semantics::{HtmlExpr, HtmlExprVariant};
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureHtmlExpr {
     pub variant: FeatureHtmlExprVariant,
-    pub feature: FeatureItd,
+    pub feature: Val,
     pub eval_id: FeatureEvalId,
     pub xml_expr: Arc<HtmlExpr>,
 }
@@ -72,7 +72,7 @@ pub enum FeatureHtmlExprVariant {
 }
 
 impl FeatureHtmlExprVariant {
-    pub fn feature(&self, feature_interner: &FeatureInterner) -> FeatureItd {
+    pub fn feature(&self, feature_interner: &FeatureInterner) -> Val {
         match self {
             FeatureHtmlExprVariant::Value(value) => {
                 feature_interner.intern(Feature::HtmlFromValue {
