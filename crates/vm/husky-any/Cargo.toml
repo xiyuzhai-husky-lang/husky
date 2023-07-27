@@ -22,8 +22,8 @@ husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface" }
 
 [build-dependencies]
-husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features = [
-    "registration"
-] }
+# husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features = [
+#     "registration"
+# ] }
 husky-write-utils = { path = "../../utils/husky-write-utils" }
 husky-io-utils = { path = "../../utils/husky-io-utils" }

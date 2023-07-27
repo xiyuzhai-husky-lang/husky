@@ -29,12 +29,12 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-vm = { path = "../../vm/husky-vm" }
 husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
-husky-val-repr = { path = "../husky-val-repr" }
+husky-val-repr = { path = "../../comptime/husky-val-repr" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 wild-utils = { path = "../../utils/husky-wild-utils" }
 husky-vm-register-method = { path = "../../vm/husky-vm-register-method" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
-husky-data-viewer = { path = "../husky-data-viewer" }
+husky-data-viewer = { path = "../../runtime/husky-data-viewer" }
 husky-opr = { path = "../../kernel/husky-opr" }
 
 [dev-dependencies]

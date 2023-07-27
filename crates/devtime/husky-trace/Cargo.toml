@@ -18,7 +18,7 @@ husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-coword = { path = "../../kernel/husky-coword" }
 # runtime
-husky-val-repr = { path = "../../runtime/husky-val-repr" }
+husky-val-repr = { path = "../../comptime/husky-val-repr" }
 husky-eval = { path = "../../runtime/husky-eval" }
 # syntax
 husky-ast = { path = "../../syntax/husky-ast" }
