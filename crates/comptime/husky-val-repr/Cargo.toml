@@ -16,36 +16,41 @@ lsp-types = { version = "0.93", features = ["proposed"] }
 salsa = { path = "../../abstraction/salsa" }
 # forks
 thin-vec = { path = "../../../forks/thin-vec" }
-husky-check-utils = { path = "../../utils/husky-check-utils" }
-husky-dev-utils = { path = "../../utils/husky-dev-utils" }
-husky-print-utils = { path = "../../utils/husky-print-utils" }
-sync-utils = { path = "../../utils/husky-sync-utils" }
+# abstraction
 upcast = { path = "../../abstraction/upcast" }
 avec = { path = "../../abstraction/avec" }
 map-collect = { path = "../../abstraction/map-collect" }
-husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
-husky-vm = { path = "../../vm/husky-vm" }
+# kernel
+husky-opr = { path = "../../kernel/husky-opr" }
+husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-entity-path = { path = "../../kernel/husky-entity-path" }
 husky-entity-syn-tree = { path = "../../syntax/husky-entity-syn-tree" }
 husky-coword = { path = "../../kernel/husky-coword" }
-husky-ast = { path = "../../syntax/husky-ast" }
-# syntax
+husky-val = { path = "../../kernel/husky-val" }
+# lex
 husky-text = { path = "../../lex/husky-text" }
-husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
-husky-instruction-gen = { path = "../husky-instruction-gen" }
-husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+# syntax
+husky-ast = { path = "../../syntax/husky-ast" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
-# vm
-husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
-husky-opr = { path = "../../kernel/husky-opr" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
-husky-data-viewer = { path = "../husky-data-viewer" }
-husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }
+# vm
+husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }
+husky-vm = { path = "../../vm/husky-vm" }
+# comptime
+# husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 # runtime
-husky-val = { path = "../../runtime/husky-val" }
+husky-instruction-gen = { path = "../../runtime/husky-instruction-gen" }
+husky-feature-protocol = { path = "../../runtime/husky-feature-protocol" }
+# devtime
+husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+# utils
+husky-check-utils = { path = "../../utils/husky-check-utils" }
+husky-dev-utils = { path = "../../utils/husky-dev-utils" }
+husky-print-utils = { path = "../../utils/husky-print-utils" }
+sync-utils = { path = "../../utils/husky-sync-utils" }
 
 [dev-dependencies]
 husky-ast = { path = "../../syntax/husky-ast", features = ["test-utils"] }

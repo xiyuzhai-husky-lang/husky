@@ -33,13 +33,13 @@ husky-syn-fmt = { path = "../../syntax/husky-syn-fmt" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 # infer
 # comptime
-husky-layout = { path = "../../comptime/husky-layout" }
-husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
-husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
+# husky-layout = { path = "../../comptime/husky-layout" }
+# husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+# husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
 # vm
 husky-vm = { path = "../../vm/husky-vm" }
 # runtime
-husky-val-repr = { path = "../../runtime/husky-val-repr" }
+husky-val-repr = { path = "../../comptime/husky-val-repr" }
 husky-eval = { path = "../../runtime/husky-eval" }
 husky-instruction-gen = { path = "../../runtime/husky-instruction-gen" }
 husky-data-viewer = { path = "../../runtime/husky-data-viewer" }

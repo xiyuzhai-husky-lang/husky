@@ -16,9 +16,9 @@ relative-path = "1.7.2"
 reserve = { path = "../../abstraction/reserve" }
 monad = { path = "../../abstraction/monad" }
 # comptime
-husky-compile-dir = { path = "../../comptime/husky-compile-dir" }
-husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
-husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
+# husky-compile-dir = { path = "../../comptime/husky-compile-dir" }
+# husky-rust-code-gen = { path = "../../comptime/husky-rust-code-gen" }
+# husky-linkage-table = { path = "../../comptime/husky-linkage-table" }
 # ide
 husky-diagnostics = { path = "../../ide/husky-diagnostics" }
 # kernel

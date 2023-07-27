@@ -62,7 +62,7 @@ use husky_vfs::*;
     SynDeclJar,
     SynDecrJar,
     SynDefnJar,
-    // infer
+    // semantics
     TokenInfoJar,
     DeclarativeSignatureJar,
     FluffyTermJar,
