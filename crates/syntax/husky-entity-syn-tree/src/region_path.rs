@@ -2,7 +2,7 @@ use husky_token::TokenSheetData;
 
 use crate::*;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
 pub enum RegionPath {
     Snippet(ModulePath),

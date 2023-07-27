@@ -10,7 +10,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
     #[inline(always)]
     pub(crate) fn eval_opt_domain_indicator_cached(
         &self,
-        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
+        opt_arrival_indicator: Option<&ValDomain>,
     ) -> __VMResult<bool> {
         if let Some(arrival_indicator) = opt_arrival_indicator {
             self.eval_cached(EvalKey::Feature(arrival_indicator.feature), |this| {
@@ -24,18 +24,15 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         }
     }
 
-    fn eval_arrival_indicator(
-        &self,
-        arrival_indicator: &Arc<FeatureDomainIndicator>,
-    ) -> __VMResult<bool> {
+    fn eval_arrival_indicator(&self, arrival_indicator: &ValDomain) -> __VMResult<bool> {
         Ok(match arrival_indicator.variant {
-            FeatureArrivalIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
+            ValDomainData::AfterStmtNotReturn { ref stmt } => {
                 if !self.eval_opt_domain_indicator_cached(stmt.opt_arrival_indicator.as_ref())? {
                     return Ok(false);
                 }
                 self.eval_stmt(stmt)?.data_kind() == __RegisterDataKind::Unreturned
             }
-            FeatureArrivalIndicatorVariant::AfterConditionNotMet {
+            ValDomainData::AfterConditionNotMet {
                 ref opt_parent,
                 ref condition,
             } => {
@@ -44,7 +41,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
                 }
                 !self.eval_expr(condition)?.downcast_bool()
             }
-            FeatureArrivalIndicatorVariant::IfConditionMet {
+            ValDomainData::IfConditionMet {
                 ref opt_parent,
                 ref condition,
             } => {

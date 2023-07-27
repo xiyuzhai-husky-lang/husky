@@ -24,7 +24,7 @@ pub struct FeatureLazyExpr {
     pub feature: FeatureItd,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
-    pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
+    pub opt_arrival_indicator: Option<ValDomain>,
 }
 
 impl HasTextRange for FeatureLazyExpr {
@@ -69,27 +69,27 @@ pub enum FeatureLazyExprVariant {
     Literal(__Register<'static>),
     PrefixOpr {
         opr: PrefixOpr,
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<ValExpr>,
         linkage: __Linkage,
     },
     PrimitiveBinaryOpr {
         opr: BinaryPureClosedOpr,
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<ValExpr>,
         linkage: __Linkage,
     },
     ShortCircuitBinaryOpr {
         opr: BinaryPureClosedOpr,
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<ValExpr>,
     },
     CustomBinaryOpr {
         opr: BinaryPureClosedOpr,
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<ValExpr>,
         opt_linkage: Option<__Linkage>,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
     },
     Variable {
         varname: Ident,
-        value: Arc<FeatureLazyExpr>,
+        value: ValExpr,
     },
     ThisValue {
         repr: ValRepr,
@@ -119,18 +119,18 @@ pub enum FeatureLazyExprVariant {
         repr: ValRepr,
     },
     Index {
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<ValExpr>,
         linkage: __ResolvedLinkage,
     },
     ModelCall {
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<ValExpr>,
         has_this: bool,
         model_defn: Arc<EntityDefn>,
-        opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
+        opt_arrival_indicator: Option<ValDomain>,
         internal: __VMResult<__Register<'static>>,
     },
     RoutineCall {
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<ValExpr>,
         has_this: bool,
         opt_instruction_sheet: Option<Arc<InstructionSheet>>,
         opt_linkage: Option<__Linkage>,
@@ -143,14 +143,14 @@ pub enum FeatureLazyExprVariant {
     NewRecord {
         ty: EtherealTerm,
         item: Arc<EntityDefn>,
-        opds: Vec<Arc<FeatureLazyExpr>>,
+        opds: Vec<ValExpr>,
     },
     NewVecFromList {
-        elements: Vec<Arc<FeatureLazyExpr>>,
+        elements: Vec<ValExpr>,
         linkage: __Linkage,
     },
     BePattern {
-        this: Arc<FeatureLazyExpr>,
+        this: ValExpr,
         patt: Arc<PurePattern>,
     },
 }
@@ -242,8 +242,8 @@ impl FeatureLazyExpr {
         db: &(dyn ValReprDb),
         this: Option<ValRepr>,
         expr: Arc<LazyExpr>,
-        symbols: &[FeatureSymbol],
-        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
+        symbols: &[ValSymbol],
+        opt_arrival_indicator: Option<&ValDomain>,
         interner: &FeatureInterner,
     ) -> Arc<Self> {
         FeatureExprBuilder {
@@ -259,14 +259,14 @@ impl FeatureLazyExpr {
 
 struct FeatureExprBuilder<'a> {
     db: &'a dyn ValReprDb,
-    symbols: &'a [FeatureSymbol],
+    symbols: &'a [ValSymbol],
     feature_interner: &'a FeatureInterner,
     opt_this: Option<ValRepr>,
-    opt_arrival_indicator: Option<&'a Arc<FeatureDomainIndicator>>,
+    opt_arrival_indicator: Option<&'a ValDomain>,
 }
 
 impl<'a> FeatureExprBuilder<'a> {
-    fn new_expr(&self, expr: Arc<LazyExpr>) -> Arc<FeatureLazyExpr> {
+    fn new_expr(&self, expr: Arc<LazyExpr>) -> ValExpr {
         todo!()
         // let (kind, feature) = match expr.variant {
         //     LazyExprVariant::Variable { varname, .. } => self

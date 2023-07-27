@@ -3,28 +3,28 @@ mod variant;
 use husky_ethereal_term::EtherealTerm;
 pub use variant::*;
 
-use husky_lazy_semantics::{LazyConditionBranchVariant, LazyStmt, LazyStmtVariant};
+use husky_lazy_semantics::{HirLazyStmt, LazyConditionBranchVariant, LazyStmtVariant};
 use husky_text::TextRange;
 use EntityPath;
 
 use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Clone)]
-pub struct FeatureLazyStmt {
+pub struct ValStmt {
     pub indent: fold::Indent,
     pub variant: FeatureLazyStmtVariant,
-    pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
+    pub opt_arrival_indicator: Option<ValDomain>,
     pub opt_feature: Option<FeatureItd>,
     pub file: DiffPath,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
-    pub stmt: Arc<LazyStmt>,
+    pub stmt: HirLazyStmtIdx,
     pub return_ty: EtherealTerm,
 }
 
-impl std::fmt::Debug for FeatureLazyStmt {
+impl std::fmt::Debug for ValStmt {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.debug_struct("FeatureLazyStmt")
+        f.debug_struct("ValStmt")
             .field("variant", &self.variant)
             .field("file", &self.file)
             .field("range", &self.range)
@@ -32,33 +32,33 @@ impl std::fmt::Debug for FeatureLazyStmt {
     }
 }
 
-impl std::hash::Hash for FeatureLazyStmt {
+impl std::hash::Hash for ValStmt {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         self.eval_id.hash(state)
     }
 }
 
-impl PartialEq for FeatureLazyStmt {
+impl PartialEq for ValStmt {
     fn eq(&self, other: &Self) -> bool {
         self.eval_id == other.eval_id
     }
 }
 
-impl Eq for FeatureLazyStmt {}
+impl Eq for ValStmt {}
 
-impl husky_text::HasTextRange for FeatureLazyStmt {
+impl husky_text::HasTextRange for ValStmt {
     fn text_range(&self) -> husky_text::TextRange {
         self.range
     }
 }
 
-impl FeatureLazyStmt {
+impl ValStmt {
     pub fn new_from_lazy(
         db: &dyn ValReprDb,
         opt_this: Option<ValRepr>,
-        lazy_stmt: &Arc<LazyStmt>,
-        symbols: &mut Vec<FeatureSymbol>,
-        opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
+        lazy_stmt: &HirLazyStmtIdx,
+        symbols: &mut Vec<ValSymbol>,
+        opt_arrival_indicator: Option<ValDomain>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         todo!()
@@ -76,7 +76,7 @@ impl FeatureLazyStmt {
         //             opt_arrival_indicator.as_ref(),
         //             feature_interner,
         //         );
-        //         symbols.push(FeatureSymbol {
+        //         symbols.push(ValSymbol {
         //             varname: varname.ident,
         //             value: value.clone(),
         //             feature: value.feature,
@@ -161,7 +161,7 @@ impl FeatureLazyStmt {
         //     ),
         //     LazyStmtVariant::Match { .. } => todo!(),
         // };
-        // Arc::new(FeatureLazyStmt {
+        // Arc::new(ValStmt {
         //     file: lazy_stmt.file,
         //     range: lazy_stmt.range,
         //     indent: lazy_stmt.indent,
@@ -178,9 +178,9 @@ impl FeatureLazyStmt {
         lazy_branches: &[Arc<husky_lazy_semantics::LazyConditionBranch>],
         db: &dyn ValReprDb,
         opt_this: Option<ValRepr>,
-        symbols: &mut Vec<FeatureSymbol>,
+        symbols: &mut Vec<ValSymbol>,
         ty: EtherealTerm,
-        mut opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
+        mut opt_arrival_indicator: Option<ValDomain>,
         feature_interner: &FeatureInterner,
     ) -> FeatureLazyStmtVariant {
         let mut branches: Vec<Arc<FeatureLazyBranch>> = vec![];
@@ -188,8 +188,8 @@ impl FeatureLazyStmt {
             if let Some(last_branch) = branches.last() {
                 match last_branch.variant {
                     FeatureLazyBranchVariant::If { ref condition } => {
-                        opt_arrival_indicator = Some(FeatureDomainIndicator::new(
-                            FeatureArrivalIndicatorVariant::AfterConditionNotMet {
+                        opt_arrival_indicator = Some(ValDomain::new(
+                            ValDomainData::AfterConditionNotMet {
                                 opt_parent: opt_arrival_indicator,
                                 condition: condition.clone(),
                             },
@@ -197,8 +197,8 @@ impl FeatureLazyStmt {
                         ));
                     }
                     FeatureLazyBranchVariant::Elif { ref condition } => {
-                        opt_arrival_indicator = Some(FeatureDomainIndicator::new(
-                            FeatureArrivalIndicatorVariant::AfterConditionNotMet {
+                        opt_arrival_indicator = Some(ValDomain::new(
+                            ValDomainData::AfterConditionNotMet {
                                 opt_parent: opt_arrival_indicator,
                                 condition: condition.clone(),
                             },
@@ -222,8 +222,8 @@ impl FeatureLazyStmt {
                         FeatureLazyBranchVariant::If {
                             condition: condition.clone(),
                         },
-                        Some(FeatureDomainIndicator::new(
-                            FeatureArrivalIndicatorVariant::IfConditionMet {
+                        Some(ValDomain::new(
+                            ValDomainData::IfConditionMet {
                                 opt_parent: opt_arrival_indicator.clone(),
                                 condition,
                             },
@@ -244,8 +244,8 @@ impl FeatureLazyStmt {
                         FeatureLazyBranchVariant::If {
                             condition: condition.clone(),
                         },
-                        Some(FeatureDomainIndicator::new(
-                            FeatureArrivalIndicatorVariant::IfConditionMet {
+                        Some(ValDomain::new(
+                            ValDomainData::IfConditionMet {
                                 opt_parent: opt_arrival_indicator.clone(),
                                 condition,
                             },
@@ -262,7 +262,7 @@ impl FeatureLazyStmt {
                 variant,
                 opt_arrival_indicator: opt_arrival_indicator.clone(),
                 eval_id: Default::default(),
-                block: FeatureLazyBody::new(
+                block: ValBlock::new(
                     db,
                     opt_this.clone(),
                     &lazy_branch.stmts,

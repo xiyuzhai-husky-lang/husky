@@ -20,7 +20,7 @@ impl Debugtime {
     pub fn feature_lazy_block_subtraces(
         &mut self,
         parent: &Trace,
-        feature_block: &FeatureLazyBody,
+        feature_block: &ValBlock,
     ) -> Vec<TraceId> {
         feature_block
             .stmts

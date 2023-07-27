@@ -15,8 +15,8 @@ impl FeatureHtmlExpr {
         db: &dyn ValReprDb,
         this: Option<ValRepr>,
         xml_expr: Arc<HtmlExpr>,
-        symbols: &[FeatureSymbol],
-        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
+        symbols: &[ValSymbol],
+        opt_arrival_indicator: Option<&ValDomain>,
         feature_interner: &FeatureInterner,
     ) -> Arc<Self> {
         let variant = match xml_expr.variant {
@@ -64,10 +64,10 @@ impl FeatureHtmlExpr {
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureHtmlExprVariant {
-    Value(Arc<FeatureLazyExpr>),
+    Value(ValExpr),
     Tag {
         tag_kind: HtmlTagKind,
-        props: IdentPairMap<Arc<FeatureLazyExpr>>,
+        props: IdentPairMap<ValExpr>,
     },
 }
 

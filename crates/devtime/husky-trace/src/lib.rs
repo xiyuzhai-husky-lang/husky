@@ -43,12 +43,12 @@
 //         item_path: EntityPath,
 //         repr: ValRepr,
 //     },
-//     FeatureStmt(Arc<FeatureLazyStmt>),
+//     FeatureStmt(Arc<ValStmt>),
 //     FeatureBranch(Arc<FeatureLazyBranch>),
-//     FeatureExpr(Arc<FeatureLazyExpr>),
+//     FeatureExpr(ValExpr),
 //     FeatureCallArgument {
 //         name: &'static str,
-//         argument: Arc<FeatureLazyExpr>,
+//         argument: ValExpr,
 //     },
 //     FuncStmt {
 //         stmt: Arc<FuncStmt>,

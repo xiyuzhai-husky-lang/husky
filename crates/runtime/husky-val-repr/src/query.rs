@@ -28,14 +28,14 @@ pub trait ValReprDb:
     fn main_feature_repr(&'eval self, target_entrance: EntityPath) -> ValRepr;
     fn item_feature_repr(&self, item_path: EtherealTerm) -> ValRepr;
     fn record_field_repr(&self, this: ValRepr, field_ident: Ident) -> ValRepr;
-    fn visual_feature_lazy_block(&self, this: ValRepr) -> __VMResult<Arc<FeatureLazyBody>>;
+    fn visual_feature_lazy_block(&self, this: ValRepr) -> __VMResult<ValBlock>;
 }
 
 pub trait TrainModel {
     fn train(
         &self,
         model: __ModelLinkage,
-        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
-        opds: &[Arc<FeatureLazyExpr>],
+        opt_arrival_indicator: Option<&ValDomain>,
+        opds: &[ValExpr],
     ) -> __VMResult<__Register<'static>>;
 }

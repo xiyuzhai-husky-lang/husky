@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> LinkageCollector<'a> {
-    // pub(crate) fn collect_from_lazy_stmts(&mut self, stmts: &[Arc<LazyStmt>]) {
+    // pub(crate) fn collect_from_lazy_stmts(&mut self, stmts: &[HirLazyStmtIdx]) {
     //     for stmt in stmts {
     //         match stmt.variant {
     //             LazyStmtVariant::Init { ref value, .. } => self.collect_from_lazy_expr(value),

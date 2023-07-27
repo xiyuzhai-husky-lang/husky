@@ -1,7 +1,7 @@
 use super::*;
 
 impl<'a> TraceLineGenerator<'a> {
-    pub(crate) fn feature_stmt_tokens(&mut self, stmt: &FeatureLazyStmt) {
+    pub(crate) fn feature_stmt_tokens(&mut self, stmt: &ValStmt) {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { varname, ref value } => {
                 self.render_ident_token(varname.as_str(), None, None);

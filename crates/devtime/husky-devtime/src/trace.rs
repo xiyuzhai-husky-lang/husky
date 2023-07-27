@@ -9,7 +9,7 @@ impl Debugtime {
     pub(crate) fn feature_stmt_traces(
         &mut self,
         parent: &Trace,
-        stmt: Arc<FeatureLazyStmt>,
+        stmt: Arc<ValStmt>,
     ) -> Vec<TraceId> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { .. }

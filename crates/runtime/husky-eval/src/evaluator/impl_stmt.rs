@@ -7,7 +7,7 @@ use crate::*;
 use super::FeatureEvaluator;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_stmt(&self, stmt: &FeatureLazyStmt) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_stmt(&self, stmt: &ValStmt) -> __VMResult<__Register<'eval>> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { .. } => Ok(__Register::unreturned()),
             FeatureLazyStmtVariant::Assert { ref condition } => {

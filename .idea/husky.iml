@@ -52,9 +52,9 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-rust-thir/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-zig-code-gen/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-zig-code-repr/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/debugtime/husky-debugtime/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/debugtime/husky-trace-protocol/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/debugtime/husky-trace/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/devtime/husky-devtime/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/devtime/husky-trace-protocol/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/devtime/husky-trace/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/devtools/cargo-clean-repo/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/devtools/cargo-debug/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/devtools/cargo-husky-prebuild/src" isTestSource="false" />

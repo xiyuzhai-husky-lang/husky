@@ -4,13 +4,10 @@ use husky_ethereal_term::EtherealTerm;
 use husky_item_semantics::{Visualizer, VisualizerVariant};
 use husky_vm::__VMResult;
 
-pub(crate) fn visual_feature_lazy_block(
-    db: &dyn ValReprDb,
-    this: ValRepr,
-) -> __VMResult<Arc<FeatureLazyBody>> {
+pub(crate) fn visual_feature_lazy_block(db: &dyn ValReprDb, this: ValRepr) -> __VMResult<ValBlock> {
     todo!()
     // let visualizer: Arc<Visualizer> = db.visualizer(this.ty().intrinsic());
-    // Ok(FeatureLazyBody::new(
+    // Ok(ValBlock::new(
     //     db,
     //     Some(this),
     //     match visualizer.variant {

@@ -1,13 +1,13 @@
 use crate::*;
-use husky_val_repr::{FeatureDomainIndicator, FeatureLazyExpr, FeatureLazyExprVariant, TrainModel};
+use husky_val_repr::{FeatureLazyExpr, FeatureLazyExprVariant, TrainModel, ValDomain};
 use husky_vm::{GenericArgument, __Register, __VMError};
 
 impl TrainModel for DevRuntime {
     fn train(
         &self,
         model: husky_vm::__ModelLinkage,
-        opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
-        opds: &[Arc<FeatureLazyExpr>],
+        opt_arrival_indicator: Option<&ValDomain>,
+        opds: &[ValExpr],
     ) -> husky_vm::__VMResult<__Register<'static>> {
         let session = self.session();
         let dev_division = session.dev();

@@ -5,7 +5,7 @@ use husky_print_utils::msg_once;
 use husky_vm::__RegisterDataKind;
 
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_lazy_block(&self, block: &FeatureLazyBody) -> __VMResult<__Register<'eval>> {
+    pub(crate) fn eval_lazy_block(&self, block: &ValBlock) -> __VMResult<__Register<'eval>> {
         self.cache(EvalKey::Feature(block.feature), |this: &Self| {
             for stmt in block.stmts.iter() {
                 let value = this.eval_stmt(stmt)?;
