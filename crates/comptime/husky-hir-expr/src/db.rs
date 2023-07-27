@@ -1,9 +1,10 @@
 use crate::*;
-use husky_expr_ty::ExprTypeDb;
+use husky_hir_eager_expr::db::HirEagerExprDb;
+use husky_hir_lazy_expr::db::HirLazyExprDb;
 
-pub trait HirExprDb: salsa::DbWithJar<HirExprJar> + ExprTypeDb {}
+pub trait HirExprDb: salsa::DbWithJar<HirExprJar> + HirLazyExprDb + HirEagerExprDb {}
 
-impl<Db> HirExprDb for Db where Db: salsa::DbWithJar<HirExprJar> + ExprTypeDb {}
+impl<Db> HirExprDb for Db where Db: salsa::DbWithJar<HirExprJar> + HirLazyExprDb + HirEagerExprDb {}
 
 #[salsa::jar(db = HirExprDb)]
-pub struct HirExprJar(HirExprRegion);
+pub struct HirExprJar();

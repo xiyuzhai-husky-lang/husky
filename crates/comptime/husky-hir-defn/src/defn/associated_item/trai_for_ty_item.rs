@@ -36,10 +36,12 @@ impl TraitForTypeItemHirDefn {
 
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> HirExprRegion {
         match self {
-            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_expr_region(db),
-            TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_expr_region(db),
-            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => hir_defn.hir_expr_region(db),
-            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_expr_region(db),
+            TraitForTypeItemHirDefn::AssociatedFn(hir_defn) => hir_defn.hir_expr_region(db).into(),
+            TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_expr_region(db).into(),
+            TraitForTypeItemHirDefn::AssociatedType(hir_defn) => {
+                hir_defn.hir_expr_region(db).into()
+            }
+            TraitForTypeItemHirDefn::AssociatedVal(hir_defn) => hir_defn.hir_expr_region(db).into(),
         }
     }
 }

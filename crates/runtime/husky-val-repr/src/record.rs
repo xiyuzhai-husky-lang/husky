@@ -87,10 +87,10 @@ pub(crate) fn block_record_field(
     let stmt_features = this.stmt_features();
     if stmt_features.len() == 1 {
         match this.stmts.last().unwrap().variant {
-            FeatureLazyStmtVariant::Return { ref result } => {
+            ValStmtData::Return { ref result } => {
                 db.record_field_repr(result.clone().into(), field_ident)
             }
-            FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
+            ValStmtData::ConditionFlow { .. } => todo!(),
             _ => panic!(),
         }
     } else {

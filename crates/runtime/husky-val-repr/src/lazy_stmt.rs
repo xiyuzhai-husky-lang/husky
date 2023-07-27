@@ -12,9 +12,9 @@ use crate::{eval_id::FeatureEvalId, *};
 #[derive(Clone)]
 pub struct ValStmt {
     pub indent: fold::Indent,
-    pub variant: FeatureLazyStmtVariant,
+    pub variant: ValStmtData,
     pub opt_arrival_indicator: Option<ValDomain>,
-    pub opt_feature: Option<FeatureItd>,
+    pub opt_feature: Option<Val>,
     pub file: DiffPath,
     pub range: TextRange,
     pub eval_id: FeatureEvalId,
@@ -81,7 +81,7 @@ impl ValStmt {
         //             value: value.clone(),
         //             feature: value.feature,
         //         });
-        //         FeatureLazyStmtVariant::Init {
+        //         ValStmtData::Init {
         //             varname: varname.ident,
         //             value,
         //         }
@@ -95,7 +95,7 @@ impl ValStmt {
         //             opt_arrival_indicator.as_ref(),
         //             feature_interner,
         //         );
-        //         FeatureLazyStmtVariant::Assert { condition }
+        //         ValStmtData::Assert { condition }
         //     }
         //     LazyStmtVariant::Require {
         //         ref condition,
@@ -109,12 +109,12 @@ impl ValStmt {
         //             opt_arrival_indicator.as_ref(),
         //             feature_interner,
         //         );
-        //         FeatureLazyStmtVariant::Require {
+        //         ValStmtData::Require {
         //             condition,
         //             return_context,
         //         }
         //     }
-        //     LazyStmtVariant::Return { ref result } => FeatureLazyStmtVariant::Return {
+        //     LazyStmtVariant::Return { ref result } => ValStmtData::Return {
         //         result: FeatureLazyExpr::new(
         //             db,
         //             opt_this.clone(),
@@ -128,7 +128,7 @@ impl ValStmt {
         //         ref result,
         //         implicit_conversion,
         //         return_context,
-        //     } => FeatureLazyStmtVariant::ReturnUnveil {
+        //     } => ValStmtData::ReturnUnveil {
         //         result: FeatureLazyExpr::new(
         //             db,
         //             opt_this.clone(),
@@ -140,7 +140,7 @@ impl ValStmt {
         //         implicit_conversion,
         //         return_context,
         //     },
-        //     LazyStmtVariant::ReturnHtml { ref xml_expr } => FeatureLazyStmtVariant::ReturnHtml {
+        //     LazyStmtVariant::ReturnHtml { ref xml_expr } => ValStmtData::ReturnHtml {
         //         result: FeatureHtmlExpr::new(
         //             db,
         //             opt_this.clone(),
@@ -182,7 +182,7 @@ impl ValStmt {
         ty: EtherealTerm,
         mut opt_arrival_indicator: Option<ValDomain>,
         feature_interner: &FeatureInterner,
-    ) -> FeatureLazyStmtVariant {
+    ) -> ValStmtData {
         let mut branches: Vec<Arc<FeatureLazyBranch>> = vec![];
         for lazy_branch in lazy_branches {
             if let Some(last_branch) = branches.last() {
@@ -273,6 +273,6 @@ impl ValStmt {
                 ),
             }))
         }
-        FeatureLazyStmtVariant::ConditionFlow { branches }
+        ValStmtData::ConditionFlow { branches }
     }
 }

@@ -8,11 +8,11 @@ pub trait InternFeature {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct FeatureItd {
+pub struct Val {
     id: FeatureId,
 }
 
-impl FeatureItd {
+impl Val {
     pub unsafe fn from_declarative(raw: usize) -> Self {
         Self {
             id: FeatureId::new(raw),
@@ -24,7 +24,7 @@ impl FeatureItd {
     }
 }
 
-impl std::ops::Deref for FeatureItd {
+impl std::ops::Deref for Val {
     type Target = Feature;
 
     fn deref(&self) -> &Self::Target {
@@ -32,7 +32,7 @@ impl std::ops::Deref for FeatureItd {
     }
 }
 
-impl std::borrow::Borrow<Feature> for FeatureItd {
+impl std::borrow::Borrow<Feature> for Val {
     fn borrow(&self) -> &Feature {
         unreachable!()
     }
@@ -64,7 +64,7 @@ pub type FeatureInterner = interner::Interner<Feature>;
 impl Internable for Feature {
     type Ref<'a> = &'a Feature;
 
-    type Interned = FeatureItd;
+    type Interned = Val;
 
     fn new_itr() -> interner::Interner<Self> {
         todo!()

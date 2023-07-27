@@ -9,5 +9,5 @@ pub struct TraitForTypeMethodFnHirDecl {
     #[return_ref]
     pub parenic_parameters: ParenicEtherealParameters,
     pub return_ty: EtherealTerm,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }

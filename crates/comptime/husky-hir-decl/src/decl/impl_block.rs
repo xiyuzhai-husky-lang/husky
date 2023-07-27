@@ -36,8 +36,8 @@ impl ImplBlockHirDecl {
 
     pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
-            ImplBlockHirDecl::Type(decl) => decl.hir_expr_region(db),
-            ImplBlockHirDecl::TraitForType(decl) => decl.hir_expr_region(db),
+            ImplBlockHirDecl::Type(decl) => decl.hir_expr_region(db).into(),
+            ImplBlockHirDecl::TraitForType(decl) => decl.hir_expr_region(db).into(),
         }
     }
 }

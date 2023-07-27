@@ -11,15 +11,6 @@ syn = { version = "2.0.0", optional = true }
 # abstraction
 salsa = { path = "../../abstraction/salsa" }
 enum-class = { path = "../../abstraction/enum-class" }
-idx-arena = { path = "../../abstraction/idx-arena" }
-vec-like = { path = "../../abstraction/vec-like" }
-# semantics
-husky-expr-ty = { path = "../../semantics/husky-expr-ty" }
-# kernel
-husky-term-prelude = { path = "../../kernel/husky-term-prelude" }
-husky-entity-path = { path = "../../kernel/husky-entity-path" }
-husky-coword = { path = "../../kernel/husky-coword" }
-husky-opr = { path = "../../kernel/husky-opr" }
-
-[features]
-rust-syn-gen = ["dep:syn"]
+# comptime
+husky-hir-eager-expr = { path = "../../comptime/husky-hir-eager-expr" }
+husky-hir-lazy-expr = { path = "../../comptime/husky-hir-lazy-expr" }

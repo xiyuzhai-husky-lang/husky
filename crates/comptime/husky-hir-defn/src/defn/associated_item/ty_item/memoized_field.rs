@@ -6,7 +6,7 @@ pub struct TypeMemoizedFieldHirDefn {
     pub path: TypeItemPath,
     pub hir_decl: TypeMemoizedFieldHirDecl,
     pub body: Option<HirExprIdx>,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }
 
 impl TypeMemoizedFieldHirDefn {

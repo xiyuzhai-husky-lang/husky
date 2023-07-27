@@ -12,7 +12,7 @@ pub struct EvalSheet<'eval> {
 
 #[derive(Debug, PartialEq, Eq, Hash, Clone, Copy)]
 pub enum EvalKey {
-    Feature(FeatureItd),
+    Feature(Val),
     StructDerivedField {
         this: *const c_void,
         field_uid: EntityUid,

@@ -21,7 +21,7 @@ use crate::{eval_id::FeatureEvalId, *};
 #[derive(Clone)]
 pub struct FeatureLazyExpr {
     pub variant: FeatureLazyExprVariant,
-    pub feature: FeatureItd,
+    pub feature: Val,
     pub eval_id: FeatureEvalId,
     pub expr: Arc<LazyExpr>,
     pub opt_arrival_indicator: Option<ValDomain>,

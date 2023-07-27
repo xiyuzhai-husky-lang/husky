@@ -5,5 +5,5 @@ pub struct TraitAssociatedValHirDefn {
     #[id]
     pub syn_node_path: TraitItemPath,
     pub hir_decl: TraitAssociatedValHirDecl,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }

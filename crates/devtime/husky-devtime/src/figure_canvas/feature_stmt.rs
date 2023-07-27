@@ -6,19 +6,15 @@ impl Debugtime {
         stmt: &ValStmt,
     ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { ref value, .. } => {
-                self.feature_expr_specific_figure(value)
-            }
-            FeatureLazyStmtVariant::Assert { .. } => Ok(Default::default()),
-            FeatureLazyStmtVariant::Return { ref result } => {
+            ValStmtData::Init { ref value, .. } => self.feature_expr_specific_figure(value),
+            ValStmtData::Assert { .. } => Ok(Default::default()),
+            ValStmtData::Return { ref result } => self.feature_expr_specific_figure(result),
+            ValStmtData::ReturnUnveil { ref result, .. } => {
                 self.feature_expr_specific_figure(result)
             }
-            FeatureLazyStmtVariant::ReturnUnveil { ref result, .. } => {
-                self.feature_expr_specific_figure(result)
-            }
-            FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
-            FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
-            FeatureLazyStmtVariant::Require { .. } => Ok(Default::default()),
+            ValStmtData::ConditionFlow { .. } => todo!(),
+            ValStmtData::ReturnHtml { .. } => todo!(),
+            ValStmtData::Require { .. } => Ok(Default::default()),
         }
     }
 
@@ -27,19 +23,15 @@ impl Debugtime {
         stmt: &ValStmt,
     ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { ref value, .. } => {
-                self.feature_expr_generic_figure(value)
-            }
-            FeatureLazyStmtVariant::Assert { .. } => Ok(Default::default()),
-            FeatureLazyStmtVariant::Return { ref result } => {
+            ValStmtData::Init { ref value, .. } => self.feature_expr_generic_figure(value),
+            ValStmtData::Assert { .. } => Ok(Default::default()),
+            ValStmtData::Return { ref result } => self.feature_expr_generic_figure(result),
+            ValStmtData::ReturnUnveil { ref result, .. } => {
                 self.feature_expr_generic_figure(result)
             }
-            FeatureLazyStmtVariant::ReturnUnveil { ref result, .. } => {
-                self.feature_expr_generic_figure(result)
-            }
-            FeatureLazyStmtVariant::ConditionFlow { .. } => todo!(),
-            FeatureLazyStmtVariant::ReturnHtml { .. } => todo!(),
-            FeatureLazyStmtVariant::Require { .. } => Ok(Default::default()),
+            ValStmtData::ConditionFlow { .. } => todo!(),
+            ValStmtData::ReturnHtml { .. } => todo!(),
+            ValStmtData::Require { .. } => Ok(Default::default()),
         }
     }
 }

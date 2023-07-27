@@ -1,5 +1,7 @@
 use crate::*;
 
-/// this is interned on purpose
-#[salsa::interned(db = HirExprDb, jar = HirExprJar)]
-pub struct HirExprRegion {}
+#[enum_class::from_variants]
+pub enum HirExprRegion {
+    Eager(HirEagerExprRegion),
+    Lazy(HirLazyExprRegion),
+}

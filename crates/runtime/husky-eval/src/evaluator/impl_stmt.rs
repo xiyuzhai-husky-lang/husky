@@ -9,8 +9,8 @@ use super::FeatureEvaluator;
 impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     pub(crate) fn eval_stmt(&self, stmt: &ValStmt) -> __VMResult<__Register<'eval>> {
         match stmt.variant {
-            FeatureLazyStmtVariant::Init { .. } => Ok(__Register::unreturned()),
-            FeatureLazyStmtVariant::Assert { ref condition } => {
+            ValStmtData::Init { .. } => Ok(__Register::unreturned()),
+            ValStmtData::Assert { ref condition } => {
                 if self.satisfies(condition)? {
                     Ok(__Register::unreturned())
                 } else {
@@ -20,15 +20,15 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     )))
                 }
             }
-            FeatureLazyStmtVariant::Require { ref condition, .. } => {
+            ValStmtData::Require { ref condition, .. } => {
                 if self.satisfies(condition)? {
                     Ok(__Register::unreturned())
                 } else {
                     Ok(__Register::none(0))
                 }
             }
-            FeatureLazyStmtVariant::Return { ref result } => self.eval_expr(result),
-            FeatureLazyStmtVariant::ReturnUnveil {
+            ValStmtData::Return { ref result } => self.eval_expr(result),
+            ValStmtData::ReturnUnveil {
                 ref result,
                 implicit_conversion,
                 ..
@@ -43,8 +43,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                     })
                     .unwrap_or(__Register::unreturned())
             }),
-            FeatureLazyStmtVariant::ReturnHtml { ref result } => self.eval_xml_expr(result),
-            FeatureLazyStmtVariant::ConditionFlow { ref branches, .. } => {
+            ValStmtData::ReturnHtml { ref result } => self.eval_xml_expr(result),
+            ValStmtData::ConditionFlow { ref branches, .. } => {
                 for branch in branches {
                     let execute_branch: bool = match branch.variant {
                         FeatureLazyBranchVariant::If { ref condition } => {

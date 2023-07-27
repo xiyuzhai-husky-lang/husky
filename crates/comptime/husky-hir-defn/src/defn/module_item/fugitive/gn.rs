@@ -6,7 +6,7 @@ pub struct GnHirDefn {
     pub path: FugitivePath,
     pub hir_decl: GnHirDecl,
     pub body: Option<HirExprIdx>,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }
 
 impl GnHirDefn {

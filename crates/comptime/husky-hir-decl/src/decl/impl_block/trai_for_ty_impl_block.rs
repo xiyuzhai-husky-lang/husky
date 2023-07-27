@@ -9,7 +9,7 @@ pub struct TraitForTypeImplBlockHirDecl {
     pub trai: EtherealTerm,
     pub self_ty: EtherealSelfType,
     // todo: where clause
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

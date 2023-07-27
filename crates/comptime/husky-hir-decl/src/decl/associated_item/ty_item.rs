@@ -45,11 +45,11 @@ impl TypeItemHirDecl {
 
     pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
-            TypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db),
-            TypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db),
-            TypeItemHirDecl::AssociatedType(decl) => decl.hir_expr_region(db),
-            TypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db),
-            TypeItemHirDecl::MemoizedField(decl) => decl.hir_expr_region(db),
+            TypeItemHirDecl::AssociatedFn(decl) => decl.hir_expr_region(db).into(),
+            TypeItemHirDecl::MethodFn(decl) => decl.hir_expr_region(db).into(),
+            TypeItemHirDecl::AssociatedType(decl) => decl.hir_expr_region(db).into(),
+            TypeItemHirDecl::AssociatedVal(decl) => decl.hir_expr_region(db).into(),
+            TypeItemHirDecl::MemoizedField(decl) => decl.hir_expr_region(db).into(),
         }
     }
 }

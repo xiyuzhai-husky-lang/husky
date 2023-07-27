@@ -5,7 +5,7 @@ pub struct TraitAssociatedFnHirDefn {
     #[id]
     pub syn_node_path: TraitItemPath,
     pub hir_decl: TraitAssociatedFnHirDecl,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }
 
 impl TraitAssociatedFnHirDefn {

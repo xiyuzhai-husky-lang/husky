@@ -7,7 +7,7 @@ pub struct TypeMethodFnHirDefn {
     pub path: TypeItemPath,
     pub hir_decl: TypeMethodFnHirDecl,
     pub body: Option<HirExprIdx>,
-    pub hir_expr_region: HirExprRegion,
+    pub hir_expr_region: HirEagerExprRegion,
 }
 
 impl TypeMethodFnHirDefn {

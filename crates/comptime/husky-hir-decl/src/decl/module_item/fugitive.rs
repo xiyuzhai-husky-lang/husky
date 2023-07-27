@@ -39,9 +39,9 @@ impl FugitiveHirDecl {
 
     pub fn hir_expr_region(self, db: &dyn HirDeclDb) -> HirExprRegion {
         match self {
-            FugitiveHirDecl::Fn(decl) => decl.hir_expr_region(db),
-            FugitiveHirDecl::Val(decl) => decl.hir_expr_region(db),
-            FugitiveHirDecl::Gn(decl) => decl.hir_expr_region(db),
+            FugitiveHirDecl::Fn(decl) => decl.hir_expr_region(db).into(),
+            FugitiveHirDecl::Val(decl) => decl.hir_expr_region(db).into(),
+            FugitiveHirDecl::Gn(decl) => decl.hir_expr_region(db).into(),
         }
     }
 
