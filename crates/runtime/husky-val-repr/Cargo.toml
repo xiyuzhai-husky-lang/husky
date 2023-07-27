@@ -35,7 +35,7 @@ husky-ast = { path = "../../syntax/husky-ast" }
 husky-text = { path = "../../lex/husky-text" }
 husky-entity-taxonomy = { path = "../../kernel/husky-entity-taxonomy" }
 husky-instruction-gen = { path = "../husky-instruction-gen" }
-husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 # vm
 husky-vm-primitive-value = { path = "../../vm/husky-vm-primitive-value" }

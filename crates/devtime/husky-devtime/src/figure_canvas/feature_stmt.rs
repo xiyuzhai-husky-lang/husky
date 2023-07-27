@@ -3,7 +3,7 @@ use super::*;
 impl Debugtime {
     pub(crate) fn feature_stmt_specific_figure(
         &self,
-        stmt: &FeatureLazyStmt,
+        stmt: &ValStmt,
     ) -> Result<SpecificFigureCanvasData, (SampleId, __VMError)> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { ref value, .. } => {
@@ -24,7 +24,7 @@ impl Debugtime {
 
     pub(crate) fn feature_stmt_generic_figure(
         &self,
-        stmt: &FeatureLazyStmt,
+        stmt: &ValStmt,
     ) -> Result<GenericFigureCanvasData, (SampleId, __VMError)> {
         match stmt.variant {
             FeatureLazyStmtVariant::Init { ref value, .. } => {

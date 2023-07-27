@@ -255,7 +255,7 @@ impl<'temp, 'eval: 'temp> FeatureEvaluator<'temp, 'eval> {
         &self,
         opt_instrns: &Option<Arc<InstructionSheet>>,
         opt_linkage: Option<__Linkage>,
-        arguments: &[Arc<FeatureLazyExpr>],
+        arguments: &[ValExpr],
     ) -> __VMResult<__Register<'eval>> {
         let db = self.db;
         let vm_config = self.vm_config();

@@ -1,4 +1,14 @@
 pub mod db;
+mod domain;
+mod expr;
+mod stmt;
+
+pub use self::domain::*;
+pub use self::expr::*;
+pub use self::stmt::*;
+
+use self::db::*;
+use husky_entity_syn_tree::RegionPath;
 
 // mod block;
 // mod eval_id;
@@ -23,7 +33,7 @@ pub mod db;
 // pub use intern::{FeatureInterner, FeatureItd, InternFeature};
 // pub use lazy_branch::*;
 // pub use lazy_expr::*;
-// pub use lazy_stmt::{FeatureLazyStmt, FeatureLazyStmtVariant};
+// pub use lazy_stmt::{ValStmt, FeatureLazyStmtVariant};
 // pub use query::{ValReprDb, FeatureGenQueryGroupStorage, TrainModel};
 // pub use repr::*;
 
@@ -38,9 +48,9 @@ pub mod db;
 // use temp::*;
 
 // #[derive(Debug, PartialEq, Eq, Clone)]
-// pub struct FeatureSymbol {
+// pub struct ValSymbol {
 //     varname: Ident,
-//     value: Arc<FeatureLazyExpr>,
+//     value: ValExpr,
 //     feature: FeatureItd,
 // }
 
@@ -146,7 +156,7 @@ pub mod db;
 // }
 
 // impl Feature {
-//     pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<FeatureLazyStmt>]) -> FeatureItd {
+//     pub fn intern_block(interner: &FeatureInterner, stmts: &[Arc<ValStmt>]) -> FeatureItd {
 //         let stmt_features: Vec<_> = stmts.iter().filter_map(|stmt| stmt.opt_feature).collect();
 //         if stmt_features.len() == 1 {
 //             stmt_features[0]
@@ -177,4 +187,3 @@ pub mod db;
 //         feature.clone()
 //     }
 // }
-mod object;

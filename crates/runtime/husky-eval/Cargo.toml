@@ -28,7 +28,7 @@ husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-ast = { path = "../../syntax/husky-ast" }
 husky-vm = { path = "../../vm/husky-vm" }
-husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
 husky-val-repr = { path = "../husky-val-repr" }
 husky-xml-syntax = { path = "../../syntax/husky-xml-syntax" }
 wild-utils = { path = "../../utils/husky-wild-utils" }

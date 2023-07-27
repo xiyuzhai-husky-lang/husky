@@ -1,7 +1,7 @@
 use crate::*;
 
 impl TraceVariant {
-    pub fn opt_arrival_indicator(&self) -> Option<&Arc<FeatureDomainIndicator>> {
+    pub fn opt_arrival_indicator(&self) -> Option<&ValDomain> {
         match self {
             TraceVariant::Main(_) => None,
             TraceVariant::Module { .. } => None,

@@ -20,7 +20,7 @@ pub(crate) fn record_field_repr<'eval>(
 
 pub(crate) fn expr_record_field<'eval>(
     db: &dyn ValReprDb,
-    this: &Arc<FeatureLazyExpr>,
+    this: &ValExpr,
     field_ident: Ident,
 ) -> ValRepr {
     match this.variant {
@@ -81,7 +81,7 @@ pub(crate) fn expr_record_field<'eval>(
 
 pub(crate) fn block_record_field(
     db: &dyn ValReprDb,
-    this: &Arc<FeatureLazyBody>,
+    this: &ValBlock,
     field_ident: Ident,
 ) -> ValRepr {
     let stmt_features = this.stmt_features();

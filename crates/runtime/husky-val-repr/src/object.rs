@@ -3,8 +3,8 @@
 
 // #[derive(Debug, Clone)]
 // pub struct Object {
-//     pub fields: Vec<Arc<FeatureLazyExpr>>,
-//     pub field_features: Vec<Arc<FeatureLazyBody>>,
+//     pub fields: Vec<ValExpr>,
+//     pub field_features: Vec<ValBlock>,
 // }
 
 // impl<'eval> Into<__Register<'eval>> for Object {

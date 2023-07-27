@@ -6,21 +6,21 @@ use super::*;
 pub enum FeatureLazyStmtVariant {
     Init {
         varname: Ident,
-        value: Arc<FeatureLazyExpr>,
+        value: ValExpr,
     },
     Assert {
-        condition: Arc<FeatureLazyExpr>,
+        condition: ValExpr,
     },
     Require {
-        condition: Arc<FeatureLazyExpr>,
+        condition: ValExpr,
         return_context: Infallible,
     },
     Return {
-        result: Arc<FeatureLazyExpr>,
+        result: ValExpr,
     },
     ReturnUnveil {
         return_context: Infallible,
-        result: Arc<FeatureLazyExpr>,
+        result: ValExpr,
         implicit_conversion: ImplicitConversion,
     },
     ReturnHtml {

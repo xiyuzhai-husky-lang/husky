@@ -1,5 +1,5 @@
 [package]
-name = "husky-debugtime"
+name = "husky-devtime"
 version = "0.0.0"
 edition = "2021"
 
@@ -15,8 +15,8 @@ avec = { path = "../../abstraction/avec" }
 monad = { path = "../../abstraction/monad" }
 trackable = { path = "../../abstraction/trackable" }
 # devtime
-husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
-husky-trace = { path = "../../debugtime/husky-trace" }
+husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
+husky-trace = { path = "../../devtime/husky-trace" }
 # kernel
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }

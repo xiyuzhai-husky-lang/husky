@@ -39,7 +39,7 @@ fn feature_repr_opt_stats<'eval>(
     db: &dyn EvalFeature<'eval>,
     partitions: &Partitions,
     repr: &ValRepr,
-    opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
+    opt_arrival_indicator: Option<&ValDomain>,
 ) -> __VMResult<Option<TraceStats>> {
     feature_opt_stats(
         db,
@@ -53,7 +53,7 @@ fn feature_repr_opt_stats<'eval>(
 fn feature_stmt_opt_stats<'eval>(
     _db: &dyn EvalFeature<'eval>,
     _partitions: &Partitions,
-    _stmt: &FeatureLazyStmt,
+    _stmt: &ValStmt,
 ) -> __VMResult<Option<TraceStats>> {
     todo!()
     // match stmt.variant {
@@ -124,7 +124,7 @@ fn feature_opt_stats<'eval>(
     _partitions: &Partitions,
     _feature_ty: EtherealTerm,
     _compute_value: impl Fn(SampleId) -> __VMResult<__Register<'eval>>,
-    _opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
+    _opt_arrival_indicator: Option<&ValDomain>,
 ) -> __VMResult<Option<TraceStats>> {
     todo!()
     // let target_return_ty = db.target_return_ty().unwrap();

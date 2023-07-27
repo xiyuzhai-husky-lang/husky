@@ -18,7 +18,7 @@ js-sys = "0.3.58"
 sycamore = { path = "../../forks/sycamore/packages/sycamore" }
 vec-like = { path = "../../crates/abstraction/vec-like" }
 trackable = { path = "../../crates/abstraction/trackable" }
-husky-trace-protocol = { path = "../../crates/debugtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../crates/devtime/husky-trace-protocol" }
 husky-vm-primitive-value = { path = "../../crates/vm/husky-vm-primitive-value" }
 
 [dependencies.web-sys]

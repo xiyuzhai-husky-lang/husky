@@ -6,17 +6,20 @@ use EntityPath;
 
 use crate::*;
 
-#[derive(Debug, Clone, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ValRepr {
-    Value {
-        value: __Register<'static>,
-        ty: EtherealTerm,
-        file: DiffPath,
-        range: TextRange,
-        feature: FeatureItd,
-    },
-    LazyExpr(Arc<FeatureLazyExpr>),
-    LazyBody(Arc<FeatureLazyBody>),
+    Expr(ValExpr),
+    Stmt(ValStmt),
+    Fugitive(FugitivePath),
+    AdHocConstant(ConstantVal),
+    // Value {
+    //     value: __Register<'static>,
+    //     ty: EtherealTerm,
+    //     file: DiffPath,
+    //     range: TextRange,
+    //     feature: FeatureItd,
+    // },
+    LazyBody(ValBlock),
     FuncBody(Arc<FeatureFuncBody>),
     ProcBody(Arc<FeatureProcBody>),
     TargetInput {
@@ -111,7 +114,7 @@ impl ValRepr {
         //             feature_interner,
         //         )),
         //         DefinitionRepr::LazyBlock { stmts, ty } => ValRepr::LazyBody(
-        //             FeatureLazyBody::new(db, opt_this, stmts, &[], None, feature_interner, *ty),
+        //             ValBlock::new(db, opt_this, stmts, &[], None, feature_interner, *ty),
         //         ),
         //         DefinitionRepr::FuncBlock {
         //             stmts,
@@ -197,7 +200,7 @@ impl ValRepr {
         // result
     }
 
-    pub fn opt_domain_indicator(&self) -> Option<&Arc<FeatureDomainIndicator>> {
+    pub fn opt_domain_indicator(&self) -> Option<&ValDomain> {
         match self {
             ValRepr::Value { .. } => None,
             ValRepr::LazyExpr(expr) => expr.opt_arrival_indicator.as_ref(),
@@ -209,14 +212,14 @@ impl ValRepr {
     }
 }
 
-impl<'eval> From<Arc<FeatureLazyExpr>> for ValRepr {
-    fn from(expr: Arc<FeatureLazyExpr>) -> Self {
+impl<'eval> From<ValExpr> for ValRepr {
+    fn from(expr: ValExpr) -> Self {
         Self::LazyExpr(expr)
     }
 }
 
-impl<'eval> From<Arc<FeatureLazyBody>> for ValRepr {
-    fn from(block: Arc<FeatureLazyBody>) -> Self {
+impl<'eval> From<ValBlock> for ValRepr {
+    fn from(block: ValBlock) -> Self {
         Self::LazyBody(block)
     }
 }

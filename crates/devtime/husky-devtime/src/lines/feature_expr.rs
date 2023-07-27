@@ -6,11 +6,7 @@ use husky_pattern_semantics::{PurePattern, PurePatternVariant};
 use husky_text::RangedIdent;
 
 impl<'a> TraceLineGenerator<'a> {
-    pub(crate) fn gen_feature_expr(
-        &mut self,
-        expr: &Arc<FeatureLazyExpr>,
-        config: ExprTokenConfig,
-    ) {
+    pub(crate) fn gen_feature_expr(&mut self, expr: &ValExpr, config: ExprTokenConfig) {
         let opt_assoc = if config.associated {
             Some(self.new_trace(None, 0, TraceVariant::FeatureExpr(expr.clone())))
         } else {
@@ -162,7 +158,7 @@ impl<'a> TraceLineGenerator<'a> {
 
     fn gen_new_vec_from_list_tokens(
         &mut self,
-        elements: &[Arc<FeatureLazyExpr>],
+        elements: &[ValExpr],
         opt_assoc_id: Option<TraceId>,
         config: ExprTokenConfig,
     ) {
@@ -222,7 +218,7 @@ impl<'a> TraceLineGenerator<'a> {
         &mut self,
         file: DiffPath,
         ranged_scope: EtherealTerm,
-        inputs: &[Arc<FeatureLazyExpr>],
+        inputs: &[ValExpr],
         opt_associated_trace_id: Option<TraceId>,
         config: ExprTokenConfig,
         expr: &LazyExpr,
@@ -244,12 +240,7 @@ impl<'a> TraceLineGenerator<'a> {
         // self.render_special_token(")", None, Some(expr.range.end.to_left(1)))
     }
 
-    fn gen_be_pattern(
-        &mut self,
-        this: &Arc<FeatureLazyExpr>,
-        patt: &PurePattern,
-        config: ExprTokenConfig,
-    ) {
+    fn gen_be_pattern(&mut self, this: &ValExpr, patt: &PurePattern, config: ExprTokenConfig) {
         self.gen_feature_expr(this, config.subexpr());
         self.render_special_token(" be ", None, None);
         self.gen_pattern(patt)

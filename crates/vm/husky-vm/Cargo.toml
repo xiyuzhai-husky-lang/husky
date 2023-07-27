@@ -21,7 +21,7 @@ husky-any = { path = "../husky-any" }
 husky-ethereal-term = { path = "../../kernel/husky-ethereal-term" }
 husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 husky-text = { path = "../../lex/husky-text" }
-husky-trace-protocol = { path = "../../debugtime/husky-trace-protocol" }
+husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
 husky-vm-register-method = { path = "../husky-vm-register-method" }
 thin-vec = { path = "../../../forks/thin-vec" }
 husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [

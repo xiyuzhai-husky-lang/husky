@@ -138,9 +138,9 @@ impl<'a> FeatureExprBuilder<'a> {
     fn compile_binary_opn(
         &self,
         this: EtherealTerm,
-        lopd: Arc<FeatureLazyExpr>,
+        lopd: ValExpr,
         opr: BinaryPureClosedOpr,
-        ropd: Arc<FeatureLazyExpr>,
+        ropd: ValExpr,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()
         // match this {
@@ -208,7 +208,7 @@ impl<'a> FeatureExprBuilder<'a> {
 
     fn compile_prefix_opn(
         &self,
-        opd: Arc<FeatureLazyExpr>,
+        opd: ValExpr,
         opr: PrefixOpr,
     ) -> (FeatureLazyExprVariant, FeaturePtr) {
         let feature = self.feature_interner.intern(Feature::PrefixOpr {
@@ -227,9 +227,9 @@ impl<'a> FeatureExprBuilder<'a> {
 
     fn compile_custom_binary_opn(
         &self,
-        lopd: Arc<FeatureLazyExpr>,
+        lopd: ValExpr,
         opr: BinaryPureClosedOpr,
-        ropd: Arc<FeatureLazyExpr>,
+        ropd: ValExpr,
     ) -> (FeatureLazyExprVariant, FeatureItd) {
         todo!()
         // let (opt_instruction_sheet, opt_linkage) = match opr {

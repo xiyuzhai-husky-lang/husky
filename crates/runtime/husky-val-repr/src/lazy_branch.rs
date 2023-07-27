@@ -2,26 +2,26 @@ use crate::{eval_id::FeatureEvalId, *};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct FeatureLazyBranch {
-    pub block: Arc<FeatureLazyBody>,
+    pub block: ValBlock,
     pub variant: FeatureLazyBranchVariant,
-    pub opt_arrival_indicator: Option<Arc<FeatureDomainIndicator>>,
+    pub opt_arrival_indicator: Option<ValDomain>,
     pub(crate) eval_id: FeatureEvalId,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum FeatureLazyBranchVariant {
-    If { condition: Arc<FeatureLazyExpr> },
-    Elif { condition: Arc<FeatureLazyExpr> },
+    If { condition: ValExpr },
+    Elif { condition: ValExpr },
     Else,
 }
 
 #[derive(PartialEq, Eq, Clone)]
-pub struct FeatureDomainIndicator {
-    pub variant: FeatureArrivalIndicatorVariant,
+pub struct ValDomain {
+    pub variant: ValDomainData,
     pub feature: FeatureItd,
 }
 
-impl std::fmt::Debug for FeatureDomainIndicator {
+impl std::fmt::Debug for ValDomain {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         f.debug_struct("FeatureArrivalIndicator")
             .field("variant", &self.variant)
@@ -29,29 +29,24 @@ impl std::fmt::Debug for FeatureDomainIndicator {
     }
 }
 
-impl FeatureDomainIndicator {
-    pub fn new(
-        variant: FeatureArrivalIndicatorVariant,
-        feature_interner: &FeatureInterner,
-    ) -> Arc<Self> {
+impl ValDomain {
+    pub fn new(variant: ValDomainData, feature_interner: &FeatureInterner) -> Arc<Self> {
         let feature = feature_interner.intern(match variant {
-            FeatureArrivalIndicatorVariant::AfterStmtNotReturn { ref stmt } => {
-                Feature::ArrivalAfterStmtNotReturn {
-                    stmt: stmt.opt_feature.unwrap(),
-                    opt_stmt_arrival_indicator: stmt
-                        .opt_arrival_indicator
-                        .as_ref()
-                        .map(|ind| ind.feature),
-                }
-            }
-            FeatureArrivalIndicatorVariant::AfterConditionNotMet {
+            ValDomainData::AfterStmtNotReturn { ref stmt } => Feature::ArrivalAfterStmtNotReturn {
+                stmt: stmt.opt_feature.unwrap(),
+                opt_stmt_arrival_indicator: stmt
+                    .opt_arrival_indicator
+                    .as_ref()
+                    .map(|ind| ind.feature),
+            },
+            ValDomainData::AfterConditionNotMet {
                 ref opt_parent,
                 ref condition,
             } => Feature::ArrivalAfterConditionNotMet {
                 opt_parent: opt_parent.as_ref().map(|p| p.feature),
                 condition: condition.feature,
             },
-            FeatureArrivalIndicatorVariant::IfConditionMet {
+            ValDomainData::IfConditionMet {
                 ref opt_parent,
                 ref condition,
             } => Feature::ArrivalIfConditionMet {
@@ -64,16 +59,16 @@ impl FeatureDomainIndicator {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum FeatureArrivalIndicatorVariant {
+pub enum ValDomainData {
     AfterStmtNotReturn {
-        stmt: Arc<FeatureLazyStmt>,
+        stmt: Arc<ValStmt>,
     },
     AfterConditionNotMet {
-        opt_parent: Option<Arc<FeatureDomainIndicator>>,
-        condition: Arc<FeatureLazyExpr>,
+        opt_parent: Option<ValDomain>,
+        condition: ValExpr,
     },
     IfConditionMet {
-        opt_parent: Option<Arc<FeatureDomainIndicator>>,
-        condition: Arc<FeatureLazyExpr>,
+        opt_parent: Option<ValDomain>,
+        condition: ValExpr,
     },
 }

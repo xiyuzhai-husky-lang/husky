@@ -59,7 +59,7 @@ use upcast::Upcast;
 
 //     fn eval_feature_lazy_block(
 //         &self,
-//         block: &FeatureLazyBody,
+//         block: &ValBlock,
 //         sample_id: SampleId,
 //     ) -> __VMResult<__Register<'eval>> {
 //         self.evaluator(sample_id).eval_lazy_block(block)
@@ -67,7 +67,7 @@ use upcast::Upcast;
 
 //     fn eval_feature_stmt(
 //         &self,
-//         stmt: &FeatureLazyStmt,
+//         stmt: &ValStmt,
 //         sample_id: SampleId,
 //     ) -> __VMResult<__Register<'eval>> {
 //         self.evaluator(sample_id).eval_stmt(stmt)
@@ -99,7 +99,7 @@ use upcast::Upcast;
 
 //     fn eval_opt_domain_indicator_cached(
 //         &self,
-//         opt_arrival_indicator: Option<&Arc<FeatureDomainIndicator>>,
+//         opt_arrival_indicator: Option<&ValDomain>,
 //         sample_id: SampleId,
 //     ) -> __VMResult<bool> {
 //         self.evaluator(sample_id)
