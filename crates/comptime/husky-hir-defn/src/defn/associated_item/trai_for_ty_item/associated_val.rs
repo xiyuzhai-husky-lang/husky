@@ -1,8 +1,7 @@
 use super::*;
 
-#[salsa::tracked(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct TraitForTypeAssociatedValHirDefn {
-    #[id]
     pub path: TraitForTypeItemPath,
     pub hir_decl: TraitForTypeAssociatedValHirDecl,
     pub hir_expr_region: HirEagerExprRegion,

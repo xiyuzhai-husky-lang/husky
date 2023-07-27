@@ -1,9 +1,8 @@
 use super::*;
 use salsa::DebugWithDb;
 
-#[salsa::tracked(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct TypeMethodFnHirDefn {
-    #[id]
     pub path: TypeItemPath,
     pub hir_decl: TypeMethodFnHirDecl,
     pub body: Option<HirExprIdx>,

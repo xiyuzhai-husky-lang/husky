@@ -10,7 +10,7 @@ pub use self::val::*;
 
 use super::*;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db(db = HirDefnDb)]
 #[enum_class::from_variants]
 pub enum FugitiveHirDefn {

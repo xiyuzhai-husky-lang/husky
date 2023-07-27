@@ -1,8 +1,7 @@
 use super::*;
 
-#[salsa::tracked(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
 pub struct TraitHirDefn {
-    #[id]
     pub path: TraitPath,
     pub hir_decl: TraitHirDecl,
 }

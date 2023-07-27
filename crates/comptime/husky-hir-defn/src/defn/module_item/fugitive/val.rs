@@ -1,12 +1,11 @@
 use super::*;
 
-#[salsa::tracked(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct ValHirDefn {
-    #[id]
     pub path: FugitivePath,
     pub hir_decl: ValHirDecl,
     pub body: Option<HirExprIdx>,
-    pub hir_expr_region: HirEagerExprRegion,
+    pub hir_expr_region: HirExprRegion,
 }
 
 impl ValHirDefn {
