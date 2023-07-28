@@ -21,6 +21,31 @@ pub struct __RegularValue {
     pub vtable: &'static __RegisterTyVTable,
 }
 
+/// we use this layout instead of struct to reduce size to `2 * std::mem::size_of::<usize>()`
+pub enum __RegularValueData {
+    Box(RawHirType, Box<*mut c_void>),
+    Leash(RawHirType, Leash),
+    Ref(RawHirType, Ref),
+    OptionBox(RawHirType, Option<Box<*mut c_void>>),
+    OptionLeash(RawHirType, Option<Leash>),
+    OptionRef(RawHirType, Option<Ref>),
+}
+
+#[test]
+fn regular_value_data_size_works() {
+    assert_eq!(
+        std::mem::size_of::<__RegularValueData>(),
+        2 * std::mem::size_of::<usize>()
+    )
+}
+
+// interface for `HirType` defined in `husky-hir-ty`
+pub struct RawHirType(u32);
+
+pub struct Leash(&'static c_void);
+
+pub struct Ref(&'static c_void);
+
 impl std::hash::Hash for __RegularValue {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         unsafe {
