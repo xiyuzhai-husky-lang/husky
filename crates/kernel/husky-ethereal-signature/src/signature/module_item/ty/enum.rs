@@ -5,7 +5,7 @@ use husky_declarative_signature::EnumDeclarativeSignatureTemplate;
 pub struct EnumEtherealSignatureTemplate {
     pub path: TypePath,
     #[return_ref]
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
 }
 
 impl EnumEtherealSignatureTemplate {
@@ -14,10 +14,10 @@ impl EnumEtherealSignatureTemplate {
         path: TypePath,
         declarative_signature_template: EnumDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let generic_parameters = EtherealGenericParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
-            declarative_signature_template.generic_parameters(db),
+            declarative_signature_template.template_parameters(db),
         )?;
-        Ok(Self::new(db, path, generic_parameters))
+        Ok(Self::new(db, path, template_parameters))
     }
 }

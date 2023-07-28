@@ -30,7 +30,10 @@ impl ImplBlockHirDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, _db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
+    pub fn template_parameters<'a>(
+        self,
+        _db: &'a dyn HirDeclDb,
+    ) -> &'a [EtherealTemplateParameter] {
         todo!()
     }
 

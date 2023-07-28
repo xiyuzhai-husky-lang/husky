@@ -130,8 +130,8 @@ impl Defn {
         // self.decl(db).ast_idx(db)
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn SynDefnDb) -> &'a [GenericParameterDecl] {
-        self.decl(db).generic_parameters(db)
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDefnDb) -> &'a [TemplateParameterDecl] {
+        self.decl(db).template_parameters(db)
     }
 
     pub fn syn_expr_region(self, db: &dyn SynDefnDb) -> Option<SynExprRegion> {

@@ -26,11 +26,11 @@ Ok(
                                                 3,
                                             ),
                                         ),
-                                        generic_parameters: [
-                                            GenericParameterDecl {
+                                        template_parameters: [
+                                            TemplateParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: GenericParameterDeclPatternVariant::Type {
+                                                variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Label`,
                                                         token_idx: TokenIdx(
@@ -40,10 +40,10 @@ Ok(
                                                     traits: None,
                                                 },
                                             },
-                                            GenericParameterDecl {
+                                            TemplateParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: GenericParameterDeclPatternVariant::Constant {
+                                                variant: TemplateParameterDeclPatternVariant::Constant {
                                                     const_token: ConstToken {
                                                         token_idx: TokenIdx(
                                                             6,
@@ -239,11 +239,11 @@ Ok(
                                                 18,
                                             ),
                                         ),
-                                        generic_parameters: [
-                                            GenericParameterDecl {
+                                        template_parameters: [
+                                            TemplateParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: GenericParameterDeclPatternVariant::Type {
+                                                variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Label`,
                                                         token_idx: TokenIdx(
@@ -253,10 +253,10 @@ Ok(
                                                     traits: None,
                                                 },
                                             },
-                                            GenericParameterDecl {
+                                            TemplateParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: GenericParameterDeclPatternVariant::Constant {
+                                                variant: TemplateParameterDeclPatternVariant::Constant {
                                                     const_token: ConstToken {
                                                         token_idx: TokenIdx(
                                                             21,
@@ -795,11 +795,11 @@ Ok(
                                                 62,
                                             ),
                                         ),
-                                        generic_parameters: [
-                                            GenericParameterDecl {
+                                        template_parameters: [
+                                            TemplateParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: GenericParameterDeclPatternVariant::Type {
+                                                variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `Label`,
                                                         token_idx: TokenIdx(
@@ -809,10 +809,10 @@ Ok(
                                                     traits: None,
                                                 },
                                             },
-                                            GenericParameterDecl {
+                                            TemplateParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: GenericParameterDeclPatternVariant::Constant {
+                                                variant: TemplateParameterDeclPatternVariant::Constant {
                                                     const_token: ConstToken {
                                                         token_idx: TokenIdx(
                                                             65,
@@ -1440,11 +1440,11 @@ Ok(
                                         33,
                                     ),
                                 ),
-                                generic_parameters: [
-                                    GenericParameterDecl {
+                                template_parameters: [
+                                    TemplateParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: GenericParameterDeclPatternVariant::Type {
+                                        variant: TemplateParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `Label`,
                                                 token_idx: TokenIdx(
@@ -1454,10 +1454,10 @@ Ok(
                                             traits: None,
                                         },
                                     },
-                                    GenericParameterDecl {
+                                    TemplateParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: GenericParameterDeclPatternVariant::Constant {
+                                        variant: TemplateParameterDeclPatternVariant::Constant {
                                             const_token: ConstToken {
                                                 token_idx: TokenIdx(
                                                     36,

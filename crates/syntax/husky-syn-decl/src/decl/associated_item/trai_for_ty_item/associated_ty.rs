@@ -67,7 +67,7 @@ pub struct TraitForTypeAssociatedTypeSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     pub ty_term_expr_idx: SynExprIdx,
     pub syn_expr_region: SynExprRegion,
 }
@@ -78,18 +78,18 @@ impl TraitForTypeAssociatedTypeSynDecl {
         path: TraitForTypeItemPath,
         syn_node_decl: TraitForTypeAssociatedTypeSynNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = syn_node_decl
+        let template_parameters = syn_node_decl
             .generics(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.generic_parameters().to_smallvec())
+            .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         let ty_term_expr_idx = syn_node_decl.ty_term_expr_idx(db);
         Ok(TraitForTypeAssociatedTypeSynDecl::new(
             db,
             path,
-            generic_parameters,
+            template_parameters,
             ty_term_expr_idx,
             syn_expr_region,
         ))

@@ -7,7 +7,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
                         decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,

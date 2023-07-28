@@ -13,7 +13,7 @@ Ok(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 fields: [
                                     PropsFieldDeclPattern {
                                         decorators: [],
@@ -257,7 +257,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 0,
                             },
@@ -434,7 +434,7 @@ Ok(
                                     ident: `visualize`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(

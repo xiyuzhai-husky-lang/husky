@@ -1,10 +1,10 @@
 pub mod db;
 mod decl;
 // ad hoc
-mod generic_parameter;
+mod template_parameter;
 
 pub use self::decl::*;
-pub use self::generic_parameter::*;
+pub use self::template_parameter::*;
 
 use husky_coword::*;
 use husky_entity_path::*;

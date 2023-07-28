@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeImplBlockHirDecl {
     pub path: TypeImplBlockPath,
     #[return_ref]
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
     pub self_ty: EtherealTerm,
     pub hir_expr_region: HirEagerExprRegion,
 }

@@ -225,11 +225,11 @@ pub fn ty_ontology_path_declarative_ty(
     let Ok(variances) = ty_implicit_parameter_variances(db, path) else {
         todo!()
     };
-    curry_from_generic_parameters(
+    curry_from_template_parameters(
         db,
         CurryKind::Explicit,
         variances,
-        signature.generic_parameters(db),
+        signature.template_parameters(db),
         declarative_term_menu.ty0(),
     )
 }
@@ -269,13 +269,13 @@ pub fn ty_variant_path_declarative_ty(
                 todo!()
             };
             // todo: variant implicit parameters
-            curry_from_generic_parameters(
+            curry_from_template_parameters(
                 db,
                 CurryKind::Implicit,
                 parent_ty_implicit_parameter_variances,
                 signature_template
                     .parent_ty_template(db)
-                    .generic_parameters(db),
+                    .template_parameters(db),
                 signature_template.ty(db),
             )
         }
@@ -286,13 +286,13 @@ pub fn ty_variant_path_declarative_ty(
                 todo!()
             };
             // todo: variant implicit parameters
-            curry_from_generic_parameters(
+            curry_from_template_parameters(
                 db,
                 CurryKind::Implicit,
                 parent_ty_implicit_parameter_variances,
                 signature_template
                     .parent_ty_template(db)
-                    .generic_parameters(db),
+                    .template_parameters(db),
                 signature_template.instance_constructor_ty(db),
             )
         }
@@ -312,11 +312,11 @@ pub fn trai_path_declarative_ty(
         Ok(signature) => signature,
         Err(_) => todo!(),
     };
-    curry_from_generic_parameters(
+    curry_from_template_parameters(
         db,
         CurryKind::Explicit,
         variances,
-        signature.generic_parameters(db),
+        signature.template_parameters(db),
         declarative_term_menu.trai_ty(),
     )
 }

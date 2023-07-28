@@ -148,11 +148,11 @@ impl FugitiveSynDecl {
         })
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         match self {
-            FugitiveSynDecl::Fn(decl) => decl.generic_parameters(db),
+            FugitiveSynDecl::Fn(decl) => decl.template_parameters(db),
             FugitiveSynDecl::Val(_decl) => &[],
-            FugitiveSynDecl::Gn(decl) => decl.generic_parameters(db),
+            FugitiveSynDecl::Gn(decl) => decl.template_parameters(db),
         }
     }
 

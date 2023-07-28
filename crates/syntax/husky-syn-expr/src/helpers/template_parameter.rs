@@ -4,18 +4,18 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub struct GenericParameterDecl {
+pub struct TemplateParameterDecl {
     annotated_variance_token: Option<VarianceToken>,
     symbol: CurrentSynSymbolIdx,
-    variant: GenericParameterDeclPatternVariant,
+    variant: TemplateParameterDeclPatternVariant,
 }
 
-impl GenericParameterDecl {
+impl TemplateParameterDecl {
     pub fn symbol(&self) -> ArenaIdx<CurrentSynSymbol> {
         self.symbol
     }
 
-    pub fn variant(&self) -> &GenericParameterDeclPatternVariant {
+    pub fn variant(&self) -> &TemplateParameterDeclPatternVariant {
         &self.variant
     }
 
@@ -26,7 +26,7 @@ impl GenericParameterDecl {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[salsa::debug_with_db(db = EntitySynTreeDb)]
-pub enum GenericParameterDeclPatternVariant {
+pub enum TemplateParameterDeclPatternVariant {
     Type {
         ident_token: IdentToken,
         traits: Option<(ColonToken, SynExprIdx)>,
@@ -45,7 +45,7 @@ pub enum GenericParameterDeclPatternVariant {
     },
 }
 
-impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParameterDecl {
+impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for TemplateParameterDecl {
     type Error = ExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
@@ -68,10 +68,10 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
                 [parameter_symbol],
                 Some(PatternTypeConstraint::ImplicitTypeParameter),
             );
-            Ok(Some(GenericParameterDecl {
+            Ok(Some(TemplateParameterDecl {
                 annotated_variance_token,
                 symbol: symbols.start(),
-                variant: GenericParameterDeclPatternVariant::Type {
+                variant: TemplateParameterDeclPatternVariant::Type {
                     ident_token,
                     traits: if let Some(colon) = ctx.try_parse_option::<ColonToken>()? {
                         Some((
@@ -104,17 +104,17 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
                 )],
                 Some(PatternTypeConstraint::ImplicitTypeParameter),
             );
-            Ok(Some(GenericParameterDecl {
+            Ok(Some(TemplateParameterDecl {
                 annotated_variance_token,
                 symbol: symbols.start(),
-                variant: GenericParameterDeclPatternVariant::Lifetime { label_token },
+                variant: TemplateParameterDeclPatternVariant::Lifetime { label_token },
             }))
         } else if let Some(label_token) = ctx.try_parse_option::<BindingLabelToken>()? {
             let symbol = todo!();
-            Ok(Some(GenericParameterDecl {
+            Ok(Some(TemplateParameterDecl {
                 annotated_variance_token,
                 symbol,
-                variant: GenericParameterDeclPatternVariant::Binding { label_token },
+                variant: TemplateParameterDeclPatternVariant::Binding { label_token },
             }))
         } else if let Some(const_token) = ctx.try_parse_option::<ConstToken>()? {
             let ident_token = ctx.try_parse_expected(OriginalExprError::ExpectedIdent)?;
@@ -143,10 +143,10 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for GenericParam
                     Some(PatternTypeConstraint::ImplicitTypeParameter),
                 )
                 .start(); // take start because there is only one symbol to define
-            Ok(Some(GenericParameterDecl {
+            Ok(Some(TemplateParameterDecl {
                 annotated_variance_token,
                 symbol,
-                variant: GenericParameterDeclPatternVariant::Constant {
+                variant: TemplateParameterDeclPatternVariant::Constant {
                     const_token,
                     ident_token,
                     colon_token,

@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeAssociatedFnHirDecl {
     pub path: TypeItemPath,
     pub self_ty: EtherealTerm,
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
     pub parenic_parameters: ParenicEtherealParameters,
     pub return_ty: EtherealTerm,
     pub ty: EtherealTerm,

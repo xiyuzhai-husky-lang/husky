@@ -128,7 +128,7 @@ pub trait ResolveLinkage {
         //                         //     let trai_syn_defn = self.item_defn(*trai).unwrap();
         //                         //     match trai_syn_defn.variant {
         //                         //         EntityDefnVariant::Trait {
-        //                         //             ref generic_parameters,
+        //                         //             ref template_parameters,
         //                         //             ref members,
         //                         //         } => {
         //                         //             let member = members

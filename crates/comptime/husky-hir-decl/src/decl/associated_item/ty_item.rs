@@ -33,7 +33,10 @@ impl TypeItemHirDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, _db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
+    pub fn template_parameters<'a>(
+        self,
+        _db: &'a dyn HirDeclDb,
+    ) -> &'a [EtherealTemplateParameter] {
         match self {
             TypeItemHirDecl::AssociatedFn(_) => todo!(),
             TypeItemHirDecl::MethodFn(_) => todo!(),

@@ -13,7 +13,7 @@ pub struct TraitAssociatedTypeSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     pub syn_expr_region: SynExprRegion,
 }
 

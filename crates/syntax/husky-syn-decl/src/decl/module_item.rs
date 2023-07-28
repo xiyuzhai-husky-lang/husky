@@ -79,11 +79,11 @@ pub enum ModuleItemSynDecl {
 }
 
 impl ModuleItemSynDecl {
-    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         match self {
-            ModuleItemSynDecl::Type(decl) => decl.generic_parameters(db),
-            ModuleItemSynDecl::Fugitive(decl) => decl.generic_parameters(db),
-            ModuleItemSynDecl::Trait(decl) => decl.generic_parameters(db),
+            ModuleItemSynDecl::Type(decl) => decl.template_parameters(db),
+            ModuleItemSynDecl::Fugitive(decl) => decl.template_parameters(db),
+            ModuleItemSynDecl::Trait(decl) => decl.template_parameters(db),
         }
     }
 

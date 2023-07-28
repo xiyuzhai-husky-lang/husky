@@ -10,9 +10,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {

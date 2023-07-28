@@ -4,7 +4,7 @@ use super::*;
 pub struct TraitForTypeAssociatedTypeEtherealSignatureTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
     pub ty_term: EtherealTerm,
 }
 
@@ -14,13 +14,13 @@ impl TraitForTypeAssociatedTypeEtherealSignatureTemplate {
         path: TraitForTypeItemPath,
         declarative_signature_template: TraitForTypeAssociatedTypeDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let generic_parameters = EtherealGenericParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
-            declarative_signature_template.generic_parameters(db),
+            declarative_signature_template.template_parameters(db),
         )?;
         let ty_term =
             EtherealTerm::ty_from_declarative(db, declarative_signature_template.ty_term(db))?;
-        Ok(Self::new(db, path, generic_parameters, ty_term))
+        Ok(Self::new(db, path, template_parameters, ty_term))
     }
 
     pub(super) fn inherit_partial_instantiation(
@@ -30,7 +30,7 @@ impl TraitForTypeAssociatedTypeEtherealSignatureTemplate {
     ) -> TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated {
         let partial_instantiation = impl_block_template_partially_instantiated
             .partial_instantiation(db)
-            .merge_with_item_generic_parameters(self.generic_parameters(db));
+            .merge_with_item_template_parameters(self.template_parameters(db));
         TraitForTypeAssociatedTypeEtherealSignatureTemplatePartiallyInstantiated::new(
             db,
             self,

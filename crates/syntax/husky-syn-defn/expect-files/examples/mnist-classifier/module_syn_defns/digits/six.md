@@ -4334,7 +4334,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
                         decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::upmost`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,
@@ -4989,7 +4989,7 @@ Ok(
                         path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
                         decl: FnSynDecl {
                             path: FugitivePath(`mnist_classifier::digits::six::bottom1`, `Fn`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             parenic_parameters: [
                                 SpecificParameterDecl::Regular {
                                     pattern: 0,

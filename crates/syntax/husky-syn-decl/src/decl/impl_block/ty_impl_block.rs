@@ -110,7 +110,7 @@ pub struct TypeImplBlockSynDecl {
     #[id]
     pub path: TypeImplBlockPath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     pub self_ty_expr: SelfTypeExpr,
     pub syn_expr_region: SynExprRegion,
 }
@@ -127,11 +127,11 @@ impl TypeImplBlockSynDecl {
         path: TypeImplBlockPath,
         syn_node_decl: TypeImplBlockSynNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = syn_node_decl
+        let template_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.generic_parameters().to_smallvec())
+            .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let self_ty_expr = syn_node_decl.self_ty_expr(db);
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
@@ -139,7 +139,7 @@ impl TypeImplBlockSynDecl {
         Ok(Self::new(
             db,
             path,
-            generic_parameters,
+            template_parameters,
             self_ty_expr,
             syn_expr_region,
         ))

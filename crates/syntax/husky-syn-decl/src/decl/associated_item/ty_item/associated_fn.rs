@@ -87,7 +87,7 @@ pub struct TypeAssociatedFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
     pub return_ty: Option<ReturnTypeExprBeforeColon>,
@@ -100,11 +100,11 @@ impl TypeAssociatedFnSynDecl {
         path: TypeItemPath,
         syn_node_decl: TypeAssociatedFnSynNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = syn_node_decl
+        let template_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.generic_parameters().to_smallvec())
+            .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let parenic_parameter_decl_list = syn_node_decl.parenic_parameter_decl_list(db).as_ref()?;
         let parenic_parameters: ExplicitParameterDeclPatterns = parenic_parameter_decl_list
@@ -117,7 +117,7 @@ impl TypeAssociatedFnSynDecl {
         Ok(TypeAssociatedFnSynDecl::new(
             db,
             path,
-            generic_parameters,
+            template_parameters,
             parenic_parameters,
             return_ty,
             syn_expr_region,

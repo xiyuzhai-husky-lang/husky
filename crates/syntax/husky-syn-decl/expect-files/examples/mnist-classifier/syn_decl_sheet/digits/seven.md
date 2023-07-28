@@ -121,7 +121,7 @@ Ok(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Fn`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -443,7 +443,7 @@ Ok(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Fn`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -657,7 +657,7 @@ Ok(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Fn`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,

@@ -3,7 +3,7 @@ use crate::*;
 #[salsa::tracked(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct StructureDeclarativeSignatureTemplate {
     #[return_ref]
-    pub generic_parameters: DeclarativeGenericParameterTemplates,
+    pub template_parameters: DeclarativeTemplateParameterTemplates,
 }
 
 impl StructureDeclarativeSignatureTemplate {
@@ -17,12 +17,12 @@ impl StructureDeclarativeSignatureTemplate {
         let declarative_term_menu = db
             .declarative_term_menu(syn_expr_region.toolchain(db))
             .unwrap();
-        let generic_parameters = DeclarativeGenericParameterTemplates::from_decl(
-            decl.generic_parameters(db),
+        let template_parameters = DeclarativeTemplateParameterTemplates::from_decl(
+            decl.template_parameters(db),
             &declarative_term_region,
             declarative_term_menu,
         );
-        Ok(Self::new(db, generic_parameters))
+        Ok(Self::new(db, template_parameters))
     }
 }
 

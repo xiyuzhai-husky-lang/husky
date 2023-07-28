@@ -7,7 +7,7 @@ Ok(
                         path: TypePath(`core::basic::bool`, `Extern`),
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::bool`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
@@ -74,7 +74,7 @@ Ok(
                         path: TypePath(`core::basic::never`, `Extern`),
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::never`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
@@ -141,7 +141,7 @@ Ok(
                         path: TypePath(`core::basic::unit`, `Extern`),
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::unit`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
@@ -208,7 +208,7 @@ Ok(
                         path: TypePath(`core::basic::Trait`, `Extern`),
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::Trait`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
@@ -275,7 +275,7 @@ Ok(
                         path: TypePath(`core::basic::Module`, `Extern`),
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::basic::Module`, `Extern`),
-                            generic_parameters: [],
+                            template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,

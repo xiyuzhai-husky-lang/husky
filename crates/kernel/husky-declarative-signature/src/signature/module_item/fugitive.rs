@@ -21,14 +21,14 @@ pub enum FugitiveDeclarativeSignatureTemplate {
 }
 
 impl FugitiveDeclarativeSignatureTemplate {
-    pub fn generic_parameters(
+    pub fn template_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeGenericParameter] {
+    ) -> &[DeclarativeTemplateParameter] {
         match self {
-            FugitiveDeclarativeSignatureTemplate::Fn(decl) => decl.generic_parameters(db),
-            FugitiveDeclarativeSignatureTemplate::Val(decl) => decl.generic_parameters(db),
-            FugitiveDeclarativeSignatureTemplate::Gn(decl) => decl.generic_parameters(db),
+            FugitiveDeclarativeSignatureTemplate::Fn(decl) => decl.template_parameters(db),
+            FugitiveDeclarativeSignatureTemplate::Val(decl) => decl.template_parameters(db),
+            FugitiveDeclarativeSignatureTemplate::Gn(decl) => decl.template_parameters(db),
             FugitiveDeclarativeSignatureTemplate::AliasType(_) => todo!(),
         }
     }

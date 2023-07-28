@@ -42,15 +42,15 @@ impl TypeHirDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealTemplateParameter] {
         match self {
-            TypeHirDecl::Enum(decl) => decl.generic_parameters(db),
-            TypeHirDecl::UnitStruct(decl) => decl.generic_parameters(db),
-            TypeHirDecl::TupleStruct(decl) => decl.generic_parameters(db),
-            TypeHirDecl::PropsStruct(decl) => decl.generic_parameters(db),
-            TypeHirDecl::Record(decl) => decl.generic_parameters(db),
-            TypeHirDecl::Extern(decl) => decl.generic_parameters(db),
-            TypeHirDecl::Union(decl) => decl.generic_parameters(db),
+            TypeHirDecl::Enum(decl) => decl.template_parameters(db),
+            TypeHirDecl::UnitStruct(decl) => decl.template_parameters(db),
+            TypeHirDecl::TupleStruct(decl) => decl.template_parameters(db),
+            TypeHirDecl::PropsStruct(decl) => decl.template_parameters(db),
+            TypeHirDecl::Record(decl) => decl.template_parameters(db),
+            TypeHirDecl::Extern(decl) => decl.template_parameters(db),
+            TypeHirDecl::Union(decl) => decl.template_parameters(db),
         }
     }
 

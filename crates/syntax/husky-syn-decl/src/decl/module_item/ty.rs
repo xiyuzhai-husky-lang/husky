@@ -212,7 +212,7 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let generic_parameters = ctx.try_parse_option();
+        let template_parameters = ctx.try_parse_option();
         if let Some(lpar) = ctx.try_parse_err_as_none::<LeftParenthesisToken>() {
             let field_comma_list = ctx.try_parse();
             let rpar = ctx.try_parse();
@@ -220,7 +220,7 @@ impl<'a> DeclParser<'a> {
                 db,
                 syn_node_path,
                 ast_idx,
-                generic_parameters,
+                template_parameters,
                 lpar,
                 field_comma_list,
                 rpar,
@@ -238,7 +238,7 @@ impl<'a> DeclParser<'a> {
                 db,
                 syn_node_path,
                 ast_idx,
-                generic_parameters,
+                template_parameters,
                 lcurl,
                 field_comma_list,
                 rcurl,
@@ -279,17 +279,17 @@ impl TypeSynDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         match self {
-            TypeSynDecl::Enum(decl) => decl.generic_parameters(db),
-            TypeSynDecl::UnitStruct(decl) => decl.generic_parameters(db),
-            TypeSynDecl::TupleStruct(decl) => decl.generic_parameters(db),
-            TypeSynDecl::PropsStruct(decl) => decl.generic_parameters(db),
-            TypeSynDecl::Record(decl) => decl.generic_parameters(db),
-            TypeSynDecl::Inductive(decl) => decl.generic_parameters(db),
-            TypeSynDecl::Structure(decl) => decl.generic_parameters(db),
-            TypeSynDecl::Extern(decl) => decl.generic_parameters(db),
-            TypeSynDecl::Union(decl) => decl.generic_parameters(db),
+            TypeSynDecl::Enum(decl) => decl.template_parameters(db),
+            TypeSynDecl::UnitStruct(decl) => decl.template_parameters(db),
+            TypeSynDecl::TupleStruct(decl) => decl.template_parameters(db),
+            TypeSynDecl::PropsStruct(decl) => decl.template_parameters(db),
+            TypeSynDecl::Record(decl) => decl.template_parameters(db),
+            TypeSynDecl::Inductive(decl) => decl.template_parameters(db),
+            TypeSynDecl::Structure(decl) => decl.template_parameters(db),
+            TypeSynDecl::Extern(decl) => decl.template_parameters(db),
+            TypeSynDecl::Union(decl) => decl.template_parameters(db),
         }
     }
 

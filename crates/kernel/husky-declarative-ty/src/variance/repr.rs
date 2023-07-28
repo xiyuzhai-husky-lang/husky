@@ -58,8 +58,8 @@ pub(crate) fn ty_implicit_parameter_variance_reprs(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
-    let generic_parameters = signature.generic_parameters(db);
-    let reprs = generic_parameters
+    let template_parameters = signature.template_parameters(db);
+    let reprs = template_parameters
         .iter()
         .map(|implicit_parameter| VarianceRepr {
             base: implicit_parameter
@@ -83,7 +83,7 @@ pub(crate) fn ty_implicit_parameter_variance_reprs(
         //      TypeDeclarativeSignatureTemplate::Union(_) => todo!(),
         // }
     }
-    for (_repr, implicit_parameter) in std::iter::zip(reprs.iter(), generic_parameters.iter()) {
+    for (_repr, implicit_parameter) in std::iter::zip(reprs.iter(), template_parameters.iter()) {
         if let Some(_annotated_variance) = implicit_parameter.annotated_variance() {
             // verify the calculated is the same as the annotated
             // todo!()
@@ -102,8 +102,8 @@ pub(crate) fn trai_item_variance_reprs(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
-    let generic_parameters = signature.generic_parameters(db);
-    let reprs = generic_parameters
+    let template_parameters = signature.template_parameters(db);
+    let reprs = template_parameters
         .iter()
         .map(|parameter| VarianceRepr {
             base: parameter
@@ -128,8 +128,8 @@ pub(crate) fn form_item_variance_reprs(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
-    let generic_parameters = signature.generic_parameters(db);
-    let reprs = generic_parameters
+    let template_parameters = signature.template_parameters(db);
+    let reprs = template_parameters
         .iter()
         .map(|parameter| VarianceRepr {
             base: parameter
@@ -154,8 +154,8 @@ pub(crate) fn ty_item_item_variance_reprs(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedVarianceError::SignatureError.into()),
     };
-    let generic_parameters = signature.generic_parameters(db);
-    let reprs = generic_parameters
+    let template_parameters = signature.template_parameters(db);
+    let reprs = template_parameters
         .iter()
         .map(|parameter| VarianceRepr {
             base: parameter

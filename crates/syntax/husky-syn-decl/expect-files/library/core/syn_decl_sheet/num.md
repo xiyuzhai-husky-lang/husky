@@ -13,7 +13,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::i8`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -84,7 +84,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::i16`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -155,7 +155,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::i32`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -226,7 +226,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::i64`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -297,7 +297,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::i128`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -368,7 +368,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::isize`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -439,7 +439,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::u8`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -510,7 +510,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::u16`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -581,7 +581,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::u32`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -652,7 +652,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::u64`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -723,7 +723,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::u128`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -794,7 +794,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::usize`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -865,7 +865,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::f32`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -936,7 +936,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::num::f64`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -1014,7 +1014,7 @@ Ok(
                                 ty_path: TypePath(`core::num::i8`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -1136,7 +1136,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -1356,7 +1356,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -1562,7 +1562,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -1938,7 +1938,7 @@ Ok(
                                 ty_path: TypePath(`core::num::i16`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -2060,7 +2060,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -2280,7 +2280,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -2486,7 +2486,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -2862,7 +2862,7 @@ Ok(
                                 ty_path: TypePath(`core::num::i32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -2984,7 +2984,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -3204,7 +3204,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -3410,7 +3410,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -3786,7 +3786,7 @@ Ok(
                                 ty_path: TypePath(`core::num::i64`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -3908,7 +3908,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -4128,7 +4128,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -4334,7 +4334,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -4710,7 +4710,7 @@ Ok(
                                 ty_path: TypePath(`core::num::i128`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -4832,7 +4832,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -5052,7 +5052,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -5258,7 +5258,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -5634,7 +5634,7 @@ Ok(
                                 ty_path: TypePath(`core::num::isize`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -5756,7 +5756,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -5976,7 +5976,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -6182,7 +6182,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -6558,7 +6558,7 @@ Ok(
                                 ty_path: TypePath(`core::num::u8`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -6680,7 +6680,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -6900,7 +6900,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -7106,7 +7106,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -7482,7 +7482,7 @@ Ok(
                                 ty_path: TypePath(`core::num::u16`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -7604,7 +7604,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -7824,7 +7824,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -8030,7 +8030,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -8406,7 +8406,7 @@ Ok(
                                 ty_path: TypePath(`core::num::u32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -8528,7 +8528,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -8748,7 +8748,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -8954,7 +8954,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -9330,7 +9330,7 @@ Ok(
                                 ty_path: TypePath(`core::num::u64`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -9452,7 +9452,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -9672,7 +9672,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -9878,7 +9878,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -10254,7 +10254,7 @@ Ok(
                                 ty_path: TypePath(`core::num::u128`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -10376,7 +10376,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -10596,7 +10596,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -10802,7 +10802,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -11178,7 +11178,7 @@ Ok(
                                 ty_path: TypePath(`core::num::usize`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -11300,7 +11300,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -11520,7 +11520,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -11726,7 +11726,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -12102,7 +12102,7 @@ Ok(
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -12224,7 +12224,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -12446,7 +12446,7 @@ Ok(
                                     ident: `sqrt`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -12666,7 +12666,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -12872,7 +12872,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
@@ -13248,7 +13248,7 @@ Ok(
                                 ty_path: TypePath(`core::num::f64`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -13370,7 +13370,7 @@ Ok(
                                     ident: `abs`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -13590,7 +13590,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 2,
                             },
@@ -13796,7 +13796,7 @@ Ok(
                                     ident: `add`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {

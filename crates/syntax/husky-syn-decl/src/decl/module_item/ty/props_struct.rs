@@ -68,7 +68,7 @@ pub struct PropsStructTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     #[return_ref]
     pub fields: SmallVec<[PropsFieldDeclPattern; 4]>,
     pub syn_expr_region: SynExprRegion,
@@ -80,18 +80,18 @@ impl PropsStructTypeSynDecl {
         path: TypePath,
         syn_node_decl: PropsStructTypeSynNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = syn_node_decl
+        let template_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.generic_parameters().to_smallvec())
+            .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let fields = SmallVec::from(syn_node_decl.fields(db).as_ref()?.elements());
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(Self::new(
             db,
             path,
-            generic_parameters,
+            template_parameters,
             fields,
             syn_expr_region,
         ))

@@ -10,7 +10,7 @@ pub fn ty_instance_constructor_path_declarative_ty(
         Ok(signature) => signature,
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
-    let Ok(variances) =  ty_implicit_parameter_variances(db, path) else {
+    let Ok(variances) = ty_implicit_parameter_variances(db, path) else {
         todo!()
     };
     match signature {
@@ -42,7 +42,7 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
     variances: &[Variance],
     signature: PropsStructDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let generic_parameters = &signature.generic_parameters(db);
+    let template_parameters = &signature.template_parameters(db);
     let self_ty = signature.self_ty(db);
     let parameter_tys = signature
         .fields(db)
@@ -52,11 +52,11 @@ fn props_struct_ty_instance_constructor_path_declarative_ty(
         .collect();
     let instance_constructor_ty =
         DeclarativeTermRitchie::new(db, RitchieKind::FnType, parameter_tys, self_ty);
-    curry_from_generic_parameters(
+    curry_from_template_parameters(
         db,
         CurryKind::Implicit,
         variances,
-        generic_parameters,
+        template_parameters,
         instance_constructor_ty,
     )
 }
@@ -67,7 +67,7 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
     variances: &[Variance],
     signature: TupleStructDeclarativeSignatureTemplate,
 ) -> DeclarativeTypeResult<DeclarativeTerm> {
-    let generic_parameters = &signature.generic_parameters(db);
+    let template_parameters = &signature.template_parameters(db);
     let self_ty = signature.self_ty(db);
     let parameter_tys = signature
         .fields(db)
@@ -77,11 +77,11 @@ fn tuple_struct_ty_constructor_path_declarative_ty(
         .collect();
     let constructor_ty =
         DeclarativeTermRitchie::new(db, RitchieKind::FnType, parameter_tys, self_ty);
-    curry_from_generic_parameters(
+    curry_from_template_parameters(
         db,
         CurryKind::Implicit,
         variances,
-        generic_parameters,
+        template_parameters,
         constructor_ty,
     )
 }

@@ -1,18 +1,18 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct DeclarativeGenericParameter {
+pub struct DeclarativeTemplateParameter {
     annotated_variance: Option<Variance>,
     symbol: DeclarativeTermSymbol,
     traits: Vec<DeclarativeTerm>,
 }
 
-impl DeclarativeGenericParameter {
+impl DeclarativeTemplateParameter {
     fn from_decl(
-        parameter_decl_pattern: &GenericParameterDecl,
+        parameter_decl_pattern: &TemplateParameterDecl,
         region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
-    ) -> DeclarativeGenericParameter {
+    ) -> DeclarativeTemplateParameter {
         let symbol = parameter_decl_pattern.symbol();
         let annotated_variance =
             parameter_decl_pattern
@@ -23,8 +23,8 @@ impl DeclarativeGenericParameter {
                     VarianceToken::Invariant(_) => Variance::Invariant,
                 });
         match parameter_decl_pattern.variant() {
-            GenericParameterDeclPatternVariant::Type { .. } => {
-                DeclarativeGenericParameter {
+            TemplateParameterDeclPatternVariant::Type { .. } => {
+                DeclarativeTemplateParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
                         .expect("not none")
@@ -35,7 +35,7 @@ impl DeclarativeGenericParameter {
                     annotated_variance,
                 }
             }
-            GenericParameterDeclPatternVariant::Constant { .. } => DeclarativeGenericParameter {
+            TemplateParameterDeclPatternVariant::Constant { .. } => DeclarativeTemplateParameter {
                 symbol: region
                     .current_symbol_signature(symbol)
                     .expect("not none")
@@ -44,8 +44,8 @@ impl DeclarativeGenericParameter {
                 traits: vec![],
                 annotated_variance,
             },
-            GenericParameterDeclPatternVariant::Lifetime { .. } => {
-                DeclarativeGenericParameter {
+            TemplateParameterDeclPatternVariant::Lifetime { .. } => {
+                DeclarativeTemplateParameter {
                     symbol: region
                         .current_symbol_signature(symbol)
                         .expect("not none")
@@ -56,7 +56,7 @@ impl DeclarativeGenericParameter {
                     annotated_variance,
                 }
             }
-            GenericParameterDeclPatternVariant::Binding { .. } => todo!(),
+            TemplateParameterDeclPatternVariant::Binding { .. } => todo!(),
         }
     }
 
@@ -81,21 +81,21 @@ impl DeclarativeGenericParameter {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct DeclarativeGenericParameterTemplates {
-    data: SmallVec<[DeclarativeGenericParameter; 4]>,
+pub struct DeclarativeTemplateParameterTemplates {
+    data: SmallVec<[DeclarativeTemplateParameter; 4]>,
 }
 
-impl DeclarativeGenericParameterTemplates {
+impl DeclarativeTemplateParameterTemplates {
     pub(crate) fn from_decl(
-        generic_parameters: &[GenericParameterDecl],
+        template_parameters: &[TemplateParameterDecl],
         declarative_term_region: &DeclarativeTermRegion,
         declarative_term_menu: &DeclarativeTermMenu,
     ) -> Self {
         Self {
-            data: generic_parameters
+            data: template_parameters
                 .iter()
                 .map(|parameter| {
-                    DeclarativeGenericParameter::from_decl(
+                    DeclarativeTemplateParameter::from_decl(
                         parameter,
                         declarative_term_region,
                         declarative_term_menu,
@@ -105,13 +105,13 @@ impl DeclarativeGenericParameterTemplates {
         }
     }
 
-    pub fn data(&self) -> &[DeclarativeGenericParameter] {
+    pub fn data(&self) -> &[DeclarativeTemplateParameter] {
         self.data.as_ref()
     }
 }
 
-impl std::ops::Deref for DeclarativeGenericParameterTemplates {
-    type Target = [DeclarativeGenericParameter];
+impl std::ops::Deref for DeclarativeTemplateParameterTemplates {
+    type Target = [DeclarativeTemplateParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data

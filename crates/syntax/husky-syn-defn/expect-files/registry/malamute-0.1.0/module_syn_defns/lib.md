@@ -7,11 +7,11 @@ Ok(
                         path: TypePath(`malamute::OneVsAll`, `Enum`),
                         decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::OneVsAll`, `Enum`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Label`,
                                             token_idx: TokenIdx(
@@ -21,10 +21,10 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                GenericParameterDecl {
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: GenericParameterDeclPatternVariant::Constant {
+                                    variant: TemplateParameterDeclPatternVariant::Constant {
                                         const_token: ConstToken {
                                             token_idx: TokenIdx(
                                                 6,
@@ -183,11 +183,11 @@ Ok(
                         path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                         decl: EnumTypeSynDecl {
                             path: TypePath(`malamute::OneVsAllResult`, `Enum`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Label`,
                                             token_idx: TokenIdx(
@@ -197,10 +197,10 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                GenericParameterDecl {
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: GenericParameterDeclPatternVariant::Constant {
+                                    variant: TemplateParameterDeclPatternVariant::Constant {
                                         const_token: ConstToken {
                                             token_idx: TokenIdx(
                                                 21,
@@ -359,11 +359,11 @@ Ok(
                         path: FugitivePath(`malamute::narrow_down`, `Gn`),
                         decl: GnSynDecl {
                             path: FugitivePath(`malamute::narrow_down`, `Gn`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Label`,
                                             token_idx: TokenIdx(
@@ -373,10 +373,10 @@ Ok(
                                         traits: None,
                                     },
                                 },
-                                GenericParameterDecl {
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: GenericParameterDeclPatternVariant::Constant {
+                                    variant: TemplateParameterDeclPatternVariant::Constant {
                                         const_token: ConstToken {
                                             token_idx: TokenIdx(
                                                 65,
@@ -1265,11 +1265,11 @@ Ok(
                         ),
                         disambiguator: 0,
                     },
-                    generic_parameters: [
-                        GenericParameterDecl {
+                    template_parameters: [
+                        TemplateParameterDecl {
                             annotated_variance_token: None,
                             symbol: 0,
-                            variant: GenericParameterDeclPatternVariant::Type {
+                            variant: TemplateParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `Label`,
                                     token_idx: TokenIdx(
@@ -1279,10 +1279,10 @@ Ok(
                                 traits: None,
                             },
                         },
-                        GenericParameterDecl {
+                        TemplateParameterDecl {
                             annotated_variance_token: None,
                             symbol: 1,
-                            variant: GenericParameterDeclPatternVariant::Constant {
+                            variant: TemplateParameterDeclPatternVariant::Constant {
                                 const_token: ConstToken {
                                     token_idx: TokenIdx(
                                         36,
@@ -1699,7 +1699,7 @@ Ok(
                                 ident: `Output`,
                                 item_kind: AssociatedType,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             ty_term_expr_idx: 0,
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {

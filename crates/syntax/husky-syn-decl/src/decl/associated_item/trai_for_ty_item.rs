@@ -48,7 +48,7 @@ impl TraitForTypeItemSynNodeDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         match self {
             TraitForTypeItemSynNodeDecl::AssociatedFn(_) => todo!(),
             TraitForTypeItemSynNodeDecl::MethodFn(_) => todo!(),
@@ -199,11 +199,11 @@ impl TraitForTypeItemSynDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         match self {
-            TraitForTypeItemSynDecl::AssociatedFn(decl) => decl.generic_parameters(db),
-            TraitForTypeItemSynDecl::MethodFn(decl) => decl.generic_parameters(db),
-            TraitForTypeItemSynDecl::AssociatedType(decl) => decl.generic_parameters(db),
+            TraitForTypeItemSynDecl::AssociatedFn(decl) => decl.template_parameters(db),
+            TraitForTypeItemSynDecl::MethodFn(decl) => decl.template_parameters(db),
+            TraitForTypeItemSynDecl::AssociatedType(decl) => decl.template_parameters(db),
             TraitForTypeItemSynDecl::AssociatedVal(_) => &[],
         }
     }

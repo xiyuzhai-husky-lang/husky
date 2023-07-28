@@ -3,28 +3,28 @@ use crate::{instantiation::*, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::debug_with_db(db = EtherealTermDb)]
-pub struct EtherealGenericParameters {
-    data: SmallVec<[EtherealGenericParameter; 2]>,
+pub struct EtherealTemplateParameters {
+    data: SmallVec<[EtherealTemplateParameter; 2]>,
 }
 
-impl EtherealGenericParameters {
+impl EtherealTemplateParameters {
     pub fn from_declarative(
         db: &dyn EtherealTermDb,
-        generic_paramters: &DeclarativeGenericParameterTemplates,
-    ) -> EtherealTermResult<EtherealGenericParameters> {
-        Ok(EtherealGenericParameters {
+        generic_paramters: &DeclarativeTemplateParameterTemplates,
+    ) -> EtherealTermResult<EtherealTemplateParameters> {
+        Ok(EtherealTemplateParameters {
             data: generic_paramters
                 .data()
                 .iter()
-                .map(|generic_parameter| {
-                    EtherealGenericParameter::from_declarative(db, generic_parameter)
+                .map(|template_parameter| {
+                    EtherealTemplateParameter::from_declarative(db, template_parameter)
                 })
                 .collect::<EtherealTermResult<_>>()?,
         })
     }
 
     #[inline(always)]
-    pub fn data(&self) -> &[EtherealGenericParameter] {
+    pub fn data(&self) -> &[EtherealTemplateParameter] {
         &self.data
     }
 
@@ -33,8 +33,8 @@ impl EtherealGenericParameters {
     }
 }
 
-impl std::ops::Deref for EtherealGenericParameters {
-    type Target = [EtherealGenericParameter];
+impl std::ops::Deref for EtherealTemplateParameters {
+    type Target = [EtherealTemplateParameter];
 
     fn deref(&self) -> &Self::Target {
         &self.data
@@ -42,16 +42,16 @@ impl std::ops::Deref for EtherealGenericParameters {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct EtherealGenericParameter {
+pub struct EtherealTemplateParameter {
     annotated_variance: Option<Variance>,
     symbol: EtherealTermSymbol,
     traits: Vec<EtherealTerm>,
 }
 
-impl EtherealGenericParameter {
+impl EtherealTemplateParameter {
     fn from_declarative(
         db: &dyn EtherealTermDb,
-        declarative_generic_paramter: &DeclarativeGenericParameter,
+        declarative_generic_paramter: &DeclarativeTemplateParameter,
     ) -> EtherealTermResult<Self> {
         Ok(Self {
             annotated_variance: declarative_generic_paramter.annotated_variance(),

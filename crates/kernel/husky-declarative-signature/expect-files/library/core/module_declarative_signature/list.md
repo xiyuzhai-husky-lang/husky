@@ -10,9 +10,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
@@ -45,9 +45,9 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
-                                DeclarativeGenericParameter {
+                                DeclarativeTemplateParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -84,9 +84,9 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
-                                        DeclarativeGenericParameter {
+                                        DeclarativeTemplateParameter {
                                             annotated_variance: None,
                                             symbol: DeclarativeTermSymbol(
                                                 Id {
@@ -100,7 +100,7 @@
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
                             self_ty: DeclarativeTerm(`core::list::List t`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -137,9 +137,9 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
-                                        DeclarativeGenericParameter {
+                                        DeclarativeTemplateParameter {
                                             annotated_variance: None,
                                             symbol: DeclarativeTermSymbol(
                                                 Id {
@@ -153,7 +153,7 @@
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
                             self_ty: DeclarativeTerm(`core::list::List t`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -197,9 +197,9 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
-                                        DeclarativeGenericParameter {
+                                        DeclarativeTemplateParameter {
                                             annotated_variance: None,
                                             symbol: DeclarativeTermSymbol(
                                                 Id {
@@ -213,7 +213,7 @@
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
                             self_ty: DeclarativeTerm(`core::list::List t`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -250,9 +250,9 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
-                                        DeclarativeGenericParameter {
+                                        DeclarativeTemplateParameter {
                                             annotated_variance: None,
                                             symbol: DeclarativeTermSymbol(
                                                 Id {
@@ -266,7 +266,7 @@
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
                             self_ty: DeclarativeTerm(`core::list::List t`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -303,9 +303,9 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [
-                                        DeclarativeGenericParameter {
+                                        DeclarativeTemplateParameter {
                                             annotated_variance: None,
                                             symbol: DeclarativeTermSymbol(
                                                 Id {
@@ -319,7 +319,7 @@
                                 ty: DeclarativeTerm(`core::list::List t`),
                             },
                             self_ty: DeclarativeTerm(`core::list::List t`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {

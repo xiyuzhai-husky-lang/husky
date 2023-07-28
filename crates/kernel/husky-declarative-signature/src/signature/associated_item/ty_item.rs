@@ -42,16 +42,16 @@ pub enum TypeItemDeclarativeSignatureTemplates {
 }
 
 impl TypeItemDeclarativeSignatureTemplate {
-    pub fn generic_parameters(
+    pub fn template_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeGenericParameter] {
+    ) -> &[DeclarativeTemplateParameter] {
         match self {
             TypeItemDeclarativeSignatureTemplate::AssociatedFn(signature) => {
-                signature.generic_parameters(db)
+                signature.template_parameters(db)
             }
             TypeItemDeclarativeSignatureTemplate::MethodFn(signature) => {
-                signature.generic_parameters(db)
+                signature.template_parameters(db)
             }
             TypeItemDeclarativeSignatureTemplate::AssociatedType(_) => todo!(),
             TypeItemDeclarativeSignatureTemplate::AssociatedVal(_) => todo!(),

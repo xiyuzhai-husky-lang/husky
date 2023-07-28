@@ -13,7 +13,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::str::str`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -84,7 +84,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::str::StringLiteral`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,

@@ -13,7 +13,7 @@ Ok(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 fields: [
                                     PropsFieldDeclPattern {
                                         decorators: [],
@@ -254,7 +254,7 @@ Ok(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Fn`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -657,7 +657,7 @@ Ok(
                                 ty_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },

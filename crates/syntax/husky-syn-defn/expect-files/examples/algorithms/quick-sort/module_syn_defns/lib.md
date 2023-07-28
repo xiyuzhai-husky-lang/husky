@@ -7,11 +7,11 @@ Ok(
                         path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
                         decl: FnSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort`, `Fn`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `T`,
                                             token_idx: TokenIdx(
@@ -818,11 +818,11 @@ Ok(
                         path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
                         decl: FnSynDecl {
                             path: FugitivePath(`quick_sort::quick_sort_aux`, `Fn`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `T`,
                                             token_idx: TokenIdx(
@@ -2138,11 +2138,11 @@ Ok(
                         path: FugitivePath(`quick_sort::partition`, `Fn`),
                         decl: FnSynDecl {
                             path: FugitivePath(`quick_sort::partition`, `Fn`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `T`,
                                             token_idx: TokenIdx(

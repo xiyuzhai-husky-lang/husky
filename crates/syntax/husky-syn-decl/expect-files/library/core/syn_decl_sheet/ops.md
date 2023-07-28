@@ -13,11 +13,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Add`),
                             ast_idx: 30,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -122,11 +122,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::AddAssign`),
                             ast_idx: 32,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -231,11 +231,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitAnd`),
                             ast_idx: 34,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -340,11 +340,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitAndAssign`),
                             ast_idx: 36,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -449,11 +449,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitOr`),
                             ast_idx: 38,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -558,11 +558,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitOrAssign`),
                             ast_idx: 40,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -667,11 +667,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitXor`),
                             ast_idx: 42,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -776,11 +776,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::BitXorAssign`),
                             ast_idx: 44,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -885,11 +885,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Div`),
                             ast_idx: 46,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -994,11 +994,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::DivAssign`),
                             ast_idx: 48,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -1103,11 +1103,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Mul`),
                             ast_idx: 50,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -1212,11 +1212,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::MulAssign`),
                             ast_idx: 52,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -1321,7 +1321,7 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Neg`),
                             ast_idx: 54,
-                            generic_parameters: [],
+                            template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
@@ -1391,7 +1391,7 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Not`),
                             ast_idx: 56,
-                            generic_parameters: [],
+                            template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
@@ -1461,11 +1461,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Sub`),
                             ast_idx: 58,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `Rhs`,
                                             token_idx: TokenIdx(
@@ -1570,11 +1570,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::ops::Unveil`),
                             ast_idx: 59,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `T`,
                                             token_idx: TokenIdx(
@@ -1679,11 +1679,11 @@ Ok(
                         TypeSynDecl::Enum(
                             EnumTypeSynDecl {
                                 path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                generic_parameters: [
-                                    GenericParameterDecl {
+                                template_parameters: [
+                                    TemplateParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: GenericParameterDeclPatternVariant::Type {
+                                        variant: TemplateParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `R`,
                                                 token_idx: TokenIdx(
@@ -1693,10 +1693,10 @@ Ok(
                                             traits: None,
                                         },
                                     },
-                                    GenericParameterDecl {
+                                    TemplateParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: GenericParameterDeclPatternVariant::Type {
+                                        variant: TemplateParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `C`,
                                                 token_idx: TokenIdx(

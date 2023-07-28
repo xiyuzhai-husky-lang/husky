@@ -144,7 +144,7 @@ pub struct TraitForTypeImplBlockSynDecl {
     #[id]
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     pub trai_expr: TraitExpr,
     pub self_ty_decl: SelfTypeDecl,
     pub syn_expr_region: SynExprRegion,
@@ -173,11 +173,11 @@ impl TraitForTypeImplBlockSynDecl {
         path: TraitForTypeImplBlockPath,
         syn_node_decl: TraitForTypeImplBlockSynNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = syn_node_decl
+        let template_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.generic_parameters().to_smallvec())
+            .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let trai_expr = syn_node_decl.trai_expr(db);
         let self_ty_decl = syn_node_decl.self_ty_decl(db);
@@ -186,7 +186,7 @@ impl TraitForTypeImplBlockSynDecl {
         Ok(Self::new(
             db,
             path,
-            generic_parameters,
+            template_parameters,
             trai_expr,
             self_ty_decl,
             syn_expr_region,
