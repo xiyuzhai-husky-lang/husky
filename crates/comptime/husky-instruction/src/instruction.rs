@@ -1,7 +1,7 @@
 use crate::*;
 
 // ad hoc
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct VMStackIdx;
 
 // ad hoc

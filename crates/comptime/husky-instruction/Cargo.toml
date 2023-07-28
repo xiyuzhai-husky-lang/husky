@@ -29,7 +29,6 @@ husky-opr = { path = "../../kernel/husky-opr" }
 husky-init-syntax = { path = "../../syntax/husky-init-syntax" }
 husky-loop-syntax = { path = "../../syntax/husky-loop-syntax" }
 # vm
-husky-vm = { path = "../../vm/husky-vm" }
 # utils
 husky-dev-utils = { path = "../../utils/husky-dev-utils" }
 
