@@ -179,8 +179,8 @@
         expr_ty_infos: [
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ExprError,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ExprError,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -188,10 +188,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BlockTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BlockTypeError,
                             ),
                         ),
                     ),

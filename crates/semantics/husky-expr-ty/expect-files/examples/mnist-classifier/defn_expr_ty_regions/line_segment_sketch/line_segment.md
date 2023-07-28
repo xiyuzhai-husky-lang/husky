@@ -24,10 +24,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -36,8 +36,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -45,10 +45,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -57,16 +57,16 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -74,10 +74,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BlockTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BlockTypeError,
                             ),
                         ),
                     ),
@@ -150,10 +150,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -162,8 +162,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -171,10 +171,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -183,8 +183,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -192,9 +192,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -208,8 +208,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -217,10 +217,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -230,10 +230,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -242,8 +242,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -251,9 +251,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -268,15 +268,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -289,10 +285,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -301,8 +297,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -310,10 +306,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -322,8 +318,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -331,9 +327,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -347,8 +343,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -356,10 +352,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -369,10 +365,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -381,8 +377,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -390,9 +386,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -407,15 +403,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -428,10 +420,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -440,8 +432,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -449,10 +441,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -462,31 +454,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -495,16 +466,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -512,10 +475,39 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -525,10 +517,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BlockTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BlockTypeError,
                             ),
                         ),
                     ),

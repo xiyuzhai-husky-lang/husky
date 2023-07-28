@@ -16,16 +16,16 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
+                            FluffyTerm::Application(
+                                EtherealTermApplication {
+                                    function: EtherealTerm(`OneVsAll MnistLabel`),
+                                    argument: EtherealTerm(`Five`),
+                                    shift: 0,
+                                },
                             ),
                         ),
                     ),
@@ -37,14 +37,14 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
+                            FluffyTerm::Application(
+                                EtherealTermApplication {
+                                    function: EtherealTerm(`OneVsAll MnistLabel`),
+                                    argument: EtherealTerm(`Five`),
+                                    shift: 0,
+                                },
                             ),
                         ),
                     ),

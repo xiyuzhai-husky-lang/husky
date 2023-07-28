@@ -16,9 +16,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -32,9 +32,9 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FluffyTermError(
-                            Todo,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FluffyTermError(
+                            FluffyTermError::Todo,
                         ),
                     ),
                 ),
@@ -43,10 +43,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -56,9 +56,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -73,15 +73,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -94,10 +90,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -107,9 +103,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -124,10 +120,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -137,10 +133,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BlockTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BlockTypeError,
                             ),
                         ),
                     ),
@@ -356,9 +352,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     1,
                                 ),
@@ -373,9 +369,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -390,15 +386,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -411,9 +403,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     1,
                                 ),
@@ -428,15 +420,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -449,9 +437,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     1,
                                 ),
@@ -466,9 +454,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -483,15 +471,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -504,15 +488,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -525,15 +505,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -546,15 +522,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -567,9 +539,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -584,15 +556,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -605,15 +573,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -626,10 +590,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -639,10 +603,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -652,10 +616,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -665,10 +629,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BracketedItemTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BracketedItemTypeError,
                             ),
                         ),
                     ),
@@ -678,10 +642,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -691,10 +655,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -704,10 +668,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -717,10 +681,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BracketedItemTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BracketedItemTypeError,
                             ),
                         ),
                     ),
@@ -730,10 +694,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -743,9 +707,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -760,10 +724,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BracketedItemTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BracketedItemTypeError,
                             ),
                         ),
                     ),
@@ -773,15 +737,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -794,10 +754,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -807,10 +767,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -820,15 +780,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -841,10 +797,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -854,10 +810,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -867,15 +823,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -888,10 +840,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -901,10 +853,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -914,10 +866,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -927,10 +879,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BracketedItemTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BracketedItemTypeError,
                             ),
                         ),
                     ),
@@ -940,10 +892,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -953,10 +905,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -966,10 +918,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -979,10 +931,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BracketedItemTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BracketedItemTypeError,
                             ),
                         ),
                     ),
@@ -992,10 +944,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -1005,9 +957,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -1022,10 +974,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BracketedItemTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BracketedItemTypeError,
                             ),
                         ),
                     ),
@@ -1035,10 +987,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -1048,15 +1000,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -1069,15 +1017,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -1090,10 +1034,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -1103,15 +1047,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
                         ),
@@ -1800,16 +1740,18 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        List(
-                            ListFunctor,
+                        ExprDisambiguation::List(
+                            ListExprDisambiguation::ListFunctor,
                         ),
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Covariant,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`Type`),
+                                },
                             ),
                         ),
                     ),
@@ -1821,11 +1763,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1842,9 +1784,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1861,16 +1803,16 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        List(
-                            NewList,
+                        ExprDisambiguation::List(
+                            ListExprDisambiguation::NewList,
                         ),
                         Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 36,
-                                    },
-                                ),
+                            FluffyTerm::Application(
+                                EtherealTermApplication {
+                                    function: EtherealTerm(`List`),
+                                    argument: EtherealTerm(`ConnectedComponent`),
+                                    shift: 0,
+                                },
                             ),
                         ),
                     ),
@@ -1882,9 +1824,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -1899,7 +1841,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        MethodDispatch(
+                        ExprDisambiguation::MethodDispatch(
                             FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
@@ -1929,13 +1871,9 @@
                             },
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 100,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`mnist::BinaryImage28`, `Struct`),
                                 ),
                             ),
                         ),
@@ -1948,9 +1886,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -1965,10 +1903,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -1978,9 +1916,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -1994,8 +1932,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2003,10 +1941,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2016,9 +1954,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -2032,8 +1970,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2041,10 +1979,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2053,19 +1991,19 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            DeclarativeTypeError(
-                                Derived(
-                                    SymbolType,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::TypeError(
+                            EtherealTermError::DeclarativeTypeError(
+                                DeclarativeTypeError::Derived(
+                                    DerivedDeclarativeTypeError::SymbolType,
                                 ),
                             ),
                         ),
@@ -2075,8 +2013,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2084,10 +2022,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2097,9 +2035,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -2114,16 +2052,29 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
+                            FluffyTerm::Ritchie(
+                                EtherealTermRitchie {
+                                    ritchie_kind: FnType,
+                                    parameter_contracted_tys: [
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: EtherealTerm(`r32`),
+                                            },
+                                        ),
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: EtherealTerm(`r32`),
+                                            },
+                                        ),
+                                    ],
+                                    return_ty: EtherealTerm(`r32`),
+                                },
                             ),
                         ),
                     ),
@@ -2135,10 +2086,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2148,15 +2099,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2169,10 +2116,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2182,10 +2129,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryShiftRightOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryShiftRightOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -2194,8 +2141,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2203,17 +2150,13 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrFunctionCall(
-                            RitchieCall,
+                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2226,15 +2169,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2247,15 +2186,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2268,10 +2203,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2281,15 +2216,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2302,10 +2233,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2315,15 +2246,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2336,15 +2263,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2357,9 +2280,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -2374,10 +2297,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2387,10 +2310,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2400,9 +2323,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     2,
                                 ),
@@ -2417,10 +2340,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -2429,8 +2352,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2438,16 +2361,29 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
+                            FluffyTerm::Ritchie(
+                                EtherealTermRitchie {
+                                    ritchie_kind: FnType,
+                                    parameter_contracted_tys: [
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: EtherealTerm(`r32`),
+                                            },
+                                        ),
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: EtherealTerm(`r32`),
+                                            },
+                                        ),
+                                    ],
+                                    return_ty: EtherealTerm(`r32`),
+                                },
                             ),
                         ),
                     ),
@@ -2459,9 +2395,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -2476,10 +2412,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2489,9 +2425,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     3,
                                 ),
@@ -2506,10 +2442,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -2518,8 +2454,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        UnableToInferIndexExprType,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::UnableToInferIndexExprType,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2527,10 +2463,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2540,10 +2476,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2552,8 +2488,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2561,10 +2497,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2574,17 +2510,13 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrFunctionCall(
-                            RitchieCall,
+                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2597,10 +2529,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -2610,10 +2542,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2623,15 +2555,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2644,10 +2572,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2657,10 +2585,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2670,15 +2598,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2691,10 +2615,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2704,15 +2628,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2725,15 +2645,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2746,10 +2662,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2759,10 +2675,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2772,9 +2688,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     4,
                                 ),
@@ -2789,10 +2705,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -2801,8 +2717,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2810,10 +2726,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2823,15 +2739,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -2844,10 +2756,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2857,10 +2769,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2869,8 +2781,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2878,16 +2790,29 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 5,
-                                    },
-                                ),
+                            FluffyTerm::Ritchie(
+                                EtherealTermRitchie {
+                                    ritchie_kind: FnType,
+                                    parameter_contracted_tys: [
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: EtherealTerm(`r32`),
+                                            },
+                                        ),
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: EtherealTerm(`r32`),
+                                            },
+                                        ),
+                                    ],
+                                    return_ty: EtherealTerm(`r32`),
+                                },
                             ),
                         ),
                     ),
@@ -2899,9 +2824,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -2916,10 +2841,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2928,8 +2853,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        UnableToInferIndexExprType,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::UnableToInferIndexExprType,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -2937,10 +2862,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2950,10 +2875,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -2963,9 +2888,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     5,
                                 ),
@@ -2980,10 +2905,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -2992,8 +2917,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3001,10 +2926,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3014,17 +2939,13 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrFunctionCall(
-                            RitchieCall,
+                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 56,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::raw_bits::r32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -3037,10 +2958,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -3050,10 +2971,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3063,10 +2984,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3076,15 +2997,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -3097,10 +3014,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3110,15 +3027,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -3131,15 +3044,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -3152,10 +3061,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3165,10 +3074,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3177,8 +3086,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3186,10 +3095,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3199,15 +3108,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -3220,9 +3125,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -3237,9 +3142,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -3254,10 +3159,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3267,9 +3172,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     6,
                                 ),
@@ -3284,10 +3189,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3297,9 +3202,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     6,
                                 ),
@@ -3313,8 +3218,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3322,12 +3227,12 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Tilde(
-                            BitNot,
+                        ExprDisambiguation::Tilde(
+                            TildeDisambiguation::BitNot,
                         ),
                         Err(
-                            Derived(
-                                BitNotOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BitNotOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -3336,8 +3241,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -3345,10 +3250,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BracketedItemTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BracketedItemTypeError,
                             ),
                         ),
                     ),
@@ -3358,15 +3263,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -3379,9 +3280,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     1,
                                 ),
@@ -3396,16 +3297,23 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 6,
-                                    },
-                                ),
+                            FluffyTerm::Ritchie(
+                                EtherealTermRitchie {
+                                    ritchie_kind: FnType,
+                                    parameter_contracted_tys: [
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: Move,
+                                                ty: EtherealTerm(`BinaryImage28`),
+                                            },
+                                        ),
+                                    ],
+                                    return_ty: EtherealTerm(`ConnectedComponent`),
+                                },
                             ),
                         ),
                     ),
@@ -3417,10 +3325,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -3430,17 +3338,13 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrFunctionCall(
-                            RitchieCall,
+                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 81,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                 ),
                             ),
                         ),
@@ -3453,7 +3357,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        MethodDispatch(
+                        ExprDisambiguation::MethodDispatch(
                             FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
@@ -3498,13 +3402,9 @@
                             },
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -3517,9 +3417,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     1,
                                 ),
@@ -3534,15 +3434,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
                         ),
@@ -5267,10 +5163,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -5279,16 +5175,16 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5296,10 +5192,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BlockTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BlockTypeError,
                             ),
                         ),
                     ),
@@ -5371,19 +5267,11 @@
         expr_ty_infos: [
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        TypeError(
-                            ExpectFinalDestinationEqsNonSortTypePath {
-                                path_expected: TypePath(
-                                    Id {
-                                        value: 62,
-                                    },
-                                ),
-                                path: TypePath(
-                                    Id {
-                                        value: 81,
-                                    },
-                                ),
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::TypeError(
+                            EtherealTermError::ExpectFinalDestinationEqsNonSortTypePath {
+                                path_expected: TypePath(`core::basic::Lifetime`, `Extern`),
+                                path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                             },
                         ),
                     ),
@@ -5393,10 +5281,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -5405,8 +5293,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5414,10 +5302,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BlockTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BlockTypeError,
                             ),
                         ),
                     ),
@@ -5490,10 +5378,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -5502,16 +5390,16 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5519,11 +5407,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -5540,11 +5428,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Tilde(
-                            Leash,
+                        ExprDisambiguation::Tilde(
+                            TildeDisambiguation::Leash,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -5561,16 +5449,18 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        List(
-                            ListFunctor,
+                        ExprDisambiguation::List(
+                            ListExprDisambiguation::ListFunctor,
                         ),
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Covariant,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`Type`),
+                                },
                             ),
                         ),
                     ),
@@ -5582,9 +5472,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -5601,9 +5491,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -5620,16 +5510,16 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        List(
-                            NewList,
+                        ExprDisambiguation::List(
+                            ListExprDisambiguation::NewList,
                         ),
                         Ok(
-                            Application(
-                                EtherealTermApplication(
-                                    Id {
-                                        value: 40,
-                                    },
-                                ),
+                            FluffyTerm::Application(
+                                EtherealTermApplication {
+                                    function: EtherealTerm(`List`),
+                                    argument: EtherealTerm(`Option Leash RawContour`),
+                                    shift: 0,
+                                },
                             ),
                         ),
                     ),
@@ -5641,10 +5531,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -5654,16 +5544,23 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
+                            FluffyTerm::Ritchie(
+                                EtherealTermRitchie {
+                                    ritchie_kind: FnType,
+                                    parameter_contracted_tys: [
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: EtherealTerm(`Leash RawContour`),
+                                            },
+                                        ),
+                                    ],
+                                    return_ty: EtherealTerm(`Option f32`),
+                                },
                             ),
                         ),
                     ),
@@ -5674,8 +5571,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5683,9 +5580,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -5700,10 +5597,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -5713,16 +5610,23 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
+                            FluffyTerm::Ritchie(
+                                EtherealTermRitchie {
+                                    ritchie_kind: FnType,
+                                    parameter_contracted_tys: [
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: EtherealTerm(`Leash RawContour`),
+                                            },
+                                        ),
+                                    ],
+                                    return_ty: EtherealTerm(`Option f32`),
+                                },
                             ),
                         ),
                     ),
@@ -5733,8 +5637,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5742,7 +5646,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        MethodDispatch(
+                        ExprDisambiguation::MethodDispatch(
                             FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
@@ -5785,13 +5689,9 @@
                             },
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -5804,9 +5704,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -5821,10 +5721,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -5834,16 +5734,23 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 7,
-                                    },
-                                ),
+                            FluffyTerm::Ritchie(
+                                EtherealTermRitchie {
+                                    ritchie_kind: FnType,
+                                    parameter_contracted_tys: [
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: None,
+                                                ty: EtherealTerm(`Leash RawContour`),
+                                            },
+                                        ),
+                                    ],
+                                    return_ty: EtherealTerm(`Option f32`),
+                                },
                             ),
                         ),
                     ),
@@ -5854,8 +5761,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -5863,7 +5770,7 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        MethodDispatch(
+                        ExprDisambiguation::MethodDispatch(
                             FluffyDynamicDispatch {
                                 indirections: [
                                     Place(
@@ -5906,13 +5813,9 @@
                             },
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -5925,16 +5828,23 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 8,
-                                    },
-                                ),
+                            FluffyTerm::Ritchie(
+                                EtherealTermRitchie {
+                                    ritchie_kind: FnType,
+                                    parameter_contracted_tys: [
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: Move,
+                                                ty: EtherealTerm(`List Option Leash RawContour`),
+                                            },
+                                        ),
+                                    ],
+                                    return_ty: EtherealTerm(`EffHoles`),
+                                },
                             ),
                         ),
                     ),
@@ -5946,9 +5856,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -5963,17 +5873,13 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrFunctionCall(
-                            RitchieCall,
+                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 80,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                 ),
                             ),
                         ),
@@ -5986,15 +5892,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
                         ),
@@ -6700,9 +6602,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -6717,10 +6619,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -6729,8 +6631,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -6738,9 +6640,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -6755,10 +6657,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -6767,8 +6669,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -6776,10 +6678,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -6789,10 +6691,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -6801,24 +6703,24 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -6826,10 +6728,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -6839,10 +6741,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -6852,15 +6754,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -6873,10 +6771,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -6886,10 +6784,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -6899,15 +6797,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -6920,10 +6814,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -6933,11 +6827,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -6954,15 +6848,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -6975,15 +6865,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
                         ),
@@ -7293,9 +7179,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -7310,9 +7196,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -7327,9 +7213,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     2,
                                 ),
@@ -7344,10 +7230,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -7357,10 +7243,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -7369,8 +7255,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7378,9 +7264,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     3,
                                 ),
@@ -7394,16 +7280,16 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7411,10 +7297,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -7423,8 +7309,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7432,15 +7318,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -7453,10 +7335,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -7466,11 +7348,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -7487,15 +7369,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -7508,15 +7386,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
                         ),
@@ -7864,9 +7738,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -7881,9 +7755,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -7898,9 +7772,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     2,
                                 ),
@@ -7915,10 +7789,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -7927,8 +7801,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7936,9 +7810,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     3,
                                 ),
@@ -7952,8 +7826,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7961,10 +7835,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -7973,8 +7847,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -7982,15 +7856,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -8003,10 +7873,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8016,11 +7886,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -8037,15 +7907,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -8058,15 +7924,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
                         ),
@@ -8414,9 +8276,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -8431,10 +8293,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -8443,8 +8305,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8452,10 +8314,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8464,8 +8326,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8473,10 +8335,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8486,9 +8348,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -8503,10 +8365,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -8516,31 +8378,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -8549,8 +8390,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8558,15 +8399,32 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -8579,10 +8437,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8592,10 +8450,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8605,10 +8463,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -8618,10 +8476,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8631,9 +8489,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     2,
                                 ),
@@ -8648,10 +8506,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -8661,9 +8519,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     3,
                                 ),
@@ -8678,10 +8536,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8691,10 +8549,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8704,10 +8562,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8717,10 +8575,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -8730,31 +8588,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -8763,8 +8600,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8772,10 +8609,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8784,8 +8621,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8793,15 +8630,32 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -8814,9 +8668,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     4,
                                 ),
@@ -8831,10 +8685,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8844,10 +8698,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8857,10 +8711,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8870,10 +8724,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -8883,31 +8737,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -8916,8 +8749,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8925,10 +8758,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -8937,8 +8770,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -8946,15 +8779,32 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -8967,16 +8817,41 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Ritchie(
-                                EtherealTermRitchie(
-                                    Id {
-                                        value: 9,
-                                    },
-                                ),
+                            FluffyTerm::Ritchie(
+                                EtherealTermRitchie {
+                                    ritchie_kind: FnType,
+                                    parameter_contracted_tys: [
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: Move,
+                                                ty: EtherealTerm(`i32`),
+                                            },
+                                        ),
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: Move,
+                                                ty: EtherealTerm(`i32`),
+                                            },
+                                        ),
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: Move,
+                                                ty: EtherealTerm(`i32`),
+                                            },
+                                        ),
+                                        EtherealTermRitchieParameter::Regular(
+                                            EtherealTermRitchieRegularParameter {
+                                                contract: Move,
+                                                ty: EtherealTerm(`i32`),
+                                            },
+                                        ),
+                                    ],
+                                    return_ty: EtherealTerm(`ConnectedComponentDistribution`),
+                                },
                             ),
                         ),
                     ),
@@ -8988,10 +8863,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -9001,10 +8876,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -9014,10 +8889,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -9027,10 +8902,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -9040,17 +8915,13 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        ExplicitApplicationOrFunctionCall(
-                            RitchieCall,
+                        ExprDisambiguation::ExplicitApplicationOrFunctionCall(
+                            ApplicationOrFunctionCallExprDisambiguation::RitchieCall,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 79,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                 ),
                             ),
                         ),
@@ -9063,15 +8934,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
                         ),
@@ -9588,10 +9455,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -9600,16 +9467,16 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -9617,11 +9484,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -9638,15 +9505,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -9659,15 +9522,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -9846,10 +9705,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -9858,16 +9717,16 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -9875,11 +9734,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -9896,15 +9755,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -9917,15 +9772,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -10104,9 +9955,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -10121,9 +9972,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -10138,15 +9989,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 44,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -10159,15 +10006,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -10180,9 +10023,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -10197,10 +10040,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -10209,8 +10052,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -10218,10 +10061,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -10230,8 +10073,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -10239,10 +10082,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -10252,10 +10095,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -10265,9 +10108,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -10282,10 +10125,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -10295,31 +10138,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -10328,8 +10150,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -10337,10 +10159,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -10349,8 +10171,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -10358,15 +10180,32 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -10379,10 +10218,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -10392,11 +10231,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -10413,15 +10252,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -10434,15 +10269,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
                         ),
@@ -10851,9 +10682,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     0,
                                 ),
@@ -10868,9 +10699,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -10885,15 +10716,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 44,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -10906,15 +10733,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 41,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::bool`, `Extern`),
                                 ),
                             ),
                         ),
@@ -10927,9 +10750,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Hollow(
+                            FluffyTerm::Hollow(
                                 HollowTerm(
                                     1,
                                 ),
@@ -10944,10 +10767,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -10956,8 +10779,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -10965,10 +10788,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -10977,8 +10800,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -10986,10 +10809,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -10999,10 +10822,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -11012,9 +10835,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -11029,10 +10852,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                BinaryOperationLeftOperandTypeNotInferred,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::BinaryOperationLeftOperandTypeNotInferred,
                             ),
                         ),
                     ),
@@ -11042,31 +10865,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                SelfTypeNotInferredForSelfValue,
-                            ),
-                        ),
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Err(
-                    Derived(
-                        FieldOwnerTypeNotInferred,
-                    ),
-                ),
-                expectation_rule_idx: None,
-            },
-            ExprTypeInfo {
-                disambiguation_and_ty_result: Ok(
-                    (
-                        Trivial,
-                        Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::SelfTypeNotInferredForSelfValue,
                             ),
                         ),
                     ),
@@ -11075,8 +10877,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        ApplicationOrRitchieCallFunctionTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::FieldOwnerTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -11084,10 +10886,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -11096,8 +10898,8 @@
             },
             ExprTypeInfo {
                 disambiguation_and_ty_result: Err(
-                    Derived(
-                        MethodOwnerTypeNotInferred,
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred,
                     ),
                 ),
                 expectation_rule_idx: None,
@@ -11105,15 +10907,32 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
+                        Err(
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
+                            ),
+                        ),
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Err(
+                    ExprTypeError::Derived(
+                        DerivedExprTypeError::MethodOwnerTypeNotInferred,
+                    ),
+                ),
+                expectation_rule_idx: None,
+            },
+            ExprTypeInfo {
+                disambiguation_and_ty_result: Ok(
+                    (
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),
@@ -11126,10 +10945,10 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Err(
-                            Derived(
-                                CurrentSymbolTypeError,
+                            ExprTypeError::Derived(
+                                DerivedExprTypeError::CurrentSymbolTypeError,
                             ),
                         ),
                     ),
@@ -11139,11 +10958,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -11160,15 +10979,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 60,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -11181,15 +10996,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 40,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::never`, `Extern`),
                                 ),
                             ),
                         ),

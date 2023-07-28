@@ -16,11 +16,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -37,9 +37,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -56,16 +56,18 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        List(
-                            ListFunctor,
+                        ExprDisambiguation::List(
+                            ListExprDisambiguation::ListFunctor,
                         ),
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Covariant,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`Type`),
+                                },
                             ),
                         ),
                     ),
@@ -77,11 +79,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -98,9 +100,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -406,11 +408,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -427,11 +429,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -448,11 +450,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -684,11 +686,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -705,11 +707,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -726,11 +728,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -962,11 +964,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -983,11 +985,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1004,11 +1006,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1240,11 +1242,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1261,11 +1263,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1282,11 +1284,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1303,11 +1305,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1602,11 +1604,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1623,11 +1625,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1644,11 +1646,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1876,11 +1878,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1897,11 +1899,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1918,11 +1920,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1939,11 +1941,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1960,11 +1962,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -2320,11 +2322,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -2341,11 +2343,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -2480,16 +2482,18 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        List(
-                            ListFunctor,
+                        ExprDisambiguation::List(
+                            ListExprDisambiguation::ListFunctor,
                         ),
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Covariant,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`Type`),
+                                },
                             ),
                         ),
                     ),
@@ -2501,11 +2505,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -2522,9 +2526,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -2541,11 +2545,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -2801,11 +2805,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -2822,9 +2826,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -2841,16 +2845,18 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        List(
-                            ListFunctor,
+                        ExprDisambiguation::List(
+                            ListExprDisambiguation::ListFunctor,
                         ),
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 2,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Covariant,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`Type`),
+                                },
                             ),
                         ),
                     ),
@@ -2862,11 +2868,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -2883,9 +2889,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -3151,17 +3157,13 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 65,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::Trait`, `Extern`),
                                 ),
                             ),
                         ),
@@ -3174,11 +3176,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -3314,11 +3316,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -3424,11 +3426,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -3539,11 +3541,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -3656,11 +3658,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -3773,11 +3775,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -3890,11 +3892,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -4007,11 +4009,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -4028,11 +4030,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -4049,11 +4051,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
