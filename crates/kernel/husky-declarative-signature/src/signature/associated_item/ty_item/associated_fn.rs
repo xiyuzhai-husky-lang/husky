@@ -8,7 +8,7 @@ pub struct TypeAssociatedFnDeclarativeSignatureTemplate {
     /// we don't use self_ty_arguments because it's not determined for declarative terms
     pub self_ty: DeclarativeTerm,
     #[return_ref]
-    pub generic_parameters: DeclarativeGenericParameterTemplates,
+    pub template_parameters: DeclarativeTemplateParameterTemplates,
     #[return_ref]
     pub parenic_parameters: DeclarativeParenicParameters,
     pub return_ty: DeclarativeTerm,
@@ -41,8 +41,8 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
         .impl_block(db)
         .declarative_signature_template(db)?;
     let self_ty = impl_block.ty(db);
-    let generic_parameters = DeclarativeGenericParameterTemplates::from_decl(
-        decl.generic_parameters(db),
+    let template_parameters = DeclarativeTemplateParameterTemplates::from_decl(
+        decl.template_parameters(db),
         declarative_term_region,
         declarative_term_menu,
     );
@@ -58,7 +58,7 @@ pub(crate) fn ty_associated_fn_declarative_signature_template(
     Ok(TypeAssociatedFnDeclarativeSignatureTemplate::new(
         db,
         self_ty,
-        generic_parameters,
+        template_parameters,
         parenic_parameters,
         return_ty,
     ))

@@ -3,7 +3,7 @@ use super::*;
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct EnumDeclarativeSignatureTemplate {
     #[return_ref]
-    pub generic_parameters: DeclarativeGenericParameterTemplates,
+    pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub self_ty: DeclarativeTerm,
 }
 
@@ -18,13 +18,13 @@ impl EnumDeclarativeSignatureTemplate {
         let declarative_term_menu = db
             .declarative_term_menu(syn_expr_region.toolchain(db))
             .unwrap();
-        let generic_parameters = DeclarativeGenericParameterTemplates::from_decl(
-            decl.generic_parameters(db),
+        let template_parameters = DeclarativeTemplateParameterTemplates::from_decl(
+            decl.template_parameters(db),
             &declarative_term_region,
             declarative_term_menu,
         );
-        let self_ty = construct_self_ty(db, path, &generic_parameters);
-        Ok(Self::new(db, generic_parameters, self_ty))
+        let self_ty = construct_self_ty(db, path, &template_parameters);
+        Ok(Self::new(db, template_parameters, self_ty))
     }
 }
 

@@ -8,10 +8,10 @@ mod context;
 mod conversion;
 mod db;
 mod error;
-mod generic_parameter;
 pub mod instantiation;
 mod menu;
 mod rewrite;
+mod template_parameter;
 mod term;
 #[cfg(test)]
 mod tests;
@@ -21,9 +21,9 @@ mod utils;
 pub use self::context::*;
 pub use self::db::*;
 pub use self::error::*;
-pub use self::generic_parameter::*;
 pub use self::menu::*;
 pub use self::rewrite::*;
+pub use self::template_parameter::*;
 pub use self::term::*;
 pub use self::ty::*;
 

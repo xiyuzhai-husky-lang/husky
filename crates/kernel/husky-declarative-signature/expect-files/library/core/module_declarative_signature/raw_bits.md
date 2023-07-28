@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                         },
@@ -33,7 +33,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`core::raw_bits::r32`),
@@ -62,13 +62,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`core::raw_bits::r32`),
                             },
                             self_ty: DeclarativeTerm(`core::raw_bits::r32`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {

@@ -13,7 +13,7 @@ Ok(
                         TypeSynDecl::Inductive(
                             InductiveTypeSynDecl {
                                 path: TypePath(`natural_number_game::Nat`, `Inductive`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -84,7 +84,7 @@ Ok(
                         TypeSynDecl::Structure(
                             StructureTypeSynDecl {
                                 path: TypePath(`natural_number_game::OddNat`, `Structure`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -155,7 +155,7 @@ Ok(
                         TypeSynDecl::Structure(
                             StructureTypeSynDecl {
                                 path: TypePath(`natural_number_game::EvenNat`, `Structure`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -233,7 +233,7 @@ Ok(
                                 ty_path: TypePath(`natural_number_game::Nat`, `Inductive`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },

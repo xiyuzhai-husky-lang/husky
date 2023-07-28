@@ -49,13 +49,13 @@ impl AssociatedItemSynNodeDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         match self {
             AssociatedItemSynNodeDecl::TypeItem(syn_node_decl) => {
-                syn_node_decl.generic_parameters(db)
+                syn_node_decl.template_parameters(db)
             }
             AssociatedItemSynNodeDecl::TraitItem(syn_node_decl) => {
-                syn_node_decl.generic_parameters(db)
+                syn_node_decl.template_parameters(db)
             }
             AssociatedItemSynNodeDecl::TraitForTypeItem(_) => todo!(),
             AssociatedItemSynNodeDecl::IllFormedItem(_) => todo!(),
@@ -103,10 +103,10 @@ impl AssociatedItemSynDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         match self {
-            AssociatedItemSynDecl::TypeItem(decl) => decl.generic_parameters(db),
-            AssociatedItemSynDecl::TraitItem(decl) => decl.generic_parameters(db),
+            AssociatedItemSynDecl::TypeItem(decl) => decl.template_parameters(db),
+            AssociatedItemSynDecl::TraitItem(decl) => decl.template_parameters(db),
             AssociatedItemSynDecl::TraitForTypeItem(_) => todo!(),
         }
     }

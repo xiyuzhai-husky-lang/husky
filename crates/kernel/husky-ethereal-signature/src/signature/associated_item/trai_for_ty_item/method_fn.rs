@@ -3,7 +3,7 @@ use super::*;
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TraitForTypeMethodFnEtherealSignatureTemplate {
     #[return_ref]
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
     pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
     pub parenic_parameters: ParenicEtherealParameters,
@@ -16,9 +16,9 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
         path: TraitForTypeItemPath,
         declarative_signature_template: TraitForTypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let generic_parameters = EtherealGenericParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
-            declarative_signature_template.generic_parameters(db),
+            declarative_signature_template.template_parameters(db),
         )?;
         let self_parameter = EtherealTermRitchieRegularParameter::from_declarative(
             db,
@@ -32,7 +32,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
             EtherealTerm::ty_from_declarative(db, declarative_signature_template.return_ty(db))?;
         Ok(TraitForTypeMethodFnEtherealSignatureTemplate::new(
             db,
-            generic_parameters,
+            template_parameters,
             self_parameter,
             parenic_parameters,
             return_ty,
@@ -46,7 +46,7 @@ impl TraitForTypeMethodFnEtherealSignatureTemplate {
     ) -> TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated {
         let partial_instantiation = impl_block_template_partially_instantiated
             .partial_instantiation(db)
-            .merge_with_item_generic_parameters(self.generic_parameters(db));
+            .merge_with_item_template_parameters(self.template_parameters(db));
         TraitForTypeMethodFnEtherealSignatureTemplatePartiallyInstantiated::new(
             db,
             self,

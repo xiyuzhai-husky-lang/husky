@@ -29,11 +29,11 @@ impl HasHirDecl for FugitivePath {
 }
 
 impl FugitiveHirDecl {
-    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealTemplateParameter] {
         match self {
-            FugitiveHirDecl::Fn(decl) => decl.generic_parameters(db),
+            FugitiveHirDecl::Fn(decl) => decl.template_parameters(db),
             FugitiveHirDecl::Val(_decl) => &[],
-            FugitiveHirDecl::Gn(decl) => decl.generic_parameters(db),
+            FugitiveHirDecl::Gn(decl) => decl.template_parameters(db),
         }
     }
 

@@ -5,7 +5,7 @@ use super::*;
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct TypeImplBlockDeclarativeSignatureTemplate {
     #[return_ref]
-    pub generic_parameters: DeclarativeGenericParameterTemplates,
+    pub template_parameters: DeclarativeTemplateParameterTemplates,
     pub ty: DeclarativeTerm,
 }
 
@@ -31,8 +31,8 @@ pub(crate) fn ty_impl_block_syn_declarative_signature_template(
     let declarative_term_menu = db
         .declarative_term_menu(syn_expr_region.toolchain(db))
         .unwrap();
-    let generic_parameters = DeclarativeGenericParameterTemplates::from_decl(
-        decl.generic_parameters(db),
+    let template_parameters = DeclarativeTemplateParameterTemplates::from_decl(
+        decl.template_parameters(db),
         &declarative_term_region,
         declarative_term_menu,
     );
@@ -43,7 +43,7 @@ pub(crate) fn ty_impl_block_syn_declarative_signature_template(
     };
     Ok(TypeImplBlockDeclarativeSignatureTemplate::new(
         db,
-        generic_parameters,
+        template_parameters,
         ty,
     ))
 }

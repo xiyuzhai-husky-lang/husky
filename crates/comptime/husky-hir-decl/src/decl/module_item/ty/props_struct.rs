@@ -4,7 +4,7 @@ use super::*;
 pub struct PropsStructTypeHirDecl {
     pub path: TypePath,
     #[return_ref]
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
     pub fields: SmallVec<[RegularFieldHirDecl; 4]>,
     pub hir_expr_region: HirEagerExprRegion,

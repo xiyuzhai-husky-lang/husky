@@ -10,9 +10,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
@@ -23,7 +23,7 @@
                                         ),
                                         traits: [],
                                     },
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
@@ -53,9 +53,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
@@ -66,7 +66,7 @@
                                         ),
                                         traits: [],
                                     },
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: Some(
                                             Invariant,
                                         ),
@@ -96,9 +96,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Extern(
                         ExternDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
@@ -131,9 +131,9 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
-                                DeclarativeGenericParameter {
+                                DeclarativeTemplateParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {

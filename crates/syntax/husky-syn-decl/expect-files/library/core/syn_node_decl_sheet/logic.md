@@ -116,11 +116,11 @@ Ok(
                                                     7,
                                                 ),
                                             ),
-                                            generic_parameters: [
-                                                GenericParameterDecl {
+                                            template_parameters: [
+                                                TemplateParameterDecl {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
-                                                    variant: GenericParameterDeclPatternVariant::Type {
+                                                    variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `P`,
                                                             token_idx: TokenIdx(
@@ -139,10 +139,10 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                GenericParameterDecl {
+                                                TemplateParameterDecl {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: GenericParameterDeclPatternVariant::Type {
+                                                    variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Q`,
                                                             token_idx: TokenIdx(
@@ -378,11 +378,11 @@ Ok(
                                                     29,
                                                 ),
                                             ),
-                                            generic_parameters: [
-                                                GenericParameterDecl {
+                                            template_parameters: [
+                                                TemplateParameterDecl {
                                                     annotated_variance_token: None,
                                                     symbol: 0,
-                                                    variant: GenericParameterDeclPatternVariant::Type {
+                                                    variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `P`,
                                                             token_idx: TokenIdx(
@@ -401,10 +401,10 @@ Ok(
                                                         ),
                                                     },
                                                 },
-                                                GenericParameterDecl {
+                                                TemplateParameterDecl {
                                                     annotated_variance_token: None,
                                                     symbol: 1,
-                                                    variant: GenericParameterDeclPatternVariant::Type {
+                                                    variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `Q`,
                                                             token_idx: TokenIdx(

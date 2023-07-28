@@ -26,7 +26,7 @@ pub struct UnionTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     pub syn_expr_region: SynExprRegion,
 }
 

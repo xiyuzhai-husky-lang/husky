@@ -11,11 +11,11 @@ pub struct InductiveTypeSynNodeDecl {
 }
 
 impl InductiveTypeSynNodeDecl {
-    pub fn generic_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         todo!()
         // self.implicit_parameter_decl_list(db)
         //     .as_ref()
-        //     .map(ImplicitParameterDeclList::generic_parameters)
+        //     .map(ImplicitParameterDeclList::template_parameters)
         //     .unwrap_or(&[])
     }
 
@@ -61,7 +61,7 @@ pub struct InductiveTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -72,13 +72,13 @@ impl InductiveTypeSynDecl {
         path: TypePath,
         syn_node_decl: InductiveTypeSynNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = syn_node_decl
+        let template_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.generic_parameters().to_smallvec())
+            .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(Self::new(db, path, generic_parameters, syn_expr_region))
+        Ok(Self::new(db, path, template_parameters, syn_expr_region))
     }
 }

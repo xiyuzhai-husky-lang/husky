@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Inductive(
                         InductiveDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                         },
@@ -30,7 +30,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Structure(
                         StructureDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                         },
@@ -50,7 +50,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Structure(
                         StructureDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                         },
@@ -73,7 +73,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`natural_number_game::Nat`),

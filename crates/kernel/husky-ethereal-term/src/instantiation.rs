@@ -100,12 +100,12 @@ impl EtherealTermPartialInstantiation {
         Some(EtherealTermInstantiation { symbol_map })
     }
 
-    pub fn merge_with_item_generic_parameters(
+    pub fn merge_with_item_template_parameters(
         &self,
-        generic_parameters: &EtherealGenericParameters,
+        template_parameters: &EtherealTemplateParameters,
     ) -> Self {
         let mut symbol_map = self.symbol_map.clone();
-        for param in generic_parameters.iter() {
+        for param in template_parameters.iter() {
             unsafe { symbol_map.insert_new_unchecked((param.symbol(), None)) }
         }
         Self { symbol_map }

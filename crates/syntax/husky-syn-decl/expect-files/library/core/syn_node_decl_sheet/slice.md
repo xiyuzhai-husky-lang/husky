@@ -32,8 +32,8 @@ Ok(
                                                     3,
                                                 ),
                                             ),
-                                            generic_parameters: [
-                                                GenericParameterDecl {
+                                            template_parameters: [
+                                                TemplateParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
                                                             CovariantToken {
@@ -44,7 +44,7 @@ Ok(
                                                         ),
                                                     ),
                                                     symbol: 0,
-                                                    variant: GenericParameterDeclPatternVariant::Type {
+                                                    variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
@@ -181,8 +181,8 @@ Ok(
                                                     11,
                                                 ),
                                             ),
-                                            generic_parameters: [
-                                                GenericParameterDecl {
+                                            template_parameters: [
+                                                TemplateParameterDecl {
                                                     annotated_variance_token: Some(
                                                         VarianceToken::Covariant(
                                                             CovariantToken {
@@ -193,7 +193,7 @@ Ok(
                                                         ),
                                                     ),
                                                     symbol: 0,
-                                                    variant: GenericParameterDeclPatternVariant::Type {
+                                                    variant: TemplateParameterDeclPatternVariant::Type {
                                                         ident_token: IdentToken {
                                                             ident: `E`,
                                                             token_idx: TokenIdx(
@@ -357,11 +357,11 @@ Ok(
                                                 17,
                                             ),
                                         ),
-                                        generic_parameters: [
-                                            GenericParameterDecl {
+                                        template_parameters: [
+                                            TemplateParameterDecl {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: GenericParameterDeclPatternVariant::Type {
+                                                variant: TemplateParameterDeclPatternVariant::Type {
                                                     ident_token: IdentToken {
                                                         ident: `E`,
                                                         token_idx: TokenIdx(

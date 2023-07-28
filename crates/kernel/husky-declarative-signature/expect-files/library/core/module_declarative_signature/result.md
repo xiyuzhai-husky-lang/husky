@@ -10,9 +10,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -21,7 +21,7 @@
                                         ),
                                         traits: [],
                                     },
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -53,9 +53,9 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
-                                DeclarativeGenericParameter {
+                                DeclarativeTemplateParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -64,7 +64,7 @@
                                     ),
                                     traits: [],
                                 },
-                                DeclarativeGenericParameter {
+                                DeclarativeTemplateParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -73,7 +73,7 @@
                                     ),
                                     traits: [],
                                 },
-                                DeclarativeGenericParameter {
+                                DeclarativeTemplateParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -82,7 +82,7 @@
                                     ),
                                     traits: [],
                                 },
-                                DeclarativeGenericParameter {
+                                DeclarativeTemplateParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -134,7 +134,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
                         TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             ty_term: DeclarativeTerm(`t`),
@@ -170,7 +170,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {

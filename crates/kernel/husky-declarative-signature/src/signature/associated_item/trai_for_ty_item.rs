@@ -54,10 +54,10 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
 }
 
 impl TraitForTypeItemDeclarativeSignatureTemplate {
-    pub fn generic_parameters(
+    pub fn template_parameters(
         self,
         _db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeGenericParameter] {
+    ) -> &[DeclarativeTemplateParameter] {
         match self {
             TraitForTypeItemDeclarativeSignatureTemplate::AssociatedFn(_) => todo!(),
             TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(_) => todo!(),

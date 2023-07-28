@@ -10,9 +10,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -21,7 +21,7 @@
                                         ),
                                         traits: [],
                                     },
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -50,9 +50,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::Enum(
                         EnumDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -61,7 +61,7 @@
                                         ),
                                         traits: [],
                                     },
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -90,9 +90,9 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Gn(
                         GnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -101,7 +101,7 @@
                                         ),
                                         traits: [],
                                     },
-                                    DeclarativeGenericParameter {
+                                    DeclarativeTemplateParameter {
                                         annotated_variance: None,
                                         symbol: DeclarativeTermSymbol(
                                             Id {
@@ -153,9 +153,9 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [
-                                DeclarativeGenericParameter {
+                                DeclarativeTemplateParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -164,7 +164,7 @@
                                     ),
                                     traits: [],
                                 },
-                                DeclarativeGenericParameter {
+                                DeclarativeTemplateParameter {
                                     annotated_variance: None,
                                     symbol: DeclarativeTermSymbol(
                                         Id {
@@ -216,7 +216,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::AssociatedType(
                         TraitForTypeAssociatedTypeDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             ty_term: DeclarativeTerm(`core::basic::unit`),

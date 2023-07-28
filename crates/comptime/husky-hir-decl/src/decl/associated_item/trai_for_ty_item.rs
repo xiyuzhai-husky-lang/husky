@@ -29,11 +29,11 @@ impl TraitForTypeItemHirDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealGenericParameter] {
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDeclDb) -> &'a [EtherealTemplateParameter] {
         match self {
-            TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.generic_parameters(db),
-            TraitForTypeItemHirDecl::MethodFn(decl) => decl.generic_parameters(db),
-            TraitForTypeItemHirDecl::AssociatedType(decl) => decl.generic_parameters(db),
+            TraitForTypeItemHirDecl::AssociatedFn(decl) => decl.template_parameters(db),
+            TraitForTypeItemHirDecl::MethodFn(decl) => decl.template_parameters(db),
+            TraitForTypeItemHirDecl::AssociatedType(decl) => decl.template_parameters(db),
             TraitForTypeItemHirDecl::AssociatedVal(_) => &[],
         }
     }

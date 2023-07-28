@@ -73,7 +73,7 @@ Ok(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 fields: [
                                     PropsFieldDeclPattern {
                                         decorators: [],
@@ -513,7 +513,7 @@ Ok(
                         TypeSynDecl::PropsStruct(
                             PropsStructTypeSynDecl {
                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 fields: [
                                     PropsFieldDeclPattern {
                                         decorators: [],
@@ -727,7 +727,7 @@ Ok(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Fn`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -1009,7 +1009,7 @@ Ok(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Fn`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -1291,7 +1291,7 @@ Ok(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Fn`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -1662,7 +1662,7 @@ Ok(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Fn`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -2115,7 +2115,7 @@ Ok(
                         FugitiveSynDecl::Fn(
                             FnSynDecl {
                                 path: FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Fn`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -2431,7 +2431,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 0,
                             },
@@ -2608,7 +2608,7 @@ Ok(
                                     ident: `visualize`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: None,
@@ -2828,7 +2828,7 @@ Ok(
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -2950,7 +2950,7 @@ Ok(
                                     ident: `new`,
                                     item_kind: AssociatedFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,
@@ -3433,7 +3433,7 @@ Ok(
                                     ident: `displacement`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -3653,7 +3653,7 @@ Ok(
                                 ),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 0,
                             },
@@ -3830,7 +3830,7 @@ Ok(
                                     ident: `visualize`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(
@@ -4086,7 +4086,7 @@ Ok(
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -4661,7 +4661,7 @@ Ok(
                                     ident: `new`,
                                     item_kind: AssociatedFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {
                                         pattern: 0,

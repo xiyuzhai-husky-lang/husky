@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponentDistribution`),
@@ -49,7 +49,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::connected_component::EffHoles`),
@@ -76,7 +76,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -107,7 +107,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -134,7 +134,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -171,7 +171,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -205,7 +205,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
@@ -251,7 +251,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -282,7 +282,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -311,7 +311,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -343,7 +343,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -375,7 +375,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -407,7 +407,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -439,7 +439,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -471,7 +471,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -503,7 +503,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -535,7 +535,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
@@ -567,13 +567,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -617,13 +617,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::connected_component::ConnectedComponent`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {

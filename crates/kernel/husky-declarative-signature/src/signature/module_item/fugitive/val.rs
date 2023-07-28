@@ -18,10 +18,10 @@ impl HasDeclarativeSignatureTemplate for ValSynDecl {
 
 impl ValDeclarativeSignatureTemplate {
     #[inline(always)]
-    pub fn generic_parameters(
+    pub fn template_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeGenericParameter] {
+    ) -> &[DeclarativeTemplateParameter] {
         &[]
     }
 }

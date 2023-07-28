@@ -147,7 +147,7 @@ impl ImplBlockSynNode {
         impl_token: ImplToken,
     ) -> Result<Self, ImplBlockIllForm> {
         if let Some(_) = parser.try_parse_err_as_none::<LeftAngleBracketOrLessThanToken>() {
-            match ignore_generic_parameters(&mut parser) {
+            match ignore_template_parameters(&mut parser) {
                 Ok(_) => (),
                 Err(_e) => todo!(),
             }
@@ -256,7 +256,7 @@ pub enum ImplError {
 
 pub type ImplResult<T> = Result<T, ImplError>;
 
-fn ignore_generic_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplResult<()> {
+fn ignore_template_parameters<'a>(token_stream: &mut TokenStream<'a>) -> ImplResult<()> {
     let mut layer = 1;
     while let Some(token) = token_stream.next() {
         match token {

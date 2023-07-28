@@ -50,20 +50,20 @@ pub enum TypeDeclarativeSignatureTemplate {
 }
 
 impl TypeDeclarativeSignatureTemplate {
-    pub fn generic_parameters(
+    pub fn template_parameters(
         self,
         db: &dyn DeclarativeSignatureDb,
-    ) -> &[DeclarativeGenericParameter] {
+    ) -> &[DeclarativeTemplateParameter] {
         match self {
-            TypeDeclarativeSignatureTemplate::Enum(decl) => decl.generic_parameters(db),
-            TypeDeclarativeSignatureTemplate::UnitStruct(decl) => decl.generic_parameters(db),
-            TypeDeclarativeSignatureTemplate::TupleStruct(decl) => decl.generic_parameters(db),
-            TypeDeclarativeSignatureTemplate::PropsStruct(decl) => decl.generic_parameters(db),
-            TypeDeclarativeSignatureTemplate::Record(decl) => decl.generic_parameters(db),
-            TypeDeclarativeSignatureTemplate::Inductive(decl) => decl.generic_parameters(db),
-            TypeDeclarativeSignatureTemplate::Structure(decl) => decl.generic_parameters(db),
-            TypeDeclarativeSignatureTemplate::Extern(decl) => decl.generic_parameters(db),
-            TypeDeclarativeSignatureTemplate::Union(decl) => decl.generic_parameters(db),
+            TypeDeclarativeSignatureTemplate::Enum(decl) => decl.template_parameters(db),
+            TypeDeclarativeSignatureTemplate::UnitStruct(decl) => decl.template_parameters(db),
+            TypeDeclarativeSignatureTemplate::TupleStruct(decl) => decl.template_parameters(db),
+            TypeDeclarativeSignatureTemplate::PropsStruct(decl) => decl.template_parameters(db),
+            TypeDeclarativeSignatureTemplate::Record(decl) => decl.template_parameters(db),
+            TypeDeclarativeSignatureTemplate::Inductive(decl) => decl.template_parameters(db),
+            TypeDeclarativeSignatureTemplate::Structure(decl) => decl.template_parameters(db),
+            TypeDeclarativeSignatureTemplate::Extern(decl) => decl.template_parameters(db),
+            TypeDeclarativeSignatureTemplate::Union(decl) => decl.template_parameters(db),
         }
     }
 }
@@ -120,10 +120,10 @@ pub(crate) fn ty_declarative_signature_template(
 fn construct_self_ty(
     db: &dyn DeclarativeSignatureDb,
     path: TypePath,
-    generic_parameters: &[DeclarativeGenericParameter],
+    template_parameters: &[DeclarativeTemplateParameter],
 ) -> DeclarativeTerm {
     let mut self_ty: DeclarativeTerm = path.into();
-    for implicit_parameter in generic_parameters {
+    for implicit_parameter in template_parameters {
         self_ty =
             DeclarativeTermExplicitApplication::new(db, self_ty, implicit_parameter.symbol().into())
                 .into()

@@ -50,7 +50,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
@@ -85,7 +85,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
@@ -116,7 +116,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -153,7 +153,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -190,7 +190,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -233,7 +233,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -282,7 +282,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -322,7 +322,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
@@ -368,7 +368,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -399,7 +399,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
@@ -428,7 +428,7 @@
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -480,13 +480,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentStroke`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -517,7 +517,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
@@ -563,7 +563,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -594,7 +594,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
@@ -623,7 +623,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
@@ -655,7 +655,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
@@ -687,7 +687,7 @@
                     TypeItemDeclarativeSignatureTemplate::AssociatedFn(
                         TypeAssociatedFnDeclarativeSignatureTemplate {
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::LineSegmentSketch`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {

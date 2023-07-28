@@ -87,7 +87,7 @@ pub struct TraitForTypeMethodFnSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
@@ -101,11 +101,11 @@ impl TraitForTypeMethodFnSynDecl {
         path: TraitForTypeItemPath,
         syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = syn_node_decl
+        let template_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.generic_parameters().to_smallvec())
+            .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let parenic_parameter_decl_list = syn_node_decl.parenic_parameter_decl_list(db).as_ref()?;
         let self_parameter = *parenic_parameter_decl_list.self_parameter();
@@ -119,7 +119,7 @@ impl TraitForTypeMethodFnSynDecl {
         Ok(TraitForTypeMethodFnSynDecl::new(
             db,
             path,
-            generic_parameters,
+            template_parameters,
             self_parameter,
             parenic_parameters,
             return_ty,

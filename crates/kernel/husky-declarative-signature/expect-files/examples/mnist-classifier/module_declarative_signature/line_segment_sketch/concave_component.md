@@ -10,7 +10,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Type(
                     TypeDeclarativeSignatureTemplate::PropsStruct(
                         PropsStructDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -41,7 +41,7 @@
                 ModuleItemDeclarativeSignatureTemplate::Fugitive(
                     FugitiveDeclarativeSignatureTemplate::Fn(
                         FnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             parenic_parameters: DeclarativeParenicParameters {
@@ -75,7 +75,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TraitForTypeImpl(
                     TraitForTypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         trai: DeclarativeTerm(`core::visual::Visualize`),
@@ -121,7 +121,7 @@
                 AssociatedItemDeclarativeSignatureTemplate::TraitForTypeItem(
                     TraitForTypeItemDeclarativeSignatureTemplate::MethodFn(
                         TraitForTypeMethodFnDeclarativeSignatureTemplate {
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -152,7 +152,7 @@
             SignatureTemplate::ImplBlock(
                 ImplBlockDeclarativeSignatureTemplate::TypeImpl(
                     TypeImplBlockDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                         ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -181,7 +181,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -213,7 +213,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -245,7 +245,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -277,7 +277,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -309,7 +309,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -341,7 +341,7 @@
                     TypeItemDeclarativeSignatureTemplate::MemoizedField(
                         TypeMemoizedFieldDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
@@ -373,13 +373,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -416,13 +416,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -459,13 +459,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -502,13 +502,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -545,13 +545,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {
@@ -588,13 +588,13 @@
                     TypeItemDeclarativeSignatureTemplate::MethodFn(
                         TypeMethodFnDeclarativeSignatureTemplate {
                             impl_block: TypeImplBlockDeclarativeSignatureTemplate {
-                                generic_parameters: DeclarativeGenericParameterTemplates {
+                                template_parameters: DeclarativeTemplateParameterTemplates {
                                     data: [],
                                 },
                                 ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
                             },
                             self_ty: DeclarativeTerm(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`),
-                            generic_parameters: DeclarativeGenericParameterTemplates {
+                            template_parameters: DeclarativeTemplateParameterTemplates {
                                 data: [],
                             },
                             self_parameter: DeclarativeTermRitchieRegularParameter {

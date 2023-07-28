@@ -7,11 +7,11 @@ Ok(
                         path: TypePath(`core::array::Array`, `Extern`),
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::array::Array`, `Extern`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Constant {
+                                    variant: TemplateParameterDeclPatternVariant::Constant {
                                         const_token: ConstToken {
                                             token_idx: TokenIdx(
                                                 4,
@@ -31,7 +31,7 @@ Ok(
                                         ty_expr: 0,
                                     },
                                 },
-                                GenericParameterDecl {
+                                TemplateParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
                                             CovariantToken {
@@ -42,7 +42,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 1,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
                                             token_idx: TokenIdx(

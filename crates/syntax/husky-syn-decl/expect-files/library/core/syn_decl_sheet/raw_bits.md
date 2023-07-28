@@ -13,7 +13,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::raw_bits::r32`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -91,7 +91,7 @@ Ok(
                                 ty_path: TypePath(`core::raw_bits::r32`, `Extern`),
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             self_ty_expr: SelfTypeExpr {
                                 expr: 0,
                             },
@@ -213,7 +213,7 @@ Ok(
                                     ident: `last_bits`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [
                                     SpecificParameterDecl::Regular {

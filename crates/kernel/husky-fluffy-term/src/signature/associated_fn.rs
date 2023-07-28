@@ -38,7 +38,7 @@ pub(crate) fn ty_associated_fn_fluffy_signature<Term: Copy + Into<FluffyTerm>>(
     )
     .try_for_each(|(src, dst)| instantiation.try_add_rule(src, dst.into()))?;
     let mut associated_fn_template_argument_iter = associated_fn_template_arguments.iter();
-    for _ in template.generic_parameters(db).iter() {
+    for _ in template.template_parameters(db).iter() {
         todo!()
     }
     JustOk(AssociatedFnFluffySignature {

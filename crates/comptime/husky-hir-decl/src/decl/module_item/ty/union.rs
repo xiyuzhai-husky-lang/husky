@@ -4,6 +4,6 @@ use super::*;
 pub struct UnionTypeHirDecl {
     pub path: TypePath,
     #[return_ref]
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
     pub hir_expr_region: HirEagerExprRegion,
 }

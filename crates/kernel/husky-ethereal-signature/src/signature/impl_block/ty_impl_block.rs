@@ -3,7 +3,7 @@ use super::*;
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TypeImplBlockEtherealSignatureTemplate {
     #[return_ref]
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
     pub self_ty: EtherealTerm,
 }
 
@@ -23,14 +23,14 @@ pub(crate) fn ty_impl_block_ethereal_signature_template(
     db: &dyn EtherealSignatureDb,
     declarative_signature_template: TypeImplBlockDeclarativeSignatureTemplate,
 ) -> EtherealSignatureResult<TypeImplBlockEtherealSignatureTemplate> {
-    let generic_parameters = EtherealGenericParameters::from_declarative(
+    let template_parameters = EtherealTemplateParameters::from_declarative(
         db,
-        declarative_signature_template.generic_parameters(db),
+        declarative_signature_template.template_parameters(db),
     )?;
     let ty = EtherealTerm::ty_from_declarative(db, declarative_signature_template.ty(db))?;
     Ok(TypeImplBlockEtherealSignatureTemplate::new(
         db,
-        generic_parameters,
+        template_parameters,
         ty,
     ))
 }

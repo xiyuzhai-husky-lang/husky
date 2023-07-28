@@ -34,8 +34,8 @@ impl HirDefn {
         }
     }
 
-    pub fn generic_parameters<'a>(self, db: &'a dyn HirDefnDb) -> &'a [EtherealGenericParameter] {
-        self.hir_decl(db).generic_parameters(db)
+    pub fn template_parameters<'a>(self, db: &'a dyn HirDefnDb) -> &'a [EtherealTemplateParameter] {
+        self.hir_decl(db).template_parameters(db)
     }
 
     pub fn hir_expr_region(self, db: &dyn HirDefnDb) -> Option<HirExprRegion> {

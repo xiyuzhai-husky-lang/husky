@@ -36,12 +36,12 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::True,
         );
         let mut ctx = parser.ctx(None, token_group_idx, Some(saved_stream_state));
-        let generic_parameters = ctx.try_parse_option();
+        let template_parameters = ctx.try_parse_option();
         StructureTypeSynNodeDecl::new(
             self.db(),
             syn_node_path,
             ast_idx,
-            generic_parameters,
+            template_parameters,
             parser.finish(),
         )
         .into()
@@ -53,7 +53,7 @@ pub struct StructureTypeSynDecl {
     #[id]
     pub path: TypePath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     pub syn_expr_region: SynExprRegion,
 }
 
@@ -64,17 +64,17 @@ impl StructureTypeSynDecl {
         path: TypePath,
         syn_node_decl: StructureTypeSynNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = syn_node_decl
+        let template_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.generic_parameters().to_smallvec())
+            .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
         Ok(StructureTypeSynDecl::new(
             db,
             path,
-            generic_parameters,
+            template_parameters,
             syn_expr_region,
         ))
     }

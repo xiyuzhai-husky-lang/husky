@@ -9,7 +9,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Trait(
                     TraitDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                     },
@@ -27,7 +27,7 @@
             SignatureTemplate::ModuleItem(
                 ModuleItemDeclarativeSignatureTemplate::Trait(
                     TraitDeclarativeSignatureTemplate {
-                        generic_parameters: DeclarativeGenericParameterTemplates {
+                        template_parameters: DeclarativeTemplateParameterTemplates {
                             data: [],
                         },
                     },

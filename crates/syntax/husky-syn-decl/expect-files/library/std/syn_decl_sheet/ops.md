@@ -13,11 +13,11 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`std::ops::Add`),
                             ast_idx: 3,
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `B`,
                                             token_idx: TokenIdx(

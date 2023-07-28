@@ -13,7 +13,7 @@ Ok(
                         TypeSynDecl::Extern(
                             ExternTypeSynDecl {
                                 path: TypePath(`core::logic::Prop`, `Extern`),
-                                generic_parameters: [],
+                                template_parameters: [],
                                 syn_expr_region: SynExprRegion {
                                     data: SynExprRegionData {
                                         parent: None,
@@ -84,11 +84,11 @@ Ok(
                         TypeSynDecl::Structure(
                             StructureTypeSynDecl {
                                 path: TypePath(`core::logic::LogicAnd`, `Structure`),
-                                generic_parameters: [
-                                    GenericParameterDecl {
+                                template_parameters: [
+                                    TemplateParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: GenericParameterDeclPatternVariant::Type {
+                                        variant: TemplateParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `P`,
                                                 token_idx: TokenIdx(
@@ -107,10 +107,10 @@ Ok(
                                             ),
                                         },
                                     },
-                                    GenericParameterDecl {
+                                    TemplateParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: GenericParameterDeclPatternVariant::Type {
+                                        variant: TemplateParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `Q`,
                                                 token_idx: TokenIdx(
@@ -309,11 +309,11 @@ Ok(
                         TypeSynDecl::Inductive(
                             InductiveTypeSynDecl {
                                 path: TypePath(`core::logic::LogicOr`, `Inductive`),
-                                generic_parameters: [
-                                    GenericParameterDecl {
+                                template_parameters: [
+                                    TemplateParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 0,
-                                        variant: GenericParameterDeclPatternVariant::Type {
+                                        variant: TemplateParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `P`,
                                                 token_idx: TokenIdx(
@@ -332,10 +332,10 @@ Ok(
                                             ),
                                         },
                                     },
-                                    GenericParameterDecl {
+                                    TemplateParameterDecl {
                                         annotated_variance_token: None,
                                         symbol: 1,
-                                        variant: GenericParameterDeclPatternVariant::Type {
+                                        variant: TemplateParameterDeclPatternVariant::Type {
                                             ident_token: IdentToken {
                                                 ident: `Q`,
                                                 token_idx: TokenIdx(

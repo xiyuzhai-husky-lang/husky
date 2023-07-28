@@ -35,7 +35,7 @@ impl ImplBlockSynNodeDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         todo!()
     }
 
@@ -90,7 +90,7 @@ impl ImplBlockSynDecl {
         }
     }
 
-    pub fn generic_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [GenericParameterDecl] {
+    pub fn template_parameters<'a>(self, _db: &'a dyn SynDeclDb) -> &'a [TemplateParameterDecl] {
         todo!()
     }
 

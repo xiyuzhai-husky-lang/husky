@@ -7,8 +7,8 @@ Ok(
                         path: TypePath(`core::mem::Ref`, `Extern`),
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::Ref`, `Extern`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
                                             CovariantToken {
@@ -19,7 +19,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Lifetime {
+                                    variant: TemplateParameterDeclPatternVariant::Lifetime {
                                         label_token: LifetimeLabelToken {
                                             label: `'a`,
                                             token_idx: TokenIdx(
@@ -28,7 +28,7 @@ Ok(
                                         },
                                     },
                                 },
-                                GenericParameterDecl {
+                                TemplateParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
                                             CovariantToken {
@@ -39,7 +39,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 1,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
                                             token_idx: TokenIdx(
@@ -164,8 +164,8 @@ Ok(
                         path: TypePath(`core::mem::RefMut`, `Extern`),
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::RefMut`, `Extern`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
                                             CovariantToken {
@@ -176,7 +176,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Lifetime {
+                                    variant: TemplateParameterDeclPatternVariant::Lifetime {
                                         label_token: LifetimeLabelToken {
                                             label: `'a`,
                                             token_idx: TokenIdx(
@@ -185,7 +185,7 @@ Ok(
                                         },
                                     },
                                 },
-                                GenericParameterDecl {
+                                TemplateParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Invariant(
                                             InvariantToken {
@@ -196,7 +196,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 1,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
                                             token_idx: TokenIdx(
@@ -321,8 +321,8 @@ Ok(
                         path: TypePath(`core::mem::Leash`, `Extern`),
                         decl: ExternTypeSynDecl {
                             path: TypePath(`core::mem::Leash`, `Extern`),
-                            generic_parameters: [
-                                GenericParameterDecl {
+                            template_parameters: [
+                                TemplateParameterDecl {
                                     annotated_variance_token: Some(
                                         VarianceToken::Covariant(
                                             CovariantToken {
@@ -333,7 +333,7 @@ Ok(
                                         ),
                                     ),
                                     symbol: 0,
-                                    variant: GenericParameterDeclPatternVariant::Type {
+                                    variant: TemplateParameterDeclPatternVariant::Type {
                                         ident_token: IdentToken {
                                             ident: `E`,
                                             token_idx: TokenIdx(
@@ -443,11 +443,11 @@ Ok(
                         ),
                         disambiguator: 0,
                     },
-                    generic_parameters: [
-                        GenericParameterDecl {
+                    template_parameters: [
+                        TemplateParameterDecl {
                             annotated_variance_token: None,
                             symbol: 0,
-                            variant: GenericParameterDeclPatternVariant::Type {
+                            variant: TemplateParameterDeclPatternVariant::Type {
                                 ident_token: IdentToken {
                                     ident: `E`,
                                     token_idx: TokenIdx(

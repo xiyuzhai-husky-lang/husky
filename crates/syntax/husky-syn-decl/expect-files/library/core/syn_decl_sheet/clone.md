@@ -13,7 +13,7 @@ Ok(
                         TraitSynDecl {
                             path: TraitPath(`core::clone::Clone`),
                             ast_idx: 2,
-                            generic_parameters: [],
+                            template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
@@ -91,7 +91,7 @@ Ok(
                                 ty_sketch: DeriveAny,
                                 disambiguator: 0,
                             },
-                            generic_parameters: [],
+                            template_parameters: [],
                             trai_expr: TraitExpr {
                                 expr: 0,
                             },
@@ -233,7 +233,7 @@ Ok(
                                     ident: `clone`,
                                     item_kind: MethodFn,
                                 },
-                                generic_parameters: [],
+                                template_parameters: [],
                                 self_parameter: None,
                                 parenic_parameters: [],
                                 return_ty: Some(

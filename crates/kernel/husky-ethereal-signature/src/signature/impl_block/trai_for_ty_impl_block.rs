@@ -7,7 +7,7 @@ use vec_like::{SmallVecPairMap, VecMapGetEntry};
 pub struct TraitForTypeImplBlockEtherealSignatureTemplate {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
     pub trai: EtherealTerm,
     pub self_ty: EtherealSelfType,
     // todo: where clause
@@ -89,14 +89,14 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
         path: TraitForTypeImplBlockPath,
         declarative_signature_template: TraitForTypeImplBlockDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
-        let generic_parameters = EtherealGenericParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
-            declarative_signature_template.generic_parameters(db),
+            declarative_signature_template.template_parameters(db),
         )?;
         let trai = EtherealTerm::ty_from_declarative(db, declarative_signature_template.trai(db))?;
         let self_ty =
             EtherealSelfType::from_declarative(db, declarative_signature_template.self_ty(db))?;
-        Ok(Self::new(db, path, generic_parameters, trai, self_ty))
+        Ok(Self::new(db, path, template_parameters, trai, self_ty))
     }
 }
 
@@ -120,7 +120,7 @@ impl TraitForTypeImplBlockEtherealSignatureTemplate {
     ) -> EtherealSignatureMaybeResult<
         TraitForTypeImplBlockEtherealSignatureTemplatePartiallyInstantiated,
     > {
-        let mut instantiation = self.generic_parameters(db).instantiation();
+        let mut instantiation = self.template_parameters(db).instantiation();
         match self.self_ty(db) {
             EtherealSelfType::PathLeading(self_ty_term) => {
                 match instantiation.try_add_rules_from_application(db, self_ty_term, arguments) {

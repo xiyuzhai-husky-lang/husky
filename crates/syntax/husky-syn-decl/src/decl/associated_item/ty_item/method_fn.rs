@@ -86,7 +86,7 @@ pub struct TypeMethodFnSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
-    pub generic_parameters: ImplicitParameterDeclPatterns,
+    pub template_parameters: ImplicitParameterDeclPatterns,
     pub self_parameter: Option<SelfParameterDeclPattern>,
     #[return_ref]
     pub parenic_parameters: ExplicitParameterDeclPatterns,
@@ -100,11 +100,11 @@ impl TypeMethodFnSynDecl {
         path: TypeItemPath,
         syn_node_decl: TypeMethodFnSynNodeDecl,
     ) -> DeclResult<Self> {
-        let generic_parameters = syn_node_decl
+        let template_parameters = syn_node_decl
             .implicit_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
-            .map(|list| list.generic_parameters().to_smallvec())
+            .map(|list| list.template_parameters().to_smallvec())
             .unwrap_or_default();
         let parenic_parameter_decl_list = syn_node_decl.parenic_parameter_decl_list(db).as_ref()?;
         let self_parameter = *parenic_parameter_decl_list.self_parameter();
@@ -118,7 +118,7 @@ impl TypeMethodFnSynDecl {
         Ok(TypeMethodFnSynDecl::new(
             db,
             path,
-            generic_parameters,
+            template_parameters,
             self_parameter,
             parenic_parameters,
             return_ty,

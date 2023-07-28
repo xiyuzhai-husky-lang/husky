@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeMethodFnEtherealSignatureTemplate {
     pub self_ty: EtherealTerm,
     #[return_ref]
-    pub generic_parameters: EtherealGenericParameters,
+    pub template_parameters: EtherealTemplateParameters,
     #[return_ref]
     pub self_parameter: EtherealTermRitchieRegularParameter,
     #[return_ref]
@@ -18,9 +18,9 @@ impl TypeMethodFnEtherealSignatureTemplate {
         declarative_signature: TypeMethodFnDeclarativeSignatureTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EtherealTerm::ty_from_declarative(db, declarative_signature.self_ty(db))?;
-        let generic_parameters = EtherealGenericParameters::from_declarative(
+        let template_parameters = EtherealTemplateParameters::from_declarative(
             db,
-            declarative_signature.generic_parameters(db),
+            declarative_signature.template_parameters(db),
         )?;
         let self_parameter = EtherealTermRitchieRegularParameter::from_declarative(
             db,
@@ -34,7 +34,7 @@ impl TypeMethodFnEtherealSignatureTemplate {
         Ok(Self::new(
             db,
             self_ty,
-            generic_parameters,
+            template_parameters,
             self_parameter,
             parenic_parameters,
             return_ty,

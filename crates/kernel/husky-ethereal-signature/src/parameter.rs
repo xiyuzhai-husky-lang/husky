@@ -6,6 +6,6 @@ pub use self::parenic::*;
 
 use crate::*;
 use husky_declarative_signature::{
-    DeclarativeGenericParameter, DeclarativeGenericParameterTemplates,
+    DeclarativeTemplateParameter, DeclarativeTemplateParameterTemplates,
 };
 use husky_term_prelude::Variance;

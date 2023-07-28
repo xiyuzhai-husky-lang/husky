@@ -3,7 +3,7 @@ use super::*;
 #[salsa::interned(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 pub struct ExternDeclarativeSignatureTemplate {
     #[return_ref]
-    pub generic_parameters: DeclarativeGenericParameterTemplates,
+    pub template_parameters: DeclarativeTemplateParameterTemplates,
 }
 
 impl ExternDeclarativeSignatureTemplate {
@@ -19,8 +19,8 @@ impl ExternDeclarativeSignatureTemplate {
             .unwrap();
         Ok(Self::new(
             db,
-            DeclarativeGenericParameterTemplates::from_decl(
-                decl.generic_parameters(db),
+            DeclarativeTemplateParameterTemplates::from_decl(
+                decl.template_parameters(db),
                 &declarative_term_region,
                 declarative_term_menu,
             ),

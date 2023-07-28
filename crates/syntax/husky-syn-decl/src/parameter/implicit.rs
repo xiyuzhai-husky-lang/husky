@@ -1,13 +1,13 @@
 use super::*;
 use parsec::parse_separated_small2_list_expected;
 
-pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[GenericParameterDecl; 2]>;
+pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[TemplateParameterDecl; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
 #[salsa::debug_with_db(db = SynDeclDb)]
 pub struct Generics {
     langle: LeftAngleBracketOrLessThanToken,
-    generic_parameters: ImplicitParameterDeclPatterns,
+    template_parameters: ImplicitParameterDeclPatterns,
     commas: CommaTokens,
     decl_list_result: Result<(), NodeDeclError>,
     rangle: RightAngleBracketToken,
@@ -18,8 +18,8 @@ impl Generics {
         self.langle
     }
 
-    pub fn generic_parameters(&self) -> &[GenericParameterDecl] {
-        &self.generic_parameters
+    pub fn template_parameters(&self) -> &[TemplateParameterDecl] {
+        &self.template_parameters
     }
 
     pub fn commas(&self) -> &[CommaToken] {
@@ -36,14 +36,14 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Generics {
         let Some(langle) = ctx.try_parse_option::<LeftAngleBracketOrLessThanToken>()? else {
             return Ok(None);
         };
-        let (generic_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(
+        let (template_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(
             ctx,
             1,
             OriginalNodeDeclError::ExpectedImplicitParameterDecl,
         );
         Ok(Some(Self {
             langle,
-            generic_parameters,
+            template_parameters,
             commas,
             decl_list_result,
             rangle: ctx.try_parse_expected(|token_stream_state| {
