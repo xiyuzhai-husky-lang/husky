@@ -1,5 +1,5 @@
 // use super::*;
-// use husky_vm::__Register;
+// use husky_vm::__RegularValue;
 
 // #[derive(Debug, Clone)]
 // pub struct Object {
@@ -7,8 +7,8 @@
 //     pub field_features: Vec<ValBlock>,
 // }
 
-// impl<'eval> Into<__Register<'eval>> for Object {
-//     fn into(self) -> __Register<'eval> {
+// impl Into<__RegularValue> for Object {
+//     fn into(self) -> __RegularValue {
 //         todo!()
 //     }
 // }

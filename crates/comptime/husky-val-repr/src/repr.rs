@@ -1,7 +1,7 @@
 use husky_instruction_gen::{new_func_instruction_sheet, new_proc_instruction_sheet};
 use husky_item_semantics::DefinitionRepr;
 use husky_linkage_table::ResolveLinkage;
-use husky_vm::__Register;
+use husky_vm::__RegularValue;
 use EntityPath;
 
 use crate::*;
@@ -13,7 +13,7 @@ pub enum ValRepr {
     Fugitive(FugitivePath),
     AdHocConstant(ConstantVal),
     // Value {
-    //     value: __Register<'static>,
+    //     value: __RegularValue,
     //     ty: EtherealTerm,
     //     file: DiffPath,
     //     range: TextRange,
@@ -212,13 +212,13 @@ impl ValRepr {
     }
 }
 
-impl<'eval> From<ValExpr> for ValRepr {
+impl From<ValExpr> for ValRepr {
     fn from(expr: ValExpr) -> Self {
         Self::LazyExpr(expr)
     }
 }
 
-impl<'eval> From<ValBlock> for ValRepr {
+impl From<ValBlock> for ValRepr {
     fn from(block: ValBlock) -> Self {
         Self::LazyBody(block)
     }

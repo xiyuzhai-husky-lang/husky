@@ -408,7 +408,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 r#"__ctx
     //     .cache_feature(
     //         __feature,
-    //         Ok(__Register::new_box::<"#,
+    //         Ok(__RegularValue::new_box::<"#,
     //             );
     //             self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(">(");
@@ -417,7 +417,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 r#", &__registration__::{mangled_intrinsic_ty_vtable})),
     //     )
     //     .unwrap()
-    //     .downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
+    //     .downcast_{}leash(&__registration__::{mangled_intrinsic_ty_vtable})"#,
     //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",
@@ -429,7 +429,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 r#"__ctx
     //     .cache_feature(
     //         __feature,
-    //         Ok(__Register::new_eval_ref::<"#,
+    //         Ok(__RegularValue::new_leash::<"#,
     //             );
     //             self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(r#">(&("#);
@@ -437,7 +437,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             self.write(&format!(
     //                 r#"), &__registration__::{mangled_intrinsic_ty_vtable}).into()),
     //     )
-    //     .unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
+    //     .unwrap().downcast_{}leash(&__registration__::{mangled_intrinsic_ty_vtable})"#,
     //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",
@@ -464,14 +464,14 @@ impl<'a> RustCodeGenerator<'a> {
     //                 r#"__ctx.cache_lazy_field(
     //     self as *const _ as *const std::ffi::c_void,
     //     __uid,
-    //     Ok(__Register::new_box::<"#,
+    //     Ok(__RegularValue::new_box::<"#,
     //             );
     //             self.gen_item_route(return_ty.intrinsic(), EntityRouteRole::Decl);
     //             self.write(r#">("#);
     //             self.gen_expr(indent, result);
     //             self.write(format!(
     //                 r#", &__registration__::{mangled_intrinsic_ty_vtable}))
-    // ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
+    // ).unwrap().downcast_{}leash(&__registration__::{mangled_intrinsic_ty_vtable})"#,
     //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",
@@ -483,7 +483,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 r#"__ctx.cache_lazy_field(
     //     self as *const _ as *const std::ffi::c_void,
     //     __uid,
-    //     Ok(__Register::new_{}eval_ref::<"#,
+    //     Ok(__RegularValue::new_{}leash::<"#,
     //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",
@@ -494,7 +494,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             self.gen_expr(indent, result);
     //             self.write(format!(
     //                 r#"), &__registration__::{mangled_intrinsic_ty_vtable})).into()
-    // ).unwrap().downcast_{}eval_ref(&__registration__::{mangled_intrinsic_ty_vtable})"#,
+    // ).unwrap().downcast_{}leash(&__registration__::{mangled_intrinsic_ty_vtable})"#,
     //                 match return_ty.is_option() {
     //                     true => "opt_",
     //                     false => "",

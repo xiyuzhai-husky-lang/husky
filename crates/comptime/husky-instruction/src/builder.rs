@@ -1,21 +1,14 @@
-mod context;
 // mod impl_basic;
 // mod impl_eager_expr;
 // mod impl_func_stmt;
 // mod impl_proc_stmt;
-mod db;
 
-pub use db::*;
-
-use husky_coword::*;
-use husky_ethereal_term::*;
-use husky_vm::InstructionSheet;
-use std::sync::Arc;
+use crate::*;
 
 // pub fn new_visual_instruction_sheet(
 //     db: &dyn InstructionDb,
 //     stmts: &[Arc<FuncStmt>],
-// ) -> Arc<InstructionSheet> {
+// ) -> InstructionRegion {
 //     let mut builder = InstructionSheetBuilder::new(db, [].into_iter(), true);
 //     builder.compile_func_stmts(stmts);
 //     builder.finalize()
@@ -26,7 +19,7 @@ use std::sync::Arc;
 //     inputs: impl Iterator<Item = Ident>,
 //     stmts: &[Arc<FuncStmt>],
 //     has_this: bool,
-// ) -> Arc<InstructionSheet> {
+// ) -> InstructionRegion {
 //     let mut builder = InstructionSheetBuilder::new(db, inputs, has_this);
 //     builder.compile_func_stmts(stmts);
 //     builder.finalize()
@@ -37,23 +30,23 @@ use std::sync::Arc;
 //     inputs: impl Iterator<Item = Ident>,
 //     stmts: &[Arc<ProcStmt>],
 //     has_this: bool,
-// ) -> Arc<InstructionSheet> {
+// ) -> InstructionRegion {
 //     let mut builder = InstructionSheetBuilder::new(db, inputs, has_this);
 //     builder.compile_proc_stmts(stmts);
 //     builder.finalize()
 // }
 
-struct InstructionSheetBuilder<'a> {
+pub(crate) struct InstructionBuilder<'a> {
     db: &'a dyn InstructionDb,
-    sheet: InstructionSheet,
+    // sheet: Instructions,
     // context: LocalValue<InstructionGenContext>,
 }
 
-impl<'a> InstructionSheetBuilder<'a> {
+impl<'a> InstructionBuilder<'a> {
     fn new(db: &'a dyn InstructionDb, inputs: impl Iterator<Item = Ident>, has_this: bool) -> Self {
         Self {
             db,
-            sheet: InstructionSheet::new(inputs, has_this),
+            // sheet: Instructions::new(inputs, has_this),
             // context: LocalValue::new(InstructionGenContext::Normal),
         }
     }
@@ -61,12 +54,13 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn subsheet_builder(&self) -> Self {
         Self {
             db: self.db,
-            sheet: self.sheet.init_subsheet(),
+            // sheet: self.sheet.init_subsheet(),
             // context: LocalValue::new(InstructionGenContext::Normal),
         }
     }
 
-    fn finalize(self) -> Arc<InstructionSheet> {
-        Arc::new(self.sheet)
+    fn finalize(self) -> Instructions {
+        todo!()
+        // Arc::new(self.sheet)
     }
 }

@@ -5,12 +5,12 @@ use husky_text::ModuleRange;
 use crate::*;
 
 #[derive(Debug)]
-pub struct MutationData<'eval> {
+pub struct MutationData {
     pub range: ModuleRange,
     pub kind: MutationDataVariant,
     pub ty: EtherealTerm,
-    pub before: Option<__Register<'eval>>,
-    pub after: __Register<'eval>,
+    pub before: Option<__RegularValue>,
+    pub after: __RegularValue,
 }
 
 #[derive(Debug)]
@@ -22,7 +22,7 @@ pub enum MutationDataVariant {
     },
 }
 
-impl<'eval> MutationData<'eval> {
+impl MutationData {
     pub fn varidx(&self) -> VMStackIdx {
         match self.kind {
             MutationDataVariant::Exec => panic!(),

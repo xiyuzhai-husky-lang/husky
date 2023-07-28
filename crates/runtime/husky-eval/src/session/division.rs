@@ -6,14 +6,14 @@ use crate::*;
 // use super::cache::EvalCache;
 
 #[derive(Debug)]
-pub struct Division<'eval> {
-    loader: DataLoader<'eval>,
-    pub(crate) sheets: Vec<EvalSheet<'eval>>,
+pub struct Division {
+    loader: DataLoader,
+    pub(crate) sheets: Vec<EvalSheet>,
     pub(crate) indicators: Vec<FeatureEvalIndicator>,
 }
 
-impl<'eval> Division<'eval> {
-    pub fn new(loader: DataLoader<'eval>) -> Self {
+impl Division {
+    pub fn new(loader: DataLoader) -> Self {
         let mut sheets = vec![];
         let mut indicators = vec![];
         sheets.reserve_exact(loader.len());
@@ -28,7 +28,7 @@ impl<'eval> Division<'eval> {
         }
     }
 
-    pub fn load(&self, sample_id: SampleId) -> LabeledData<'eval> {
+    pub fn load(&self, sample_id: SampleId) -> LabeledData {
         self.loader.load(sample_id)
     }
 
@@ -36,7 +36,7 @@ impl<'eval> Division<'eval> {
         self.loader.label(sample_id)
     }
 
-    pub fn each_labeled_data<'a>(&'a self) -> impl Iterator<Item = LabeledData<'eval>> + 'a {
+    pub fn each_labeled_data<'a>(&'a self) -> impl Iterator<Item = LabeledData> + 'a {
         (0..self.loader.len())
             .into_iter()
             .map(|idx| self.loader.load(SampleId(idx)))
@@ -46,10 +46,10 @@ impl<'eval> Division<'eval> {
         &self,
         feature: Val,
         sample_id: SampleId,
-        value: &__Register<'static>,
-    ) -> __Register<'static>
+        value: &__RegularValue,
+    ) -> __RegularValue
     where
-        'eval: 'static,
+        'static: 'static,
     {
         let value = value.intrinsic_clone();
         self.sheets[sample_id.0]

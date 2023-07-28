@@ -6,7 +6,6 @@ pub struct TermMenu0 {
     universe1: TermUniverse,
     prop: TermCategory,
     ty0: TermCategory,
-    eval_lifetime: TermLiteral,
     static_lifetime: TermLiteral,
     unit: EtherealTerm,
     never: EtherealTerm,
@@ -84,7 +83,6 @@ impl TermMenu0 {
         let universe0 = TermUniverse::new(0);
         let universe1 = TermUniverse::new(1);
         TermMenu0 {
-            eval_lifetime: TermLiteral::EvalLifetime,
             static_lifetime: TermLiteral::StaticLifetime,
             universe0,
             universe1,
@@ -380,10 +378,6 @@ impl TermMenu0 {
 
     pub fn r64_ty_ontology(&self) -> EtherealTerm {
         self.r64_ty_ontology
-    }
-
-    pub fn eval_lifetime(&self) -> EtherealTerm {
-        self.eval_lifetime.into()
     }
 
     pub fn static_lifetime(&self) -> EtherealTerm {

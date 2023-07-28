@@ -3,7 +3,7 @@ use husky_vm::FrameKind;
 use super::*;
 
 impl<'a> TraceLineGenerator<'a> {
-    pub(crate) fn proc_stmt_tokens(&mut self, stmt: &ProcStmt, history: &Arc<History<'static>>) {
+    pub(crate) fn proc_stmt_tokens(&mut self, stmt: &ProcStmt, history: &Arc<History>) {
         match stmt.variant {
             ProcStmtVariant::Init {
                 varname,
@@ -67,7 +67,7 @@ impl<'a> TraceLineGenerator<'a> {
         &mut self,
         stmt: &ProcStmt,
         loop_variant: &LoopVariant,
-        history: &Arc<History<'static>>,
+        history: &Arc<History>,
     ) {
         match loop_variant {
             LoopVariant::For {
@@ -119,7 +119,7 @@ impl<'a> TraceLineGenerator<'a> {
         }
     }
 
-    fn initial_boundary_tokens(&mut self, boundary: &Boundary, history: &Arc<History<'static>>) {
+    fn initial_boundary_tokens(&mut self, boundary: &Boundary, history: &Arc<History>) {
         match boundary.opt_bound {
             Some(ref bound) => {
                 self.gen_eager_expr_tokens(bound, history, ExprTokenConfig::stmt());
@@ -134,7 +134,7 @@ impl<'a> TraceLineGenerator<'a> {
         }
     }
 
-    fn final_boundary_tokens(&mut self, boundary: &Boundary, history: &Arc<History<'static>>) {
+    fn final_boundary_tokens(&mut self, boundary: &Boundary, history: &Arc<History>) {
         match boundary.opt_bound {
             Some(ref bound) => {
                 self.render_special_token(
@@ -173,7 +173,7 @@ impl<'a> TraceLineGenerator<'a> {
         &mut self,
         stmt: &ProcStmt,
         branch: &ProcConditionFlowBranch,
-        history: &Arc<History<'static>>,
+        history: &Arc<History>,
     ) {
         match branch.variant {
             ProcConditionFlowBranchVariant::If { ref condition } => {

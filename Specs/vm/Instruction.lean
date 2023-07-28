@@ -1,4 +1,4 @@
-inductive InstructionVariant
+inductive InstructionData
   | PushVariable
     (stack_idx : VMStackIdx)
     (binding : Binding)
@@ -7,7 +7,7 @@ inductive InstructionVariant
     (varname : Ident)
     (explicit : Bool)  
   | PushLiteralValue 
-    (value : __Register)
+    (value : __RegularValue)
     (ty : EntityRoutePtr)
     (explicit : Bool)
   | CallRoutine 
@@ -28,7 +28,7 @@ inductive InstructionVariant
     (ty : EntityRoutePtr)
     (fields : List Ident)    
   | Loop
-    (body : InstructionSheet)
+    (body : Instructions)
     (loop_kind : VMLoopKind)
   | Return 
     (return_ty: EntityRoutePtr)
@@ -46,7 +46,7 @@ inductive InstructionVariant
   | PushEntityFp
     (opt_linkage: Option __Linkage)
     (ty: EntityRoutePtr)
-    (opt_instruction_sheet: Option InstructionSheet)
+    (opt_instruction_sheet: Option Instructions)
 
 structure Instruction where
-    variant : InstructionVariant
+    variant : InstructionData

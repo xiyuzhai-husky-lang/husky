@@ -7,17 +7,17 @@ impl Debugtime {
     pub(crate) fn routine_call_subtraces<A>(
         &mut self,
         parent: &Trace,
-        instruction_sheet: &InstructionSheet,
+        instruction_sheet: &Instructions,
         routine_defn: &Arc<EntityDefn>,
         arguments: &[A],
         argument_trace_gen: impl Fn(
             &mut Self,
             &A,
             &'static str,
-        ) -> (TraceId, Option<__VMResult<__Register<'static>>>),
+        ) -> (TraceId, Option<__VMResult<__RegularValue>>),
     ) -> Vec<TraceId> {
         if self.state.presentation().opt_sample_id().is_some() {
-            // let instruction_sheet: &InstructionSheet = opt_instruction_sheet.as_ref().unwrap();
+            // let instruction_sheet: &Instructions = opt_instruction_sheet.as_ref().unwrap();
             let mut subtraces = vec![];
             let mut func_input_values = vec![];
             subtraces.push(self.new_call_head_trace(parent, routine_defn.clone()));

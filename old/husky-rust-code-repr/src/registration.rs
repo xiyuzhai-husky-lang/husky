@@ -71,7 +71,7 @@ pub unsafe extern "C" fn __{ty}_eq(this: &std::ffi::c_void, other: &std::ffi::c_
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __{ty}_assign(registers: *mut __Register) {{
+pub unsafe extern "C" fn __{ty}_assign(registers: *mut __RegularValue) {{
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<{ty}>(&__{uppercase_ty}_VTABLE) = registers[1].downcast_{ty}()
 }}
@@ -91,7 +91,7 @@ pub static __{uppercase_ty}_VTABLE: __RegisterTyVTable = __RegisterTyVTable {{
 }};
 
 #[rustfmt::skip]
-impl<'eval> __Register<'eval> {{
+impl __RegularValue {{
     pub fn downcast_{ty}(&self) -> {ty} {{
         unsafe {{
             if self.vtable.typename_str_hash_u64 != {typename_str_hash_u64} {{
@@ -164,7 +164,7 @@ pub unsafe extern "C" fn __{snake_ty}_eq(this: &std::ffi::c_void, other: &std::f
 }}
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __{snake_ty}_assign(registers: *mut __Register) {{
+pub unsafe extern "C" fn __{snake_ty}_assign(registers: *mut __RegularValue) {{
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<{ty}>(&__{upper_snake_ty}_VTABLE) = registers[1].downcast_move(&__{upper_snake_ty}_VTABLE)
 }}

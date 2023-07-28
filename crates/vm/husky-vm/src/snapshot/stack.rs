@@ -1,19 +1,19 @@
 use crate::*;
 
 #[derive(Debug, Clone)]
-pub struct StackSnapshot<'eval> {
+pub struct StackSnapshot {
     pub message: String, // for debug
-    pub(crate) values: Vec<__Register<'eval>>,
+    pub(crate) values: Vec<__RegularValue>,
 }
 
-impl<'eval> StackSnapshot<'eval> {
+impl StackSnapshot {
     pub fn len(&self) -> usize {
         self.values.len()
     }
 }
 
-impl<'eval> From<&StackSnapshot<'eval>> for VMStack<'eval> {
-    fn from(val: &StackSnapshot<'eval>) -> Self {
+impl From<&StackSnapshot> for VMStack {
+    fn from(val: &StackSnapshot) -> Self {
         VMStack::new(
             val.values
                 .iter()
@@ -22,8 +22,8 @@ impl<'eval> From<&StackSnapshot<'eval>> for VMStack<'eval> {
     }
 }
 
-impl<'eval> std::ops::Index<VMStackIdx> for StackSnapshot<'eval> {
-    type Output = __Register<'eval>;
+impl std::ops::Index<VMStackIdx> for StackSnapshot {
+    type Output = __RegularValue;
 
     fn index(&self, index: VMStackIdx) -> &Self::Output {
         &self.values[index.raw()]

@@ -4,8 +4,8 @@ impl Debugtime {
     pub(crate) fn func_branch_subtraces(
         &mut self,
         stmts: &[Arc<FuncStmt>],
-        instruction_sheet: &InstructionSheet,
-        stack_snapshot: &StackSnapshot<'static>,
+        instruction_sheet: &Instructions,
+        stack_snapshot: &StackSnapshot,
         parent: &Trace,
     ) -> Vec<TraceId> {
         let sample_id = self.state.presentation().opt_sample_id().unwrap();

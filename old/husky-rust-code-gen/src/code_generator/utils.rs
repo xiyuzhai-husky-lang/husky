@@ -13,7 +13,7 @@ impl<'a> RustCodeGenerator<'a> {
         //             self.write("&")
         //         }
         //     }
-        //     ParameterModifier::Leash => self.write("&'eval "),
+        //     ParameterModifier::Leash => self.write("&'static "),
         //     ParameterModifier::Owned => (),
         //     ParameterModifier::TempRefMut => self.write("&mut "),
         //     ParameterModifier::OwnedMut => todo!(),

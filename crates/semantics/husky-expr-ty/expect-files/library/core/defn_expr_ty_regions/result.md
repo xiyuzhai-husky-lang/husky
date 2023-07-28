@@ -131,9 +131,7 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [],
-                    },
+                    entries: [],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],
@@ -314,58 +312,40 @@
         fluffy_term_region: FluffyTermRegion {
             terms: FluffyTerms {
                 solid_terms: SolidTerms {
-                    entries: VecSet {
-                        data: [
-                            TypeOntologyAtPlace {
-                                path: TypePath(
-                                    Id {
-                                        value: 31,
+                    entries: [
+                        SolidTermData::TypeOntologyAtPlace {
+                            path: TypePath(`core::result::Result`, `Enum`),
+                            refined_path: Right(
+                                CustomTypePath(
+                                    TypePath(`core::result::Result`, `Enum`),
+                                ),
+                            ),
+                            arguments: [
+                                FluffyTerm::Symbol(
+                                    EtherealTermSymbol {
+                                        ty: EtherealTerm(`Type`),
+                                        idx: 1,
                                     },
                                 ),
-                                refined_path: Right(
-                                    CustomTypePath(
-                                        TypePath(
-                                            Id {
-                                                value: 31,
-                                            },
-                                        ),
+                                FluffyTerm::Symbol(
+                                    EtherealTermSymbol {
+                                        ty: EtherealTerm(`Type`),
+                                        idx: 3,
+                                    },
+                                ),
+                            ],
+                            base_ty_term: Some(
+                                EtherealTerm(`Result t s`),
+                            ),
+                            place: StackPure {
+                                location: StackLocationIdx(
+                                    LocalSymbolIdx(
+                                        4,
                                     ),
                                 ),
-                                arguments: [
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 3,
-                                            },
-                                        ),
-                                    ),
-                                    Symbol(
-                                        EtherealTermSymbol(
-                                            Id {
-                                                value: 4,
-                                            },
-                                        ),
-                                    ),
-                                ],
-                                base_ty_term: Some(
-                                    Application(
-                                        EtherealTermApplication(
-                                            Id {
-                                                value: 23,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                place: StackPure {
-                                    location: StackLocationIdx(
-                                        LocalSymbolIdx(
-                                            4,
-                                        ),
-                                    ),
-                                },
                             },
-                        ],
-                    },
+                        },
+                    ],
                 },
                 hollow_terms: HollowTerms {
                     entries: [],

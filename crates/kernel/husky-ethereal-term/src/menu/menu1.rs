@@ -3,7 +3,6 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct TermMenu1 {
     parent: TermMenu0,
-    eval_ref_ty: EtherealTerm,
     static_ref_ty: EtherealTerm,
     explicit_invariant_ty0_to_trai_ty: EtherealTermCurry,
     explicit_covariant_ty0_to_ty0: EtherealTermCurry,
@@ -23,17 +22,10 @@ impl TermMenu1 {
     pub fn new(db: &dyn EtherealTermDb, _toolchain: Toolchain, menu0: TermMenu0) -> Self {
         // todo!()
         Self {
-            eval_ref_ty: EtherealTermApplication::new(
-                db,
-                menu0.ref_ty_path().into(),
-                menu0.eval_lifetime().into(),
-            )
-            .unwrap()
-            .into(),
             static_ref_ty: EtherealTermApplication::new(
                 db,
-                menu0.ref_ty_path(),
-                menu0.static_lifetime(),
+                menu0.ref_ty_path().into(),
+                menu0.static_lifetime().into(),
             )
             .unwrap()
             .into(),
@@ -71,10 +63,6 @@ impl TermMenu1 {
             ),
             parent: menu0,
         }
-    }
-
-    pub fn eval_ref_ty(&self) -> EtherealTerm {
-        self.eval_ref_ty
     }
 
     pub fn static_ref_ty(&self) -> EtherealTerm {

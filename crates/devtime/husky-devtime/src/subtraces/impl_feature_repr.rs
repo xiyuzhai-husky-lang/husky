@@ -35,7 +35,7 @@ impl Debugtime {
         parent: &Trace,
         feature_block: &FeatureFuncBody,
     ) -> Option<Vec<TraceId>> {
-        let instruction_sheet: &InstructionSheet = &feature_block.instruction_sheet;
+        let instruction_sheet: &Instructions = &feature_block.instruction_sheet;
         let mut arguments = vec![];
         let sample_id = self.state.presentation().opt_sample_id()?;
         if let Some(ref this_repr) = feature_block.opt_this {
@@ -66,7 +66,7 @@ impl Debugtime {
         parent: &Trace,
         feature_block: &FeatureProcBody,
     ) -> Option<Vec<TraceId>> {
-        let instruction_sheet: &InstructionSheet = &feature_block.instruction_sheet;
+        let instruction_sheet: &Instructions = &feature_block.instruction_sheet;
         let mut arguments = vec![];
         let sample_id = self.state.presentation().opt_sample_id()?;
         if let Some(ref this_repr) = feature_block.opt_this {

@@ -4,7 +4,7 @@ impl Debugtime {
     pub(crate) fn proc_stmt_figure(
         &self,
         stmt: &ProcStmt,
-        history: &History<'static>,
+        history: &History,
     ) -> SpecificFigureCanvasData {
         match stmt.variant {
             ProcStmtVariant::Init {
@@ -100,10 +100,7 @@ impl Debugtime {
         SpecificFigureCanvasData::Mutations { mutations }
     }
 
-    pub fn mutations_figure(
-        &self,
-        mutations: &[MutationData<'static>],
-    ) -> SpecificFigureCanvasData {
+    pub fn mutations_figure(&self, mutations: &[MutationData]) -> SpecificFigureCanvasData {
         SpecificFigureCanvasData::Mutations {
             mutations: mutations
                 .iter()
@@ -113,11 +110,7 @@ impl Debugtime {
         }
     }
 
-    fn mutation_figure(
-        &self,
-        idx: usize,
-        mutation_data: &MutationData<'static>,
-    ) -> MutationFigureData {
+    fn mutation_figure(&self, idx: usize, mutation_data: &MutationData) -> MutationFigureData {
         MutationFigureData {
             name: match mutation_data.kind {
                 MutationDataVariant::Exec => {

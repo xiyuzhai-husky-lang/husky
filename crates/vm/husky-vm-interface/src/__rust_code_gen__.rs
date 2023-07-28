@@ -50,7 +50,7 @@ pub unsafe extern "C" fn __void_eq(this: &std::ffi::c_void, other: &std::ffi::c_
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __void_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __void_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<void>(&__VOID_VTABLE) = registers[1].downcast_void()
 }
@@ -70,7 +70,7 @@ pub static __VOID_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 #[rustfmt::skip]
-impl<'eval> __Register<'eval> {
+impl __RegularValue {
     pub fn downcast_void(&self) -> void {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 8073556201194512886 {
@@ -151,7 +151,7 @@ pub unsafe extern "C" fn __bool_eq(this: &std::ffi::c_void, other: &std::ffi::c_
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __bool_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __bool_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<bool>(&__BOOL_VTABLE) = registers[1].downcast_bool()
 }
@@ -171,7 +171,7 @@ pub static __BOOL_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 #[rustfmt::skip]
-impl<'eval> __Register<'eval> {
+impl __RegularValue {
     pub fn downcast_bool(&self) -> bool {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 729807561129781588 {
@@ -252,7 +252,7 @@ pub unsafe extern "C" fn __i32_eq(this: &std::ffi::c_void, other: &std::ffi::c_v
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i32_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __i32_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<i32>(&__I32_VTABLE) = registers[1].downcast_i32()
 }
@@ -272,7 +272,7 @@ pub static __I32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 #[rustfmt::skip]
-impl<'eval> __Register<'eval> {
+impl __RegularValue {
     pub fn downcast_i32(&self) -> i32 {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 6639413044669031007 {
@@ -353,7 +353,7 @@ pub unsafe extern "C" fn __i64_eq(this: &std::ffi::c_void, other: &std::ffi::c_v
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __i64_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __i64_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<i64>(&__I64_VTABLE) = registers[1].downcast_i64()
 }
@@ -373,7 +373,7 @@ pub static __I64_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 #[rustfmt::skip]
-impl<'eval> __Register<'eval> {
+impl __RegularValue {
     pub fn downcast_i64(&self) -> i64 {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 9204872793588273300 {
@@ -454,7 +454,7 @@ pub unsafe extern "C" fn __r32_eq(this: &std::ffi::c_void, other: &std::ffi::c_v
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __r32_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __r32_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<r32>(&__B32_VTABLE) = registers[1].downcast_r32()
 }
@@ -474,7 +474,7 @@ pub static __B32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 #[rustfmt::skip]
-impl<'eval> __Register<'eval> {
+impl __RegularValue {
     pub fn downcast_r32(&self) -> r32 {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 9758498138566595375 {
@@ -555,7 +555,7 @@ pub unsafe extern "C" fn __b64_eq(this: &std::ffi::c_void, other: &std::ffi::c_v
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __b64_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __b64_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<b64>(&__B64_VTABLE) = registers[1].downcast_b64()
 }
@@ -575,7 +575,7 @@ pub static __B64_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 #[rustfmt::skip]
-impl<'eval> __Register<'eval> {
+impl __RegularValue {
     pub fn downcast_b64(&self) -> b64 {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 11108470303398574121 {
@@ -656,7 +656,7 @@ pub unsafe extern "C" fn __f32_eq(this: &std::ffi::c_void, other: &std::ffi::c_v
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f32_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __f32_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<f32>(&__F32_VTABLE) = registers[1].downcast_f32()
 }
@@ -676,7 +676,7 @@ pub static __F32_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 #[rustfmt::skip]
-impl<'eval> __Register<'eval> {
+impl __RegularValue {
     pub fn downcast_f32(&self) -> f32 {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 211483071870485656 {
@@ -757,7 +757,7 @@ pub unsafe extern "C" fn __f64_eq(this: &std::ffi::c_void, other: &std::ffi::c_v
 
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __f64_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __f64_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<f64>(&__F64_VTABLE) = registers[1].downcast_f64()
 }
@@ -777,7 +777,7 @@ pub static __F64_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 };
 
 #[rustfmt::skip]
-impl<'eval> __Register<'eval> {
+impl __RegularValue {
     pub fn downcast_f64(&self) -> f64 {
         unsafe {
             if self.vtable.typename_str_hash_u64 != 14456281901843390161 {
@@ -833,7 +833,7 @@ pub unsafe extern "C" fn __virtual_function_eq(this: &std::ffi::c_void, other: &
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_function_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __virtual_function_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<__VirtualFunction>(&__VIRTUAL_FUNCTION_VTABLE) = registers[1].downcast_move(&__VIRTUAL_FUNCTION_VTABLE)
 }
@@ -869,7 +869,7 @@ pub unsafe extern "C" fn __virtual_enum_eq(this: &std::ffi::c_void, other: &std:
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __virtual_enum_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __virtual_enum_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<__VirtualEnum>(&__VIRTUAL_ENUM_VTABLE) = registers[1].downcast_move(&__VIRTUAL_ENUM_VTABLE)
 }
@@ -891,7 +891,7 @@ pub static __VIRTUAL_ENUM_VTABLE: __RegisterTyVTable = __RegisterTyVTable {
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, Output: __StaticInfo> __StaticInfo for fn(
+impl<Output: __StaticInfo> __StaticInfo for fn(
 ) -> Output {
     type __StaticSelf = fn(
     ) -> <Output as __StaticInfo>::__StaticSelf;
@@ -907,7 +907,7 @@ impl<'eval, Output: __StaticInfo> __StaticInfo for fn(
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, Output: __StaticInfo> const ThinFp
+impl<Output: __StaticInfo> const ThinFp
     for fn() -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -919,7 +919,7 @@ impl<'eval, Output: __StaticInfo> const ThinFp
 impl<Output: __StaticInfo> const __BaseThinFp
     for fn() -> Output {
     type __CtxThinFp = fn(
-        &dyn __EvalContext<'static>
+        &dyn __EvalContext
     ) -> Output;
 }
 
@@ -927,9 +927,9 @@ impl<Output: __StaticInfo> const __BaseThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, Output: __StaticInfo> __StaticInfo
+impl<Output: __StaticInfo> __StaticInfo
     for fn(
-        &dyn __EvalContext<'eval>
+        &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
     ) -> <Output as __StaticInfo>::__StaticSelf;
@@ -945,9 +945,9 @@ impl<'eval, Output: __StaticInfo> __StaticInfo
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, Output: __StaticInfo> const ThinFp
+impl<Output: __StaticInfo> const ThinFp
     for fn(
-        &dyn __EvalContext<'eval>
+        &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -956,16 +956,16 @@ impl<'eval, Output: __StaticInfo> const ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, Output: __StaticInfo> const __CtxThinFp
+impl<Output: __StaticInfo> const __CtxThinFp
     for fn(
-        &dyn __EvalContext<'eval>
+        &dyn __EvalContext
     ) -> Output {}
 
 // base
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0
+impl<A0: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0
 ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -982,7 +982,7 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -995,7 +995,7 @@ impl<A0: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
     for fn(A0) -> Output {
     type __CtxThinFp = fn(
         
-        <A0 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
+        <A0 as __StaticInfo>::__StaticSelf, &dyn __EvalContext
     ) -> Output;
 }
 
@@ -1003,9 +1003,9 @@ impl<A0: __StaticInfo, Output: __StaticInfo> const __BaseThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo
+impl<A0: __StaticInfo, Output: __StaticInfo> __StaticInfo
     for fn(
-        A0, &dyn __EvalContext<'eval>
+        A0, &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1022,9 +1022,9 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> __StaticInfo
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
-        A0, &dyn __EvalContext<'eval>
+        A0, &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1033,16 +1033,16 @@ impl<'eval, A0: __StaticInfo, Output: __StaticInfo> const ThinFp
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
+impl<A0: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
     for fn(
-        A0, &dyn __EvalContext<'eval>
+        A0, &dyn __EvalContext
     ) -> Output {}
 
 // base
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1
+impl<A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1
 ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1060,7 +1060,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1074,7 +1074,7 @@ impl<A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const __BaseThinF
     type __CtxThinFp = fn(
         
         <A0 as __StaticInfo>::__StaticSelf, 
-        <A1 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
+        <A1 as __StaticInfo>::__StaticSelf, &dyn __EvalContext
     ) -> Output;
 }
 
@@ -1082,9 +1082,9 @@ impl<A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const __BaseThinF
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticInfo
+impl<A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticInfo
     for fn(
-        A0, A1, &dyn __EvalContext<'eval>
+        A0, A1, &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1102,9 +1102,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
-        A0, A1, &dyn __EvalContext<'eval>
+        A0, A1, &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1113,16 +1113,16 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const Thin
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
     for fn(
-        A0, A1, &dyn __EvalContext<'eval>
+        A0, A1, &dyn __EvalContext
     ) -> Output {}
 
 // base
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2
 ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1141,7 +1141,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1156,7 +1156,7 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo>
         
         <A0 as __StaticInfo>::__StaticSelf, 
         <A1 as __StaticInfo>::__StaticSelf, 
-        <A2 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
+        <A2 as __StaticInfo>::__StaticSelf, &dyn __EvalContext
     ) -> Output;
 }
 
@@ -1164,9 +1164,9 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo>
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> __StaticInfo
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> __StaticInfo
     for fn(
-        A0, A1, A2, &dyn __EvalContext<'eval>
+        A0, A1, A2, &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1185,9 +1185,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
-        A0, A1, A2, &dyn __EvalContext<'eval>
+        A0, A1, A2, &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1196,16 +1196,16 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __Stat
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
     for fn(
-        A0, A1, A2, &dyn __EvalContext<'eval>
+        A0, A1, A2, &dyn __EvalContext
     ) -> Output {}
 
 // base
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3
 ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1225,7 +1225,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1241,7 +1241,7 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Out
         <A0 as __StaticInfo>::__StaticSelf, 
         <A1 as __StaticInfo>::__StaticSelf, 
         <A2 as __StaticInfo>::__StaticSelf, 
-        <A3 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
+        <A3 as __StaticInfo>::__StaticSelf, &dyn __EvalContext
     ) -> Output;
 }
 
@@ -1249,9 +1249,9 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Out
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> __StaticInfo
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> __StaticInfo
     for fn(
-        A0, A1, A2, A3, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1271,9 +1271,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
-        A0, A1, A2, A3, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1282,16 +1282,16 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
     for fn(
-        A0, A1, A2, A3, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, &dyn __EvalContext
     ) -> Output {}
 
 // base
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4
 ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1312,7 +1312,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1329,7 +1329,7 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
         <A1 as __StaticInfo>::__StaticSelf, 
         <A2 as __StaticInfo>::__StaticSelf, 
         <A3 as __StaticInfo>::__StaticSelf, 
-        <A4 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
+        <A4 as __StaticInfo>::__StaticSelf, &dyn __EvalContext
     ) -> Output;
 }
 
@@ -1337,9 +1337,9 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> __StaticInfo
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> __StaticInfo
     for fn(
-        A0, A1, A2, A3, A4, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1360,9 +1360,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
-        A0, A1, A2, A3, A4, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1371,16 +1371,16 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
     for fn(
-        A0, A1, A2, A3, A4, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, &dyn __EvalContext
     ) -> Output {}
 
 // base
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5
 ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1402,7 +1402,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1420,7 +1420,7 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
         <A2 as __StaticInfo>::__StaticSelf, 
         <A3 as __StaticInfo>::__StaticSelf, 
         <A4 as __StaticInfo>::__StaticSelf, 
-        <A5 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
+        <A5 as __StaticInfo>::__StaticSelf, &dyn __EvalContext
     ) -> Output;
 }
 
@@ -1428,9 +1428,9 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> __StaticInfo
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> __StaticInfo
     for fn(
-        A0, A1, A2, A3, A4, A5, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1452,9 +1452,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
-        A0, A1, A2, A3, A4, A5, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1463,16 +1463,16 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
     for fn(
-        A0, A1, A2, A3, A4, A5, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, &dyn __EvalContext
     ) -> Output {}
 
 // base
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6
 ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1495,7 +1495,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1514,7 +1514,7 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
         <A3 as __StaticInfo>::__StaticSelf, 
         <A4 as __StaticInfo>::__StaticSelf, 
         <A5 as __StaticInfo>::__StaticSelf, 
-        <A6 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
+        <A6 as __StaticInfo>::__StaticSelf, &dyn __EvalContext
     ) -> Output;
 }
 
@@ -1522,9 +1522,9 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> __StaticInfo
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> __StaticInfo
     for fn(
-        A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1547,9 +1547,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
-        A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1558,16 +1558,16 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
     for fn(
-        A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, A6, &dyn __EvalContext
     ) -> Output {}
 
 // base
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7
 ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1591,7 +1591,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1611,7 +1611,7 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
         <A4 as __StaticInfo>::__StaticSelf, 
         <A5 as __StaticInfo>::__StaticSelf, 
         <A6 as __StaticInfo>::__StaticSelf, 
-        <A7 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
+        <A7 as __StaticInfo>::__StaticSelf, &dyn __EvalContext
     ) -> Output;
 }
 
@@ -1619,9 +1619,9 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> __StaticInfo
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> __StaticInfo
     for fn(
-        A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1645,9 +1645,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
-        A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1656,16 +1656,16 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
     for fn(
-        A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, A6, A7, &dyn __EvalContext
     ) -> Output {}
 
 // base
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> __StaticInfo for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8
 ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1690,7 +1690,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(A0, A1, A2, A3, A4, A5, A6, A7, A8) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1711,7 +1711,7 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
         <A5 as __StaticInfo>::__StaticSelf, 
         <A6 as __StaticInfo>::__StaticSelf, 
         <A7 as __StaticInfo>::__StaticSelf, 
-        <A8 as __StaticInfo>::__StaticSelf, &dyn __EvalContext<'static>
+        <A8 as __StaticInfo>::__StaticSelf, &dyn __EvalContext
     ) -> Output;
 }
 
@@ -1719,9 +1719,9 @@ impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4:
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> __StaticInfo
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> __StaticInfo
     for fn(
-        A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext
     ) -> Output {
     type __StaticSelf = fn(
         <A0 as __StaticInfo>::__StaticSelf, 
@@ -1746,9 +1746,9 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> const ThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> const ThinFp
     for fn(
-        A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext
     ) -> Output {
     fn __to_void_pointer(self) -> *const c_void {
         self as *const c_void
@@ -1757,7 +1757,7 @@ impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticIn
 
 #[cfg(feature = "thin_fp")]
 #[rustfmt::skip]
-impl<'eval, A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
+impl<A0: __StaticInfo, A1: __StaticInfo, A2: __StaticInfo, A3: __StaticInfo, A4: __StaticInfo, A5: __StaticInfo, A6: __StaticInfo, A7: __StaticInfo, A8: __StaticInfo, Output: __StaticInfo> const __CtxThinFp
     for fn(
-        A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext<'eval>
+        A0, A1, A2, A3, A4, A5, A6, A7, A8, &dyn __EvalContext
     ) -> Output {}

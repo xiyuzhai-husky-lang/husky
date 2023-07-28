@@ -7,8 +7,8 @@ type void = ();
 type r32 = u32;
 type b64 = u64;
 
-    use husky_trace_protocol::VisualData;
-    
+use husky_trace_protocol::VisualData;
+
 // DeprecatedVirtualStruct
 #[rustfmt::skip]
 #[no_mangle]
@@ -27,7 +27,7 @@ pub unsafe extern "C" fn __deprecated_virtual_struct_eq(this: &std::ffi::c_void,
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __deprecated_virtual_struct_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __deprecated_virtual_struct_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<DeprecatedVirtualStruct>(&__DEPRECATED_VIRTUAL_STRUCT_VTABLE) = registers[1].downcast_move(&__DEPRECATED_VIRTUAL_STRUCT_VTABLE)
 }
@@ -63,7 +63,7 @@ pub unsafe extern "C" fn __deprecated_virtual_vec_eq(this: &std::ffi::c_void, ot
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __deprecated_virtual_vec_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __deprecated_virtual_vec_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<DeprecatedVirtualVec>(&__DEPRECATED_VIRTUAL_VEC_VTABLE) = registers[1].downcast_move(&__DEPRECATED_VIRTUAL_VEC_VTABLE)
 }
@@ -99,7 +99,7 @@ pub unsafe extern "C" fn __deprecated_virtual_cyclic_slice_eq(this: &std::ffi::c
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __deprecated_virtual_cyclic_slice_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __deprecated_virtual_cyclic_slice_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<DeprecatedVirtualCyclicSlice>(&__DEPRECATED_VIRTUAL_CYCLIC_SLICE_VTABLE) = registers[1].downcast_move(&__DEPRECATED_VIRTUAL_CYCLIC_SLICE_VTABLE)
 }
@@ -135,7 +135,7 @@ pub unsafe extern "C" fn __visual_data_eq(this: &std::ffi::c_void, other: &std::
 }
 #[rustfmt::skip]
 #[no_mangle]
-pub unsafe extern "C" fn __visual_data_assign(registers: *mut __Register) {
+pub unsafe extern "C" fn __visual_data_assign(registers: *mut __RegularValue) {
     let registers = std::slice::from_raw_parts_mut(registers, 2);
     *registers[0].downcast_temp_mut::<VisualData>(&__VISUAL_DATA_VTABLE) = registers[1].downcast_move(&__VISUAL_DATA_VTABLE)
 }

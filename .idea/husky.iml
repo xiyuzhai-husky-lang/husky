@@ -107,7 +107,7 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-eval/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-val-repr/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-feature-protocol/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/crates/runtime/husky-instruction-gen/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/comptime/husky-instruction/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-accessibility/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-ast/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/syntax/husky-ast/tests" isTestSource="true" />

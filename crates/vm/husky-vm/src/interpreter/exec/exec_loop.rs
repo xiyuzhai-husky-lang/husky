@@ -1,11 +1,11 @@
 use crate::*;
 
-impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
+impl<'temp> Interpreter<'temp> {
     pub(super) fn exec_loop_fast(
         &mut self,
         loop_kind: VMLoopKind,
-        body: &InstructionSheet,
-    ) -> VMControl<'eval> {
+        body: &Instructions,
+    ) -> VMControl {
         self.exec_loop(loop_kind, body, |_| (), |_, _, _| (), Mode::Fast)
             .into()
     }
@@ -13,8 +13,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn exec_loop_tracking_mutation(
         &mut self,
         loop_kind: VMLoopKind,
-        body: &InstructionSheet,
-    ) -> VMControl<'eval> {
+        body: &Instructions,
+    ) -> VMControl {
         self.exec_loop(loop_kind, body, |_| (), |_, _, _| (), Mode::TrackMutation)
             .into()
     }
@@ -22,8 +22,8 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(crate) fn exec_loop_tracking_frame(
         &mut self,
         loop_kind: VMLoopKind,
-        body: &InstructionSheet,
-    ) -> VMControl<'eval> {
+        body: &Instructions,
+    ) -> VMControl {
         self.exec_loop(
             loop_kind,
             body,
@@ -46,11 +46,11 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
     pub(super) fn exec_loop(
         &mut self,
         loop_kind: VMLoopKind,
-        body: &InstructionSheet,
+        body: &Instructions,
         exec_before_each_frame: impl Fn(&mut Self),
-        exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl<'eval>),
+        exec_after_each_frame: impl Fn(&mut Self, i32, &VMControl),
         mode: Mode,
-    ) -> __VMResult<VMControl<'eval>> {
+    ) -> __VMResult<VMControl> {
         let control = match loop_kind {
             VMLoopKind::For {
                 initial_boundary_kind,

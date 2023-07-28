@@ -2,6 +2,7 @@ use super::*;
 use idx_arena::{Arena, ArenaIdx, OptionArenaIdx};
 
 #[derive(Default, Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub struct Expectations {
     arena: Arena<ExpectationEntry>,
     first_unresolved_expectation: usize,

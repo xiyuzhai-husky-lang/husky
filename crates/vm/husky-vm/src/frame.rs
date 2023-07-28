@@ -2,10 +2,10 @@ use crate::*;
 use husky_coword::Ident;
 
 #[derive(Debug)]
-pub struct LoopFrameData<'eval> {
-    pub stack_snapshot: StackSnapshot<'eval>,
-    pub mutations: Vec<MutationData<'eval>>,
-    pub control: ControlSnapshot<'eval>,
+pub struct LoopFrameData {
+    pub stack_snapshot: StackSnapshot,
+    pub mutations: Vec<MutationData>,
+    pub control: ControlSnapshot,
     pub frame_var_value: i32,
     pub frame_kind: FrameKind,
 }

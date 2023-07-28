@@ -25,7 +25,7 @@ pub struct DeveloperGuiContext {
     // ws
     pub(crate) ws: WebsocketService,
     // visibility
-    pub(crate) visibility: Scope<'static>,
+    pub(crate) visibility: Scope,
     // hidden state
     pub(crate) window_inner_height: &'static Signal<f64>,
     pub(crate) window_inner_width: &'static Signal<f64>,
@@ -50,10 +50,10 @@ pub struct DeveloperGuiContext {
 }
 
 impl DeveloperGuiContext {
-    pub fn new_ref(visibility: Scope<'static>) -> &'static DeveloperGuiContext {
+    pub fn new_ref(visibility: Scope) -> &'static DeveloperGuiContext {
         let (mut ws, mut server_notification_receiver) = WebsocketService::new();
         let context = unsafe {
-            as_static_ref(provide_context(
+            as_leash(provide_context(
                 visibility,
                 DeveloperGuiContext::new(visibility, ws),
             ))
@@ -62,7 +62,7 @@ impl DeveloperGuiContext {
         context
     }
 
-    fn new(visibility: Scope<'static>, ws: WebsocketService) -> DeveloperGuiContext {
+    fn new(visibility: Scope, ws: WebsocketService) -> DeveloperGuiContext {
         let window = web_sys::window().unwrap();
         let window_inner_height =
             create_signal(visibility, window.inner_height().unwrap().as_f64().unwrap());

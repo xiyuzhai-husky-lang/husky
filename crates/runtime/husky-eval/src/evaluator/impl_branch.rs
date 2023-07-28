@@ -1,20 +1,20 @@
 use super::*;
 use crate::*;
 
-impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
+impl<'a, 'static: 'a> FeatureEvaluator<'a> {
     pub(crate) fn eval_lazy_branch(
         &self,
         branch: &FeatureLazyBranch,
-    ) -> __VMResult<__Register<'eval>> {
+    ) -> __VMResult<__RegularValue> {
         match branch.variant {
             FeatureLazyBranchVariant::If { ref condition } => {
                 if !self.eval_expr(condition)?.downcast_bool() {
-                    return Ok(__Register::unreturned());
+                    return Ok(__RegularValue::unreturned());
                 }
             }
             FeatureLazyBranchVariant::Elif { ref condition } => {
                 if !self.eval_expr(condition)?.downcast_bool() {
-                    return Ok(__Register::unreturned());
+                    return Ok(__RegularValue::unreturned());
                 }
             }
             FeatureLazyBranchVariant::Else => (),

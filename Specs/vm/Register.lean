@@ -1,1 +1,1 @@
-structure __Register
+structure __RegularValue

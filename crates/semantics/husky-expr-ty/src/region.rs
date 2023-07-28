@@ -100,6 +100,7 @@ pub(crate) fn expr_ty_region(
     engine.finish()
 }
 
+#[salsa::derive_debug_with_db(db = FluffyTermDb)]
 pub(crate) struct PatternExprTypeInfo {
     ty: PatternExprTypeResult<FluffyTerm>,
 }

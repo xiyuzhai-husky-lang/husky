@@ -1,4 +1,4 @@
-use husky_vm::InstructionVariant;
+use husky_vm::InstructionData;
 
 use crate::*;
 
@@ -8,7 +8,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             HtmlExprVariant::Value(ref value_expr) => {
                 self.compile_eager_expr(value_expr, self.sheet.variable_stack.next_stack_idx());
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::NewHtmlFromValue {
+                    InstructionData::NewHtmlFromValue {
                         ty: value_expr.ty(),
                     },
                     expr,
@@ -25,7 +25,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     )
                 }
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::NewHtmlFromTag {
+                    InstructionData::NewHtmlFromTag {
                         tag_kind,
                         props: props.keys().collect(),
                         n_child_expr: 0,

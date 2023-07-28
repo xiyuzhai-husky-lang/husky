@@ -19,7 +19,7 @@
 // use husky_ethereal_term::EtherealTerm;
 // use husky_text::TextRange;
 // use husky_trace_protocol::*;
-// use husky_vm::{History, HistoryEntry, InstructionSheet, LoopFrameData, VMConditionBranch};
+// use husky_vm::{History, HistoryEntry, Instructions, LoopFrameData, VMConditionBranch};
 // use serde::Serialize;
 // use std::sync::Arc;
 
@@ -52,40 +52,40 @@
 //     },
 //     FuncStmt {
 //         stmt: Arc<FuncStmt>,
-//         history: Arc<History<'static>>,
+//         history: Arc<History>,
 //     },
 //     ProcStmt {
 //         stmt: Arc<ProcStmt>,
-//         history: Arc<History<'static>>,
+//         history: Arc<History>,
 //     },
 //     ProcBranch {
 //         stmt: Arc<ProcStmt>,
 //         branch: Arc<ProcConditionFlowBranch>,
 //         opt_vm_branch: Option<Arc<VMConditionBranch>>, // not none when executed
 //         branch_idx: u8,
-//         history: Arc<History<'static>>,
+//         history: Arc<History>,
 //     },
 //     FuncBranch {
 //         stmt: Arc<FuncStmt>,
 //         branch: Arc<FuncConditionFlowBranch>,
 //         opt_vm_branch: Option<Arc<VMConditionBranch>>, // not none when executed
 //         branch_idx: u8,
-//         history: Arc<History<'static>>,
+//         history: Arc<History>,
 //     },
 //     LoopFrame {
 //         loop_stmt: Arc<ProcStmt>,
-//         body_instruction_sheet: Arc<InstructionSheet>,
+//         body_instruction_sheet: Instructions,
 //         body_stmts: Arc<Vec<Arc<ProcStmt>>>,
-//         loop_frame_data: LoopFrameData<'static>,
+//         loop_frame_data: LoopFrameData,
 //     },
 //     EagerExpr {
 //         expr: Arc<EagerExpr>,
-//         history: Arc<History<'static>>,
+//         history: Arc<History>,
 //     },
 //     EagerCallArgument {
 //         name: &'static str,
 //         argument: Arc<EagerExpr>,
-//         history: Arc<History<'static>>,
+//         history: Arc<History>,
 //     },
 //     CallHead {
 //         item: Arc<EntityDefn>,

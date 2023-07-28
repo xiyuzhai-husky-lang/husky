@@ -36,8 +36,8 @@ impl __StaticInfo for __VirtualFunction {
     }
 }
 
-impl<'eval> __Registrable<'eval> for __VirtualFunction {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        __Register::new_box(self, &__VIRTUAL_FUNCTION_VTABLE)
+impl __Registrable for __VirtualFunction {
+    unsafe fn __to_register(self) -> __RegularValue {
+        __RegularValue::new_box(self, &__VIRTUAL_FUNCTION_VTABLE)
     }
 }

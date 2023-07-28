@@ -1,7 +1,7 @@
 use crate::*;
 use avec::Avec;
 use husky_primitive_literal_semantics::convert_primitive_literal_to_register;
-use husky_vm::{Instruction, InstructionVariant, VMConditionBranch, VMPattern, VMPatternBranch};
+use husky_vm::{Instruction, InstructionData, VMConditionBranch, VMPattern, VMPatternBranch};
 
 impl<'a> InstructionSheetBuilder<'a> {
     pub(super) fn compile_func_stmts(&mut self, stmts: &[Arc<FuncStmt>]) {
@@ -29,7 +29,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     self.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                self.push_instruction(Instruction::new(InstructionVariant::Assert, stmt))
+                self.push_instruction(Instruction::new(InstructionData::Assert, stmt))
             }
             FuncStmtVariant::Require { ref condition, .. } => {
                 self.compile_eager_expr(
@@ -37,12 +37,12 @@ impl<'a> InstructionSheetBuilder<'a> {
                     self.sheet.variable_stack.next_stack_idx(),
                     false,
                 );
-                self.push_instruction(Instruction::new(InstructionVariant::Require, stmt))
+                self.push_instruction(Instruction::new(InstructionData::Require, stmt))
             }
             FuncStmtVariant::Return { ref result, .. } => {
                 self.compile_eager_expr(result, self.sheet.variable_stack.next_stack_idx(), false);
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::Return {
+                    InstructionData::Return {
                         return_ty: result.intrinsic_ty(),
                     },
                     stmt,
@@ -50,7 +50,7 @@ impl<'a> InstructionSheetBuilder<'a> {
             }
             FuncStmtVariant::ConditionFlow { ref branches } => {
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::ConditionFlow {
+                    InstructionData::ConditionFlow {
                         branches: self.compile_func_condition_flow(branches),
                     },
                     stmt,
@@ -66,7 +66,7 @@ impl<'a> InstructionSheetBuilder<'a> {
                     false,
                 );
                 self.push_instruction(Instruction::new(
-                    InstructionVariant::PatternMatch {
+                    InstructionData::PatternMatch {
                         branches: self.compile_func_pattern_match(branches),
                     },
                     stmt,
@@ -78,7 +78,7 @@ impl<'a> InstructionSheetBuilder<'a> {
     fn compile_func_condition_flow(
         &self,
         branches: &[Arc<FuncConditionFlowBranch>],
-    ) -> Avec<VMConditionBranch> {
+    ) -> VMConditionBranchs {
         Arc::new(
             branches
                 .iter()

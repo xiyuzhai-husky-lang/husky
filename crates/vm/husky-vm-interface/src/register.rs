@@ -15,13 +15,13 @@ use std::{
 };
 
 #[repr(C)]
-pub struct __Register<'eval> {
+pub struct __RegularValue {
     pub(crate) data_kind: __RegisterDataKind,
     pub(crate) data: __RegisterData,
-    pub vtable: &'eval __RegisterTyVTable,
+    pub vtable: &'static __RegisterTyVTable,
 }
 
-impl<'eval> std::hash::Hash for __Register<'eval> {
+impl std::hash::Hash for __RegularValue {
     fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
         unsafe {
             (
@@ -49,28 +49,29 @@ pub union __RegisterData {
     pub as_number_of_somes: u8,
 }
 
-unsafe impl<'eval> Send for __Register<'eval> {}
-unsafe impl<'eval> Sync for __Register<'eval> {}
+unsafe impl Send for __RegularValue {}
+unsafe impl Sync for __RegularValue {}
 
-impl<'eval> std::fmt::Debug for __Register<'eval> {
+impl std::fmt::Debug for __RegularValue {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        f.write_str("__Register")
+        f.write_str("__RegularValue")
     }
 }
 
 #[cfg(feature = "extra")]
-impl<'eval> Clone for __Register<'eval> {
+impl Clone for __RegularValue {
     fn clone(&self) -> Self {
         unsafe { self.extrinsic_clone() }
     }
 }
 
-impl<'eval> PartialEq for __Register<'eval> {
+impl PartialEq for __RegularValue {
     fn eq(&self, other: &Self) -> bool {
         self.vtable == other.vtable && unsafe { (self.vtable.eq)(self.any_ref(), other.any_ref()) }
     }
 }
-impl<'eval> Eq for __Register<'eval> {}
+
+impl Eq for __RegularValue {}
 
 pub trait __StaticInfo {
     type __StaticSelf: __StaticInfo<__StaticSelf = Self::__StaticSelf> + 'static;
@@ -146,7 +147,7 @@ where
     }
 }
 
-impl<'eval> __Register<'eval> {
+impl __RegularValue {
     fn any_ref(&self) -> &c_void {
         match self.data_kind {
             __RegisterDataKind::PrimitiveValue => unsafe {
@@ -173,9 +174,9 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn new_primitive_value(
         data: __RegisterData,
-        proto: &'eval __RegisterTyVTable,
-    ) -> __Register<'eval> {
-        __Register {
+        proto: &'static __RegisterTyVTable,
+    ) -> __RegularValue {
+        __RegularValue {
             data_kind: __RegisterDataKind::PrimitiveValue,
             data,
             vtable: proto,
@@ -184,11 +185,11 @@ impl<'eval> __Register<'eval> {
 
     pub fn new_opt_box<T>(
         opt_value: Option<T>,
-        proto: &'eval __RegisterTyVTable,
-    ) -> __Register<'eval> {
+        proto: &'static __RegisterTyVTable,
+    ) -> __RegularValue {
         if let Some(value) = opt_value {
             let ptr: *mut T = Box::<T>::into_raw(Box::new(value));
-            __Register {
+            __RegularValue {
                 data_kind: __RegisterDataKind::Box,
                 data: __RegisterData {
                     as_ptr: ptr as *mut c_void,
@@ -196,13 +197,13 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::none(0)
+            __RegularValue::none(0)
         }
     }
 
-    pub fn new_box<T>(value: T, proto: &'eval __RegisterTyVTable) -> __Register<'eval> {
+    pub fn new_box<T>(value: T, proto: &'static __RegisterTyVTable) -> __RegularValue {
         let ptr: *mut T = Box::<T>::into_raw(Box::new(value));
-        __Register {
+        __RegularValue {
             data_kind: __RegisterDataKind::Box,
             data: __RegisterData {
                 as_ptr: ptr as *mut c_void,
@@ -211,12 +212,12 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_eval_ref<T: 'eval>(
-        value: &'eval T,
-        proto: &'eval __RegisterTyVTable,
-    ) -> __Register<'eval> {
+    pub fn new_leash<T: 'static>(
+        value: &'static T,
+        proto: &'static __RegisterTyVTable,
+    ) -> __RegularValue {
         let ptr: *const T = value;
-        __Register {
+        __RegularValue {
             data_kind: __RegisterDataKind::Leash,
             data: __RegisterData {
                 as_ptr: ptr as *mut c_void,
@@ -225,23 +226,20 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_opt_eval_ref<T: 'eval>(
-        opt_value: Option<&'eval T>,
-        proto: &'eval __RegisterTyVTable,
-    ) -> __Register<'eval> {
+    pub fn new_opt_leash<T: 'static>(
+        opt_value: Option<&'static T>,
+        proto: &'static __RegisterTyVTable,
+    ) -> __RegularValue {
         if let Some(value) = opt_value {
-            Self::new_eval_ref(value, proto)
+            Self::new_leash(value, proto)
         } else {
             Self::none(0)
         }
     }
 
-    pub unsafe fn new_temp_ref<T>(
-        value: &T,
-        proto: &'eval __RegisterTyVTable,
-    ) -> __Register<'eval> {
+    pub unsafe fn new_temp_ref<T>(value: &T, proto: &'static __RegisterTyVTable) -> __RegularValue {
         let ptr: *const T = value;
-        __Register {
+        __RegularValue {
             data_kind: __RegisterDataKind::TempRef,
             data: __RegisterData {
                 as_ptr: ptr as *mut c_void,
@@ -252,11 +250,11 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn new_opt_temp_ref<T>(
         opt_value: Option<&T>,
-        proto: &'eval __RegisterTyVTable,
-    ) -> __Register<'eval> {
+        proto: &'static __RegisterTyVTable,
+    ) -> __RegularValue {
         if let Some(value) = opt_value {
             let ptr: *const T = value;
-            __Register {
+            __RegularValue {
                 data_kind: __RegisterDataKind::TempRef,
                 data: __RegisterData {
                     as_ptr: ptr as *mut c_void,
@@ -264,16 +262,16 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::none(0)
+            __RegularValue::none(0)
         }
     }
 
     pub unsafe fn new_temp_mut<T>(
         value: &mut T,
-        proto: &'eval __RegisterTyVTable,
-    ) -> __Register<'eval> {
+        proto: &'static __RegisterTyVTable,
+    ) -> __RegularValue {
         let ptr: *const T = value;
-        __Register {
+        __RegularValue {
             data_kind: __RegisterDataKind::TempMut,
             data: __RegisterData {
                 as_ptr: ptr as *mut c_void,
@@ -284,11 +282,11 @@ impl<'eval> __Register<'eval> {
 
     pub unsafe fn new_opt_temp_mut<T>(
         opt_value: Option<&mut T>,
-        proto: &'eval __RegisterTyVTable,
-    ) -> __Register<'eval> {
+        proto: &'static __RegisterTyVTable,
+    ) -> __RegularValue {
         if let Some(value) = opt_value {
             let ptr: *const T = value;
-            __Register {
+            __RegularValue {
                 data_kind: __RegisterDataKind::TempMut,
                 data: __RegisterData {
                     as_ptr: ptr as *mut c_void,
@@ -296,12 +294,12 @@ impl<'eval> __Register<'eval> {
                 vtable: proto,
             }
         } else {
-            __Register::none(0)
+            __RegularValue::none(0)
         }
     }
 
-    pub fn register_move(&mut self) -> __Register<'eval> {
-        let moved = __Register {
+    pub fn register_move(&mut self) -> __RegularValue {
+        let moved = __RegularValue {
             data_kind: __RegisterDataKind::Moved,
             data: __RegisterData { as_void: () },
             vtable: self.vtable,
@@ -309,8 +307,8 @@ impl<'eval> __Register<'eval> {
         std::mem::replace(self, moved)
     }
 
-    pub fn none(number_of_somes_before_none: u8) -> __Register<'eval> {
-        __Register {
+    pub fn none(number_of_somes_before_none: u8) -> __RegularValue {
+        __RegularValue {
             data_kind: __RegisterDataKind::SomeNone,
             data: __RegisterData {
                 as_number_of_somes: number_of_somes_before_none,
@@ -319,24 +317,24 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn new_void() -> __Register<'eval> {
-        __Register {
+    pub fn new_void() -> __RegularValue {
+        __RegularValue {
             data_kind: __RegisterDataKind::PrimitiveValue,
             data: __RegisterData { as_void: () },
             vtable: &__VOID_VTABLE,
         }
     }
 
-    pub fn unreturned() -> __Register<'eval> {
-        __Register {
+    pub fn unreturned() -> __RegularValue {
+        __RegularValue {
             data_kind: __RegisterDataKind::Unreturned,
             data: __RegisterData { as_void: () },
             vtable: &__VOID_VTABLE,
         }
     }
 
-    pub fn new_moved(vtable: &'eval __RegisterTyVTable) -> __Register<'eval> {
-        __Register {
+    pub fn new_moved(vtable: &'static __RegisterTyVTable) -> __RegularValue {
+        __RegularValue {
             data_kind: __RegisterDataKind::Moved,
             data: __RegisterData { as_void: () },
             vtable,
@@ -358,10 +356,7 @@ impl<'eval> __Register<'eval> {
         // }
     }
 
-    pub fn downcast_unbox<T>(self, target_ty_vtable: &__RegisterTyVTable) -> T
-    where
-        T: 'eval,
-    {
+    pub fn downcast_unbox<T>(self, target_ty_vtable: &__RegisterTyVTable) -> T {
         if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
             panic!()
         }
@@ -371,10 +366,7 @@ impl<'eval> __Register<'eval> {
         t
     }
 
-    pub fn downcast_move<T>(&mut self, target_ty_vtable: &__RegisterTyVTable) -> T
-    where
-        T: 'eval,
-    {
+    pub fn downcast_move<T>(&mut self, target_ty_vtable: &__RegisterTyVTable) -> T {
         if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
             panic!()
         }
@@ -388,7 +380,7 @@ impl<'eval> __Register<'eval> {
         todo!()
     }
 
-    pub fn downcast_eval_ref<T: 'eval>(&self, target_ty_vtable: &__RegisterTyVTable) -> &'eval T {
+    pub fn downcast_leash<T: 'static>(&self, target_ty_vtable: &__RegisterTyVTable) -> &'static T {
         if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
             panic!(
                 "self is `{:?}` of type `{}`, but target is of type `{}`",
@@ -409,10 +401,10 @@ impl<'eval> __Register<'eval> {
         }
     }
 
-    pub fn downcast_opt_eval_ref<T: 'eval>(
+    pub fn downcast_opt_leash<T: 'static>(
         &self,
         target_ty_vtable: &__RegisterTyVTable,
-    ) -> Option<&'eval T> {
+    ) -> Option<&'static T> {
         if self.vtable.typename_str_hash_u64 != target_ty_vtable.typename_str_hash_u64 {
             panic!()
         }
@@ -538,7 +530,7 @@ impl<'eval> __Register<'eval> {
             __RegisterDataKind::SomeNone => {
                 let number_of_somes_before_none = self.number_of_somes_before_none();
                 if number_of_somes_before_none > 0 {
-                    Some(__Register::none(number_of_somes_before_none - 1))
+                    Some(__RegularValue::none(number_of_somes_before_none - 1))
                 } else {
                     None
                 }
@@ -562,7 +554,7 @@ pub enum __RegisterDataKind {
     Unreturned,
 }
 
-impl<'eval> Drop for __Register<'eval> {
+impl Drop for __RegularValue {
     fn drop(&mut self) {
         match self.data_kind {
             __RegisterDataKind::Box => unsafe {
@@ -592,10 +584,10 @@ macro_rules! register_new_copyable {
         todo!()
     }};
     (Intrinsic, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
-        __Register::new_box::<$INTRINSIC_FIELD_TY>($argument, &$TYPE_VTABLE)
+        __RegularValue::new_box::<$INTRINSIC_FIELD_TY>($argument, &$TYPE_VTABLE)
     }};
     (Optional, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
-        __Register::new_opt_box::<$INTRINSIC_FIELD_TY>($argument, &$TYPE_VTABLE)
+        __RegularValue::new_opt_box::<$INTRINSIC_FIELD_TY>($argument, &$TYPE_VTABLE)
     }};
     (Leash, BoxCopyable, $argument: expr, $INTRINSIC_FIELD_TY: ty, $TYPE_VTABLE: expr) => {{
         todo!()

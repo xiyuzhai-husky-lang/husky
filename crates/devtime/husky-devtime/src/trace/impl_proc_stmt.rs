@@ -6,7 +6,7 @@ impl Debugtime {
         parent_id: TraceId,
         indent: Indent,
         stmt: Arc<ProcStmt>,
-        history: Arc<History<'static>>,
+        history: Arc<History>,
     ) -> TraceId {
         self.new_trace(
             Some(parent_id),
@@ -22,7 +22,7 @@ impl Debugtime {
         stmt: Arc<ProcStmt>,
         branch: Arc<ProcConditionFlowBranch>,
         branch_idx: u8,
-        history: Arc<History<'static>>,
+        history: Arc<History>,
     ) -> TraceId {
         let opt_vm_branch = history.get(&stmt).map(|entry| match entry {
             HistoryEntry::ControlFlow { vm_branches, .. } => {
@@ -48,7 +48,7 @@ impl Debugtime {
         parent_id: TraceId,
         indent: Indent,
         stmts: &[Arc<ProcStmt>],
-        history: &Arc<History<'static>>,
+        history: &Arc<History>,
     ) -> Vec<TraceId> {
         let mut traces = Vec::new();
         for stmt in stmts {

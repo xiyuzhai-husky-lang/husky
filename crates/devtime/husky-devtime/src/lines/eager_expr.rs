@@ -6,7 +6,7 @@ impl<'a> TraceLineGenerator<'a> {
     pub(crate) fn gen_eager_expr_tokens(
         &mut self,
         expr: &Arc<EagerExpr>,
-        history: &Arc<History<'static>>,
+        history: &Arc<History>,
         config: ExprTokenConfig,
     ) {
         let associated_trace_id = if config.associated {
@@ -146,7 +146,7 @@ impl<'a> TraceLineGenerator<'a> {
         ranged_scope: EtherealTerm,
         inputs: &[Arc<EagerExpr>],
         opt_associated_trace_id: Option<TraceId>,
-        history: &Arc<History<'static>>,
+        history: &Arc<History>,
         config: &ExprTokenConfig,
     ) {
         todo!()

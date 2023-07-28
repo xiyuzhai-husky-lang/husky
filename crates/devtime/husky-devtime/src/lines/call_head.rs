@@ -3,7 +3,7 @@ use husky_coword::Ident;
 use super::*;
 
 impl<'a> TraceLineGenerator<'a> {
-    pub(super) fn gen_call_head_lines<'eval>(&mut self, item: &EntityDefn) {
+    pub(super) fn gen_call_head_lines(&mut self, item: &EntityDefn) {
         match item.variant {
             EntityDefnVariant::Func { ref parameters, .. } => self.gen_call_head_lines_aux(
                 &self.runtime().text(item.file).unwrap(),
@@ -37,7 +37,7 @@ impl<'a> TraceLineGenerator<'a> {
             EntityDefnVariant::Any => todo!(),
         };
     }
-    pub(super) fn gen_call_head_lines_aux<'eval>(
+    pub(super) fn gen_call_head_lines_aux(
         &mut self,
         _text: &HuskyText,
         _routine_keyword: &'static str,

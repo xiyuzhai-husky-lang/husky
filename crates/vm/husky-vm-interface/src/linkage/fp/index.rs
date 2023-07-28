@@ -8,10 +8,10 @@ macro_rules! index_copy_fp {
         $canonical_kind: ident,
         $reg_memory_kind: tt
     ) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             let index_value: usize = values[1].downcast_i32() as usize;
             let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             register_new_copyable!(
@@ -31,15 +31,15 @@ macro_rules! index_copy_fp {
 }
 
 #[macro_export]
-macro_rules! index_eval_ref_fp {
+macro_rules! index_leash_fp {
     (Intrinsic, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
-            let this_value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
+            let this_value: &'static $Type = values[0].downcast_leash(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
-            __Register::new_eval_ref::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_leash::<$INTRINSIC_ELEMENT_TY>(
                 &this_value[index_value],
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -51,13 +51,13 @@ macro_rules! index_eval_ref_fp {
         }
     }};
     (Optional, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
-            let this_value: &'eval $Type = values[0].downcast_eval_ref(&$TYPE_VTABLE);
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
+            let this_value: &'static $Type = values[0].downcast_leash(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
-            __Register::new_opt_eval_ref::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_opt_leash::<$INTRINSIC_ELEMENT_TY>(
                 this_value[index_value].as_ref(),
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -69,13 +69,13 @@ macro_rules! index_eval_ref_fp {
         }
     }};
     (Leash, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
-            __Register::new_eval_ref::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_leash::<$INTRINSIC_ELEMENT_TY>(
                 this_value[index_value],
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -87,13 +87,13 @@ macro_rules! index_eval_ref_fp {
         }
     }};
     (OptionalLeash, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
-            __Register::new_opt_eval_ref::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_opt_leash::<$INTRINSIC_ELEMENT_TY>(
                 this_value[index_value],
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -115,13 +115,13 @@ macro_rules! index_temp_ref_fp {
         $INTRINSIC_ELEMENT_TY: ty,
         $ELEMENT_TYPE_VTABLE: expr
     ) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
-            __Register::new_temp_ref::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_temp_ref::<$INTRINSIC_ELEMENT_TY>(
                 &this_value[index_value],
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -139,13 +139,13 @@ macro_rules! index_temp_ref_fp {
         $INTRINSIC_ELEMENT_TY: ty,
         $ELEMENT_TYPE_VTABLE: expr
     ) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
-            __Register::new_opt_temp_ref::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_opt_temp_ref::<$INTRINSIC_ELEMENT_TY>(
                 this_value[index_value].as_ref(),
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -163,13 +163,13 @@ macro_rules! index_temp_ref_fp {
         $INTRINSIC_ELEMENT_TY: ty,
         $ELEMENT_TYPE_VTABLE: expr
     ) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
-            __Register::new_temp_ref::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_temp_ref::<$INTRINSIC_ELEMENT_TY>(
                 this_value[index_value],
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -187,13 +187,13 @@ macro_rules! index_temp_ref_fp {
         $INTRINSIC_ELEMENT_TY: ty,
         $ELEMENT_TYPE_VTABLE: expr
     ) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             let this_value: &$Type = values[0].downcast_temp_ref(&$TYPE_VTABLE);
             let index_value: usize = values[1].downcast_i32() as usize;
-            __Register::new_opt_temp_ref::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_opt_temp_ref::<$INTRINSIC_ELEMENT_TY>(
                 this_value[index_value],
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -210,7 +210,7 @@ macro_rules! index_temp_ref_fp {
 macro_rules! index_move_fp {
     ($Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
         __ResolvedLinkage {
-            wrapper: |values, _| -> __Register { todo!("move") },
+            wrapper: |values, _| -> __RegularValue { todo!("move") },
             opt_thick_fp: __OptVirtualThickFp::none(),
             dev_src: static_dev_src!(),
         }
@@ -220,13 +220,13 @@ macro_rules! index_move_fp {
 #[macro_export]
 macro_rules! index_temp_mut_fp {
     (mutable, Intrinsic, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             let index_value: usize = values[1].downcast_i32() as usize;
             let this_value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
-            __Register::new_temp_mut::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_temp_mut::<$INTRINSIC_ELEMENT_TY>(
                 &mut this_value[index_value],
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -238,13 +238,13 @@ macro_rules! index_temp_mut_fp {
         }
     }};
     (mutable, Optional, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             let index_value: usize = values[1].downcast_i32() as usize;
             let this_value: &mut $Type = values[0].downcast_temp_mut(&$TYPE_VTABLE);
-            __Register::new_opt_temp_mut::<$INTRINSIC_ELEMENT_TY>(
+            __RegularValue::new_opt_temp_mut::<$INTRINSIC_ELEMENT_TY>(
                 this_value[index_value].as_mut(),
                 &$ELEMENT_TYPE_VTABLE,
             )
@@ -256,10 +256,10 @@ macro_rules! index_temp_mut_fp {
         }
     }};
     (mutable, Leash, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             panic!("invalid")
         }
         __ResolvedLinkage {
@@ -269,10 +269,10 @@ macro_rules! index_temp_mut_fp {
         }
     }};
     (mutable, OptionalLeash, $Type: ty, $TYPE_VTABLE: expr, $INTRINSIC_ELEMENT_TY: ty, $ELEMENT_TYPE_VTABLE: expr) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             panic!("invalid")
         }
         __ResolvedLinkage {
@@ -282,10 +282,10 @@ macro_rules! index_temp_mut_fp {
         }
     }};
     (immutable, $($args: tt),*) => {{
-        unsafe fn wrapper<'eval>(
-            values: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
+        unsafe fn wrapper(
+            values: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
             panic!("can't mutate immutable")
         }
         __ResolvedLinkage {

@@ -25,10 +25,11 @@ fn downcast_works_for_i32() {
 #[test]
 fn it_works() {
     unsafe {
-        assert!(
-            __Register::new_primitive_value(__RegisterData { as_bool: true }, &__BOOL_VTABLE)
-                .downcast_bool()
-        );
+        assert!(__RegularValue::new_primitive_value(
+            __RegisterData { as_bool: true },
+            &__BOOL_VTABLE
+        )
+        .downcast_bool());
         assert!(__bool_primitive_value_to_bool(__RegisterData {
             as_bool: true
         }))

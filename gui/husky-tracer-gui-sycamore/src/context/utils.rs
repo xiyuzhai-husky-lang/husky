@@ -2,7 +2,7 @@ use super::*;
 
 impl DeveloperGuiContext {
     pub fn alloc_value<T>(&self, value: T) -> &'static T {
-        create_static_ref(self.visibility, value)
+        create_leash(self.visibility, value)
     }
     pub fn alloc_signal<T>(&self, value: T) -> &'static Signal<T>
     where

@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
+impl<'temp> Interpreter<'temp> {
     pub(super) fn call_specific_routine(
         &mut self,
         f: __ResolvedLinkage,
@@ -27,7 +27,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(super) fn call_interpreted(
         &mut self,
-        sheet: &InstructionSheet,
+        sheet: &Instructions,
         nargs: u8,
         discard: bool,
     ) -> __VMResult<()> {

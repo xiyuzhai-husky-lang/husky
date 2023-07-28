@@ -61,8 +61,8 @@ impl From<i32> for {tyname} {{
     }
 }"#,
         );
-        let ty_contains_eval_ref = self.db.item_route_variant_contains_eval_ref(base_route);
-        self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
+        let ty_contains_leash = self.db.item_route_variant_contains_leash(base_route);
+        self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_leash);
     }
 
     pub(super) fn gen_struct_defn(
@@ -75,9 +75,9 @@ impl From<i32> for {tyname} {{
         self.write("#[derive(Debug, Clone, PartialEq)]\n");
         self.result += "pub(crate) struct ";
         self.result += tyname.as_str();
-        let ty_contains_eval_ref = self.db.item_route_variant_contains_eval_ref(base_route);
-        if ty_contains_eval_ref {
-            self.write("<'eval>")
+        let ty_contains_leash = self.db.item_route_variant_contains_leash(base_route);
+        if ty_contains_leash {
+            self.write("")
         }
         self.result += " {\n";
         for member in ty_members {
@@ -109,7 +109,7 @@ impl From<i32> for {tyname} {{
             base_route,
             tyname,
             ty_members,
-            ty_contains_eval_ref,
+            ty_contains_leash,
             trait_impls,
         );
     }
@@ -119,28 +119,28 @@ impl From<i32> for {tyname} {{
         base_route: EtherealTerm,
         tyname: Ident,
         ty_members: &[Arc<EntityDefn>],
-        ty_contains_eval_ref: bool,
+        ty_contains_leash: bool,
         trait_impls: &[Arc<TraitImplDefn>],
     ) {
-        if ty_contains_eval_ref {
-            self.write("\nimpl<'eval> ");
+        if ty_contains_leash {
+            self.write("\nimpl ");
         } else {
             self.write("\nimpl ");
         }
         self.write(&tyname);
-        if ty_contains_eval_ref {
-            self.write("<'eval>")
+        if ty_contains_leash {
+            self.write("")
         }
         self.write(" {\n");
         self.gen_struct_type_call(ty_members);
         let mut start_flag = true;
         for ty_member in ty_members {
-            self.gen_ty_member_impl(ty_contains_eval_ref, ty_member, &mut start_flag)
+            self.gen_ty_member_impl(ty_contains_leash, ty_member, &mut start_flag)
         }
 
         self.write("}\n");
 
-        self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_eval_ref);
+        self.gen_has_static_type_info_impl(base_route, tyname, ty_contains_leash);
 
         for trait_impl in trait_impls {
             self.gen_trait_impl(trait_impl)
@@ -228,7 +228,7 @@ impl From<i32> for {tyname} {{
 
     fn gen_ty_member_impl(
         &mut self,
-        ty_contains_eval_ref: bool,
+        ty_contains_leash: bool,
         ty_member: &EntityDefn,
         start_flag: &mut bool,
     ) {
@@ -302,13 +302,13 @@ impl From<i32> for {tyname} {{
                         self.write("pub(crate) fn ");
                         let ident = ty_member.ident;
                         self.write(&ident);
-                        if !ty_contains_eval_ref {
-                            self.write("<'eval>")
+                        if !ty_contains_leash {
+                            self.write("")
                         }
                         if return_ty.route.is_option() {
                             todo!()
                         }
-                        self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
+                        self.write("(&'static self, __ctx: &dyn __EvalContext) -> &'static ");
                         self.gen_item_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
                         let mangled_return_ty_vtable =
@@ -322,7 +322,7 @@ impl From<i32> for {tyname} {{
     ) {{
         return __result
             .unwrap()
-            .downcast_{}eval_ref(&__registration__::{mangled_return_ty_vtable});
+            .downcast_{}leash(&__registration__::{mangled_return_ty_vtable});
     }}
 "#,
                             match return_ty.route.is_option() {
@@ -341,13 +341,13 @@ impl From<i32> for {tyname} {{
                         self.write("pub(crate) fn ");
                         let ident = ty_member.ident;
                         self.write(&ident);
-                        if !ty_contains_eval_ref {
-                            self.write("<'eval>")
+                        if !ty_contains_leash {
+                            self.write("")
                         }
                         if return_ty.route.is_option() {
                             todo!()
                         }
-                        self.write("(&'eval self, __ctx: &dyn __EvalContext<'eval>) -> &'eval ");
+                        self.write("(&'static self, __ctx: &dyn __EvalContext) -> &'static ");
                         self.gen_item_route(return_ty.route.intrinsic(), EntityRouteRole::Decl);
                         let route = ty_member.base_route;
                         let mangled_return_ty_vtable =
@@ -361,7 +361,7 @@ impl From<i32> for {tyname} {{
     ) {{
         return __result
             .unwrap()
-            .downcast_{}eval_ref(&__registration__::{mangled_return_ty_vtable});
+            .downcast_{}leash(&__registration__::{mangled_return_ty_vtable});
     }}
 "#,
                             match return_ty.route.is_option() {
@@ -384,19 +384,19 @@ impl From<i32> for {tyname} {{
         &mut self,
         base_route: EtherealTerm,
         tyname: Ident,
-        ty_contains_eval_ref: bool,
+        ty_contains_leash: bool,
     ) {
-        if ty_contains_eval_ref {
-            self.write("\nimpl<'eval> __StaticInfo for ");
+        if ty_contains_leash {
+            self.write("\nimpl __StaticInfo for ");
         } else {
             self.write("\nimpl __StaticInfo for ");
         }
         self.write(&tyname);
-        if ty_contains_eval_ref {
-            self.write("<'eval>")
+        if ty_contains_leash {
+            self.write("")
         }
-        let static_self = if ty_contains_eval_ref {
-            format!("{tyname}<'static>")
+        let static_self = if ty_contains_leash {
+            format!("{tyname}")
         } else {
             tyname.as_str().to_owned()
         };

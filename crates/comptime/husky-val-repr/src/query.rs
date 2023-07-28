@@ -7,7 +7,7 @@ use husky_ethereal_term::EtherealTerm;
 use husky_instruction_gen::InstructionDb;
 use husky_item_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
 use husky_package_semantics::*;
-use husky_vm::{InterpreterQueryGroup, __ModelLinkage, __Register, __VMResult};
+use husky_vm::{InterpreterQueryGroup, __ModelLinkage, __RegularValue, __VMResult};
 use item_feature_repr::item_feature_repr;
 use main_feature_repr::*;
 use std::panic::{RefUnwindSafe, UnwindSafe};
@@ -25,7 +25,7 @@ pub trait ValReprDb:
     + RefUnwindSafe
     + UnwindSafe
 {
-    fn main_feature_repr(&'eval self, target_entrance: EntityPath) -> ValRepr;
+    fn main_feature_repr(&'static self, target_entrance: EntityPath) -> ValRepr;
     fn item_feature_repr(&self, item_path: EtherealTerm) -> ValRepr;
     fn record_field_repr(&self, this: ValRepr, field_ident: Ident) -> ValRepr;
     fn visual_feature_lazy_block(&self, this: ValRepr) -> __VMResult<ValBlock>;
@@ -37,5 +37,5 @@ pub trait TrainModel {
         model: __ModelLinkage,
         opt_arrival_indicator: Option<&ValDomain>,
         opds: &[ValExpr],
-    ) -> __VMResult<__Register<'static>>;
+    ) -> __VMResult<__RegularValue>;
 }

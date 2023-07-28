@@ -7,7 +7,7 @@ impl Debugtime {
     pub(crate) fn func_stmt_figure(
         &self,
         stmt: &FuncStmt,
-        history: &History<'static>,
+        history: &History,
     ) -> SpecificFigureCanvasData {
         match stmt.variant {
             FuncStmtVariant::Init {

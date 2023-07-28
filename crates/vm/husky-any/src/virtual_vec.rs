@@ -2,32 +2,32 @@ use super::*;
 use std::borrow::Cow;
 
 #[derive(Debug, Clone, PartialEq)]
-pub struct DeprecatedVirtualVec<'eval> {
-    data: Vec<__Register<'eval>>,
+pub struct DeprecatedVirtualVec {
+    data: Vec<__RegularValue>,
 }
 
-impl<'eval> DeprecatedVirtualVec<'eval> {
-    pub fn new(data: Vec<__Register<'eval>>) -> Self {
+impl DeprecatedVirtualVec {
+    pub fn new(data: Vec<__RegularValue>) -> Self {
         Self { data }
     }
 }
 
-impl<'eval> std::ops::Deref for DeprecatedVirtualVec<'eval> {
-    type Target = Vec<__Register<'eval>>;
+impl std::ops::Deref for DeprecatedVirtualVec {
+    type Target = Vec<__RegularValue>;
 
     fn deref(&self) -> &Self::Target {
         &self.data
     }
 }
 
-impl<'eval> std::ops::DerefMut for DeprecatedVirtualVec<'eval> {
+impl std::ops::DerefMut for DeprecatedVirtualVec {
     fn deref_mut(&mut self) -> &mut Self::Target {
         &mut self.data
     }
 }
 
-impl<'eval> __StaticInfo for DeprecatedVirtualVec<'eval> {
-    type __StaticSelf = DeprecatedVirtualVec<'static>;
+impl __StaticInfo for DeprecatedVirtualVec {
+    type __StaticSelf = DeprecatedVirtualVec;
 
     fn __static_typename() -> Cow<'static, str> {
         "[]Any".into()
@@ -41,8 +41,8 @@ impl<'eval> __StaticInfo for DeprecatedVirtualVec<'eval> {
     }
 }
 
-impl<'eval> __Registrable<'eval> for DeprecatedVirtualVec<'eval> {
-    unsafe fn __to_register(self) -> __Register<'eval> {
-        __Register::new_box(self, &__DEPRECATED_VIRTUAL_VEC_VTABLE)
+impl __Registrable for DeprecatedVirtualVec {
+    unsafe fn __to_register(self) -> __RegularValue {
+        __RegularValue::new_box(self, &__DEPRECATED_VIRTUAL_VEC_VTABLE)
     }
 }

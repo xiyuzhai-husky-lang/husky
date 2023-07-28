@@ -14,10 +14,10 @@ impl<'a> RustCodeGenerator<'a> {
     //         r#"
     //     transfer_linkage!(
     //         {{
-    //             unsafe fn __wrapper<'eval>(
-    //                 __arguments: &mut [__Register<'eval>],
-    //                 __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-    //             ) -> __Register<'eval> {{"#
+    //             unsafe fn __wrapper(
+    //                 __arguments: &mut [__RegularValue],
+    //                 __opt_ctx: Option<&dyn __EvalContext>,
+    //             ) -> __RegularValue {{"#
     //     ));
     //     if let Some((this_liason, this_ty)) = opt_this {
     //         let mangled_this_ty_vtable = self.db.mangled_intrinsic_ty_vtable(this_ty);
@@ -46,9 +46,9 @@ impl<'a> RustCodeGenerator<'a> {
     //                 if self.db.is_copyable(this_ty).unwrap() {
     //                     todo!()
     //                 } else {
-    //                     self.write("&'eval ");
+    //                     self.write("&'static ");
     //                     self.gen_item_route(this_ty.deref_route(), EntityRouteRole::Decl);
-    //                     self.write(&format!(" = __arguments[0].downcast_eval_ref(&__registration__::{mangled_this_ty_vtable});"))
+    //                     self.write(&format!(" = __arguments[0].downcast_leash(&__registration__::{mangled_this_ty_vtable});"))
     //                 }
     //             }
     //             ParameterModifier::TempRef => todo!(),
@@ -99,7 +99,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 }
     //             }
     //             RegMemoryKind::BoxCopyable | RegMemoryKind::BoxNonCopyable => {
-    //                 self.write("__Register::new_box::<");
+    //                 self.write("__RegularValue::new_box::<");
     //                 self.gen_item_route(
     //                     canonical_return_ty.intrinsic_ty(),
     //                     EntityRouteRole::Decl,
@@ -121,7 +121,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         },
     //         CanonicalTyKind::Leash => todo!(),
     //         CanonicalTyKind::OptionalLeash => {
-    //             self.write("__Register::new_opt_eval_ref::<");
+    //             self.write("__RegularValue::new_opt_leash::<");
     //             self.gen_item_route(canonical_return_ty.intrinsic_ty(), EntityRouteRole::Decl);
     //             self.write(">(");
     //         }
@@ -214,13 +214,13 @@ impl<'a> RustCodeGenerator<'a> {
     //                     true => {
     //                         if variadic_ty.is_option() {
     //                             let variadic_ty = variadic_ty.item_route_argument(0);
-    //                             if variadic_ty.is_eval_ref() {
+    //                             if variadic_ty.is_leash() {
     //                                 self.write(&format!(
     //                                 r#"
     //                 let __variadics =
     //                     __arguments[{variadic_start}..]
     //                         .iter_mut()
-    //                         .map(|v|v.downcast_opt_eval_ref(&__registration__::{variadic_ty_vtable}))
+    //                         .map(|v|v.downcast_opt_leash(&__registration__::{variadic_ty_vtable}))
     //                         .collect();"#,
     //                 ));
     //                             } else if variadic_ty.is_primitive() {
@@ -236,13 +236,13 @@ impl<'a> RustCodeGenerator<'a> {
     //                             } else {
     //                                 todo!()
     //                             }
-    //                         } else if variadic_ty.is_eval_ref() {
+    //                         } else if variadic_ty.is_leash() {
     //                             self.write(&format!(
     //                                 r#"
     //                 let __variadics =
     //                     __arguments[{variadic_start}..]
     //                         .iter_mut()
-    //                         .map(|v|v.downcast_eval_ref(&__registration__::{variadic_ty_vtable}))
+    //                         .map(|v|v.downcast_leash(&__registration__::{variadic_ty_vtable}))
     //                         .collect();"#,
     //                             ));
     //                         } else if variadic_ty.is_fp() {
@@ -312,7 +312,7 @@ impl<'a> RustCodeGenerator<'a> {
     //                 if self.db.is_copyable(parameter.ty()).unwrap() {
     //                     ()
     //                 } else {
-    //                     assert!(!parameter.ty().is_eval_ref());
+    //                     assert!(!parameter.ty().is_leash());
     //                     self.write("&'static ")
     //                 }
     //             }
@@ -320,7 +320,7 @@ impl<'a> RustCodeGenerator<'a> {
     //             ParameterModifier::OwnedMut => todo!(),
     //             ParameterModifier::MemberAccess => todo!(),
     //             ParameterModifier::Leash => {
-    //                 assert!(!parameter.ty().is_eval_ref());
+    //                 assert!(!parameter.ty().is_leash());
     //                 self.write("&'static ")
     //             }
     //             ParameterModifier::TempRef => todo!(),
@@ -373,7 +373,7 @@ impl<'a> RustCodeGenerator<'a> {
     //         {
     //             self.write(", ")
     //         }
-    //         self.write("&dyn __EvalContext<'static>")
+    //         self.write("&dyn __EvalContext")
     //     }
     //     self.write(") -> ");
     //     self.gen_item_route(decl.output.ty(), EntityRouteRole::StaticDecl)

@@ -14,9 +14,9 @@ pub struct TraceNodeState {
 }
 
 impl TraceNodeState {
-    pub(super) fn from_data(visibility: Scope<'static>, node_data: TraceNodeData) -> Self {
+    pub(super) fn from_data(visibility: Scope, node_data: TraceNodeData) -> Self {
         TraceNodeState {
-            data: create_static_ref(visibility, node_data.trace_data),
+            data: create_leash(visibility, node_data.trace_data),
             expansion: create_static_signal(visibility, node_data.expanded),
             shown: create_static_signal(visibility, node_data.shown),
         }

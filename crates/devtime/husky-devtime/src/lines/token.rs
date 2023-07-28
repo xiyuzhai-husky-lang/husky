@@ -140,7 +140,7 @@ impl<'a> TraceLineGenerator<'a> {
 
     pub(super) fn gen_result_token(
         &mut self,
-        result: __VMResult<__Register<'static>>,
+        result: __VMResult<__RegularValue>,
         intrinsic_ty: EtherealTerm,
         opt_pos: Option<TextPosition>,
     ) {

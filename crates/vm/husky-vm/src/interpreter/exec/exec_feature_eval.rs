@@ -1,6 +1,6 @@
 use crate::*;
 
-impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
+impl<'temp> Interpreter<'temp> {
     pub(super) fn exec_feature_eval(
         &mut self,
         feature_uid: EntityUid,

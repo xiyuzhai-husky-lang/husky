@@ -20,19 +20,19 @@ pub use sheet::*;
 use crate::*;
 use husky_item_semantics::*;
 use husky_trace_protocol::SampleId;
-use husky_vm::{EntityUid, VMConfig, __EvalContext, __Register};
+use husky_vm::{EntityUid, VMConfig, __EvalContext, __RegularValue};
 use husky_vm::{__VMResult, c_void};
 
-pub struct FeatureEvaluator<'a, 'eval: 'a> {
+pub struct FeatureEvaluator<'a> {
     pub(crate) sample_id: SampleId,
-    pub target_input: __Register<'eval>,
-    pub(crate) sheet: &'a EvalSheet<'eval>,
+    pub target_input: __RegularValue,
+    pub(crate) sheet: &'a EvalSheet,
     pub(crate) db: &'a dyn ValReprDb,
     pub(crate) evaluator_config: &'a EvaluatorConfig,
-    pub(crate) opt_static_husky_feature_eval: Option<&'a dyn EvalFeature<'static>>,
+    pub(crate) opt_static_husky_feature_eval: Option<&'a dyn EvalFeature>,
 }
 
-impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
+impl<'a> __EvalContext for FeatureEvaluator<'a> {
     fn item_uid(&self, item_route_text: &str) -> u64 {
         let route = self.db.parse_route_from_text(item_route_text);
         self.db.item_uid(route).raw()
@@ -42,14 +42,14 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         &self,
         this: *const c_void,
         uid: u64,
-    ) -> Option<__VMResult<__Register<'eval>>> {
+    ) -> Option<__VMResult<__RegularValue>> {
         self.sheet.cached_value(EvalKey::StructDerivedField {
             this,
             field_uid: unsafe { EntityUid::from_declarative(uid) },
         })
     }
 
-    fn opt_cached_feature(&self, feature: usize) -> Option<__VMResult<__Register<'eval>>> {
+    fn opt_cached_feature(&self, feature: usize) -> Option<__VMResult<__RegularValue>> {
         self.sheet
             .cached_value(EvalKey::Feature(unsafe { Val::from_declarative(feature) }))
     }
@@ -57,8 +57,8 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
     fn cache_feature(
         &self,
         feature: usize,
-        value: __VMResult<__Register<'eval>>,
-    ) -> __VMResult<__Register<'eval>> {
+        value: __VMResult<__RegularValue>,
+    ) -> __VMResult<__RegularValue> {
         self.sheet.cache(
             EvalKey::Feature(unsafe { Val::from_declarative(feature) }),
             value,
@@ -69,8 +69,8 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         &self,
         this: *const std::ffi::c_void,
         uid: u64,
-        value: __VMResult<__Register<'eval>>,
-    ) -> __VMResult<__Register<'eval>> {
+        value: __VMResult<__RegularValue>,
+    ) -> __VMResult<__RegularValue> {
         self.sheet.cache(
             EvalKey::StructDerivedField {
                 this,
@@ -93,7 +93,7 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         // }
     }
 
-    fn eval_feature_from_uid(&self, uid_raw: u64) -> __VMResult<__Register<'eval>> {
+    fn eval_feature_from_uid(&self, uid_raw: u64) -> __VMResult<__RegularValue> {
         todo!()
         // let uid = unsafe { EntityUid::from_declarative(uid_raw) };
         // let route = self.db.item_route_by_uid(uid);
@@ -109,13 +109,13 @@ impl<'a, 'eval: 'a> __EvalContext<'eval> for FeatureEvaluator<'a, 'eval> {
         // }
     }
 
-    fn target_input(&self) -> &__Register<'eval> {
+    fn target_input(&self) -> &__RegularValue {
         &self.target_input
     }
 }
 
-impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub unsafe fn some_ctx(&'a self) -> Option<&'a dyn __EvalContext<'eval>> {
+impl<'a, 'static: 'a> FeatureEvaluator<'a> {
+    pub unsafe fn some_ctx(&'a self) -> Option<&'a dyn __EvalContext> {
         Some(self)
     }
 
@@ -126,8 +126,8 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
     fn cache(
         &self,
         eval_key: EvalKey,
-        compute_value: impl FnOnce(&Self) -> __VMResult<__Register<'eval>>,
-    ) -> __VMResult<__Register<'eval>> {
+        compute_value: impl FnOnce(&Self) -> __VMResult<__RegularValue>,
+    ) -> __VMResult<__RegularValue> {
         if let Some(result) = self.sheet.cached_value(eval_key) {
             result
         } else {
@@ -136,7 +136,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
         }
     }
 
-    fn as_static(&self) -> FeatureEvaluator<'a, 'static> {
+    fn as_static(&self) -> FeatureEvaluator<'a> {
         self.opt_static_husky_feature_eval
             .unwrap()
             .evaluator(self.sample_id)

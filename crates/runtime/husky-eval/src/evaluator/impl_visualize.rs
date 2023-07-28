@@ -6,7 +6,7 @@ use husky_val_repr::*;
 use husky_vm::*;
 use std::sync::Arc;
 
-impl<'temp, 'eval> FeatureEvaluator<'temp, 'eval> {
+impl<'temp, 'static> FeatureEvaluator<'temp, 'static> {
     pub fn visualize_feature(&self, this: ValRepr) -> __VMResult<VisualData> {
         let within_domain = self.eval_opt_domain_indicator_cached(this.opt_domain_indicator())?;
         if within_domain {
@@ -64,7 +64,7 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
         //         let visual_feature_lazy_block = self.db.visual_feature_lazy_block(this)?;
         //         Ok(self
         //             .eval_lazy_block(&visual_feature_lazy_block)?
-        //             .downcast_eval_ref::<VisualData>(&__VISUAL_DATA_VTABLE)
+        //             .downcast_leash::<VisualData>(&__VISUAL_DATA_VTABLE)
         //             .clone())
         //     }
         //     VisualizerVariant::Void => {

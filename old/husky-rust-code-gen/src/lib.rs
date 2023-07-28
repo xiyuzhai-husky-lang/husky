@@ -1,6 +1,6 @@
 mod cargo_toml_content;
 mod code_generator;
-mod contains_eval_ref;
+mod contains_leash;
 mod eval_context;
 mod init_content;
 mod lib_rs_content;
@@ -26,8 +26,8 @@ pub trait RustTranspileDb: DbWithJar<RustTranspileJar> + LayoutDb {
     fn rust_registration_rs_content(&self, target_entrance: DiffPath) -> Arc<String>;
     fn rust_init_rs_content(&self, target_entrance: DiffPath) -> Arc<String>;
     fn rust_mod_rs_content(&self, module: EtherealTerm) -> Arc<String>;
-    fn item_route_variant_contains_eval_ref(&self, item_path: EtherealTerm) -> bool;
-    fn item_route_contains_eval_ref(&self, item_path: EtherealTerm) -> bool;
+    fn item_route_variant_contains_leash(&self, item_path: EtherealTerm) -> bool;
+    fn item_route_contains_leash(&self, item_path: EtherealTerm) -> bool;
     fn is_defn_static(&self, item_path: EtherealTerm) -> bool;
     fn contains_spatial_parameters(&self, item_path: EtherealTerm) -> bool;
     fn item_immediate_link_dependees(&self, item_path: EtherealTerm) -> Arc<VecSet<EtherealTerm>>;
@@ -59,11 +59,11 @@ where
         todo!()
     }
 
-    fn item_route_variant_contains_eval_ref(&self, _item_path: EtherealTerm) -> bool {
+    fn item_route_variant_contains_leash(&self, _item_path: EtherealTerm) -> bool {
         todo!()
     }
 
-    fn item_route_contains_eval_ref(&self, _item_path: EtherealTerm) -> bool {
+    fn item_route_contains_leash(&self, _item_path: EtherealTerm) -> bool {
         todo!()
     }
 

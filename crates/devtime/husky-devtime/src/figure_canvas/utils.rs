@@ -6,7 +6,7 @@ use crate::*;
 impl Debugtime {
     pub fn visualize_temp_value(
         &self,
-        value: &__Register<'static>,
+        value: &__RegularValue,
         ty: EtherealTerm,
         file: DiffPath,
         range: TextRange,

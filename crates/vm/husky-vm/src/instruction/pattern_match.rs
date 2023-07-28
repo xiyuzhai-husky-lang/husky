@@ -3,18 +3,18 @@ use crate::*;
 #[derive(Debug, PartialEq)]
 pub struct VMPatternBranch {
     pub opt_pattern: Option<VMPattern>,
-    pub body: Arc<InstructionSheet>,
+    pub body: Instructions,
 }
 
 #[derive(Debug, PartialEq)]
 pub enum VMPattern {
-    Primitive(__Register<'static>),
+    Primitive(__RegularValue),
     EnumKind { kind_idx: i32 },
     Or(Vec<VMPattern>),
 }
 
 impl VMPattern {
-    pub fn contains<'temp, 'eval>(&self, value: &__Register<'eval>) -> bool {
+    pub fn contains<'temp>(&self, value: &__RegularValue) -> bool {
         match self {
             VMPattern::Primitive(primitive) => value == primitive,
             VMPattern::Or(subpatterns) => {

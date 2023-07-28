@@ -1,18 +1,18 @@
 use husky_opn_semantics::ImplicitConversion;
 
-use husky_vm::{__Register, __VMError, __VMResult};
+use husky_vm::{__RegularValue, __VMError, __VMResult};
 
 use crate::*;
 
 use super::FeatureEvaluator;
 
-impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
-    pub(crate) fn eval_stmt(&self, stmt: &ValStmt) -> __VMResult<__Register<'eval>> {
+impl<'a, 'static: 'a> FeatureEvaluator<'a> {
+    pub(crate) fn eval_stmt(&self, stmt: &ValStmt) -> __VMResult<__RegularValue> {
         match stmt.variant {
-            ValStmtData::Init { .. } => Ok(__Register::unreturned()),
+            ValStmtData::Init { .. } => Ok(__RegularValue::unreturned()),
             ValStmtData::Assert { ref condition } => {
                 if self.satisfies(condition)? {
-                    Ok(__Register::unreturned())
+                    Ok(__RegularValue::unreturned())
                 } else {
                     Err(__VMError::new_normal(format!(
                         "assertion failed at {:?}:{:?}",
@@ -22,9 +22,9 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
             }
             ValStmtData::Require { ref condition, .. } => {
                 if self.satisfies(condition)? {
-                    Ok(__Register::unreturned())
+                    Ok(__RegularValue::unreturned())
                 } else {
-                    Ok(__Register::none(0))
+                    Ok(__RegularValue::none(0))
                 }
             }
             ValStmtData::Return { ref result } => self.eval_expr(result),
@@ -41,7 +41,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                         }
                         ImplicitConversion::ConvertToBool => todo!(),
                     })
-                    .unwrap_or(__Register::unreturned())
+                    .unwrap_or(__RegularValue::unreturned())
             }),
             ValStmtData::ReturnHtml { ref result } => self.eval_xml_expr(result),
             ValStmtData::ConditionFlow { ref branches, .. } => {
@@ -59,7 +59,7 @@ impl<'a, 'eval: 'a> FeatureEvaluator<'a, 'eval> {
                         return self.eval_lazy_block(&branch.block);
                     }
                 }
-                Ok(__Register::unreturned())
+                Ok(__RegularValue::unreturned())
             }
         }
     }

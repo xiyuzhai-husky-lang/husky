@@ -41,13 +41,13 @@ pub(crate) use __husky::registration::*;
 
     fn gen_ty_registration(&mut self, item_path: EtherealTerm) {
         let mangled_intrinsic_ty = self.db.mangled_intrinsic_ty(item_path);
-        let needs_eval_ref = self.db.item_route_contains_eval_ref(item_path);
+        let needs_leash = self.db.item_route_contains_leash(item_path);
         write!(
             self.result,
             "type {}{} = ",
             mangled_intrinsic_ty,
-            match needs_eval_ref {
-                true => "<'eval>",
+            match needs_leash {
+                true => "",
                 false => "",
             }
         )

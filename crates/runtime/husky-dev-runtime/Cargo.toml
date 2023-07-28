@@ -41,7 +41,7 @@ husky-vm = { path = "../../vm/husky-vm" }
 # runtime
 husky-val-repr = { path = "../../comptime/husky-val-repr" }
 husky-eval = { path = "../../runtime/husky-eval" }
-husky-instruction-gen = { path = "../../runtime/husky-instruction-gen" }
+husky-instruction = { path = "../../comptime/husky-instruction" }
 husky-data-viewer = { path = "../../runtime/husky-data-viewer" }
 # devtime
 husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }

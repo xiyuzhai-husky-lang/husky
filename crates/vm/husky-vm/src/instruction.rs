@@ -8,7 +8,7 @@ pub use condition_flow::*;
 pub use id::{InstructionId, InstructionSource};
 pub use opn::*;
 pub use pattern_match::*;
-pub use sheet::InstructionSheet;
+pub use sheet::Instructions;
 
 use crate::*;
 use avec::Avec;
@@ -18,21 +18,21 @@ use std::{ops::Deref, panic::RefUnwindSafe, sync::Arc};
 
 #[derive(Debug)]
 pub struct Instruction {
-    pub variant: InstructionVariant,
+    pub data: InstructionData,
     pub src: Arc<dyn InstructionSource>,
 }
 
 impl PartialEq for Instruction {
     fn eq(&self, other: &Self) -> bool {
-        self.variant == other.variant && self.ins_id() == other.ins_id()
+        self.data == other.data && self.ins_id() == other.ins_id()
     }
 }
 
 impl Eq for Instruction {}
 
 impl Instruction {
-    pub fn new(variant: InstructionVariant, src: Arc<dyn InstructionSource>) -> Self {
-        Self { variant, src }
+    pub fn new(data: InstructionData, src: Arc<dyn InstructionSource>) -> Self {
+        Self { data, src }
     }
 
     pub fn ins_id(&self) -> InstructionId {
@@ -51,7 +51,7 @@ impl<
 }
 
 #[derive(Debug, PartialEq)]
-pub enum InstructionVariant {
+pub enum InstructionData {
     PushVariable {
         stack_idx: VMStackIdx,
         binding: Binding,
@@ -61,7 +61,7 @@ pub enum InstructionVariant {
         explicit: bool,
     },
     PushLiteralValue {
-        value: __Register<'static>,
+        value: __RegularValue,
         ty: EtherealTerm,
         explicit: bool,
     },
@@ -90,7 +90,7 @@ pub enum InstructionVariant {
         fields: Vec<Ident>,
     },
     Loop {
-        body: Arc<InstructionSheet>,
+        body: Instructions,
         loop_kind: VMLoopKind,
     },
     Return {
@@ -113,6 +113,6 @@ pub enum InstructionVariant {
     PushEntityFp {
         opt_linkage: Option<__Linkage>,
         ty: EtherealTerm,
-        opt_instruction_sheet: Option<Arc<InstructionSheet>>,
+        opt_instruction_sheet: Option<Instructions>,
     },
 }

@@ -21,7 +21,7 @@ impl __OptVirtualThickFp {
     }
 
     #[cfg(feature = "thin_fp")]
-    pub const fn some_base<'eval, F: ~const __BaseThinFp>(f: F) -> Self {
+    pub const fn some_base<F: ~const __BaseThinFp>(f: F) -> Self {
         Self {
             needs_eval_context: false,
             fp: f.__to_void_pointer(),
@@ -29,7 +29,7 @@ impl __OptVirtualThickFp {
     }
 
     #[cfg(feature = "thin_fp")]
-    pub const fn some_ctx<'eval, F: ~const __CtxThinFp>(f: F) -> Self {
+    pub const fn some_ctx<F: ~const __CtxThinFp>(f: F) -> Self {
         Self {
             needs_eval_context: true,
             fp: f.__to_void_pointer(),

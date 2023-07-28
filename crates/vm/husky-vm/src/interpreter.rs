@@ -10,24 +10,24 @@ pub use query::InterpreterQueryGroup;
 
 use crate::*;
 
-pub struct Interpreter<'a, 'eval: 'a> {
+pub struct Interpreter<'a> {
     db: &'a dyn InterpreterQueryGroup,
-    opt_ctx: Option<&'a dyn __EvalContext<'eval>>,
-    stack: VMStack<'eval>,
-    pub(crate) history: History<'eval>,
-    opt_snapshot_saved: Option<StackSnapshot<'eval>>,
-    pub(crate) frames: Vec<LoopFrameData<'eval>>,
+    opt_ctx: Option<&'a dyn __EvalContext>,
+    stack: VMStack,
+    pub(crate) history: History,
+    opt_snapshot_saved: Option<StackSnapshot>,
+    pub(crate) frames: Vec<LoopFrameData>,
     variable_mutations: IndexMap<VMStackIdx, (Ident, ModuleRange, EtherealTerm)>,
     vm_config: &'a VMConfig,
 }
 
-impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
+impl<'temp> Interpreter<'temp> {
     pub(crate) fn try_new(
         db: &'temp dyn InterpreterQueryGroup,
-        opt_ctx: Option<&'temp dyn __EvalContext<'eval>>,
-        argument_iter: impl Iterator<Item = __VMResult<__Register<'eval>>>,
+        opt_ctx: Option<&'temp dyn __EvalContext>,
+        argument_iter: impl Iterator<Item = __VMResult<__RegularValue>>,
         vm_config: &'temp VMConfig,
-    ) -> __VMResult<Interpreter<'temp, 'eval>> {
+    ) -> __VMResult<Interpreter<'temp>> {
         Ok(Self {
             db,
             opt_ctx,
@@ -42,10 +42,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(crate) fn new(
         db: &'temp dyn InterpreterQueryGroup,
-        opt_ctx: Option<&'temp dyn __EvalContext<'eval>>,
-        argument_iter: impl Iterator<Item = __Register<'eval>>,
+        opt_ctx: Option<&'temp dyn __EvalContext>,
+        argument_iter: impl Iterator<Item = __RegularValue>,
         vm_config: &'temp VMConfig,
-    ) -> Interpreter<'temp, 'eval> {
+    ) -> Interpreter<'temp> {
         Self {
             db,
             opt_ctx,
@@ -60,10 +60,10 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(crate) fn from_stack(
         db: &'temp dyn InterpreterQueryGroup,
-        opt_ctx: Option<&'temp dyn __EvalContext<'eval>>,
-        stack: VMStack<'eval>,
+        opt_ctx: Option<&'temp dyn __EvalContext>,
+        stack: VMStack,
         vm_config: &'temp VMConfig,
-    ) -> Interpreter<'temp, 'eval> {
+    ) -> Interpreter<'temp> {
         Self {
             db,
             opt_ctx,
@@ -78,9 +78,9 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
 
     pub(crate) fn eval_instructions(
         &mut self,
-        sheet: &InstructionSheet,
+        sheet: &Instructions,
         mode: Mode,
-    ) -> __VMResult<__Register<'eval>> {
+    ) -> __VMResult<__RegularValue> {
         match self.exec_all(sheet, mode) {
             VMControl::None => {
                 panic!("no return from eval_instructions")
@@ -118,7 +118,7 @@ impl<'temp, 'eval: 'temp> Interpreter<'temp, 'eval> {
             .insert(stack_idx, (varname, range, ty));
     }
 
-    fn collect_block_mutations(&mut self) -> (StackSnapshot<'eval>, Vec<MutationData<'eval>>) {
+    fn collect_block_mutations(&mut self) -> (StackSnapshot, Vec<MutationData>) {
         let snapshot = std::mem::take(&mut self.opt_snapshot_saved).expect("bug");
         let mutations = std::mem::take(&mut self.variable_mutations)
             .iter()

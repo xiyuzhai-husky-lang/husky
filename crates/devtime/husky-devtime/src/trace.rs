@@ -47,7 +47,7 @@ impl Debugtime {
     pub(crate) fn new_eager_expr_trace(
         &mut self,
         expr: Arc<EagerExpr>,
-        history: Arc<History<'static>>,
+        history: Arc<History>,
         opt_parent: Option<&Trace>,
         indent: Indent,
     ) -> TraceId {

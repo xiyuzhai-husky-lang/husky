@@ -3,7 +3,6 @@ use crate::*;
 #[derive(Debug, PartialEq, Eq)]
 pub struct DeclarativeTermMenu1 {
     parent: DeclarativeTermMenu0,
-    eval_ref_ty: DeclarativeTerm,
     static_ref_ty: DeclarativeTerm,
     explicit_invariant_ty0_to_trai_ty: DeclarativeTermCurry,
     explicit_covariant_ty0_to_ty0: DeclarativeTermCurry,
@@ -25,14 +24,7 @@ impl DeclarativeTermMenu1 {
         _toolchain: Toolchain,
         menu0: DeclarativeTermMenu0,
     ) -> Self {
-        // todo!()
         Self {
-            eval_ref_ty: DeclarativeTermExplicitApplication::new(
-                db,
-                menu0.ref_ty_path(),
-                menu0.eval_lifetime(),
-            )
-            .into(),
             static_ref_ty: DeclarativeTermExplicitApplication::new(
                 db,
                 menu0.ref_ty_path(),
@@ -71,14 +63,6 @@ impl DeclarativeTermMenu1 {
         }
     }
 
-    pub fn eval_ref_ty(&self) -> DeclarativeTerm {
-        self.eval_ref_ty
-    }
-
-    pub fn static_ref_ty(&self) -> DeclarativeTerm {
-        self.static_ref_ty
-    }
-
     pub fn invariant_ty0_to_trai_ty(&self) -> DeclarativeTermCurry {
         self.explicit_invariant_ty0_to_trai_ty
     }
@@ -93,5 +77,9 @@ impl DeclarativeTermMenu1 {
 
     pub fn ex_inv_ty0_to_ty0(&self) -> DeclarativeTermCurry {
         self.explicit_invariant_ty0_to_ty0
+    }
+
+    pub fn static_ref_ty(&self) -> DeclarativeTerm {
+        self.static_ref_ty
     }
 }

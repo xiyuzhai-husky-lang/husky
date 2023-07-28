@@ -16,11 +16,11 @@ macro_rules! transfer_linkage {
 #[macro_export]
 macro_rules! feature_linkage {
     ($f: expr, $OUTPUT_TY: ty, $OUTPUT_TY_VTABLE: expr) => {{
-        unsafe fn __wrapper<'eval>(
-            __arguments: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
-            __Register::new_eval_ref::<$OUTPUT_TY>($f(__opt_ctx.unwrap()), &$OUTPUT_TY_VTABLE)
+        unsafe fn __wrapper(
+            __arguments: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
+            __RegularValue::new_leash::<$OUTPUT_TY>($f(__opt_ctx.unwrap()), &$OUTPUT_TY_VTABLE)
         }
         __Linkage::Transfer(resolved_linkage!(__wrapper, none))
     }};
@@ -30,11 +30,11 @@ macro_rules! feature_linkage {
 #[macro_export]
 macro_rules! opt_feature_linkage {
     ($f: expr, $OUTPUT_TY: ty, $OUTPUT_TY_VTABLE: expr) => {{
-        unsafe fn __wrapper<'eval>(
-            __arguments: &mut [__Register<'eval>],
-            __opt_ctx: Option<&dyn __EvalContext<'eval>>,
-        ) -> __Register<'eval> {
-            __Register::new_opt_eval_ref::<$OUTPUT_TY>($f(__opt_ctx.unwrap()), &$OUTPUT_TY_VTABLE)
+        unsafe fn __wrapper(
+            __arguments: &mut [__RegularValue],
+            __opt_ctx: Option<&dyn __EvalContext>,
+        ) -> __RegularValue {
+            __RegularValue::new_opt_leash::<$OUTPUT_TY>($f(__opt_ctx.unwrap()), &$OUTPUT_TY_VTABLE)
         }
         __Linkage::Transfer(resolved_linkage!(__wrapper, none))
     }};
