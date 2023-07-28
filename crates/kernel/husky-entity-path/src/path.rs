@@ -11,7 +11,7 @@ pub use self::variant::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb)]
 #[enum_class::from_variants]
 pub enum EntityPath {
     Module(ModulePath),
@@ -102,7 +102,7 @@ impl From<TraitPath> for EntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb)]
 #[enum_class::from_variants]
 pub enum ItemPath {
     Submodule(SubmodulePath),
@@ -212,7 +212,7 @@ impl From<TraitPath> for ItemPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb)]
 #[enum_class::from_variants]
 pub enum MajorEntityPath {
     Module(ModulePath),
@@ -247,7 +247,7 @@ impl MajorEntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb)]
 #[enum_class::from_variants]
 pub enum PrincipalEntityPath {
     Module(ModulePath),
@@ -295,7 +295,7 @@ impl From<PrincipalEntityPath> for EntityPath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb)]
 #[enum_class::from_variants]
 pub enum PrincipalItemPath {
     Submodule(SubmodulePath),

@@ -10,7 +10,7 @@ use super::*;
 use husky_token::ImplToken;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynNodeDecl {
     Type(TypeImplBlockSynNodeDecl),
@@ -75,7 +75,7 @@ impl HasNodeDecl for ImplBlockSynNodePath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynDecl {
     Type(TypeImplBlockSynDecl),

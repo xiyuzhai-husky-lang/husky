@@ -2,7 +2,7 @@ use crate::*;
 use ordered_float::OrderedFloat;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::debug_with_db(db = TermPreludeDb, jar = TermPreludeJar)]
 pub enum TermLiteral {
     /// unit literal
     Unit,

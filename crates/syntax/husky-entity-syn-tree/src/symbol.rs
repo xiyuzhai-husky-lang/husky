@@ -18,7 +18,7 @@ impl ModuleItemSynNode {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum EntitySymbol {
     CrateRoot {

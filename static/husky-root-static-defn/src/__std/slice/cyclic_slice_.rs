@@ -42,7 +42,7 @@ pub static STD_SLICE_CYCLIC_SLICE_DEFN: EntityStaticDefn = EntityStaticDefn {
                         },
                         spatial_parameters: &[],
                         method_static_defn_kind: MethodStaticDefnKind::TraitMethodImpl,
-                        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+                        opt_linkage: Some(__LinkageGroup::Member(&__MemberLinkageGroup {
                             copy_resolved_linkage: resolved_linkage!(
                                 virtual_cyclic_slice_index_copy
                             ),
@@ -84,7 +84,7 @@ pub static STD_SLICE_CYCLIC_SLICE_FIRST_DEFN: EntityStaticDefn = EntityStaticDef
         return_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+        opt_linkage: Some(__LinkageGroup::Member(&__MemberLinkageGroup {
             copy_resolved_linkage: resolved_linkage!(virtual_cyclic_slice_first_copy),
             eval_ref_resolved_linkage: resolved_linkage!(virtual_cyclic_slice_first_eval_ref),
             temp_ref_resolved_linkage: resolved_linkage!(virtual_cyclic_slice_first_temp_ref),
@@ -146,7 +146,7 @@ pub static STD_SLICE_CYCLIC_SLICE_LAST_DEFN: EntityStaticDefn = EntityStaticDefn
         return_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+        opt_linkage: Some(__LinkageGroup::Member(&__MemberLinkageGroup {
             copy_resolved_linkage: resolved_linkage!(virtual_cyclic_slice_last_copy),
             eval_ref_resolved_linkage: resolved_linkage!(virtual_cyclic_slice_last_eval_ref),
             temp_ref_resolved_linkage: resolved_linkage!(virtual_cyclic_slice_last_temp_ref),

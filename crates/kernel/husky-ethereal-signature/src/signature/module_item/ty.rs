@@ -83,7 +83,7 @@ fn ty_ethereal_signature_template(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb)]
 #[enum_class::from_variants]
 pub enum RegularFieldEtherealSignature {
     PropsStruct(PropsStructFieldEtherealSignature),

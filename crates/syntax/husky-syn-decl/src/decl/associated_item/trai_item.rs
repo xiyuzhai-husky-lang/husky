@@ -13,7 +13,7 @@ use super::*;
 use husky_ast::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TraitItemSynNodeDecl {
     AssociatedFn(TraitAssociatedFnSynNodeDecl),
@@ -78,7 +78,7 @@ impl HasNodeDecl for TraitItemSynNodePath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TraitItemSynDecl {
     AssociatedFn(TraitAssociatedFnSynDecl),

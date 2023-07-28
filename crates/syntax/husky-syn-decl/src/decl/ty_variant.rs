@@ -9,7 +9,7 @@ pub use self::unit_ty_variant::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantSynNodeDecl {
     Props(PropsTypeVariantSynNodeDecl),
@@ -73,7 +73,8 @@ impl<'a> DeclParser<'a> {
             ident_token,
             state_after,
             ..
-        } = self.ast_sheet()[ast_idx] else {
+        } = self.ast_sheet()[ast_idx]
+        else {
             unreachable!()
         };
         let mut parser = self.expr_parser(
@@ -114,7 +115,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantSynDecl {
     Props(PropsTypeVariantSynDecl),

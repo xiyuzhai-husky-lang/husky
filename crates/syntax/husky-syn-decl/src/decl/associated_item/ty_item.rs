@@ -17,7 +17,7 @@ use husky_entity_taxonomy::TypeItemKind;
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemSynNodeDecl {
     AssociatedFn(TypeAssociatedFnSynNodeDecl),
@@ -177,7 +177,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemSynDecl {
     AssociatedFn(TypeAssociatedFnSynDecl),
@@ -226,7 +226,7 @@ impl TypeItemSynDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeItemDecls {
     AssociatedFn(SmallVecImpl<TypeAssociatedFnSynDecl>),

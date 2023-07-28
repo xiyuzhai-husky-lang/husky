@@ -11,7 +11,7 @@ use super::*;
 // let
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct LetToken {
     token_idx: TokenIdx,
 }
@@ -23,7 +23,7 @@ impl LetToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct ReturnToken {
     token_idx: TokenIdx,
 }
@@ -35,7 +35,7 @@ impl ReturnToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct RequireToken {
     token_idx: TokenIdx,
 }
@@ -47,7 +47,7 @@ impl RequireToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct AssertToken {
     token_idx: TokenIdx,
 }
@@ -59,7 +59,7 @@ impl AssertToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct BreakToken {
     token_idx: TokenIdx,
 }
@@ -71,7 +71,7 @@ impl BreakToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct StmtForToken {
     token_idx: TokenIdx,
 }
@@ -83,7 +83,7 @@ impl StmtForToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct ForextToken {
     token_idx: TokenIdx,
 }
@@ -95,7 +95,7 @@ impl ForextToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct WhileToken {
     token_idx: TokenIdx,
 }
@@ -107,7 +107,7 @@ impl WhileToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct DoToken {
     token_idx: TokenIdx,
 }
@@ -119,7 +119,7 @@ impl DoToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 #[enum_class::from_variants]
 pub enum BasicStmtKeywordToken {
     Let(LetToken),
@@ -202,7 +202,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct MatchToken {
     token_idx: TokenIdx,
 }
@@ -236,7 +236,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct IfToken {
     token_idx: TokenIdx,
 }
@@ -274,7 +274,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct ElifToken {
     token_idx: TokenIdx,
 }
@@ -314,7 +314,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct ElseToken {
     token_idx: TokenIdx,
 }
@@ -356,7 +356,7 @@ where
 // impl
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct ImplToken {
     token_idx: TokenIdx,
 }
@@ -396,7 +396,7 @@ where
 // pub
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct PubToken {
     token_idx: TokenIdx,
 }
@@ -436,7 +436,7 @@ where
 // use
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct UseToken {
     token_idx: TokenIdx,
 }
@@ -491,7 +491,7 @@ fn use_token_works() {
 // self value
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct SelfValueToken {
     token_idx: TokenIdx,
 }
@@ -547,7 +547,7 @@ fn self_value_token_works() {
 
 /// `Self` self type token
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct SelfTypeToken {
     token_idx: TokenIdx,
 }
@@ -602,7 +602,7 @@ fn self_type_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 #[enum_class::from_variants]
 pub enum VarianceToken {
     Covariant(CovariantToken),
@@ -664,7 +664,7 @@ fn variance_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct CovariantToken {
     token_idx: TokenIdx,
 }
@@ -676,7 +676,7 @@ impl CovariantToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct ContravariantToken {
     token_idx: TokenIdx,
 }
@@ -688,7 +688,7 @@ impl ContravariantToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct InvariantToken {
     token_idx: TokenIdx,
 }

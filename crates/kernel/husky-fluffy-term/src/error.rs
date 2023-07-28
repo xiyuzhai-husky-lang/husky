@@ -4,7 +4,7 @@ use husky_ethereal_signature::EtherealSignatureError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub enum FluffyTermError {
     #[error("todo")]
     Todo,

@@ -11,7 +11,7 @@ use with_db::PartialOrdWithDb;
 
 /// Visibility is greater if it can be accessed from more places
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = VfsDb)]
+#[salsa::debug_with_db(db = VfsDb)]
 pub enum Scope {
     Pub,                  // everyone can access it
     PubUnder(ModulePath), // everyone under a path can access it

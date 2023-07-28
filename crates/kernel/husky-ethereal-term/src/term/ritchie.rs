@@ -199,7 +199,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb)]
 #[enum_class::from_variants]
 pub enum EtherealTermRitchieParameter {
     Regular(EtherealTermRitchieRegularParameter),

@@ -14,7 +14,7 @@ use crate::*;
 use husky_entity_syn_tree::{CratePrelude, ModuleSymbolContext, PreludeResult};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum Symbol {
     PrincipalEntity(PrincipalEntityPath),
     Inherited(InheritedSynSymbolIdx, InheritedSynSymbolKind),
@@ -22,7 +22,7 @@ pub enum Symbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum ImplicitParameterSymbol {
     Lifetime { label_token: LifetimeLabelToken },
     Type { ident_token: IdentToken },
@@ -30,7 +30,7 @@ pub enum ImplicitParameterSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub struct InheritedSynSymbol {
     parent_symbol_idx: ParentSynSymbolIdx,
     modifier: SymbolModifier,
@@ -59,14 +59,14 @@ impl InheritedSynSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum InheritedSynSymbolKind {
     ImplicitParameter(InheritedImplicitParameterSynSymbol),
     ExplicitParameter { ident: Ident },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum InheritedImplicitParameterSynSymbol {
     Lifetime { label: Label },
     Type { ident: Ident },
@@ -74,7 +74,7 @@ pub enum InheritedImplicitParameterSynSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub struct CurrentSynSymbol {
     modifier: SymbolModifier,
     access_start: TokenIdx,
@@ -135,7 +135,7 @@ impl CurrentSynSymbol {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum CurrentSynSymbolKind {
     ImplicitParameter {
         implicit_parameter_kind: CurrentImplicitParameterSynSymbolKind,
@@ -153,7 +153,7 @@ pub enum CurrentSynSymbolKind {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum CurrentImplicitParameterSynSymbolKind {
     Type { ident_token: IdentToken },
     Lifetime { label_token: LifetimeLabelToken },
@@ -161,7 +161,7 @@ pub enum CurrentImplicitParameterSynSymbolKind {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum CurrentSynSymbolVariant {
     ImplicitParameter {
         implicit_parameter_variant: CurrentImplicitParameterSymbol,
@@ -206,7 +206,7 @@ impl CurrentSynSymbolVariant {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 #[non_exhaustive]
 pub enum CurrentImplicitParameterSymbol {
     Lifetime {

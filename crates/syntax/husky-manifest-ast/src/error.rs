@@ -2,7 +2,7 @@ use crate::*;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ManifestAstDb)]
+#[salsa::debug_with_db(db = ManifestAstDb)]
 pub enum ManifestAstError {
     #[error("{0}")]
     Original(#[from] OriginalManifestAstError),
@@ -11,7 +11,7 @@ pub enum ManifestAstError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ManifestAstDb)]
+#[salsa::debug_with_db(db = ManifestAstDb)]
 pub enum OriginalManifestAstError {
     #[error("MissingPackageSection")]
     MissingPackageSection,
@@ -22,7 +22,7 @@ pub enum OriginalManifestAstError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ManifestAstDb)]
+#[salsa::debug_with_db(db = ManifestAstDb)]
 pub enum DerivedManifestAstError {
     #[error("todo")]
     Todo,

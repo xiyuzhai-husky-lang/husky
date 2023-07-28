@@ -14,7 +14,7 @@ pub type SynStmtIdxRange = ArenaIdxRange<SynStmt>;
 pub type SynStmtMap<V> = ArenaMap<SynStmt, V>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum SynStmt {
     Let {
         let_token: LetToken,

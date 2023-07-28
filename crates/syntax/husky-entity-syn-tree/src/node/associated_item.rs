@@ -13,7 +13,7 @@ use husky_coword::IdentPairMap;
 use husky_entity_taxonomy::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum AssociatedItemSynNodePath {
     TypeItem(TypeItemSynNodePath),
@@ -46,7 +46,7 @@ impl AssociatedItemSynNodePath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum AssociatedItemSynNode {
     TypeItem(TypeItemSynNode),
 }

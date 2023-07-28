@@ -4,7 +4,7 @@ use husky_token::{HasTokenIdxRange, RangedTokenSheet, TokenIdxRange, TokenSheetD
 use husky_vfs::ModulePath;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb, jar = SynExprJar)]
+#[salsa::debug_with_db(db = SynExprDb, jar = SynExprJar)]
 pub struct ExprRangeRegion {
     item_path_expr_ranges: Vec<TokenIdxRange>,
     pattern_expr_ranges: Vec<TokenIdxRange>,

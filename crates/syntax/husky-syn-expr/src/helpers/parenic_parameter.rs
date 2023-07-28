@@ -3,7 +3,7 @@ use either::*;
 use parsec::{HasStreamState, TryParseOptionFromStream};
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum VariadicVariant {
     Default,
     Vec {
@@ -32,7 +32,7 @@ impl<'a, 'b> TryParseFromStream<ExprParseContext<'a, 'b>> for VariadicVariant {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum SpecificParameterDecl {
     Regular {
         pattern: PatternSynExprIdx,
@@ -102,9 +102,10 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for SpecificPara
             );
             if let Some(eq_token) = ctx.try_parse_option::<EqToken>()? {
                 let PatternSynExpr::Ident {
-                    symbol_modifier_keyword_group ,
+                    symbol_modifier_keyword_group,
                     ident_token,
-                } = ctx.pattern_expr_region()[pattern_expr_idx] else {
+                } = ctx.pattern_expr_region()[pattern_expr_idx]
+                else {
                     todo!()
                 };
                 // todo: KeyedWithoutDefault

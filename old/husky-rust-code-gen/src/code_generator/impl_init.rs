@@ -14,11 +14,11 @@ impl<'a> RustCodeGenerator<'a> {
 use __husky::init::*;
 
 #[no_mangle]
-pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
+pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __LinkageGroup)] {
     LINKAGES
 }
 
-pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &["#,
+pub static LINKAGES: &[(__StaticLinkageKey, __LinkageGroup)] = &["#,
         );
         todo!();
         // let main_module = self.db.module(self.target_entrance).unwrap();

@@ -10,7 +10,7 @@ pub enum Coersion {
 
 /// expect a type that is implicitly convertible to type under contract
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct ExpectCoersion {
     contract: Contract,
     ty_expected: FluffyTerm,

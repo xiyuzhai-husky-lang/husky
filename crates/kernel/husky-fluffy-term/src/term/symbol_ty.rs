@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct SymbolType(FluffyTerm);
 
 impl SymbolType {
@@ -159,7 +159,7 @@ impl SymbolType {
 
 /// maybe this is comparable with viewtype or viewt@ype in ATS?
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct PlaceTypeData {
     place: Place,
     ty: EtherealTerm,

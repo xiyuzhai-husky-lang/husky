@@ -1,20 +1,15 @@
-mod impl_enum;
-mod impl_struct;
+mod derive_enum;
+mod derive_struct;
 mod utils;
 
-use self::impl_enum::*;
-use self::impl_struct::*;
+use self::derive_enum::*;
+use self::derive_struct::*;
 use self::utils::*;
 use crate::options::Options;
 use syn::{spanned::Spanned, Item};
 use syn::{Ident, ItemStruct, Path};
 
-// Source:
-//
-// #[salsa::jar(db = Jar0Db)]
-// pub struct Jar0(Entity0, Ty0, EntityComponent0, my_func);
-
-pub(crate) fn derive_debug_with_db(
+pub(crate) fn debug_with_db(
     args: proc_macro::TokenStream,
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {

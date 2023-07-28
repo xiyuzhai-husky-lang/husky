@@ -7,7 +7,7 @@ pub use self::ty_impl_block::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb, jar = DeclarativeSignatureJar)]
 #[enum_class::from_variants]
 pub enum ImplBlockDeclarativeSignatureTemplate {
     TypeImpl(TypeImplBlockDeclarativeSignatureTemplate),

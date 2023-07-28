@@ -19,8 +19,8 @@ use husky_static_defn::{static_mod, EntityStaticDefn, EntityStaticDefnVariant};
 
 use husky_trace_protocol::Label;
 use husky_vm::{
-    Model, __Linkage, __ModelLinkage, __Register, __Registrable, __RegistrableSafe, __StaticInfo,
-    __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE,
+    Model, __LinkageGroup, __ModelLinkageGroup, __Register, __Registrable, __RegistrableSafe,
+    __StaticInfo, __VMResult, __VirtualEnum, __VIRTUAL_ENUM_VTABLE,
 };
 
 use std::collections::HashMap;

@@ -13,7 +13,7 @@ use husky_coword::Ident;
 use husky_entity_taxonomy::{AssociatedItemKind, EntityKind, TraitItemKind, TypeItemKind};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum AssociatedItemSynNodeDecl {
     TypeItem(TypeItemSynNodeDecl),
@@ -86,7 +86,7 @@ impl AssociatedItemSynNodeDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum AssociatedItemSynDecl {
     TypeItem(TypeItemSynDecl),

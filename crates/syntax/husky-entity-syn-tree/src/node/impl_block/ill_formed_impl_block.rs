@@ -3,7 +3,7 @@ use original_error::IntoError;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct IllFormedImplBlockSynNodePath {
     path: IllFormedImplBlockPath,
 }
@@ -91,7 +91,7 @@ impl IllFormedImplBlockSynNode {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum ImplBlockIllForm {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,

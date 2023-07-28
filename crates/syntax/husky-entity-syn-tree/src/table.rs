@@ -8,7 +8,7 @@ use husky_print_utils::p;
 use husky_token::IdentToken;
 
 #[derive(Debug, Default, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct EntitySymbolTable(Vec<EntitySymbolEntry>);
 
 impl EntitySymbolTable {
@@ -38,7 +38,7 @@ impl EntitySymbolTable {
 }
 
 #[derive(Debug, Default, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct EntitySymbolTableRef<'a>(&'a [EntitySymbolEntry]);
 
 impl<'a> EntitySymbolTableRef<'a> {
@@ -65,7 +65,7 @@ impl<'a> EntitySymbolTableRef<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct EntitySymbolEntry {
     ident: Ident,
     visibility: Scope,
@@ -185,7 +185,7 @@ impl EntitySymbolEntry {
 
 // module items and submodules
 #[derive(Debug, Default, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct MajorEntityNodeTable {
     entries: Vec<EntityNodeEntry>,
 }
@@ -235,7 +235,7 @@ impl MajorEntityNodeTable {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct EntityNodeEntry {
     node: EntitySynNode,
     /// cached for performance, always equal to node.syn_node_path(db)

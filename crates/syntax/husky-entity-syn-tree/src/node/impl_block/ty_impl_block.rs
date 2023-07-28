@@ -4,7 +4,7 @@ use super::*;
 
 // basically a wrapper type
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct TypeImplBlockSynNodePath {
     path: TypeImplBlockPath,
 }

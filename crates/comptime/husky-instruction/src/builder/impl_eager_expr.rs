@@ -192,8 +192,8 @@ impl<'a> InstructionSheetBuilder<'a> {
         //     EagerOpnVariant::RoutineCall(routine) => {
         //         if let Some(linkage) = self.db.routine_linkage(routine.route) {
         //             match linkage {
-        //                 __Linkage::Member { .. } => todo!(),
-        //                 __Linkage::Transfer(resolved_linkage) => {
+        //                 __LinkageGroup::Member { .. } => todo!(),
+        //                 __LinkageGroup::Transfer(resolved_linkage) => {
         //                     self.push_instruction(Instruction::new(
         //                         InstructionData::CallRoutine {
         //                             return_ty: expr.intrinsic_ty(),
@@ -204,7 +204,7 @@ impl<'a> InstructionSheetBuilder<'a> {
         //                         expr.clone(),
         //                     ))
         //                 }
-        //                 __Linkage::Model(_) => todo!(),
+        //                 __LinkageGroup::Model(_) => todo!(),
         //             }
         //         } else {
         //             self.push_instruction(Instruction::new(
@@ -323,14 +323,14 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         //         self.context.exit();
         //         //         if let Some(linkage) = self.db.type_call_linkage(ranged_ty.route) {
         //         //             match linkage {
-        //         //                 __Linkage::Transfer(linkage) => InstructionData::CallRoutine {
+        //         //                 __LinkageGroup::Transfer(linkage) => InstructionData::CallRoutine {
         //         //                     return_ty: expr.intrinsic_ty(),
         //         //                     nargs: opds.len().try_into().unwrap(),
         //         //                     resolved_linkage: linkage,
         //         //                     discard,
         //         //                 },
-        //         //                 __Linkage::Member(_) => todo!(),
-        //         //                 __Linkage::Model(_) => todo!(),
+        //         //                 __LinkageGroup::Member(_) => todo!(),
+        //         //                 __LinkageGroup::Model(_) => todo!(),
         //         //             }
         //         //         } else {
         //         //             match kind {
@@ -370,14 +370,14 @@ impl<'a> InstructionSheetBuilder<'a> {
         //         let linkage = self.db.type_call_linkage(return_ty).unwrap();
         //         self.push_instruction(Instruction::new(
         //             match linkage {
-        //                 __Linkage::Member(_) => todo!(),
-        //                 __Linkage::Transfer(linkage) => InstructionData::CallRoutine {
+        //                 __LinkageGroup::Member(_) => todo!(),
+        //                 __LinkageGroup::Transfer(linkage) => InstructionData::CallRoutine {
         //                     resolved_linkage: linkage,
         //                     nargs: opds.len().try_into().unwrap(),
         //                     return_ty,
         //                     discard,
         //                 },
-        //                 __Linkage::Model(_) => todo!(),
+        //                 __LinkageGroup::Model(_) => todo!(),
         //             },
         //             expr.clone(),
         //         ))
@@ -660,20 +660,20 @@ impl<'a> InstructionSheetBuilder<'a> {
     ) -> InstructionData {
         if let Some(linkage) = self.db.method_linkage(method_route) {
             match linkage {
-                __Linkage::Member { .. } => InstructionData::CallRoutine {
+                __LinkageGroup::Member { .. } => InstructionData::CallRoutine {
                     resolved_linkage: linkage.bind(output_binding),
                     nargs,
                     return_ty,
                     discard,
                 },
-                __Linkage::Transfer(linkage) => InstructionData::CallRoutine {
+                __LinkageGroup::Transfer(linkage) => InstructionData::CallRoutine {
                     return_ty,
                     nargs,
 
                     resolved_linkage: linkage,
                     discard,
                 },
-                __Linkage::Model(_) => todo!(),
+                __LinkageGroup::Model(_) => todo!(),
             }
         } else {
             todo!()

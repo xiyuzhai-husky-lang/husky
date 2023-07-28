@@ -3,7 +3,7 @@ use husky_coword::Ident;
 use husky_token::IdentToken;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 #[enum_class::from_variants]
 pub enum MethodFluffySignature {
     MethodFn(MethodFnFluffySignature),
@@ -24,7 +24,7 @@ impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFluffySignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 pub struct MethodFnFluffySignature {
     // todo: self_parameter_contracted_ty
     parenic_parameters: SmallVec<[FluffyTermRitchieParameter; 4]>,

@@ -14,7 +14,7 @@ use original_error::IntoError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::debug_with_db(db = ExprTypeDb)]
 pub enum ExprTypeError {
     #[error("original {0}")]
     Original(#[from] OriginalExprTypeError),
@@ -41,7 +41,7 @@ impl From<FluffyTermError> for ExprTypeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::debug_with_db(db = ExprTypeDb)]
 pub enum OriginalExprTypeError {
     #[error("unresolved term")]
     UnresolvedTerm,
@@ -99,7 +99,7 @@ impl IntoError for OriginalExprTypeError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::debug_with_db(db = ExprTypeDb)]
 pub enum DerivedExprTypeError {
     #[error("field type error {0}")]
     FieldTypeTermError(EtherealTermError),

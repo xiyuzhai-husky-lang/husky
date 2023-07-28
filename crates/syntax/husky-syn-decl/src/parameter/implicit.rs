@@ -4,7 +4,7 @@ use parsec::parse_separated_small2_list_expected;
 pub(crate) type ImplicitParameterDeclPatterns = SmallVec<[GenericParameterDecl; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 pub struct Generics {
     langle: LeftAngleBracketOrLessThanToken,
     generic_parameters: ImplicitParameterDeclPatterns,
@@ -33,8 +33,8 @@ impl<'a, 'b> TryParseOptionFromStream<ExprParseContext<'a, 'b>> for Generics {
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> NodeDeclResult<Option<Self>> {
-        let Some(langle) = ctx.try_parse_option::< LeftAngleBracketOrLessThanToken>()? else {
-            return Ok(None)
+        let Some(langle) = ctx.try_parse_option::<LeftAngleBracketOrLessThanToken>()? else {
+            return Ok(None);
         };
         let (generic_parameters, commas, decl_list_result) = parse_separated_small2_list_expected(
             ctx,

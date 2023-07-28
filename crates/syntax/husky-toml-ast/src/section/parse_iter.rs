@@ -31,7 +31,7 @@ impl<'a> Iterator for TomlSectionParseIter<'a> {
     }
 }
 
-#[salsa::derive_debug_with_db(db = TomlAstDb)]
+#[salsa::debug_with_db(db = TomlAstDb)]
 enum TomlSectionIterState {
     Normal,
     Err,

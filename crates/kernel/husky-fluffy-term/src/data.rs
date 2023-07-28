@@ -9,7 +9,7 @@ use self::ethereal::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub enum FluffyTermData<'a> {
     Literal(TermLiteral),
     TypeOntology {

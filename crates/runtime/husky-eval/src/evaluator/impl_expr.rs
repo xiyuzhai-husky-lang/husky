@@ -8,7 +8,7 @@ use husky_print_utils::{msg_once, p};
 use husky_text::HasSourceRange;
 use husky_trace_protocol::VisualData;
 use husky_val_repr::*;
-use husky_vm::__Linkage;
+use husky_vm::__LinkageGroup;
 use husky_vm::*;
 use husky_xml_syntax::HtmlValue;
 use std::{panic::catch_unwind, sync::Arc};
@@ -109,7 +109,7 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
             } => match model_defn.variant {
                 EntityDefnVariant::Function { ref source, .. } => match source {
                     CallFormSource::Lazy { .. } => todo!(),
-                    CallFormSource::Static(__Linkage::Model(model)) => {
+                    CallFormSource::Static(__LinkageGroup::Model(model)) => {
                         let values: Vec<_> = opds
                             .iter()
                             .map(|opd| self.eval_expr(opd))
@@ -254,7 +254,7 @@ impl<'temp> FeatureEvaluator<'temp, 'static> {
     fn eval_routine_call(
         &self,
         opt_instrns: &Option<Instructions>,
-        opt_linkage: Option<__Linkage>,
+        opt_linkage: Option<__LinkageGroup>,
         arguments: &[ValExpr],
     ) -> __VMResult<__RegularValue> {
         let db = self.db;

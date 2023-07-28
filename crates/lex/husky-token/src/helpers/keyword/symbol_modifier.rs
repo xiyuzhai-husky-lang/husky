@@ -38,7 +38,7 @@ where
     ) -> TokenResult<Option<Self>> {
         let token_stream: &mut TokenStream<'a> = &mut sp.borrow_mut();
         let Some((token_idx, token)) = token_stream.next_indexed() else {
-            return Ok(None)
+            return Ok(None);
         };
         let kw = match token {
             Token::Keyword(Keyword::Modifier(kw)) => kw,
@@ -57,7 +57,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct MutToken {
     token_idx: TokenIdx,
 }
@@ -97,7 +97,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct RefToken {
     token_idx: TokenIdx,
 }

@@ -17,7 +17,7 @@ fn ty_data_viewer(_db: &dyn DataViewerDb, _ty: EtherealTerm) -> Arc<HuskyDataVie
     //     TyKind::Record => todo!(),
     //     TyKind::Struct => HuskyDataViewer::Struct {
     //         fields: {
-    //             let mut fields: IdentPairMap<(__Linkage, EntityRoutePtr)> = Default::default();
+    //             let mut fields: IdentPairMap<(__LinkageGroup, EntityRoutePtr)> = Default::default();
     //             for ty_member in ty_decl.ty_members.iter() {
     //                 match ty_member {
     //                     TyMemberDecl::Field(field) => fields

@@ -5,7 +5,7 @@ use salsa::DebugWithDb;
 
 /// is eof if raw is equal to the len of all tokens
 #[derive(Debug, Hash, PartialOrd, Ord, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct TokenIdx(pub(crate) usize);
 
 impl TokenIdx {
@@ -186,7 +186,7 @@ pub struct TokenSheet {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct TokenSheetData {
     tokens: Vec<Token>,
     group_starts: Vec<usize>,

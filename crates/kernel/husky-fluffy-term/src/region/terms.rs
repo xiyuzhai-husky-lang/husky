@@ -8,7 +8,7 @@ use super::*;
 
 // `Default` is not implemented because we might need to initialize `solid_terms` from the parent
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct FluffyTerms {
     solid_terms: SolidTerms,
     hollow_terms: HollowTerms,

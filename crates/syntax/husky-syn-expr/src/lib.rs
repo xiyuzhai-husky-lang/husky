@@ -79,7 +79,7 @@ impl BaseEntityPathInclination {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum SynExpr {
     Literal(TokenIdx, Literal),
     PrincipalEntityPath {

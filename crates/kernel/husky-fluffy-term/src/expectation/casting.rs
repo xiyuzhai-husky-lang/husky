@@ -2,7 +2,7 @@ use super::*;
 
 /// expect a type that is explicitly convertible to dst
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct ExpectCasting {
     pub(crate) destination: FluffyTerm,
 }
@@ -25,7 +25,7 @@ impl ExpectCasting {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct ExpectExplicitlyConvertibleOutcome {
     destination: FluffyTerm,
 }

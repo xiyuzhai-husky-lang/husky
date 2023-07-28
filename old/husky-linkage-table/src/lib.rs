@@ -12,7 +12,7 @@ pub use table::*;
 use husky_coword::Ident;
 use husky_ethereal_term::EtherealTerm;
 use husky_vm::__ResolvedLinkage;
-use husky_vm::{Binding, EntityUid, __Linkage};
+use husky_vm::{Binding, EntityUid, __LinkageGroup};
 use map_collect::MapCollect;
 use std::collections::HashMap;
 use sync_utils::ASafeRwLock;
@@ -20,7 +20,7 @@ use sync_utils::ASafeRwLock;
 pub trait ResolveLinkage {
     fn linkage_table(&self) -> &LinkageTable;
 
-    fn index_linkage(&self, _opd_tys: Vec<EtherealTerm>) -> __Linkage {
+    fn index_linkage(&self, _opd_tys: Vec<EtherealTerm>) -> __LinkageGroup {
         todo!()
         // if let Some(linkage) = self
         //     .linkage_table()
@@ -53,7 +53,7 @@ pub trait ResolveLinkage {
         // }
     }
 
-    fn field_linkage(&self, _this_ty: EtherealTerm, _field_ident: Ident) -> Option<__Linkage> {
+    fn field_linkage(&self, _this_ty: EtherealTerm, _field_ident: Ident) -> Option<__LinkageGroup> {
         todo!()
         // if !this_ty.is_intrinsic() {
         //     panic!("expect intrinsic ty, but get `{}` instead", this_ty)
@@ -82,7 +82,7 @@ pub trait ResolveLinkage {
             .map(|linkage| linkage.bind(field_binding))
     }
 
-    fn method_linkage(&self, _method_route: EtherealTerm) -> Option<__Linkage> {
+    fn method_linkage(&self, _method_route: EtherealTerm) -> Option<__LinkageGroup> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -171,7 +171,7 @@ pub trait ResolveLinkage {
         // )
     }
 
-    fn routine_linkage(&self, _routine: EtherealTerm) -> Option<__Linkage> {
+    fn routine_linkage(&self, _routine: EtherealTerm) -> Option<__LinkageGroup> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -200,7 +200,7 @@ pub trait ResolveLinkage {
         // )
     }
 
-    fn type_call_linkage(&self, _ty: EtherealTerm) -> Option<__Linkage> {
+    fn type_call_linkage(&self, _ty: EtherealTerm) -> Option<__LinkageGroup> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -223,7 +223,7 @@ pub trait ResolveLinkage {
         // )
     }
 
-    fn feature_eager_block_linkage(&self, _item_path: ItemPath) -> Option<__Linkage> {
+    fn feature_eager_block_linkage(&self, _item_path: ItemPath) -> Option<__LinkageGroup> {
         todo!()
         // opt_linkage_wrapper(
         //     &self.linkage_table().config,
@@ -238,9 +238,9 @@ pub trait ResolveLinkage {
 
 fn opt_linkage_wrapper(
     config: &LinkageTableConfig,
-    f: impl FnOnce() -> Option<__Linkage>,
+    f: impl FnOnce() -> Option<__LinkageGroup>,
     message: impl FnOnce() -> String,
-) -> Option<__Linkage> {
+) -> Option<__LinkageGroup> {
     let opt_linkage = f();
     if config.warn_missing_linkage {
         if opt_linkage.is_none() {

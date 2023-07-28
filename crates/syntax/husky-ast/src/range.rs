@@ -3,7 +3,7 @@ use husky_token::{HasTokenIdxRange, RangedTokenSheet, TokenIdxRange, TokenSheetD
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb)]
 pub struct AstTokenIdxRangeSheet {
     ast_token_idx_ranges: Vec<TokenIdxRange>,
 }

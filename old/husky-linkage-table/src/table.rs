@@ -1,7 +1,7 @@
 use std::path::Path;
 
 use crate::*;
-use husky_vm::__Linkage;
+use husky_vm::__LinkageGroup;
 use libloading::Library;
 use smallvec::SmallVec;
 
@@ -12,7 +12,7 @@ pub struct LinkageTable {
 }
 
 pub struct LinkageTableInternal {
-    linkages: HashMap<LinkageKey, __Linkage>,
+    linkages: HashMap<LinkageKey, __LinkageGroup>,
     library: Library,
 }
 
@@ -34,12 +34,12 @@ impl LinkageTableInternal {
         // let Some(library) = get_library(package_dir) else {
         //     panic!("package at {package_dir:?} doesn't have a compiled dynamic library")
         // };
-        // let linkages_from_cdylib: &[(__StaticLinkageKey, __Linkage)] = unsafe {
+        // let linkages_from_cdylib: &[(__StaticLinkageKey, __LinkageGroup)] = unsafe {
         //     library
         //         .get::<GetLinkagesFromCDylib>(b"get_linkages")
         //         .expect("what")()
         // };
-        // let linkages: HashMap<LinkageKey, __Linkage> = linkages_from_cdylib
+        // let linkages: HashMap<LinkageKey, __LinkageGroup> = linkages_from_cdylib
         //     .iter()
         //     .map(|(static_key, linkage)| {
         //         let key = LinkageKey::from_static(db, *static_key);
@@ -50,7 +50,7 @@ impl LinkageTableInternal {
     }
 }
 
-// type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __Linkage)];
+// type GetLinkagesFromCDylib = unsafe extern "C" fn() -> &'static [(__StaticLinkageKey, __LinkageGroup)];
 
 fn get_library(package_dir: &Path) -> Option<Library> {
     use convert_case::*;
@@ -103,15 +103,18 @@ impl LinkageTable {
             .write(|internal| *internal = Some(LinkageTableInternal::new(db, package_dir)))
     }
 
-    pub(crate) fn type_call_linkage(&self, ty_uid: EntityUid) -> Option<__Linkage> {
+    pub(crate) fn type_call_linkage(&self, ty_uid: EntityUid) -> Option<__LinkageGroup> {
         self.get_linkage(LinkageKey::TypeCall { ty_uid })
     }
 
-    pub(crate) fn feature_eager_block_linkage(&self, feature_uid: EntityUid) -> Option<__Linkage> {
+    pub(crate) fn feature_eager_block_linkage(
+        &self,
+        feature_uid: EntityUid,
+    ) -> Option<__LinkageGroup> {
         self.get_linkage(LinkageKey::FeatureEagerBlock { uid: feature_uid })
     }
 
-    pub(crate) fn routine_linkage(&self, routine_uid: EntityUid) -> Option<__Linkage> {
+    pub(crate) fn routine_linkage(&self, routine_uid: EntityUid) -> Option<__LinkageGroup> {
         self.get_linkage(LinkageKey::Routine { routine_uid })
     }
 
@@ -119,18 +122,21 @@ impl LinkageTable {
         &self,
         this_ty_uid: EntityUid,
         field_ident: Ident,
-    ) -> Option<__Linkage> {
+    ) -> Option<__LinkageGroup> {
         self.get_linkage(LinkageKey::StructField {
             this_ty_uid,
             field_ident,
         })
     }
 
-    pub(crate) fn element_access(&self, opd_uids: SmallVec<[EntityUid; 2]>) -> Option<__Linkage> {
+    pub(crate) fn element_access(
+        &self,
+        opd_uids: SmallVec<[EntityUid; 2]>,
+    ) -> Option<__LinkageGroup> {
         self.get_linkage(LinkageKey::Index { opd_uids })
     }
 
-    fn get_linkage(&self, key: LinkageKey) -> Option<__Linkage> {
+    fn get_linkage(&self, key: LinkageKey) -> Option<__LinkageGroup> {
         self.internal
             .read(|entries| entries.as_ref().unwrap().linkages.get(&key).copied())
     }

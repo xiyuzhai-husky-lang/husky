@@ -12,35 +12,35 @@ use crate::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(C)]
-pub enum __Linkage {
+pub enum __LinkageGroup {
     Transfer(__ResolvedLinkage),
-    Member(&'static __MemberLinkage),
-    Model(__ModelLinkage),
+    Member(&'static __MemberLinkageGroup),
+    Model(__ModelLinkageGroup),
 }
 
-impl __Linkage {
+impl __LinkageGroup {
     pub fn requires_lazy(&self) -> bool {
         match self {
-            __Linkage::Transfer(_) => false,
-            __Linkage::Member(_) => false,
-            __Linkage::Model(_) => true,
+            __LinkageGroup::Transfer(_) => false,
+            __LinkageGroup::Member(_) => false,
+            __LinkageGroup::Model(_) => true,
         }
     }
 
     #[cfg(feature = "binding")]
     pub fn bind(self, binding: husky_vm_binding::Binding) -> __ResolvedLinkage {
         match self {
-            __Linkage::Member(linkage) => linkage.bind(binding),
-            __Linkage::Transfer(fp) => fp,
-            __Linkage::Model(_) => todo!(),
+            __LinkageGroup::Member(linkage) => linkage.bind(binding),
+            __LinkageGroup::Transfer(fp) => fp,
+            __LinkageGroup::Model(_) => todo!(),
         }
     }
 
     pub fn transfer(self) -> __ResolvedLinkage {
         match self {
-            __Linkage::Transfer(fp) => fp,
-            __Linkage::Member(_) => todo!(),
-            __Linkage::Model(_) => todo!(),
+            __LinkageGroup::Transfer(fp) => fp,
+            __LinkageGroup::Member(_) => todo!(),
+            __LinkageGroup::Model(_) => todo!(),
         }
     }
 }

@@ -23,7 +23,7 @@ use husky_entity_taxonomy::{EntityKind, TypeKind};
 use parsec::parse_separated_list2;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeSynNodeDecl {
     Enum(EnumTypeSynNodeDecl),
@@ -250,7 +250,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[enum_class::from_variants]
 pub enum TypeSynDecl {
     Enum(EnumTypeSynDecl),

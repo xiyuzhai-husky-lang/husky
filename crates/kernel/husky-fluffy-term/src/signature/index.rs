@@ -5,7 +5,7 @@ pub(crate) use self::ethereal::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct FluffyIndexSignature {
     element_ty: FluffyTerm,
 }

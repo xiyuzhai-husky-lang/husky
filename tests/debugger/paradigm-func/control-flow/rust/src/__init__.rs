@@ -2,11 +2,11 @@ use crate::*;
 use __husky::init::*;
 
 #[no_mangle]
-pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
+pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __LinkageGroup)] {
     LINKAGES
 }
 
-pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
+pub static LINKAGES: &[(__StaticLinkageKey, __LinkageGroup)] = &[
     (
         __StaticLinkageKey::FeatureEagerBlock {
             route: "control_flow::branch_in_func_feature",
@@ -23,7 +23,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "control_flow::branch_in_func_function",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -41,7 +41,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "control_flow::match_in_func_function",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(

@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::debug_with_db(db = HirDefnDb, jar = HirDefnJar)]
 pub struct SubmoduleHirDefn {
     hir_decl: SubmoduleHirDecl,
 }

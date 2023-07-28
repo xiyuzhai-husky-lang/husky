@@ -9,7 +9,7 @@ use parsec::StreamParser;
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum PrincipalEntityPathExpr {
     Root {
         path_name_token: PathNameToken,

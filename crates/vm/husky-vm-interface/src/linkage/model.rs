@@ -3,9 +3,9 @@ use std::panic::{RefUnwindSafe, UnwindSafe};
 
 #[derive(Debug, Clone, Copy)]
 #[repr(C)]
-pub struct __ModelLinkage(pub &'static dyn ModelDyn);
+pub struct __ModelLinkageGroup(pub &'static dyn ModelDyn);
 
-impl std::ops::Deref for __ModelLinkage {
+impl std::ops::Deref for __ModelLinkageGroup {
     type Target = dyn ModelDyn;
 
     fn deref(&self) -> &Self::Target {
@@ -13,42 +13,39 @@ impl std::ops::Deref for __ModelLinkage {
     }
 }
 
-impl PartialEq for __ModelLinkage {
+impl PartialEq for __ModelLinkageGroup {
     fn eq(&self, other: &Self) -> bool {
         self.0 as *const dyn ModelDyn as *const c_void as usize
             == other.0 as *const dyn ModelDyn as *const c_void as usize
     }
 }
 
-impl Eq for __ModelLinkage {}
+impl Eq for __ModelLinkageGroup {}
 
-pub enum GenericArgument {
+pub enum GnArgument {
     Literal { value: __RegularValue },
     NonConstant { values: Vec<__RegularValue> },
 }
 
-impl GenericArgument {
+impl GnArgument {
     pub fn values(&self) -> &[__RegularValue] {
         match self {
-            GenericArgument::Literal { .. } => panic!(),
-            GenericArgument::NonConstant { ref values } => values,
+            GnArgument::Literal { .. } => panic!(),
+            GnArgument::NonConstant { ref values } => values,
         }
     }
 
     pub fn value(&self) -> &__RegularValue {
         match self {
-            GenericArgument::Literal { ref value } => value,
-            GenericArgument::NonConstant { .. } => panic!(),
+            GnArgument::Literal { ref value } => value,
+            GnArgument::NonConstant { .. } => panic!(),
         }
     }
 }
 
 pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
-    fn train_dyn(
-        &self,
-        arguments: Vec<GenericArgument>,
-        labels: Vec<i32>,
-    ) -> __VMResult<__RegularValue>;
+    fn train_dyn(&self, arguments: Vec<GnArgument>, labels: Vec<i32>)
+        -> __VMResult<__RegularValue>;
     fn eval_dyn(
         &self,
         internal: &__RegularValue,
@@ -62,11 +59,7 @@ pub trait Model:
     type Internal: __Registrable;
     fn internal_ty_vtable() -> &'static __RegisterTyVTable;
 
-    fn train(
-        &self,
-        arguments: Vec<GenericArgument>,
-        labels: Vec<i32>,
-    ) -> __VMResult<Self::Internal>;
+    fn train(&self, arguments: Vec<GnArgument>, labels: Vec<i32>) -> __VMResult<Self::Internal>;
     fn eval(
         &self,
         internal: &Self::Internal,
@@ -77,7 +70,7 @@ pub trait Model:
 impl<T: Model> ModelDyn for T {
     fn train_dyn(
         &self,
-        arguments: Vec<GenericArgument>,
+        arguments: Vec<GnArgument>,
         labels: Vec<i32>,
     ) -> __VMResult<__RegularValue> {
         Ok(self.train(arguments, labels)?.to_register())

@@ -70,7 +70,7 @@ fn trai_for_ty_associated_ty_ethereal_signature_template_partially_instantiated_
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::debug_with_db(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
 pub struct TraitForTypeAssociatedTypeEtherealSignature {
     ty_term: EtherealTerm,
 }

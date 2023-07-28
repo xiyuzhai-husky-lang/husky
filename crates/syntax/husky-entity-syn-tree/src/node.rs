@@ -15,7 +15,7 @@ use husky_token::IdentToken;
 use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum EntitySynNodePath {
     Submodule(SubmoduleSynNodePath),
@@ -101,7 +101,7 @@ impl EntityNodeRegistry {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb, jar = EntityTreeJar)]
+#[salsa::debug_with_db(db = EntitySynTreeDb, jar = EntityTreeJar)]
 pub struct MaybeAmbiguousPath<P> {
     path: P,
     disambiguator: u8,
@@ -121,7 +121,7 @@ impl<P> MaybeAmbiguousPath<P> {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum EntitySynNode {
     Submodule(SubmoduleSynNode),

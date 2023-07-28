@@ -11,7 +11,7 @@ use thiserror::Error;
 use crate::{AstDb, AstIdx};
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb)]
 pub enum AstError {
     #[error("{0}")]
     Original(#[from] OriginalAstError),
@@ -20,7 +20,7 @@ pub enum AstError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb)]
 pub enum OriginalAstError {
     #[error("excessive indent")]
     ExcessiveIndent,
@@ -135,7 +135,7 @@ impl From<TokenError> for AstError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb)]
 pub enum DerivedAstError {
     #[error("{0}")]
     Token(#[from] TokenError),

@@ -2,16 +2,16 @@ use crate::*;
 use __husky::init::*;
 
 #[no_mangle]
-pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
+pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __LinkageGroup)] {
     LINKAGES
 }
 
-pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
+pub static LINKAGES: &[(__StaticLinkageKey, __LinkageGroup)] = &[
     (
         __StaticLinkageKey::Routine {
             route: "example2::f1",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -29,7 +29,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "example2::A::get_x",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -49,7 +49,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "example2::A::get_x_plus_constant",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -69,7 +69,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "example2::A::get_x_squared",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -89,7 +89,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "example2::g1",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -105,7 +105,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
     ),
     (
         __StaticLinkageKey::TypeCall { ty: "example2::A" },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -178,7 +178,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "example2::f3",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(

@@ -12,7 +12,7 @@ pub struct ModulePath {
 
 /// wrapper type that guarantees that the inner field is a submodule
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = VfsDb)]
+#[salsa::debug_with_db(db = VfsDb)]
 pub struct SubmodulePath(ModulePath);
 
 impl salsa::AsId for SubmodulePath {

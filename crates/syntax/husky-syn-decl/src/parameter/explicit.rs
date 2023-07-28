@@ -4,7 +4,7 @@ use parsec::{parse_separated_list2, parse_separated_small_list2};
 pub(crate) type ExplicitParameterDeclPatterns = SmallVec<[SpecificParameterDecl; 2]>;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynDeclDb)]
+#[salsa::debug_with_db(db = SynDeclDb)]
 #[derive(Getters)]
 pub struct SelfParameterAndExplicitParameters<const ALLOW_SELF_PARAMETER: bool> {
     lpar: LeftParenthesisToken,
@@ -24,7 +24,7 @@ impl<'a, 'b, const ALLOW_SELF_PARAMETER: bool> TryParseOptionFromStream<ExprPars
         ctx: &mut ExprParseContext<'a, 'b>,
     ) -> Result<Option<Self>, NodeDeclError> {
         let Some(lpar) = ctx.try_parse_option::<LeftParenthesisToken>()? else {
-            return Ok(None)
+            return Ok(None);
         };
         let self_parameter: Option<SelfParameterDeclPattern> = ctx.try_parse_option()?;
         let comma_after_self_parameter = if self_parameter.is_some() {

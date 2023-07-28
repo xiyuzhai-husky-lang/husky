@@ -283,17 +283,17 @@ impl<'temp> Interpreter<'temp> {
 
     pub(crate) fn eval_linkage(
         &mut self,
-        linkage: __Linkage,
+        linkage: __LinkageGroup,
         nargs: u8,
     ) -> __VMResult<__RegularValue> {
         match linkage {
-            __Linkage::Member { .. } => todo!(),
-            __Linkage::Transfer(linkage) => {
+            __LinkageGroup::Member { .. } => todo!(),
+            __LinkageGroup::Transfer(linkage) => {
                 let arguments = self.stack.drain(nargs).collect::<Vec<_>>();
                 should_eq!(self.stack.len(), 0);
                 linkage.call_catch_unwind(self.opt_ctx, arguments)
             }
-            __Linkage::Model(_) => todo!(),
+            __LinkageGroup::Model(_) => todo!(),
         }
     }
 }

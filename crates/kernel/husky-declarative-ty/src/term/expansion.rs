@@ -26,7 +26,7 @@ pub(crate) fn application_expansion_salsa(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = DeclarativeTypeDb, jar = DeclarativeTypeJar)]
+#[salsa::debug_with_db(db = DeclarativeTypeDb, jar = DeclarativeTypeJar)]
 pub struct ApplicationExpansion {
     f: DeclarativeTerm,
     arguments: Option<EtherealApplicationArguments>,
