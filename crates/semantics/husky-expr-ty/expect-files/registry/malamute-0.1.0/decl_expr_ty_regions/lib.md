@@ -16,9 +16,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -169,9 +169,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -322,9 +322,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -341,11 +341,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -362,11 +362,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -383,15 +383,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 44,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -404,16 +400,23 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Independent,
+                                    parameter_variable: Some(
+                                        EtherealTermVariable {
+                                            ty: EtherealTerm(`Type`),
+                                            idx: 0,
+                                        },
+                                    ),
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
+                                },
                             ),
                         ),
                     ),
@@ -425,9 +428,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -444,14 +447,16 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Independent,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`t`),
+                                    return_ty: EtherealTerm(`Type`),
+                                },
                             ),
                         ),
                     ),
@@ -463,9 +468,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -480,9 +485,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1037,9 +1042,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1056,16 +1061,18 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             InstanceConstructor,
                         ),
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 1,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Invariant,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`Trait`),
+                                },
                             ),
                         ),
                     ),
@@ -1077,16 +1084,23 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Independent,
+                                    parameter_variable: Some(
+                                        EtherealTermVariable {
+                                            ty: EtherealTerm(`Type`),
+                                            idx: 0,
+                                        },
+                                    ),
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
+                                },
                             ),
                         ),
                     ),
@@ -1098,14 +1112,16 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 17,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Independent,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`independent variable_ad_hoc_fmt -> Trait`),
+                                },
                             ),
                         ),
                     ),
@@ -1117,9 +1133,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1136,14 +1152,16 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Independent,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`variable_ad_hoc_fmt`),
+                                    return_ty: EtherealTerm(`Trait`),
+                                },
                             ),
                         ),
                     ),
@@ -1155,9 +1173,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -1172,15 +1190,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 65,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::Trait`, `Extern`),
                                 ),
                             ),
                         ),
@@ -1193,16 +1207,23 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        TypePath(
+                        ExprDisambiguation::TypePath(
                             OntologyConstructor,
                         ),
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 13,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Independent,
+                                    parameter_variable: Some(
+                                        EtherealTermVariable {
+                                            ty: EtherealTerm(`Type`),
+                                            idx: 0,
+                                        },
+                                    ),
+                                    parameter_ty: EtherealTerm(`Type`),
+                                    return_ty: EtherealTerm(`independent variable_ad_hoc_fmt -> Type`),
+                                },
                             ),
                         ),
                     ),
@@ -1214,9 +1235,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1233,14 +1254,16 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Curry(
-                                EtherealTermCurry(
-                                    Id {
-                                        value: 15,
-                                    },
-                                ),
+                            FluffyTerm::Curry(
+                                EtherealTermCurry {
+                                    curry_kind: Explicit,
+                                    variance: Independent,
+                                    parameter_variable: None,
+                                    parameter_ty: EtherealTerm(`t`),
+                                    return_ty: EtherealTerm(`Type`),
+                                },
                             ),
                         ),
                     ),
@@ -1252,9 +1275,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Solid(
+                            FluffyTerm::Solid(
                                 SolidTerm(
                                     0,
                                 ),
@@ -1269,9 +1292,9 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            Category(
+                            FluffyTerm::Category(
                                 TermCategory {
                                     universe: TermUniverse(
                                         1,
@@ -1934,15 +1957,11 @@
             ExprTypeInfo {
                 disambiguation_and_ty_result: Ok(
                     (
-                        Trivial,
+                        ExprDisambiguation::Trivial,
                         Ok(
-                            EntityPath(
-                                TypeOntology(
-                                    TypePath(
-                                        Id {
-                                            value: 39,
-                                        },
-                                    ),
+                            FluffyTerm::EntityPath(
+                                TermEntityPath::TypeOntology(
+                                    TypePath(`core::basic::unit`, `Extern`),
                                 ),
                             ),
                         ),

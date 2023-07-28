@@ -1,6 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 #[enum_class::from_variants]
 pub enum ExprDisambiguation {
     Trivial,
@@ -28,6 +29,7 @@ impl ExprDisambiguation {
 
 /// disambiguate between `unveil` and compose with `List`
 #[derive(Debug, PartialEq, Eq)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum IndexOrComposeWithListExprDisambiguation {
     Index(FluffyIndexDispatch),
     ComposeWithList,
@@ -35,6 +37,7 @@ pub enum IndexOrComposeWithListExprDisambiguation {
 
 /// disambiguate between `unveil` and compose with `Option`
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum UnveilOrComposeWithOptionExprDisambiguation {
     Unveil,
     ComposeWithOption,
@@ -42,12 +45,14 @@ pub enum UnveilOrComposeWithOptionExprDisambiguation {
 
 /// disambiguate between `unwrap` and compose with `Not`
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum UnwrapOrComposeWithNotExprDisambiguation {
     Unwrap,
     ComposeWithNot,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum ApplicationOrFunctionCallExprDisambiguation {
     Application,
     RitchieCall,
@@ -55,6 +60,7 @@ pub enum ApplicationOrFunctionCallExprDisambiguation {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub struct ExplicitApplicationDisambiguation {
     shift: u8,
 }
@@ -70,6 +76,7 @@ impl ExplicitApplicationDisambiguation {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum ListExprDisambiguation {
     NewList,
     ListFunctor,
@@ -77,6 +84,7 @@ pub enum ListExprDisambiguation {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
+#[salsa::derive_debug_with_db(db = ExprTypeDb)]
 pub enum TildeDisambiguation {
     BitNot,
     Leash,
