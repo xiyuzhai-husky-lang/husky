@@ -34,7 +34,7 @@ impl Toolchain {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::derive_debug_with_db(db = VfsDb)]
+#[salsa::debug_with_db(db = VfsDb)]
 pub enum ToolchainData {
     Published(PublishedToolchain),
     Local { library_path: DiffPath },

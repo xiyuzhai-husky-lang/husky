@@ -5,7 +5,7 @@ pub use self::variant::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeInfo {
     disambiguation_and_ty_result: ExprTypeResult<(ExprDisambiguation, ExprTypeResult<FluffyTerm>)>,
     expectation_rule_idx: OptionFluffyTermExpectationIdx,

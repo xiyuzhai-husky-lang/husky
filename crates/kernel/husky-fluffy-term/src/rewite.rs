@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct ImplicitParameterSubstitution {
     variable: FluffyTerm,
     substitute: FluffyTerm,

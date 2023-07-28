@@ -1,7 +1,7 @@
 use crate::*;
 use husky_liason_semantics::OutputModifier;
 use husky_trace_protocol::SampleId;
-use husky_vm::{__Linkage, __ResolvedLinkage, transfer_linkage};
+use husky_vm::{__LinkageGroup, __ResolvedLinkage, transfer_linkage};
 use xrng::XRng;
 
 pub const REAL_1D_MODULE_DEFN: &EntityStaticDefn = &EntityStaticDefn {

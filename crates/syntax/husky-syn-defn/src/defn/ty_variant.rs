@@ -9,7 +9,7 @@ pub use self::unit::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantSynNodeDefn {
     Unit(UnitVariantSynNodeDefn),
@@ -32,7 +32,7 @@ impl HasSynNodeDefn for TypeVariantSynNodePath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeVariantDefn {
     Unit(UnitVariantSynDefn),

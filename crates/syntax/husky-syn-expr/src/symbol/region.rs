@@ -33,7 +33,7 @@ impl AllowSelfType {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub struct SynSymbolRegion {
     inherited_symbol_arena: InheritedSynSymbolArena,
     current_symbol_arena: CurrentSynSymbolArena,

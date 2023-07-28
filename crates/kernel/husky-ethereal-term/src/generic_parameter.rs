@@ -2,7 +2,7 @@
 use crate::{instantiation::*, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::derive_debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb)]
 pub struct EtherealGenericParameters {
     data: SmallVec<[EtherealGenericParameter; 2]>,
 }

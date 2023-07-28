@@ -12,7 +12,7 @@ use super::*;
 use husky_entity_path::AssociatedItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TraitItemSynNodeDefn {
     AssociatedFn(TraitAssociatedFnSynNodeDefn),
@@ -30,7 +30,7 @@ impl HasSynNodeDefn for TraitItemSynNodePath {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TraitItemSynDefn {
     AssociatedFn(TraitAssociatedFnSynDefn),

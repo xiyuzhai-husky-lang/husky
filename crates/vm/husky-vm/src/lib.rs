@@ -46,7 +46,7 @@ pub fn eval_fast<'temp>(
     db: &'temp dyn InterpreterQueryGroup,
     opt_ctx: Option<&'temp dyn __EvalContext>,
     opt_instrn_sheet: Option<&Instructions>,
-    opt_linkage: Option<__Linkage>,
+    opt_linkage: Option<__LinkageGroup>,
     args: impl Iterator<Item = __VMResult<__RegularValue>>, // including this value
     _kwargs: impl Iterator<Item = (Ident, __VMResult<__RegularValue>)>,
     nargs: u8,

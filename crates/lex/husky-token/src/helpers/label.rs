@@ -3,7 +3,7 @@ use husky_coword::Label;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct LifetimeLabelToken {
     label: Label,
     token_idx: TokenIdx,
@@ -53,7 +53,7 @@ fn lifetime_label_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct BindingLabelToken {
     label: Label,
     token_idx: TokenIdx,
@@ -103,7 +103,7 @@ fn aux_ident_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct BlockLabelToken {
     label: Label,
     token_idx: TokenIdx,

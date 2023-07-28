@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub struct IdentToken {
     pub(in crate::helpers) ident: Ident,
     pub(in crate::helpers) token_idx: TokenIdx,
@@ -94,7 +94,7 @@ fn underscore_token_works() {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenDb)]
+#[salsa::debug_with_db(db = TokenDb)]
 pub enum DecrIdentToken {
     Derive(DeriveToken),
 }

@@ -3,7 +3,7 @@ use husky_coword::{IdentMap, IdentPairMap};
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct ExpectEqsRitchieType {
     final_destination: FinalDestination,
 }

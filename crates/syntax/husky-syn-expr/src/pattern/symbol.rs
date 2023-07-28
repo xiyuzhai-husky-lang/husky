@@ -3,7 +3,7 @@ use idx_arena::ordered_map::ArenaOrderedMap;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub enum PatternSynSymbol {
     Atom(PatternSynExprIdx),
 }

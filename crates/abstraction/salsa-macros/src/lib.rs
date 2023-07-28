@@ -31,7 +31,7 @@ pub(crate) fn literal(ident: &proc_macro2::Ident) -> proc_macro2::Literal {
 mod accumulator;
 mod configuration;
 mod db;
-mod derive_debug_with_db;
+mod debug_with_db;
 mod input;
 mod interned;
 mod jar;
@@ -52,8 +52,8 @@ pub fn jar(args: TokenStream, input: TokenStream) -> TokenStream {
 }
 
 #[proc_macro_attribute]
-pub fn derive_debug_with_db(args: TokenStream, input: TokenStream) -> TokenStream {
-    derive_debug_with_db::derive_debug_with_db(args, input)
+pub fn debug_with_db(args: TokenStream, input: TokenStream) -> TokenStream {
+    debug_with_db::debug_with_db(args, input)
 }
 
 #[proc_macro_attribute]

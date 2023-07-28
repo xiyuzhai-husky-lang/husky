@@ -10,7 +10,7 @@ use super::*;
 use husky_coword::Ident;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
+#[salsa::debug_with_db(db = FluffyTermDb, jar = FluffyTermJar)]
 #[enum_class::from_variants]
 pub enum FluffyTermRitchieParameter {
     Regular(FluffyTermRitchieRegularParameter),

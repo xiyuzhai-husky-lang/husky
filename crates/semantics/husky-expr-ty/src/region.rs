@@ -3,7 +3,7 @@ use husky_print_utils::p;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = ExprTypeDb)]
+#[salsa::debug_with_db(db = ExprTypeDb)]
 pub struct ExprTypeRegion {
     path: RegionPath,
     expr_ty_infos: SynExprMap<ExprTypeInfo>,
@@ -100,7 +100,7 @@ pub(crate) fn expr_ty_region(
     engine.finish()
 }
 
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub(crate) struct PatternExprTypeInfo {
     ty: PatternExprTypeResult<FluffyTerm>,
 }

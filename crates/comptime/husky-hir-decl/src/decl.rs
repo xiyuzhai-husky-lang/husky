@@ -21,7 +21,7 @@ pub trait HasHirDecl {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = HirDeclDb)]
+#[salsa::debug_with_db(db = HirDeclDb)]
 #[enum_class::from_variants]
 pub enum HirDecl {
     Submodule(SubmoduleHirDecl),

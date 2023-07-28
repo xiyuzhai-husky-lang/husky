@@ -2,16 +2,16 @@ use crate::*;
 use __husky::init::*;
 
 #[no_mangle]
-pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
+pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __LinkageGroup)] {
     LINKAGES
 }
 
-pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
+pub static LINKAGES: &[(__StaticLinkageKey, __LinkageGroup)] = &[
     (
         __StaticLinkageKey::Routine {
             route: "arithmetic::add",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -31,7 +31,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "arithmetic::bitor_assign",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(
@@ -49,7 +49,7 @@ pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
         __StaticLinkageKey::Routine {
             route: "arithmetic::bitand_assign",
         },
-        __Linkage::Transfer(__ResolvedLinkage {
+        __LinkageGroup::Transfer(__ResolvedLinkage {
             dev_src: static_dev_src!(),
             wrapper: {
                 unsafe fn __wrapper<'eval>(

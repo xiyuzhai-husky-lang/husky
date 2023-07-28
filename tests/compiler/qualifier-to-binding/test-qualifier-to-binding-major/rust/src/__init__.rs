@@ -2,11 +2,11 @@ use crate::*;
 use __husky::init::*;
 
 #[no_mangle]
-pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __Linkage)] {
+pub extern "C" fn get_linkages() -> &'static [(__StaticLinkageKey, __LinkageGroup)] {
     LINKAGES
 }
 
-pub static LINKAGES: &[(__StaticLinkageKey, __Linkage)] = &[
+pub static LINKAGES: &[(__StaticLinkageKey, __LinkageGroup)] = &[
     (
         __StaticLinkageKey::TypeCall {
             ty: "test_qualifier_to_binding_major::A",

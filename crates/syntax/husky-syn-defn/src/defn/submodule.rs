@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 pub struct SubmoduleSynNodeDefn {
     syn_node_decl: SubmoduleSynNodeDecl,
 }
@@ -23,7 +23,7 @@ impl HasSynNodeDefn for SubmoduleSynNodePath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
+#[salsa::debug_with_db(db = SynDefnDb, jar = SynDefnJar)]
 pub struct SubmoduleDefn {
     decl: SubmoduleSynDecl,
 }

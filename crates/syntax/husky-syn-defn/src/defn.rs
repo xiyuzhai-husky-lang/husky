@@ -14,7 +14,7 @@ use crate::*;
 use husky_ast::AstIdx;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum SynNodeDefn {
     Submodule(SubmoduleSynNodeDefn),
@@ -104,7 +104,7 @@ fn module_node_defns_works() {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum Defn {
     Submodule(SubmoduleDefn),

@@ -1,7 +1,7 @@
-#[salsa::derive_debug_with_db(db = Db, jar = Jar)]
+#[salsa::debug_with_db(db = Db, jar = Jar)]
 struct A(usize, usize);
 
-#[salsa::derive_debug_with_db(db = Db, jar = Jar)]
+#[salsa::debug_with_db(db = Db, jar = Jar)]
 enum Enum {
     PropsStructVariant { a: i32 },
     TupleStructVariant(usize),

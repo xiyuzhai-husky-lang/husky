@@ -24,7 +24,7 @@ pub static BOOSTING_WITH_VMAX_NORMALIZED_DEFN: EntityStaticDefn = EntityStaticDe
         }),
         return_ty: "TargetOutput",
         output_liason: OutputModifier::Transfer,
-        linkage: __Linkage::Model(__ModelLinkage(&BoostingWithVmaxNormalized)),
+        linkage: __LinkageGroup::Model(__ModelLinkageGroup(&BoostingWithVmaxNormalized)),
     },
     dev_src: static_dev_src!(),
 };

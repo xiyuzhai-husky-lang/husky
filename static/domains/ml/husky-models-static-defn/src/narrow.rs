@@ -34,7 +34,7 @@ pub static NARROW_DOWN_DEFN: EntityStaticDefn = EntityStaticDefn {
         }),
         return_ty: "?TargetOutput",
         output_liason: OutputModifier::Transfer,
-        linkage: __Linkage::Model(__ModelLinkage(&NarrowDown)),
+        linkage: __LinkageGroup::Model(__ModelLinkageGroup(&NarrowDown)),
     },
     dev_src: static_dev_src!(),
 };

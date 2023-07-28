@@ -42,14 +42,14 @@ pub(crate) fn application_expansion_salsa(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb)]
 pub struct ApplicationExpansion {
     function: TermFunctionReduced,
     arguments: Option<EtherealApplicationArguments>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb)]
 pub enum TermFunctionReduced {
     TypeOntology(TypePath),
     Trait(TraitPath),

@@ -6,7 +6,7 @@ use parsec::{StreamParser, StreamWrapper, TryParseOptionFromStream};
 use thiserror::Error;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct ParentUseExpr {
     pub parent_name_token: PathNameToken,
     pub scope_resolution_token: UseExprResult<ScopeResolutionToken>,
@@ -16,7 +16,7 @@ pub struct ParentUseExpr {
 /// use tree expr is top-down
 /// because path is resolved top-down
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum UseExpr {
     All { star_token: StarToken },
     Leaf { ident_token: IdentToken },
@@ -35,7 +35,7 @@ impl From<UseExprResult<UseExpr>> for UseExpr {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum UseExprChildren {
     Single {
         child: UseExprIdx,
@@ -66,14 +66,14 @@ pub type UseExprIdx = ArenaIdx<UseExpr>;
 pub type UseExprIdxRange = ArenaIdxRange<UseExpr>;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct UseExprRoot {
     use_token: UseToken,
     parent_use_expr_idx: ParentUseExprIdx,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct ParentUseExprIdx(UseExprIdx);
 
 impl ParentUseExprIdx {
@@ -121,7 +121,7 @@ pub(crate) fn parse_use_expr_root(
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum UseExprError {
     #[error("{0}")]
     Original(#[from] OriginalUseExprError),
@@ -130,7 +130,7 @@ pub enum UseExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum OriginalUseExprError {
     #[error("expect identifier")]
     ExpectIdent(TokenStreamState),
@@ -164,7 +164,7 @@ impl IntoError for OriginalUseExprError {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum DerivedUseExprError {
     #[error("token error")]
     Token(#[from] TokenError),
@@ -253,7 +253,7 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
 
     fn parse_use_expr_after_ident(&mut self, ident_token: IdentToken) -> UseExprResult<UseExpr> {
         let Some(scope_resolution_token) = self.try_parse_option::<ScopeResolutionToken>()? else {
-            return Ok( UseExpr::Leaf { ident_token })
+            return Ok(UseExpr::Leaf { ident_token });
         };
         Ok(UseExpr::Parent(ParentUseExpr {
             parent_name_token: PathNameToken::Ident(ident_token),
@@ -264,9 +264,11 @@ impl<'a, 'b> UseExprParser<'a, 'b> {
 
     fn parse_children(&mut self) -> UseExprResult<UseExprChildren> {
         let Some(lcurl_token) = self.try_parse_option::<LeftCurlyBraceToken>()? else {
-            let child = self.try_parse_expected(OriginalUseExprError::ExpectUseExpr).into();
+            let child = self
+                .try_parse_expected(OriginalUseExprError::ExpectUseExpr)
+                .into();
             let child = self.use_expr_arena.alloc_one(child);
-            return Ok(UseExprChildren::Single { child })
+            return Ok(UseExprChildren::Single { child });
         };
         let (children, comma_tokens, result) = parsec::parse_separated_list(self);
         if let Err(_e) = result {
@@ -291,7 +293,7 @@ impl<'a, 'b> TryParseOptionFromStream<UseExprParser<'a, 'b>> for UseExpr {
             return Ok(Some(UseExpr::All { star_token }));
         }
         let Some(path_name_token) = ctx.try_parse_option::<PathNameToken>()? else {
-            return Ok(None)
+            return Ok(None);
         };
         match path_name_token {
             PathNameToken::Ident(ident_token) => {

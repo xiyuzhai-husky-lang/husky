@@ -72,7 +72,7 @@ where
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeTermDb)]
+#[salsa::debug_with_db(db = DeclarativeTermDb)]
 #[enum_class::from_variants]
 pub enum DeclarativeTermRitchieParameter {
     Regular(DeclarativeTermRitchieRegularParameter),

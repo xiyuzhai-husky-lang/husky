@@ -21,7 +21,7 @@ pub use self::unit_struct::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub enum TypeDeclarativeSignature {
     Enum(EnumTypeDeclarativeSignature),
     PropsStruct(PropsStructDeclarativeSignature),
@@ -35,7 +35,7 @@ pub enum TypeDeclarativeSignature {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeDeclarativeSignatureTemplate {
     Enum(EnumDeclarativeSignatureTemplate),

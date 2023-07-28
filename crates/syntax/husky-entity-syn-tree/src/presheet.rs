@@ -27,7 +27,7 @@ fn item_tree_presheet_works() {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct EntitySynTreePresheet {
     module_path: ModulePath,
     major_item_node_table: MajorEntityNodeTable,

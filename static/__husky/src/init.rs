@@ -3,7 +3,7 @@ mod linkage;
 pub use crate::{root::*, *};
 pub use husky_dev_utils::*;
 pub use husky_vm_interface::{
-    __Linkage, __MemberLinkage, __OptVirtualThickFp, __Register, __RegistrableSafe,
+    __LinkageGroup, __MemberLinkageGroup, __OptVirtualThickFp, __Register, __RegistrableSafe,
     __ResolvedLinkage, __StaticLinkageKey, __VirtualEnum, __VirtualFunction, eager_field_linkage,
     feature_linkage, field_copy_fp, field_eval_ref_fp, field_move_fp, field_temp_mut_fp,
     field_temp_ref_fp, index_copy_fp, index_eval_ref_fp, index_linkage, index_move_fp,

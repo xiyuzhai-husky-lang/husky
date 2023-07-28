@@ -37,7 +37,7 @@ use salsa::DbWithJar;
 pub struct AstJar(ast_sheet, ast_token_idx_range_sheet);
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb)]
 pub enum Ast {
     Err {
         token_group_idx: TokenGroupIdx,
@@ -126,7 +126,7 @@ pub(crate) fn ast_sheet(db: &dyn AstDb, module_path: ModulePath) -> VfsResult<As
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = AstDb)]
+#[salsa::debug_with_db(db = AstDb)]
 pub struct AstSheet {
     ast_arena: AstArena,
     top_level_asts: AstIdxRange,

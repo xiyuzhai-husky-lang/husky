@@ -10,7 +10,7 @@ use husky_scope::ReferenceModulePath;
 use salsa::DebugWithDb;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-#[salsa::derive_debug_with_db(db = DecrDb)]
+#[salsa::debug_with_db(db = DecrDb)]
 pub enum Decr {
     Derive(DeriveDecr),
 }

@@ -27,5 +27,5 @@ impl InductiveDeclarativeSignatureTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub struct InductiveTypeDeclarativeSignature {}

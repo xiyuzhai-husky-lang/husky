@@ -9,7 +9,7 @@ pub static VEC_LAST: EntityStaticDefn = EntityStaticDefn {
         return_ty: "E",
         spatial_parameters: &[],
         method_static_defn_kind: MethodStaticDefnKind::TypeMethod,
-        opt_linkage: Some(__Linkage::Member(&__MemberLinkage {
+        opt_linkage: Some(__LinkageGroup::Member(&__MemberLinkageGroup {
             copy_resolved_linkage: resolved_linkage!(virtual_vec_lastx_copy),
             eval_ref_resolved_linkage: resolved_linkage!(virtual_vec_lastx_eval_ref),
             temp_ref_resolved_linkage: resolved_linkage!(virtual_vec_lastx_temp_ref),

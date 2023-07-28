@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct ExpectInsSort {
     smallest_universe: TermUniverse,
 }
@@ -101,7 +101,7 @@ impl ExpectInsSort {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-#[salsa::derive_debug_with_db(db = FluffyTermDb)]
+#[salsa::debug_with_db(db = FluffyTermDb)]
 pub struct ExpectInsSortOutcome {
     destination: FluffyTerm,
 }

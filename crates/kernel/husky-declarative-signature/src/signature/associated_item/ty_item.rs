@@ -20,7 +20,7 @@ pub use self::method_function::*;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeItemDeclarativeSignatureTemplate {
     AssociatedFn(TypeAssociatedFnDeclarativeSignatureTemplate),
@@ -31,7 +31,7 @@ pub enum TypeItemDeclarativeSignatureTemplate {
 }
 
 #[derive(Debug, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 #[enum_class::from_variants]
 pub enum TypeItemDeclarativeSignatureTemplates {
     AssociatedFn(SmallVecImpl<TypeAssociatedFnDeclarativeSignatureTemplate>),

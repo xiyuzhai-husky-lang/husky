@@ -3,7 +3,7 @@ use husky_declarative_signature::DeclarativeParenicParameters;
 use husky_term_prelude::Contract;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-#[salsa::derive_debug_with_db(db = EtherealSignatureDb)]
+#[salsa::debug_with_db(db = EtherealSignatureDb)]
 pub struct ParenicEtherealParameters {
     data: SmallVec<[EtherealTermRitchieParameter; 4]>,
 }

@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[enum_class::from_variants]
-#[salsa::derive_debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
+#[salsa::debug_with_db(db = EntityPathDb, jar = EntityPathJar)]
 pub enum PreludeTypePath {
     Basic(PreludeBasicTypePath),
     // stack representable numbers

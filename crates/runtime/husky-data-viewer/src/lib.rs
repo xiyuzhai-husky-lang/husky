@@ -5,7 +5,7 @@ use husky_coword::{Ident, IdentPairMap};
 use husky_ethereal_term::EtherealTerm;
 use husky_vm_binding::Binding;
 
-use husky_vm_interface::{__Linkage, __RegistrableSafe, __RegularValue, __ResolvedLinkage};
+use husky_vm_interface::{__LinkageGroup, __RegistrableSafe, __RegularValue, __ResolvedLinkage};
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum HuskyDataViewer {
@@ -13,17 +13,17 @@ pub enum HuskyDataViewer {
         ty: Ident,
     },
     Struct {
-        fields: IdentPairMap<(__Linkage, EtherealTerm)>,
+        fields: IdentPairMap<(__LinkageGroup, EtherealTerm)>,
     },
     Vec {
         ilen: __ResolvedLinkage,
-        index: __Linkage,
+        index: __LinkageGroup,
         elem_ty: EtherealTerm,
     },
     CyclicSlice {
         start: __ResolvedLinkage,
         end: __ResolvedLinkage,
-        index: __Linkage,
+        index: __LinkageGroup,
         elem_ty: EtherealTerm,
     },
 }

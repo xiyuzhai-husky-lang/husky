@@ -3,7 +3,7 @@ use parsec::HasStreamState;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub struct LetVariableDecls {
     pattern_expr_idx: PatternSynExprIdx,
     variables: CurrentSynSymbolIdxRange,
@@ -17,9 +17,7 @@ impl<'a, 'b> ExprParseContext<'a, 'b> {
         access_end: TokenIdxRangeEnd,
     ) -> SynExprResult<LetVariableDecls> {
         let state = self.save_state();
-        let Some(pattern) = self.parse_pattern_expr(
-            PatternSynExprInfo::Let
-        )? else {
+        let Some(pattern) = self.parse_pattern_expr(PatternSynExprInfo::Let)? else {
             Err(OriginalExprError::ExpectedLetVariableDecls(state))?
         };
         let symbols = self.pattern_expr_region().pattern_expr_symbols(pattern);

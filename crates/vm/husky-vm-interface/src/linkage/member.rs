@@ -2,7 +2,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone)]
 #[repr(C)]
-pub struct __MemberLinkage {
+pub struct __MemberLinkageGroup {
     pub copy_resolved_linkage: __ResolvedLinkage,
     pub leash_resolved_linkage: __ResolvedLinkage,
     pub temp_ref_resolved_linkage: __ResolvedLinkage,
@@ -14,7 +14,7 @@ pub struct __MemberLinkage {
 use husky_vm_binding::Binding;
 
 #[cfg(feature = "binding")]
-impl __MemberLinkage {
+impl __MemberLinkageGroup {
     pub fn bind(&self, binding: Binding) -> __ResolvedLinkage {
         match binding {
             Binding::Leash => self.leash_resolved_linkage,
@@ -31,7 +31,7 @@ impl __MemberLinkage {
 #[macro_export]
 macro_rules! method_elem_linkage {
     ($Type: ty, $TYPE_VTABLE: expr, $ELEMENT_TYPE_VTABLE: expr, $method_name: ident) => {{
-        __Linkage::Member(&__MemberLinkage {
+        __LinkageGroup::Member(&__MemberLinkageGroup {
             copy_resolved_linkage: method_elem_copy_fp!(
                 $Type,
                 $TYPE_VTABLE,
@@ -97,7 +97,7 @@ macro_rules! eager_field_linkage {
         $FIELD_TY_VTABLE: expr,
         $field: ident
     ) => {{
-        __Linkage::Member(&__MemberLinkage {
+        __LinkageGroup::Member(&__MemberLinkageGroup {
             copy_resolved_linkage: field_copy_fp!(
                 $canonical_kind,
                 $reg_memory_kind,
@@ -155,7 +155,7 @@ macro_rules! index_linkage {
         $INTRINSIC_ELEMENT_TY: ty,
         $ELEMENT_TYPE_VTABLE: expr
     ) => {{
-        __Linkage::Member(&__MemberLinkage {
+        __LinkageGroup::Member(&__MemberLinkageGroup {
             copy_resolved_linkage: index_copy_fp!(
                 $Type,
                 $TYPE_VTABLE,

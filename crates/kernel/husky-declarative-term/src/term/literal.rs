@@ -1,7 +1,7 @@
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
+#[salsa::debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 #[enum_class::from_variants]
 pub enum DeclarativeTermLiteral {
     Resolved(TermLiteral),
@@ -9,7 +9,7 @@ pub enum DeclarativeTermLiteral {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
+#[salsa::debug_with_db(db = DeclarativeTermDb, jar = DeclarativeTermJar)]
 pub enum UnresolvedTermLiteral {
     RegularInteger(i128),
 }

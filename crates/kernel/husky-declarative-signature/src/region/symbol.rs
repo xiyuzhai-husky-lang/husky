@@ -4,7 +4,7 @@ use husky_syn_expr::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = DeclarativeSignatureDb)]
+#[salsa::debug_with_db(db = DeclarativeSignatureDb)]
 pub struct SymbolDeclarativeTermRegion {
     registry: DeclarativeTermSymbolRegistry,
     symbol_signatures: SymbolOrderedMap<SymbolSignature>,

@@ -8,7 +8,7 @@ use husky_syn_expr::{
 };
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenInfoDb)]
+#[salsa::debug_with_db(db = TokenInfoDb)]
 pub enum TokenInfo {
     None,
     Entity(EntityPath),

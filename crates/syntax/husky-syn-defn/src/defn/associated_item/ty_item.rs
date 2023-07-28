@@ -14,7 +14,7 @@ use super::*;
 use husky_entity_path::AssociatedItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeItemSynNodeDefn {
     AssociatedFn(TypeAssociatedFnSynNodeDefn),
@@ -103,7 +103,7 @@ pub(crate) fn ty_item_syn_node_defn(
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = SynDefnDb)]
+#[salsa::debug_with_db(db = SynDefnDb)]
 #[enum_class::from_variants]
 pub enum TypeItemSynDefn {
     AssociatedFn(TypeAssociatedFnSynDefn),

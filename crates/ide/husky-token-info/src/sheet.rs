@@ -3,7 +3,7 @@ use husky_text::TextRange;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = TokenInfoDb)]
+#[salsa::debug_with_db(db = TokenInfoDb)]
 pub struct TokenInfoSheet {
     token_infos: Vec<TokenInfo>,
 }

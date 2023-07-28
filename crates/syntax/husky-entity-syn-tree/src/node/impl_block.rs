@@ -18,7 +18,7 @@ use thiserror::Error;
 use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynNodePath {
     TypeImplBlock(TypeImplBlockSynNodePath),
@@ -61,7 +61,7 @@ impl ImplBlockSynNodePath {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum ImplBlockSynNode {
     TypeImplBlock(TypeImplBlockSynNode),
@@ -244,7 +244,7 @@ impl ImplBlockSynNode {
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub enum ImplError {
     #[error("unmatched angle bras")]
     UnmatchedAngleBras,

@@ -7,7 +7,7 @@ use husky_primitive_literal_semantics::{
 pub use xml::*;
 use EntityPath;
 
-use husky_vm::{__Linkage, __RegistrableSafe, __RegularValue, __VirtualEnum};
+use husky_vm::{__LinkageGroup, __RegistrableSafe, __RegularValue, __VirtualEnum};
 
 use husky_coword::RootBuiltinIdent;
 use husky_ethereal_term::EtherealTerm;
@@ -70,12 +70,12 @@ pub enum FeatureLazyExprVariant {
     PrefixOpr {
         opr: PrefixOpr,
         opds: Vec<ValExpr>,
-        linkage: __Linkage,
+        linkage: __LinkageGroup,
     },
     PrimitiveBinaryOpr {
         opr: BinaryPureClosedOpr,
         opds: Vec<ValExpr>,
-        linkage: __Linkage,
+        linkage: __LinkageGroup,
     },
     ShortCircuitBinaryOpr {
         opr: BinaryPureClosedOpr,
@@ -84,7 +84,7 @@ pub enum FeatureLazyExprVariant {
     CustomBinaryOpr {
         opr: BinaryPureClosedOpr,
         opds: Vec<ValExpr>,
-        opt_linkage: Option<__Linkage>,
+        opt_linkage: Option<__LinkageGroup>,
         opt_instruction_sheet: Option<InstructionRegion>,
     },
     Variable {
@@ -133,7 +133,7 @@ pub enum FeatureLazyExprVariant {
         opds: Vec<ValExpr>,
         has_this: bool,
         opt_instruction_sheet: Option<InstructionRegion>,
-        opt_linkage: Option<__Linkage>,
+        opt_linkage: Option<__LinkageGroup>,
         routine_defn: Arc<EntityDefn>,
     },
     EntityFeature {
@@ -147,7 +147,7 @@ pub enum FeatureLazyExprVariant {
     },
     NewVecFromList {
         elements: Vec<ValExpr>,
-        linkage: __Linkage,
+        linkage: __LinkageGroup,
     },
     BePattern {
         this: ValExpr,

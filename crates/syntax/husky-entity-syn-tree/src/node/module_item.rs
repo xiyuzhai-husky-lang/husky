@@ -10,7 +10,7 @@ use super::*;
 use husky_entity_path::ModuleItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 #[enum_class::from_variants]
 pub enum ModuleItemSynNodePath {
     Trait(TraitSynNodePath),

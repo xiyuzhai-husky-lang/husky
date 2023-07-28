@@ -5,7 +5,7 @@ use husky_vm::{GenericArgument, __RegularValue, __VMError};
 impl TrainModel for DevRuntime {
     fn train(
         &self,
-        model: husky_vm::__ModelLinkage,
+        model: husky_vm::__ModelLinkageGroup,
         opt_arrival_indicator: Option<&ValDomain>,
         opds: &[ValExpr],
     ) -> husky_vm::__VMResult<__RegularValue> {

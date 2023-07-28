@@ -13,7 +13,7 @@ use crate::*;
 use utils::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb)]
 #[enum_class::from_variants]
 pub enum ModuleItemPath {
     Type(TypePath),

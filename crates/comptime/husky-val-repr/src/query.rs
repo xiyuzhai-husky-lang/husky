@@ -7,7 +7,7 @@ use husky_ethereal_term::EtherealTerm;
 use husky_instruction_gen::InstructionDb;
 use husky_item_semantics::{EntityDefnQueryGroup, EntityDefnVariant};
 use husky_package_semantics::*;
-use husky_vm::{InterpreterQueryGroup, __ModelLinkage, __RegularValue, __VMResult};
+use husky_vm::{InterpreterQueryGroup, __ModelLinkageGroup, __RegularValue, __VMResult};
 use item_feature_repr::item_feature_repr;
 use main_feature_repr::*;
 use std::panic::{RefUnwindSafe, UnwindSafe};
@@ -34,7 +34,7 @@ pub trait ValReprDb:
 pub trait TrainModel {
     fn train(
         &self,
-        model: __ModelLinkage,
+        model: __ModelLinkageGroup,
         opt_arrival_indicator: Option<&ValDomain>,
         opds: &[ValExpr],
     ) -> __VMResult<__RegularValue>;

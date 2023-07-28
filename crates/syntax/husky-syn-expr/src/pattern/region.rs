@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Default, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = SynExprDb)]
+#[salsa::debug_with_db(db = SynExprDb)]
 pub struct PatternSynExprRegion {
     pattern_expr_arena: PatternSynExprArena,
     pattern_expr_contracts: PatternSynExprOrderedMap<Contract>,

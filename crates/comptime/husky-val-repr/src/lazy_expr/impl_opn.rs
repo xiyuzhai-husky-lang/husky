@@ -3,7 +3,7 @@ use super::*;
 use husky_item_semantics::EntityDefnVariant;
 use husky_linkage_table::ResolveLinkage;
 use husky_vm::{Binding, __root::__NEQ_LINKAGE};
-use husky_vm::{__Linkage, __root::__EQ_LINKAGE};
+use husky_vm::{__LinkageGroup, __root::__EQ_LINKAGE};
 use husky_vm_primitive_opr_linkage::{
     resolve_primitive_prefix_opr_linkage, resolve_primitive_pure_binary_opr_linkage,
 };
@@ -38,7 +38,7 @@ impl<'a> FeatureExprBuilder<'a> {
         //         let model_defn = self.db.item_defn(routine.route).unwrap();
         //         let internal = match model_defn.variant {
         //             EntityDefnVariant::Function {
-        //                 source: CallFormSource::Static(__Linkage::Model(model)),
+        //                 source: CallFormSource::Static(__LinkageGroup::Model(model)),
         //                 ..
         //             } => self.db.train(model, self.opt_arrival_indicator, &opds),
         //             _ => todo!(),

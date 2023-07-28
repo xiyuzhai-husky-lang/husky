@@ -80,7 +80,7 @@ pub enum Instruction {
         ty: EtherealTerm,
     },
     PushEntityFp {
-        // opt_linkage: Option<__Linkage>,
+        // opt_linkage: Option<__LinkageGroup>,
         ty: EtherealTerm,
         opt_instruction_sheet: Option<Instructions>,
     },

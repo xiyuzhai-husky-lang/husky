@@ -114,7 +114,7 @@ pub struct ImplBlockRegistry {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-#[salsa::derive_debug_with_db(db = EntityPathDb)]
+#[salsa::debug_with_db(db = EntityPathDb)]
 pub enum ImplBlockKind {
     Type {
         ty_path: TypePath,

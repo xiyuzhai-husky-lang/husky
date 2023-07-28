@@ -1,7 +1,7 @@
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = VfsDb, jar = VfsJar)]
+#[salsa::debug_with_db(db = VfsDb, jar = VfsJar)]
 pub struct ModuleAncestry {
     crate_path: CratePath,
     module_paths: Vec<ModulePath>,

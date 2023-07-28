@@ -52,7 +52,7 @@ pub enum NotebookAstId {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-#[salsa::derive_debug_with_db(db = VfsDb)]
+#[salsa::debug_with_db(db = VfsDb)]
 pub enum NotebookAstData {
     PlainText(String),
     Code(String),

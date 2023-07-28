@@ -3,7 +3,7 @@ use maybe_result::*;
 use vec_like::{SmallVecPairMap, VecPairMap};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb)]
 pub struct EtherealTermPartialInstantiation {
     symbol_map: SmallVecPairMap<EtherealTermSymbol, Option<EtherealTerm>, 4>,
 }
@@ -113,7 +113,7 @@ impl EtherealTermPartialInstantiation {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-#[salsa::derive_debug_with_db(db = EtherealTermDb)]
+#[salsa::debug_with_db(db = EtherealTermDb)]
 pub struct EtherealTermInstantiation {
     symbol_map: SmallVecPairMap<EtherealTermSymbol, EtherealTerm, 4>,
 }

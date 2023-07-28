@@ -5,7 +5,7 @@ use husky_token::{PathNameToken, TokenIdx};
 use smallvec::SmallVec;
 
 #[derive(Debug)]
-#[salsa::derive_debug_with_db(db = EntitySynTreeDb)]
+#[salsa::debug_with_db(db = EntitySynTreeDb)]
 pub(crate) enum PresheetAction {
     ResolveUseExpr {
         module_path: ModulePath,
