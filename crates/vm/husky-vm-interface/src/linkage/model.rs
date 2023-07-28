@@ -28,21 +28,21 @@ impl Eq for __ModelLinkageGroup {}
 ///
 /// I'm working on a better explanation
 pub enum GenericArgument {
-    Literal { value: __RegularValue },
+    Constant { value: __RegularValue },
     NonConstant { values: Vec<__RegularValue> },
 }
 
 impl GenericArgument {
     pub fn values(&self) -> &[__RegularValue] {
         match self {
-            GenericArgument::Literal { .. } => panic!(),
+            GenericArgument::Constant { .. } => panic!(),
             GenericArgument::NonConstant { ref values } => values,
         }
     }
 
     pub fn value(&self) -> &__RegularValue {
         match self {
-            GenericArgument::Literal { ref value } => value,
+            GenericArgument::Constant { ref value } => value,
             GenericArgument::NonConstant { .. } => panic!(),
         }
     }
