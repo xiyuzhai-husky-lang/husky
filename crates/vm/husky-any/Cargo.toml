@@ -19,7 +19,9 @@ husky-ethereal-signature = { path = "../../kernel/husky-ethereal-signature" }
 # devtime
 husky-trace-protocol = { path = "../../devtime/husky-trace-protocol" }
 # vm
-husky-vm-interface = { path = "../../vm/husky-vm-interface" }
+husky-vm-interface = { path = "../../vm/husky-vm-interface", features = [
+    "extra"
+] }
 
 [build-dependencies]
 # husky-rust-code-repr = { path = "../../comptime/husky-rust-code-repr", features = [
