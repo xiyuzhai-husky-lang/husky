@@ -54,6 +54,7 @@ pub trait ModelDyn: std::fmt::Debug + Send + Sync + RefUnwindSafe + UnwindSafe {
         arguments: Vec<GenericArgument>,
         labels: Vec<i32>,
     ) -> __VMResult<__RegularValue>;
+
     fn eval_dyn(
         &self,
         internal: &__RegularValue,
